@@ -332,19 +332,14 @@ app.get('/', (c) => {
 
       {/* Curriculum Preview - 12-Month Journey with Video Background */}
       <section class="py-32 bg-black relative overflow-hidden">
-        {/* Video Background */}
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          preload="metadata"
-          class="absolute inset-0 w-full h-full object-cover"
-          style="transform: scale(1.2); filter: brightness(1.2) saturate(1.3);"
-          webkit-playsinline="true"
-        >
-          <source src="/static/hero-video.mp4" type="video/mp4" />
-        </video>
+        {/* YouTube Video Background */}
+        <iframe 
+          src="https://www.youtube.com/embed/ekPhZnuaR0E?autoplay=1&mute=1&loop=1&playlist=ekPhZnuaR0E&controls=0&showinfo=0&modestbranding=1&playsinline=1&enablejsapi=1&rel=0&vq=hd1080"
+          class="absolute inset-0 w-full h-full pointer-events-none"
+          style="transform: scale(1.3); filter: brightness(1.1) saturate(1.2);"
+          allow="autoplay; encrypted-media"
+          frameborder="0"
+        ></iframe>
         
         {/* Light Overlay for text readability */}
         <div class="absolute inset-0 bg-black/40 z-10"></div>
