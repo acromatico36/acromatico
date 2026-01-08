@@ -116,15 +116,18 @@ app.get('/', (c) => {
             muted 
             loop 
             playsinline
+            preload="auto"
             class="absolute w-full h-full object-cover"
           >
-            {/* Colorful Paint Explosion - Perfect for creativity */}
-            <source src="https://cdn.pixabay.com/video/2019/09/05/26623-358827001_large.mp4" type="video/mp4" />
+            {/* Primary: Colorful abstract creative video from Pexels */}
+            <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+            {/* Fallback: Another colorful option */}
+            <source src="https://videos.pexels.com/video-files/5377684/5377684-hd_1920_1080_25fps.mp4" type="video/mp4" />
           </video>
           {/* Gradient Overlay for Readability */}
-          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
-          {/* Subtle Color Tint */}
-          <div class="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-transparent to-purple-500/10"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+          {/* Subtle Color Tint for Brand */}
+          <div class="absolute inset-0 bg-gradient-to-br from-teal-500/15 via-transparent to-blue-500/15"></div>
         </div>
         
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
