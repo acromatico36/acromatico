@@ -102,24 +102,92 @@ app.get('/', (c) => {
         </div>
       </nav>
 
-      {/* Hero Section - Full Screen with Video Background */}
+      {/* Hero Section - Full Screen with Animated Starfield Background */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Video Background - Native MP4 */}
-        <video 
-          autoplay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          class="absolute inset-0 w-full h-full object-cover"
-          style="transform: scale(1.2); filter: brightness(0.7);"
-        >
-          <source src="/static/hero-video.mp4" type="video/mp4" />
-        </video>
+        {/* Animated Starfield Background */}
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-900">
+          {/* Stars Layer 1 - Small */}
+          <div class="stars-small"></div>
+          {/* Stars Layer 2 - Medium */}
+          <div class="stars-medium"></div>
+          {/* Stars Layer 3 - Large */}
+          <div class="stars-large"></div>
+          {/* Child Silhouette */}
+          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-1/3 opacity-20">
+            <svg viewBox="0 0 800 400" class="w-full h-full">
+              {/* Child with camera looking up */}
+              <ellipse cx="400" cy="380" rx="200" ry="30" fill="rgba(20,184,166,0.3)"/>
+              <path d="M 350 300 Q 350 250 370 230 L 370 280 Q 380 290 400 285 L 410 240 Q 420 230 430 250 Q 430 280 430 300 L 420 380 L 380 380 Z" fill="rgba(20,184,166,0.4)"/>
+              <circle cx="390" cy="235" r="25" fill="rgba(20,184,166,0.5)"/>
+              <rect x="395" y="245" width="30" height="20" rx="5" fill="rgba(20,184,166,0.6)"/>
+            </svg>
+          </div>
+        </div>
+        
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+          }
+          
+          @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+          }
+          
+          .stars-small, .stars-medium, .stars-large {
+            position: absolute;
+            inset: 0;
+          }
+          
+          .stars-small::before,
+          .stars-medium::before,
+          .stars-large::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: 200px 200px;
+            animation: twinkle 3s infinite;
+          }
+          
+          .stars-small::before {
+            background-image: 
+              radial-gradient(1px 1px at 20px 30px, rgba(20,184,166,0.8), transparent),
+              radial-gradient(1px 1px at 60px 70px, rgba(59,130,246,0.8), transparent),
+              radial-gradient(1px 1px at 140px 120px, rgba(147,51,234,0.8), transparent),
+              radial-gradient(1px 1px at 180px 50px, rgba(20,184,166,0.6), transparent),
+              radial-gradient(1px 1px at 90px 160px, rgba(59,130,246,0.6), transparent),
+              radial-gradient(1px 1px at 30px 180px, rgba(147,51,234,0.6), transparent),
+              radial-gradient(1px 1px at 150px 10px, rgba(20,184,166,0.7), transparent),
+              radial-gradient(1px 1px at 110px 90px, rgba(59,130,246,0.7), transparent);
+            animation-duration: 2s;
+          }
+          
+          .stars-medium::before {
+            background-image: 
+              radial-gradient(2px 2px at 40px 60px, rgba(20,184,166,0.9), transparent),
+              radial-gradient(2px 2px at 120px 140px, rgba(59,130,246,0.9), transparent),
+              radial-gradient(2px 2px at 180px 100px, rgba(147,51,234,0.9), transparent),
+              radial-gradient(2px 2px at 80px 30px, rgba(20,184,166,0.7), transparent),
+              radial-gradient(2px 2px at 160px 180px, rgba(59,130,246,0.7), transparent);
+            animation-duration: 4s;
+            animation-delay: 0.5s;
+          }
+          
+          .stars-large::before {
+            background-image: 
+              radial-gradient(3px 3px at 100px 120px, rgba(20,184,166,1), transparent),
+              radial-gradient(3px 3px at 50px 150px, rgba(59,130,246,1), transparent),
+              radial-gradient(3px 3px at 170px 80px, rgba(147,51,234,1), transparent);
+            animation-duration: 5s;
+            animation-delay: 1s;
+          }
+        `}} />
+        
         {/* Dark Overlay */}
-        <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
         {/* Gradient Overlay */}
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70 z-10 pointer-events-none"></div>
         
         <div class="relative z-20 max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <div class="mb-6 inline-block">
