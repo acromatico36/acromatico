@@ -709,7 +709,7 @@ app.get('/pricing', (c) => {
         let cart = JSON.parse(localStorage.getItem('cart') || '[]');
         
         function updateCartCount() {
-          const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+          const count = cart.reduce((sum, item) => sum + (item.students * item.quantity), 0);
           const el = document.getElementById('cart-count');
           if (el) el.textContent = count;
         }
@@ -911,17 +911,32 @@ app.get('/cart', (c) => {
           emptyState.classList.add('hidden');
           
           let subtotal = 0;
-          let savings = 0;
+          let totalSavings = 0;
           
           container.innerHTML = cart.map((item, index) => {
-            const itemTotal = item.price * item.quantity * (item.billing === 'annual' ? 10 : 1);
-            subtotal += itemTotal;
+            // Calculate price per student per month
+            const pricePerStudent = item.price;
+            const totalStudents = item.students * item.quantity;
+            
+            // Monthly total = price per student × number of students
+            const monthlyTotal = pricePerStudent * totalStudents;
+            
+            // Annual billing: 10 months prepaid
+            let itemTotal = monthlyTotal;
+            let itemSavings = 0;
             
             if (item.billing === 'annual') {
-              const monthlyEquivalent = item.price * 1.25; // Reverse the 20% discount
-              const annualSavings = (monthlyEquivalent * 10 - itemTotal);
-              savings += annualSavings;
+              // Annual total = monthly × 10 months (already has 20% discount in price)
+              itemTotal = monthlyTotal * 10;
+              
+              // Calculate what they WOULD pay without discount
+              const monthlyPriceWithoutDiscount = pricePerStudent / 0.8; // Reverse 20% discount
+              const annualWithoutDiscount = monthlyPriceWithoutDiscount * totalStudents * 10;
+              itemSavings = annualWithoutDiscount - itemTotal;
+              totalSavings += itemSavings;
             }
+            
+            subtotal += itemTotal;
             
             return \`
               <div class="feature-card p-6 rounded-2xl">
@@ -931,9 +946,9 @@ app.get('/cart', (c) => {
                       Acromatico Academy - \${item.students}\${item.students >= 4 ? '+' : ''} Student\${item.students > 1 ? 's' : ''}
                     </h3>
                     <p class="text-gray-400 text-sm mb-2">
-                      $\${item.price}/month per student · \${item.billing === 'annual' ? 'Annual (10 months)' : 'Monthly'}
+                      $\${pricePerStudent}/month per student · \${item.billing === 'annual' ? 'Annual (10 months prepaid)' : 'Monthly'}
                     </p>
-                    \${item.billing === 'annual' ? '<span class="text-teal-500 text-xs font-bold">20% Annual Discount Applied</span>' : ''}
+                    \${item.billing === 'annual' ? '<span class="text-teal-500 text-xs font-bold">💰 Save $' + itemSavings.toFixed(2) + ' with annual billing!</span>' : ''}
                   </div>
                   <div class="flex items-center gap-6">
                     <div class="flex items-center gap-3">
@@ -947,7 +962,7 @@ app.get('/cart', (c) => {
                     </div>
                     <div class="text-right min-w-[100px]">
                       <div class="text-xl font-bold">$\${itemTotal.toFixed(2)}</div>
-                      <div class="text-xs text-gray-500">\${item.billing === 'annual' ? 'for 10 months' : 'per month'}</div>
+                      <div class="text-xs text-gray-500">\${item.billing === 'annual' ? 'total (10 months)' : 'per month'}</div>
                     </div>
                     <button onclick="removeItem(\${index})" class="text-gray-400 hover:text-red-500 transition">
                       <i class="fas fa-trash"></i>
@@ -960,11 +975,11 @@ app.get('/cart', (c) => {
           
           // Update summary
           document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
-          document.getElementById('savings').textContent = '-$' + savings.toFixed(2);
+          document.getElementById('savings').textContent = totalSavings > 0 ? '-$' + totalSavings.toFixed(2) : '$0.00';
           document.getElementById('total').textContent = '$' + subtotal.toFixed(2);
           
           const hasAnnual = cart.some(item => item.billing === 'annual');
-          document.getElementById('billing-cycle').textContent = hasAnnual ? 'for 10 months (annual)' : 'per month';
+          document.getElementById('billing-cycle').textContent = hasAnnual ? 'total for 10 months' : 'per month';
         }
         
         // Initial render
