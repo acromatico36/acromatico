@@ -32,6 +32,10 @@ app.get('/', (c) => {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
+        html {
+          scroll-behavior: smooth;
+        }
+        
         video {
           filter: brightness(0.8) saturate(1.1);
         }
@@ -207,7 +211,7 @@ app.get('/', (c) => {
             <a href="/checkout" class="btn-primary px-10 py-5 rounded-full text-lg font-bold inline-block">
               Start Creating Today
             </a>
-            <a href="/academy" class="px-10 py-5 rounded-full text-lg font-bold border-2 border-white/20 hover:border-teal-500/50 transition inline-block">
+            <a href="#curriculum" class="px-10 py-5 rounded-full text-lg font-bold border-2 border-white/20 hover:border-teal-500/50 transition inline-block">
               View Curriculum
             </a>
           </div>
@@ -331,7 +335,7 @@ app.get('/', (c) => {
       </section>
 
       {/* Curriculum Preview - 12-Month Journey with Video Background */}
-      <section class="py-32 bg-black relative overflow-hidden">
+      <section id="curriculum" class="py-32 bg-black relative overflow-hidden">
         {/* YouTube Video Background */}
         <iframe 
           src="https://www.youtube.com/embed/ekPhZnuaR0E?autoplay=1&mute=1&loop=1&playlist=ekPhZnuaR0E&controls=0&showinfo=0&modestbranding=1&playsinline=1&enablejsapi=1&rel=0&vq=hd1080"
