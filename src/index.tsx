@@ -32,28 +32,17 @@ app.get('/', (c) => {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
-        .hero-gradient {
-          background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
-          position: relative;
-          overflow: hidden;
+        video {
+          filter: brightness(0.7) saturate(1.2);
         }
         
-        .hero-gradient::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-image: 
-            radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
-          animation: pulse 8s ease-in-out infinite;
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
         }
         
-        @keyframes pulse {
-          0%, 100% { opacity: 0.5; }
-          50% { opacity: 1; }
+        .float-animation {
+          animation: float 6s ease-in-out infinite;
         }
         
         .glass-nav {
@@ -118,8 +107,26 @@ app.get('/', (c) => {
         </div>
       </nav>
 
-      {/* Hero Section - Full Screen */}
-      <section class="hero-gradient relative min-h-screen flex items-center justify-center pt-20">
+      {/* Hero Section - Full Screen with Video Background */}
+      <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        {/* Video Background */}
+        <div class="absolute inset-0 z-0">
+          <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            class="absolute w-full h-full object-cover"
+          >
+            {/* Colorful Paint Explosion - Perfect for creativity */}
+            <source src="https://cdn.pixabay.com/video/2019/09/05/26623-358827001_large.mp4" type="video/mp4" />
+          </video>
+          {/* Gradient Overlay for Readability */}
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          {/* Subtle Color Tint */}
+          <div class="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-transparent to-purple-500/10"></div>
+        </div>
+        
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <div class="mb-6 inline-block">
             <span class="px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-sm font-medium">
