@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "acromatico",
+  "compatibility_date": "2026-01-08",
+  "pages_build_output_dir": "./dist",
+  "compatibility_flags": ["nodejs_compat"],
+  
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "acromatico-db",
+      "database_id": "PLACEHOLDER_WILL_BE_UPDATED_AFTER_DB_CREATION"
+    }
+  ]
+}
