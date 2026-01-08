@@ -234,46 +234,96 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Philosophy Section */}
+      {/* Meet Your Educators Section */}
       <section class="py-32 bg-gradient-to-b from-black to-gray-900">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
           <div class="text-center mb-20">
             <h2 class="text-5xl md:text-6xl font-black mb-6">
-              Why Acromatico?
+              Meet Your Educators
             </h2>
             <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-              We're not just teaching photography. We're developing a generation of visual storytellers.
+              Learn from award-winning photographers & filmmakers with 20+ years of professional experience
             </p>
           </div>
           
+          {/* Educators Grid */}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            {/* Italo */}
+            <div class="feature-card p-10 rounded-3xl text-center">
+              <div class="relative inline-block mb-6">
+                <div class="absolute inset-0 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full blur-xl opacity-50"></div>
+                <img 
+                  src="/static/italo-headshot.jpg" 
+                  alt="Italo Campilii" 
+                  class="relative w-48 h-48 rounded-full object-cover border-4 border-white/10 mx-auto"
+                />
+              </div>
+              <h3 class="text-3xl font-bold mb-2">Italo Campilii</h3>
+              <div class="text-teal-500 font-semibold mb-4">Founder & Lead Educator</div>
+              <p class="text-gray-400 leading-relaxed mb-4">
+                Award-winning photographer and filmmaker with 20+ years of experience. 
+                Specializes in visual storytelling, documentary filmmaking, and portrait photography.
+              </p>
+              <div class="flex justify-center gap-4 text-sm text-gray-500">
+                <span>📸 Photography</span>
+                <span>🎬 Filmmaking</span>
+                <span>✨ Composition</span>
+              </div>
+            </div>
+            
+            {/* Ale */}
+            <div class="feature-card p-10 rounded-3xl text-center">
+              <div class="relative inline-block mb-6">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-xl opacity-50"></div>
+                <img 
+                  src="/static/ale-headshot.jpg" 
+                  alt="Ale" 
+                  class="relative w-48 h-48 rounded-full object-cover border-4 border-white/10 mx-auto"
+                />
+              </div>
+              <h3 class="text-3xl font-bold mb-2">Ale</h3>
+              <div class="text-purple-500 font-semibold mb-4">Co-Founder & Creative Director</div>
+              <p class="text-gray-400 leading-relaxed mb-4">
+                Professional photographer and visual artist with expertise in portrait photography, 
+                lighting techniques, and creative direction. Passionate about developing young talent.
+              </p>
+              <div class="flex justify-center gap-4 text-sm text-gray-500">
+                <span>💡 Lighting</span>
+                <span>👤 Portraits</span>
+                <span>🎨 Direction</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Philosophy Cards */}
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="feature-card p-10 rounded-3xl">
-              <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-500 rounded-2xl mb-6 flex items-center justify-center">
-                <i class="fas fa-camera text-3xl"></i>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-500 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-camera text-2xl"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-4">Creator-First</h3>
-              <p class="text-gray-400 leading-relaxed">
-                Learn from real photographers and filmmakers. Every lesson focuses on hands-on creation, not theory.
+              <h3 class="text-xl font-bold mb-3">Creator-First</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Every lesson focuses on hands-on creation, not theory. Learn by doing.
               </p>
             </div>
             
-            <div class="feature-card p-10 rounded-3xl">
-              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl mb-6 flex items-center justify-center">
-                <i class="fas fa-calendar-day text-3xl"></i>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-calendar-day text-2xl"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-4">Flexible</h3>
-              <p class="text-gray-400 leading-relaxed">
-                Daily proration. No contracts. Pay only for what you use. Homeschool-friendly scheduling.
+              <h3 class="text-xl font-bold mb-3">Flexible</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Daily proration. No contracts. Pay only for what you use.
               </p>
             </div>
             
-            <div class="feature-card p-10 rounded-3xl">
-              <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-6 flex items-center justify-center">
-                <i class="fas fa-users text-3xl"></i>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-users text-2xl"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-4">Family-Focused</h3>
-              <p class="text-gray-400 leading-relaxed">
-                Multi-child discounts. 4+ students at just $79/month each. Built for homeschool families.
+              <h3 class="text-xl font-bold mb-3">Family-Focused</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Multi-child discounts. 4+ students at just $79/month each.
               </p>
             </div>
           </div>
