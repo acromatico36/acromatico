@@ -108,23 +108,35 @@ app.get('/', (c) => {
         <div class="absolute inset-0 z-0">
           <video 
             id="hero-video"
-            autoplay 
-            muted 
-            loop 
-            playsinline
-            preload="auto"
-            class="video-zoom absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2"
+            autoPlay
+            muted
+            loop
+            playsInline
+            defaultMuted
+            preload="metadata"
+            class="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover"
+            style="transform: translate(-50%, -50%) scale(1.15);"
           >
             <source src="/static/hero-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <script dangerouslySetInnerHTML={{__html: `
-            document.addEventListener('DOMContentLoaded', function() {
+            (function() {
               const video = document.getElementById('hero-video');
               if (video) {
                 video.muted = true;
-                video.play().catch(e => console.log('Video autoplay failed:', e));
+                video.volume = 0;
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                  playPromise.catch(function(error) {
+                    console.log('Video autoplay prevented. Trying again...');
+                    setTimeout(function() {
+                      video.play().catch(e => console.log('Second attempt failed:', e));
+                    }, 100);
+                  });
+                }
               }
-            });
+            })();
           `}} />
           {/* Dark Opacity Overlay for Text Readability */}
           <div class="absolute inset-0 bg-black/60"></div>
