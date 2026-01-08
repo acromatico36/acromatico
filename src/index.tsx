@@ -52,14 +52,15 @@ app.get('/', (c) => {
         }
         
         .btn-primary {
-          background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+          background: #4794A6;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 20px rgba(20, 184, 166, 0.3);
+          box-shadow: 0 4px 20px rgba(71, 148, 166, 0.3);
         }
         
         .btn-primary:hover {
+          background: #5aa5b8;
           transform: translateY(-2px);
-          box-shadow: 0 8px 30px rgba(20, 184, 166, 0.5);
+          box-shadow: 0 8px 30px rgba(71, 148, 166, 0.5);
         }
         
         .feature-card {
