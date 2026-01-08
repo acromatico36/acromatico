@@ -104,40 +104,24 @@ app.get('/', (c) => {
 
       {/* Hero Section - Full Screen with Video Background */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Video Background - Direct HTML5 */}
-        <div class="absolute inset-0 z-0">
-          <div dangerouslySetInnerHTML={{__html: `
-            <video 
-              id="bg-video"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-              style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.2);width:100%;height:100%;object-fit:cover;"
-            >
-              <source src="/static/hero-video.mp4" type="video/mp4">
-            </video>
-            <script>
-              setTimeout(function(){
-                var v=document.getElementById('bg-video');
-                if(v){
-                  v.muted=true;
-                  v.volume=0;
-                  v.play().catch(function(){
-                    document.addEventListener('click',function(){v.play()},{once:true});
-                  });
-                }
-              },0);
-            </script>
-          `}} />
-          {/* Dark Opacity Overlay */}
-          <div class="absolute inset-0 bg-black/60 pointer-events-none"></div>
-          {/* Gradient Overlay */}
-          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 pointer-events-none"></div>
-        </div>
+        {/* Video Background */}
+        <video 
+          autoplay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          class="absolute inset-0 w-full h-full object-cover"
+          style="transform: scale(1.2); filter: brightness(0.7);"
+        >
+          <source src="/static/hero-video.mp4" type="video/mp4" />
+        </video>
+        {/* Dark Overlay */}
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        {/* Gradient Overlay */}
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10"></div>
         
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
+        <div class="relative z-20 max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <div class="mb-6 inline-block">
             <span class="px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-sm font-medium">
               Built for Creators, by Creators
