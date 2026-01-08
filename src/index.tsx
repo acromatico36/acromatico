@@ -1156,35 +1156,53 @@ app.get('/checkout', (c) => {
         
         function renderOrderSummary() {
           const container = document.getElementById('order-items');
-          let subtotal = 0;
-          let savings = 0;
+          let monthlySubtotal = 0;
+          let totalSavings = 0;
           
           container.innerHTML = cart.map(item => {
-            const itemTotal = item.price * item.quantity * (item.billing === 'annual' ? 10 : 1);
-            subtotal += itemTotal;
+            // Calculate price per student per month
+            const pricePerStudent = item.price;
+            const totalStudents = item.students * item.quantity;
+            
+            // Monthly total = price per student × number of students
+            const monthlyTotal = pricePerStudent * totalStudents;
+            
+            let displayTotal = monthlyTotal;
+            let itemSavings = 0;
             
             if (item.billing === 'annual') {
-              const monthlyEquivalent = item.price * 1.25;
-              const annualSavings = (monthlyEquivalent * 10 - itemTotal);
-              savings += annualSavings;
+              // Annual: already has 20% discount in price, so total is monthly × 10
+              displayTotal = monthlyTotal * 10;
+              
+              // Calculate savings: what they would pay without discount
+              const monthlyPriceWithoutDiscount = pricePerStudent / 0.8;
+              const annualWithoutDiscount = monthlyPriceWithoutDiscount * totalStudents * 10;
+              itemSavings = annualWithoutDiscount - displayTotal;
+              totalSavings += itemSavings;
             }
+            
+            monthlySubtotal += monthlyTotal;
             
             return \`
               <div class="pb-4 border-b border-white/10">
-                <div class="font-bold mb-1">\${item.students}\${item.students >= 4 ? '+' : ''} Student\${item.students > 1 ? 's' : ''} × \${item.quantity}</div>
-                <div class="text-sm text-gray-400">\${item.billing === 'annual' ? 'Annual' : 'Monthly'} · $\${item.price}/mo each</div>
+                <div class="font-bold mb-1">\${item.students}\${item.students >= 4 ? '+' : ''} Student\${item.students > 1 ? 's' : ''}\${item.quantity > 1 ? ' (×' + item.quantity + ' packages)' : ''}</div>
+                <div class="text-sm text-gray-400">\${item.billing === 'annual' ? 'Annual (10 months)' : 'Monthly'} · $\${monthlyTotal.toFixed(2)}/mo</div>
+                \${item.billing === 'annual' ? '<div class="text-teal-500 text-xs mt-1">Save $' + itemSavings.toFixed(2) + '</div>' : ''}
               </div>
             \`;
           }).join('');
           
-          // Calculate prorated amount (assuming mid-month signup for demo)
-          const daysInMonth = 30;
-          const daysRemaining = 15; // Demo: mid-month
-          const proratedTotal = (subtotal / daysInMonth) * daysRemaining;
+          // Calculate prorated amount for FIRST MONTH ONLY (for monthly billing)
+          const today = new Date();
+          const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+          const daysRemaining = daysInMonth - today.getDate() + 1;
           
-          document.getElementById('checkout-subtotal').textContent = '$' + subtotal.toFixed(2);
-          document.getElementById('checkout-savings').textContent = '-$' + savings.toFixed(2);
-          document.getElementById('checkout-total').textContent = '$' + proratedTotal.toFixed(2);
+          // For first month: prorate based on days remaining
+          const proratedFirstMonth = (monthlySubtotal / daysInMonth) * daysRemaining;
+          
+          document.getElementById('checkout-subtotal').textContent = '$' + monthlySubtotal.toFixed(2);
+          document.getElementById('checkout-savings').textContent = totalSavings > 0 ? '-$' + totalSavings.toFixed(2) : '$0.00';
+          document.getElementById('checkout-total').textContent = '$' + proratedFirstMonth.toFixed(2);
         }
         
         // Handle form submission
