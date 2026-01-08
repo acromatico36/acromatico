@@ -104,18 +104,37 @@ app.get('/', (c) => {
 
       {/* Hero Section - Full Screen with Video Background */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* YouTube Video Background - Embedded with autoplay */}
+        {/* Video Background - Direct HTML5 */}
         <div class="absolute inset-0 z-0">
-          <iframe
-            src="https://www.youtube.com/embed/tcN0seeXU1U?autoplay=1&mute=1&loop=1&playlist=tcN0seeXU1U&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1"
-            allow="autoplay; encrypted-media"
-            class="absolute top-1/2 left-1/2 w-full h-full"
-            style="transform: translate(-50%, -50%) scale(1.3); min-width: 100%; min-height: 100%; object-fit: cover; pointer-events: none; border: none;"
-          />
-          {/* Dark Opacity Overlay for Text Readability */}
-          <div class="absolute inset-0 bg-black/60"></div>
-          {/* Gradient Overlay for Extra Depth */}
-          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70"></div>
+          <div dangerouslySetInnerHTML={{__html: `
+            <video 
+              id="bg-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.2);width:100%;height:100%;object-fit:cover;"
+            >
+              <source src="/static/hero-video.mp4" type="video/mp4">
+            </video>
+            <script>
+              setTimeout(function(){
+                var v=document.getElementById('bg-video');
+                if(v){
+                  v.muted=true;
+                  v.volume=0;
+                  v.play().catch(function(){
+                    document.addEventListener('click',function(){v.play()},{once:true});
+                  });
+                }
+              },0);
+            </script>
+          `}} />
+          {/* Dark Opacity Overlay */}
+          <div class="absolute inset-0 bg-black/60 pointer-events-none"></div>
+          {/* Gradient Overlay */}
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 pointer-events-none"></div>
         </div>
         
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
