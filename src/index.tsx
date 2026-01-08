@@ -105,44 +105,28 @@ app.get('/', (c) => {
       {/* Hero Section - Full Screen with Video Background */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         {/* Video Background */}
-        <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 z-0" dangerouslySetInnerHTML={{__html: `
           <video 
             id="hero-video"
-            autoPlay
+            autoplay
             muted
             loop
-            playsInline
-            defaultMuted
-            preload="metadata"
-            class="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover"
-            style="transform: translate(-50%, -50%) scale(1.15);"
+            playsinline
+            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.15);min-width:100%;min-height:100%;object-fit:cover;filter:brightness(0.8);"
           >
-            <source src="/static/hero-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            <source src="/static/hero-video.mp4" type="video/mp4">
           </video>
-          <script dangerouslySetInnerHTML={{__html: `
-            (function() {
-              const video = document.getElementById('hero-video');
-              if (video) {
-                video.muted = true;
-                video.volume = 0;
-                const playPromise = video.play();
-                if (playPromise !== undefined) {
-                  playPromise.catch(function(error) {
-                    console.log('Video autoplay prevented. Trying again...');
-                    setTimeout(function() {
-                      video.play().catch(e => console.log('Second attempt failed:', e));
-                    }, 100);
-                  });
-                }
-              }
+          <script>
+            (function(){
+              setTimeout(function(){
+                var v=document.getElementById('hero-video');
+                if(v){v.muted=true;v.volume=0;v.play().catch(function(e){console.log('Retrying...');setTimeout(function(){v.play()},500)});}
+              },100);
             })();
-          `}} />
-          {/* Dark Opacity Overlay for Text Readability */}
-          <div class="absolute inset-0 bg-black/60"></div>
-          {/* Gradient Overlay for Extra Depth */}
-          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70"></div>
-        </div>
+          </script>
+          <div style="position:absolute;inset:0;background:rgba(0,0,0,0.6);"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.7) 100%);"></div>
+        `}} />
         
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <div class="mb-6 inline-block">
