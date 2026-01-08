@@ -111,8 +111,19 @@ app.get('/', (c) => {
           loop
           playsInline
           preload="auto"
+          webkit-playsinline="true"
+          x-webkit-airplay="allow"
           class="absolute inset-0 w-full h-full object-cover"
           style="transform: scale(1.2); filter: brightness(0.7);"
+          onLoadedData={(e) => {
+            const video = e.currentTarget;
+            video.muted = true;
+            video.play().catch(() => {
+              // Retry on user interaction
+              document.addEventListener('touchstart', () => video.play(), { once: true });
+              document.addEventListener('click', () => video.play(), { once: true });
+            });
+          }}
         >
           <source src="/static/hero-video.mp4" type="video/mp4" />
         </video>
