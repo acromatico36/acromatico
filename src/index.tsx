@@ -88,7 +88,7 @@ app.get('/', (c) => {
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
           <div class="flex justify-between h-20 items-center">
             <div class="flex items-center space-x-3">
-              <img src="/static/acromatico-logo.png" alt="Acromatico" class="h-12 w-auto" />
+              <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
             </div>
             <div class="hidden md:flex space-x-8">
               <a href="/academy" class="text-gray-300 hover:text-white transition">Academy</a>
