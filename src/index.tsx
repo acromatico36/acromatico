@@ -427,7 +427,7 @@ app.get('/', (c) => {
           <p class="text-2xl mb-12 opacity-90">
             Learn from educators with 20+ years of professional experience
           </p>
-          <a href="/checkout" class="bg-white text-black px-12 py-6 rounded-full text-xl font-bold hover:bg-gray-100 transition inline-block shadow-2xl">
+          <a href="/checkout" class="btn-primary px-12 py-6 rounded-full text-xl font-bold text-white inline-block shadow-2xl">
             Enroll Now
           </a>
         </div>
