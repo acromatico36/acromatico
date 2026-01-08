@@ -600,6 +600,7 @@ app.get('/pricing', (c) => {
 
       {/* JavaScript for Pricing Logic */}
       <script dangerouslySetInnerHTML={{__html: `
+        document.addEventListener('DOMContentLoaded', function() {
         const pricingData = {
           monthly: [
             { students: 1, price: 116, popular: false },
@@ -716,6 +717,7 @@ app.get('/pricing', (c) => {
         // Initial render
         renderPricingCards();
         updateCartCount();
+        });
       `}} />
     </div>,
     { title: 'Pricing - Acromatico Academy' }
