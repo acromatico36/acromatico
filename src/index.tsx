@@ -128,8 +128,8 @@ app.get('/', (c) => {
             <span class="stat-number">The World Differently</span>
           </h1>
           <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
-            Live photography & filmmaking education for young creators ages 8-13.
-            <br />Master composition, storytelling, and visual creativity.
+            Live photography & filmmaking education for young creators ages 7-14.
+            <br />Learn from educators with 20+ years of real-world experience.
           </p>
           <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a href="/checkout" class="btn-primary px-10 py-5 rounded-full text-lg font-bold inline-block">
@@ -143,8 +143,8 @@ app.get('/', (c) => {
           {/* Stats - Floating Cards */}
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20">
             <div class="feature-card p-6 rounded-2xl">
-              <div class="text-5xl font-black stat-number mb-2">140+</div>
-              <div class="text-gray-400 text-sm">Young Creators</div>
+              <div class="text-5xl font-black stat-number mb-2">20+</div>
+              <div class="text-gray-400 text-sm">Years Experience</div>
             </div>
             <div class="feature-card p-6 rounded-2xl">
               <div class="text-5xl font-black stat-number mb-2">8</div>
@@ -155,8 +155,8 @@ app.get('/', (c) => {
               <div class="text-gray-400 text-sm">AM Mon & Thu</div>
             </div>
             <div class="feature-card p-6 rounded-2xl">
-              <div class="text-5xl font-black stat-number mb-2">10</div>
-              <div class="text-gray-400 text-sm">Months/Year</div>
+              <div class="text-5xl font-black stat-number mb-2">7-14</div>
+              <div class="text-gray-400 text-sm">Age Range</div>
             </div>
           </div>
         </div>
@@ -248,7 +248,7 @@ app.get('/', (c) => {
             Ready to Create?
           </h2>
           <p class="text-2xl mb-12 opacity-90">
-            Join 140+ young creators discovering their visual voice
+            Learn from educators with 20+ years of professional experience
           </p>
           <a href="/checkout" class="bg-white text-black px-12 py-6 rounded-full text-xl font-bold hover:bg-gray-100 transition inline-block shadow-2xl">
             Enroll Now
