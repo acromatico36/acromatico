@@ -88,8 +88,7 @@ app.get('/', (c) => {
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
           <div class="flex justify-between h-20 items-center">
             <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg"></div>
-              <h1 class="text-2xl font-bold tracking-tight">ACROMATICO</h1>
+              <img src="/static/acromatico-logo.png" alt="Acromatico" class="h-12 w-auto" />
             </div>
             <div class="hidden md:flex space-x-8">
               <a href="/academy" class="text-gray-300 hover:text-white transition">Academy</a>
@@ -107,28 +106,36 @@ app.get('/', (c) => {
         </div>
       </nav>
 
-      {/* Hero Section - Full Screen with Video Background */}
+      {/* Hero Section - Full Screen with Animated Background */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Video Background */}
+        {/* Animated Gradient Background */}
         <div class="absolute inset-0 z-0">
-          <video 
-            autoplay 
-            muted 
-            loop 
-            playsinline
-            preload="auto"
-            class="absolute w-full h-full object-cover"
-          >
-            {/* Primary: Colorful abstract creative video from Pexels */}
-            <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-            {/* Fallback: Another colorful option */}
-            <source src="https://videos.pexels.com/video-files/5377684/5377684-hd_1920_1080_25fps.mp4" type="video/mp4" />
-          </video>
-          {/* Gradient Overlay for Readability */}
-          <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-          {/* Subtle Color Tint for Brand */}
-          <div class="absolute inset-0 bg-gradient-to-br from-teal-500/15 via-transparent to-blue-500/15"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+          <div class="absolute inset-0 opacity-40">
+            <div class="absolute top-0 -left-40 w-96 h-96 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div class="absolute top-0 -right-40 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-40 left-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+          </div>
+          {/* Gradient Overlay */}
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"></div>
         </div>
+        
+        <style>{`
+          @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+          }
+          .animate-blob {
+            animation: blob 7s infinite;
+          }
+          .animation-delay-2000 {
+            animation-delay: 2s;
+          }
+          .animation-delay-4000 {
+            animation-delay: 4s;
+          }
+        `}</style>
         
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <div class="mb-6 inline-block">
@@ -160,12 +167,12 @@ app.get('/', (c) => {
               <div class="text-gray-400 text-sm">Young Creators</div>
             </div>
             <div class="feature-card p-6 rounded-2xl">
-              <div class="text-5xl font-black stat-number mb-2">16</div>
+              <div class="text-5xl font-black stat-number mb-2">8</div>
               <div class="text-gray-400 text-sm">Classes/Month</div>
             </div>
             <div class="feature-card p-6 rounded-2xl">
-              <div class="text-5xl font-black stat-number mb-2">12:30</div>
-              <div class="text-gray-400 text-sm">PM ET Daily</div>
+              <div class="text-5xl font-black stat-number mb-2">11:30</div>
+              <div class="text-gray-400 text-sm">AM Mon & Thu</div>
             </div>
             <div class="feature-card p-6 rounded-2xl">
               <div class="text-5xl font-black stat-number mb-2">10</div>
