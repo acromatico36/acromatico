@@ -104,29 +104,19 @@ app.get('/', (c) => {
 
       {/* Hero Section - Full Screen with Video Background */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Video Background */}
-        <div class="absolute inset-0 z-0" dangerouslySetInnerHTML={{__html: `
-          <video 
-            id="hero-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.15);min-width:100%;min-height:100%;object-fit:cover;filter:brightness(0.8);"
-          >
-            <source src="/static/hero-video.mp4" type="video/mp4">
-          </video>
-          <script>
-            (function(){
-              setTimeout(function(){
-                var v=document.getElementById('hero-video');
-                if(v){v.muted=true;v.volume=0;v.play().catch(function(e){console.log('Retrying...');setTimeout(function(){v.play()},500)});}
-              },100);
-            })();
-          </script>
-          <div style="position:absolute;inset:0;background:rgba(0,0,0,0.6);"></div>
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.7) 100%);"></div>
-        `}} />
+        {/* YouTube Video Background - Embedded with autoplay */}
+        <div class="absolute inset-0 z-0">
+          <iframe
+            src="https://www.youtube.com/embed/tcN0seeXU1U?autoplay=1&mute=1&loop=1&playlist=tcN0seeXU1U&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1"
+            allow="autoplay; encrypted-media"
+            class="absolute top-1/2 left-1/2 w-full h-full"
+            style="transform: translate(-50%, -50%) scale(1.3); min-width: 100%; min-height: 100%; object-fit: cover; pointer-events: none; border: none;"
+          />
+          {/* Dark Opacity Overlay for Text Readability */}
+          <div class="absolute inset-0 bg-black/60"></div>
+          {/* Gradient Overlay for Extra Depth */}
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70"></div>
+        </div>
         
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <div class="mb-6 inline-block">
