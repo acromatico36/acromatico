@@ -24,24 +24,93 @@ app.use(renderer)
 
 app.get('/', (c) => {
   return c.render(
-    <div class="min-h-screen">
+    <div class="min-h-screen bg-black text-white">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .hero-gradient {
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: 
+            radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+          animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+        
+        .glass-nav {
+          background: rgba(10, 10, 10, 0.8);
+          backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-primary {
+          background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 20px rgba(20, 184, 166, 0.3);
+        }
+        
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(20, 184, 166, 0.5);
+        }
+        
+        .feature-card {
+          background: rgba(20, 20, 30, 0.5);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+          transform: translateY(-5px);
+          border-color: rgba(20, 184, 166, 0.5);
+          box-shadow: 0 10px 40px rgba(20, 184, 166, 0.2);
+        }
+        
+        .stat-number {
+          background: linear-gradient(135deg, #14b8a6 0%, #3b82f6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+      `}</style>
+
       {/* Navigation */}
-      <nav class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between h-16 items-center">
-            <div class="flex items-center">
-              <h1 class="text-2xl font-bold text-teal-600">acromatico</h1>
+      <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="flex justify-between h-20 items-center">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg"></div>
+              <h1 class="text-2xl font-bold tracking-tight">ACROMATICO</h1>
             </div>
             <div class="hidden md:flex space-x-8">
-              <a href="/academy" class="text-gray-700 hover:text-teal-600">Academy</a>
-              <a href="/studio" class="text-gray-700 hover:text-teal-600">Studio</a>
-              <a href="/prints" class="text-gray-700 hover:text-teal-600">Prints</a>
-              <a href="/photography" class="text-gray-700 hover:text-teal-600">Photography</a>
-              <a href="/blog" class="text-gray-700 hover:text-teal-600">Blog</a>
+              <a href="/academy" class="text-gray-300 hover:text-white transition">Academy</a>
+              <a href="/studio" class="text-gray-300 hover:text-white transition">Studio</a>
+              <a href="/prints" class="text-gray-300 hover:text-white transition">Prints</a>
+              <a href="/photography" class="text-gray-300 hover:text-white transition">Photography</a>
             </div>
             <div class="flex items-center space-x-4">
-              <a href="/login" class="text-gray-700 hover:text-teal-600">Login</a>
-              <a href="/checkout" class="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700">
+              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
+              <a href="/checkout" class="btn-primary px-6 py-3 rounded-full font-semibold">
                 Enroll Now
               </a>
             </div>
@@ -49,140 +118,190 @@ app.get('/', (c) => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section class="bg-gradient-to-r from-teal-50 to-cyan-50 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 class="text-5xl font-bold text-gray-900 mb-6">
-            Creative Education for Homeschool Kids
+      {/* Hero Section - Full Screen */}
+      <section class="hero-gradient relative min-h-screen flex items-center justify-center pt-20">
+        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
+          <div class="mb-6 inline-block">
+            <span class="px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-sm font-medium">
+              Built for Creators, by Creators
+            </span>
+          </div>
+          <h1 class="text-6xl md:text-8xl font-black tracking-tight mb-8 leading-tight">
+            Learn to See<br />
+            <span class="stat-number">The World Differently</span>
           </h1>
-          <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Live photography & filmmaking classes for ages 8-13. 
-            Learn to see the world through a creative lens.
+          <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+            Live photography & filmmaking education for young creators ages 8-13.
+            <br />Master composition, storytelling, and visual creativity.
           </p>
-          <div class="flex justify-center gap-4">
-            <a href="/checkout" class="bg-teal-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-teal-700">
-              Start Learning Today
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="/checkout" class="btn-primary px-10 py-5 rounded-full text-lg font-bold inline-block">
+              Start Creating Today
             </a>
-            <a href="/academy" class="bg-white text-teal-600 px-8 py-4 rounded-lg text-lg font-semibold border-2 border-teal-600 hover:bg-teal-50">
-              Explore Curriculum
+            <a href="/academy" class="px-10 py-5 rounded-full text-lg font-bold border-2 border-white/20 hover:border-teal-500/50 transition inline-block">
+              View Curriculum
             </a>
+          </div>
+          
+          {/* Stats - Floating Cards */}
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20">
+            <div class="feature-card p-6 rounded-2xl">
+              <div class="text-5xl font-black stat-number mb-2">140+</div>
+              <div class="text-gray-400 text-sm">Young Creators</div>
+            </div>
+            <div class="feature-card p-6 rounded-2xl">
+              <div class="text-5xl font-black stat-number mb-2">16</div>
+              <div class="text-gray-400 text-sm">Classes/Month</div>
+            </div>
+            <div class="feature-card p-6 rounded-2xl">
+              <div class="text-5xl font-black stat-number mb-2">12:30</div>
+              <div class="text-gray-400 text-sm">PM ET Daily</div>
+            </div>
+            <div class="feature-card p-6 rounded-2xl">
+              <div class="text-5xl font-black stat-number mb-2">10</div>
+              <div class="text-gray-400 text-sm">Months/Year</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div class="text-4xl font-bold text-teal-600 mb-2">140+</div>
-              <div class="text-gray-600">Active Students</div>
-            </div>
-            <div>
-              <div class="text-4xl font-bold text-teal-600 mb-2">16</div>
-              <div class="text-gray-600">Classes Per Month</div>
-            </div>
-            <div>
-              <div class="text-4xl font-bold text-teal-600 mb-2">12:30 PM</div>
-              <div class="text-gray-600">ET Daily Schedule</div>
-            </div>
-            <div>
-              <div class="text-4xl font-bold text-teal-600 mb-2">10</div>
-              <div class="text-gray-600">Months of Learning</div>
-            </div>
+      {/* Philosophy Section */}
+      <section class="py-32 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-20">
+            <h2 class="text-5xl md:text-6xl font-black mb-6">
+              Why Acromatico?
+            </h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+              We're not just teaching photography. We're developing a generation of visual storytellers.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 class="text-3xl font-bold text-center mb-12">Why Families Love Acromatico</h2>
+          
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-              <div class="text-teal-600 text-4xl mb-4">
-                <i class="fas fa-calendar-check"></i>
+            <div class="feature-card p-10 rounded-3xl">
+              <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-500 rounded-2xl mb-6 flex items-center justify-center">
+                <i class="fas fa-camera text-3xl"></i>
               </div>
-              <h3 class="text-xl font-bold mb-3">Flexible Billing</h3>
-              <p class="text-gray-600">
-                Daily proration means you only pay for what you use. No waiting periods, no commitments.
+              <h3 class="text-2xl font-bold mb-4">Creator-First</h3>
+              <p class="text-gray-400 leading-relaxed">
+                Learn from real photographers and filmmakers. Every lesson focuses on hands-on creation, not theory.
               </p>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-              <div class="text-teal-600 text-4xl mb-4">
-                <i class="fas fa-users"></i>
+            
+            <div class="feature-card p-10 rounded-3xl">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl mb-6 flex items-center justify-center">
+                <i class="fas fa-calendar-day text-3xl"></i>
               </div>
-              <h3 class="text-xl font-bold mb-3">Family Discounts</h3>
-              <p class="text-gray-600">
-                The more kids you enroll, the lower the per-child price. 4+ students at just $79/month each.
+              <h3 class="text-2xl font-bold mb-4">Flexible</h3>
+              <p class="text-gray-400 leading-relaxed">
+                Daily proration. No contracts. Pay only for what you use. Homeschool-friendly scheduling.
               </p>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-              <div class="text-teal-600 text-4xl mb-4">
-                <i class="fas fa-video"></i>
+            
+            <div class="feature-card p-10 rounded-3xl">
+              <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-6 flex items-center justify-center">
+                <i class="fas fa-users text-3xl"></i>
               </div>
-              <h3 class="text-xl font-bold mb-3">Live + Recordings</h3>
-              <p class="text-gray-600">
-                Join live classes or watch recordings within 7 days. Perfect for busy homeschool schedules.
+              <h3 class="text-2xl font-bold mb-4">Family-Focused</h3>
+              <p class="text-gray-400 leading-relaxed">
+                Multi-child discounts. 4+ students at just $79/month each. Built for homeschool families.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Curriculum Preview */}
+      <section class="py-32 bg-black">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-20">
+            <h2 class="text-5xl md:text-6xl font-black mb-6">
+              12-Month Journey
+            </h2>
+            <p class="text-xl text-gray-400">
+              From composition basics to documentary filmmaking
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-teal-500 font-bold mb-2">JANUARY</div>
+              <h4 class="text-xl font-bold mb-3">Finding Your Eye</h4>
+              <p class="text-gray-400 text-sm">Master composition, rule of thirds, leading lines</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-teal-500 font-bold mb-2">MARCH</div>
+              <h4 class="text-xl font-bold mb-3">Video Basics</h4>
+              <p class="text-gray-400 text-sm">Moving stories, camera movement, storytelling</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-teal-500 font-bold mb-2">JUNE</div>
+              <h4 class="text-xl font-bold mb-3">Documentary Premiere</h4>
+              <p class="text-gray-400 text-sm">Complete a full documentary film project</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section class="py-20 bg-teal-600 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="text-4xl font-bold mb-6">Ready to Start Your Creative Journey?</h2>
-          <p class="text-xl mb-8 opacity-90">
-            Join 140+ homeschool families discovering the art of photography and filmmaking.
+      <section class="py-32 bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 class="text-5xl md:text-6xl font-black mb-8">
+            Ready to Create?
+          </h2>
+          <p class="text-2xl mb-12 opacity-90">
+            Join 140+ young creators discovering their visual voice
           </p>
-          <a href="/checkout" class="bg-white text-teal-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 inline-block">
-            Enroll Your Children Now
+          <a href="/checkout" class="bg-white text-black px-12 py-6 rounded-full text-xl font-bold hover:bg-gray-100 transition inline-block shadow-2xl">
+            Enroll Now
           </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer class="bg-gray-900 text-gray-300 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer class="bg-black border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
             <div>
-              <h3 class="text-white font-bold mb-4">Acromatico</h3>
-              <p class="text-sm">Creative education for the next generation.</p>
-            </div>
-            <div>
-              <h4 class="text-white font-semibold mb-4">Academy</h4>
-              <ul class="space-y-2 text-sm">
-                <li><a href="/academy" class="hover:text-white">Curriculum</a></li>
-                <li><a href="/pricing" class="hover:text-white">Pricing</a></li>
-                <li><a href="/faq" class="hover:text-white">FAQ</a></li>
+              <h4 class="font-bold mb-4">Academy</h4>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li><a href="/academy" class="hover:text-white transition">Curriculum</a></li>
+                <li><a href="/pricing" class="hover:text-white transition">Pricing</a></li>
+                <li><a href="/faq" class="hover:text-white transition">FAQ</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="text-white font-semibold mb-4">Services</h4>
-              <ul class="space-y-2 text-sm">
-                <li><a href="/studio" class="hover:text-white">Studio</a></li>
-                <li><a href="/prints" class="hover:text-white">Art Prints</a></li>
-                <li><a href="/photography" class="hover:text-white">Photography</a></li>
+              <h4 class="font-bold mb-4">Services</h4>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li><a href="/studio" class="hover:text-white transition">Studio</a></li>
+                <li><a href="/prints" class="hover:text-white transition">Art Prints</a></li>
+                <li><a href="/photography" class="hover:text-white transition">Photography</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="text-white font-semibold mb-4">Connect</h4>
-              <ul class="space-y-2 text-sm">
-                <li><a href="/blog" class="hover:text-white">Blog</a></li>
-                <li><a href="/contact" class="hover:text-white">Contact</a></li>
-                <li><a href="/about" class="hover:text-white">About</a></li>
+              <h4 class="font-bold mb-4">Company</h4>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li><a href="/about" class="hover:text-white transition">About</a></li>
+                <li><a href="/blog" class="hover:text-white transition">Blog</a></li>
+                <li><a href="/contact" class="hover:text-white transition">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold mb-4">Legal</h4>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li><a href="/privacy" class="hover:text-white transition">Privacy</a></li>
+                <li><a href="/terms" class="hover:text-white transition">Terms</a></li>
               </ul>
             </div>
           </div>
-          <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-            <p>&copy; 2026 Acromatico. All rights reserved.</p>
+          <div class="pt-8 border-t border-white/10 text-center text-gray-400 text-sm">
+            <p>&copy; 2026 Acromatico. Built for creators, by creators.</p>
           </div>
         </div>
       </footer>
     </div>,
-    { title: 'Acromatico - Creative Education for Homeschool Kids' }
+    { title: 'Acromatico - Learn to See The World Differently' }
   )
 })
 
