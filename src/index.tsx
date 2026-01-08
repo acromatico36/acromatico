@@ -33,16 +33,12 @@ app.get('/', (c) => {
         }
         
         video {
-          filter: brightness(0.7) saturate(1.2);
+          filter: brightness(0.8) saturate(1.1);
         }
         
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        
-        .float-animation {
-          animation: float 6s ease-in-out infinite;
+        .video-zoom {
+          transform: scale(1.2);
+          object-fit: cover;
         }
         
         .glass-nav {
@@ -110,22 +106,30 @@ app.get('/', (c) => {
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         {/* Video Background */}
         <div class="absolute inset-0 z-0">
-          <div class="absolute inset-0 overflow-hidden">
-            <video 
-              autoplay 
-              muted 
-              loop 
-              playsinline
-              class="absolute min-w-full min-h-full w-auto h-auto"
-              style="transform: scale(1.15); object-fit: cover; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1.15);"
-            >
-              <source src="/static/hero-video.mp4" type="video/mp4" />
-            </video>
-          </div>
+          <video 
+            id="hero-video"
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            preload="auto"
+            class="video-zoom absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2"
+          >
+            <source src="/static/hero-video.mp4" type="video/mp4" />
+          </video>
+          <script dangerouslySetInnerHTML={{__html: `
+            document.addEventListener('DOMContentLoaded', function() {
+              const video = document.getElementById('hero-video');
+              if (video) {
+                video.muted = true;
+                video.play().catch(e => console.log('Video autoplay failed:', e));
+              }
+            });
+          `}} />
           {/* Dark Opacity Overlay for Text Readability */}
-          <div class="absolute inset-0 bg-black/65"></div>
+          <div class="absolute inset-0 bg-black/60"></div>
           {/* Gradient Overlay for Extra Depth */}
-          <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70"></div>
         </div>
         
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
