@@ -104,14 +104,18 @@ app.get('/', (c) => {
 
       {/* Hero Section - Full Screen with Video Background */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* YouTube Video Background - iframe embed */}
-        <div class="absolute inset-0 w-full h-full" style="z-index: 0;">
-          <iframe
-            src="https://www.youtube.com/embed/ekPhZnuaR0E?autoplay=1&mute=1&loop=1&playlist=ekPhZnuaR0E&controls=0&showinfo=0&modestbranding=1&autohide=1&rel=0&playsinline=1&enablejsapi=1&vq=hd1080"
-            allow="autoplay; fullscreen"
-            style="position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; transform: translate(-50%, -50%) scale(1.2); pointer-events: none; border: 0;"
-          />
-        </div>
+        {/* Video Background - Native MP4 */}
+        <video 
+          autoplay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          class="absolute inset-0 w-full h-full object-cover"
+          style="transform: scale(1.2); filter: brightness(0.7);"
+        >
+          <source src="/static/hero-video.mp4" type="video/mp4" />
+        </video>
         {/* Dark Overlay */}
         <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
         {/* Gradient Overlay */}
