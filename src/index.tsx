@@ -104,33 +104,18 @@ app.get('/', (c) => {
 
       {/* Hero Section - Full Screen with Video Background */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Video Background */}
-        <video 
-          autoplay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          webkit-playsinline="true"
-          x-webkit-airplay="allow"
-          class="absolute inset-0 w-full h-full object-cover"
-          style="transform: scale(1.2); filter: brightness(0.7);"
-          onLoadedData={(e) => {
-            const video = e.currentTarget;
-            video.muted = true;
-            video.play().catch(() => {
-              // Retry on user interaction
-              document.addEventListener('touchstart', () => video.play(), { once: true });
-              document.addEventListener('click', () => video.play(), { once: true });
-            });
-          }}
-        >
-          <source src="/static/hero-video.mp4" type="video/mp4" />
-        </video>
+        {/* YouTube Video Background - iframe embed */}
+        <div class="absolute inset-0 w-full h-full" style="z-index: 0;">
+          <iframe
+            src="https://www.youtube.com/embed/ekPhZnuaR0E?autoplay=1&mute=1&loop=1&playlist=ekPhZnuaR0E&controls=0&showinfo=0&modestbranding=1&autohide=1&rel=0&playsinline=1&enablejsapi=1&vq=hd1080"
+            allow="autoplay; fullscreen"
+            style="position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; transform: translate(-50%, -50%) scale(1.2); pointer-events: none; border: 0;"
+          />
+        </div>
         {/* Dark Overlay */}
-        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
         {/* Gradient Overlay */}
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10 pointer-events-none"></div>
         
         <div class="relative z-20 max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <div class="mb-6 inline-block">
