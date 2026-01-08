@@ -602,14 +602,14 @@ app.get('/pricing', (c) => {
       <script dangerouslySetInnerHTML={{__html: `
         const pricingData = {
           monthly: [
-            { students: 1, price: 116, popular: true },
-            { students: 2, price: 99, popular: false },
+            { students: 1, price: 116, popular: false },
+            { students: 2, price: 99, popular: true },
             { students: 3, price: 89, popular: false },
             { students: 4, price: 79, popular: false }
           ],
           annual: [
-            { students: 1, price: 93, popular: true },
-            { students: 2, price: 79, popular: false },
+            { students: 1, price: 93, popular: false },
+            { students: 2, price: 79, popular: true },
             { students: 3, price: 71, popular: false },
             { students: 4, price: 63, popular: false }
           ]
@@ -656,45 +656,43 @@ app.get('/pricing', (c) => {
             const totalPrice = isAnnual ? tier.price * 10 : tier.price;
             const savings = isAnnual ? ((pricingData.monthly.find(t => t.students === tier.students).price * 10) - totalPrice) : 0;
             
-            return \`
-              <div class="feature-card p-8 rounded-3xl \${tier.popular ? 'ring-2 ring-teal-500' : ''} relative">
-                \${tier.popular ? '<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-teal-500 text-white px-4 py-1 rounded-full text-sm font-bold">Most Popular</div>' : ''}
-                <div class="text-center mb-6">
-                  <div class="text-5xl font-black mb-2">
-                    <span class="stat-number">\${tier.students}\${tier.students >= 4 ? '+' : ''}</span>
-                  </div>
-                  <div class="text-gray-400">Student\${tier.students > 1 ? 's' : ''}</div>
-                </div>
-                <div class="text-center mb-6">
-                  <div class="text-4xl font-bold mb-2">
-                    $\${monthlyPrice}<span class="text-xl text-gray-400">/mo</span>
-                  </div>
-                  <div class="text-sm text-gray-500">per student</div>
-                  \${isAnnual ? \`<div class="text-teal-500 text-sm font-bold mt-2">Save $\${savings}/year</div>\` : ''}
-                </div>
-                <button onclick="addToCart({ students: \${tier.students}, price: \${monthlyPrice} })" class="btn-primary w-full px-6 py-4 rounded-full font-bold text-white">
-                  Add to Cart
-                </button>
-                <div class="mt-6 pt-6 border-t border-white/10 space-y-3 text-sm text-gray-400">
-                  <div class="flex items-center gap-2">
-                    <i class="fas fa-check text-teal-500"></i>
-                    <span>8 live classes/month</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <i class="fas fa-check text-teal-500"></i>
-                    <span>All recordings included</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <i class="fas fa-check text-teal-500"></i>
-                    <span>Daily proration</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <i class="fas fa-check text-teal-500"></i>
-                    <span>Cancel anytime</span>
-                  </div>
-                </div>
-              </div>
-            \`;
+            let card = '<div class="feature-card p-8 rounded-3xl ' + (tier.popular ? 'ring-2 ring-teal-500' : '') + ' relative">';
+            
+            if (tier.popular) {
+              card += '<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-teal-500 text-white px-4 py-1 rounded-full text-sm font-bold">Most Popular</div>';
+            }
+            
+            card += '<div class="text-center mb-6">';
+            card += '<div class="text-5xl font-black mb-2">';
+            card += '<span class="stat-number">' + tier.students + (tier.students >= 4 ? '+' : '') + '</span>';
+            card += '</div>';
+            card += '<div class="text-gray-400">Student' + (tier.students > 1 ? 's' : '') + '</div>';
+            card += '</div>';
+            
+            card += '<div class="text-center mb-6">';
+            card += '<div class="text-4xl font-bold mb-2">';
+            card += '$' + monthlyPrice + '<span class="text-xl text-gray-400">/mo</span>';
+            card += '</div>';
+            card += '<div class="text-sm text-gray-500">per student</div>';
+            
+            if (isAnnual) {
+              card += '<div class="text-teal-500 text-sm font-bold mt-2">Save $' + savings + '/year</div>';
+            }
+            card += '</div>';
+            
+            card += '<button onclick="addToCart({ students: ' + tier.students + ', price: ' + monthlyPrice + ' })" class="btn-primary w-full px-6 py-4 rounded-full font-bold text-white">';
+            card += 'Add to Cart';
+            card += '</button>';
+            
+            card += '<div class="mt-6 pt-6 border-t border-white/10 space-y-3 text-sm text-gray-400">';
+            card += '<div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>8 live classes/month</span></div>';
+            card += '<div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>All recordings included</span></div>';
+            card += '<div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Daily proration</span></div>';
+            card += '<div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Cancel anytime</span></div>';
+            card += '</div>';
+            card += '</div>';
+            
+            return card;
           }).join('');
         }
         
