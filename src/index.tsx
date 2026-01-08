@@ -59,7 +59,7 @@ app.get('/', (c) => {
         }
         
         .feature-card {
-          background: rgba(20, 20, 30, 0.5);
+          background: rgba(20, 20, 30, 0.3);
           backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.1);
           transition: all 0.3s ease;
@@ -289,18 +289,18 @@ app.get('/', (c) => {
           loop 
           playsInline 
           preload="metadata"
-          class="absolute inset-0 w-full h-full object-cover opacity-30"
-          style="transform: scale(1.2);"
+          class="absolute inset-0 w-full h-full object-cover"
+          style="transform: scale(1.2); filter: brightness(1.2) saturate(1.3);"
           webkit-playsinline="true"
         >
           <source src="/static/hero-video.mp4" type="video/mp4" />
         </video>
         
-        {/* Dark Overlay */}
-        <div class="absolute inset-0 bg-black/70 z-10"></div>
+        {/* Light Overlay for text readability */}
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
         
-        {/* Gradient Overlay */}
-        <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10"></div>
+        {/* Subtle Gradient Overlay */}
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 z-10"></div>
         
         <div class="relative z-20 max-w-6xl mx-auto px-6 lg:px-8">
           <div class="text-center mb-20">
