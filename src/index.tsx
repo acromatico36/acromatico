@@ -280,9 +280,29 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Curriculum Preview */}
-      <section class="py-32 bg-black">
-        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      {/* Curriculum Preview - 12-Month Journey with Video Background */}
+      <section class="py-32 bg-black relative overflow-hidden">
+        {/* Video Background */}
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          preload="metadata"
+          class="absolute inset-0 w-full h-full object-cover opacity-30"
+          style="transform: scale(1.2);"
+          webkit-playsinline="true"
+        >
+          <source src="/static/hero-video.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Dark Overlay */}
+        <div class="absolute inset-0 bg-black/70 z-10"></div>
+        
+        {/* Gradient Overlay */}
+        <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10"></div>
+        
+        <div class="relative z-20 max-w-6xl mx-auto px-6 lg:px-8">
           <div class="text-center mb-20">
             <h2 class="text-5xl md:text-6xl font-black mb-6">
               12-Month Journey
@@ -299,14 +319,49 @@ app.get('/', (c) => {
               <p class="text-gray-400 text-sm">Master composition, rule of thirds, leading lines</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
-              <div class="text-teal-500 font-bold mb-2">MARCH</div>
+              <div class="text-blue-500 font-bold mb-2">FEBRUARY</div>
+              <h4 class="text-xl font-bold mb-3">Light & Shadow</h4>
+              <p class="text-gray-400 text-sm">Understanding natural light, golden hour, exposure</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-purple-500 font-bold mb-2">MARCH</div>
               <h4 class="text-xl font-bold mb-3">Video Basics</h4>
               <p class="text-gray-400 text-sm">Moving stories, camera movement, storytelling</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
-              <div class="text-teal-500 font-bold mb-2">JUNE</div>
+              <div class="text-teal-500 font-bold mb-2">APRIL</div>
+              <h4 class="text-xl font-bold mb-3">Portrait Photography</h4>
+              <p class="text-gray-400 text-sm">Capturing emotion, connection, and personality</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-blue-500 font-bold mb-2">MAY</div>
+              <h4 class="text-xl font-bold mb-3">Street Photography</h4>
+              <p class="text-gray-400 text-sm">Candid moments, urban composition, storytelling</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-purple-500 font-bold mb-2">JUNE</div>
               <h4 class="text-xl font-bold mb-3">Documentary Premiere</h4>
               <p class="text-gray-400 text-sm">Complete a full documentary film project</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-teal-500 font-bold mb-2">SEPTEMBER</div>
+              <h4 class="text-xl font-bold mb-3">Advanced Composition</h4>
+              <p class="text-gray-400 text-sm">Breaking rules, creative framing, visual poetry</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-blue-500 font-bold mb-2">OCTOBER</div>
+              <h4 class="text-xl font-bold mb-3">Video Editing Mastery</h4>
+              <p class="text-gray-400 text-sm">Pacing, color grading, sound design, storytelling</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-purple-500 font-bold mb-2">NOVEMBER</div>
+              <h4 class="text-xl font-bold mb-3">Portfolio Building</h4>
+              <p class="text-gray-400 text-sm">Curating work, presenting your unique vision</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-teal-500 font-bold mb-2">DECEMBER</div>
+              <h4 class="text-xl font-bold mb-3">Year-End Showcase</h4>
+              <p class="text-gray-400 text-sm">Present your best work to family and community</p>
             </div>
           </div>
         </div>
