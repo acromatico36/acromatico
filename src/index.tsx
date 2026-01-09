@@ -628,8 +628,8 @@ app.get('/', (c) => {
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <div>
-                    <div class="font-semibold text-white">All Recordings Included</div>
-                    <div class="text-gray-400 text-xs">Can't make it live? No problem! Lifetime access to all 30-minute class recordings</div>
+                    <div class="font-semibold text-white">Lifetime Instruction Library</div>
+                    <div class="text-gray-400 text-xs">Expert-led instruction you can rewatch forever</div>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
