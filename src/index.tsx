@@ -970,7 +970,7 @@ app.get('/academy', (c) =>
               </p>
             </div>
             <div class="relative">
-              <img src="https://www.genspark.ai/api/files/s/4YRH21tQ" alt="Vintage Camera" class="rounded-2xl shadow-2xl w-full"/>
+              <img src="/static/images/curriculum/january-vintage-camera.jpg" alt="Vintage Camera" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
@@ -981,7 +981,7 @@ app.get('/academy', (c) =>
         <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://www.genspark.ai/api/files/s/s6tOxMGp" alt="Beach Boardwalk" class="rounded-2xl shadow-2xl w-full"/>
+              <img src="/static/images/curriculum/february-beach-boardwalk.jpg" alt="Beach Boardwalk" class="rounded-2xl shadow-2xl w-full"/>
             </div>
             <div class="order-1 md:order-2">
               <div class="text-blue-500 font-bold text-sm mb-2">MONTH 2 • FEBRUARY</div>
@@ -1018,7 +1018,7 @@ app.get('/academy', (c) =>
               </p>
             </div>
             <div class="relative">
-              <img src="https://www.genspark.ai/api/files/s/ORzq87kx" alt="Mountain Photographer" class="rounded-2xl shadow-2xl w-full"/>
+              <img src="/static/images/curriculum/march-mountain-photographer.jpg" alt="Mountain Photographer" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
@@ -1029,7 +1029,7 @@ app.get('/academy', (c) =>
         <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://www.genspark.ai/api/files/s/sP8m7KVZ" alt="Mother and Child" class="rounded-2xl shadow-2xl w-full"/>
+              <img src="/static/images/curriculum/april-mom-child-beach.jpg" alt="Mother and Child" class="rounded-2xl shadow-2xl w-full"/>
             </div>
             <div class="order-1 md:order-2">
               <div class="text-teal-500 font-bold text-sm mb-2">MONTH 4 • APRIL</div>
@@ -1066,7 +1066,7 @@ app.get('/academy', (c) =>
               </p>
             </div>
             <div class="relative">
-              <img src="https://www.genspark.ai/api/files/s/FtC3QAZV" alt="Chicago Skyline" class="rounded-2xl shadow-2xl w-full"/>
+              <img src="/static/images/curriculum/may-chicago-skyline.jpg" alt="Chicago Skyline" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
@@ -1120,7 +1120,7 @@ app.get('/academy', (c) =>
         <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://www.genspark.ai/api/files/s/eO1gDzYV" alt="Video Editing Timeline" class="rounded-2xl shadow-2xl w-full"/>
+              <img src="/static/images/curriculum/october-video-editing.jpg" alt="Video Editing Timeline" class="rounded-2xl shadow-2xl w-full"/>
             </div>
             <div class="order-1 md:order-2">
               <div class="text-blue-500 font-bold text-sm mb-2">MONTH 8 • OCTOBER</div>
@@ -1157,7 +1157,7 @@ app.get('/academy', (c) =>
               </p>
             </div>
             <div class="relative">
-              <img src="https://www.genspark.ai/api/files/s/98JdgTOg" alt="Portfolio Dashboard" class="rounded-2xl shadow-2xl w-full"/>
+              <img src="/static/images/curriculum/november-portfolio-dashboard.jpg" alt="Portfolio Dashboard" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
