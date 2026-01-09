@@ -77,7 +77,7 @@ app.get('/', (c) => {
         }
         
         .stat-number {
-          background: linear-gradient(135deg, #4794A6 0%, #a855f7 100%);
+          background: linear-gradient(135deg, #4794A6 0%, #ED70C4 50%, #AF40F6 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
