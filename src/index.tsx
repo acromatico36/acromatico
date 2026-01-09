@@ -524,28 +524,59 @@ app.get('/', (c) => {
               ← Back
             </button>
             <h2 class="text-5xl font-black mb-4">How Many Students?</h2>
-            <p class="text-xl text-gray-400 mb-8">Select the package that fits your family</p>
+            <p class="text-xl text-gray-400 mb-6">Select the package that fits your family</p>
+            
+            {/* Monthly/Annual Toggle */}
+            <div class="flex items-center justify-center gap-4 mb-8 bg-gray-900 p-3 rounded-full inline-flex mx-auto">
+              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-6 py-3 rounded-full font-semibold transition bg-teal-500 text-white">
+                Monthly
+              </button>
+              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-6 py-3 rounded-full font-semibold transition text-gray-400">
+                Annual <span class="text-teal-500 text-sm ml-1">Save 20%</span>
+              </button>
+            </div>
+
             <div class="grid grid-cols-2 gap-4 mb-8">
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition" onclick="selectPackage(1, 116)">
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
                 <div class="text-4xl font-black mb-2">1</div>
                 <div class="text-gray-400 text-sm mb-3">Student</div>
-                <div class="text-2xl font-bold">$116<span class="text-sm text-gray-500">/mo</span></div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$116</span>
+                  <span class="annual-price hidden">$93</span>
+                  <span class="text-sm text-gray-500">/mo</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $276/year</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500" onclick="selectPackage(2, 99)">
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
                 <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 px-3 py-1 rounded-full text-xs font-bold">Most Popular</div>
                 <div class="text-4xl font-black mb-2">2</div>
                 <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">$99<span class="text-sm text-gray-500">/mo each</span></div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$99</span>
+                  <span class="annual-price hidden">$79</span>
+                  <span class="text-sm text-gray-500">/mo each</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $480/year</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition" onclick="selectPackage(3, 89)">
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
                 <div class="text-4xl font-black mb-2">3</div>
                 <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">$89<span class="text-sm text-gray-500">/mo each</span></div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$89</span>
+                  <span class="annual-price hidden">$71</span>
+                  <span class="text-sm text-gray-500">/mo each</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $648/year</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition" onclick="selectPackage(4, 79)">
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
                 <div class="text-4xl font-black mb-2">4+</div>
                 <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">$79<span class="text-sm text-gray-500">/mo each</span></div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$79</span>
+                  <span class="annual-price hidden">$63</span>
+                  <span class="text-sm text-gray-500">/mo each</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $768/year</div>
               </div>
             </div>
           </div>
@@ -569,10 +600,14 @@ app.get('/', (c) => {
                 <span id="summary-price" class="font-bold"></span>
               </div>
               <div class="flex justify-between pt-4 border-t border-white/10">
-                <span class="text-xl font-bold">Total Today (Prorated)</span>
+                <span id="summary-label" class="text-xl font-bold">Total Today (Prorated)</span>
                 <span id="summary-total" class="text-xl font-bold text-teal-500"></span>
               </div>
-              <p class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
+              <div id="savings-display" class="flex justify-between mt-2 hidden">
+                <span class="text-sm text-gray-400">Annual Savings</span>
+                <span id="summary-savings" class="text-sm font-bold text-green-500"></span>
+              </div>
+              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
             </div>
 
             {/* Payment Form */}
@@ -597,6 +632,12 @@ app.get('/', (c) => {
         let currentStep = 1;
         let selectedStudents = 0;
         let selectedPrice = 0;
+        let isAnnual = false;
+        
+        const pricingData = {
+          monthly: { 1: 116, 2: 99, 3: 89, 4: 79 },
+          annual: { 1: 93, 2: 79, 3: 71, 4: 63 }
+        };
 
         function openEnrollment() {
           document.getElementById('enrollment-modal').classList.remove('hidden');
@@ -624,22 +665,83 @@ app.get('/', (c) => {
           document.getElementById('step-percentage').textContent = Math.round(percentage) + '%';
         }
 
-        function selectPackage(students, price) {
+        function toggleBilling(type) {
+          isAnnual = (type === 'annual');
+          
+          // Update toggle buttons
+          const monthlyBtn = document.getElementById('monthly-toggle-btn');
+          const annualBtn = document.getElementById('annual-toggle-btn');
+          
+          if (isAnnual) {
+            monthlyBtn.classList.remove('bg-teal-500', 'text-white');
+            monthlyBtn.classList.add('text-gray-400');
+            annualBtn.classList.add('bg-teal-500', 'text-white');
+            annualBtn.classList.remove('text-gray-400');
+          } else {
+            monthlyBtn.classList.add('bg-teal-500', 'text-white');
+            monthlyBtn.classList.remove('text-gray-400');
+            annualBtn.classList.remove('bg-teal-500', 'text-white');
+            annualBtn.classList.add('text-gray-400');
+          }
+          
+          // Toggle prices
+          document.querySelectorAll('.monthly-price').forEach(el => {
+            el.classList.toggle('hidden', isAnnual);
+          });
+          document.querySelectorAll('.annual-price').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+          document.querySelectorAll('.annual-savings').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+        }
+
+        function selectPackage(students) {
           selectedStudents = students;
-          selectedPrice = price;
+          selectedPrice = isAnnual ? pricingData.annual[students] : pricingData.monthly[students];
           
           // Calculate totals
-          const monthlyTotal = price * students;
-          const today = new Date();
-          const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-          const daysRemaining = daysInMonth - today.getDate() + 1;
-          const proratedTotal = (monthlyTotal / daysInMonth) * daysRemaining;
+          const pricePerStudent = selectedPrice;
+          const monthlyTotal = pricePerStudent * students;
+          
+          let totalCharge, chargeLabel;
+          
+          if (isAnnual) {
+            // Annual: 12 months prepaid
+            totalCharge = monthlyTotal * 12;
+            chargeLabel = 'Total (12 months prepaid)';
+          } else {
+            // Monthly: prorated for first month
+            const today = new Date();
+            const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+            const daysRemaining = daysInMonth - today.getDate() + 1;
+            totalCharge = (monthlyTotal / daysInMonth) * daysRemaining;
+            chargeLabel = 'Total Today (Prorated)';
+          }
+          
+          // Calculate savings for display (Annual vs Monthly)
+          const yearlySavings = isAnnual ? 
+            ((pricingData.monthly[students] * students * 12) - (pricePerStudent * students * 12)) : 0;
           
           // Update summary
-          document.getElementById('selected-package').textContent = students + (students >= 4 ? '+' : '') + ' student' + (students > 1 ? 's' : '');
+          const billingText = isAnnual ? ' (Annual - 12 months)' : ' (Monthly)';
+          document.getElementById('selected-package').textContent = 
+            students + (students >= 4 ? '+' : '') + ' student' + (students > 1 ? 's' : '') + billingText;
           document.getElementById('summary-students').textContent = students + (students >= 4 ? '+' : '');
-          document.getElementById('summary-price').textContent = '$' + price + '/mo';
-          document.getElementById('summary-total').textContent = '$' + proratedTotal.toFixed(2);
+          document.getElementById('summary-price').textContent = '$' + pricePerStudent + '/mo per student' + (isAnnual ? ' (20% off)' : '');
+          document.getElementById('summary-total').textContent = '$' + totalCharge.toFixed(2);
+          
+          // Update the label and savings display
+          document.getElementById('summary-label').textContent = chargeLabel;
+          
+          if (isAnnual) {
+            document.getElementById('savings-display').classList.remove('hidden');
+            document.getElementById('summary-savings').textContent = '-$' + yearlySavings.toFixed(2);
+            document.getElementById('proration-note').classList.add('hidden');
+          } else {
+            document.getElementById('savings-display').classList.add('hidden');
+            document.getElementById('proration-note').classList.remove('hidden');
+          }
           
           // Go to next step
           setTimeout(() => goToStep(3), 300);
@@ -654,7 +756,12 @@ app.get('/', (c) => {
             return;
           }
           
-          alert('🎉 Enrollment Complete!\\n\\nEmail: ' + email + '\\nPackage: ' + selectedStudents + ' students at $' + selectedPrice + '/mo each\\n\\nStripe integration will be added next!');
+          const billingType = isAnnual ? 'Annual (12 months prepaid)' : 'Monthly';
+          const pricePerStudent = selectedPrice;
+          const monthlyTotal = pricePerStudent * selectedStudents;
+          const totalCharge = isAnnual ? monthlyTotal * 12 : monthlyTotal;
+          
+          alert('🎉 Enrollment Complete!\\n\\nEmail: ' + email + '\\nPackage: ' + selectedStudents + ' students at $' + pricePerStudent + '/mo each\\nBilling: ' + billingType + '\\nTotal: $' + totalCharge.toFixed(2) + '\\n\\nStripe integration will be added next!');
           closeEnrollment();
         }
 
