@@ -12,12 +12,34 @@ const Header = () => (
         backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
+      .btn-primary {
+        background: #4794A6;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(71, 148, 166, 0.3);
+      }
+      .btn-primary:hover {
+        background: #5aa5b8;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(71, 148, 166, 0.5);
+      }
     `}</style>
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex justify-center h-20 items-center">
-        <a href="/">
-          <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
-        </a>
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex items-center space-x-4 opacity-0">
+          {/* Left spacer for balance */}
+          <span>Spacer</span>
+        </div>
+        <div class="flex-1 flex justify-center">
+          <a href="/">
+            <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
+          </a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="/pricing" class="btn-primary px-6 py-3 rounded-full font-semibold">
+            Enroll Now
+          </a>
+          <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
+        </div>
       </div>
     </div>
   </nav>
