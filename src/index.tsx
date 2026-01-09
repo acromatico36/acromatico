@@ -554,7 +554,7 @@ app.get('/', (c) => {
               </button>
             </div>
             <p class="text-center text-sm text-gray-400 mb-6">
-              <span class="annual-note hidden">Annual billing covers 10 months (Sept-June school year). No classes in July & August.</span>
+              <span class="annual-note hidden">Annual billing covers 10 months (Sept-June school year). No classes in July & August. December includes 2 special 1-hour workshops!</span>
               <span class="monthly-note">Billed monthly. Cancel anytime with daily proration.</span>
             </p>
 
@@ -619,8 +619,8 @@ app.get('/', (c) => {
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <div>
-                    <div class="font-semibold text-white">8 Live Classes/Month</div>
-                    <div class="text-gray-400 text-xs">Mon & Thu at 11:30 AM ET - Learn in real-time with expert educators</div>
+                    <div class="font-semibold text-white">30-Minute Micro-Learning Sessions</div>
+                    <div class="text-gray-400 text-xs">Perfect for young creators' attention spans - 8 live classes/month (Mon & Thu 11:30 AM ET)</div>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
@@ -629,7 +629,16 @@ app.get('/', (c) => {
                   </svg>
                   <div>
                     <div class="font-semibold text-white">All Recordings Included</div>
-                    <div class="text-gray-400 text-xs">Can't make it live? No problem! Lifetime access to all class recordings</div>
+                    <div class="text-gray-400 text-xs">Can't make it live? No problem! Lifetime access to all 30-minute class recordings</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">December Bonus Workshops</div>
+                    <div class="text-gray-400 text-xs">First 2 weeks of December: Special 1-hour fun workshops to celebrate the year!</div>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
@@ -639,15 +648,6 @@ app.get('/', (c) => {
                   <div>
                     <div class="font-semibold text-white">Portfolio Building</div>
                     <div class="text-gray-400 text-xs">Showcase your child's work and track their creative journey</div>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                  <div>
-                    <div class="font-semibold text-white">Daily Proration</div>
-                    <div class="text-gray-400 text-xs">Pay only for what you use - cancel anytime with no penalties</div>
                   </div>
                 </div>
               </div>
