@@ -88,8 +88,9 @@ app.get('/', (c) => {
       <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
           <div class="flex justify-between h-20 items-center">
-            <div class="flex items-center space-x-4">
-              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
+            <div class="flex items-center space-x-4 opacity-0">
+              {/* Left spacer for balance */}
+              <span>Spacer</span>
             </div>
             <div class="flex-1 flex justify-center">
               <a href="/">
@@ -100,6 +101,7 @@ app.get('/', (c) => {
               <a href="/pricing" class="btn-primary px-6 py-3 rounded-full font-semibold" style="background: #4794A6;">
                 Enroll Now
               </a>
+              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
             </div>
           </div>
         </div>
@@ -520,8 +522,9 @@ app.get('/pricing', (c) => {
       <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
           <div class="flex justify-between h-20 items-center">
-            <div class="flex items-center space-x-4">
-              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
+            <div class="flex items-center space-x-4 opacity-0">
+              {/* Left spacer for balance */}
+              <span>Spacer</span>
             </div>
             <div class="flex-1 flex justify-center">
               <a href="/">
@@ -533,6 +536,7 @@ app.get('/pricing', (c) => {
                 <i class="fas fa-shopping-cart text-xl"></i>
                 <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cart-count">0</span>
               </a>
+              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
             </div>
           </div>
         </div>
