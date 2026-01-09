@@ -474,6 +474,201 @@ app.get('/', (c) => {
           </div>
         </div>
       </footer>
+
+      {/* TYPEFORM-STYLE ENROLLMENT MODAL */}
+      <div id="enrollment-modal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
+        <div class="max-w-2xl w-full">
+          {/* Progress Bar */}
+          <div class="mb-8">
+            <div class="flex justify-between mb-2 text-sm text-gray-400">
+              <span id="step-label">Step 1 of 3</span>
+              <span id="step-percentage">33%</span>
+            </div>
+            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+              <div id="progress-bar" class="h-full bg-gradient-to-r from-teal-500 to-blue-500 transition-all duration-500" style="width: 33%"></div>
+            </div>
+          </div>
+
+          {/* STEP 1: Create Account */}
+          <div id="step-1" class="step-content">
+            <h2 class="text-5xl font-black mb-4">Create Your Free Account</h2>
+            <p class="text-xl text-gray-400 mb-8">Get started in seconds - no credit card required</p>
+            <div class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium mb-2">Parent Email</label>
+                <input 
+                  type="email" 
+                  id="parent-email" 
+                  placeholder="your@email.com"
+                  class="w-full px-6 py-4 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-teal-500 focus:outline-none text-lg"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Create Password</label>
+                <input 
+                  type="password" 
+                  id="parent-password" 
+                  placeholder="Min 8 characters"
+                  class="w-full px-6 py-4 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-teal-500 focus:outline-none text-lg"
+                />
+              </div>
+              <button onclick="goToStep(2)" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
+                Continue →
+              </button>
+            </div>
+          </div>
+
+          {/* STEP 2: Select Package */}
+          <div id="step-2" class="step-content hidden">
+            <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-4 flex items-center gap-2">
+              ← Back
+            </button>
+            <h2 class="text-5xl font-black mb-4">How Many Students?</h2>
+            <p class="text-xl text-gray-400 mb-8">Select the package that fits your family</p>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition" onclick="selectPackage(1, 116)">
+                <div class="text-4xl font-black mb-2">1</div>
+                <div class="text-gray-400 text-sm mb-3">Student</div>
+                <div class="text-2xl font-bold">$116<span class="text-sm text-gray-500">/mo</span></div>
+              </div>
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500" onclick="selectPackage(2, 99)">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 px-3 py-1 rounded-full text-xs font-bold">Most Popular</div>
+                <div class="text-4xl font-black mb-2">2</div>
+                <div class="text-gray-400 text-sm mb-3">Students</div>
+                <div class="text-2xl font-bold">$99<span class="text-sm text-gray-500">/mo each</span></div>
+              </div>
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition" onclick="selectPackage(3, 89)">
+                <div class="text-4xl font-black mb-2">3</div>
+                <div class="text-gray-400 text-sm mb-3">Students</div>
+                <div class="text-2xl font-bold">$89<span class="text-sm text-gray-500">/mo each</span></div>
+              </div>
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition" onclick="selectPackage(4, 79)">
+                <div class="text-4xl font-black mb-2">4+</div>
+                <div class="text-gray-400 text-sm mb-3">Students</div>
+                <div class="text-2xl font-bold">$79<span class="text-sm text-gray-500">/mo each</span></div>
+              </div>
+            </div>
+          </div>
+
+          {/* STEP 3: Payment */}
+          <div id="step-3" class="step-content hidden">
+            <button onclick="goToStep(2)" class="text-gray-400 hover:text-white mb-4 flex items-center gap-2">
+              ← Back
+            </button>
+            <h2 class="text-5xl font-black mb-4">Complete Enrollment</h2>
+            <p class="text-xl text-gray-400 mb-8">You selected <span id="selected-package" class="text-teal-500"></span></p>
+            
+            {/* Order Summary */}
+            <div class="feature-card p-6 rounded-2xl mb-6">
+              <div class="flex justify-between mb-4">
+                <span class="text-gray-400">Students</span>
+                <span id="summary-students" class="font-bold"></span>
+              </div>
+              <div class="flex justify-between mb-4">
+                <span class="text-gray-400">Price per student</span>
+                <span id="summary-price" class="font-bold"></span>
+              </div>
+              <div class="flex justify-between pt-4 border-t border-white/10">
+                <span class="text-xl font-bold">Total Today (Prorated)</span>
+                <span id="summary-total" class="text-xl font-bold text-teal-500"></span>
+              </div>
+              <p class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
+            </div>
+
+            {/* Payment Form */}
+            <div class="space-y-4 mb-6">
+              <div class="bg-gray-900 border-2 border-gray-800 rounded-xl p-6">
+                <p class="text-sm text-gray-400">Stripe payment form will appear here</p>
+              </div>
+            </div>
+
+            <button onclick="completeEnrollment()" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
+              Complete Enrollment 🎉
+            </button>
+          </div>
+
+          {/* Close Button */}
+          <button onclick="closeEnrollment()" class="absolute top-8 right-8 text-gray-400 hover:text-white text-4xl">×</button>
+        </div>
+      </div>
+
+      {/* Enrollment Modal JavaScript */}
+      <script dangerouslySetInnerHTML={{__html: `
+        let currentStep = 1;
+        let selectedStudents = 0;
+        let selectedPrice = 0;
+
+        function openEnrollment() {
+          document.getElementById('enrollment-modal').classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          goToStep(1);
+        }
+
+        function closeEnrollment() {
+          document.getElementById('enrollment-modal').classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+
+        function goToStep(step) {
+          // Hide all steps
+          document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+          
+          // Show target step
+          document.getElementById('step-' + step).classList.remove('hidden');
+          
+          // Update progress
+          currentStep = step;
+          const percentage = (step / 3) * 100;
+          document.getElementById('progress-bar').style.width = percentage + '%';
+          document.getElementById('step-label').textContent = 'Step ' + step + ' of 3';
+          document.getElementById('step-percentage').textContent = Math.round(percentage) + '%';
+        }
+
+        function selectPackage(students, price) {
+          selectedStudents = students;
+          selectedPrice = price;
+          
+          // Calculate totals
+          const monthlyTotal = price * students;
+          const today = new Date();
+          const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+          const daysRemaining = daysInMonth - today.getDate() + 1;
+          const proratedTotal = (monthlyTotal / daysInMonth) * daysRemaining;
+          
+          // Update summary
+          document.getElementById('selected-package').textContent = students + (students >= 4 ? '+' : '') + ' student' + (students > 1 ? 's' : '');
+          document.getElementById('summary-students').textContent = students + (students >= 4 ? '+' : '');
+          document.getElementById('summary-price').textContent = '$' + price + '/mo';
+          document.getElementById('summary-total').textContent = '$' + proratedTotal.toFixed(2);
+          
+          // Go to next step
+          setTimeout(() => goToStep(3), 300);
+        }
+
+        function completeEnrollment() {
+          const email = document.getElementById('parent-email').value;
+          const password = document.getElementById('parent-password').value;
+          
+          if (!email || !password) {
+            alert('Please fill in all fields');
+            return;
+          }
+          
+          alert('🎉 Enrollment Complete!\\n\\nEmail: ' + email + '\\nPackage: ' + selectedStudents + ' students at $' + selectedPrice + '/mo each\\n\\nStripe integration will be added next!');
+          closeEnrollment();
+        }
+
+        // Update all "Enroll Now" and "Start Creating Today" buttons
+        document.addEventListener('DOMContentLoaded', function() {
+          const enrollButtons = document.querySelectorAll('a[href="/pricing"], a[href="/checkout"]');
+          enrollButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+              e.preventDefault();
+              openEnrollment();
+            });
+          });
+        });
+      `}} />
     </div>,
     { title: 'Acromatico - Learn to See The World Differently' }
   )
@@ -1237,6 +1432,55 @@ app.get('/checkout', (c) => {
 app.get('/login', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Login - Coming Soon</h1></div>))
 app.get('/faq', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">FAQ - Coming Soon</h1></div>))
 app.get('/contact', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Contact - Coming Soon</h1></div>))
-app.get('/about', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">About - Coming Soon</h1></div>))
+app.get('/our-story', (c) => {
+  return c.render(
+    <div class="min-h-screen bg-black text-white">
+      <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="flex justify-between h-20 items-center">
+            <div class="flex items-center space-x-4 opacity-0">
+              <span>Spacer</span>
+            </div>
+            <div class="flex-1 flex justify-center">
+              <a href="/">
+                <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
+              </a>
+            </div>
+            <div class="flex items-center space-x-4">
+              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <section class="pt-32 pb-20">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+          <h1 class="text-6xl font-black mb-8">Our Story</h1>
+          <div class="space-y-8 text-xl text-gray-300 leading-relaxed">
+            <p>
+              Acromatico was born from a simple belief: every child has a unique way of seeing the world, 
+              and photography is one of the most powerful tools to help them discover and express that vision.
+            </p>
+            <p>
+              Founded by award-winning photographers Italo Campilii and Ale, with over 20 years of combined 
+              experience in visual storytelling, documentary filmmaking, and portrait photography, Acromatico 
+              exists to empower young creators ages 7-14 with real-world skills.
+            </p>
+            <p>
+              We're not just teaching kids how to use a camera. We're teaching them how to see, how to tell 
+              stories, and how to capture moments that matter. Our live, interactive classes combine technical 
+              expertise with creative freedom, giving students the confidence to create work they're proud of.
+            </p>
+            <p>
+              <strong class="text-teal-500">Our mission is simple:</strong> Help 1,000 young creators discover 
+              their visual voice and build skills that last a lifetime.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>,
+    { title: 'Our Story - Acromatico' }
+  )
+})
 
 export default app
