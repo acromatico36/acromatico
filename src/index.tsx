@@ -2209,6 +2209,19 @@ app.get('/faq', (c) =>
                   <strong class="text-white">Yes!</strong> Monthly plans can be canceled anytime with no penalties. You only pay for the days you use (daily proration). Annual plans are prepaid for 10 months (Sept-June school year) and save you 20%.
                 </p>
               </div>
+
+              <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-2xl font-bold mb-3 text-white">What if we join mid-year?</h3>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                  <strong class="text-white">No problem!</strong> You can join anytime during the school year.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-400">For Monthly Plans:</strong> You'll start with the current month's curriculum and continue through June. Any months you missed will roll over to the next school year, so your child completes the full 10-month journey.
+                </p>
+                <p class="text-gray-300 leading-relaxed mt-3">
+                  <strong class="text-teal-400">For Annual Plans:</strong> If you join mid-year (e.g., January), your 10-month annual plan covers January-June this year, then September-December the following year. You get the full curriculum and 20% savings, just spread across two school years.
+                </p>
+              </div>
             </div>
           </div>
 
