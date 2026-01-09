@@ -87,10 +87,20 @@ app.get('/', (c) => {
       {/* Navigation */}
       <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-center h-20 items-center">
-            <a href="/">
-              <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
-            </a>
+          <div class="flex justify-between h-20 items-center">
+            <div class="flex items-center space-x-4">
+              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
+            </div>
+            <div class="flex-1 flex justify-center">
+              <a href="/">
+                <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
+              </a>
+            </div>
+            <div class="flex items-center space-x-4">
+              <a href="/pricing" class="btn-primary px-6 py-3 rounded-full font-semibold" style="background: #4794A6;">
+                Enroll Now
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -509,10 +519,21 @@ app.get('/pricing', (c) => {
       {/* Navigation */}
       <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-center h-20 items-center">
-            <a href="/">
-              <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
-            </a>
+          <div class="flex justify-between h-20 items-center">
+            <div class="flex items-center space-x-4">
+              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
+            </div>
+            <div class="flex-1 flex justify-center">
+              <a href="/">
+                <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
+              </a>
+            </div>
+            <div class="flex items-center space-x-4">
+              <a href="/cart" class="text-gray-300 hover:text-white transition relative">
+                <i class="fas fa-shopping-cart text-xl"></i>
+                <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cart-count">0</span>
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -777,10 +798,21 @@ app.get('/cart', (c) => {
       {/* Navigation */}
       <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-center h-20 items-center">
-            <a href="/">
-              <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
-            </a>
+          <div class="flex justify-between h-20 items-center">
+            <div class="flex items-center space-x-4">
+              <a href="/pricing" class="text-gray-300 hover:text-white transition">
+                <i class="fas fa-arrow-left mr-2"></i>Continue Shopping
+              </a>
+            </div>
+            <div class="flex-1 flex justify-center">
+              <a href="/">
+                <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
+              </a>
+            </div>
+            <div class="flex items-center space-x-4 opacity-0">
+              {/* Spacer for balance */}
+              <span>Spacer</span>
+            </div>
           </div>
         </div>
       </nav>
@@ -962,10 +994,21 @@ app.get('/checkout', (c) => {
       {/* Navigation */}
       <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-center h-20 items-center">
-            <a href="/">
-              <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
-            </a>
+          <div class="flex justify-between h-20 items-center">
+            <div class="flex items-center space-x-4">
+              <a href="/cart" class="text-gray-300 hover:text-white transition">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Cart
+              </a>
+            </div>
+            <div class="flex-1 flex justify-center">
+              <a href="/">
+                <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
+              </a>
+            </div>
+            <div class="flex items-center space-x-4 opacity-0">
+              {/* Spacer for balance */}
+              <span>Spacer</span>
+            </div>
           </div>
         </div>
       </nav>
