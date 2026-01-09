@@ -358,7 +358,7 @@ app.get('/', (c) => {
               12-Month Journey
             </h2>
             <p class="text-xl text-gray-400">
-              From composition basics to documentary filmmaking
+              From finding your eye to storytelling through the lens
             </p>
           </div>
           
@@ -390,8 +390,8 @@ app.get('/', (c) => {
             </div>
             <div class="feature-card p-8 rounded-2xl">
               <div class="text-purple-500 font-bold mb-2">JUNE</div>
-              <h4 class="text-xl font-bold mb-3">Documentary Premiere</h4>
-              <p class="text-gray-400 text-sm">Complete a full documentary film project</p>
+              <h4 class="text-xl font-bold mb-3">Photo Essay Project</h4>
+              <p class="text-gray-400 text-sm">Complete your first photo essay—a real story you care about</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
               <div class="text-teal-500 font-bold mb-2">SEPTEMBER</div>
@@ -400,8 +400,8 @@ app.get('/', (c) => {
             </div>
             <div class="feature-card p-8 rounded-2xl">
               <div class="text-blue-500 font-bold mb-2">OCTOBER</div>
-              <h4 class="text-xl font-bold mb-3">Video Editing Mastery</h4>
-              <p class="text-gray-400 text-sm">Pacing, color grading, sound design, storytelling</p>
+              <h4 class="text-xl font-bold mb-3">Photo Editing Mastery</h4>
+              <p class="text-gray-400 text-sm">Lightroom basics, turning good photos into great ones</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
               <div class="text-purple-500 font-bold mb-2">NOVEMBER</div>
@@ -2913,6 +2913,418 @@ app.get('/faq', (c) =>
           </div>
         </div>
       </footer>
+
+      {/* Enrollment Modal */}
+      <div id="enrollment-modal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
+        <div class="max-w-2xl w-full">
+          {/* Progress Bar */}
+          <div class="mb-8">
+            <div class="flex justify-between mb-2 text-sm text-gray-400">
+              <span id="step-label">Step 1 of 3</span>
+              <span id="step-percentage">33%</span>
+            </div>
+            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+              <div id="progress-bar" class="h-full bg-gradient-to-r from-teal-500 to-blue-500 transition-all duration-500" style="width: 33%"></div>
+            </div>
+          </div>
+
+          {/* STEP 1: Create Account */}
+          <div id="step-1" class="step-content">
+            <h2 class="text-5xl font-black mb-4">Create Your Free Account</h2>
+            <p class="text-xl text-gray-400 mb-8">Get started in seconds - no credit card required</p>
+            <div class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium mb-2">Parent Email</label>
+                <input 
+                  type="email" 
+                  id="parent-email" 
+                  placeholder="your@email.com"
+                  class="w-full px-6 py-4 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-teal-500 focus:outline-none text-lg"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Create Password</label>
+                <input 
+                  type="password" 
+                  id="parent-password" 
+                  placeholder="Min 8 characters"
+                  class="w-full px-6 py-4 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-teal-500 focus:outline-none text-lg"
+                />
+                <p class="text-xs text-gray-500 mt-2">
+                  Minimum 8 characters (letters, numbers, or symbols)
+                </p>
+              </div>
+              <button onclick="goToStep(2)" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
+                Continue →
+              </button>
+            </div>
+            
+            {/* Security Badge */}
+            <div class="mt-8 pt-8 border-t border-white/10">
+              <div class="flex items-center justify-center gap-3 text-sm text-gray-400">
+                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">256-bit SSL Encryption</span>
+                <span class="text-gray-600">•</span>
+                <span>Your data is secure</span>
+              </div>
+              <p class="text-center text-xs text-gray-500 mt-2">
+                We use industry-standard encryption (AES-256) and secure password hashing (bcrypt) to protect your information.
+              </p>
+            </div>
+          </div>
+
+          {/* STEP 2: Select Package */}
+          <div id="step-2" class="step-content hidden">
+            <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-4 flex items-center gap-2">
+              ← Back
+            </button>
+            <h2 class="text-5xl font-black mb-4">How Many Students?</h2>
+            <p class="text-xl text-gray-400 mb-6">Select the package that fits your family</p>
+            
+            {/* Monthly/Annual Toggle */}
+            <div class="flex items-center justify-center gap-4 mb-8 bg-gray-900 p-3 rounded-full inline-flex mx-auto">
+              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-6 py-3 rounded-full font-semibold transition bg-teal-500 text-white">
+                Monthly
+              </button>
+              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-6 py-3 rounded-full font-semibold transition text-gray-400">
+                Annual <span class="text-teal-500 text-sm ml-1">Save 20%</span>
+              </button>
+            </div>
+            <p class="text-center text-sm text-gray-400 mb-6">
+              <span class="annual-note hidden">Annual billing covers 10 months (Sept-June school year). No classes in July & August. December includes 2 special 1-hour workshops!</span>
+              <span class="monthly-note">Billed monthly. Cancel anytime with daily proration.</span>
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
+                <div class="text-4xl font-black mb-2">1</div>
+                <div class="text-gray-400 text-sm mb-3">Student</div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$116</span>
+                  <span class="annual-price hidden">$93</span>
+                  <span class="text-sm text-gray-500">/mo</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $230 (school year)</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$14.50 per class</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$11.63 per class</div>
+              </div>
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 px-3 py-1 rounded-full text-xs font-bold">Most Popular</div>
+                <div class="text-4xl font-black mb-2">2</div>
+                <div class="text-gray-400 text-sm mb-3">Students</div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$99</span>
+                  <span class="annual-price hidden">$79</span>
+                  <span class="text-sm text-gray-500">/mo each</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $400 (school year)</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$12.38 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$9.88 per class (each)</div>
+              </div>
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
+                <div class="text-4xl font-black mb-2">3</div>
+                <div class="text-gray-400 text-sm mb-3">Students</div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$89</span>
+                  <span class="annual-price hidden">$71</span>
+                  <span class="text-sm text-gray-500">/mo each</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $540 (school year)</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$11.13 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$8.88 per class (each)</div>
+              </div>
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
+                <div class="text-4xl font-black mb-2">4+</div>
+                <div class="text-gray-400 text-sm mb-3">Students</div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$79</span>
+                  <span class="annual-price hidden">$63</span>
+                  <span class="text-sm text-gray-500">/mo each</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $640 (school year)</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$9.88 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$7.88 per class (each)</div>
+              </div>
+            </div>
+            
+            {/* What's Included */}
+            <div class="feature-card p-6 rounded-2xl mt-6">
+              <h3 class="text-lg font-bold mb-4 text-center">Everything Included</h3>
+              <div class="grid grid-cols-1 gap-3 text-sm">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">30-Minute Micro-Learning Sessions</div>
+                    <div class="text-gray-400 text-xs">Perfect for young creators' attention spans - 8 live classes/month (Mon & Thu 11:30 AM ET)</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">Lifetime Instruction Library</div>
+                    <div class="text-gray-400 text-xs">Can't make it live? Catch up on expert-led teachings anytime.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">December Bonus Workshops</div>
+                    <div class="text-gray-400 text-xs">First 2 weeks of December: Special 1-hour fun workshops to celebrate the year!</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">Portfolio Building</div>
+                    <div class="text-gray-400 text-xs">Showcase your child's work and track their creative journey</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* STEP 3: Payment */}
+          <div id="step-3" class="step-content hidden">
+            <button onclick="goToStep(2)" class="text-gray-400 hover:text-white mb-4 flex items-center gap-2">
+              ← Back
+            </button>
+            <h2 class="text-5xl font-black mb-4">Complete Enrollment</h2>
+            <p class="text-xl text-gray-400 mb-8">You selected <span id="selected-package" class="text-teal-500"></span></p>
+            
+            {/* Order Summary */}
+            <div class="feature-card p-6 rounded-2xl mb-6">
+              <div class="flex justify-between mb-4">
+                <span class="text-gray-400">Students</span>
+                <span id="summary-students" class="font-bold"></span>
+              </div>
+              <div class="flex justify-between mb-4">
+                <span class="text-gray-400">Price per student</span>
+                <span id="summary-price" class="font-bold"></span>
+              </div>
+              <div class="flex justify-between pt-4 border-t border-white/10">
+                <span id="summary-label" class="text-xl font-bold">Total Today (Prorated)</span>
+                <span id="summary-total" class="text-xl font-bold text-teal-500"></span>
+              </div>
+              <div id="savings-display" class="flex justify-between mt-2 hidden">
+                <span class="text-sm text-gray-400">Annual Savings</span>
+                <span id="summary-savings" class="text-sm font-bold text-green-500"></span>
+              </div>
+              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
+            </div>
+
+            {/* Payment Form */}
+            <div class="space-y-4 mb-6">
+              <div class="bg-gray-900 border-2 border-gray-800 rounded-xl p-6">
+                <p class="text-sm text-gray-400">Stripe payment form will appear here</p>
+              </div>
+            </div>
+
+            <button onclick="completeEnrollment()" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
+              Complete Enrollment 🎉
+            </button>
+          </div>
+
+          {/* Close Button */}
+          <button onclick="closeEnrollment()" class="absolute top-8 right-8 text-gray-400 hover:text-white text-4xl">×</button>
+        </div>
+      </div>
+
+      {/* Enrollment Modal JavaScript */}
+      <script dangerouslySetInnerHTML={{__html: `
+        let currentStep = 1;
+        let selectedStudents = 0;
+        let selectedPrice = 0;
+        let isAnnual = false;
+        
+        const pricingData = {
+          monthly: { 1: 116, 2: 99, 3: 89, 4: 79 },
+          annual: { 1: 93, 2: 79, 3: 71, 4: 63 }
+        };
+
+        function openEnrollment() {
+          document.getElementById('enrollment-modal').classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          goToStep(1);
+        }
+
+        function closeEnrollment() {
+          document.getElementById('enrollment-modal').classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+
+        function goToStep(step) {
+          // Validate Step 1 before proceeding to Step 2
+          if (currentStep === 1 && step === 2) {
+            const email = document.getElementById('parent-email').value.trim();
+            const password = document.getElementById('parent-password').value;
+            
+            // Email validation
+            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+              alert('Please enter a valid email address');
+              document.getElementById('parent-email').focus();
+              return;
+            }
+            
+            // Password validation (min 8 chars only - keep it simple)
+            if (!password || password.length < 8) {
+              alert('Password must be at least 8 characters long');
+              document.getElementById('parent-password').focus();
+              return;
+            }
+          }
+          
+          // Hide all steps
+          document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+          
+          // Show target step
+          document.getElementById('step-' + step).classList.remove('hidden');
+          
+          // Update progress
+          currentStep = step;
+          const percentage = (step / 3) * 100;
+          document.getElementById('progress-bar').style.width = percentage + '%';
+          document.getElementById('step-label').textContent = 'Step ' + step + ' of 3';
+          document.getElementById('step-percentage').textContent = Math.round(percentage) + '%';
+        }
+
+        function toggleBilling(type) {
+          isAnnual = (type === 'annual');
+          
+          // Update toggle buttons
+          const monthlyBtn = document.getElementById('monthly-toggle-btn');
+          const annualBtn = document.getElementById('annual-toggle-btn');
+          
+          if (isAnnual) {
+            monthlyBtn.classList.remove('bg-teal-500', 'text-white');
+            monthlyBtn.classList.add('text-gray-400');
+            annualBtn.classList.add('bg-teal-500', 'text-white');
+            annualBtn.classList.remove('text-gray-400');
+          } else {
+            monthlyBtn.classList.add('bg-teal-500', 'text-white');
+            monthlyBtn.classList.remove('text-gray-400');
+            annualBtn.classList.remove('bg-teal-500', 'text-white');
+            annualBtn.classList.add('text-gray-400');
+          }
+          
+          // Toggle prices
+          document.querySelectorAll('.monthly-price').forEach(el => {
+            el.classList.toggle('hidden', isAnnual);
+          });
+          document.querySelectorAll('.annual-price').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+          document.querySelectorAll('.annual-savings').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+          
+          // Toggle per-class pricing
+          document.querySelectorAll('.monthly-per-class').forEach(el => {
+            el.classList.toggle('hidden', isAnnual);
+          });
+          document.querySelectorAll('.annual-per-class').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+          
+          // Toggle billing notes
+          document.querySelectorAll('.monthly-note').forEach(el => {
+            el.classList.toggle('hidden', isAnnual);
+          });
+          document.querySelectorAll('.annual-note').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+        }
+
+        function selectPackage(students) {
+          selectedStudents = students;
+          selectedPrice = isAnnual ? pricingData.annual[students] : pricingData.monthly[students];
+          
+          // Calculate totals
+          const pricePerStudent = selectedPrice;
+          const monthlyTotal = pricePerStudent * students;
+          
+          let totalCharge, chargeLabel;
+          
+          if (isAnnual) {
+            // Annual: 10 months prepaid (school year, no summer)
+            totalCharge = monthlyTotal * 10;
+            chargeLabel = 'Total (10 months prepaid)';
+          } else {
+            // Monthly: prorated for first month
+            const today = new Date();
+            const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+            const daysRemaining = daysInMonth - today.getDate() + 1;
+            totalCharge = (monthlyTotal / daysInMonth) * daysRemaining;
+            chargeLabel = 'Total Today (Prorated)';
+          }
+          
+          // Calculate savings for display (Annual vs Monthly)
+          const yearlySavings = isAnnual ? 
+            ((pricingData.monthly[students] * students * 10) - (pricePerStudent * students * 10)) : 0;
+          
+          // Update summary
+          const billingText = isAnnual ? ' (Annual - 10 months)' : ' (Monthly)';
+          document.getElementById('selected-package').textContent = 
+            students + (students >= 4 ? '+' : '') + ' student' + (students > 1 ? 's' : '') + billingText;
+          document.getElementById('summary-students').textContent = students + (students >= 4 ? '+' : '');
+          document.getElementById('summary-price').textContent = '$' + pricePerStudent + '/mo per student' + (isAnnual ? ' (20% off)' : '');
+          document.getElementById('summary-total').textContent = '$' + totalCharge.toFixed(2);
+          
+          // Update the label and savings display
+          document.getElementById('summary-label').textContent = chargeLabel;
+          
+          if (isAnnual) {
+            document.getElementById('savings-display').classList.remove('hidden');
+            document.getElementById('summary-savings').textContent = '-$' + yearlySavings.toFixed(2);
+            document.getElementById('proration-note').classList.add('hidden');
+          } else {
+            document.getElementById('savings-display').classList.add('hidden');
+            document.getElementById('proration-note').classList.remove('hidden');
+          }
+          
+          // Go to next step
+          setTimeout(() => goToStep(3), 300);
+        }
+
+        function completeEnrollment() {
+          const email = document.getElementById('parent-email').value;
+          const password = document.getElementById('parent-password').value;
+          
+          if (!email || !password) {
+            alert('Please fill in all fields');
+            return;
+          }
+          
+          const billingType = isAnnual ? 'Annual (10 months prepaid - school year)' : 'Monthly';
+          const pricePerStudent = selectedPrice;
+          const monthlyTotal = pricePerStudent * selectedStudents;
+          const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
+          
+          alert('🎉 Enrollment Complete!\\\\n\\\\nEmail: ' + email + '\\\\nPackage: ' + selectedStudents + ' students at $' + pricePerStudent + '/mo each\\\\nBilling: ' + billingType + '\\\\nTotal: $' + totalCharge.toFixed(2) + '\\\\n\\\\nStripe integration will be added next!');
+          closeEnrollment();
+        }
+
+        // Update all "Enroll Now" and "Start Creating Today" buttons
+        document.addEventListener('DOMContentLoaded', function() {
+          const enrollButtons = document.querySelectorAll('a[href="/pricing"], a[href="/checkout"]');
+          enrollButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+              e.preventDefault();
+              openEnrollment();
+            });
+          });
+        });
+      `}} />
     </div>,
     { title: 'FAQ - Everything You Need to Know | Acromatico' }
   )
