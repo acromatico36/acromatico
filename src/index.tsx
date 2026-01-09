@@ -3,6 +3,26 @@ import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { renderer } from './renderer'
 
+// Shared Header Component
+const Header = () => (
+  <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
+    <style>{`
+      .glass-nav {
+        background: rgba(10, 10, 10, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    `}</style>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex justify-center h-20 items-center">
+        <a href="/">
+          <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
+        </a>
+      </div>
+    </div>
+  </nav>
+)
+
 type Bindings = {
   DB: D1Database
 }
@@ -72,8 +92,8 @@ app.get('/', (c) => {
         
         .feature-card:hover {
           transform: translateY(-5px);
-          border-color: rgba(20, 184, 166, 0.5);
-          box-shadow: 0 10px 40px rgba(20, 184, 166, 0.2);
+          border-color: rgba(71, 148, 166, 0.5);
+          box-shadow: 0 10px 40px rgba(71, 148, 166, 0.2);
         }
         
         .stat-number {
@@ -85,27 +105,7 @@ app.get('/', (c) => {
       `}</style>
 
       {/* Navigation */}
-      <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-between h-20 items-center">
-            <div class="flex items-center space-x-4 opacity-0">
-              {/* Left spacer for balance */}
-              <span>Spacer</span>
-            </div>
-            <div class="flex-1 flex justify-center">
-              <a href="/">
-                <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
-              </a>
-            </div>
-            <div class="flex items-center space-x-4">
-              <a href="/pricing" class="btn-primary px-6 py-3 rounded-full font-semibold" style="background: #4794A6;">
-                Enroll Now
-              </a>
-              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero Section - Full Screen with Animated Starfield Background */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
@@ -926,16 +926,7 @@ app.get('/academy', (c) =>
   c.render(
     <div class="min-h-screen bg-black text-white">
       {/* Navigation */}
-      <nav class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="/">
-            <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8"/>
-          </a>
-          <a href="/pricing" class="px-8 py-3 rounded-full font-bold bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 transition">
-            Enroll Now
-          </a>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero */}
       <section class="pt-32 pb-16 text-center">
@@ -1625,28 +1616,7 @@ app.get('/pricing', (c) => {
   return c.render(
     <div class="min-h-screen bg-black text-white">
       {/* Navigation */}
-      <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-between h-20 items-center">
-            <div class="flex items-center space-x-4 opacity-0">
-              {/* Left spacer for balance */}
-              <span>Spacer</span>
-            </div>
-            <div class="flex-1 flex justify-center">
-              <a href="/">
-                <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
-              </a>
-            </div>
-            <div class="flex items-center space-x-4">
-              <a href="/cart" class="text-gray-300 hover:text-white transition relative">
-                <i class="fas fa-shopping-cart text-xl"></i>
-                <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cart-count">0</span>
-              </a>
-              <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero Section */}
       <section class="pt-32 pb-20 bg-gradient-to-b from-gray-900 to-black">
@@ -1906,26 +1876,7 @@ app.get('/cart', (c) => {
   return c.render(
     <div class="min-h-screen bg-black text-white">
       {/* Navigation */}
-      <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-between h-20 items-center">
-            <div class="flex items-center space-x-4">
-              <a href="/pricing" class="text-gray-300 hover:text-white transition">
-                <i class="fas fa-arrow-left mr-2"></i>Continue Shopping
-              </a>
-            </div>
-            <div class="flex-1 flex justify-center">
-              <a href="/">
-                <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
-              </a>
-            </div>
-            <div class="flex items-center space-x-4 opacity-0">
-              {/* Spacer for balance */}
-              <span>Spacer</span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header />
 
       {/* Cart Content */}
       <section class="pt-32 pb-20 min-h-screen">
