@@ -963,7 +963,7 @@ app.get('/academy', (c) =>
       {/* JANUARY */}
       <section id="january" class="py-32 relative overflow-hidden">
         <div class="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1606987332049-d6dcfddf5929?w=1600&q=80" alt="Finding Your Eye" class="w-full h-full object-cover opacity-20"/>
+          <img src="https://www.genspark.ai/api/files/s/4YRH21tQ" alt="Finding Your Eye" class="w-full h-full object-cover opacity-20"/>
           <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
         </div>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
@@ -997,7 +997,7 @@ app.get('/academy', (c) =>
               </div>
             </div>
             <div class="relative">
-              <img src="https://images.unsplash.com/photo-1606987332049-d6dcfddf5929?w=800&q=80" alt="Vintage Camera" class="rounded-2xl shadow-2xl"/>
+              <img src="https://www.genspark.ai/api/files/s/4YRH21tQ" alt="Vintage Camera" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -left-6 bg-teal-500 text-black px-6 py-3 rounded-xl font-bold text-lg">
                 Master Composition Basics
               </div>
@@ -1011,7 +1011,7 @@ app.get('/academy', (c) =>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Beach Boardwalk" class="rounded-2xl shadow-2xl"/>
+              <img src="https://www.genspark.ai/api/files/s/s6tOxMGp" alt="Beach Boardwalk" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -right-6 bg-blue-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
                 Chase the Golden Hour
               </div>
@@ -1044,7 +1044,7 @@ app.get('/academy', (c) =>
       {/* MARCH */}
       <section id="march" class="py-32 relative overflow-hidden">
         <div class="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1600&q=80" alt="Video Basics" class="w-full h-full object-cover opacity-20"/>
+          <img src="https://www.genspark.ai/api/files/s/ORzq87kx" alt="Video Basics" class="w-full h-full object-cover opacity-20"/>
           <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
         </div>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
@@ -1068,7 +1068,7 @@ app.get('/academy', (c) =>
               </div>
             </div>
             <div class="relative">
-              <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&q=80" alt="Mountain Hiker" class="rounded-2xl shadow-2xl"/>
+              <img src="https://www.genspark.ai/api/files/s/ORzq87kx" alt="Mountain Hiker" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -left-6 bg-purple-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
                 Stories That Move
               </div>
@@ -1082,7 +1082,7 @@ app.get('/academy', (c) =>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=800&q=80" alt="Mother and Child Beach" class="rounded-2xl shadow-2xl"/>
+              <img src="https://www.genspark.ai/api/files/s/sP8m7KVZ" alt="Mother and Child Beach" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -right-6 bg-teal-500 text-black px-6 py-3 rounded-xl font-bold text-lg">
                 Capture Real Emotion
               </div>
@@ -1115,7 +1115,7 @@ app.get('/academy', (c) =>
       {/* MAY */}
       <section id="may" class="py-32 relative overflow-hidden">
         <div class="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80" alt="Street Photography" class="w-full h-full object-cover opacity-20"/>
+          <img src="https://www.genspark.ai/api/files/s/FtC3QAZV" alt="Street Photography" class="w-full h-full object-cover opacity-20"/>
           <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
         </div>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
@@ -1142,7 +1142,7 @@ app.get('/academy', (c) =>
               </div>
             </div>
             <div class="relative">
-              <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80" alt="Street Photography" class="rounded-2xl shadow-2xl"/>
+              <img src="https://www.genspark.ai/api/files/s/FtC3QAZV" alt="Street Photography" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -left-6 bg-blue-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
                 Find Stories Everywhere
               </div>
@@ -1226,7 +1226,7 @@ app.get('/academy', (c) =>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80" alt="Video Editing" class="rounded-2xl shadow-2xl"/>
+              <img src="https://www.genspark.ai/api/files/s/eO1gDzYV" alt="Video Editing" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -right-6 bg-blue-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
                 Edit Like a Pro
               </div>
@@ -1256,7 +1256,7 @@ app.get('/academy', (c) =>
       {/* NOVEMBER */}
       <section id="november" class="py-32 relative overflow-hidden">
         <div class="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1600&q=80" alt="Portfolio Building" class="w-full h-full object-cover opacity-20"/>
+          <img src="https://www.genspark.ai/api/files/s/98JdgTOg" alt="Portfolio Building" class="w-full h-full object-cover opacity-20"/>
           <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
         </div>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
@@ -1283,7 +1283,7 @@ app.get('/academy', (c) =>
               </div>
             </div>
             <div class="relative">
-              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80" alt="Professional Portfolio" class="rounded-2xl shadow-2xl"/>
+              <img src="https://www.genspark.ai/api/files/s/98JdgTOg" alt="Professional Portfolio" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -left-6 bg-purple-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
                 Showcase Your Vision
               </div>
