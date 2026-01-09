@@ -1107,9 +1107,7 @@ app.get('/academy', (c) =>
               </p>
             </div>
             <div class="relative">
-              <div class="rounded-2xl shadow-2xl w-full h-96 bg-gradient-to-br from-teal-500/20 to-purple-500/20 flex items-center justify-center">
-                <p class="text-gray-400 text-center px-6">Advanced Composition Image</p>
-              </div>
+              <img src="/static/images/curriculum/september-advanced-composition.jpg" alt="Advanced Composition" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
@@ -1157,7 +1155,7 @@ app.get('/academy', (c) =>
               </p>
             </div>
             <div class="relative">
-              <img src="/static/images/curriculum/november-portfolio-dashboard.jpg" alt="Portfolio Dashboard" class="rounded-2xl shadow-2xl w-full"/>
+              <img src="/static/images/curriculum/november-portfolio-collage.jpg" alt="Professional Portfolio Collage" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
