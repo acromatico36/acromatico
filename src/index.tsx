@@ -512,7 +512,7 @@ app.get('/', (c) => {
                   class="w-full px-6 py-4 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-teal-500 focus:outline-none text-lg"
                 />
                 <p class="text-xs text-gray-500 mt-2">
-                  Must contain: 8+ characters, uppercase, lowercase, and number
+                  Minimum 8 characters (letters, numbers, or symbols)
                 </p>
               </div>
               <button onclick="goToStep(2)" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
@@ -553,6 +553,10 @@ app.get('/', (c) => {
                 Annual <span class="text-teal-500 text-sm ml-1">Save 20%</span>
               </button>
             </div>
+            <p class="text-center text-sm text-gray-400 mb-6">
+              <span class="annual-note hidden">Annual billing covers 10 months (Sept-June school year). No classes in July & August.</span>
+              <span class="monthly-note">Billed monthly. Cancel anytime with daily proration.</span>
+            </p>
 
             <div class="grid grid-cols-2 gap-4 mb-8">
               <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
@@ -563,7 +567,7 @@ app.get('/', (c) => {
                   <span class="annual-price hidden">$93</span>
                   <span class="text-sm text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $276/year</div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $230 (school year)</div>
                 <div class="text-xs text-gray-500 mt-3 monthly-per-class">$14.50 per class</div>
                 <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$11.63 per class</div>
               </div>
@@ -576,7 +580,7 @@ app.get('/', (c) => {
                   <span class="annual-price hidden">$79</span>
                   <span class="text-sm text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $480/year</div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $400 (school year)</div>
                 <div class="text-xs text-gray-500 mt-3 monthly-per-class">$12.38 per class (each)</div>
                 <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$9.88 per class (each)</div>
               </div>
@@ -588,7 +592,7 @@ app.get('/', (c) => {
                   <span class="annual-price hidden">$71</span>
                   <span class="text-sm text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $648/year</div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $540 (school year)</div>
                 <div class="text-xs text-gray-500 mt-3 monthly-per-class">$11.13 per class (each)</div>
                 <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$8.88 per class (each)</div>
               </div>
@@ -600,7 +604,7 @@ app.get('/', (c) => {
                   <span class="annual-price hidden">$63</span>
                   <span class="text-sm text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $768/year</div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $640 (school year)</div>
                 <div class="text-xs text-gray-500 mt-3 monthly-per-class">$9.88 per class (each)</div>
                 <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$7.88 per class (each)</div>
               </div>
@@ -733,15 +737,9 @@ app.get('/', (c) => {
               return;
             }
             
-            // Password validation (min 8 chars, 1 uppercase, 1 lowercase, 1 number)
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+            // Password validation (min 8 chars only - keep it simple)
             if (!password || password.length < 8) {
               alert('Password must be at least 8 characters long');
-              document.getElementById('parent-password').focus();
-              return;
-            }
-            if (!passwordRegex.test(password)) {
-              alert('Password must contain:\\n• At least 8 characters\\n• One uppercase letter\\n• One lowercase letter\\n• One number');
               document.getElementById('parent-password').focus();
               return;
             }
@@ -798,6 +796,14 @@ app.get('/', (c) => {
           document.querySelectorAll('.annual-per-class').forEach(el => {
             el.classList.toggle('hidden', !isAnnual);
           });
+          
+          // Toggle billing notes
+          document.querySelectorAll('.monthly-note').forEach(el => {
+            el.classList.toggle('hidden', isAnnual);
+          });
+          document.querySelectorAll('.annual-note').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
         }
 
         function selectPackage(students) {
@@ -811,9 +817,9 @@ app.get('/', (c) => {
           let totalCharge, chargeLabel;
           
           if (isAnnual) {
-            // Annual: 12 months prepaid
-            totalCharge = monthlyTotal * 12;
-            chargeLabel = 'Total (12 months prepaid)';
+            // Annual: 10 months prepaid (school year, no summer)
+            totalCharge = monthlyTotal * 10;
+            chargeLabel = 'Total (10 months prepaid)';
           } else {
             // Monthly: prorated for first month
             const today = new Date();
@@ -825,10 +831,10 @@ app.get('/', (c) => {
           
           // Calculate savings for display (Annual vs Monthly)
           const yearlySavings = isAnnual ? 
-            ((pricingData.monthly[students] * students * 12) - (pricePerStudent * students * 12)) : 0;
+            ((pricingData.monthly[students] * students * 10) - (pricePerStudent * students * 10)) : 0;
           
           // Update summary
-          const billingText = isAnnual ? ' (Annual - 12 months)' : ' (Monthly)';
+          const billingText = isAnnual ? ' (Annual - 10 months)' : ' (Monthly)';
           document.getElementById('selected-package').textContent = 
             students + (students >= 4 ? '+' : '') + ' student' + (students > 1 ? 's' : '') + billingText;
           document.getElementById('summary-students').textContent = students + (students >= 4 ? '+' : '');
@@ -860,10 +866,10 @@ app.get('/', (c) => {
             return;
           }
           
-          const billingType = isAnnual ? 'Annual (12 months prepaid)' : 'Monthly';
+          const billingType = isAnnual ? 'Annual (10 months prepaid - school year)' : 'Monthly';
           const pricePerStudent = selectedPrice;
           const monthlyTotal = pricePerStudent * selectedStudents;
-          const totalCharge = isAnnual ? monthlyTotal * 12 : monthlyTotal;
+          const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
           
           alert('🎉 Enrollment Complete!\\n\\nEmail: ' + email + '\\nPackage: ' + selectedStudents + ' students at $' + pricePerStudent + '/mo each\\nBilling: ' + billingType + '\\nTotal: $' + totalCharge.toFixed(2) + '\\n\\nStripe integration will be added next!');
           closeEnrollment();
