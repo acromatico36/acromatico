@@ -920,431 +920,285 @@ app.get('/api/db-test', async (c) => {
   }
 })
 
-// Coming soon placeholder routes
+// ACADEMY - CURRICULUM PAGE
+// BRAND NEW ACADEMY PAGE - CLEAN REBUILD FROM SCRATCH
 app.get('/academy', (c) => 
   c.render(
     <div class="min-h-screen bg-black text-white">
-      {/* Fixed Navigation */}
-      <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-center h-20 items-center">
-            <a href="/">
-              <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8"/>
-            </a>
-          </div>
+      {/* Navigation */}
+      <nav class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <a href="/">
+            <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8"/>
+          </a>
+          <a href="/pricing" class="px-8 py-3 rounded-full font-bold bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 transition">
+            Enroll Now
+          </a>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section class="pt-32 pb-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-          <div class="stars-small"></div>
-          <div class="stars-medium"></div>
-          <div class="stars-large"></div>
-        </div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
-          <h1 class="text-6xl md:text-7xl font-black mb-6 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+      {/* Hero */}
+      <section class="pt-32 pb-16 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+          <h1 class="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
             Your 12-Month Creative Journey
           </h1>
-          <p class="text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            From camera-curious beginner to confident visual storyteller. Watch your child transform into a creator who sees the world differently.
+          <p class="text-xl md:text-2xl text-gray-300 mb-8">
+            From camera-curious beginner to confident visual storyteller.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/pricing" class="btn-primary px-10 py-5 rounded-full text-lg font-bold inline-block" style="background: #4794A6;">
-              Start Your Journey
-            </a>
-            <a href="#january" class="px-10 py-5 rounded-full text-lg font-bold border-2 border-white/20 hover:border-teal-500/50 transition inline-block">
-              Explore Curriculum
-            </a>
-          </div>
+          <a href="/pricing" class="inline-block px-10 py-4 rounded-full font-bold text-lg bg-teal-500 hover:bg-teal-600 transition">
+            Start Your Journey →
+          </a>
         </div>
       </section>
 
-      {/* JANUARY */}
-      <section id="january" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0">
-          <img src="https://www.genspark.ai/api/files/s/4YRH21tQ" alt="Finding Your Eye" class="w-full h-full object-cover opacity-20"/>
-          <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
-        </div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+      {/* JANUARY - Finding Your Eye */}
+      <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div class="text-teal-500 font-bold text-sm mb-2">MONTH 1 • JANUARY</div>
-              <h2 class="text-5xl font-black mb-6">Finding Your Eye</h2>
-              <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>
-                  <strong class="text-white">Imagine your child picking up a camera</strong> and instinctively knowing exactly where to stand, what to frame, and when to press the shutter.
-                </p>
-                <p>
-                  That's <strong class="text-teal-400">the photographer's eye</strong> — a skill we develop intentionally in month one.
-                </p>
-                <p>
-                  Through the <strong class="text-white">Rule of Thirds</strong>, your child learns why some photos feel balanced and others feel chaotic. With <strong class="text-white">Leading Lines</strong>, they discover how to guide the viewer's eye exactly where they want it to go.
-                </p>
-                <p class="text-xl text-teal-400 font-semibold">
-                  By the end of January, they won't just take photos — they'll compose them like a professional.
-                </p>
-              </div>
-              <div class="mt-8 flex gap-4">
-                <div class="feature-card p-4 flex-1">
-                  <div class="text-2xl font-bold text-teal-400 mb-1">Rule of Thirds</div>
-                  <div class="text-sm text-gray-400">The secret to balanced composition</div>
-                </div>
-                <div class="feature-card p-4 flex-1">
-                  <div class="text-2xl font-bold text-teal-400 mb-1">Leading Lines</div>
-                  <div class="text-sm text-gray-400">Guide the viewer's journey</div>
-                </div>
-              </div>
+              <h2 class="text-4xl md:text-5xl font-black mb-6">Finding Your Eye</h2>
+              <p class="text-lg text-gray-300 mb-4">
+                <strong class="text-white">Imagine your child picking up a camera</strong> and instinctively knowing exactly where to stand, what to frame, and when to press the shutter.
+              </p>
+              <p class="text-lg text-gray-300 mb-4">
+                Through the <strong class="text-white">Rule of Thirds</strong> and <strong class="text-white">Leading Lines</strong>, they learn why some photos feel balanced and others feel chaotic.
+              </p>
+              <p class="text-lg text-teal-400 font-semibold">
+                By the end of January, they won't just take photos — they'll compose them like a professional.
+              </p>
             </div>
             <div class="relative">
-              <img src="https://www.genspark.ai/api/files/s/4YRH21tQ" alt="Vintage Camera" class="rounded-2xl shadow-2xl"/>
-              <div class="absolute -bottom-6 -left-6 bg-teal-500 text-black px-6 py-3 rounded-xl font-bold text-lg">
-                Master Composition Basics
-              </div>
+              <img src="https://www.genspark.ai/api/files/s/4YRH21tQ" alt="Vintage Camera" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FEBRUARY */}
-      <section id="february" class="py-32 relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+      {/* FEBRUARY - Light & Shadow */}
+      <section class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://www.genspark.ai/api/files/s/s6tOxMGp" alt="Beach Boardwalk" class="rounded-2xl shadow-2xl"/>
-              <div class="absolute -bottom-6 -right-6 bg-blue-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
-                Chase the Golden Hour
-              </div>
+              <img src="https://www.genspark.ai/api/files/s/s6tOxMGp" alt="Beach Boardwalk" class="rounded-2xl shadow-2xl w-full"/>
             </div>
             <div class="order-1 md:order-2">
               <div class="text-blue-500 font-bold text-sm mb-2">MONTH 2 • FEBRUARY</div>
-              <h2 class="text-5xl font-black mb-6">Light & Shadow</h2>
-              <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>
-                  <strong class="text-white">Photography is painting with light.</strong> And in February, your child becomes the artist.
-                </p>
-                <p>
-                  They'll learn why the <strong class="text-blue-400">Golden Hour</strong> — that magical time just after sunrise and before sunset — makes everything look cinematic. Why shadows aren't mistakes, but tools for drama and depth.
-                </p>
-                <p>
-                  We teach them to <strong class="text-white">see light differently</strong>: how it bounces, how it softens, how it transforms an ordinary scene into art.
-                </p>
-                <p>
-                  <strong class="text-white">Exposure becomes intuitive.</strong> Bright, dark, balanced — they'll know instinctively how to capture the mood they're feeling.
-                </p>
-                <p class="text-xl text-blue-400 font-semibold">
-                  Your child won't just take photos anymore. They'll chase the light.
-                </p>
-              </div>
+              <h2 class="text-4xl md:text-5xl font-black mb-6">Light & Shadow</h2>
+              <p class="text-lg text-gray-300 mb-4">
+                <strong class="text-white">Photography is painting with light.</strong> And in February, your child becomes the artist.
+              </p>
+              <p class="text-lg text-gray-300 mb-4">
+                They'll learn why the <strong class="text-blue-400">Golden Hour</strong> makes everything look cinematic. Why shadows aren't mistakes, but tools for drama and depth.
+              </p>
+              <p class="text-lg text-blue-400 font-semibold">
+                Your child won't just take photos anymore. They'll chase the light.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* MARCH */}
-      <section id="march" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0">
-          <img src="https://www.genspark.ai/api/files/s/ORzq87kx" alt="Video Basics" class="w-full h-full object-cover opacity-20"/>
-          <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
-        </div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+      {/* MARCH - Video Basics */}
+      <section class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div class="text-purple-500 font-bold text-sm mb-2">MONTH 3 • MARCH</div>
-              <h2 class="text-5xl font-black mb-6">Video Basics</h2>
-              <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>
-                  <strong class="text-white">Still photos capture a moment.</strong> Video tells the whole story.
-                </p>
-                <p>
-                  In March, your child discovers <strong class="text-purple-400">the power of motion</strong> — how a slow pan can build tension, how camera movement adds emotion, how to make viewers feel like they're right there in the scene.
-                </p>
-                <p>
-                  We teach <strong class="text-white">visual storytelling</strong>: beginning, middle, end. How to shoot sequences that flow. How to capture b-roll that makes every video feel professional.
-                </p>
-                <p class="text-xl text-purple-400 font-semibold">
-                  By the end of March, they'll be creating mini-movies that make you say "How did my kid do that?"
-                </p>
-              </div>
+              <h2 class="text-4xl md:text-5xl font-black mb-6">Video Basics</h2>
+              <p class="text-lg text-gray-300 mb-4">
+                <strong class="text-white">Still photos capture a moment.</strong> Video tells the whole story.
+              </p>
+              <p class="text-lg text-gray-300 mb-4">
+                In March, your child discovers <strong class="text-purple-400">the power of motion</strong> — how to make viewers feel like they're right there in the scene.
+              </p>
+              <p class="text-lg text-purple-400 font-semibold">
+                By the end of March, they'll be creating mini-movies that make you say "How did my kid do that?"
+              </p>
             </div>
             <div class="relative">
-              <img src="https://www.genspark.ai/api/files/s/ORzq87kx" alt="Mountain Hiker" class="rounded-2xl shadow-2xl"/>
-              <div class="absolute -bottom-6 -left-6 bg-purple-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
-                Stories That Move
-              </div>
+              <img src="https://www.genspark.ai/api/files/s/ORzq87kx" alt="Mountain Photographer" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
       </section>
 
-      {/* APRIL */}
-      <section id="april" class="py-32 relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+      {/* APRIL - Portrait Photography */}
+      <section class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://www.genspark.ai/api/files/s/sP8m7KVZ" alt="Mother and Child Beach" class="rounded-2xl shadow-2xl"/>
-              <div class="absolute -bottom-6 -right-6 bg-teal-500 text-black px-6 py-3 rounded-xl font-bold text-lg">
-                Capture Real Emotion
-              </div>
+              <img src="https://www.genspark.ai/api/files/s/sP8m7KVZ" alt="Mother and Child" class="rounded-2xl shadow-2xl w-full"/>
             </div>
             <div class="order-1 md:order-2">
               <div class="text-teal-500 font-bold text-sm mb-2">MONTH 4 • APRIL</div>
-              <h2 class="text-5xl font-black mb-6">Portrait Photography</h2>
-              <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>
-                  <strong class="text-white">People aren't just subjects.</strong> They're stories waiting to be told.
-                </p>
-                <p>
-                  In April, your child learns the art of <strong class="text-teal-400">connection</strong> — how to make someone feel comfortable in front of the camera, how to capture genuine smiles instead of forced ones.
-                </p>
-                <p>
-                  We teach them <strong class="text-white">the technical secrets</strong>: where to focus (always the eyes), how to use natural light to flatter anyone, and how to pose people without making it awkward.
-                </p>
-                <p>
-                  But more importantly, they learn <strong class="text-white">to see personality</strong> — the laugh lines, the thoughtful gaze, the spark that makes someone uniquely themselves.
-                </p>
-                <p class="text-xl text-teal-400 font-semibold">
-                  Your child will become the family photographer everyone requests.
-                </p>
-              </div>
+              <h2 class="text-4xl md:text-5xl font-black mb-6">Portrait Photography</h2>
+              <p class="text-lg text-gray-300 mb-4">
+                <strong class="text-white">People aren't just subjects.</strong> They're stories waiting to be told.
+              </p>
+              <p class="text-lg text-gray-300 mb-4">
+                In April, your child learns the art of <strong class="text-teal-400">connection</strong> — how to capture genuine smiles and personality.
+              </p>
+              <p class="text-lg text-teal-400 font-semibold">
+                Your child will become the family photographer everyone requests.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* MAY */}
-      <section id="may" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0">
-          <img src="https://www.genspark.ai/api/files/s/FtC3QAZV" alt="Street Photography" class="w-full h-full object-cover opacity-20"/>
-          <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
-        </div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+      {/* MAY - Street Photography */}
+      <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div class="text-blue-500 font-bold text-sm mb-2">MONTH 5 • MAY</div>
-              <h2 class="text-5xl font-black mb-6">Street Photography</h2>
-              <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>
-                  <strong class="text-white">The world is your canvas.</strong> And May is when your child learns to capture it.
-                </p>
-                <p>
-                  <strong class="text-blue-400">Street photography</strong> is all about <strong class="text-white">decisive moments</strong> — the stranger reading a book in perfect light, the reflection in a puddle, the way shadows dance on a building.
-                </p>
-                <p>
-                  We teach them to <strong class="text-white">see stories everywhere</strong>: in architecture, in people, in the everyday details most of us walk right past.
-                </p>
-                <p>
-                  Your child will learn <strong class="text-white">urban composition</strong>, candid capture techniques, and how to find beauty in the ordinary.
-                </p>
-                <p class="text-xl text-blue-400 font-semibold">
-                  After May, every walk becomes a photo adventure.
-                </p>
-              </div>
+              <h2 class="text-4xl md:text-5xl font-black mb-6">Street Photography</h2>
+              <p class="text-lg text-gray-300 mb-4">
+                <strong class="text-white">The world is your canvas.</strong> And May is when your child learns to capture it.
+              </p>
+              <p class="text-lg text-gray-300 mb-4">
+                <strong class="text-blue-400">Street photography</strong> is all about <strong class="text-white">decisive moments</strong> — finding beauty in the everyday.
+              </p>
+              <p class="text-lg text-blue-400 font-semibold">
+                After May, every walk becomes a photo adventure.
+              </p>
             </div>
             <div class="relative">
-              <img src="https://www.genspark.ai/api/files/s/FtC3QAZV" alt="Street Photography" class="rounded-2xl shadow-2xl"/>
-              <div class="absolute -bottom-6 -left-6 bg-blue-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
-                Find Stories Everywhere
-              </div>
+              <img src="https://www.genspark.ai/api/files/s/FtC3QAZV" alt="Chicago Skyline" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
       </section>
 
-      {/* JUNE - DOCUMENTARY PREMIERE */}
-      <section id="june" class="py-32 relative overflow-hidden bg-gradient-to-r from-purple-900 via-blue-900 to-teal-900">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
+      {/* JUNE - Photo Essay Project */}
+      <section class="py-20 bg-gradient-to-r from-purple-900 via-blue-900 to-teal-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
           <div class="text-purple-400 font-bold text-sm mb-2">MONTH 6 • JUNE</div>
-          <h2 class="text-6xl font-black mb-8">Documentary Premiere</h2>
-          <p class="text-2xl text-gray-200 mb-12 max-w-3xl mx-auto">
+          <h2 class="text-5xl md:text-6xl font-black mb-8">Photo Essay Project</h2>
+          <p class="text-2xl text-gray-200 mb-8">
             This is it. <strong class="text-white">The big reveal.</strong>
           </p>
-          <div class="max-w-4xl mx-auto">
-            <div class="space-y-6 text-lg text-gray-200 leading-relaxed text-left">
-              <p>
-                For six months, your child has been learning, practicing, experimenting. And now, they're ready to <strong class="text-white">create something that matters</strong>.
-              </p>
-              <p>
-                In June, every student completes their <strong class="text-purple-400">first documentary film</strong> — a real, start-to-finish project that tells a story they care about.
-              </p>
-              <p>
-                It could be about a family member, a local business, a passion, a cause. <strong class="text-white">Their choice. Their vision. Their voice.</strong>
-              </p>
-              <p>
-                We guide them through <strong class="text-white">the entire process</strong>: planning the narrative, conducting interviews, shooting b-roll, editing the footage, adding music, and delivering a final cut they're proud of.
-              </p>
-              <p class="text-2xl text-purple-300 font-bold text-center pt-8">
-                And then? They premiere it to family and friends. 🎬
-              </p>
-              <p class="text-center text-gray-300">
-                <em>Imagine their pride when everyone applauds their work.</em>
-              </p>
-            </div>
-          </div>
+          <p class="text-lg text-gray-300 mb-4">
+            Every student completes their <strong class="text-purple-400">first photo essay</strong> — a real, start-to-finish project that tells a story they care about.
+          </p>
+          <p class="text-xl text-purple-300 font-bold mt-8">
+            They present it to family and friends. 📸
+          </p>
         </div>
       </section>
 
-      {/* SEPTEMBER */}
-      <section id="september" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1513735539099-c4bfbb1d5b9e?w=1600&q=80" alt="Advanced Composition" class="w-full h-full object-cover opacity-20"/>
-          <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
-        </div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+      {/* SEPTEMBER - Advanced Composition */}
+      <section class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div class="text-teal-500 font-bold text-sm mb-2">MONTH 7 • SEPTEMBER</div>
-              <h2 class="text-5xl font-black mb-6">Advanced Composition</h2>
-              <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>
-                  <strong class="text-white">Now that they know the rules...</strong> it's time to break them.
-                </p>
-                <p>
-                  September is where <strong class="text-teal-400">creativity gets unleashed</strong>. We teach your child how to use negative space to create emotion, how to frame unconventionally for impact, how to turn "mistakes" into artistic choices.
-                </p>
-                <p>
-                  This is <strong class="text-white">visual poetry</strong> — photos that make people stop scrolling, images that stick in your mind long after you've seen them.
-                </p>
-                <p class="text-xl text-teal-400 font-semibold">
-                  Your child will develop their own unique style.
-                </p>
-              </div>
+              <h2 class="text-4xl md:text-5xl font-black mb-6">Advanced Composition</h2>
+              <p class="text-lg text-gray-300 mb-4">
+                <strong class="text-white">Now that they know the rules...</strong> it's time to break them.
+              </p>
+              <p class="text-lg text-gray-300 mb-4">
+                September is where <strong class="text-teal-400">creativity gets unleashed</strong>. Negative space, unconventional framing, artistic choices.
+              </p>
+              <p class="text-lg text-teal-400 font-semibold">
+                Your child will develop their own unique style.
+              </p>
             </div>
             <div class="relative">
-              <img src="https://images.unsplash.com/photo-1513735539099-c4bfbb1d5b9e?w=800&q=80" alt="Creative Framing" class="rounded-2xl shadow-2xl"/>
-              <div class="absolute -bottom-6 -left-6 bg-teal-500 text-black px-6 py-3 rounded-xl font-bold text-lg">
-                Break the Rules
+              <div class="rounded-2xl shadow-2xl w-full h-96 bg-gradient-to-br from-teal-500/20 to-purple-500/20 flex items-center justify-center">
+                <p class="text-gray-400 text-center px-6">Advanced Composition Image</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* OCTOBER */}
-      <section id="october" class="py-32 relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+      {/* OCTOBER - Photo Editing Mastery */}
+      <section class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://www.genspark.ai/api/files/s/eO1gDzYV" alt="Video Editing" class="rounded-2xl shadow-2xl"/>
-              <div class="absolute -bottom-6 -right-6 bg-blue-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
-                Edit Like a Pro
-              </div>
+              <img src="https://www.genspark.ai/api/files/s/eO1gDzYV" alt="Video Editing Timeline" class="rounded-2xl shadow-2xl w-full"/>
             </div>
             <div class="order-1 md:order-2">
               <div class="text-blue-500 font-bold text-sm mb-2">MONTH 8 • OCTOBER</div>
-              <h2 class="text-5xl font-black mb-6">Video Editing Mastery</h2>
-              <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>
-                  <strong class="text-white">Great footage is only half the story.</strong> The magic happens in the edit.
-                </p>
-                <p>
-                  In October, your child learns <strong class="text-blue-400">professional editing techniques</strong>: pacing that keeps viewers engaged, color grading that sets the mood, sound design that makes everything feel cinematic.
-                </p>
-                <p>
-                  We teach them to <strong class="text-white">cut with intention</strong> — when to linger, when to move fast, how to build emotion through rhythm and timing.
-                </p>
-                <p class="text-xl text-blue-400 font-semibold">
-                  They'll turn raw clips into polished films that feel like Netflix originals.
-                </p>
-              </div>
+              <h2 class="text-4xl md:text-5xl font-black mb-6">Photo Editing Mastery</h2>
+              <p class="text-lg text-gray-300 mb-4">
+                <strong class="text-white">Great photos are made twice.</strong> Once in-camera. Once in post-production.
+              </p>
+              <p class="text-lg text-gray-300 mb-4">
+                In October, your child learns <strong class="text-blue-400">professional editing techniques</strong> using Lightroom.
+              </p>
+              <p class="text-lg text-blue-400 font-semibold">
+                They'll turn good photos into great ones.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* NOVEMBER */}
-      <section id="november" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0">
-          <img src="https://www.genspark.ai/api/files/s/98JdgTOg" alt="Portfolio Building" class="w-full h-full object-cover opacity-20"/>
-          <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
-        </div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+      {/* NOVEMBER - Portfolio Building */}
+      <section class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div class="text-purple-500 font-bold text-sm mb-2">MONTH 9 • NOVEMBER</div>
-              <h2 class="text-5xl font-black mb-6">Portfolio Building</h2>
-              <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>
-                  <strong class="text-white">A year's worth of work deserves to be seen.</strong>
-                </p>
-                <p>
-                  In November, your child learns to <strong class="text-purple-400">curate like a gallery curator</strong> — selecting their strongest work, organizing it into a cohesive story, and presenting their unique creative vision.
-                </p>
-                <p>
-                  We teach them <strong class="text-white">how professionals showcase their work</strong>: what to include, what to leave out, how to sequence images for maximum impact.
-                </p>
-                <p>
-                  This portfolio becomes their <strong class="text-white">creative identity</strong> — proof of how far they've come, and a launching pad for wherever they want to go next.
-                </p>
-                <p class="text-xl text-purple-400 font-semibold">
-                  Your child will have a professional portfolio they can be proud of.
-                </p>
-              </div>
+              <h2 class="text-4xl md:text-5xl font-black mb-6">Portfolio Building</h2>
+              <p class="text-lg text-gray-300 mb-4">
+                <strong class="text-white">A year's worth of work deserves to be seen.</strong>
+              </p>
+              <p class="text-lg text-gray-300 mb-4">
+                In November, your child learns to <strong class="text-purple-400">curate like a gallery curator</strong> — selecting their strongest work.
+              </p>
+              <p class="text-lg text-purple-400 font-semibold">
+                Your child will have a professional portfolio they can be proud of.
+              </p>
             </div>
             <div class="relative">
-              <img src="https://www.genspark.ai/api/files/s/98JdgTOg" alt="Professional Portfolio" class="rounded-2xl shadow-2xl"/>
-              <div class="absolute -bottom-6 -left-6 bg-purple-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
-                Showcase Your Vision
-              </div>
+              <img src="https://www.genspark.ai/api/files/s/98JdgTOg" alt="Portfolio Dashboard" class="rounded-2xl shadow-2xl w-full"/>
             </div>
           </div>
         </div>
       </section>
 
-      {/* DECEMBER - YEAR-END SHOWCASE */}
-      <section id="december" class="py-32 relative overflow-hidden bg-gradient-to-r from-teal-900 via-blue-900 to-purple-900">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
+      {/* DECEMBER - Year-End Showcase */}
+      <section class="py-20 bg-gradient-to-r from-teal-900 via-blue-900 to-purple-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
           <div class="text-teal-400 font-bold text-sm mb-2">MONTH 10 • DECEMBER</div>
-          <h2 class="text-6xl font-black mb-8">Year-End Showcase</h2>
-          <p class="text-2xl text-gray-200 mb-12 max-w-3xl mx-auto">
+          <h2 class="text-5xl md:text-6xl font-black mb-8">Year-End Showcase</h2>
+          <p class="text-2xl text-gray-200 mb-8">
             <strong class="text-white">This is the moment.</strong> The celebration. The standing ovation.
           </p>
-          <div class="max-w-4xl mx-auto">
-            <div class="space-y-6 text-lg text-gray-200 leading-relaxed text-left">
-              <p>
-                For ten months, your child has been creating, learning, growing. And in December, they share it all with the people who matter most.
-              </p>
-              <p>
-                The <strong class="text-teal-400">Year-End Showcase</strong> is their moment to shine — presenting their best work to family, friends, and the entire Acromatico community.
-              </p>
-              <p>
-                <strong class="text-white">Plus, two special 1-hour workshops</strong> in the first two weeks of December — extended, fun sessions where we create something extraordinary together.
-              </p>
-              <p class="text-2xl text-teal-300 font-bold text-center pt-8">
-                Imagine your child standing in front of everyone, sharing their creative journey. 🎉
-              </p>
-              <p class="text-center text-gray-300">
-                <em>This is what confidence looks like. This is what transformation feels like.</em>
-              </p>
-            </div>
-          </div>
+          <p class="text-lg text-gray-300 mb-4">
+            The <strong class="text-teal-400">Year-End Showcase</strong> is their moment to shine — presenting their best work to everyone who matters.
+          </p>
+          <p class="text-xl text-teal-300 font-bold mt-8">
+            Imagine your child standing in front of everyone, sharing their creative journey. 🎉
+          </p>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section class="py-32 bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600 relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/30"></div>
-        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 class="text-5xl md:text-6xl font-black mb-8">
-            Ready to Start This Journey?
-          </h2>
-          <p class="text-2xl mb-12 opacity-90">
+      {/* Final CTA */}
+      <section class="py-32 bg-black text-center">
+        <div class="max-w-4xl mx-auto px-6">
+          <h2 class="text-5xl md:text-6xl font-black mb-6">Ready to Start This Journey?</h2>
+          <p class="text-2xl text-gray-300 mb-12">
             10 transformative months. 80 micro-learning sessions. 1 incredible creative journey.
           </p>
-          <a href="/pricing" class="btn-primary px-12 py-6 rounded-full text-xl font-bold text-white inline-block shadow-2xl" style="background: #4794A6;">
+          <a href="/pricing" class="inline-block px-12 py-6 rounded-full text-xl font-bold bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 transition shadow-2xl">
             Enroll Now
           </a>
-          <p class="mt-8 text-sm opacity-75">
+          <p class="mt-8 text-sm text-gray-400">
             30-minute sessions • Expert-led instruction • Lifetime access to all teachings
           </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer class="bg-black border-t border-white/10 py-16">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <footer class="bg-gray-900 py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
           <p class="text-gray-400 text-sm">© 2026 Acromatico. Built for creators, by creators.</p>
         </div>
       </footer>
