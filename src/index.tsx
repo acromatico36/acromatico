@@ -2255,13 +2255,12 @@ app.get('/faq', (c) =>
                   </div>
                   <div class="bg-black/30 p-4 rounded-lg">
                     <strong class="text-white">📸 Step-Up Option: Sony ZV-1</strong>
-                    <p class="text-gray-400 text-sm mt-1">Compact, vlogging-friendly, great for both photo and video. Budget: $500-600</p>
-                  </div>
-                  <div class="bg-black/30 p-4 rounded-lg">
-                    <strong class="text-white">🎥 Action Option: DJI Action 5 Pro</strong>
-                    <p class="text-gray-400 text-sm mt-1">Underwater, traveling, action shots. Indestructible and fun. Budget: $300-400</p>
+                    <p class="text-gray-400 text-sm mt-1">Compact, point-and-shoot style, great for both photo and video. Perfect for learning. Budget: ~$899 (available on StepUp)</p>
                   </div>
                 </div>
+                <p class="text-gray-400 text-sm mt-4">
+                  💡 <strong class="text-white">Pro Tip:</strong> Check <strong class="text-teal-400">StepUp</strong> for budget-friendly options on used Sony, Canon, and Fujifilm cameras. Great way to get professional gear at student-friendly prices.
+                </p>
               </div>
 
               {/* Ages 11-14 */}
@@ -2273,7 +2272,7 @@ app.get('/faq', (c) =>
                 <div class="space-y-3">
                   <div class="bg-black/30 p-4 rounded-lg">
                     <strong class="text-white">🏆 Best Option: Sony A6400 + 16-50mm Kit Lens</strong>
-                    <p class="text-gray-400 text-sm mt-1">Lightweight, fast autofocus, excellent image quality. Perfect starter pro camera. Budget: $900-1,100</p>
+                    <p class="text-gray-400 text-sm mt-1">Lightweight, fast autofocus, excellent image quality. Perfect starter pro camera. Budget: $900-1,100 (check StepUp for savings)</p>
                   </div>
                   <div class="bg-black/30 p-4 rounded-lg">
                     <strong class="text-white">💎 Premium Option: Sony A7R V + 20mm f/1.8 lens</strong>
@@ -2281,9 +2280,12 @@ app.get('/faq', (c) =>
                   </div>
                   <div class="bg-black/30 p-4 rounded-lg">
                     <strong class="text-white">🎬 Budget Option: Fujifilm X-T30 II</strong>
-                    <p class="text-gray-400 text-sm mt-1">Compact, retro design kids love, excellent colors straight out of camera. Budget: $800-900</p>
+                    <p class="text-gray-400 text-sm mt-1">Compact, retro design kids love, excellent colors straight out of camera. Budget: $800-900 (check StepUp for used)</p>
                   </div>
                 </div>
+                <p class="text-gray-400 text-sm mt-4">
+                  💡 <strong class="text-white">Pro Tip:</strong> <strong class="text-teal-400">StepUp</strong> is a marketplace for high-quality used camera gear. You can save 20-40% on Sony, Canon, and Fujifilm bodies and lenses. All gear is inspected and rated by condition.
+                </p>
               </div>
 
               {/* LENSES RECOMMENDATIONS */}
@@ -2298,19 +2300,19 @@ app.get('/faq', (c) =>
                   <div class="space-y-2">
                     <div class="bg-black/30 p-3 rounded-lg">
                       <strong class="text-white">20mm f/1.8 G</strong>
-                      <p class="text-gray-400 text-sm">Wide angle, landscape, environmental portraits. Budget: $900</p>
+                      <p class="text-gray-400 text-sm">Wide angle for landscapes, architecture, environmental portraits, street photography. Budget: $900</p>
                     </div>
                     <div class="bg-black/30 p-3 rounded-lg">
                       <strong class="text-white">50mm f/1.8</strong>
-                      <p class="text-gray-400 text-sm">The classic. Perfect for portraits, street, and learning. Budget: $250</p>
+                      <p class="text-gray-400 text-sm">The classic everyday lens. Perfect for portraits, street photography, storytelling, and learning fundamentals. Budget: $250</p>
                     </div>
                     <div class="bg-black/30 p-3 rounded-lg">
                       <strong class="text-white">85mm f/1.8</strong>
-                      <p class="text-gray-400 text-sm">Portrait perfection. Beautiful bokeh, flattering compression. Budget: $600</p>
+                      <p class="text-gray-400 text-sm">Portrait perfection. Beautiful bokeh, flattering compression, isolates subjects beautifully. Budget: $600</p>
                     </div>
                     <div class="bg-black/30 p-3 rounded-lg">
                       <strong class="text-white">70-200mm f/2.8 GM II</strong>
-                      <p class="text-gray-400 text-sm">Versatile zoom, events, sports, weddings. Budget: $2,600</p>
+                      <p class="text-gray-400 text-sm">Versatile telephoto zoom for portraits, sports, wildlife, events, and distant subjects. Budget: $2,600</p>
                     </div>
                   </div>
                 </div>
@@ -2320,23 +2322,23 @@ app.get('/faq', (c) =>
                   <div class="space-y-2">
                     <div class="bg-black/30 p-3 rounded-lg">
                       <strong class="text-white">24mm f/1.4L II</strong>
-                      <p class="text-gray-400 text-sm">Wide, sharp, perfect for weddings and storytelling. Budget: $1,500</p>
+                      <p class="text-gray-400 text-sm">Wide, sharp, perfect for storytelling, landscapes, architecture, and environmental portraits. Budget: $1,500</p>
                     </div>
                     <div class="bg-black/30 p-3 rounded-lg">
                       <strong class="text-white">50mm f/1.2L</strong>
-                      <p class="text-gray-400 text-sm">Dreamy bokeh, low-light king. Budget: $1,400</p>
+                      <p class="text-gray-400 text-sm">Dreamy bokeh, low-light champion. Creates beautiful subject separation and artistic portraits. Budget: $1,400</p>
                     </div>
                     <div class="bg-black/30 p-3 rounded-lg">
                       <strong class="text-white">85mm f/1.2L II (Our Favorite!)</strong>
-                      <p class="text-gray-400 text-sm">Magazine-quality portraits. Makes people look stunning. Budget: $2,000</p>
+                      <p class="text-gray-400 text-sm">Magazine-quality portraits. Incredible bokeh, makes people look stunning, perfect for headshots and creative portraits. Budget: $2,000</p>
                     </div>
                     <div class="bg-black/30 p-3 rounded-lg">
                       <strong class="text-white">100mm f/2.8L IS Macro</strong>
-                      <p class="text-gray-400 text-sm">Portraits, macro, details. So sharp. Budget: $900</p>
+                      <p class="text-gray-400 text-sm">Dual-purpose: stunning portraits and extreme close-up macro photography. Incredible detail and sharpness. Budget: $900</p>
                     </div>
                     <div class="bg-black/30 p-3 rounded-lg">
                       <strong class="text-white">70-200mm f/2.8L IS II</strong>
-                      <p class="text-gray-400 text-sm">Workhorse lens. Weddings, events, sports. Budget: $2,000</p>
+                      <p class="text-gray-400 text-sm">Workhorse telephoto zoom. Perfect for portraits, sports, wildlife, events, and any distant subjects. Budget: $2,000</p>
                     </div>
                   </div>
                 </div>
@@ -2347,16 +2349,20 @@ app.get('/faq', (c) =>
                 <h3 class="text-2xl font-bold mb-4 text-teal-500">Essential Accessories</h3>
                 <div class="space-y-3">
                   <div class="bg-black/30 p-4 rounded-lg">
-                    <strong class="text-white">🎒 Camera Bag</strong>
-                    <p class="text-gray-400 text-sm mt-1">Peak Design Everyday Sling or Backpack. Protects gear, easy to carry. Budget: $100-200</p>
+                    <strong class="text-white">🎒 Camera Bag & Lens Protection</strong>
+                    <p class="text-gray-400 text-sm mt-1"><strong class="text-white">Think Tank Photo</strong> — Industry standard. TSA-approved, travel-tested for nearly 20 years. Nearly indestructible. <a href="https://prz.io/paQKyvEIO" target="_blank" class="text-teal-400 underline">Use our referral link</a> for $15 off. Budget: $100-300</p>
                   </div>
                   <div class="bg-black/30 p-4 rounded-lg">
-                    <strong class="text-white">💾 Memory Cards</strong>
-                    <p class="text-gray-400 text-sm mt-1">SanDisk Extreme Pro 64GB or 128GB. Fast, reliable. Budget: $30-60 each</p>
+                    <strong class="text-white">💾 SD Cards (Sony Cameras)</strong>
+                    <p class="text-gray-400 text-sm mt-1"><strong class="text-white">Sony SF-G UHS-II V90</strong> or <strong class="text-white">SanDisk Extreme Pro UHS-II V90</strong> — 128GB or 256GB. Fast read/write speeds for burst shooting and 4K video. Budget: $60-120 each. Always carry at least 2.</p>
+                  </div>
+                  <div class="bg-black/30 p-4 rounded-lg">
+                    <strong class="text-white">📥 SD Card Reader (For Sony Cameras)</strong>
+                    <p class="text-gray-400 text-sm mt-1"><strong class="text-white">USB-C UHS-II Card Reader</strong> — Fast ingesting for editing workflow. ProGrade Digital or SanDisk readers work great. Budget: $30-50</p>
                   </div>
                   <div class="bg-black/30 p-4 rounded-lg">
                     <strong class="text-white">🔋 Extra Batteries</strong>
-                    <p class="text-gray-400 text-sm mt-1">Always have at least 2. Nothing worse than a dead battery mid-shoot. Budget: $50-80 each</p>
+                    <p class="text-gray-400 text-sm mt-1">Always carry at least 2 batteries. Nothing worse than a dead battery mid-shoot. Sony NP-FZ100 for A7 series. Budget: $50-80 each</p>
                   </div>
                   <div class="bg-black/30 p-4 rounded-lg">
                     <strong class="text-white">🧼 Cleaning Kit</strong>
@@ -2462,19 +2468,85 @@ app.get('/faq', (c) =>
             
             <div class="space-y-6">
               <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
-                <h3 class="text-2xl font-bold mb-3 text-white">Adobe Lightroom (Highly Recommended)</h3>
+                <h3 class="text-2xl font-bold mb-3 text-white">Adobe Student Photography Bundle (Required)</h3>
                 <p class="text-gray-300 leading-relaxed mb-3">
-                  <strong class="text-white">The industry standard for photo editing.</strong> We teach Lightroom basics in October. It's how we bring colors to life, enhance natural beauty, and create that magazine-ready look.
+                  <strong class="text-white">The industry standard for photo editing.</strong> We teach Lightroom basics in <strong class="text-teal-400">October: Photo Editing Mastery</strong>. It's how we bring colors to life, enhance natural beauty, and create that magazine-ready look.
+                </p>
+                <p class="text-gray-300 mb-3">
+                  Includes <strong class="text-white">Lightroom</strong> + <strong class="text-white">Lightroom Classic</strong> + <strong class="text-white">Photoshop</strong> + 20GB cloud storage.
                 </p>
                 <p class="text-gray-400 text-sm">
-                  Budget: $9.99/month (includes Photoshop!) | Student discount available
+                  Budget: <strong class="text-white">~$19.99/month</strong> with student discount | Check Adobe's website for current student pricing
                 </p>
               </div>
 
               <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
-                <h3 class="text-2xl font-bold mb-3 text-white">Free Alternatives</h3>
+                <h3 class="text-2xl font-bold mb-3 text-white">Photoshop Bundle (Optional — For Curious Students)</h3>
                 <p class="text-gray-300 leading-relaxed">
-                  <strong>GIMP</strong> (free Photoshop alternative), <strong>Darktable</strong> (free Lightroom alternative), or <strong>Snapseed</strong> (mobile editing). Not as powerful, but great for learning.
+                  <strong class="text-white">Not required.</strong> Lightroom covers 95% of post-production needs. But if your child wants to explore advanced compositing, graphic design, or creative effects, Photoshop is included in the Photography Bundle.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Most professional photographers edit 100% in Lightroom. Photoshop is for advanced creative exploration.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* COMPUTER REQUIREMENTS */}
+          <div class="mb-24">
+            <h2 class="text-4xl font-black mb-8 text-purple-500">Computer Requirements for Editing</h2>
+            
+            <div class="space-y-6">
+              <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-2xl font-bold mb-3 text-white">Mac (Highly Recommended)</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                  <strong class="text-white">Best editing experience on a Mac.</strong> Ideally on the new <strong class="text-teal-400">Apple M1-M5 chips</strong> for blazing-fast performance and energy efficiency.
+                </p>
+                <div class="bg-black/30 p-4 rounded-lg mb-4">
+                  <strong class="text-white">💻 Minimum Specs (Starting Students)</strong>
+                  <ul class="text-gray-400 text-sm mt-2 space-y-1 ml-4 list-disc">
+                    <li><strong class="text-white">16GB RAM</strong> — Minimum for smooth Lightroom performance</li>
+                    <li><strong class="text-white">256GB SSD</strong> — Enough for OS + apps + moderate photo library</li>
+                    <li><strong class="text-white">M1 chip or newer</strong> — Fast, efficient, future-proof</li>
+                  </ul>
+                  <p class="text-gray-400 text-sm mt-3">
+                    Budget: <strong class="text-white">$800-1,200</strong> (MacBook Air M1/M2)
+                  </p>
+                </div>
+                <div class="bg-black/30 p-4 rounded-lg mb-4">
+                  <strong class="text-white">🚀 Ideal Specs (Growing Photographers)</strong>
+                  <ul class="text-gray-400 text-sm mt-2 space-y-1 ml-4 list-disc">
+                    <li><strong class="text-white">32GB RAM</strong> — Ideal for multitasking, large photo libraries, and advanced editing</li>
+                    <li><strong class="text-white">512GB-1TB SSD</strong> — Room for growing photo library + video projects</li>
+                    <li><strong class="text-white">M2/M3 chip</strong> — Faster rendering, smoother multitasking</li>
+                  </ul>
+                  <p class="text-gray-400 text-sm mt-3">
+                    Budget: <strong class="text-white">$1,500-2,500</strong> (MacBook Pro M2/M3)
+                  </p>
+                </div>
+                <div class="bg-black/30 p-4 rounded-lg">
+                  <strong class="text-white">⚡ Professional Setup (What Italo Uses)</strong>
+                  <ul class="text-gray-400 text-sm mt-2 space-y-1 ml-4 list-disc">
+                    <li><strong class="text-white">MacBook Pro 15" M1</strong></li>
+                    <li><strong class="text-white">64GB RAM</strong> — Runs multiple apps simultaneously with zero lag</li>
+                    <li><strong class="text-white">1TB SSD</strong> — Fast storage for large photo/video libraries</li>
+                  </ul>
+                  <p class="text-gray-400 text-sm mt-3">
+                    <em>"I edit with speed and have multiple applications open at once. This is professional-level, not required for starting students—but shows what's possible."</em> — Italo
+                  </p>
+                  <p class="text-gray-400 text-sm mt-2">
+                    Budget: <strong class="text-white">$3,000-4,500</strong> (MacBook Pro M1 Pro/Max/Ultra with 64GB RAM)
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-2xl font-bold mb-3 text-white">PC/Windows (Alternative)</h3>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                  <strong class="text-white">PCs work fine for Lightroom,</strong> but Macs offer better color accuracy, battery life, and creative workflow optimization.
+                </p>
+                <p class="text-gray-400 text-sm">
+                  Minimum: <strong class="text-white">16GB RAM, Intel i5/AMD Ryzen 5 or better, 256GB SSD</strong> | Budget: $700-1,200
                 </p>
               </div>
             </div>
