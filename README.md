@@ -14,12 +14,20 @@ Multi-revenue SaaS platform for homeschool families featuring:
 
 ### Completed
 - ✅ SpaceX/Astranova-inspired dark design
-- ✅ White Acromatico logo
+- ✅ White Acromatico logo centered on all pages
 - ✅ Beautiful homepage with cinematic design
 - ✅ Complete database schema (19 tables)
 - ✅ D1 SQLite database configured
 - ✅ Video background (plays on user interaction)
 - ✅ Correct schedule (11:30 AM Mon & Thu, 8 classes/month)
+- ✅ **Typeform-style enrollment modal with 3 steps**
+- ✅ **Monthly/Annual toggle with 20% savings**
+- ✅ **Annual billing: 12 months prepaid**
+- ✅ **Monthly billing: Prorated first month**
+- ✅ **Order summary with savings display**
+- ✅ Our Story page (/our-story)
+- ✅ Sign In button on right
+- ✅ Simplified navigation (logo-centric)
 - ✅ Git repository with clean commit history
 
 ### Database Tables (19)
@@ -51,12 +59,35 @@ Multi-revenue SaaS platform for homeschool families featuring:
 - **Domain:** acromatico.com (pending)
 
 ## Next Steps
-1. **Authentication System** - JWT + bcrypt with role-based access
-2. **Pricing Calculator** - Daily proration + annual prepay
-3. **Enrollment Flow** - Stripe integration
-4. **Parent Portal** - Dashboard, children management
-5. **Student Portal** - Courses, assignments, achievements
-6. **Admin Dashboard** - KPIs, analytics, management
+1. ⏳ **Stripe Integration** - Payment processing for enrollments
+2. ⏳ **Authentication System** - JWT + bcrypt with role-based access
+3. ⏳ **Student Forms** - Collect student details after payment
+4. ⏳ **Database Storage** - Save enrollments to D1
+5. ⏳ **Email Confirmation** - Send welcome emails
+6. ⏳ **Parent Portal** - Dashboard, children management
+7. ⏳ **Student Portal** - Courses, assignments, achievements
+8. ⏳ **Admin Dashboard** - KPIs, analytics, management
+
+## Enrollment Flow (COMPLETED ✅)
+**Modal Opens on:** "Enroll Now" or "Start Creating Today" buttons
+
+**Step 1: Create Free Account (33%)**
+- Email & password
+- No credit card required
+
+**Step 2: Select Package (67%)**
+- Monthly/Annual toggle (Annual = 20% off)
+- 1, 2, 3, or 4+ students
+- Most Popular: 2 students
+- Auto-advances to payment
+
+**Step 3: Complete Enrollment (100%)**
+- Order summary
+- **Monthly:** Prorated first month, then $X/mo
+- **Annual:** 12 months prepaid, save $X/year
+- Stripe payment form (coming soon)
+
+**Testing:** See [ENROLLMENT_FLOW_TEST.md](./ENROLLMENT_FLOW_TEST.md)
 
 ## Video Background Note
 Due to browser autoplay policies, the background video plays automatically on user interaction (click/scroll). This is standard browser behavior to respect user preferences and save bandwidth.
