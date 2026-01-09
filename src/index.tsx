@@ -2275,12 +2275,32 @@ app.get('/faq', (c) =>
                     <p class="text-gray-400 text-sm mt-1">Lightweight, fast autofocus, excellent image quality. Perfect starter pro camera. Budget: $900-1,100 (check StepUp for savings)</p>
                   </div>
                   <div class="bg-black/30 p-4 rounded-lg">
-                    <strong class="text-white">💎 Premium Option: Sony A7R V + 20mm f/1.8 lens</strong>
-                    <p class="text-gray-400 text-sm mt-1">What we use! Incredible sharpness, natural beauty, simplified system. Budget: $3,500-4,000</p>
-                  </div>
-                  <div class="bg-black/30 p-4 rounded-lg">
                     <strong class="text-white">🎬 Budget Option: Fujifilm X-T30 II</strong>
                     <p class="text-gray-400 text-sm mt-1">Compact, retro design kids love, excellent colors straight out of camera. Budget: $800-900 (check StepUp for used)</p>
+                  </div>
+                </div>
+
+                <div class="mt-6 mb-4">
+                  <h4 class="text-xl font-bold text-white mb-3">Pro Options (For Serious Growth)</h4>
+                  <p class="text-gray-300 text-sm mb-4">If your child is ready for professional-level gear, these are the systems we've used and recommend:</p>
+                </div>
+
+                <div class="space-y-3">
+                  <div class="bg-black/30 p-4 rounded-lg border border-teal-500/30">
+                    <strong class="text-white">💎 Sony A7 IV + 28-70mm Kit Lens (Pro Mirrorless)</strong>
+                    <p class="text-gray-400 text-sm mt-1">Full-frame powerhouse. 33MP, incredible autofocus, 10fps burst, 4K 60p video. Perfect balance of photo/video. Lighter than Canon, longer battery life. Budget: $2,500-2,800</p>
+                  </div>
+                  <div class="bg-black/30 p-4 rounded-lg border border-teal-500/30">
+                    <strong class="text-white">⭐ Sony A7R V + 20mm f/1.8 lens (What We Use!)</strong>
+                    <p class="text-gray-400 text-sm mt-1">61MP resolution monster. Incredible sharpness, natural color science, simplified system. Best for portraits, landscapes, studio work. Lightweight mirrorless design. Budget: $3,500-4,000</p>
+                  </div>
+                  <div class="bg-black/30 p-4 rounded-lg border border-blue-500/30">
+                    <strong class="text-white">📸 Canon EOS R6 Mark II + 24-105mm f/4-7.1 Kit Lens (Pro Canon)</strong>
+                    <p class="text-gray-400 text-sm mt-1">24MP full-frame. Canon's flagship mirrorless. Incredible color science, reliable autofocus, works with Canon RF and EF lenses (with adapter). 2 decades of Canon fans love this. Budget: $2,500-2,800</p>
+                  </div>
+                  <div class="bg-black/30 p-4 rounded-lg border border-blue-500/30">
+                    <strong class="text-white">🔥 Canon 5D Mark IV + 24-105mm f/4L II Kit Lens (Pro DSLR Classic)</strong>
+                    <p class="text-gray-400 text-sm mt-1">30MP full-frame DSLR. The workhorse we used for almost a decade. Rugged, reliable, massive lens ecosystem. Heavier than mirrorless but built like a tank. Perfect for learning pro fundamentals. Budget: $2,000-2,500 (check StepUp for savings)</p>
                   </div>
                 </div>
                 <p class="text-gray-400 text-sm mt-4">
