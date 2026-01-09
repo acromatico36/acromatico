@@ -511,10 +511,28 @@ app.get('/', (c) => {
                   placeholder="Min 8 characters"
                   class="w-full px-6 py-4 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-teal-500 focus:outline-none text-lg"
                 />
+                <p class="text-xs text-gray-500 mt-2">
+                  Must contain: 8+ characters, uppercase, lowercase, and number
+                </p>
               </div>
               <button onclick="goToStep(2)" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
                 Continue →
               </button>
+            </div>
+            
+            {/* Security Badge */}
+            <div class="mt-8 pt-8 border-t border-white/10">
+              <div class="flex items-center justify-center gap-3 text-sm text-gray-400">
+                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">256-bit SSL Encryption</span>
+                <span class="text-gray-600">•</span>
+                <span>Your data is secure</span>
+              </div>
+              <p class="text-center text-xs text-gray-500 mt-2">
+                We use industry-standard encryption (AES-256) and secure password hashing (bcrypt) to protect your information.
+              </p>
             </div>
           </div>
 
@@ -546,6 +564,8 @@ app.get('/', (c) => {
                   <span class="text-sm text-gray-500">/mo</span>
                 </div>
                 <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $276/year</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$14.50 per class</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$11.63 per class</div>
               </div>
               <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
                 <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 px-3 py-1 rounded-full text-xs font-bold">Most Popular</div>
@@ -557,6 +577,8 @@ app.get('/', (c) => {
                   <span class="text-sm text-gray-500">/mo each</span>
                 </div>
                 <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $480/year</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$12.38 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$9.88 per class (each)</div>
               </div>
               <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
                 <div class="text-4xl font-black mb-2">3</div>
@@ -567,6 +589,8 @@ app.get('/', (c) => {
                   <span class="text-sm text-gray-500">/mo each</span>
                 </div>
                 <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $648/year</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$11.13 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$8.88 per class (each)</div>
               </div>
               <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
                 <div class="text-4xl font-black mb-2">4+</div>
@@ -577,6 +601,51 @@ app.get('/', (c) => {
                   <span class="text-sm text-gray-500">/mo each</span>
                 </div>
                 <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $768/year</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$9.88 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$7.88 per class (each)</div>
+              </div>
+            </div>
+            
+            {/* What's Included */}
+            <div class="feature-card p-6 rounded-2xl mt-6">
+              <h3 class="text-lg font-bold mb-4 text-center">Everything Included</h3>
+              <div class="grid grid-cols-1 gap-3 text-sm">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">8 Live Classes/Month</div>
+                    <div class="text-gray-400 text-xs">Mon & Thu at 11:30 AM ET - Learn in real-time with expert educators</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">All Recordings Included</div>
+                    <div class="text-gray-400 text-xs">Can't make it live? No problem! Lifetime access to all class recordings</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">Portfolio Building</div>
+                    <div class="text-gray-400 text-xs">Showcase your child's work and track their creative journey</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">Daily Proration</div>
+                    <div class="text-gray-400 text-xs">Pay only for what you use - cancel anytime with no penalties</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -651,6 +720,33 @@ app.get('/', (c) => {
         }
 
         function goToStep(step) {
+          // Validate Step 1 before proceeding to Step 2
+          if (currentStep === 1 && step === 2) {
+            const email = document.getElementById('parent-email').value.trim();
+            const password = document.getElementById('parent-password').value;
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+              alert('Please enter a valid email address');
+              document.getElementById('parent-email').focus();
+              return;
+            }
+            
+            // Password validation (min 8 chars, 1 uppercase, 1 lowercase, 1 number)
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+            if (!password || password.length < 8) {
+              alert('Password must be at least 8 characters long');
+              document.getElementById('parent-password').focus();
+              return;
+            }
+            if (!passwordRegex.test(password)) {
+              alert('Password must contain:\\n• At least 8 characters\\n• One uppercase letter\\n• One lowercase letter\\n• One number');
+              document.getElementById('parent-password').focus();
+              return;
+            }
+          }
+          
           // Hide all steps
           document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
           
@@ -692,6 +788,14 @@ app.get('/', (c) => {
             el.classList.toggle('hidden', !isAnnual);
           });
           document.querySelectorAll('.annual-savings').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+          
+          // Toggle per-class pricing
+          document.querySelectorAll('.monthly-per-class').forEach(el => {
+            el.classList.toggle('hidden', isAnnual);
+          });
+          document.querySelectorAll('.annual-per-class').forEach(el => {
             el.classList.toggle('hidden', !isAnnual);
           });
         }
