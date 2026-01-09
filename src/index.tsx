@@ -963,7 +963,7 @@ app.get('/academy', (c) =>
       {/* JANUARY */}
       <section id="january" class="py-32 relative overflow-hidden">
         <div class="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1600&q=80" alt="Finding Your Eye" class="w-full h-full object-cover opacity-20"/>
+          <img src="https://images.unsplash.com/photo-1606987332049-d6dcfddf5929?w=1600&q=80" alt="Finding Your Eye" class="w-full h-full object-cover opacity-20"/>
           <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
         </div>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
@@ -997,7 +997,7 @@ app.get('/academy', (c) =>
               </div>
             </div>
             <div class="relative">
-              <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&q=80" alt="Rule of Thirds" class="rounded-2xl shadow-2xl"/>
+              <img src="https://images.unsplash.com/photo-1606987332049-d6dcfddf5929?w=800&q=80" alt="Vintage Camera" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -left-6 bg-teal-500 text-black px-6 py-3 rounded-xl font-bold text-lg">
                 Master Composition Basics
               </div>
@@ -1011,7 +1011,7 @@ app.get('/academy', (c) =>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://images.unsplash.com/photo-1495954484750-af469f2f9be5?w=800&q=80" alt="Light and Shadow" class="rounded-2xl shadow-2xl"/>
+              <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Beach Boardwalk" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -right-6 bg-blue-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
                 Chase the Golden Hour
               </div>
@@ -1044,7 +1044,7 @@ app.get('/academy', (c) =>
       {/* MARCH */}
       <section id="march" class="py-32 relative overflow-hidden">
         <div class="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80" alt="Video Basics" class="w-full h-full object-cover opacity-20"/>
+          <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1600&q=80" alt="Video Basics" class="w-full h-full object-cover opacity-20"/>
           <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
         </div>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
@@ -1068,7 +1068,7 @@ app.get('/academy', (c) =>
               </div>
             </div>
             <div class="relative">
-              <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80" alt="Video Storytelling" class="rounded-2xl shadow-2xl"/>
+              <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&q=80" alt="Mountain Hiker" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -left-6 bg-purple-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
                 Stories That Move
               </div>
@@ -1082,7 +1082,7 @@ app.get('/academy', (c) =>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
-              <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=800&q=80" alt="Portrait Photography" class="rounded-2xl shadow-2xl"/>
+              <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=800&q=80" alt="Mother and Child Beach" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -right-6 bg-teal-500 text-black px-6 py-3 rounded-xl font-bold text-lg">
                 Capture Real Emotion
               </div>
@@ -1256,7 +1256,7 @@ app.get('/academy', (c) =>
       {/* NOVEMBER */}
       <section id="november" class="py-32 relative overflow-hidden">
         <div class="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80" alt="Portfolio Building" class="w-full h-full object-cover opacity-20"/>
+          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1600&q=80" alt="Portfolio Building" class="w-full h-full object-cover opacity-20"/>
           <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
         </div>
         <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
@@ -1283,7 +1283,7 @@ app.get('/academy', (c) =>
               </div>
             </div>
             <div class="relative">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Portfolio" class="rounded-2xl shadow-2xl"/>
+              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80" alt="Professional Portfolio" class="rounded-2xl shadow-2xl"/>
               <div class="absolute -bottom-6 -left-6 bg-purple-500 text-white px-6 py-3 rounded-xl font-bold text-lg">
                 Showcase Your Vision
               </div>
@@ -2522,6 +2522,10 @@ app.get('/faq', (c) =>
                 <p class="text-gray-300 leading-relaxed mb-4">
                   <strong class="text-white">Best editing experience on a Mac.</strong> Ideally on the new <strong class="text-teal-400">Apple M1-M5 chips</strong> for blazing-fast performance and energy efficiency.
                 </p>
+                <p class="text-teal-400 text-sm mb-4">
+                  💡 <strong class="text-white">Pro Tip:</strong> Use <strong class="text-teal-400">Apple Education Store</strong> to get education discounts on Macs. Significant savings for students and educators!
+                </p>
+
                 <div class="bg-black/30 p-4 rounded-lg mb-4">
                   <strong class="text-white">💻 Minimum Specs (Starting Students)</strong>
                   <ul class="text-gray-400 text-sm mt-2 space-y-1 ml-4 list-disc">
@@ -2530,24 +2534,35 @@ app.get('/faq', (c) =>
                     <li><strong class="text-white">M1 chip or newer</strong> — Fast, efficient, future-proof</li>
                   </ul>
                   <p class="text-gray-400 text-sm mt-3">
-                    Budget: <strong class="text-white">$800-1,200</strong> (MacBook Air M1/M2)
+                    Options: <strong class="text-white">MacBook Air M1/M2</strong> (portable, lightweight) or <strong class="text-white">iMac 24" M1/M3</strong> (larger screen, perfect for home editing)
+                  </p>
+                  <p class="text-gray-400 text-sm mt-2">
+                    Budget: <strong class="text-white">$800-1,200</strong> (check Apple Education Store for discounts)
                   </p>
                 </div>
+
                 <div class="bg-black/30 p-4 rounded-lg mb-4">
-                  <strong class="text-white">🚀 Ideal Specs (Growing Photographers)</strong>
+                  <strong class="text-white">🚀 Ideal Specs (Growing Photographers) — THE POWERHOUSE</strong>
                   <ul class="text-gray-400 text-sm mt-2 space-y-1 ml-4 list-disc">
                     <li><strong class="text-white">32GB RAM</strong> — Ideal for multitasking, large photo libraries, and advanced editing</li>
                     <li><strong class="text-white">512GB-1TB SSD</strong> — Room for growing photo library + video projects</li>
-                    <li><strong class="text-white">M2/M3 chip</strong> — Faster rendering, smoother multitasking</li>
+                    <li><strong class="text-white">M3/M4 chip</strong> — Faster rendering, smoother multitasking</li>
                   </ul>
                   <p class="text-gray-400 text-sm mt-3">
-                    Budget: <strong class="text-white">$1,500-2,500</strong> (MacBook Pro M2/M3)
+                    <strong class="text-white">Best Option: MacBook Pro 14" M3/M4 with 32GB RAM</strong> — Less expensive than 16" model, incredibly powerful, perfect balance of portability and performance. This is a true powerhouse for serious photographers.
+                  </p>
+                  <p class="text-gray-400 text-sm mt-2">
+                    Alternative: <strong class="text-white">iMac 24" M3 with 32GB RAM</strong> — Gorgeous 4.5K Retina display, all-in-one setup, perfect for dedicated editing station at home.
+                  </p>
+                  <p class="text-gray-400 text-sm mt-2">
+                    Budget: <strong class="text-white">$1,800-2,500</strong> (check Apple Education Store for discounts)
                   </p>
                 </div>
+
                 <div class="bg-black/30 p-4 rounded-lg">
                   <strong class="text-white">⚡ Professional Setup (What Italo Uses)</strong>
                   <ul class="text-gray-400 text-sm mt-2 space-y-1 ml-4 list-disc">
-                    <li><strong class="text-white">MacBook Pro 15" M1</strong></li>
+                    <li><strong class="text-white">MacBook Pro 16" M1 Pro</strong></li>
                     <li><strong class="text-white">64GB RAM</strong> — Runs multiple apps simultaneously with zero lag</li>
                     <li><strong class="text-white">1TB SSD</strong> — Fast storage for large photo/video libraries</li>
                   </ul>
@@ -2555,7 +2570,7 @@ app.get('/faq', (c) =>
                     <em>"I edit with speed and have multiple applications open at once. This is professional-level, not required for starting students—but shows what's possible."</em> — Italo
                   </p>
                   <p class="text-gray-400 text-sm mt-2">
-                    Budget: <strong class="text-white">$3,000-4,500</strong> (MacBook Pro M1 Pro/Max/Ultra with 64GB RAM)
+                    Budget: <strong class="text-white">$3,000-4,500</strong> (MacBook Pro 16" M1 Pro/Max/Ultra with 64GB RAM)
                   </p>
                 </div>
               </div>
