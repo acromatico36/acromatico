@@ -397,8 +397,8 @@ app.get('/', (c) => {
             </div>
             <div class="feature-card p-8 rounded-2xl">
               <div class="text-purple-500 font-bold mb-2">MARCH</div>
-              <h4 class="text-xl font-bold mb-3">Video Basics</h4>
-              <p class="text-gray-400 text-sm">Moving stories, camera movement, storytelling</p>
+              <h4 class="text-xl font-bold mb-3">Manual Mode Mastery</h4>
+              <p class="text-gray-400 text-sm">Exposure triangle: aperture, shutter speed, ISO control</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
               <div class="text-teal-500 font-bold mb-2">APRIL</div>
@@ -413,7 +413,7 @@ app.get('/', (c) => {
             <div class="feature-card p-8 rounded-2xl">
               <div class="text-purple-500 font-bold mb-2">JUNE</div>
               <h4 class="text-xl font-bold mb-3">Photo Essay Project</h4>
-              <p class="text-gray-400 text-sm">Complete your first photo essay—a real story you care about</p>
+              <p class="text-gray-400 text-sm">Complete your first photo essay—10-15 curated images that tell a story</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
               <div class="text-teal-500 font-bold mb-2">SEPTEMBER</div>
