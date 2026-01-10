@@ -1715,9 +1715,6 @@ app.get('/prints', (c) =>
             <a href="#collections" class="px-10 py-5 rounded-full text-lg font-bold bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 transition shadow-2xl">
               Explore Collections
             </a>
-            <a href="#lifestyle" class="px-10 py-5 rounded-full text-lg font-bold border-2 border-white/20 hover:border-teal-500/50 transition">
-              See in Your Space
-            </a>
           </div>
           
           {/* Stats */}
@@ -1921,94 +1918,6 @@ app.get('/prints', (c) =>
                     From $795
                   </button>
                 </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Lifestyle Preview Section - See in Your Space */}
-      <section id="lifestyle" class="py-32 bg-black">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="text-center mb-20">
-            <h2 class="text-6xl md:text-7xl font-black mb-6">
-              See in <span class="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">Your Space</span>
-            </h2>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-              Visualize how these stunning prints transform luxurious beachfront spaces
-            </p>
-          </div>
-
-          {/* Lifestyle Gallery */}
-          <div class="space-y-16">
-            
-            {/* Example 1: Aruba Beach Print */}
-            <div class="lifestyle-preview">
-              <img src="/static/prints/staging-luxury-v2-1.jpg" alt="Luxury beachfront estate living room" class="w-full h-auto" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-              <div class="absolute bottom-0 left-0 right-0 z-20 p-12">
-                <div class="mb-4">
-                  <div class="inline-block px-4 py-2 rounded-full bg-teal-500/20 border border-teal-500/50 text-teal-400 text-sm font-bold">
-                    BEACHFRONT ESTATE
-                  </div>
-                </div>
-                <h3 class="text-4xl font-bold mb-4">Modern Coastal Serenity</h3>
-                <p class="text-gray-400 max-w-2xl">
-                  Statement print (48" × 60") in natural wood frame anchoring luxury open-concept living
-                </p>
-              </div>
-            </div>
-
-            {/* Example 2: Two Column Grid */}
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div class="lifestyle-preview">
-                <img src="/static/prints/staging-luxury-v2-2.jpg" alt="Private residence with Caribbean vista" class="w-full h-auto" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                <div class="absolute bottom-0 left-0 right-0 z-20 p-8">
-                  <div class="mb-3">
-                    <div class="inline-block px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/50 text-blue-400 text-xs font-bold">
-                      PRIVATE RESIDENCE
-                    </div>
-                  </div>
-                  <h3 class="text-2xl font-bold mb-3">Caribbean Vista</h3>
-                  <p class="text-gray-400 text-sm">
-                    Coastal living room with Eagle Beach palapa print
-                  </p>
-                </div>
-              </div>
-              
-              <div class="lifestyle-preview">
-                <img src="/static/prints/staging-luxury-v2-3.jpg" alt="Villa interior with Mediterranean elegance" class="w-full h-auto" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                <div class="absolute bottom-0 left-0 right-0 z-20 p-8">
-                  <div class="mb-3">
-                    <div class="inline-block px-4 py-2 rounded-full bg-teal-500/20 border border-teal-500/50 text-teal-400 text-xs font-bold">
-                      VILLA INTERIOR
-                    </div>
-                  </div>
-                  <h3 class="text-2xl font-bold mb-3">Mediterranean Elegance</h3>
-                  <p class="text-gray-400 text-sm">
-                    Ixtapa coastal vista (40" × 60")
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Example 3: Modern Minimalist */}
-            <div class="lifestyle-preview">
-              <img src="/static/prints/staging-modern-v2.jpg" alt="Black and white print in contemporary retreat" class="w-full h-auto" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-              <div class="absolute bottom-0 left-0 right-0 z-20 p-12">
-                <div class="mb-4">
-                  <div class="inline-block px-4 py-2 rounded-full bg-gray-500/20 border border-gray-500/50 text-gray-400 text-sm font-bold">
-                    CONTEMPORARY RETREAT
-                  </div>
-                </div>
-                <h3 class="text-4xl font-bold mb-4">Modern Minimalism</h3>
-                <p class="text-gray-400 max-w-2xl">
-                  Statement black & white print (60" × 40") anchoring minimalist design aesthetic
-                </p>
               </div>
             </div>
 
