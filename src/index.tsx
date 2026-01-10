@@ -1996,59 +1996,72 @@ app.get('/prints', (c) =>
           {/* Lifestyle Gallery */}
           <div class="space-y-16">
             
-            {/* Example 1: Living Room */}
+            {/* Example 1: Aruba Beach Print */}
             <div class="lifestyle-preview">
-              <div class="relative aspect-[16/9] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center overflow-hidden">
+              <img src="/static/prints/staging-aruba-palapa.jpg" alt="Aruba beach print in luxury living room" class="w-full h-auto" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 z-20 p-12">
+                <div class="mb-4">
+                  <div class="inline-block px-4 py-2 rounded-full bg-teal-500/20 border border-teal-500/50 text-teal-400 text-sm font-bold">
+                    BEACHFRONT ESTATE
+                  </div>
+                </div>
+                <h3 class="text-4xl font-bold mb-4">Aruba Palapa — Modern Coastal Serenity</h3>
+                <p class="text-gray-400 max-w-2xl">
+                  Statement print (48" × 60") in natural wood frame anchoring luxury open-concept living
+                </p>
+              </div>
+            </div>
+
+            {/* Example 2: Two Column Grid */}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="lifestyle-preview">
+                <img src="/static/prints/staging-cinque-terre.jpg" alt="Cinque Terre print in Mediterranean villa" class="w-full h-auto" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                <div class="relative z-20 text-center p-12">
-                  <div class="mb-8">
-                    <div class="inline-block px-4 py-2 rounded-full bg-teal-500/20 border border-teal-500/50 text-teal-400 text-sm font-bold mb-4">
-                      BEACHFRONT LIVING ROOM
+                <div class="absolute bottom-0 left-0 right-0 z-20 p-8">
+                  <div class="mb-3">
+                    <div class="inline-block px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/50 text-blue-400 text-xs font-bold">
+                      ITALIAN ESTATE
                     </div>
                   </div>
-                  <p class="text-6xl mb-6">🖼️</p>
-                  <h3 class="text-4xl font-bold mb-4">Modern Coastal Elegance</h3>
-                  <p class="text-gray-400 max-w-2xl mx-auto">
-                    Large format prints (48" x 60") create dramatic focal points in open-concept beachfront living spaces
+                  <h3 class="text-2xl font-bold mb-3">Cinque Terre Collection</h3>
+                  <p class="text-gray-400 text-sm">
+                    Italian coastal village panoramic (50" × 20")
+                  </p>
+                </div>
+              </div>
+              
+              <div class="lifestyle-preview">
+                <img src="/static/prints/staging-ixtapa-ocean.jpg" alt="Ixtapa ocean view in luxury villa" class="w-full h-auto" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <div class="absolute bottom-0 left-0 right-0 z-20 p-8">
+                  <div class="mb-3">
+                    <div class="inline-block px-4 py-2 rounded-full bg-teal-500/20 border border-teal-500/50 text-teal-400 text-xs font-bold">
+                      VILLA INTERIOR
+                    </div>
+                  </div>
+                  <h3 class="text-2xl font-bold mb-3">Mediterranean Elegance</h3>
+                  <p class="text-gray-400 text-sm">
+                    Ixtapa coastal vista (40" × 60")
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Example 2: Bedroom */}
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div class="lifestyle-preview">
-                <div class="relative aspect-square bg-gradient-to-br from-blue-900/30 to-purple-900/30 flex items-center justify-center">
-                  <div class="text-center p-8">
-                    <div class="mb-6">
-                      <div class="inline-block px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/50 text-blue-400 text-xs font-bold mb-4">
-                        MASTER BEDROOM
-                      </div>
-                    </div>
-                    <p class="text-5xl mb-4">🛏️</p>
-                    <h3 class="text-2xl font-bold mb-3">Serene Retreat</h3>
-                    <p class="text-gray-400 text-sm">
-                      Calming seascapes above the bed (36" x 48")
-                    </p>
+            {/* Example 3: Modern Minimalist */}
+            <div class="lifestyle-preview">
+              <img src="/static/prints/staging-modern-minimalist.jpg" alt="Black and white print in contemporary retreat" class="w-full h-auto" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 z-20 p-12">
+                <div class="mb-4">
+                  <div class="inline-block px-4 py-2 rounded-full bg-gray-500/20 border border-gray-500/50 text-gray-400 text-sm font-bold">
+                    CONTEMPORARY RETREAT
                   </div>
                 </div>
-              </div>
-              
-              <div class="lifestyle-preview">
-                <div class="relative aspect-square bg-gradient-to-br from-teal-900/30 to-green-900/30 flex items-center justify-center">
-                  <div class="text-center p-8">
-                    <div class="mb-6">
-                      <div class="inline-block px-4 py-2 rounded-full bg-teal-500/20 border border-teal-500/50 text-teal-400 text-xs font-bold mb-4">
-                        HOME OFFICE
-                      </div>
-                    </div>
-                    <p class="text-5xl mb-4">💻</p>
-                    <h3 class="text-2xl font-bold mb-3">Inspiring Workspace</h3>
-                    <p class="text-gray-400 text-sm">
-                      Mountain vistas for creative inspiration (30" x 40")
-                    </p>
-                  </div>
-                </div>
+                <h3 class="text-4xl font-bold mb-4">Modern Minimalism</h3>
+                <p class="text-gray-400 max-w-2xl">
+                  Statement black & white print (60" × 40") anchoring minimalist design aesthetic
+                </p>
               </div>
             </div>
 
