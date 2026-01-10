@@ -1777,44 +1777,49 @@ app.get('/prints', (c) =>
             
             {/* Aruba Collection */}
             <div class="print-card rounded-2xl overflow-hidden" data-collection="aruba">
-              <div class="aspect-[4/5] bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center">
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4">🌅</div>
-                  <h3 class="text-2xl font-bold mb-2">Eagle Beach Sunset</h3>
-                  <p class="text-gray-400 text-sm">Aruba, Caribbean</p>
-                </div>
-              </div>
+              <img src="/static/prints/aruba-beach-hut.jpg" alt="Eagle Beach Palapa" class="w-full h-full object-cover aspect-[4/5]" />
               <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Eagle Beach Sunset</h3>
-                <p class="text-gray-400 text-sm mb-4">Limited Edition • Museum Quality</p>
+                <h3 class="text-2xl font-bold mb-2">Eagle Beach Palapa</h3>
+                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
                 <div class="flex gap-3">
                   <button onclick="viewPrint('aruba-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
                     Quick View
                   </button>
-                  <button onclick="addToCart('aruba-1', 'Eagle Beach Sunset', 299)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    Add to Cart • $299
+                  <button onclick="addToCart('aruba-1', 'Eagle Beach Palapa', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                    From $795
                   </button>
                 </div>
               </div>
             </div>
 
             <div class="print-card rounded-2xl overflow-hidden" data-collection="aruba">
-              <div class="aspect-[4/5] bg-gradient-to-br from-blue-500/20 to-teal-500/20 flex items-center justify-center">
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4">🏖️</div>
-                  <h3 class="text-2xl font-bold mb-2">Palm Beach Paradise</h3>
-                  <p class="text-gray-400 text-sm">Aruba, Caribbean</p>
-                </div>
-              </div>
+              <img src="/static/prints/aruba-divi-tree.jpg" alt="Divi Divi Sanctuary" class="w-full h-full object-cover aspect-[4/5]" />
               <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Palm Beach Paradise</h3>
-                <p class="text-gray-400 text-sm mb-4">Limited Edition • Museum Quality</p>
+                <h3 class="text-2xl font-bold mb-2">Divi Divi Sanctuary</h3>
+                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
                 <div class="flex gap-3">
                   <button onclick="viewPrint('aruba-2')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
                     Quick View
                   </button>
-                  <button onclick="addToCart('aruba-2', 'Palm Beach Paradise', 299)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    Add to Cart • $299
+                  <button onclick="addToCart('aruba-2', 'Divi Divi Sanctuary', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                    From $795
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Mexico Collection */}
+            <div class="print-card rounded-2xl overflow-hidden" data-collection="mexico">
+              <img src="/static/prints/mexico-ocean-view.jpg" alt="Pacific Serenity" class="w-full h-full object-cover aspect-[4/5]" />
+              <div class="print-overlay">
+                <h3 class="text-2xl font-bold mb-2">Pacific Serenity</h3>
+                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
+                <div class="flex gap-3">
+                  <button onclick="viewPrint('mexico-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
+                    Quick View
+                  </button>
+                  <button onclick="addToCart('mexico-1', 'Pacific Serenity', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                    From $795
                   </button>
                 </div>
               </div>
@@ -1822,44 +1827,32 @@ app.get('/prints', (c) =>
 
             {/* Chile Collection */}
             <div class="print-card rounded-2xl overflow-hidden" data-collection="chile">
-              <div class="aspect-[4/5] bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4">🏔️</div>
-                  <h3 class="text-2xl font-bold mb-2">Patagonian Peaks</h3>
-                  <p class="text-gray-400 text-sm">Torres del Paine, Chile</p>
-                </div>
-              </div>
+              <img src="/static/prints/chile-torres-del-paine.jpg" alt="Torres del Paine at Sunrise" class="w-full h-full object-cover aspect-[4/5]" />
               <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Patagonian Peaks</h3>
-                <p class="text-gray-400 text-sm mb-4">Limited Edition • Museum Quality</p>
+                <h3 class="text-2xl font-bold mb-2">Torres del Paine at Sunrise</h3>
+                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
                 <div class="flex gap-3">
                   <button onclick="viewPrint('chile-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
                     Quick View
                   </button>
-                  <button onclick="addToCart('chile-1', 'Patagonian Peaks', 349)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    Add to Cart • $349
+                  <button onclick="addToCart('chile-1', 'Torres del Paine at Sunrise', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                    From $795
                   </button>
                 </div>
               </div>
             </div>
 
             <div class="print-card rounded-2xl overflow-hidden" data-collection="chile">
-              <div class="aspect-[4/5] bg-gradient-to-br from-cyan-500/20 to-blue-700/20 flex items-center justify-center">
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4">❄️</div>
-                  <h3 class="text-2xl font-bold mb-2">Glacial Blue</h3>
-                  <p class="text-gray-400 text-sm">Grey Glacier, Chile</p>
-                </div>
-              </div>
+              <img src="/static/prints/chile-glacier.jpg" alt="Glacial Majesty" class="w-full h-full object-cover aspect-[4/5]" />
               <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Glacial Blue</h3>
-                <p class="text-gray-400 text-sm mb-4">Limited Edition • Museum Quality</p>
+                <h3 class="text-2xl font-bold mb-2">Glacial Majesty</h3>
+                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
                 <div class="flex gap-3">
                   <button onclick="viewPrint('chile-2')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
                     Quick View
                   </button>
-                  <button onclick="addToCart('chile-2', 'Glacial Blue', 349)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    Add to Cart • $349
+                  <button onclick="addToCart('chile-2', 'Glacial Majesty', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                    From $795
                   </button>
                 </div>
               </div>
@@ -1867,44 +1860,32 @@ app.get('/prints', (c) =>
 
             {/* Hawaii Collection */}
             <div class="print-card rounded-2xl overflow-hidden" data-collection="hawaii">
-              <div class="aspect-[4/5] bg-gradient-to-br from-orange-600/20 to-red-600/20 flex items-center justify-center">
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4">🌋</div>
-                  <h3 class="text-2xl font-bold mb-2">Volcanic Majesty</h3>
-                  <p class="text-gray-400 text-sm">Big Island, Hawaii</p>
-                </div>
-              </div>
+              <img src="/static/prints/hawaii-lava.jpg" alt="Volcanic Fire" class="w-full h-full object-cover aspect-[4/5]" />
               <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Volcanic Majesty</h3>
-                <p class="text-gray-400 text-sm mb-4">Limited Edition • Museum Quality</p>
+                <h3 class="text-2xl font-bold mb-2">Volcanic Fire</h3>
+                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
                 <div class="flex gap-3">
                   <button onclick="viewPrint('hawaii-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
                     Quick View
                   </button>
-                  <button onclick="addToCart('hawaii-1', 'Volcanic Majesty', 329)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    Add to Cart • $329
+                  <button onclick="addToCart('hawaii-1', 'Volcanic Fire', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                    From $795
                   </button>
                 </div>
               </div>
             </div>
 
             <div class="print-card rounded-2xl overflow-hidden" data-collection="hawaii">
-              <div class="aspect-[4/5] bg-gradient-to-br from-green-600/20 to-teal-600/20 flex items-center justify-center">
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4">🌺</div>
-                  <h3 class="text-2xl font-bold mb-2">Na Pali Coast</h3>
-                  <p class="text-gray-400 text-sm">Kauai, Hawaii</p>
-                </div>
-              </div>
+              <img src="/static/prints/hawaii-napali.jpg" alt="Na Pali Emerald" class="w-full h-full object-cover aspect-[4/5]" />
               <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Na Pali Coast</h3>
-                <p class="text-gray-400 text-sm mb-4">Limited Edition • Museum Quality</p>
+                <h3 class="text-2xl font-bold mb-2">Na Pali Emerald</h3>
+                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
                 <div class="flex gap-3">
                   <button onclick="viewPrint('hawaii-2')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
                     Quick View
                   </button>
-                  <button onclick="addToCart('hawaii-2', 'Na Pali Coast', 329)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    Add to Cart • $329
+                  <button onclick="addToCart('hawaii-2', 'Na Pali Emerald', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                    From $795
                   </button>
                 </div>
               </div>
@@ -1912,66 +1893,32 @@ app.get('/prints', (c) =>
 
             {/* Italy Collection */}
             <div class="print-card rounded-2xl overflow-hidden" data-collection="italy">
-              <div class="aspect-[4/5] bg-gradient-to-br from-yellow-600/20 to-orange-600/20 flex items-center justify-center">
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4">🏛️</div>
-                  <h3 class="text-2xl font-bold mb-2">Roman Golden Hour</h3>
-                  <p class="text-gray-400 text-sm">Rome, Italy</p>
-                </div>
-              </div>
+              <img src="/static/prints/italy-amalfi.jpg" alt="Amalfi Golden Hour" class="w-full h-full object-cover aspect-[4/5]" />
               <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Roman Golden Hour</h3>
-                <p class="text-gray-400 text-sm mb-4">Limited Edition • Museum Quality</p>
+                <h3 class="text-2xl font-bold mb-2">Amalfi Golden Hour</h3>
+                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
                 <div class="flex gap-3">
                   <button onclick="viewPrint('italy-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
                     Quick View
                   </button>
-                  <button onclick="addToCart('italy-1', 'Roman Golden Hour', 379)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    Add to Cart • $379
+                  <button onclick="addToCart('italy-1', 'Amalfi Golden Hour', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                    From $795
                   </button>
                 </div>
               </div>
             </div>
 
             <div class="print-card rounded-2xl overflow-hidden" data-collection="italy">
-              <div class="aspect-[4/5] bg-gradient-to-br from-blue-500/20 to-indigo-600/20 flex items-center justify-center">
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4">🏖️</div>
-                  <h3 class="text-2xl font-bold mb-2">Amalfi Dreams</h3>
-                  <p class="text-gray-400 text-sm">Amalfi Coast, Italy</p>
-                </div>
-              </div>
+              <img src="/static/prints/italy-tuscany.jpg" alt="Tuscany Dawn" class="w-full h-full object-cover aspect-[4/5]" />
               <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Amalfi Dreams</h3>
-                <p class="text-gray-400 text-sm mb-4">Limited Edition • Museum Quality</p>
+                <h3 class="text-2xl font-bold mb-2">Tuscany Dawn</h3>
+                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
                 <div class="flex gap-3">
                   <button onclick="viewPrint('italy-2')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
                     Quick View
                   </button>
-                  <button onclick="addToCart('italy-2', 'Amalfi Dreams', 379)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    Add to Cart • $379
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="italy">
-              <div class="aspect-[4/5] bg-gradient-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center">
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4">🌄</div>
-                  <h3 class="text-2xl font-bold mb-2">Tuscan Sunrise</h3>
-                  <p class="text-gray-400 text-sm">Tuscany, Italy</p>
-                </div>
-              </div>
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Tuscan Sunrise</h3>
-                <p class="text-gray-400 text-sm mb-4">Limited Edition • Museum Quality</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('italy-3')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('italy-3', 'Tuscan Sunrise', 379)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    Add to Cart • $379
+                  <button onclick="addToCart('italy-2', 'Tuscany Dawn', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                    From $795
                   </button>
                 </div>
               </div>
