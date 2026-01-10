@@ -1945,7 +1945,7 @@ app.get('/prints', (c) =>
             
             {/* Example 1: Aruba Beach Print */}
             <div class="lifestyle-preview">
-              <img src="/static/prints/staging-luxury-living-1.jpg" alt="Luxury beachfront estate living room" class="w-full h-auto" />
+              <img src="/static/prints/staging-luxury-v2-1.jpg" alt="Luxury beachfront estate living room" class="w-full h-auto" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
               <div class="absolute bottom-0 left-0 right-0 z-20 p-12">
                 <div class="mb-4">
@@ -1963,7 +1963,7 @@ app.get('/prints', (c) =>
             {/* Example 2: Two Column Grid */}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div class="lifestyle-preview">
-                <img src="/static/prints/staging-luxury-living-2.jpg" alt="Private residence with Caribbean vista" class="w-full h-auto" />
+                <img src="/static/prints/staging-luxury-v2-2.jpg" alt="Private residence with Caribbean vista" class="w-full h-auto" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                 <div class="absolute bottom-0 left-0 right-0 z-20 p-8">
                   <div class="mb-3">
@@ -1979,7 +1979,7 @@ app.get('/prints', (c) =>
               </div>
               
               <div class="lifestyle-preview">
-                <img src="/static/prints/staging-luxury-living-3.jpg" alt="Villa interior with Mediterranean elegance" class="w-full h-auto" />
+                <img src="/static/prints/staging-luxury-v2-3.jpg" alt="Villa interior with Mediterranean elegance" class="w-full h-auto" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                 <div class="absolute bottom-0 left-0 right-0 z-20 p-8">
                   <div class="mb-3">
@@ -1997,7 +1997,7 @@ app.get('/prints', (c) =>
 
             {/* Example 3: Modern Minimalist */}
             <div class="lifestyle-preview">
-              <img src="/static/prints/staging-modern-minimalist.jpg" alt="Black and white print in contemporary retreat" class="w-full h-auto" />
+              <img src="/static/prints/staging-modern-v2.jpg" alt="Black and white print in contemporary retreat" class="w-full h-auto" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
               <div class="absolute bottom-0 left-0 right-0 z-20 p-12">
                 <div class="mb-4">
