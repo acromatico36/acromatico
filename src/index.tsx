@@ -46,6 +46,77 @@ const Header = () => (
   </nav>
 )
 
+// Prints Header Component (light background with cart)
+const PrintsHeader = () => (
+  <nav class="glass-nav fixed top-0 left-0 right-0 z-50" style="background: rgba(253, 253, 251, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid #E8E5E0;">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex items-center space-x-4 opacity-0">
+          {/* Left spacer for balance */}
+          <span>Spacer</span>
+        </div>
+        <div class="flex-1 flex justify-center">
+          <a href="/">
+            <img src="/static/acromatico-logo.png" alt="Acromatico" class="h-8 w-auto" />
+          </a>
+        </div>
+        <div class="flex items-center space-x-6">
+          <a href="/prints" style="color: #3D3935; text-decoration: none; font-size: 16px; font-weight: 500;">Prints</a>
+          <a href="/about" style="color: #3D3935; text-decoration: none; font-size: 16px;">About</a>
+          <button onclick="viewCart()" style="position: relative; background: none; border: none; cursor: pointer; color: #3D3935; font-size: 24px; padding: 8px;">
+            🛒
+            <span class="cart-badge" style="display: none; position: absolute; top: 0; right: 0; background: #3D3935; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; align-items: center; justify-content: center; font-weight: 500;">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+)
+
+// Footer Component
+const Footer = () => (
+  <footer class="bg-black border-t border-white/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+        <div>
+          <h4 class="font-bold mb-4" style="color: white;">Academy</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="/academy" class="hover:text-white transition">Curriculum</a></li>
+            <li><a href="/pricing" class="hover:text-white transition">Pricing</a></li>
+            <li><a href="/faq" class="hover:text-white transition">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4" style="color: white;">Services</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="/studio" class="hover:text-white transition">Studio</a></li>
+            <li><a href="/prints" class="hover:text-white transition">Art Prints</a></li>
+            <li><a href="/photography" class="hover:text-white transition">Photography</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4" style="color: white;">Company</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="/about" class="hover:text-white transition">About</a></li>
+            <li><a href="/blog" class="hover:text-white transition">Blog</a></li>
+            <li><a href="/contact" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4" style="color: white;">Legal</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="/privacy" class="hover:text-white transition">Privacy</a></li>
+            <li><a href="/terms" class="hover:text-white transition">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/10 text-center text-gray-400 text-sm">
+        <p>&copy; 2026 Acromatico. Built for creators, by creators.</p>
+      </div>
+    </div>
+  </footer>
+)
+
 type Bindings = {
   DB: D1Database
   STRIPE_SECRET_KEY: string
@@ -1696,20 +1767,7 @@ app.get('/prints', (c) =>
   c.render(
     <div class="min-h-screen" style="background: #F5F3F0;">
       {/* Navigation with Cart */}
-      <nav class="glass-nav fixed top-0 left-0 right-0 z-50" style="background: rgba(253, 253, 251, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid #E8E5E0;">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-between h-20 items-center">
-            <a href="/" style="font-size: 24px; font-weight: 300; color: #3D3935; text-decoration: none; letter-spacing: 2px;">ACROMATICO</a>
-            <div class="flex items-center space-x-6">
-              <a href="/prints" style="color: #3D3935; text-decoration: none; font-size: 16px;">Prints</a>
-              <button onclick="viewCart()" style="position: relative; background: none; border: none; cursor: pointer; color: #3D3935; font-size: 24px; padding: 8px;">
-                🛒
-                <span class="cart-badge" style="display: none; position: absolute; top: 0; right: 0; background: #3D3935; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; align-items: center; justify-content: center; font-weight: 500;">0</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <PrintsHeader />
 
       <style>{`
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -2541,11 +2599,7 @@ app.get('/prints', (c) =>
         }
       `}} />
 
-      <footer style="background: #3D3935; padding: 60px 24px; text-align: center;">
-        <p style="color: #F5F3F0; font-size: 14px; letter-spacing: 1px;">
-          © 2026 Acromatico · Museum-Quality Fine Art Prints
-        </p>
-      </footer>
+      <Footer />
 
     </div>
   )
@@ -2558,28 +2612,7 @@ app.get('/about', (c) =>
   c.render(
     <div style="background: #F5F3F0; min-height: 100vh;">
       {/* Navigation */}
-      <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
-        <style>{`
-          .glass-nav {
-            background: rgba(245, 243, 240, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(61, 57, 53, 0.1);
-          }
-        `}</style>
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="flex justify-between h-20 items-center">
-            <a href="/" style="font-size: 24px; font-weight: 300; color: #3D3935; text-decoration: none; letter-spacing: 2px;">ACROMATICO</a>
-            <div class="flex items-center space-x-6">
-              <a href="/prints" style="color: #3D3935; text-decoration: none; font-size: 16px;">Prints</a>
-              <a href="/about" style="color: #3D3935; text-decoration: none; font-size: 16px; font-weight: 500;">About</a>
-              <button onclick="viewCart()" style="position: relative; background: none; border: none; cursor: pointer; color: #3D3935; font-size: 24px; padding: 8px;">
-                🛒
-                <span class="cart-badge" style="display: none; position: absolute; top: 0; right: 0; background: #3D3935; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; align-items: center; justify-content: center; font-weight: 500;">0</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <PrintsHeader />
 
       {/* Hero Section */}
       <section style="padding: 140px 24px 80px; background: linear-gradient(180deg, #F5F3F0 0%, #E8E5E0 100%);">
@@ -2719,11 +2752,7 @@ app.get('/about', (c) =>
       </section>
 
       {/* Footer */}
-      <footer style="background: #3D3935; padding: 60px 24px; text-align: center;">
-        <p style="color: #F5F3F0; font-size: 14px; letter-spacing: 1px;">
-          © 2026 Acromatico · Storytelling Photography & Fine Art Prints
-        </p>
-      </footer>
+      <Footer />
 
     </div>
   )
