@@ -2547,6 +2547,183 @@ app.get('/prints', (c) =>
 )
 app.get('/photography', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Photography - Coming Soon</h1></div>))
 app.get('/blog', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Blog - Coming Soon</h1></div>))
+
+// About page
+app.get('/about', (c) =>
+  c.render(
+    <div style="background: #F5F3F0; min-height: 100vh;">
+      {/* Navigation */}
+      <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
+        <style>{`
+          .glass-nav {
+            background: rgba(245, 243, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(61, 57, 53, 0.1);
+          }
+        `}</style>
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="flex justify-between h-20 items-center">
+            <a href="/" style="font-size: 24px; font-weight: 300; color: #3D3935; text-decoration: none; letter-spacing: 2px;">ACROMATICO</a>
+            <div class="flex items-center space-x-6">
+              <a href="/prints" style="color: #3D3935; text-decoration: none; font-size: 16px;">Prints</a>
+              <a href="/about" style="color: #3D3935; text-decoration: none; font-size: 16px; font-weight: 500;">About</a>
+              <button onclick="viewCart()" style="position: relative; background: none; border: none; cursor: pointer; color: #3D3935; font-size: 24px; padding: 8px;">
+                🛒
+                <span class="cart-badge" style="display: none; position: absolute; top: 0; right: 0; background: #3D3935; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; align-items: center; justify-content: center; font-weight: 500;">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section style="padding: 140px 24px 80px; background: linear-gradient(180deg, #F5F3F0 0%, #E8E5E0 100%);">
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+          <h1 style="font-size: 64px; font-weight: 300; letter-spacing: -2px; margin-bottom: 24px; color: #3D3935;">
+            Our Story
+          </h1>
+          <p style="font-size: 24px; line-height: 1.6; color: #8B7E6A; max-width: 800px; margin: 0 auto;">
+            We're not just here to take photos—we're here to tell your story the way it was meant to be told.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Story Content */}
+      <section style="padding: 100px 24px; background: white;">
+        <div style="max-width: 900px; margin: 0 auto;">
+          
+          {/* The Mission */}
+          <div style="margin-bottom: 80px;">
+            <h2 style="font-size: 48px; font-weight: 300; letter-spacing: -1px; margin-bottom: 32px; color: #3D3935;">
+              No Forced Moments. No Copy-Paste Edits.
+            </h2>
+            <p style="font-size: 20px; line-height: 1.8; color: #5A5550; margin-bottom: 24px;">
+              Just real, meaningful connections captured with intention. We keep it real. Every couple, every brand, every story is different—so why should your photos look the same as everyone else's?
+            </p>
+            <p style="font-size: 20px; line-height: 1.8; color: #5A5550; margin-bottom: 24px;">
+              We take the time to understand who you are and craft images that feel like <em style="color: #3D3935; font-style: italic;">you</em>. No awkward poses, no stiff smiles—just raw, authentic moments that hit home.
+            </p>
+          </div>
+
+          {/* The Promise */}
+          <div style="background: #F5F3F0; padding: 60px; margin-bottom: 80px; border-left: 4px solid #3D3935;">
+            <h3 style="font-size: 32px; font-weight: 400; margin-bottom: 24px; color: #3D3935;">
+              We Keep It Honest.
+            </h3>
+            <p style="font-size: 20px; line-height: 1.8; color: #5A5550; margin-bottom: 24px;">
+              What you see is what you get. No paid referrals, no outsourcing, no gimmicks—just a team that genuinely cares about making every moment unforgettable.
+            </p>
+            <p style="font-size: 20px; line-height: 1.8; color: #5A5550;">
+              For more than two decades, we've been all about one thing: <strong style="color: #3D3935;">capturing stories that last.</strong>
+            </p>
+          </div>
+
+          {/* The Founders */}
+          <div style="margin-bottom: 80px;">
+            <h2 style="font-size: 48px; font-weight: 300; letter-spacing: -1px; margin-bottom: 48px; color: #3D3935; text-align: center;">
+              Meet the Artists
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 60px;">
+              {/* Italo */}
+              <div>
+                <h3 style="font-size: 28px; font-weight: 400; margin-bottom: 16px; color: #3D3935;">
+                  Italo Campilii
+                </h3>
+                <p style="font-size: 16px; line-height: 1.8; color: #8B7E6A; margin-bottom: 16px;">
+                  Photographer, Filmmaker, Storyteller
+                </p>
+                <p style="font-size: 18px; line-height: 1.8; color: #5A5550;">
+                  After decades of chasing light across continents—from the turquoise shores of Aruba to the golden villages of Cinque Terre—Italo discovered that the best photographs aren't staged. They're <em style="color: #3D3935;">felt</em>.
+                </p>
+                <p style="font-size: 18px; line-height: 1.8; color: #5A5550; margin-top: 16px;">
+                  Co-founder of Ecolosophy, father, and advocate for intentional living, Italo brings a perspective shaped by years of healing, travel, and deep connection to nature.
+                </p>
+              </div>
+
+              {/* Ale */}
+              <div>
+                <h3 style="font-size: 28px; font-weight: 400; margin-bottom: 16px; color: #3D3935;">
+                  Ale
+                </h3>
+                <p style="font-size: 16px; line-height: 1.8; color: #8B7E6A; margin-bottom: 16px;">
+                  Photographer, Visual Artist, Detail Obsessive
+                </p>
+                <p style="font-size: 18px; line-height: 1.8; color: #5A5550;">
+                  Ale sees the world in frames—the way light falls, the way a moment breathes, the way emotion lives in the smallest details. Together with Italo, she captures the places and moments that make us stop and remember what it feels like to be alive.
+                </p>
+                <p style="font-size: 18px; line-height: 1.8; color: #5A5550; margin-top: 16px;">
+                  Her work is defined by honesty, precision, and a refusal to settle for anything less than real.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* The Philosophy */}
+          <div style="margin-bottom: 80px; text-align: center;">
+            <h2 style="font-size: 48px; font-weight: 300; letter-spacing: -1px; margin-bottom: 32px; color: #3D3935;">
+              What We Believe
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px;">
+              <div>
+                <div style="font-size: 48px; margin-bottom: 16px;">📸</div>
+                <h4 style="font-size: 20px; font-weight: 500; margin-bottom: 12px; color: #3D3935;">Authenticity Over Everything</h4>
+                <p style="font-size: 16px; line-height: 1.6; color: #8B7E6A;">
+                  We don't manufacture moments. We capture them as they happen—raw, real, unforgettable.
+                </p>
+              </div>
+              
+              <div>
+                <div style="font-size: 48px; margin-bottom: 16px;">🌍</div>
+                <h4 style="font-size: 20px; font-weight: 500; margin-bottom: 12px; color: #3D3935;">Timeless, Not Trendy</h4>
+                <p style="font-size: 16px; line-height: 1.6; color: #8B7E6A;">
+                  Trends fade. Moments last. We create images that will matter in 20 years, not just 20 minutes.
+                </p>
+              </div>
+              
+              <div>
+                <div style="font-size: 48px; margin-bottom: 16px;">✨</div>
+                <h4 style="font-size: 20px; font-weight: 500; margin-bottom: 12px; color: #3D3935;">Quality Over Quantity</h4>
+                <p style="font-size: 16px; line-height: 1.6; color: #8B7E6A;">
+                  Limited editions. Hand-signed prints. Every piece is crafted with intention, not mass-produced.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div style="background: #3D3935; padding: 80px 60px; text-align: center; color: #F5F3F0;">
+            <h2 style="font-size: 42px; font-weight: 300; margin-bottom: 24px; color: #F5F3F0;">
+              Let's Create Something Real, Together.
+            </h2>
+            <p style="font-size: 20px; line-height: 1.6; color: #E8E5E0; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+              Whether you're looking for fine art prints that transform your space or storytelling photography that captures your most important moments—we're here.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+              <a href="/prints" style="padding: 18px 40px; background: white; color: #3D3935; text-decoration: none; font-size: 16px; font-weight: 500; letter-spacing: 1px; transition: all 0.3s; display: inline-block;">
+                EXPLORE PRINTS
+              </a>
+              <a href="https://acromatico.com/contact" target="_blank" style="padding: 18px 40px; background: transparent; color: white; border: 2px solid white; text-decoration: none; font-size: 16px; font-weight: 500; letter-spacing: 1px; transition: all 0.3s; display: inline-block;">
+                GET IN TOUCH
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style="background: #3D3935; padding: 60px 24px; text-align: center;">
+        <p style="color: #F5F3F0; font-size: 14px; letter-spacing: 1px;">
+          © 2026 Acromatico · Storytelling Photography & Fine Art Prints
+        </p>
+      </footer>
+
+    </div>
+  )
+)
+
 // Pricing page
 app.get('/pricing', (c) => {
   return c.render(
