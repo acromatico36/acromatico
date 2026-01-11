@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { renderer } from './renderer'
+import Stripe from 'stripe'
 
 // Shared Header Component
 const Header = () => (
@@ -47,12 +48,70 @@ const Header = () => (
 
 type Bindings = {
   DB: D1Database
+  STRIPE_SECRET_KEY: string
+  STRIPE_PUBLISHABLE_KEY: string
 }
 
 const app = new Hono<{ Bindings: Bindings }>()
 
 // Enable CORS for API routes
 app.use('/api/*', cors())
+
+// Stripe Checkout API
+app.post('/api/create-checkout', async (c) => {
+  try {
+    const { STRIPE_SECRET_KEY } = c.env
+    const stripe = new Stripe(STRIPE_SECRET_KEY, {
+      apiVersion: '2024-12-18.acacia',
+    })
+
+    const body = await c.req.json()
+    const { printName, size, sizePrice, frameName, framePrice } = body
+
+    // Calculate total
+    const total = sizePrice + framePrice
+
+    // Create Stripe Checkout Session
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: `${printName} - ${size}"`,
+              description: `${frameName} Frame • Edition 1/100 • Signed by Artists • Artisan Made • Ships in 4-6 Weeks`,
+              images: ['https://acromatico.com/static/logo.png'], // Add your logo
+            },
+            unit_amount: total * 100, // Stripe uses cents
+          },
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: `${c.req.url.split('/api')[0]}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${c.req.url.split('/api')[0]}/prints`,
+      shipping_address_collection: {
+        allowed_countries: ['US', 'CA'],
+      },
+      metadata: {
+        printName,
+        size,
+        frameName,
+      },
+    })
+
+    return c.json({ url: session.url })
+  } catch (error) {
+    console.error('Stripe error:', error)
+    return c.json({ error: 'Failed to create checkout session' }, 500)
+  }
+})
+
+// Get Stripe publishable key
+app.get('/api/stripe-key', (c) => {
+  return c.json({ publishableKey: c.env.STRIPE_PUBLISHABLE_KEY })
+})
 
 // Serve static files from public directory
 app.use('/static/*', serveStatic({ root: './' }))
@@ -2176,8 +2235,39 @@ app.get('/prints', (c) =>
         
         function processPayment(method) {
           const total = selectedSize.price + selectedFrame.price;
-          alert('Processing ' + method + ' payment for $' + total.toLocaleString() + '\\n\\nPrint: ' + currentPrint.name + '\\nSize: ' + selectedSize.name + '\"\\nFrame: ' + selectedFrame.name + '\\n\\nThis will redirect to Stripe checkout (integrate next)');
-          // TODO: Redirect to Stripe Payment Link with pre-filled details
+          
+          // Show loading state
+          const modal = document.getElementById('checkoutModal');
+          if (modal) {
+            modal.querySelector('.modal-body').innerHTML = '<div style="text-align: center; padding: 40px;"><p style="font-size: 18px; color: #3D3935; margin-bottom: 16px;">Processing your order...</p><p style="font-size: 14px; color: #8B7E6A;">Redirecting to secure checkout</p></div>';
+          }
+          
+          // Call Stripe checkout API
+          fetch('/api/create-checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              printName: currentPrint.name,
+              size: selectedSize.name,
+              sizePrice: selectedSize.price,
+              frameName: selectedFrame.name,
+              framePrice: selectedFrame.price
+            })
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.url) {
+              window.location.href = data.url;
+            } else {
+              alert('Error creating checkout session. Please try again.');
+              closeCheckoutModal();
+            }
+          })
+          .catch(error => {
+            console.error('Checkout error:', error);
+            alert('Error processing payment. Please try again.');
+            closeCheckoutModal();
+          });
         }
 
         function updateCartBadge() {
@@ -2535,6 +2625,77 @@ app.get('/pricing', (c) => {
     { title: 'Pricing - Acromatico Academy' }
   )
 })
+
+// Success page after Stripe checkout
+app.get('/success', (c) => {
+  const sessionId = c.req.query('session_id')
+  
+  return c.html(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Order Confirmed - Acromatico</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-white">
+      <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-2xl w-full text-center">
+          <div class="mb-8">
+            <svg class="w-24 h-24 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          
+          <h1 style="font-size: 48px; font-weight: 300; color: #3D3935; margin-bottom: 16px;">
+            Order Confirmed
+          </h1>
+          
+          <p style="font-size: 20px; color: #8B7E6A; margin-bottom: 32px; line-height: 1.6;">
+            Thank you for your purchase! Your fine art print is being prepared by our artisan team.
+          </p>
+          
+          <div style="background: #F5F3F0; border-radius: 12px; padding: 32px; margin-bottom: 32px; text-align: left;">
+            <h3 style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 16px;">What Happens Next?</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 12px 0; border-bottom: 1px solid #E8E5E0;">
+                <strong style="color: #3D3935;">📧 Confirmation Email</strong>
+                <p style="color: #8B7E6A; margin: 4px 0 0 0;">Check your inbox for order details and tracking</p>
+              </li>
+              <li style="padding: 12px 0; border-bottom: 1px solid #E8E5E0;">
+                <strong style="color: #3D3935;">🎨 Artisan Production</strong>
+                <p style="color: #8B7E6A; margin: 4px 0 0 0;">Your print is hand-crafted to order</p>
+              </li>
+              <li style="padding: 12px 0; border-bottom: 1px solid #E8E5E0;">
+                <strong style="color: #3D3935;">📦 Shipping (4-6 Weeks)</strong>
+                <p style="color: #8B7E6A; margin: 4px 0 0 0;">Free shipping within the United States</p>
+              </li>
+              <li style="padding: 12px 0;">
+                <strong style="color: #3D3935;">✨ Edition 1/100</strong>
+                <p style="color: #8B7E6A; margin: 4px 0 0 0;">Signed by artists Italo Campilii & John</p>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="/prints" style="display: inline-block; background: #3D3935; color: white; padding: 16px 48px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500; margin-right: 12px;">
+            Browse More Prints
+          </a>
+          
+          <a href="/" style="display: inline-block; background: white; color: #3D3935; padding: 16px 48px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500; border: 2px solid #E8E5E0;">
+            Back to Home
+          </a>
+          
+          <p style="margin-top: 48px; font-size: 14px; color: #8B7E6A;">
+            Questions? Email us at <a href="mailto:hello@acromatico.com" style="color: #3D3935; text-decoration: underline;">hello@acromatico.com</a>
+          </p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `)
+})
+
 // Cart page
 app.get('/cart', (c) => {
   return c.render(
