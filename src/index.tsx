@@ -1920,6 +1920,25 @@ app.get('/prints', (c) =>
           </div>
         </div>
 
+        {/* Staging 4: Aruba Divi-Divi Tree */}
+        <div>
+          <img 
+            src="/static/prints/staging-aruba-divi-tree.jpg" 
+            alt="Aruba Divi-Divi Tree Beach Print" 
+            class="staging-image"
+          />
+          <div class="print-description">
+            <h3 class="print-title">Aruba Divi-Divi Sanctuary</h3>
+            <p class="print-details">
+              Iconic Aruba divi-divi tree bending gracefully over pristine turquoise waters.
+              <br/>Natural oak frame • Museum-quality archival paper
+            </p>
+            <button onclick="openModal('Aruba Divi-Divi Sanctuary', 1595)" class="cta-button" style="margin-top: 24px;">
+              Inquire About This Print
+            </button>
+          </div>
+        </div>
+
       </section>
 
       {/* CTA Section */}
