@@ -1863,26 +1863,26 @@ app.get('/prints', (c) =>
       {/* Staging Showcase */}
       <section class="staging-showcase">
         
-        {/* Print 1: Eternal Blue */}
+        {/* Print 1: Where Morning Feels Like Forever */}
         <div>
           <img 
             src="/static/prints/staging-aruba-living-room.jpg" 
-            alt="Eternal Blue - Aruba Palapa Fine Art Print" 
+            alt="Where Morning Feels Like Forever - Aruba Baby Beach Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">Eternal Blue</h3>
+            <h3 class="print-title">Where Morning Feels Like Forever</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Captured at dawn on Eagle Beach, this solitary palapa stands where calm waters meet endless sky. The early morning light reveals the truest shade of blue—the kind that makes you want to wake up early every day just to see it again.
+              Baby Beach, Aruba • 6:47 AM. The moment before the world wakes up. A solitary palapa stands where turquoise waters meet endless sky—the kind of blue that makes you want to pause everything and just breathe. This is the feeling you chase on vacation, bottled into a single frame.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('Eternal Blue', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('Where Morning Feels Like Forever', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 24×36" – $795
               </button>
-              <button onclick="addToCart('Eternal Blue', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('Where Morning Feels Like Forever', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 30×40" – $995
               </button>
-              <button onclick="addToCart('Eternal Blue', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('Where Morning Feels Like Forever', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 48×60" – $1,595
               </button>
             </div>
@@ -1890,26 +1890,26 @@ app.get('/prints', (c) =>
           </div>
         </div>
 
-        {/* Print 2: La Sentinelle */}
+        {/* Print 2: The Village That Time Forgot */}
         <div>
           <img 
             src="/static/prints/staging-mediterranean-villa.jpg" 
-            alt="La Sentinelle - Mediterranean Village Fine Art Print" 
+            alt="The Village That Time Forgot - Cinque Terre Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">La Sentinelle</h3>
+            <h3 class="print-title">The Village That Time Forgot</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Perched on ancient stone, this Mediterranean village has overlooked these waters for centuries. Photographed during golden hour when warm light hits the ochre walls and creates dramatic shadows against the deep blue sea below.
+              Cinque Terre, Italy • Golden Hour. Colorful houses cling to cliffs like they've been there forever—because they have. Captured at the exact moment when the sun turns stone into honey and the Mediterranean becomes liquid sapphire. This is what 'escape' looks like.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('La Sentinelle', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('The Village That Time Forgot', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 24×36" – $795
               </button>
-              <button onclick="addToCart('La Sentinelle', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('The Village That Time Forgot', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 30×40" – $995
               </button>
-              <button onclick="addToCart('La Sentinelle', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('The Village That Time Forgot', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 48×60" – $1,595
               </button>
             </div>
@@ -1917,26 +1917,26 @@ app.get('/prints', (c) =>
           </div>
         </div>
 
-        {/* Print 3: Vista Infinita */}
+        {/* Print 3: The View That Changed Everything */}
         <div>
           <img 
             src="/static/prints/staging-coastal-terrace.jpg" 
-            alt="Vista Infinita - Coastal Terrace Fine Art Print" 
+            alt="The View That Changed Everything - Ixtapa Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">Vista Infinita</h3>
+            <h3 class="print-title">The View That Changed Everything</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Where architecture meets the horizon, this Mediterranean terrace offers unobstructed ocean views. Captured in afternoon light when the water reflects like glass, creating a seamless line between sea and sky.
+              Ixtapa, Mexico • Late Afternoon. Standing on this terrace, the Pacific stretches into forever. This is the view that makes you rethink your entire life—the one that reminds you why you work so hard. Where ocean meets sky, and everything else just... fades away.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('Vista Infinita', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('The View That Changed Everything', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 24×36" – $795
               </button>
-              <button onclick="addToCart('Vista Infinita', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('The View That Changed Everything', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 30×40" – $995
               </button>
-              <button onclick="addToCart('Vista Infinita', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('The View That Changed Everything', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 48×60" – $1,595
               </button>
             </div>
@@ -1944,26 +1944,26 @@ app.get('/prints', (c) =>
           </div>
         </div>
 
-        {/* Print 4: The Compass Tree */}
+        {/* Print 4: Nature's Compass */}
         <div>
           <img 
             src="/static/prints/staging-aruba-divi-tree.jpg" 
-            alt="The Compass Tree - Aruba Divi-Divi Fine Art Print" 
+            alt="Nature's Compass - Aruba Divi-Divi Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">The Compass Tree</h3>
+            <h3 class="print-title">Nature's Compass</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Shaped by constant trade winds, Aruba's iconic divi-divi tree permanently leans southwest—a natural compass pointing the way. This distinctive silhouette has become the island's most recognizable landmark. Captured at low tide when the wet sand creates a perfect reflection.
+              Aruba • First Light. The divi-divi tree—bent by trade winds for decades, pointing southwest like it's been waiting to show you the way home. Roots dig deep into white sand, tide pools reflect the morning sky. This tree has witnessed a thousand sunrises. You're looking at just one.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('The Compass Tree', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('Nature\\'s Compass', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 24×36" – $795
               </button>
-              <button onclick="addToCart('The Compass Tree', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('Nature\\'s Compass', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 30×40" – $995
               </button>
-              <button onclick="addToCart('The Compass Tree', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('Nature\\'s Compass', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 48×60" – $1,595
               </button>
             </div>
@@ -1971,26 +1971,26 @@ app.get('/prints', (c) =>
           </div>
         </div>
 
-        {/* Print 5: Alpine Pulse */}
+        {/* Print 5: Where Silence Lives */}
         <div>
           <img 
-            src="/static/prints/staging-switzerland-river.jpg" 
-            alt="Alpine Pulse - Swiss Glacial River Fine Art Print" 
+            src="/static/prints/staging-alpine-lodge.jpg" 
+            alt="Where Silence Lives - Dolomites Mountain Lodge Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">Alpine Pulse</h3>
+            <h3 class="print-title">Where Silence Lives</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Where glacial ice meets alpine stone, this turquoise river winds through the Swiss Alps. Photographed from above during spring melt, revealing the striking contrast between gray rock and brilliant blue water as it carves through ancient valleys.
+              Dolomites, Italy • Late Afternoon. A stone lodge perched between earth and sky, where jagged peaks pierce clouds and firelight flickers against ancient walls. This is where you go to remember what quiet feels like—the kind of place that makes city noise feel like a distant memory.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('Alpine Pulse', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('Where Silence Lives', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 24×36" – $795
               </button>
-              <button onclick="addToCart('Alpine Pulse', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('Where Silence Lives', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 30×40" – $995
               </button>
-              <button onclick="addToCart('Alpine Pulse', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('Where Silence Lives', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 48×60" – $1,595
               </button>
             </div>
@@ -1998,33 +1998,32 @@ app.get('/prints', (c) =>
           </div>
         </div>
 
-        {/* Print 6: Sospeso Nel Cielo */}
+        {/* Print 6: The Room Where Dreams Live */}
         <div>
           <img 
-            src="/static/prints/staging-cinque-terre-aerial.jpg" 
-            alt="Sospeso Nel Cielo - Cinque Terre Aerial Fine Art Print" 
+            src="/static/prints/staging-cinque-terre-villa.jpg" 
+            alt="The Room Where Dreams Live - Cinque Terre Villa Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">Sospeso Nel Cielo</h3>
+            <h3 class="print-title">The Room Where Dreams Live</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Colorful villages perched on dramatic cliffs overlooking the Ligurian Sea. Captured during late afternoon when warm sunlight illuminates the pastel buildings and creates deep blue contrast with the Mediterranean waters below. This is Italy's most photographed coastline for good reason.
+              Cinque Terre, Italy • Mid-Morning. A villa perched on cliffs, where whitewashed walls frame the deepest blue you've ever seen. This is the room where every dream vacation starts—the one you pin to your vision board and think about during long meetings. Where luxury meets simplicity, and the view does all the talking.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('Sospeso Nel Cielo', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('The Room Where Dreams Live', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 24×36" – $795
               </button>
-              <button onclick="addToCart('Sospeso Nel Cielo', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('The Room Where Dreams Live', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 30×40" – $995
               </button>
-              <button onclick="addToCart('Sospeso Nel Cielo', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+              <button onclick="addToCart('The Room Where Dreams Live', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
                 48×60" – $1,595
               </button>
             </div>
             <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
-
       </section>
 
       {/* CTA Section */}
