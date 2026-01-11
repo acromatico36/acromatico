@@ -2099,7 +2099,7 @@ app.get('/prints', (c) =>
       {/* Purchase Modal */}
       <div id="purchaseModal" class="modal" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
-          <button onclick="closeModal()" class="close-button">&times;</button>
+          <button onclick="closeModal()" class="close-button">×</button>
           
           <div class="modal-header">
             <h2 id="modalTitle" style="font-size: 36px; font-weight: 400; color: #3D3935; margin-bottom: 8px;">Print Title</h2>
@@ -2177,7 +2177,7 @@ app.get('/prints', (c) =>
         </div>
       </div>
 
-      <script>{`
+      <script dangerouslySetInnerHTML={{__html: `
         let cart = [];
         let currentPrint = { name: '', basePrice: 0 };
         let selectedSize = { name: '', price: 0 };
@@ -2199,7 +2199,7 @@ app.get('/prints', (c) =>
           // Create modal HTML with string concatenation to avoid template literal issues
           const modalHTML = '<div id="checkoutModal" class="modal active" onclick="closeCheckoutModal(event)">' +
             '<div class="modal-content" onclick="event.stopPropagation()" style="max-width: 500px;">' +
-            '<button onclick="closeCheckoutModal()" class="close-button">&times;</button>' +
+            '<button onclick="closeCheckoutModal()" class="close-button">×</button>' +
             '<div class="modal-header">' +
             '<h2 style="font-size: 28px; font-weight: 400; color: #3D3935; margin-bottom: 8px;">Complete Your Order</h2>' +
             '<p style="font-size: 14px; color: #8B7E6A;">Artisan Made • Built to Order • Ships in 4-6 Weeks</p>' +
@@ -2212,9 +2212,9 @@ app.get('/prints', (c) =>
             '<div class="summary-row" style="border-top: 2px solid #3D3935; padding-top: 16px; margin-top: 16px; font-size: 20px; font-weight: 500;"><span style="color: #3D3935;">Total</span><span style="color: #3D3935;">$' + total.toLocaleString() + '</span></div>' +
             '</div>' +
             '<h3 style="font-size: 18px; font-weight: 500; margin-bottom: 16px; color: #3D3935;">Choose Payment Method</h3>' +
-            '<button onclick="processPayment(\'apple-pay\')" class="cta-button" style="width: 100%; margin-bottom: 12px; background: #000;">Apple Pay</button>' +
-            '<button onclick="processPayment(\'google-pay\')" class="cta-button" style="width: 100%; margin-bottom: 12px; background: #fff; color: #3D3935; border: 2px solid #E8E5E0;">Google Pay</button>' +
-            '<button onclick="processPayment(\'credit-card\')" class="cta-button" style="width: 100%; background: #3D3935;">Credit Card</button>' +
+            '<button onclick="processPayment(\\'apple-pay\\')" class="cta-button" style="width: 100%; margin-bottom: 12px; background: #000;">Apple Pay</button>' +
+            '<button onclick="processPayment(\\'google-pay\\')" class="cta-button" style="width: 100%; margin-bottom: 12px; background: #fff; color: #3D3935; border: 2px solid #E8E5E0;">Google Pay</button>' +
+            '<button onclick="processPayment(\\'credit-card\\')" class="cta-button" style="width: 100%; background: #3D3935;">Credit Card</button>' +
             '<p style="text-align: center; font-size: 12px; color: #8B7E6A; margin-top: 16px; line-height: 1.6;">🔒 Secure checkout powered by Stripe<br/>Free shipping within the United States</p>' +
             '</div></div></div>';
           
@@ -2352,7 +2352,7 @@ app.get('/prints', (c) =>
           alert('Proceeding to checkout: ' + currentPrint.name + ' - ' + selectedSize.name + ' - ' + selectedFrame.name + ' - Total: $' + total);
           // TODO: Stripe checkout integration
         }
-      `}</script>
+      `}} />
 
       <footer style="background: #3D3935; padding: 60px 24px; text-align: center;">
         <p style="color: #F5F3F0; font-size: 14px; letter-spacing: 1px;">
