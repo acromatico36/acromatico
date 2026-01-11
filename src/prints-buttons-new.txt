@@ -1,0 +1,5 @@
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
+              <button onclick="openPrintModal('PRINT_NAME', 'IMAGE_PATH')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
+                Select Options
+              </button>
+            </div>

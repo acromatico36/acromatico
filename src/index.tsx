@@ -1935,14 +1935,8 @@ app.get('/prints', (c) =>
               Baby Beach, Aruba • 6:47 AM. The moment before the world wakes up. A solitary palapa stands where turquoise waters meet endless sky—the kind of blue that makes you want to pause everything and just breathe. This is the feeling you chase on vacation, bottled into a single frame.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('Where Morning Feels Like Forever', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                24×36" – $795
-              </button>
-              <button onclick="addToCart('Where Morning Feels Like Forever', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                30×40" – $995
-              </button>
-              <button onclick="addToCart('Where Morning Feels Like Forever', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                48×60" – $1,595
+              <button onclick="openPrintModal('Where Morning Feels Like Forever', '/static/prints/staging-aruba-living-room.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
+                Select Options
               </button>
             </div>
             <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
