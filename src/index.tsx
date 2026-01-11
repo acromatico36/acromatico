@@ -1971,6 +1971,33 @@ app.get('/prints', (c) =>
           </div>
         </div>
 
+        {/* Print 5: Alpine Pulse */}
+        <div>
+          <img 
+            src="/static/prints/staging-switzerland-river.jpg" 
+            alt="Alpine Pulse - Swiss Glacial River Fine Art Print" 
+            class="staging-image"
+          />
+          <div class="print-description">
+            <h3 class="print-title">Alpine Pulse</h3>
+            <p class="print-details" style="margin-bottom: 24px;">
+              Where ancient ice meets eternal stone, this glacial river carves its path through the Swiss Alps. Photographed from above at the moment when winter's grip begins to loosen—revealing veins of turquoise that flow like the Earth's own heartbeat through valleys older than memory.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
+              <button onclick="addToCart('Alpine Pulse', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                24×36" – $795
+              </button>
+              <button onclick="addToCart('Alpine Pulse', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                30×40" – $995
+              </button>
+              <button onclick="addToCart('Alpine Pulse', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                48×60" – $1,595
+              </button>
+            </div>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
+          </div>
+        </div>
+
       </section>
 
       {/* CTA Section */}
