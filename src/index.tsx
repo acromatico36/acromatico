@@ -66,28 +66,29 @@ app.post('/api/create-checkout', async (c) => {
     })
 
     const body = await c.req.json()
-    const { printName, size, sizePrice, frameName, framePrice } = body
+    const { items } = body // Now accepting array of items
 
-    // Calculate total
-    const total = sizePrice + framePrice
+    // Create line items for Stripe
+    const lineItems = items.map((item: any) => {
+      const total = item.sizePrice + item.framePrice
+      return {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: `${item.printName} - ${item.size}"`,
+            description: `✨ Limited Edition 1/100\n🖋️ Hand-Signed by Artists Italo Campilii & John\n🎨 ${item.frameName} Frame\n📐 ${item.size}" Museum-Quality Print\n📄 Archival Paper • UV-Protected\n🏗️ Artisan-Made • Built to Order\n📦 Ships in 4-6 Weeks • Free US Shipping`,
+            images: item.imageUrl ? [item.imageUrl] : [],
+          },
+          unit_amount: total * 100, // Stripe uses cents
+        },
+        quantity: item.quantity || 1,
+      }
+    })
 
     // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: `${printName} - ${size}"`,
-              description: `${frameName} Frame • Edition 1/100 • Signed by Artists • Artisan Made • Ships in 4-6 Weeks`,
-              images: ['https://acromatico.com/static/logo.png'], // Add your logo
-            },
-            unit_amount: total * 100, // Stripe uses cents
-          },
-          quantity: 1,
-        },
-      ],
+      line_items: lineItems,
       mode: 'payment',
       success_url: `${c.req.url.split('/api')[0]}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${c.req.url.split('/api')[0]}/prints`,
@@ -95,9 +96,7 @@ app.post('/api/create-checkout', async (c) => {
         allowed_countries: ['US', 'CA'],
       },
       metadata: {
-        printName,
-        size,
-        frameName,
+        items: JSON.stringify(items.map((i: any) => ({ print: i.printName, size: i.size, frame: i.frameName }))),
       },
     })
 
@@ -1696,8 +1695,21 @@ app.get('/studio', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bol
 app.get('/prints', (c) => 
   c.render(
     <div class="min-h-screen" style="background: #F5F3F0;">
-      {/* Navigation */}
-      <Header />
+      {/* Navigation with Cart */}
+      <nav class="glass-nav fixed top-0 left-0 right-0 z-50" style="background: rgba(253, 253, 251, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid #E8E5E0;">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="flex justify-between h-20 items-center">
+            <a href="/" style="font-size: 24px; font-weight: 300; color: #3D3935; text-decoration: none; letter-spacing: 2px;">ACROMATICO</a>
+            <div class="flex items-center space-x-6">
+              <a href="/prints" style="color: #3D3935; text-decoration: none; font-size: 16px;">Prints</a>
+              <button onclick="viewCart()" style="position: relative; background: none; border: none; cursor: pointer; color: #3D3935; font-size: 24px; padding: 8px;">
+                🛒
+                <span class="cart-badge" style="display: none; position: absolute; top: 0; right: 0; background: #3D3935; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; align-items: center; justify-content: center; font-weight: 500;">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       <style>{`
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1956,14 +1968,8 @@ app.get('/prints', (c) =>
               Cinque Terre, Italy • Golden Hour. Colorful houses cling to cliffs like they've been there forever—because they have. Captured at the exact moment when the sun turns stone into honey and the Mediterranean becomes liquid sapphire. This is what 'escape' looks like.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('The Village That Time Forgot', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                24×36" – $795
-              </button>
-              <button onclick="addToCart('The Village That Time Forgot', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                30×40" – $995
-              </button>
-              <button onclick="addToCart('The Village That Time Forgot', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                48×60" – $1,595
+              <button onclick="openPrintModal('The Village That Time Forgot', '/static/prints/staging-mediterranean-villa.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
+                Select Options
               </button>
             </div>
             <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
@@ -1983,14 +1989,8 @@ app.get('/prints', (c) =>
               Ixtapa, Mexico • Late Afternoon. Standing on this terrace, the Pacific stretches into forever. This is the view that makes you rethink your entire life—the one that reminds you why you work so hard. Where ocean meets sky, and everything else just... fades away.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('The View That Changed Everything', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                24×36" – $795
-              </button>
-              <button onclick="addToCart('The View That Changed Everything', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                30×40" – $995
-              </button>
-              <button onclick="addToCart('The View That Changed Everything', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                48×60" – $1,595
+              <button onclick="openPrintModal('The View That Changed Everything', '/static/prints/staging-coastal-terrace.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
+                Select Options
               </button>
             </div>
             <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
@@ -2010,14 +2010,8 @@ app.get('/prints', (c) =>
               Aruba • First Light. The divi-divi tree—bent by trade winds for decades, pointing southwest like it's been waiting to show you the way home. Roots dig deep into white sand, tide pools reflect the morning sky. This tree has witnessed a thousand sunrises. You're looking at just one.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('Nature\\'s Compass', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                24×36" – $795
-              </button>
-              <button onclick="addToCart('Nature\\'s Compass', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                30×40" – $995
-              </button>
-              <button onclick="addToCart('Nature\\'s Compass', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                48×60" – $1,595
+              <button onclick="openPrintModal('Nature\\'s Compass', '/static/prints/staging-aruba-divi-tree.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
+                Select Options
               </button>
             </div>
             <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
@@ -2037,14 +2031,8 @@ app.get('/prints', (c) =>
               Dolomites, Italy • Late Afternoon. A stone lodge perched between earth and sky, where jagged peaks pierce clouds and firelight flickers against ancient walls. This is where you go to remember what quiet feels like—the kind of place that makes city noise feel like a distant memory.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('Where Silence Lives', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                24×36" – $795
-              </button>
-              <button onclick="addToCart('Where Silence Lives', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                30×40" – $995
-              </button>
-              <button onclick="addToCart('Where Silence Lives', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                48×60" – $1,595
+              <button onclick="openPrintModal('Where Silence Lives', '/static/prints/staging-alpine-lodge.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
+                Select Options
               </button>
             </div>
             <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
@@ -2064,14 +2052,8 @@ app.get('/prints', (c) =>
               Cinque Terre, Italy • Mid-Morning. A villa perched on cliffs, where whitewashed walls frame the deepest blue you've ever seen. This is the room where every dream vacation starts—the one you pin to your vision board and think about during long meetings. Where luxury meets simplicity, and the view does all the talking.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="addToCart('The Room Where Dreams Live', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                24×36" – $795
-              </button>
-              <button onclick="addToCart('The Room Where Dreams Live', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                30×40" – $995
-              </button>
-              <button onclick="addToCart('The Room Where Dreams Live', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
-                48×60" – $1,595
+              <button onclick="openPrintModal('The Room Where Dreams Live', '/static/prints/staging-cinque-terre-villa.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
+                Select Options
               </button>
             </div>
             <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
@@ -2172,179 +2154,188 @@ app.get('/prints', (c) =>
       </div>
 
       <script dangerouslySetInnerHTML={{__html: `
-        let cart = [];
-        let currentPrint = { name: '', basePrice: 0 };
+        // Cart system
+        let cart = JSON.parse(localStorage.getItem('acromatico_cart') || '[]');
+        let currentPrint = { name: '', image: '' };
         let selectedSize = { name: '', price: 0 };
         let selectedFrame = { name: '', price: 0 };
 
-        function addToCart(printName, size, price) {
-          // Set current selection
-          currentPrint = { name: printName, basePrice: price };
-          selectedSize = { name: size, price: price };
-          selectedFrame = { name: 'Natural Oak', price: 0 };
+        // Update cart badge on load
+        updateCartBadge();
+
+        function openPrintModal(printName, imageUrl) {
+          currentPrint = { name: printName, image: imageUrl };
           
-          // Show checkout modal immediately
-          showCheckoutModal();
-        }
-        
-        function showCheckoutModal() {
-          const total = selectedSize.price + selectedFrame.price;
-          
-          // Create modal HTML with string concatenation to avoid template literal issues
-          const modalHTML = '<div id="checkoutModal" class="modal active" onclick="closeCheckoutModal(event)">' +
-            '<div class="modal-content" onclick="event.stopPropagation()" style="max-width: 500px;">' +
-            '<button onclick="closeCheckoutModal()" class="close-button">×</button>' +
-            '<div class="modal-header">' +
-            '<h2 style="font-size: 28px; font-weight: 400; color: #3D3935; margin-bottom: 8px;">Complete Your Order</h2>' +
-            '<p style="font-size: 14px; color: #8B7E6A;">Artisan Made • Built to Order • Ships in 4-6 Weeks</p>' +
+          // Create modal HTML
+          const modalHTML = '<div id="optionsModal" class="modal active" onclick="closeOptionsModal(event)" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); display: flex; align-items: center; justify-content: center; z-index: 10000;">' +
+            '<div class="modal-content" onclick="event.stopPropagation()" style="background: white; border-radius: 12px; max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">' +
+            '<button onclick="closeOptionsModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 32px; color: #8B7E6A; cursor: pointer; line-height: 1;">×</button>' +
+            '<div style="padding: 40px;">' +
+            '<h2 style="font-size: 28px; font-weight: 400; color: #3D3935; margin-bottom: 8px;">' + printName + '</h2>' +
+            '<p style="font-size: 14px; color: #8B7E6A; margin-bottom: 32px;">Limited Edition 1/100 • Signed by Artists</p>' +
+            
+            '<div id="sizeSelection">' +
+            '<h3 style="font-size: 20px; font-weight: 500; color: #3D3935; margin-bottom: 20px;">Select Size</h3>' +
+            '<div onclick="selectSize(\\'24×36\\', 795)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
+            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">24" × 36"</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">Perfect for bedrooms • $795</div>' +
             '</div>' +
-            '<div class="modal-body">' +
-            '<div class="checkout-summary" style="margin-bottom: 32px;">' +
-            '<div class="summary-row"><span style="color: #8B7E6A;">Print</span><span style="color: #3D3935; font-weight: 500;">' + currentPrint.name + '</span></div>' +
-            '<div class="summary-row"><span style="color: #8B7E6A;">Size</span><span style="color: #3D3935; font-weight: 500;">' + selectedSize.name + '"</span></div>' +
-            '<div class="summary-row"><span style="color: #8B7E6A;">Frame</span><span style="color: #3D3935; font-weight: 500;">' + selectedFrame.name + (selectedFrame.price > 0 ? ' (+$' + selectedFrame.price + ')' : ' (included)') + '</span></div>' +
-            '<div class="summary-row" style="border-top: 2px solid #3D3935; padding-top: 16px; margin-top: 16px; font-size: 20px; font-weight: 500;"><span style="color: #3D3935;">Total</span><span style="color: #3D3935;">$' + total.toLocaleString() + '</span></div>' +
+            '<div onclick="selectSize(\\'30×40\\', 995)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
+            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">30" × 40"</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">Most popular • $995</div>' +
             '</div>' +
-            '<h3 style="font-size: 18px; font-weight: 500; margin-bottom: 16px; color: #3D3935;">Choose Payment Method</h3>' +
-            '<button onclick="processPayment(\\'apple-pay\\')" class="cta-button" style="width: 100%; margin-bottom: 12px; background: #000;">Apple Pay</button>' +
-            '<button onclick="processPayment(\\'google-pay\\')" class="cta-button" style="width: 100%; margin-bottom: 12px; background: #fff; color: #3D3935; border: 2px solid #E8E5E0;">Google Pay</button>' +
-            '<button onclick="processPayment(\\'credit-card\\')" class="cta-button" style="width: 100%; background: #3D3935;">Credit Card</button>' +
-            '<p style="text-align: center; font-size: 12px; color: #8B7E6A; margin-top: 16px; line-height: 1.6;">🔒 Secure checkout powered by Stripe<br/>Free shipping within the United States</p>' +
-            '</div></div></div>';
+            '<div onclick="selectSize(\\'48×60\\', 1595)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
+            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">48" × 60"</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">Statement piece • $1,595</div>' +
+            '</div>' +
+            '</div>' +
+            
+            '<div id="frameSelection" style="display: none;">' +
+            '<button onclick="backToSize()" style="color: #8B7E6A; background: none; border: none; cursor: pointer; font-size: 16px; margin-bottom: 20px;">← Back</button>' +
+            '<h3 style="font-size: 20px; font-weight: 500; color: #3D3935; margin-bottom: 20px;">Select Frame</h3>' +
+            '<div onclick="selectFrame(\\'Natural Oak\\', 0)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
+            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">Natural Oak</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">Premium solid oak • Included</div>' +
+            '</div>' +
+            '<div onclick="selectFrame(\\'Walnut\\', 300)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
+            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">Walnut</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">Rich dark wood • +$300</div>' +
+            '</div>' +
+            '<div onclick="selectFrame(\\'White Oak\\', 300)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
+            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">White Oak</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">Light coastal finish • +$300</div>' +
+            '</div>' +
+            '</div>' +
+            
+            '<div id="actionButtons" style="display: none;">' +
+            '<button onclick="backToFrame()" style="color: #8B7E6A; background: none; border: none; cursor: pointer; font-size: 16px; margin-bottom: 20px;">← Back</button>' +
+            '<div style="background: #F5F3F0; border-radius: 8px; padding: 20px; margin-bottom: 24px;">' +
+            '<div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span style="color: #8B7E6A;">Size</span><span id="summarySize" style="color: #3D3935; font-weight: 500;"></span></div>' +
+            '<div style="display: flex; justify-content: space-between; margin-bottom: 16px;"><span style="color: #8B7E6A;">Frame</span><span id="summaryFrame" style="color: #3D3935; font-weight: 500;"></span></div>' +
+            '<div style="display: flex; justify-content: space-between; border-top: 2px solid #3D3935; padding-top: 16px; font-size: 20px; font-weight: 500;"><span style="color: #3D3935;">Total</span><span id="summaryTotal" style="color: #3D3935;"></span></div>' +
+            '</div>' +
+            '<p style="font-size: 12px; color: #8B7E6A; margin-bottom: 20px; line-height: 1.6;">✨ Limited Edition 1/100<br/>🖋️ Hand-Signed by Artists<br/>🎨 Museum-Quality Archival Paper<br/>📦 Artisan-Made • Ships in 4-6 Weeks</p>' +
+            '<button onclick="addItemToCart()" style="width: 100%; background: white; color: #3D3935; border: 2px solid #3D3935; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; margin-bottom: 12px;">Add to Cart</button>' +
+            '<button onclick="buyNow()" style="width: 100%; background: #3D3935; color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer;">Buy Now</button>' +
+            '</div>' +
+            
+            '</div>' +
+            '</div>' +
+            '</div>';
           
-          // Remove existing modal if any
-          const existingModal = document.getElementById('checkoutModal');
-          if (existingModal) existingModal.remove();
-          
-          // Add new modal
           document.body.insertAdjacentHTML('beforeend', modalHTML);
         }
-        
-        function closeCheckoutModal(event) {
-          if (!event || event.target.id === 'checkoutModal' || event.target.classList.contains('close-button')) {
-            const modal = document.getElementById('checkoutModal');
+
+        function closeOptionsModal(event) {
+          if (!event || event.target.id === 'optionsModal') {
+            const modal = document.getElementById('optionsModal');
             if (modal) modal.remove();
           }
         }
-        
-        function processPayment(method) {
-          const total = selectedSize.price + selectedFrame.price;
+
+        function selectSize(size, price) {
+          selectedSize = { name: size, price: price };
+          document.getElementById('sizeSelection').style.display = 'none';
+          document.getElementById('frameSelection').style.display = 'block';
+        }
+
+        function selectFrame(frame, price) {
+          selectedFrame = { name: frame, price: price };
+          document.getElementById('frameSelection').style.display = 'none';
+          document.getElementById('actionButtons').style.display = 'block';
           
-          // Show loading state
-          const modal = document.getElementById('checkoutModal');
+          const total = selectedSize.price + selectedFrame.price;
+          document.getElementById('summarySize').textContent = selectedSize.name + '"';
+          document.getElementById('summaryFrame').textContent = selectedFrame.name + (selectedFrame.price > 0 ? ' (+$' + selectedFrame.price + ')' : ' (included)');
+          document.getElementById('summaryTotal').textContent = '$' + total.toLocaleString();
+        }
+
+        function backToSize() {
+          document.getElementById('frameSelection').style.display = 'none';
+          document.getElementById('sizeSelection').style.display = 'block';
+        }
+
+        function backToFrame() {
+          document.getElementById('actionButtons').style.display = 'none';
+          document.getElementById('frameSelection').style.display = 'block';
+        }
+
+        function addItemToCart() {
+          const item = {
+            printName: currentPrint.name,
+            imageUrl: window.location.origin + currentPrint.image,
+            size: selectedSize.name,
+            sizePrice: selectedSize.price,
+            frameName: selectedFrame.name,
+            framePrice: selectedFrame.price,
+            quantity: 1
+          };
+          
+          cart.push(item);
+          localStorage.setItem('acromatico_cart', JSON.stringify(cart));
+          updateCartBadge();
+          
+          closeOptionsModal();
+          
+          // Show confirmation
+          alert('Added to cart! Total items: ' + cart.length);
+        }
+
+        function buyNow() {
+          const item = {
+            printName: currentPrint.name,
+            imageUrl: window.location.origin + currentPrint.image,
+            size: selectedSize.name,
+            sizePrice: selectedSize.price,
+            frameName: selectedFrame.name,
+            framePrice: selectedFrame.price,
+            quantity: 1
+          };
+          
+          processCheckout([item]);
+        }
+
+        function updateCartBadge() {
+          const badge = document.querySelector('.cart-badge');
+          if (badge && cart.length > 0) {
+            badge.textContent = cart.length;
+            badge.style.display = 'flex';
+          } else if (badge) {
+            badge.style.display = 'none';
+          }
+        }
+
+        function processCheckout(items) {
+          // Show loading
+          const modal = document.getElementById('optionsModal');
           if (modal) {
-            modal.querySelector('.modal-body').innerHTML = '<div style="text-align: center; padding: 40px;"><p style="font-size: 18px; color: #3D3935; margin-bottom: 16px;">Processing your order...</p><p style="font-size: 14px; color: #8B7E6A;">Redirecting to secure checkout</p></div>';
+            modal.querySelector('.modal-content').innerHTML = '<div style="text-align: center; padding: 60px;"><p style="font-size: 20px; color: #3D3935; margin-bottom: 16px;">Processing...</p><p style="font-size: 14px; color: #8B7E6A;">Redirecting to secure checkout</p></div>';
           }
           
-          // Call Stripe checkout API
           fetch('/api/create-checkout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              printName: currentPrint.name,
-              size: selectedSize.name,
-              sizePrice: selectedSize.price,
-              frameName: selectedFrame.name,
-              framePrice: selectedFrame.price
-            })
+            body: JSON.stringify({ items: items })
           })
           .then(res => res.json())
           .then(data => {
             if (data.url) {
               window.location.href = data.url;
             } else {
-              alert('Error creating checkout session. Please try again.');
-              closeCheckoutModal();
+              alert('Error creating checkout. Please try again.');
+              if (modal) modal.remove();
             }
           })
           .catch(error => {
             console.error('Checkout error:', error);
             alert('Error processing payment. Please try again.');
-            closeCheckoutModal();
+            if (modal) modal.remove();
           });
         }
 
-        function updateCartBadge() {
-          const badge = document.getElementById('cart-badge');
-          if (badge) {
-            badge.textContent = cart.length;
-            badge.style.display = cart.length > 0 ? 'block' : 'none';
-          }
-        }
-
-        // Load cart from localStorage on page load
-        window.addEventListener('DOMContentLoaded', () => {
-          const savedCart = localStorage.getItem('acromatico_cart');
-          if (savedCart) {
-            cart = JSON.parse(savedCart);
-            updateCartBadge();
-          }
-        });
-
-        function openModal(name, price) {
-          currentPrint = { name, basePrice: price };
-          document.getElementById('modalTitle').textContent = name;
-          document.getElementById('purchaseModal').classList.add('active');
-          showSizeStep();
-        }
-
-        function closeModal(event) {
-          if (!event || event.target.id === 'purchaseModal' || event.target.classList.contains('close-button')) {
-            document.getElementById('purchaseModal').classList.remove('active');
-            showSizeStep();
-          }
-        }
-
-        function selectSize(size, price) {
-          selectedSize = { name: size, price };
-          document.querySelectorAll('.size-option').forEach(el => el.classList.remove('selected'));
-          event.currentTarget.classList.add('selected');
-          setTimeout(() => showFrameStep(), 300);
-        }
-
-        function selectFrame(frame, price) {
-          selectedFrame = { name: frame, price };
-          document.querySelectorAll('.frame-option').forEach(el => el.classList.remove('selected'));
-          event.currentTarget.classList.add('selected');
-          setTimeout(() => showCheckoutStep(), 300);
-        }
-
-        function showSizeStep() {
-          document.getElementById('sizeStep').style.display = 'block';
-          document.getElementById('frameStep').style.display = 'none';
-          document.getElementById('checkoutStep').style.display = 'none';
-        }
-
-        function showFrameStep() {
-          document.getElementById('sizeStep').style.display = 'none';
-          document.getElementById('frameStep').style.display = 'block';
-          document.getElementById('checkoutStep').style.display = 'none';
-        }
-
-        function showCheckoutStep() {
-          document.getElementById('sizeStep').style.display = 'none';
-          document.getElementById('frameStep').style.display = 'none';
-          document.getElementById('checkoutStep').style.display = 'block';
-          
-          const total = selectedSize.price + selectedFrame.price;
-          document.getElementById('summaryPrint').textContent = currentPrint.name;
-          document.getElementById('summarySize').textContent = selectedSize.name + '"';
-          document.getElementById('summaryFrame').textContent = selectedFrame.name + (selectedFrame.price > 0 ? ' (+$' + selectedFrame.price + ')' : '');
-          document.getElementById('summaryTotal').textContent = '$' + total.toLocaleString();
-        }
-
-        function backToSize() {
-          showSizeStep();
-        }
-
-        function backToFrame() {
-          showFrameStep();
-        }
-
-        function checkout() {
-          const total = selectedSize.price + selectedFrame.price;
-          alert('Proceeding to checkout: ' + currentPrint.name + ' - ' + selectedSize.name + ' - ' + selectedFrame.name + ' - Total: $' + total);
-          // TODO: Stripe checkout integration
+        // View cart function (to be called from header)
+        function viewCart() {
+          window.location.href = '/cart';
         }
       `}} />
 
