@@ -1998,6 +1998,33 @@ app.get('/prints', (c) =>
           </div>
         </div>
 
+        {/* Print 6: Sospeso Nel Cielo */}
+        <div>
+          <img 
+            src="/static/prints/staging-cinque-terre-aerial.jpg" 
+            alt="Sospeso Nel Cielo - Cinque Terre Aerial Fine Art Print" 
+            class="staging-image"
+          />
+          <div class="print-description">
+            <h3 class="print-title">Sospeso Nel Cielo</h3>
+            <p class="print-details" style="margin-bottom: 24px;">
+              Suspended between sky and sea, these painted villages cling to cliffs as if floating in a dream. Captured at the fleeting hour when the Ligurian sun turns stone into gold and the Mediterranean becomes silk—a moment so ethereal, locals whisper it exists only for those who truly see.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
+              <button onclick="addToCart('Sospeso Nel Cielo', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                24×36" – $795
+              </button>
+              <button onclick="addToCart('Sospeso Nel Cielo', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                30×40" – $995
+              </button>
+              <button onclick="addToCart('Sospeso Nel Cielo', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                48×60" – $1,595
+              </button>
+            </div>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
+          </div>
+        </div>
+
       </section>
 
       {/* CTA Section */}
