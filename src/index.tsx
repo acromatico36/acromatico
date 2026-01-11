@@ -1863,79 +1863,111 @@ app.get('/prints', (c) =>
       {/* Staging Showcase */}
       <section class="staging-showcase">
         
-        {/* Staging 1: Aruba Living Room */}
+        {/* Print 1: Eternal Blue */}
         <div>
           <img 
             src="/static/prints/staging-aruba-living-room.jpg" 
-            alt="Aruba Beach Print in Coastal Living Room" 
+            alt="Eternal Blue - Aruba Palapa Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">Aruba Beach Collection</h3>
-            <p class="print-details">
-              Panoramic landscape featuring iconic Aruba palapa and turquoise waters.
-              <br/>Natural oak frame • Museum-quality archival paper
+            <h3 class="print-title">Eternal Blue</h3>
+            <p class="print-details" style="margin-bottom: 24px;">
+              Captured at dawn on Eagle Beach, this solitary palapa stands as a timeless sentinel where sky meets sea. The moment the first light kissed the horizon, revealing nature's truest blue—a color so pure it exists only in memory and dreams.
             </p>
-            <button onclick="openModal('Aruba Beach', 1595)" class="cta-button" style="margin-top: 24px;">
-              Inquire About This Print
-            </button>
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
+              <button onclick="addToCart('Eternal Blue', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                24×36" – $795
+              </button>
+              <button onclick="addToCart('Eternal Blue', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                30×40" – $995
+              </button>
+              <button onclick="addToCart('Eternal Blue', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                48×60" – $1,595
+              </button>
+            </div>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
           </div>
         </div>
 
-        {/* Staging 2: Mediterranean Villa */}
+        {/* Print 2: La Sentinelle */}
         <div>
           <img 
             src="/static/prints/staging-mediterranean-villa.jpg" 
-            alt="Mediterranean Coastal Village Print" 
+            alt="La Sentinelle - Mediterranean Village Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">Mediterranean Coast</h3>
-            <p class="print-details">
-              Dramatic coastal village perched on cliffside overlooking azure waters.
-              <br/>Natural oak frame • Museum-quality archival paper
+            <h3 class="print-title">La Sentinelle</h3>
+            <p class="print-details" style="margin-bottom: 24px;">
+              Perched on ancient stone, this Mediterranean village has watched over these waters for centuries. Photographed during the golden hour when shadows dance between the ochre walls and the sea whispers stories only the cliffs remember.
             </p>
-            <button onclick="openModal('Mediterranean Coast', 1595)" class="cta-button" style="margin-top: 24px;">
-              Inquire About This Print
-            </button>
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
+              <button onclick="addToCart('La Sentinelle', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                24×36" – $795
+              </button>
+              <button onclick="addToCart('La Sentinelle', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                30×40" – $995
+              </button>
+              <button onclick="addToCart('La Sentinelle', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                48×60" – $1,595
+              </button>
+            </div>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
           </div>
         </div>
 
-        {/* Staging 3: Coastal Terrace */}
+        {/* Print 3: Vista Infinita */}
         <div>
           <img 
             src="/static/prints/staging-coastal-terrace.jpg" 
-            alt="Coastal Vista Print in Luxury Interior" 
+            alt="Vista Infinita - Coastal Terrace Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">Coastal Vista</h3>
-            <p class="print-details">
-              Serene Mediterranean terrace overlooking endless blue horizons.
-              <br/>Natural oak frame • Museum-quality archival paper
+            <h3 class="print-title">Vista Infinita</h3>
+            <p class="print-details" style="margin-bottom: 24px;">
+              Where architecture surrenders to nature, this terrace frames infinity itself. Shot at the precise moment when afternoon light transforms water into liquid glass, creating a boundary that exists only in the eye—where earth ends and heaven begins.
             </p>
-            <button onclick="openModal('Coastal Vista', 1595)" class="cta-button" style="margin-top: 24px;">
-              Inquire About This Print
-            </button>
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
+              <button onclick="addToCart('Vista Infinita', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                24×36" – $795
+              </button>
+              <button onclick="addToCart('Vista Infinita', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                30×40" – $995
+              </button>
+              <button onclick="addToCart('Vista Infinita', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                48×60" – $1,595
+              </button>
+            </div>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
           </div>
         </div>
 
-        {/* Staging 4: Aruba Divi-Divi Tree */}
+        {/* Print 4: The Compass Tree */}
         <div>
           <img 
             src="/static/prints/staging-aruba-divi-tree.jpg" 
-            alt="Aruba Divi-Divi Tree Beach Print" 
+            alt="The Compass Tree - Aruba Divi-Divi Fine Art Print" 
             class="staging-image"
           />
           <div class="print-description">
-            <h3 class="print-title">Aruba Divi-Divi Sanctuary</h3>
-            <p class="print-details">
-              Iconic Aruba divi-divi tree bending gracefully over pristine turquoise waters.
-              <br/>Natural oak frame • Museum-quality archival paper
+            <h3 class="print-title">The Compass Tree</h3>
+            <p class="print-details" style="margin-bottom: 24px;">
+              Shaped by relentless trade winds, Aruba's iconic divi-divi tree points eternally southwest—nature's compass carved by time. Locals say it shows the way home. We say it shows the way to peace. Captured when the morning tide revealed the mirror beneath its ancient roots.
             </p>
-            <button onclick="openModal('Aruba Divi-Divi Sanctuary', 1595)" class="cta-button" style="margin-top: 24px;">
-              Inquire About This Print
-            </button>
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
+              <button onclick="addToCart('The Compass Tree', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                24×36" – $795
+              </button>
+              <button onclick="addToCart('The Compass Tree', '30×40', 995)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                30×40" – $995
+              </button>
+              <button onclick="addToCart('The Compass Tree', '48×60', 1595)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
+                48×60" – $1,595
+              </button>
+            </div>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
           </div>
         </div>
 
@@ -2034,9 +2066,47 @@ app.get('/prints', (c) =>
       </div>
 
       <script>{`
+        let cart = [];
         let currentPrint = { name: '', basePrice: 0 };
         let selectedSize = { name: '', price: 0 };
         let selectedFrame = { name: '', price: 0 };
+
+        function addToCart(printName, size, price) {
+          const item = {
+            print: printName,
+            size: size,
+            price: price,
+            frame: 'Natural Oak (included)',
+            framePrice: 0,
+            total: price
+          };
+          
+          cart.push(item);
+          updateCartBadge();
+          
+          // Show confirmation
+          alert(printName + ' (' + size + ') added to cart! Total: $' + price.toLocaleString());
+          
+          // Store in localStorage
+          localStorage.setItem('acromatico_cart', JSON.stringify(cart));
+        }
+
+        function updateCartBadge() {
+          const badge = document.getElementById('cart-badge');
+          if (badge) {
+            badge.textContent = cart.length;
+            badge.style.display = cart.length > 0 ? 'block' : 'none';
+          }
+        }
+
+        // Load cart from localStorage on page load
+        window.addEventListener('DOMContentLoaded', () => {
+          const savedCart = localStorage.getItem('acromatico_cart');
+          if (savedCart) {
+            cart = JSON.parse(savedCart);
+            updateCartBadge();
+          }
+        });
 
         function openModal(name, price) {
           currentPrint = { name, basePrice: price };
