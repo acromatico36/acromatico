@@ -1873,7 +1873,7 @@ app.get('/prints', (c) =>
           <div class="print-description">
             <h3 class="print-title">Eternal Blue</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Captured at dawn on Eagle Beach, this solitary palapa stands as a timeless sentinel where sky meets sea. The moment the first light kissed the horizon, revealing nature's truest blue—a color so pure it exists only in memory and dreams.
+              Captured at dawn on Eagle Beach, this solitary palapa stands where calm waters meet endless sky. The early morning light reveals the truest shade of blue—the kind that makes you want to wake up early every day just to see it again.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
               <button onclick="addToCart('Eternal Blue', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
@@ -1886,7 +1886,7 @@ app.get('/prints', (c) =>
                 48×60" – $1,595
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -1900,7 +1900,7 @@ app.get('/prints', (c) =>
           <div class="print-description">
             <h3 class="print-title">La Sentinelle</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Perched on ancient stone, this Mediterranean village has watched over these waters for centuries. Photographed during the golden hour when shadows dance between the ochre walls and the sea whispers stories only the cliffs remember.
+              Perched on ancient stone, this Mediterranean village has overlooked these waters for centuries. Photographed during golden hour when warm light hits the ochre walls and creates dramatic shadows against the deep blue sea below.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
               <button onclick="addToCart('La Sentinelle', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
@@ -1913,7 +1913,7 @@ app.get('/prints', (c) =>
                 48×60" – $1,595
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -1927,7 +1927,7 @@ app.get('/prints', (c) =>
           <div class="print-description">
             <h3 class="print-title">Vista Infinita</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Where architecture surrenders to nature, this terrace frames infinity itself. Shot at the precise moment when afternoon light transforms water into liquid glass, creating a boundary that exists only in the eye—where earth ends and heaven begins.
+              Where architecture meets the horizon, this Mediterranean terrace offers unobstructed ocean views. Captured in afternoon light when the water reflects like glass, creating a seamless line between sea and sky.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
               <button onclick="addToCart('Vista Infinita', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
@@ -1940,7 +1940,7 @@ app.get('/prints', (c) =>
                 48×60" – $1,595
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -1954,7 +1954,7 @@ app.get('/prints', (c) =>
           <div class="print-description">
             <h3 class="print-title">The Compass Tree</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Shaped by relentless trade winds, Aruba's iconic divi-divi tree points eternally southwest—nature's compass carved by time. Locals say it shows the way home. We say it shows the way to peace. Captured when the morning tide revealed the mirror beneath its ancient roots.
+              Shaped by constant trade winds, Aruba's iconic divi-divi tree permanently leans southwest—a natural compass pointing the way. This distinctive silhouette has become the island's most recognizable landmark. Captured at low tide when the wet sand creates a perfect reflection.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
               <button onclick="addToCart('The Compass Tree', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
@@ -1967,7 +1967,7 @@ app.get('/prints', (c) =>
                 48×60" – $1,595
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -1981,7 +1981,7 @@ app.get('/prints', (c) =>
           <div class="print-description">
             <h3 class="print-title">Alpine Pulse</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Where ancient ice meets eternal stone, this glacial river carves its path through the Swiss Alps. Photographed from above at the moment when winter's grip begins to loosen—revealing veins of turquoise that flow like the Earth's own heartbeat through valleys older than memory.
+              Where glacial ice meets alpine stone, this turquoise river winds through the Swiss Alps. Photographed from above during spring melt, revealing the striking contrast between gray rock and brilliant blue water as it carves through ancient valleys.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
               <button onclick="addToCart('Alpine Pulse', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
@@ -1994,7 +1994,7 @@ app.get('/prints', (c) =>
                 48×60" – $1,595
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -2008,7 +2008,7 @@ app.get('/prints', (c) =>
           <div class="print-description">
             <h3 class="print-title">Sospeso Nel Cielo</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Suspended between sky and sea, these painted villages cling to cliffs as if floating in a dream. Captured at the fleeting hour when the Ligurian sun turns stone into gold and the Mediterranean becomes silk—a moment so ethereal, locals whisper it exists only for those who truly see.
+              Colorful villages perched on dramatic cliffs overlooking the Ligurian Sea. Captured during late afternoon when warm sunlight illuminates the pastel buildings and creates deep blue contrast with the Mediterranean waters below. This is Italy's most photographed coastline for good reason.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
               <button onclick="addToCart('Sospeso Nel Cielo', '24×36', 795)" class="cta-button" style="padding: 12px 24px; font-size: 15px;">
@@ -2021,7 +2021,7 @@ app.get('/prints', (c) =>
                 48×60" – $1,595
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -2126,23 +2126,59 @@ app.get('/prints', (c) =>
         let selectedFrame = { name: '', price: 0 };
 
         function addToCart(printName, size, price) {
-          const item = {
-            print: printName,
-            size: size,
-            price: price,
-            frame: 'Natural Oak (included)',
-            framePrice: 0,
-            total: price
-          };
+          // Set current selection
+          currentPrint = { name: printName, basePrice: price };
+          selectedSize = { name: size, price: price };
+          selectedFrame = { name: 'Natural Oak', price: 0 };
           
-          cart.push(item);
-          updateCartBadge();
+          // Show checkout modal immediately
+          showCheckoutModal();
+        }
+        
+        function showCheckoutModal() {
+          const total = selectedSize.price + selectedFrame.price;
           
-          // Show confirmation
-          alert(printName + ' (' + size + ') added to cart! Total: $' + price.toLocaleString());
+          // Create modal HTML with string concatenation to avoid template literal issues
+          const modalHTML = '<div id="checkoutModal" class="modal active" onclick="closeCheckoutModal(event)">' +
+            '<div class="modal-content" onclick="event.stopPropagation()" style="max-width: 500px;">' +
+            '<button onclick="closeCheckoutModal()" class="close-button">&times;</button>' +
+            '<div class="modal-header">' +
+            '<h2 style="font-size: 28px; font-weight: 400; color: #3D3935; margin-bottom: 8px;">Complete Your Order</h2>' +
+            '<p style="font-size: 14px; color: #8B7E6A;">Artisan Made • Built to Order • Ships in 4-6 Weeks</p>' +
+            '</div>' +
+            '<div class="modal-body">' +
+            '<div class="checkout-summary" style="margin-bottom: 32px;">' +
+            '<div class="summary-row"><span style="color: #8B7E6A;">Print</span><span style="color: #3D3935; font-weight: 500;">' + currentPrint.name + '</span></div>' +
+            '<div class="summary-row"><span style="color: #8B7E6A;">Size</span><span style="color: #3D3935; font-weight: 500;">' + selectedSize.name + '"</span></div>' +
+            '<div class="summary-row"><span style="color: #8B7E6A;">Frame</span><span style="color: #3D3935; font-weight: 500;">' + selectedFrame.name + (selectedFrame.price > 0 ? ' (+$' + selectedFrame.price + ')' : ' (included)') + '</span></div>' +
+            '<div class="summary-row" style="border-top: 2px solid #3D3935; padding-top: 16px; margin-top: 16px; font-size: 20px; font-weight: 500;"><span style="color: #3D3935;">Total</span><span style="color: #3D3935;">$' + total.toLocaleString() + '</span></div>' +
+            '</div>' +
+            '<h3 style="font-size: 18px; font-weight: 500; margin-bottom: 16px; color: #3D3935;">Choose Payment Method</h3>' +
+            '<button onclick="processPayment(\'apple-pay\')" class="cta-button" style="width: 100%; margin-bottom: 12px; background: #000;">Apple Pay</button>' +
+            '<button onclick="processPayment(\'google-pay\')" class="cta-button" style="width: 100%; margin-bottom: 12px; background: #fff; color: #3D3935; border: 2px solid #E8E5E0;">Google Pay</button>' +
+            '<button onclick="processPayment(\'credit-card\')" class="cta-button" style="width: 100%; background: #3D3935;">Credit Card</button>' +
+            '<p style="text-align: center; font-size: 12px; color: #8B7E6A; margin-top: 16px; line-height: 1.6;">🔒 Secure checkout powered by Stripe<br/>Free shipping within the United States</p>' +
+            '</div></div></div>';
           
-          // Store in localStorage
-          localStorage.setItem('acromatico_cart', JSON.stringify(cart));
+          // Remove existing modal if any
+          const existingModal = document.getElementById('checkoutModal');
+          if (existingModal) existingModal.remove();
+          
+          // Add new modal
+          document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+        
+        function closeCheckoutModal(event) {
+          if (!event || event.target.id === 'checkoutModal' || event.target.classList.contains('close-button')) {
+            const modal = document.getElementById('checkoutModal');
+            if (modal) modal.remove();
+          }
+        }
+        
+        function processPayment(method) {
+          const total = selectedSize.price + selectedFrame.price;
+          alert('Processing ' + method + ' payment for $' + total.toLocaleString() + '\\n\\nPrint: ' + currentPrint.name + '\\nSize: ' + selectedSize.name + '\"\\nFrame: ' + selectedFrame.name + '\\n\\nThis will redirect to Stripe checkout (integrate next)');
+          // TODO: Redirect to Stripe Payment Link with pre-filled details
         }
 
         function updateCartBadge() {
