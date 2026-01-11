@@ -1630,494 +1630,393 @@ app.get('/academy', (c) =>
   )
 )
 app.get('/studio', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Studio - Coming Soon</h1></div>))
+// APPLE-STYLE PRINTS PAGE - CLEAN, MINIMAL, INSTANT CHECKOUT
+
 app.get('/prints', (c) => 
   c.render(
-    <div class="min-h-screen bg-black text-white">
+    <div class="min-h-screen bg-white text-gray-900">
       {/* Navigation */}
       <Header />
 
       <style>{`
-        .print-card {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .hero-image {
+          width: 100%;
+          height: 90vh;
+          object-fit: cover;
+          animation: fadeIn 1.2s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(1.05); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        
+        .print-grid-item {
           position: relative;
           overflow: hidden;
+          border-radius: 12px;
           cursor: pointer;
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .print-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 25px 50px -12px rgba(71, 148, 166, 0.5);
+        .print-grid-item:hover {
+          transform: scale(1.02);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
         
-        .print-card:hover .print-overlay {
-          opacity: 1;
+        .print-grid-item img {
+          width: 100%;
+          height: 400px;
+          object-fit: cover;
         }
         
-        .print-overlay {
+        .print-title {
           position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+          padding: 24px 20px;
+          color: white;
+          font-weight: 600;
+          font-size: 18px;
+        }
+        
+        .modal {
+          display: none;
+          position: fixed;
           inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-          opacity: 0;
-          transition: opacity 0.3s ease;
+          background: rgba(0,0,0,0.75);
+          z-index: 9999;
+          align-items: center;
+          justify-content: center;
+          backdrop-filter: blur(20px);
+        }
+        
+        .modal.active {
           display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          padding: 2rem;
         }
         
-        .lifestyle-preview {
-          position: relative;
-          border-radius: 1rem;
-          overflow: hidden;
-          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        .modal-content {
+          background: white;
+          border-radius: 20px;
+          max-width: 500px;
+          width: 90%;
+          max-height: 90vh;
+          overflow-y: auto;
+          animation: modalSlideUp 0.3s ease-out;
         }
         
-        .lifestyle-preview img {
-          transition: transform 0.5s ease;
+        @keyframes modalSlideUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
         
-        .lifestyle-preview:hover img {
-          transform: scale(1.05);
+        .size-option, .frame-option {
+          border: 2px solid #e5e5e5;
+          border-radius: 12px;
+          padding: 20px;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        
+        .size-option:hover, .frame-option:hover {
+          border-color: #0071e3;
+          background: #f5f5f7;
+        }
+        
+        .size-option.selected, .frame-option.selected {
+          border-color: #0071e3;
+          background: #e8f4fd;
+        }
+        
+        .buy-button {
+          background: #0071e3;
+          color: white;
+          padding: 16px 32px;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 17px;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s;
+          width: 100%;
+        }
+        
+        .buy-button:hover {
+          background: #0077ED;
+          transform: scale(1.02);
         }
       `}</style>
 
-      {/* Hero Section */}
-      <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated gradient background */}
-        <div class="absolute inset-0 bg-gradient-to-br from-teal-900/20 via-black to-blue-900/20"></div>
-        
-        {/* Floating elements */}
-        <div class="absolute inset-0 overflow-hidden">
-          <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-        </div>
-        
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center pt-32 pb-20">
-          <div class="mb-6 inline-block">
-            <span class="px-6 py-3 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-sm font-bold tracking-wide">
-              LIMITED EDITION FINE ART
-            </span>
-          </div>
-          
-          <h1 class="text-7xl md:text-9xl font-black mb-8 leading-tight">
-            <span class="bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Gallery
-            </span>
+      {/* Hero Section - Full Screen Feature Image */}
+      <section class="relative">
+        <img 
+          src="/static/prints/aruba-beach-hut.jpg" 
+          alt="Featured Print" 
+          class="hero-image"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30"></div>
+        <div class="absolute bottom-0 left-0 right-0 text-center pb-16">
+          <h1 class="text-5xl md:text-7xl font-semibold text-white mb-4" style="text-shadow: 0 2px 20px rgba(0,0,0,0.3);">
+            Fine Art Prints
           </h1>
-          
-          <p class="text-2xl md:text-3xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
-            Landscapes captured across the world's most breathtaking destinations.
-            <br />
-            <span class="text-teal-400 font-semibold">Aruba • Chile • Hawaii • Italy</span>
+          <p class="text-xl md:text-2xl text-white/90 font-light" style="text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+            Limited Edition • Museum Quality • Signed by Artists
           </p>
+        </div>
+      </section>
+
+      {/* Simple 3-Column Grid */}
+      <section class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#collections" class="px-10 py-5 rounded-full text-lg font-bold bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 transition shadow-2xl">
-              Explore Collections
-            </a>
+          {/* Print 1: Aruba */}
+          <div class="print-grid-item" onclick="openPrintModal('Eagle Beach Palapa', 'aruba-beach-hut.jpg', 795)">
+            <img src="/static/prints/aruba-beach-hut.jpg" alt="Eagle Beach Palapa" />
+            <div class="print-title">
+              Eagle Beach Palapa
+              <div class="text-sm font-normal text-white/80 mt-1">From $795</div>
+            </div>
           </div>
+
+          {/* Print 2: Aruba */}
+          <div class="print-grid-item" onclick="openPrintModal('Divi Divi Sanctuary', 'aruba-divi-tree.jpg', 795)">
+            <img src="/static/prints/aruba-divi-tree.jpg" alt="Divi Divi Sanctuary" />
+            <div class="print-title">
+              Divi Divi Sanctuary
+              <div class="text-sm font-normal text-white/80 mt-1">From $795</div>
+            </div>
+          </div>
+
+          {/* Print 3: Mexico */}
+          <div class="print-grid-item" onclick="openPrintModal('Pacific Serenity', 'mexico-ocean-view.jpg', 795)">
+            <img src="/static/prints/mexico-ocean-view.jpg" alt="Pacific Serenity" />
+            <div class="print-title">
+              Pacific Serenity
+              <div class="text-sm font-normal text-white/80 mt-1">From $795</div>
+            </div>
+          </div>
+
+          {/* Print 4: Chile */}
+          <div class="print-grid-item" onclick="openPrintModal('Torres del Paine', 'chile-torres-del-paine.jpg', 795)">
+            <img src="/static/prints/chile-torres-del-paine.jpg" alt="Torres del Paine" />
+            <div class="print-title">
+              Torres del Paine
+              <div class="text-sm font-normal text-white/80 mt-1">From $795</div>
+            </div>
+          </div>
+
+          {/* Print 5: Chile */}
+          <div class="print-grid-item" onclick="openPrintModal('Glacial Majesty', 'chile-glacier.jpg', 795)">
+            <img src="/static/prints/chile-glacier.jpg" alt="Glacial Majesty" />
+            <div class="print-title">
+              Glacial Majesty
+              <div class="text-sm font-normal text-white/80 mt-1">From $795</div>
+            </div>
+          </div>
+
+          {/* Print 6: Hawaii */}
+          <div class="print-grid-item" onclick="openPrintModal('Volcanic Fire', 'hawaii-lava.jpg', 795)">
+            <img src="/static/prints/hawaii-lava.jpg" alt="Volcanic Fire" />
+            <div class="print-title">
+              Volcanic Fire
+              <div class="text-sm font-normal text-white/80 mt-1">From $795</div>
+            </div>
+          </div>
+
+          {/* Print 7: Hawaii */}
+          <div class="print-grid-item" onclick="openPrintModal('Na Pali Emerald', 'hawaii-napali.jpg', 795)">
+            <img src="/static/prints/hawaii-napali.jpg" alt="Na Pali Emerald" />
+            <div class="print-title">
+              Na Pali Emerald
+              <div class="text-sm font-normal text-white/80 mt-1">From $795</div>
+            </div>
+          </div>
+
+          {/* Print 8: Italy */}
+          <div class="print-grid-item" onclick="openPrintModal('Cinque Terre', 'italy-cinque-terre.jpg', 795)">
+            <img src="/static/prints/italy-cinque-terre.jpg" alt="Cinque Terre" />
+            <div class="print-title">
+              Cinque Terre
+              <div class="text-sm font-normal text-white/80 mt-1">From $795</div>
+            </div>
+          </div>
+
+          {/* Print 9: Italy */}
+          <div class="print-grid-item" onclick="openPrintModal('Tuscany Dawn', 'italy-tuscany.jpg', 795)">
+            <img src="/static/prints/italy-tuscany.jpg" alt="Tuscany Dawn" />
+            <div class="print-title">
+              Tuscany Dawn
+              <div class="text-sm font-normal text-white/80 mt-1">From $795</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Purchase Modal */}
+      <div id="purchaseModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+          <div class="p-8">
+            {/* Close Button */}
+            <button onclick="closeModal()" class="float-right text-3xl text-gray-400 hover:text-gray-600">&times;</button>
+            
+            <h2 id="modalTitle" class="text-3xl font-semibold mb-2">Print Title</h2>
+            <p class="text-gray-500 mb-8">Edition 1/100 • Signed by Artists</p>
+
+            {/* Step 1: Size Selection */}
+            <div id="sizeStep">
+              <h3 class="text-xl font-semibold mb-4">Choose Size</h3>
+              <div class="space-y-3">
+                <div class="size-option" onclick="selectSize('24x36', 795)">
+                  <div class="font-semibold">24" × 36"</div>
+                  <div class="text-gray-600">Perfect for living rooms • $795</div>
+                </div>
+                <div class="size-option" onclick="selectSize('30x40', 995)">
+                  <div class="font-semibold">30" × 40"</div>
+                  <div class="text-gray-600">Statement piece • $995</div>
+                </div>
+                <div class="size-option" onclick="selectSize('48x60', 1595)">
+                  <div class="font-semibold">48" × 60"</div>
+                  <div class="text-gray-600">Gallery size • $1,595</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2: Frame Selection */}
+            <div id="frameStep" style="display: none;">
+              <button onclick="backToSize()" class="text-blue-600 mb-4">&larr; Back</button>
+              <h3 class="text-xl font-semibold mb-4">Choose Frame</h3>
+              <div class="space-y-3">
+                <div class="frame-option" onclick="selectFrame('heritage', 400)">
+                  <div class="font-semibold">Heritage Frame</div>
+                  <div class="text-gray-600">Natural wood • Museum mount • +$400</div>
+                </div>
+                <div class="frame-option" onclick="selectFrame('crystal', 0)">
+                  <div class="font-semibold">Crystal Vision</div>
+                  <div class="text-gray-600">Ultra-clear acrylic • +$0</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 3: Checkout */}
+            <div id="checkoutStep" style="display: none;">
+              <button onclick="backToFrame()" class="text-blue-600 mb-4">&larr; Back</button>
+              <h3 class="text-xl font-semibold mb-4">Complete Purchase</h3>
+              
+              <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-600">Print</span>
+                  <span id="summaryPrint" class="font-semibold">—</span>
+                </div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-600">Size</span>
+                  <span id="summarySize" class="font-semibold">—</span>
+                </div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-600">Frame</span>
+                  <span id="summaryFrame" class="font-semibold">—</span>
+                </div>
+                <div class="flex justify-between pt-2 border-t border-gray-200">
+                  <span class="font-semibold">Total</span>
+                  <span id="summaryTotal" class="font-bold text-xl">$0</span>
+                </div>
+              </div>
+
+              <button onclick="checkout()" class="buy-button">
+                Buy with Apple Pay
+              </button>
+              <p class="text-center text-sm text-gray-500 mt-3">or Google Pay</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>{`
+        let currentPrint = { name: '', image: '', basePrice: 0 };
+        let selectedSize = { name: '', price: 0 };
+        let selectedFrame = { name: '', price: 0 };
+
+        function openPrintModal(name, image, price) {
+          currentPrint = { name, image, basePrice: price };
+          document.getElementById('modalTitle').textContent = name;
+          document.getElementById('purchaseModal').classList.add('active');
+          showSizeStep();
+        }
+
+        function closeModal(event) {
+          if (!event || event.target.id === 'purchaseModal') {
+            document.getElementById('purchaseModal').classList.remove('active');
+            showSizeStep();
+          }
+        }
+
+        function selectSize(size, price) {
+          selectedSize = { name: size, price };
+          document.querySelectorAll('.size-option').forEach(el => el.classList.remove('selected'));
+          event.currentTarget.classList.add('selected');
+          setTimeout(() => showFrameStep(), 200);
+        }
+
+        function selectFrame(frame, price) {
+          selectedFrame = { name: frame, price };
+          document.querySelectorAll('.frame-option').forEach(el => el.classList.remove('selected'));
+          event.currentTarget.classList.add('selected');
+          setTimeout(() => showCheckoutStep(), 200);
+        }
+
+        function showSizeStep() {
+          document.getElementById('sizeStep').style.display = 'block';
+          document.getElementById('frameStep').style.display = 'none';
+          document.getElementById('checkoutStep').style.display = 'none';
+        }
+
+        function showFrameStep() {
+          document.getElementById('sizeStep').style.display = 'none';
+          document.getElementById('frameStep').style.display = 'block';
+          document.getElementById('checkoutStep').style.display = 'none';
+        }
+
+        function showCheckoutStep() {
+          document.getElementById('sizeStep').style.display = 'none';
+          document.getElementById('frameStep').style.display = 'none';
+          document.getElementById('checkoutStep').style.display = 'block';
           
-          {/* Stats */}
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
-            <div class="text-center">
-              <div class="text-5xl font-black bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-2">4</div>
-              <div class="text-gray-400 text-sm">Collections</div>
-            </div>
-            <div class="text-center">
-              <div class="text-5xl font-black bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-2">∞</div>
-              <div class="text-gray-400 text-sm">Print Sizes</div>
-            </div>
-            <div class="text-center">
-              <div class="text-5xl font-black bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-2">100%</div>
-              <div class="text-gray-400 text-sm">Museum Quality</div>
-            </div>
-            <div class="text-center">
-              <div class="text-5xl font-black bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-2">20+</div>
-              <div class="text-gray-400 text-sm">Years Experience</div>
-            </div>
-          </div>
-        </div>
-      </section>
+          // Update summary
+          const total = selectedSize.price + selectedFrame.price;
+          document.getElementById('summaryPrint').textContent = currentPrint.name;
+          document.getElementById('summarySize').textContent = selectedSize.name;
+          document.getElementById('summaryFrame').textContent = selectedFrame.name === 'heritage' ? 'Heritage Frame (+$400)' : 'Crystal Vision';
+          document.getElementById('summaryTotal').textContent = '$' + total.toLocaleString();
+        }
 
-      {/* Collections Section */}
-      <section id="collections" class="py-32 bg-gradient-to-b from-black to-gray-900">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="text-center mb-20">
-            <h2 class="text-6xl md:text-7xl font-black mb-6">Collections</h2>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-              Each destination tells a unique story through light, color, and emotion
-            </p>
-          </div>
+        function backToSize() {
+          showSizeStep();
+        }
 
-          {/* Collection Tabs */}
-          <div class="flex flex-wrap justify-center gap-4 mb-16">
-            <button onclick="showCollection('all')" class="collection-tab px-8 py-4 rounded-full font-bold bg-teal-500 text-white transition" data-collection="all">
-              All Collections
-            </button>
-            <button onclick="showCollection('aruba')" class="collection-tab px-8 py-4 rounded-full font-bold bg-gray-800 text-gray-300 hover:bg-gray-700 transition" data-collection="aruba">
-              🏝️ Aruba
-            </button>
-            <button onclick="showCollection('chile')" class="collection-tab px-8 py-4 rounded-full font-bold bg-gray-800 text-gray-300 hover:bg-gray-700 transition" data-collection="chile">
-              🏔️ Chile
-            </button>
-            <button onclick="showCollection('hawaii')" class="collection-tab px-8 py-4 rounded-full font-bold bg-gray-800 text-gray-300 hover:bg-gray-700 transition" data-collection="hawaii">
-              🌺 Hawaii
-            </button>
-            <button onclick="showCollection('italy')" class="collection-tab px-8 py-4 rounded-full font-bold bg-gray-800 text-gray-300 hover:bg-gray-700 transition" data-collection="italy">
-              🇮🇹 Italy
-            </button>
-          </div>
+        function backToFrame() {
+          showFrameStep();
+        }
 
-          {/* Gallery Grid */}
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
-            {/* Sample prints - Replace with real images */}
-            
-            {/* Aruba Collection */}
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="aruba">
-              <img src="/static/prints/aruba-beach-hut.jpg" alt="Eagle Beach Palapa" class="w-full h-full object-cover aspect-[4/5]" />
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Eagle Beach Palapa</h3>
-                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('aruba-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('aruba-1', 'Eagle Beach Palapa', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    From $795
-                  </button>
-                </div>
-              </div>
-            </div>
+        function checkout() {
+          const total = selectedSize.price + selectedFrame.price;
+          // For now, just alert - we'll integrate Stripe Payment Link next
+          alert('Checkout: ' + currentPrint.name + ' - ' + selectedSize.name + ' - ' + selectedFrame.name + ' - Total: $' + total);
+          // TODO: Redirect to Stripe Payment Link with pre-filled details
+        }
+      `}</script>
 
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="aruba">
-              <img src="/static/prints/aruba-divi-tree.jpg" alt="Divi Divi Sanctuary" class="w-full h-full object-cover aspect-[4/5]" />
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Divi Divi Sanctuary</h3>
-                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('aruba-2')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('aruba-2', 'Divi Divi Sanctuary', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    From $795
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Mexico Collection */}
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="mexico">
-              <img src="/static/prints/mexico-ocean-view.jpg" alt="Pacific Serenity" class="w-full h-full object-cover aspect-[4/5]" />
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Pacific Serenity</h3>
-                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('mexico-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('mexico-1', 'Pacific Serenity', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    From $795
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Chile Collection */}
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="chile">
-              <img src="/static/prints/chile-torres-del-paine.jpg" alt="Torres del Paine at Sunrise" class="w-full h-full object-cover aspect-[4/5]" />
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Torres del Paine at Sunrise</h3>
-                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('chile-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('chile-1', 'Torres del Paine at Sunrise', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    From $795
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="chile">
-              <img src="/static/prints/chile-glacier.jpg" alt="Glacial Majesty" class="w-full h-full object-cover aspect-[4/5]" />
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Glacial Majesty</h3>
-                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('chile-2')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('chile-2', 'Glacial Majesty', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    From $795
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Hawaii Collection */}
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="hawaii">
-              <img src="/static/prints/hawaii-lava.jpg" alt="Volcanic Fire" class="w-full h-full object-cover aspect-[4/5]" />
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Volcanic Fire</h3>
-                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('hawaii-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('hawaii-1', 'Volcanic Fire', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    From $795
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="hawaii">
-              <img src="/static/prints/hawaii-napali.jpg" alt="Na Pali Emerald" class="w-full h-full object-cover aspect-[4/5]" />
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Na Pali Emerald</h3>
-                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('hawaii-2')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('hawaii-2', 'Na Pali Emerald', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    From $795
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Italy Collection */}
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="italy">
-              <img src="/static/prints/italy-cinque-terre.jpg" alt="Cinque Terre" class="w-full h-full object-cover aspect-[4/5]" />
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Cinque Terre</h3>
-                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('italy-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('italy-1', 'Cinque Terre', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    From $795
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="print-card rounded-2xl overflow-hidden" data-collection="italy">
-              <img src="/static/prints/italy-tuscany.jpg" alt="Tuscany Dawn" class="w-full h-full object-cover aspect-[4/5]" />
-              <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Tuscany Dawn</h3>
-                <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
-                <div class="flex gap-3">
-                  <button onclick="viewPrint('italy-2')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
-                    Quick View
-                  </button>
-                  <button onclick="addToCart('italy-2', 'Tuscany Dawn', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
-                    From $795
-                  </button>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Print Details & Sizes */}
-      <section class="py-32 bg-gradient-to-b from-black to-gray-900">
-        <div class="max-w-6xl mx-auto px-6 lg:px-8">
-          <div class="text-center mb-20">
-            <h2 class="text-5xl md:text-6xl font-black mb-6">Museum Quality Prints</h2>
-            <p class="text-xl text-gray-400">
-              Archival-grade materials that last generations
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div class="feature-card p-8 rounded-2xl text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl">
-                📐
-              </div>
-              <h3 class="text-2xl font-bold mb-3">Custom Sizes</h3>
-              <p class="text-gray-400">
-                From intimate 12" x 16" to statement 60" x 80" pieces
-              </p>
-            </div>
-            
-            <div class="feature-card p-8 rounded-2xl text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl">
-                🎨
-              </div>
-              <h3 class="text-2xl font-bold mb-3">Premium Materials</h3>
-              <p class="text-gray-400">
-                Giclée printing on archival fine art paper or canvas
-              </p>
-            </div>
-            
-            <div class="feature-card p-8 rounded-2xl text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl">
-                🖼️
-              </div>
-              <h3 class="text-2xl font-bold mb-3">Framing Options</h3>
-              <p class="text-gray-400">
-                Gallery-quality floating frames or museum-style matting
-              </p>
-            </div>
-          </div>
-
-          {/* Pricing Table */}
-          <div class="feature-card p-10 rounded-3xl">
-            <h3 class="text-3xl font-bold mb-8 text-center">Print Sizes & Pricing</h3>
-            <div class="overflow-x-auto">
-              <table class="w-full">
-                <thead>
-                  <tr class="border-b border-white/10">
-                    <th class="text-left py-4 px-6 text-gray-400 font-semibold">Size</th>
-                    <th class="text-left py-4 px-6 text-gray-400 font-semibold">Paper</th>
-                    <th class="text-left py-4 px-6 text-gray-400 font-semibold">Canvas</th>
-                    <th class="text-left py-4 px-6 text-gray-400 font-semibold">Framed</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="border-b border-white/5">
-                    <td class="py-4 px-6 font-semibold">12" x 16"</td>
-                    <td class="py-4 px-6">$149</td>
-                    <td class="py-4 px-6">$199</td>
-                    <td class="py-4 px-6">$299</td>
-                  </tr>
-                  <tr class="border-b border-white/5">
-                    <td class="py-4 px-6 font-semibold">18" x 24"</td>
-                    <td class="py-4 px-6">$229</td>
-                    <td class="py-4 px-6">$289</td>
-                    <td class="py-4 px-6">$429</td>
-                  </tr>
-                  <tr class="border-b border-white/5">
-                    <td class="py-4 px-6 font-semibold">24" x 36"</td>
-                    <td class="py-4 px-6">$329</td>
-                    <td class="py-4 px-6">$429</td>
-                    <td class="py-4 px-6">$629</td>
-                  </tr>
-                  <tr class="border-b border-white/5">
-                    <td class="py-4 px-6 font-semibold">30" x 40"</td>
-                    <td class="py-4 px-6">$449</td>
-                    <td class="py-4 px-6">$579</td>
-                    <td class="py-4 px-6">$849</td>
-                  </tr>
-                  <tr class="border-b border-white/5 bg-teal-500/5">
-                    <td class="py-4 px-6 font-semibold text-teal-400">48" x 60" <span class="text-xs ml-2">Popular</span></td>
-                    <td class="py-4 px-6">$799</td>
-                    <td class="py-4 px-6">$999</td>
-                    <td class="py-4 px-6">$1,449</td>
-                  </tr>
-                  <tr>
-                    <td class="py-4 px-6 font-semibold">60" x 80"</td>
-                    <td class="py-4 px-6">$1,299</td>
-                    <td class="py-4 px-6">$1,599</td>
-                    <td class="py-4 px-6">$2,199</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="text-sm text-gray-500 mt-6 text-center">
-              All prints are limited editions • Custom sizes available upon request
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section class="py-32 bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600 relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/30"></div>
-        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 class="text-5xl md:text-6xl font-black mb-8">
-            Transform Your Space
-          </h2>
-          <p class="text-2xl mb-12 opacity-90">
-            Limited edition prints • Museum quality • Worldwide shipping
-          </p>
-          <a href="#collections" class="inline-block px-12 py-6 rounded-full text-xl font-bold bg-white text-gray-900 hover:bg-gray-100 transition shadow-2xl">
-            Browse Gallery
-          </a>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer class="bg-black border-t border-white/10 py-16">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p class="text-gray-400 text-sm">© 2026 Acromatico. Built for creators, by creators.</p>
+      <footer class="bg-white border-t border-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+          <p class="text-gray-500 text-sm">© 2026 Acromatico. Museum-quality fine art prints.</p>
         </div>
       </footer>
 
-      {/* JavaScript for Gallery Interactions */}
-      <script dangerouslySetInnerHTML={{__html: `
-        // Collection filtering
-        function showCollection(collection) {
-          const prints = document.querySelectorAll('.print-card');
-          const tabs = document.querySelectorAll('.collection-tab');
-          
-          // Update active tab
-          tabs.forEach(tab => {
-            if (tab.dataset.collection === collection) {
-              tab.classList.remove('bg-gray-800', 'text-gray-300');
-              tab.classList.add('bg-teal-500', 'text-white');
-            } else {
-              tab.classList.remove('bg-teal-500', 'text-white');
-              tab.classList.add('bg-gray-800', 'text-gray-300');
-            }
-          });
-          
-          // Filter prints
-          prints.forEach(print => {
-            if (collection === 'all' || print.dataset.collection === collection) {
-              print.style.display = 'block';
-              print.style.animation = 'fadeIn 0.5s ease';
-            } else {
-              print.style.display = 'none';
-            }
-          });
-        }
-        
-        // View print details
-        function viewPrint(printId) {
-          alert('Quick View feature coming soon! Full-screen preview with zoom functionality.');
-        }
-        
-        // Add to cart
-        function addToCart(printId, title, price) {
-          // Get cart from localStorage
-          let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-          
-          // Add print to cart
-          cart.push({
-            type: 'print',
-            id: printId,
-            title: title,
-            price: price,
-            size: '24" x 36"', // Default size
-            material: 'Fine Art Paper',
-            quantity: 1
-          });
-          
-          localStorage.setItem('cart', JSON.stringify(cart));
-          
-          // Show feedback
-          alert('🎉 Added to cart: ' + title + ' ($' + price + ')\\n\\nThis will be integrated with the cart system!');
-        }
-        
-        // Fade in animation
-        const style = document.createElement('style');
-        style.textContent = \`
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        \`;
-        document.head.appendChild(style);
-      `}} />
-    </div>,
-    { title: 'Fine Art Prints - Acromatico Gallery' }
+    </div>
   )
 )
 app.get('/photography', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Photography - Coming Soon</h1></div>))
