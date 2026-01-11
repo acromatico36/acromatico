@@ -2277,6 +2277,11 @@ app.get('/prints', (c) =>
             '</div>';
           
           document.body.insertAdjacentHTML('beforeend', modalHTML);
+          
+          // Update summary immediately after modal is created
+          setTimeout(() => {
+            updateSummary();
+          }, 10);
         }
 
         function closeOptionsModal(event) {
