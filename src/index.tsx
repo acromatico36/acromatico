@@ -1944,7 +1944,7 @@ app.get('/prints', (c) =>
           <div class="print-description">
             <h3 class="print-title">Where Morning Feels Like Forever</h3>
             <p class="print-details" style="margin-bottom: 24px;">
-              Baby Beach, Aruba • 6:47 AM. The moment before the world wakes up. A solitary palapa stands where turquoise waters meet endless sky—the kind of blue that makes you want to pause everything and just breathe. This is the feeling you chase on vacation, bottled into a single frame.
+              Baby Beach, Aruba. The moment before the world wakes up. A solitary palapa stands where turquoise waters meet endless sky—the kind of blue that makes you want to pause everything and just breathe. This is the feeling you chase on vacation, bottled into a single frame.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
               <button onclick="openPrintModal('Where Morning Feels Like Forever', '/static/prints/staging-aruba-living-room.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
@@ -2057,6 +2057,61 @@ app.get('/prints', (c) =>
               </button>
             </div>
             <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Artist Story Section */}
+      <section style="background: #3D3935; padding: 100px 24px; color: #F5F3F0;">
+        <div style="max-width: 900px; margin: 0 auto;">
+          <h2 style="font-size: 48px; font-weight: 300; letter-spacing: -1px; margin-bottom: 32px; text-align: center; color: #F5F3F0;">
+            Why We Create
+          </h2>
+          
+          <div style="font-size: 20px; line-height: 1.8; color: #E8E5E0; margin-bottom: 48px;">
+            <p style="margin-bottom: 24px;">
+              After 21 years of battling Crohn's disease—hospitalized more times than I can count—I discovered something that changed everything: <strong style="color: #F5F3F0;">the healing power of being present in nature.</strong>
+            </p>
+            
+            <p style="margin-bottom: 24px;">
+              These aren't just photographs. They're <strong style="color: #F5F3F0;">moments that saved me.</strong> Standing on Baby Beach at dawn, watching the light hit Torres del Paine, breathing in the salt air of Cinque Terre—these places taught me how to pause, breathe, and remember what it feels like to be alive.
+            </p>
+            
+            <p style="margin-bottom: 24px;">
+              As a father, filmmaker, and co-founder of Ecolosophy (fighting to detoxify homes and protect families), I've learned that <strong style="color: #F5F3F0;">health isn't just about what you avoid—it's about what you invite in.</strong> Peace. Beauty. Connection. Wonder.
+            </p>
+            
+            <p style="margin-bottom: 48px;">
+              Every print is limited to 100, hand-signed by John and me, because we refuse to mass-produce what took years of pain, healing, and travel to capture. When you hang one of these in your home, you're not just buying art—<strong style="color: #F5F3F0;">you're inviting a moment of peace into your daily chaos.</strong>
+            </p>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 48px; text-align: center;">
+            <div>
+              <div style="font-size: 48px; font-weight: 300; color: #F5F3F0; margin-bottom: 8px;">1/100</div>
+              <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Limited Edition</div>
+            </div>
+            <div>
+              <div style="font-size: 48px; font-weight: 300; color: #F5F3F0; margin-bottom: 8px;">✍️</div>
+              <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Hand-Signed</div>
+            </div>
+            <div>
+              <div style="font-size: 48px; font-weight: 300; color: #F5F3F0; margin-bottom: 8px;">4-6</div>
+              <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Weeks to Ship</div>
+            </div>
+            <div>
+              <div style="font-size: 48px; font-weight: 300; color: #F5F3F0; margin-bottom: 8px;">100%</div>
+              <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Artisan-Made</div>
+            </div>
+          </div>
+          
+          <div style="text-align: center;">
+            <p style="font-size: 18px; font-style: italic; color: #8B7E6A; margin-bottom: 16px;">
+              "These moments don't just live in memory—they transform the spaces we live in."
+            </p>
+            <p style="font-size: 16px; color: #E8E5E0;">
+              — Italo Campilii & John, Founders of Acromatico
+            </p>
           </div>
         </div>
       </section>
