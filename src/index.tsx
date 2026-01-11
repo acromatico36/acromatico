@@ -2413,9 +2413,126 @@ app.get('/prints', (c) =>
           });
         }
 
-        // View cart function (to be called from header)
+        // View cart function - show modal with cart items
         function viewCart() {
-          window.location.href = '/cart';
+          const cart = JSON.parse(localStorage.getItem('acromatico_cart') || '[]');
+          
+          if (cart.length === 0) {
+            alert('Your cart is empty! Add some prints first.');
+            return;
+          }
+          
+          // Calculate total
+          const total = cart.reduce((sum, item) => sum + item.sizePrice + item.framePrice, 0);
+          
+          // Build cart items HTML
+          let cartItemsHTML = '';
+          cart.forEach((item, index) => {
+            const itemHTML = '<div style="border-bottom: 1px solid #E8E5E0; padding: 16px 0; display: flex; justify-content: space-between; align-items: center;">' +
+              '<div>' +
+                '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">' + item.printName + '</div>' +
+                '<div style="font-size: 14px; color: #8B7E6A;">' + item.size + ' • ' + item.frameName + '</div>' +
+              '</div>' +
+              '<div style="text-align: right;">' +
+                '<div style="font-size: 16px; font-weight: 500; color: #3D3935;">$' + (item.sizePrice + item.framePrice).toLocaleString() + '</div>' +
+                '<button onclick="removeFromCart(' + index + ')" style="font-size: 12px; color: #8B7E6A; text-decoration: underline; background: none; border: none; cursor: pointer; margin-top: 4px;">Remove</button>' +
+              '</div>' +
+            '</div>';
+            cartItemsHTML += itemHTML;
+          });
+          
+          // Create cart modal
+          const existingModal = document.getElementById('cartModal');
+          if (existingModal) existingModal.remove();
+          
+          const modal = document.createElement('div');
+          modal.id = 'cartModal';
+          modal.innerHTML = 
+            '<div style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 24px;" onclick="closeCartModal()">' +
+              '<div style="background: white; max-width: 600px; width: 100%; border-radius: 0; padding: 40px; max-height: 80vh; overflow-y: auto;" onclick="event.stopPropagation()">' +
+                '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">' +
+                  '<h2 style="font-size: 32px; font-weight: 300; color: #3D3935;">Your Cart</h2>' +
+                  '<button onclick="closeCartModal()" style="font-size: 32px; background: none; border: none; cursor: pointer; color: #8B7E6A; line-height: 1;">×</button>' +
+                '</div>' +
+                '<div style="margin-bottom: 24px;">' +
+                  cartItemsHTML +
+                '</div>' +
+                '<div style="border-top: 2px solid #3D3935; padding-top: 16px; margin-bottom: 32px;">' +
+                  '<div style="display: flex; justify-content: space-between; align-items: center;">' +
+                    '<span style="font-size: 20px; font-weight: 500; color: #3D3935;">Total</span>' +
+                    '<span style="font-size: 24px; font-weight: 500; color: #3D3935;">$' + total.toLocaleString() + '</span>' +
+                  '</div>' +
+                '</div>' +
+                '<button onclick="checkoutCart()" style="width: 100%; padding: 18px; background: #3D3935; color: white; border: none; font-size: 16px; font-weight: 500; cursor: pointer; letter-spacing: 1px; transition: all 0.3s; margin-bottom: 12px;">' +
+                  'CHECKOUT ALL' +
+                '</button>' +
+                '<button onclick="closeCartModal()" style="width: 100%; padding: 18px; background: transparent; color: #3D3935; border: 1px solid #3D3935; font-size: 16px; font-weight: 500; cursor: pointer; letter-spacing: 1px;">' +
+                  'CONTINUE SHOPPING' +
+                '</button>' +
+                '<p style="text-align: center; font-size: 12px; color: #8B7E6A; margin-top: 16px;">' +
+                  'Secure checkout powered by Stripe • Free US shipping' +
+                '</p>' +
+              '</div>' +
+            '</div>';
+          
+          document.body.appendChild(modal);
+        }
+        
+        function closeCartModal() {
+          const modal = document.getElementById('cartModal');
+          if (modal) modal.remove();
+        }
+        
+        function removeFromCart(index) {
+          let cart = JSON.parse(localStorage.getItem('acromatico_cart') || '[]');
+          cart.splice(index, 1);
+          localStorage.setItem('acromatico_cart', JSON.stringify(cart));
+          updateCartBadge();
+          closeCartModal();
+          if (cart.length > 0) {
+            viewCart(); // Reopen with updated cart
+          }
+        }
+        
+        async function checkoutCart() {
+          const cart = JSON.parse(localStorage.getItem('acromatico_cart') || '[]');
+          
+          if (cart.length === 0) {
+            alert('Your cart is empty!');
+            return;
+          }
+          
+          try {
+            // Show loading state
+            const modal = document.getElementById('cartModal');
+            if (modal) {
+              modal.querySelector('div[onclick*="stopPropagation"]').innerHTML = 
+                '<div style="text-align: center; padding: 60px 20px;">' +
+                  '<div style="font-size: 24px; color: #3D3935; margin-bottom: 16px;">Processing your order...</div>' +
+                  '<div style="font-size: 16px; color: #8B7E6A;">Redirecting to secure checkout</div>' +
+                '</div>';
+            }
+            
+            // Send cart to Stripe (rename to 'items' for backend)
+            const response = await fetch('/api/create-checkout', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ items: cart })
+            });
+            
+            const data = await response.json();
+            
+            if (data.url) {
+              window.location.href = data.url;
+            } else {
+              alert('Checkout failed. Please try again.');
+              closeCartModal();
+            }
+          } catch (error) {
+            console.error('Checkout error:', error);
+            alert('Something went wrong. Please try again.');
+            closeCartModal();
+          }
         }
       `}} />
 
