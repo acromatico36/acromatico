@@ -76,7 +76,7 @@ app.post('/api/create-checkout', async (c) => {
           currency: 'usd',
           product_data: {
             name: `${item.printName} - ${item.size}"`,
-            description: `✨ Limited Edition 1/100\n🖋️ Hand-Signed by Artists Italo Campilii & John\n🎨 ${item.frameName} Frame\n📐 ${item.size}" Museum-Quality Print\n📄 Archival Paper • UV-Protected\n🏗️ Artisan-Made • Built to Order\n📦 Ships in 4-6 Weeks • Free US Shipping`,
+            description: `✨ Limited Edition 1/100\n🖋️ Hand-Signed by Italo Campilii & Ale\n🎨 ${item.frameName} Frame\n📐 ${item.size}" Museum-Quality Print\n📄 Archival Paper • UV-Protected\n🏗️ Artisan-Made • Built to Order\n📦 Ships in 4-6 Weeks • Free US Shipping`,
             images: item.imageUrl ? [item.imageUrl] : [],
           },
           unit_amount: total * 100, // Stripe uses cents
@@ -1951,7 +1951,7 @@ app.get('/prints', (c) =>
                 Select Options
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -1972,7 +1972,7 @@ app.get('/prints', (c) =>
                 Select Options
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -1993,7 +1993,7 @@ app.get('/prints', (c) =>
                 Select Options
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -2014,7 +2014,7 @@ app.get('/prints', (c) =>
                 Select Options
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -2035,7 +2035,7 @@ app.get('/prints', (c) =>
                 Select Options
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
 
@@ -2056,7 +2056,7 @@ app.get('/prints', (c) =>
                 Select Options
               </button>
             </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Artists • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
+            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
           </div>
         </div>
       </section>
@@ -2065,24 +2065,28 @@ app.get('/prints', (c) =>
       <section style="background: #3D3935; padding: 100px 24px; color: #F5F3F0;">
         <div style="max-width: 900px; margin: 0 auto;">
           <h2 style="font-size: 48px; font-weight: 300; letter-spacing: -1px; margin-bottom: 32px; text-align: center; color: #F5F3F0;">
-            Why We Create
+            Moments We'll Never Forget
           </h2>
           
           <div style="font-size: 20px; line-height: 1.8; color: #E8E5E0; margin-bottom: 48px;">
             <p style="margin-bottom: 24px;">
-              After 21 years of battling Crohn's disease—hospitalized more times than I can count—I discovered something that changed everything: <strong style="color: #F5F3F0;">the healing power of being present in nature.</strong>
+              We don't chase perfect light or viral destinations. We chase <strong style="color: #F5F3F0;">the moments that stop time</strong>—the kind of beauty that makes you forget your phone exists and just breathe.
             </p>
             
             <p style="margin-bottom: 24px;">
-              These aren't just photographs. They're <strong style="color: #F5F3F0;">moments that saved me.</strong> Standing on Baby Beach at dawn, watching the light hit Torres del Paine, breathing in the salt air of Cinque Terre—these places taught me how to pause, breathe, and remember what it feels like to be alive.
+              These prints capture the places that changed us. Baby Beach at dawn. Cinque Terre's golden hour. The terraces of Ixtapa where the world felt infinite.
             </p>
             
             <p style="margin-bottom: 24px;">
-              As a father, filmmaker, and co-founder of Ecolosophy (fighting to detoxify homes and protect families), I've learned that <strong style="color: #F5F3F0;">health isn't just about what you avoid—it's about what you invite in.</strong> Peace. Beauty. Connection. Wonder.
+              We've spent years chasing light across coastlines and villages most people scroll past. Not for content. <strong style="color: #F5F3F0;">For connection.</strong>
             </p>
             
             <p style="margin-bottom: 48px;">
-              Every print is limited to 100, hand-signed by John and me, because we refuse to mass-produce what took years of pain, healing, and travel to capture. When you hang one of these in your home, you're not just buying art—<strong style="color: #F5F3F0;">you're inviting a moment of peace into your daily chaos.</strong>
+              Each print is a moment we'll never get back—frozen in archival quality, framed in natural oak, signed by hand. <strong style="color: #F5F3F0;">Only 100 exist. When they're gone, they're gone.</strong>
+            </p>
+            
+            <p style="margin-bottom: 0px; font-size: 18px; font-style: italic; color: #F5F3F0;">
+              This isn't art for everyone. It's for the people who understand that the best things in life can't be mass-produced.
             </p>
           </div>
           
@@ -2106,11 +2110,8 @@ app.get('/prints', (c) =>
           </div>
           
           <div style="text-align: center;">
-            <p style="font-size: 18px; font-style: italic; color: #8B7E6A; margin-bottom: 16px;">
-              "These moments don't just live in memory—they transform the spaces we live in."
-            </p>
-            <p style="font-size: 16px; color: #E8E5E0;">
-              — Italo Campilii & John, Founders of Acromatico
+            <p style="font-size: 16px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 3px;">
+              Italo Campilii & Ale
             </p>
           </div>
         </div>
