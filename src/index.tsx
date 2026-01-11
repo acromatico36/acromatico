@@ -2165,60 +2165,57 @@ app.get('/prints', (c) =>
 
         function openPrintModal(printName, imageUrl) {
           currentPrint = { name: printName, image: imageUrl };
+          selectedSize = { name: '', price: 0 };
+          selectedFrame = { name: 'Natural Oak', price: 0 };
           
-          // Create modal HTML
+          // Create simplified modal - everything visible at once
           const modalHTML = '<div id="optionsModal" class="modal active" onclick="closeOptionsModal(event)" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); display: flex; align-items: center; justify-content: center; z-index: 10000;">' +
             '<div class="modal-content" onclick="event.stopPropagation()" style="background: white; border-radius: 12px; max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">' +
-            '<button onclick="closeOptionsModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 32px; color: #8B7E6A; cursor: pointer; line-height: 1;">×</button>' +
+            '<button onclick="closeOptionsModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 32px; color: #8B7E6A; cursor: pointer; line-height: 1; z-index: 1;">×</button>' +
             '<div style="padding: 40px;">' +
             '<h2 style="font-size: 28px; font-weight: 400; color: #3D3935; margin-bottom: 8px;">' + printName + '</h2>' +
             '<p style="font-size: 14px; color: #8B7E6A; margin-bottom: 32px;">Limited Edition 1/100 • Signed by Artists</p>' +
             
-            '<div id="sizeSelection">' +
-            '<h3 style="font-size: 20px; font-weight: 500; color: #3D3935; margin-bottom: 20px;">Select Size</h3>' +
-            '<div onclick="selectSize(\\'24×36\\', 795)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
-            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">24" × 36"</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">Perfect for bedrooms • $795</div>' +
+            '<h3 style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 16px;">Select Size</h3>' +
+            '<div class="size-options" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px;">' +
+            '<div class="size-option" data-size="24×36" data-price="795" onclick="selectOption(this, \\'size\\', \\'24×36\\', 795)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
+            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">24×36"</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">$795</div>' +
             '</div>' +
-            '<div onclick="selectSize(\\'30×40\\', 995)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
-            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">30" × 40"</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">Most popular • $995</div>' +
+            '<div class="size-option" data-size="30×40" data-price="995" onclick="selectOption(this, \\'size\\', \\'30×40\\', 995)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
+            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">30×40"</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">$995</div>' +
             '</div>' +
-            '<div onclick="selectSize(\\'48×60\\', 1595)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
-            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">48" × 60"</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">Statement piece • $1,595</div>' +
-            '</div>' +
-            '</div>' +
-            
-            '<div id="frameSelection" style="display: none;">' +
-            '<button onclick="backToSize()" style="color: #8B7E6A; background: none; border: none; cursor: pointer; font-size: 16px; margin-bottom: 20px;">← Back</button>' +
-            '<h3 style="font-size: 20px; font-weight: 500; color: #3D3935; margin-bottom: 20px;">Select Frame</h3>' +
-            '<div onclick="selectFrame(\\'Natural Oak\\', 0)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
-            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">Natural Oak</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">Premium solid oak • Included</div>' +
-            '</div>' +
-            '<div onclick="selectFrame(\\'Walnut\\', 300)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
-            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">Walnut</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">Rich dark wood • +$300</div>' +
-            '</div>' +
-            '<div onclick="selectFrame(\\'White Oak\\', 300)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 20px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor=\\'#3D3935\\'" onmouseout="if(!this.classList.contains(\\'selected\\'))this.style.borderColor=\\'#E8E5E0\\'">' +
-            '<div style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">White Oak</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">Light coastal finish • +$300</div>' +
+            '<div class="size-option" data-size="48×60" data-price="1595" onclick="selectOption(this, \\'size\\', \\'48×60\\', 1595)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
+            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">48×60"</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">$1,595</div>' +
             '</div>' +
             '</div>' +
             
-            '<div id="actionButtons" style="display: none;">' +
-            '<button onclick="backToFrame()" style="color: #8B7E6A; background: none; border: none; cursor: pointer; font-size: 16px; margin-bottom: 20px;">← Back</button>' +
+            '<h3 style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 16px;">Select Frame</h3>' +
+            '<div class="frame-options" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px;">' +
+            '<div class="frame-option selected" data-frame="Natural Oak" data-price="0" onclick="selectOption(this, \\'frame\\', \\'Natural Oak\\', 0)" style="border: 2px solid #3D3935; background: #F5F3F0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
+            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">Natural Oak</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">Included</div>' +
+            '</div>' +
+            '<div class="frame-option" data-frame="Walnut" data-price="300" onclick="selectOption(this, \\'frame\\', \\'Walnut\\', 300)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
+            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">Walnut</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">+$300</div>' +
+            '</div>' +
+            '<div class="frame-option" data-frame="White Oak" data-price="300" onclick="selectOption(this, \\'frame\\', \\'White Oak\\', 300)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
+            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">White Oak</div>' +
+            '<div style="font-size: 14px; color: #8B7E6A;">+$300</div>' +
+            '</div>' +
+            '</div>' +
+            
             '<div style="background: #F5F3F0; border-radius: 8px; padding: 20px; margin-bottom: 24px;">' +
-            '<div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span style="color: #8B7E6A;">Size</span><span id="summarySize" style="color: #3D3935; font-weight: 500;"></span></div>' +
-            '<div style="display: flex; justify-content: space-between; margin-bottom: 16px;"><span style="color: #8B7E6A;">Frame</span><span id="summaryFrame" style="color: #3D3935; font-weight: 500;"></span></div>' +
-            '<div style="display: flex; justify-content: space-between; border-top: 2px solid #3D3935; padding-top: 16px; font-size: 20px; font-weight: 500;"><span style="color: #3D3935;">Total</span><span id="summaryTotal" style="color: #3D3935;"></span></div>' +
+            '<div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span style="color: #8B7E6A;">Size</span><span id="summarySize" style="color: #3D3935; font-weight: 500;">Select size</span></div>' +
+            '<div style="display: flex; justify-content: space-between; margin-bottom: 16px;"><span style="color: #8B7E6A;">Frame</span><span id="summaryFrame" style="color: #3D3935; font-weight: 500;">Natural Oak (included)</span></div>' +
+            '<div style="display: flex; justify-content: space-between; border-top: 2px solid #3D3935; padding-top: 16px; font-size: 20px; font-weight: 500;"><span style="color: #3D3935;">Total</span><span id="summaryTotal" style="color: #3D3935;">$0</span></div>' +
             '</div>' +
             '<p style="font-size: 12px; color: #8B7E6A; margin-bottom: 20px; line-height: 1.6;">✨ Limited Edition 1/100<br/>🖋️ Hand-Signed by Artists<br/>🎨 Museum-Quality Archival Paper<br/>📦 Artisan-Made • Ships in 4-6 Weeks</p>' +
             '<button onclick="addItemToCart()" style="width: 100%; background: white; color: #3D3935; border: 2px solid #3D3935; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; margin-bottom: 12px;">Add to Cart</button>' +
             '<button onclick="buyNow()" style="width: 100%; background: #3D3935; color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer;">Buy Now</button>' +
-            '</div>' +
-            
             '</div>' +
             '</div>' +
             '</div>';
@@ -2233,34 +2230,54 @@ app.get('/prints', (c) =>
           }
         }
 
-        function selectSize(size, price) {
-          selectedSize = { name: size, price: price };
-          document.getElementById('sizeSelection').style.display = 'none';
-          document.getElementById('frameSelection').style.display = 'block';
-        }
-
-        function selectFrame(frame, price) {
-          selectedFrame = { name: frame, price: price };
-          document.getElementById('frameSelection').style.display = 'none';
-          document.getElementById('actionButtons').style.display = 'block';
+        function selectOption(element, type, name, price) {
+          // Update selection
+          if (type === 'size') {
+            selectedSize = { name: name, price: price };
+            // Remove selected class from all size options
+            document.querySelectorAll('.size-option').forEach(el => {
+              el.style.borderColor = '#E8E5E0';
+              el.style.background = 'white';
+              el.classList.remove('selected');
+            });
+            // Add selected class to clicked option
+            element.style.borderColor = '#3D3935';
+            element.style.background = '#F5F3F0';
+            element.classList.add('selected');
+          } else if (type === 'frame') {
+            selectedFrame = { name: name, price: price };
+            // Remove selected class from all frame options
+            document.querySelectorAll('.frame-option').forEach(el => {
+              el.style.borderColor = '#E8E5E0';
+              el.style.background = 'white';
+              el.classList.remove('selected');
+            });
+            // Add selected class to clicked option
+            element.style.borderColor = '#3D3935';
+            element.style.background = '#F5F3F0';
+            element.classList.add('selected');
+          }
           
+          // Update summary
+          updateSummary();
+        }
+        
+        function updateSummary() {
+          const sizeText = selectedSize.name ? selectedSize.name + '"' : 'Select size';
+          const frameText = selectedFrame.name + (selectedFrame.price > 0 ? ' (+$' + selectedFrame.price + ')' : ' (included)');
           const total = selectedSize.price + selectedFrame.price;
-          document.getElementById('summarySize').textContent = selectedSize.name + '"';
-          document.getElementById('summaryFrame').textContent = selectedFrame.name + (selectedFrame.price > 0 ? ' (+$' + selectedFrame.price + ')' : ' (included)');
-          document.getElementById('summaryTotal').textContent = '$' + total.toLocaleString();
-        }
-
-        function backToSize() {
-          document.getElementById('frameSelection').style.display = 'none';
-          document.getElementById('sizeSelection').style.display = 'block';
-        }
-
-        function backToFrame() {
-          document.getElementById('actionButtons').style.display = 'none';
-          document.getElementById('frameSelection').style.display = 'block';
+          
+          document.getElementById('summarySize').textContent = sizeText;
+          document.getElementById('summaryFrame').textContent = frameText;
+          document.getElementById('summaryTotal').textContent = total > 0 ? '$' + total.toLocaleString() : '$0';
         }
 
         function addItemToCart() {
+          if (!selectedSize.name) {
+            alert('Please select a size first!');
+            return;
+          }
+          
           const item = {
             printName: currentPrint.name,
             imageUrl: window.location.origin + currentPrint.image,
@@ -2277,11 +2294,17 @@ app.get('/prints', (c) =>
           
           closeOptionsModal();
           
-          // Show confirmation
-          alert('Added to cart! Total items: ' + cart.length);
+          // Show better confirmation
+          const total = selectedSize.price + selectedFrame.price;
+          alert('✓ Added to cart!\\n\\n' + currentPrint.name + '\\n' + selectedSize.name + '" • ' + selectedFrame.name + '\\n$' + total.toLocaleString() + '\\n\\nTotal items in cart: ' + cart.length);
         }
 
         function buyNow() {
+          if (!selectedSize.name) {
+            alert('Please select a size first!');
+            return;
+          }
+          
           const item = {
             printName: currentPrint.name,
             imageUrl: window.location.origin + currentPrint.image,
@@ -2292,6 +2315,7 @@ app.get('/prints', (c) =>
             quantity: 1
           };
           
+          closeOptionsModal();
           processCheckout([item]);
         }
 
