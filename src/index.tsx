@@ -1890,15 +1890,15 @@ app.get('/prints', (c) =>
 
             {/* Italy Collection */}
             <div class="print-card rounded-2xl overflow-hidden" data-collection="italy">
-              <img src="/static/prints/italy-amalfi.jpg" alt="Amalfi Golden Hour" class="w-full h-full object-cover aspect-[4/5]" />
+              <img src="/static/prints/italy-cinque-terre.jpg" alt="Cinque Terre" class="w-full h-full object-cover aspect-[4/5]" />
               <div class="print-overlay">
-                <h3 class="text-2xl font-bold mb-2">Amalfi Golden Hour</h3>
+                <h3 class="text-2xl font-bold mb-2">Cinque Terre</h3>
                 <p class="text-gray-400 text-sm mb-4">Edition 1/100 • Signed by Artists</p>
                 <div class="flex gap-3">
                   <button onclick="viewPrint('italy-1')" class="flex-1 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-semibold">
                     Quick View
                   </button>
-                  <button onclick="addToCart('italy-1', 'Amalfi Golden Hour', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
+                  <button onclick="addToCart('italy-1', 'Cinque Terre', 795)" class="flex-1 px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-600 transition font-semibold">
                     From $795
                   </button>
                 </div>
