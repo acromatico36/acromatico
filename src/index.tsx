@@ -57,7 +57,7 @@ const PrintsHeader = () => (
         </div>
         <div class="flex-1 flex justify-center">
           <a href="/">
-            <img src="/static/acromatico-logo.png" alt="Acromatico" class="h-8 w-auto" />
+            <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="h-8 w-auto" />
           </a>
         </div>
         <div class="flex items-center space-x-6">
