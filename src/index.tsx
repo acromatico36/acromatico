@@ -2850,6 +2850,113 @@ app.get('/photography', (c) =>
         </div>
       </section>
 
+      {/* Portfolio Gallery Section - REAL WORK */}
+      <section style="padding: 120px 24px; background: white;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 80px;">
+            <h2 style="font-size: 56px; font-weight: 300; letter-spacing: -1px; margin-bottom: 24px; color: #3D3935;">
+              Recent Stories
+            </h2>
+            <p style="font-size: 20px; color: #5A5550; max-width: 650px; margin: 0 auto;">
+              Real couples. Real moments. No filters, no gimmicks—just honest photography that captures the way it felt to be there.
+            </p>
+          </div>
+
+          {/* Masonry Grid */}
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px;">
+            
+            {/* Image 1 */}
+            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
+              <img src="/static/portfolio/hero-couple.jpg" alt="New York Wedding - Kaleigh & Ramon" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">New York Wedding</div>
+                <div style="font-size: 14px; opacity: 0.9;">Beacon, NY • Kaleigh & Ramon</div>
+              </div>
+            </div>
+
+            {/* Image 2 */}
+            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
+              <img src="/static/portfolio/scenic-view.jpg" alt="Hudson Valley Scenic Views" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Hudson Valley Magic</div>
+                <div style="font-size: 14px; opacity: 0.9;">Cold Spring, NY</div>
+              </div>
+            </div>
+
+            {/* Image 3 */}
+            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
+              <img src="/static/portfolio/outdoor-ceremony.jpg" alt="Outdoor Ceremony" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Madam Brett Park</div>
+                <div style="font-size: 14px; opacity: 0.9;">First Look • Beacon</div>
+              </div>
+            </div>
+
+            {/* Image 4 */}
+            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
+              <img src="/static/portfolio/intimate-moment.jpg" alt="Intimate Moment" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Candid Connection</div>
+                <div style="font-size: 14px; opacity: 0.9;">Raw & Unposed</div>
+              </div>
+            </div>
+
+            {/* Image 5 */}
+            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
+              <img src="/static/portfolio/candid-laughing.jpg" alt="Candid Laughter" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Pure Joy</div>
+                <div style="font-size: 14px; opacity: 0.9;">Real Laughter, Real Love</div>
+              </div>
+            </div>
+
+            {/* Image 6 */}
+            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
+              <img src="/static/portfolio/golden-sunset.jpg" alt="Golden Hour Sunset" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Golden Hour</div>
+                <div style="font-size: 14px; opacity: 0.9;">Dockside Park, Cold Spring</div>
+              </div>
+            </div>
+
+            {/* Image 7 */}
+            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
+              <img src="/static/portfolio/brewery-fun.jpg" alt="Hudson Valley Brewery" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Brewery Vibes</div>
+                <div style="font-size: 14px; opacity: 0.9;">Hudson Valley Brewery</div>
+              </div>
+            </div>
+
+            {/* Image 8 */}
+            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
+              <img src="/static/portfolio/waterfront-beauty.jpg" alt="Waterfront Beauty" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Waterfront Elegance</div>
+                <div style="font-size: 14px; opacity: 0.9;">Hudson River Views</div>
+              </div>
+            </div>
+
+            {/* Image 9 */}
+            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
+              <img src="/static/portfolio/emotional-kiss.jpg" alt="Emotional Kiss" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">The Moment</div>
+                <div style="font-size: 14px; opacity: 0.9;">Peekskill Central Market</div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Gallery CTA */}
+          <div style="text-align: center; margin-top: 60px;">
+            <a href="https://acromatico.com/new-york-wedding-kaleigh-ramon/" target="_blank" style="display: inline-block; padding: 18px 48px; background: transparent; color: #3D3935; border: 2px solid #3D3935; text-decoration: none; font-size: 16px; font-weight: 600; letter-spacing: 1px; border-radius: 4px; transition: all 0.3s;" onmouseover="this.style.background='#3D3935'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#3D3935'">
+              VIEW FULL GALLERY →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Booking CTA Section */}
       <section id="booking" style="padding: 120px 24px; background: #F5F3F0;">
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
