@@ -185,6 +185,7 @@ app.get('/api/stripe-key', (c) => {
 
 // Serve static files from public directory
 app.use('/static/*', serveStatic({ root: './' }))
+app.use('/*.html', serveStatic({ root: './public' }))
 
 // Use JSX renderer
 app.use(renderer)
@@ -2605,405 +2606,43 @@ app.get('/prints', (c) =>
   )
 )
 // Photography Services Page
-app.get('/photography', (c) =>
-  c.render(
-    <div style="background: #FDFDFB; min-height: 100vh;">
-      <PrintsHeader />
+// Photography page - served as static HTML
+app.get('/photography', (c) => c.redirect('/photography.html'))
 
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
-        
-        .photo-page {
-          font-family: 'Montserrat', sans-serif;
-        }
-        
-        .photo-page h1, .photo-page h2, .photo-page h3 {
-          font-family: 'Cormorant Garamond', serif;
-        }
-        
-        .package-card {
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          border: 2px solid #E8E5E0;
-        }
-        
-        .package-card:hover {
-          transform: translateY(-8px);
-          border-color: #3D3935;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-        
-        .premium-badge {
-          background: linear-gradient(135deg, #C9A961 0%, #E8D5A0 100%);
-          color: #3D3935;
-          font-weight: 600;
-          letter-spacing: 1px;
-        }
-      `}</style>
+// Photography Checkout API
+app.post('/api/photography/checkout', async (c) => {
+  try {
+    const formData = await c.req.json()
+    
+    const contract = {
+      contractNumber: `AC-${Date.now()}`,
+      clientName: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      partnerName: formData.partnerName,
+      weddingDate: formData.weddingDate,
+      venue: formData.venue,
+      package: formData.package,
+      totalAmount: formData.amount,
+      paymentPlan: formData.paymentPlan,
+      createdAt: new Date().toISOString(),
+      status: 'pending_payment'
+    }
+    
+    console.log('NEW PHOTOGRAPHY BOOKING:', contract)
+    
+    return c.json({ 
+      success: true, 
+      contractNumber: contract.contractNumber,
+      message: 'Reservation received! Contract will be sent within 24 hours.' 
+    })
+  } catch (error) {
+    console.error('Checkout error:', error)
+    return c.json({ success: false, error: 'Processing failed' }, 500)
+  }
+})
 
-      {/* Hero Section */}
-      <section style="padding: 140px 24px 100px; background: linear-gradient(180deg, #FDFDFB 0%, #F5F3F0 100%); text-align: center;">
-        <div style="max-width: 1100px; margin: 0 auto;">
-          <div style="display: inline-block; background: #3D3935; color: white; padding: 8px 20px; border-radius: 30px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 32px; font-weight: 500;">
-            As Featured On Brides, Zola & The Knot
-          </div>
-          
-          <h1 style="font-size: 68px; font-weight: 300; letter-spacing: -2px; margin-bottom: 24px; color: #3D3935; line-height: 1.1;">
-            Your Story Deserves More<br/>Than Just Photos
-          </h1>
-          
-          <p style="font-size: 22px; line-height: 1.7; color: #5A5550; max-width: 750px; margin: 0 auto 48px;">
-            For over 20 years, we've captured the moments that matter—not with forced poses or stiff smiles, but with <strong style="color: #3D3935;">raw, authentic storytelling</strong> that lasts generations.
-          </p>
-          
-          <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 60px; flex-wrap: wrap;">
-            <a href="#packages" style="padding: 18px 48px; background: #3D3935; color: white; text-decoration: none; font-size: 16px; font-weight: 600; letter-spacing: 1px; border-radius: 4px; transition: all 0.3s;">
-              VIEW PACKAGES
-            </a>
-            <a href="#booking" style="padding: 18px 48px; background: transparent; color: #3D3935; border: 2px solid #3D3935; text-decoration: none; font-size: 16px; font-weight: 600; letter-spacing: 1px; border-radius: 4px; transition: all 0.3s;">
-              RESERVE YOUR DATE
-            </a>
-          </div>
-          
-          <p style="font-size: 14px; color: #8B7E6A; letter-spacing: 1px;">
-            ⚡ Only 3 bookings available per month • Award-winning team • 20+ years experience
-          </p>
-        </div>
-      </section>
-
-      {/* Social Proof Strip */}
-      <section style="background: white; padding: 40px 24px; border-top: 1px solid #E8E5E0; border-bottom: 1px solid #E8E5E0;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 40px; text-align: center;">
-          <div>
-            <div style="font-size: 48px; font-weight: 300; color: #3D3935; margin-bottom: 8px;">20+</div>
-            <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Years Experience</div>
-          </div>
-          <div>
-            <div style="font-size: 48px; font-weight: 300; color: #3D3935; margin-bottom: 8px;">500+</div>
-            <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Stories Captured</div>
-          </div>
-          <div>
-            <div style="font-size: 48px; font-weight: 300; color: #3D3935; margin-bottom: 8px;">⭐⭐⭐⭐⭐</div>
-            <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">5-Star Reviews</div>
-          </div>
-          <div>
-            <div style="font-size: 48px; font-weight: 300; color: #3D3935; margin-bottom: 8px;">3</div>
-            <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Spots/Month</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Packages Section */}
-      <section id="packages" style="padding: 120px 24px; background: #F5F3F0;">
-        <div style="max-width: 1300px; margin: 0 auto;">
-          <div style="text-align: center; margin-bottom: 80px;">
-            <h2 style="font-size: 56px; font-weight: 300; letter-spacing: -1px; margin-bottom: 24px; color: #3D3935;">
-              Investment Options
-            </h2>
-            <p style="font-size: 20px; color: #5A5550; max-width: 650px; margin: 0 auto;">
-              Choose the collection that fits your story. Every package includes our signature documentary-style approach and award-winning editing.
-            </p>
-          </div>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px;">
-            
-            {/* Package 1: The Essential Story */}
-            <div class="package-card" style="background: white; border-radius: 12px; padding: 48px; position: relative; overflow: hidden;">
-              <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #8B7E6A;"></div>
-              
-              <h3 style="font-size: 32px; font-weight: 400; margin-bottom: 16px; color: #3D3935;">The Essential Story</h3>
-              <div style="font-size: 18px; color: #8B7E6A; margin-bottom: 32px;">Perfect for intimate moments</div>
-              
-              <div style="margin-bottom: 32px;">
-                <span style="font-size: 56px; font-weight: 300; color: #3D3935;">$3,500</span>
-                <span style="font-size: 18px; color: #8B7E6A;"> / session</span>
-              </div>
-              
-              <ul style="list-style: none; padding: 0; margin: 0 0 40px 0; color: #5A5550; line-height: 2;">
-                <li style="margin-bottom: 12px;">✓ 6 hours of coverage</li>
-                <li style="margin-bottom: 12px;">✓ 1 award-winning photographer</li>
-                <li style="margin-bottom: 12px;">✓ All images professionally edited</li>
-                <li style="margin-bottom: 12px;">✓ Private online gallery</li>
-                <li style="margin-bottom: 12px;">✓ High-resolution downloads</li>
-                <li style="margin-bottom: 12px;">✓ $350 album credit</li>
-                <li style="margin-bottom: 12px;">✓ USB keepsake</li>
-              </ul>
-              
-              <a href="#booking" style="display: block; text-align: center; padding: 18px; background: #3D3935; color: white; text-decoration: none; font-weight: 600; letter-spacing: 1px; border-radius: 4px; transition: all 0.3s;">
-                RESERVE NOW
-              </a>
-              
-              <p style="text-align: center; font-size: 13px; color: #8B7E6A; margin-top: 16px;">Best for: Engagements, portraits, anniversaries</p>
-            </div>
-
-            {/* Package 2: The Complete Experience - POPULAR */}
-            <div class="package-card" style="background: white; border-radius: 12px; padding: 48px; position: relative; overflow: hidden; border-color: #C9A961;">
-              <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(135deg, #C9A961 0%, #E8D5A0 100%);"></div>
-              <div class="premium-badge" style="position: absolute; top: 24px; right: -40px; transform: rotate(45deg); padding: 8px 60px; font-size: 12px;">
-                MOST POPULAR
-              </div>
-              
-              <h3 style="font-size: 32px; font-weight: 400; margin-bottom: 16px; color: #3D3935;">The Complete Experience</h3>
-              <div style="font-size: 18px; color: #8B7E6A; margin-bottom: 32px;">Our most sought-after package</div>
-              
-              <div style="margin-bottom: 32px;">
-                <span style="font-size: 56px; font-weight: 300; color: #3D3935;">$7,500</span>
-                <span style="font-size: 18px; color: #8B7E6A;"> / wedding</span>
-              </div>
-              
-              <ul style="list-style: none; padding: 0; margin: 0 0 40px 0; color: #5A5550; line-height: 2;">
-                <li style="margin-bottom: 12px;">✓ <strong>10 hours</strong> of full-day coverage</li>
-                <li style="margin-bottom: 12px;">✓ 1 lead + 1 assistant photographer</li>
-                <li style="margin-bottom: 12px;">✓ Unlimited professionally edited images</li>
-                <li style="margin-bottom: 12px;">✓ <strong>Cinematic highlight film</strong> (3-5 min)</li>
-                <li style="margin-bottom: 12px;">✓ Private online gallery</li>
-                <li style="margin-bottom: 12px;">✓ High-resolution downloads</li>
-                <li style="margin-bottom: 12px;">✓ $800 album credit</li>
-                <li style="margin-bottom: 12px;">✓ Engraved USB keepsake</li>
-                <li style="margin-bottom: 12px;">✓ <strong>Engagement session included</strong></li>
-              </ul>
-              
-              <a href="#booking" style="display: block; text-align: center; padding: 18px; background: linear-gradient(135deg, #C9A961 0%, #E8D5A0 100%); color: #3D3935; text-decoration: none; font-weight: 700; letter-spacing: 1px; border-radius: 4px; transition: all 0.3s;">
-                RESERVE NOW
-              </a>
-              
-              <p style="text-align: center; font-size: 13px; color: #8B7E6A; margin-top: 16px;">Best for: Full weddings, brand launches</p>
-            </div>
-
-            {/* Package 3: The Legacy Collection */}
-            <div class="package-card" style="background: white; border-radius: 12px; padding: 48px; position: relative; overflow: hidden;">
-              <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #3D3935;"></div>
-              
-              <h3 style="font-size: 32px; font-weight: 400; margin-bottom: 16px; color: #3D3935;">The Legacy Collection</h3>
-              <div style="font-size: 18px; color: #8B7E6A; margin-bottom: 32px;">The ultimate storytelling experience</div>
-              
-              <div style="margin-bottom: 32px;">
-                <span style="font-size: 56px; font-weight: 300; color: #3D3935;">$15,000</span>
-                <span style="font-size: 18px; color: #8B7E6A;">+</span>
-              </div>
-              
-              <ul style="list-style: none; padding: 0; margin: 0 0 40px 0; color: #5A5550; line-height: 2;">
-                <li style="margin-bottom: 12px;">✓ <strong>Multi-day coverage</strong> (up to 3 days)</li>
-                <li style="margin-bottom: 12px;">✓ 2 award-winning photographers</li>
-                <li style="margin-bottom: 12px;">✓ Unlimited images + full raw files</li>
-                <li style="margin-bottom: 12px;">✓ <strong>Documentary-style film</strong> (10-15 min)</li>
-                <li style="margin-bottom: 12px;">✓ Drone footage included</li>
-                <li style="margin-bottom: 12px;">✓ Private online gallery</li>
-                <li style="margin-bottom: 12px;">✓ <strong>Custom leather album</strong> (16x12)</li>
-                <li style="margin-bottom: 12px;">✓ 2 parent replica albums</li>
-                <li style="margin-bottom: 12px;">✓ Engagement + rehearsal coverage</li>
-                <li style="margin-bottom: 12px;">✓ <strong>Worldwide travel included</strong></li>
-              </ul>
-              
-              <a href="#booking" style="display: block; text-align: center; padding: 18px; background: #3D3935; color: white; text-decoration: none; font-weight: 600; letter-spacing: 1px; border-radius: 4px; transition: all 0.3s;">
-                INQUIRE NOW
-              </a>
-              
-              <p style="text-align: center; font-size: 13px; color: #8B7E6A; margin-top: 16px;">Best for: Destination weddings, luxury brands</p>
-            </div>
-
-          </div>
-
-          {/* Add-ons Section */}
-          <div style="margin-top: 80px; padding: 60px; background: white; border-radius: 12px; border: 2px solid #E8E5E0;">
-            <h3 style="font-size: 36px; font-weight: 400; margin-bottom: 32px; color: #3D3935; text-align: center;">Enhance Your Experience</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px;">
-              <div style="text-align: center;">
-                <div style="font-size: 48px; margin-bottom: 16px;">⚡</div>
-                <div style="font-size: 18px; font-weight: 600; color: #3D3935; margin-bottom: 8px;">Rush Delivery</div>
-                <div style="font-size: 14px; color: #8B7E6A; margin-bottom: 12px;">72-hour turnaround</div>
-                <div style="font-size: 24px; font-weight: 500; color: #3D3935;">+$750</div>
-              </div>
-              <div style="text-align: center;">
-                <div style="font-size: 48px; margin-bottom: 16px;">📱</div>
-                <div style="font-size: 18px; font-weight: 600; color: #3D3935; margin-bottom: 8px;">Social Media Kit</div>
-                <div style="font-size: 14px; color: #8B7E6A; margin-bottom: 12px;">15 optimized images</div>
-                <div style="font-size: 24px; font-weight: 500; color: #3D3935;">+$500</div>
-              </div>
-              <div style="text-align: center;">
-                <div style="font-size: 48px; margin-bottom: 16px;">📖</div>
-                <div style="font-size: 18px; font-weight: 600; color: #3D3935; margin-bottom: 8px;">Parent Albums</div>
-                <div style="font-size: 14px; color: #8B7E6A; margin-bottom: 12px;">Replica albums</div>
-                <div style="font-size: 24px; font-weight: 500; color: #3D3935;">From $695</div>
-              </div>
-              <div style="text-align: center;">
-                <div style="font-size: 48px; margin-bottom: 16px;">🎬</div>
-                <div style="font-size: 18px; font-weight: 600; color: #3D3935; margin-bottom: 8px;">Extended Film</div>
-                <div style="font-size: 14px; color: #8B7E6A; margin-bottom: 12px;">20-30 minute documentary</div>
-                <div style="font-size: 24px; font-weight: 500; color: #3D3935;">+$2,500</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Acromatico Guarantee */}
-      <section style="padding: 100px 24px; background: #3D3935; color: white; text-align: center;">
-        <div style="max-width: 900px; margin: 0 auto;">
-          <div style="font-size: 56px; margin-bottom: 32px;">✓</div>
-          <h2 style="font-size: 48px; font-weight: 300; margin-bottom: 24px; color: white;">The Acromatico Guarantee</h2>
-          <p style="font-size: 22px; line-height: 1.8; color: #E8E5E0; margin-bottom: 40px;">
-            If you're not <strong style="color: white;">absolutely obsessed</strong> with your images within 30 days, we'll re-shoot your session at no additional cost. That's how confident we are in our work.
-          </p>
-          <p style="font-size: 16px; color: #C9A961; letter-spacing: 1px; text-transform: uppercase;">
-            20+ Years • Award-Winning • Zero Compromises
-          </p>
-        </div>
-      </section>
-
-      {/* Portfolio Gallery Section - REAL WORK */}
-      <section style="padding: 120px 24px; background: white;">
-        <div style="max-width: 1400px; margin: 0 auto;">
-          <div style="text-align: center; margin-bottom: 80px;">
-            <h2 style="font-size: 56px; font-weight: 300; letter-spacing: -1px; margin-bottom: 24px; color: #3D3935;">
-              Recent Stories
-            </h2>
-            <p style="font-size: 20px; color: #5A5550; max-width: 650px; margin: 0 auto;">
-              Real couples. Real moments. No filters, no gimmicks—just honest photography that captures the way it felt to be there.
-            </p>
-          </div>
-
-          {/* Masonry Grid */}
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px;">
-            
-            {/* Image 1 */}
-            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
-              <img src="/static/portfolio/hero-couple.jpg" alt="New York Wedding - Kaleigh & Ramon" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
-                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">New York Wedding</div>
-                <div style="font-size: 14px; opacity: 0.9;">Beacon, NY • Kaleigh & Ramon</div>
-              </div>
-            </div>
-
-            {/* Image 2 */}
-            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
-              <img src="/static/portfolio/scenic-view.jpg" alt="Hudson Valley Scenic Views" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
-                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Hudson Valley Magic</div>
-                <div style="font-size: 14px; opacity: 0.9;">Cold Spring, NY</div>
-              </div>
-            </div>
-
-            {/* Image 3 */}
-            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
-              <img src="/static/portfolio/outdoor-ceremony.jpg" alt="Outdoor Ceremony" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
-                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Madam Brett Park</div>
-                <div style="font-size: 14px; opacity: 0.9;">First Look • Beacon</div>
-              </div>
-            </div>
-
-            {/* Image 4 */}
-            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
-              <img src="/static/portfolio/intimate-moment.jpg" alt="Intimate Moment" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
-                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Candid Connection</div>
-                <div style="font-size: 14px; opacity: 0.9;">Raw & Unposed</div>
-              </div>
-            </div>
-
-            {/* Image 5 */}
-            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
-              <img src="/static/portfolio/candid-laughing.jpg" alt="Candid Laughter" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
-                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Pure Joy</div>
-                <div style="font-size: 14px; opacity: 0.9;">Real Laughter, Real Love</div>
-              </div>
-            </div>
-
-            {/* Image 6 */}
-            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
-              <img src="/static/portfolio/golden-sunset.jpg" alt="Golden Hour Sunset" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
-                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Golden Hour</div>
-                <div style="font-size: 14px; opacity: 0.9;">Dockside Park, Cold Spring</div>
-              </div>
-            </div>
-
-            {/* Image 7 */}
-            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
-              <img src="/static/portfolio/brewery-fun.jpg" alt="Hudson Valley Brewery" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
-                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Brewery Vibes</div>
-                <div style="font-size: 14px; opacity: 0.9;">Hudson Valley Brewery</div>
-              </div>
-            </div>
-
-            {/* Image 8 */}
-            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
-              <img src="/static/portfolio/waterfront-beauty.jpg" alt="Waterfront Beauty" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
-                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Waterfront Elegance</div>
-                <div style="font-size: 14px; opacity: 0.9;">Hudson River Views</div>
-              </div>
-            </div>
-
-            {/* Image 9 */}
-            <div style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s;">
-              <img src="/static/portfolio/emotional-kiss.jpg" alt="Emotional Kiss" style="width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 32px 24px 24px; color: white;">
-                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">The Moment</div>
-                <div style="font-size: 14px; opacity: 0.9;">Peekskill Central Market</div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Gallery CTA */}
-          <div style="text-align: center; margin-top: 60px;">
-            <a href="https://acromatico.com/new-york-wedding-kaleigh-ramon/" target="_blank" style="display: inline-block; padding: 18px 48px; background: transparent; color: #3D3935; border: 2px solid #3D3935; text-decoration: none; font-size: 16px; font-weight: 600; letter-spacing: 1px; border-radius: 4px; transition: all 0.3s;" onmouseover="this.style.background='#3D3935'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#3D3935'">
-              VIEW FULL GALLERY →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Booking CTA Section */}
-      <section id="booking" style="padding: 120px 24px; background: #F5F3F0;">
-        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-          <h2 style="font-size: 56px; font-weight: 300; letter-spacing: -1px; margin-bottom: 24px; color: #3D3935;">
-            Ready to Tell Your Story?
-          </h2>
-          <p style="font-size: 20px; line-height: 1.7; color: #5A5550; margin-bottom: 48px;">
-            We only accept <strong style="color: #3D3935;">3 bookings per month</strong> to ensure every client receives our full attention and artistry. Don't wait—reserve your date today.
-          </p>
-          
-          <div style="background: white; padding: 60px 48px; border-radius: 12px; border: 2px solid #E8E5E0; margin-bottom: 32px;">
-            <h3 style="font-size: 28px; font-weight: 500; margin-bottom: 32px; color: #3D3935;">Schedule Your Consultation</h3>
-            
-            <form style="display: flex; flex-direction: column; gap: 20px;">
-              <input type="text" placeholder="Your Name" style="padding: 18px; border: 2px solid #E8E5E0; border-radius: 4px; font-size: 16px; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#3D3935'" onblur="this.style.borderColor='#E8E5E0'" />
-              <input type="email" placeholder="Email Address" style="padding: 18px; border: 2px solid #E8E5E0; border-radius: 4px; font-size: 16px; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#3D3935'" onblur="this.style.borderColor='#E8E5E0'" />
-              <input type="tel" placeholder="Phone Number" style="padding: 18px; border: 2px solid #E8E5E0; border-radius: 4px; font-size: 16px; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#3D3935'" onblur="this.style.borderColor='#E8E5E0'" />
-              <select style="padding: 18px; border: 2px solid #E8E5E0; border-radius: 4px; font-size: 16px; color: #5A5550; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#3D3935'" onblur="this.style.borderColor='#E8E5E0'">
-                <option>Select Package</option>
-                <option>The Essential Story ($3,500)</option>
-                <option>The Complete Experience ($7,500)</option>
-                <option>The Legacy Collection ($15,000+)</option>
-                <option>Custom Package</option>
-              </select>
-              <textarea placeholder="Tell us about your vision..." rows="4" style="padding: 18px; border: 2px solid #E8E5E0; border-radius: 4px; font-size: 16px; font-family: inherit; outline: none; transition: all 0.3s; resize: vertical;" onfocus="this.style.borderColor='#3D3935'" onblur="this.style.borderColor='#E8E5E0'"></textarea>
-              
-              <button type="submit" style="padding: 20px; background: #3D3935; color: white; border: none; font-size: 18px; font-weight: 700; letter-spacing: 1px; border-radius: 4px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#2A2622'" onmouseout="this.style.background='#3D3935'">
-                RESERVE YOUR DATE
-              </button>
-            </form>
-            
-            <p style="font-size: 14px; color: #8B7E6A; margin-top: 24px;">
-              We'll respond within 24 hours to schedule your complimentary consultation call.
-            </p>
-          </div>
-          
-          <p style="font-size: 16px; color: #8B7E6A;">
-            Or email us directly at <a href="mailto:hello@acromatico.com" style="color: #3D3935; text-decoration: underline;">hello@acromatico.com</a>
-          </p>
-        </div>
-      </section>
-
-      <Footer />
-
-    </div>
-  )
-)
+// OLD: Full photography route (removed for performance)
 app.get('/blog', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Blog - Coming Soon</h1></div>))
 
 // About page
