@@ -3,31 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Storytelling Photography - Lifestyle Photography & Cinematic Storytelling | Acromatico</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Storytelling Photography - Acromatico</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     body { 
       font-family: 'Roboto', sans-serif; 
       background: #fff;
       color: #333;
-      font-size: 16px;
       line-height: 1.6;
     }
 
-    /* VIDEO HERO */
+    /* VIDEO HERO - FULL SCREEN */
     .video-hero {
       position: relative;
-      height: 80vh;
-      min-height: 600px;
+      height: 100vh;
       overflow: hidden;
       background: #000;
     }
-    
     .video-hero iframe {
       position: absolute;
       top: 50%;
@@ -40,221 +34,169 @@
       pointer-events: none;
       border: none;
     }
-    
     .video-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.3);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #fff;
       padding: 40px;
     }
-    
     .video-overlay h1 {
-      font-size: 52px;
+      color: #fff;
+      font-size: 48px;
       font-weight: 400;
-      letter-spacing: 1px;
-      max-width: 1000px;
+      letter-spacing: 0.5px;
+      max-width: 900px;
       line-height: 1.4;
     }
 
-    /* SECTION TITLE */
-    .section-title {
+    /* CAROUSEL SECTION - GRAY BACKGROUND WITH TITLE + CAROUSEL */
+    .carousel-wrapper {
+      background: #f5f5f5;
+      padding: 80px 40px 100px;
+    }
+    .carousel-title {
       text-align: center;
-      padding: 100px 40px 80px;
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 400;
       letter-spacing: 0.5px;
-      background: #f8f8f8;
       color: #333;
+      margin-bottom: 60px;
     }
-
-    /* CAROUSEL SECTION */
-    .carousel-section {
-      background: #f8f8f8;
-      padding: 0 40px 120px;
-    }
-    
     .swiper {
       max-width: 1400px;
       margin: 0 auto;
     }
-    
     .swiper-slide {
       position: relative;
-      height: 550px;
-      border-radius: 0;
-      overflow: hidden;
+      height: 500px;
       background-size: cover;
       background-position: center;
     }
-    
     .slide-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.4);
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    
     .slide-overlay h2 {
       color: #fff;
-      font-size: 48px;
+      font-size: 44px;
       font-weight: 700;
       letter-spacing: 4px;
       text-transform: uppercase;
     }
 
-    /* WHERE AUTHENTICITY MEETS ART */
+    /* AUTHENTICITY SECTION - WHITE BACKGROUND */
     .authenticity-section {
       background: #fff;
-      padding: 120px 40px 80px;
+      padding: 100px 40px;
       text-align: center;
     }
-    
     .authenticity-section h2 {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 400;
-      letter-spacing: 1px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       color: #333;
     }
-    
     .authenticity-section p {
-      max-width: 900px;
-      margin: 0 auto 50px;
-      font-size: 17px;
-      line-height: 1.9;
-      color: #555;
-    }
-    
-    .authenticity-section .cta-button {
-      display: inline-block;
-      padding: 16px 40px;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-radius: 4px;
-      transition: background 0.3s;
-      margin-bottom: 60px;
-    }
-    
-    .authenticity-section .cta-button:hover {
-      background: #333;
-    }
-
-    /* FEATURED IN LOGOS */
-    .featured-title {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #333;
-      margin-bottom: 50px;
-    }
-    
-    .featured-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 60px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    
-    .featured-logos img {
-      height: 55px;
-      width: auto;
-      opacity: 0.65;
-      transition: opacity 0.3s;
-      object-fit: contain;
-    }
-    
-    .featured-logos img:hover {
-      opacity: 1;
-    }
-
-    /* FAQ SECTION */
-    .faq-section {
-      background: #f8f8f8;
-      padding: 120px 40px;
-    }
-    
-    .faq-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .faq-title {
-      font-size: 42px;
-      font-weight: 400;
-      letter-spacing: 1px;
-      margin-bottom: 60px;
-      color: #333;
-    }
-    
-    .faq-item {
-      margin-bottom: 20px;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    
-    .faq-question {
-      width: 100%;
-      padding: 30px 40px;
-      background: #fff;
-      border: none;
-      text-align: left;
-      font-size: 20px;
-      font-weight: 600;
-      color: #333;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s;
-    }
-    
-    .faq-question:hover {
-      background: #f9f9f9;
-    }
-    
-    .faq-answer {
-      padding: 0 40px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-    }
-    
-    .faq-answer.active {
-      max-height: 1000px;
-      padding: 0 40px 30px;
-    }
-    
-    .faq-answer p {
+      max-width: 800px;
+      margin: 0 auto 40px;
       font-size: 16px;
       line-height: 1.8;
       color: #555;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 15px 35px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 80px;
+    }
+
+    /* FEATURED LOGOS - ANIMATED MARQUEE */
+    .featured-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .logos-marquee {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .logos-track {
+      display: inline-flex;
+      gap: 60px;
+      animation: scroll 30s linear infinite;
+    }
+    .logos-track img {
+      height: 50px;
+      width: auto;
+      opacity: 0.6;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* FAQ SECTION - GRAY BACKGROUND */
+    .faq-section {
+      background: #f5f5f5;
+      padding: 100px 40px;
+    }
+    .faq-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .faq-title {
+      font-size: 38px;
+      font-weight: 400;
+      margin-bottom: 50px;
+    }
+    .faq-item {
       margin-bottom: 15px;
+      background: #fff;
+      border-radius: 4px;
     }
-    
-    .faq-answer strong {
-      color: #333;
-      font-weight: 700;
+    .faq-question {
+      width: 100%;
+      padding: 25px 35px;
+      background: #fff;
+      border: none;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
     }
-    
-    .faq-answer em {
-      font-style: italic;
+    .faq-answer {
+      padding: 0 35px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s, padding 0.3s;
+    }
+    .faq-answer.active {
+      max-height: 1000px;
+      padding: 0 35px 25px;
+    }
+    .faq-answer p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 15px;
     }
 
     /* IMAGE GALLERY */
@@ -262,50 +204,31 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0;
-      max-width: 1600px;
-      margin: 0 auto;
     }
-    
     .image-gallery img {
       width: 100%;
-      height: 700px;
+      height: 650px;
       object-fit: cover;
-      display: block;
     }
 
     /* FOOTER */
     .footer-logo {
       text-align: center;
-      padding: 100px 40px;
+      padding: 80px 40px;
       background: #fff;
     }
-    
     .footer-logo img {
-      max-width: 220px;
-      opacity: 0.5;
-    }
-
-    @media (max-width: 968px) {
-      .video-overlay h1 { font-size: 36px; }
-      .section-title { font-size: 28px; padding: 80px 30px 60px; }
-      .featured-logos { gap: 40px; }
-      .featured-logos img { height: 40px; }
-      .swiper-slide { height: 400px; }
-      .slide-overlay h2 { font-size: 32px; }
-      .faq-title { font-size: 32px; }
-      .faq-question { font-size: 18px; padding: 25px 30px; }
+      max-width: 200px;
+      opacity: 0.4;
     }
 
     @media (max-width: 768px) {
       .video-overlay h1 { font-size: 28px; }
-      .section-title { font-size: 24px; }
-      .logos-grid { gap: 30px; }
-      .featured-logos img { height: 35px; }
+      .carousel-title { font-size: 26px; }
       .swiper-slide { height: 350px; }
       .slide-overlay h2 { font-size: 24px; letter-spacing: 2px; }
       .image-gallery { grid-template-columns: 1fr; }
-      .image-gallery img { height: 450px; }
-      .faq-answer p { font-size: 15px; }
+      .image-gallery img { height: 400px; }
     }
   </style>
 </head>
@@ -323,39 +246,26 @@
     </div>
   </div>
 
-  <!-- SECTION TITLE -->
-  <div class="section-title">
-    Every Moment, Captured Authentically.
-  </div>
-
-  <!-- CAROUSEL -->
-  <div class="carousel-section">
+  <!-- CAROUSEL SECTION (TITLE + CAROUSEL IN ONE GRAY SECTION) -->
+  <div class="carousel-wrapper">
+    <h2 class="carousel-title">Every Moment, Captured Authentically.</h2>
+    
     <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
-          <div class="slide-overlay">
-            <h2>TIMELESS MOMENTS</h2>
-          </div>
+          <div class="slide-overlay"><h2>TIMELESS MOMENTS</h2></div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/portfolio/pp-image.jpg')">
-          <div class="slide-overlay">
-            <h2>BRAND IMPACT</h2>
-          </div>
+          <div class="slide-overlay"><h2>BRAND IMPACT</h2></div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
-          <div class="slide-overlay">
-            <h2>THE PROPOSAL</h2>
-          </div>
+          <div class="slide-overlay"><h2>THE PROPOSAL</h2></div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
-          <div class="slide-overlay">
-            <h2>EXPECTING JOY</h2>
-          </div>
+          <div class="slide-overlay"><h2>EXPECTING JOY</h2></div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
-          <div class="slide-overlay">
-            <h2>FAMILY LOVE</h2>
-          </div>
+          <div class="slide-overlay"><h2>FAMILY LOVE</h2></div>
         </div>
       </div>
       <div class="swiper-button-prev"></div>
@@ -370,14 +280,24 @@
     <a href="/about" class="cta-button">Get to know us</a>
     
     <div class="featured-title">Featured In</div>
-    <div class="featured-logos">
-      <img src="/static/portfolio/brides-logo.png" alt="Brides">
-      <img src="/static/portfolio/fearless-logo.png" alt="Fearless Photographers">
-      <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
-      <img src="/static/portfolio/perfect-wedding-guide.png" alt="The Perfect Wedding Guide">
-      <img src="/static/portfolio/voyage-logo.png" alt="Voyage Magazine">
-      <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
-      <img src="/static/portfolio/ppa-logo.png" alt="PPA">
+    <div class="logos-marquee">
+      <div class="logos-track">
+        <img src="/static/portfolio/brides-logo.png" alt="Brides">
+        <img src="/static/portfolio/fearless-logo.png" alt="Fearless">
+        <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
+        <img src="/static/portfolio/perfect-wedding-guide.png" alt="Perfect Wedding Guide">
+        <img src="/static/portfolio/voyage-logo.png" alt="Voyage">
+        <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
+        <img src="/static/portfolio/ppa-logo.png" alt="PPA">
+        <!-- DUPLICATE FOR SEAMLESS LOOP -->
+        <img src="/static/portfolio/brides-logo.png" alt="Brides">
+        <img src="/static/portfolio/fearless-logo.png" alt="Fearless">
+        <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
+        <img src="/static/portfolio/perfect-wedding-guide.png" alt="Perfect Wedding Guide">
+        <img src="/static/portfolio/voyage-logo.png" alt="Voyage">
+        <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
+        <img src="/static/portfolio/ppa-logo.png" alt="PPA">
+      </div>
     </div>
   </div>
 
@@ -388,8 +308,7 @@
       
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(0)">
-          What's makes you unique?
-          <span>+</span>
+          What's makes you unique? <span>+</span>
         </button>
         <div class="faq-answer active" id="faq-0">
           <p>We're not just here to take photos—we're here to tell your story the way it was meant to be told.</p>
@@ -402,62 +321,55 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(1)">
-          How do I book a photoshoot?
-          <span>+</span>
+          How do I book a photoshoot? <span>+</span>
         </button>
         <div class="faq-answer" id="faq-1">
-          <p>Super simple. Just hit us up through our contact form or send us an email, and we'll take it from there. We'll chat about what you're looking for, go over pricing, and lock in a date that works. No stress, no hassle—just real, unforgettable moments waiting to be captured.</p>
+          <p>Super simple. Just hit us up through our contact form or send us an email, and we'll take it from there.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(2)">
-          Do you travel for photoshoots?
-          <span>+</span>
+          Do you travel for photoshoots? <span>+</span>
         </button>
         <div class="faq-answer" id="faq-2">
-          <p>Absolutely! We're always down to capture stories wherever they unfold. Whether it's a wedding, brand shoot, or creative project in another city or across the world, we're ready to bring your vision to life—no destination is too far. Let's make it happen!</p>
+          <p>Absolutely! We're always down to capture stories wherever they unfold.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(3)">
-          How Long Until I Get My Photos?
-          <span>+</span>
+          How Long Until I Get My Photos? <span>+</span>
         </button>
         <div class="faq-answer" id="faq-3">
-          <p>We know you're excited to see them! For portraits and weddings, expect your fully edited photos within 4–12 weeks. For fast-paced commercial projects, we tailor our turnaround to your timeline—delivering as quickly as 24 hours when needed.</p>
-          <p>Every image gets the attention it deserves, so you receive a final collection that's worth the wait. Need a rush edit? Let us know—we'll make it happen!</p>
+          <p>For portraits and weddings, expect your fully edited photos within 4–12 weeks.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(4)">
-          Can I customize my photoshoot?
-          <span>+</span>
+          Can I customize my photoshoot? <span>+</span>
         </button>
         <div class="faq-answer" id="faq-4">
-          <p>100%! We believe every shoot should reflect your vision. Whether it's a specific style, location, or creative concept, we'll work with you to bring it to life. From choosing outfits to planning the vibe, we're here to make sure your shoot is exactly what you want—and more.</p>
+          <p>100%! We believe every shoot should reflect your vision.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(5)">
-          What should I wear to my photoshoot?
-          <span>+</span>
+          What should I wear to my photoshoot? <span>+</span>
         </button>
         <div class="faq-answer" id="faq-5">
-          <p>Wear what makes you feel like YOU. Whether it's casual, elegant, or somewhere in between, the key is feeling comfortable and confident. We'll give you styling tips based on your shoot vibe, but honestly, the best photos happen when you're being yourself—so rock what feels right!</p>
+          <p>Wear what makes you feel like YOU.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(6)">
-          Do You Offer Video Production?
-          <span>+</span>
+          Do You Offer Video Production? <span>+</span>
         </button>
         <div class="faq-answer" id="faq-6">
-          <p>Yes! We offer cinematic video production for weddings, events, and commercial projects. From intimate love stories to high-energy brand campaigns, we create visuals that move, inspire, and last. Let's talk about how we can bring your vision to life on film!</p>
+          <p>Yes! We offer cinematic video production for weddings, events, and commercial projects.</p>
         </div>
       </div>
     </div>
@@ -469,7 +381,7 @@
     <img src="/static/portfolio/switzerland.jpg" alt="Switzerland">
   </div>
 
-  <!-- FOOTER LOGO -->
+  <!-- FOOTER -->
   <div class="footer-logo">
     <img src="/static/portfolio/acromatico-logo.png" alt="Acromatico">
   </div>
@@ -480,29 +392,19 @@
       slidesPerView: 2,
       spaceBetween: 10,
       loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
+      autoplay: { delay: 5000 },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
       breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 10
-        }
+        320: { slidesPerView: 1 },
+        768: { slidesPerView: 2 }
       }
     });
 
     function toggleFAQ(index) {
-      const answer = document.getElementById('faq-' + index);
-      answer.classList.toggle('active');
+      document.getElementById('faq-' + index).classList.toggle('active');
     }
   </script>
 
