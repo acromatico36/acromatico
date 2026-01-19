@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acromatico - Candid Photography, Authentic Storytelling Imagery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Roboto', -apple-system, sans-serif; 
+      background: #ffffff; 
+      color: #222222;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    /* HEADER */
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      background: white;
+    }
+    
+    .header img {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+    
+    .header h1 {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 5px;
+    }
+    
+    .header h2 {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 15px;
+    }
+    
+    .header .contact {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+    }
+    
+    .header .social {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    .header .social a {
+      width: 40px;
+      height: 40px;
+      background: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+    }
+    
+    /* VIDEO HERO */
+    .hero-video-container { 
+      position: relative; 
+      height: 70vh; 
+      min-height: 500px;
+      overflow: hidden; 
+      background: #000;
+    }
+    
+    .hero-video-container iframe { 
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      width: 177.77777778vh;
+      min-width: 100%;
+      height: 56.25vw;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: none;
+    }
+    
+    /* SECTION TITLE */
+    .section-title {
+      text-align: center;
+      padding: 80px 20px 60px;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    
+    /* CAROUSEL SECTION */
+    .carousel-section {
+      padding: 0 20px 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .carousel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .carousel-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .carousel-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    
+    /* TWO COLUMN SECTION */
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1400px;
+      margin: 80px auto;
+      padding: 0 40px;
+      align-items: center;
+    }
+    
+    .two-column h3 {
+      font-size: 32px;
+      font-weight: 300;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .two-column p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    
+    .two-column img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    
+    /* FAQ SECTION */
+    .faq-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1400px;
+      margin: 80px auto;
+      padding: 0 40px;
+      gap: 60px;
+    }
+    
+    .faq-section img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    
+    .faq-content h3 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+    
+    .faq-content h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 25px 0 10px;
+    }
+    
+    .faq-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+    }
+    
+    /* CTA SECTION */
+    .cta-section {
+      text-align: center;
+      padding: 120px 40px;
+      background: url('/static/portfolio/cta-bg.jpg') center/cover;
+      position: relative;
+      color: white;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    
+    .cta-section > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-section h2 {
+      font-size: 42px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    
+    .cta-section p {
+      font-size: 18px;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+    
+    .cta-section button {
+      padding: 18px 48px;
+      background: white;
+      color: #222;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    
+    /* FEATURED IN */
+    .featured-section {
+      background: white;
+      padding: 100px 40px;
+      text-align: center;
+    }
+    
+    .featured-section h2 {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 60px;
+    }
+    
+    .featured-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .featured-logos img {
+      height: 50px;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .featured-logos img:hover {
+      opacity: 1;
+    }
+    
+    /* TESTIMONIAL */
+    .testimonial-section {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      background: url('/static/portfolio/testimonial-bg.jpg') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    
+    .testimonial-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 40px;
+    }
+    
+    .testimonial-content p {
+      font-size: 28px;
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .testimonial-content .author {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .testimonial-content .subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 20px;
+    }
+    
+    @media (max-width: 768px) {
+      .carousel { grid-template-columns: 1fr; }
+      .two-column { grid-template-columns: 1fr; }
+      .faq-section { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="/static/portfolio/acromatico-logo.png" alt="Acromatico">
+    <h1>CANDID PHOTOGRAPHY</h1>
+    <h2>AUTHENTIC STORYTELLING IMAGERY</h2>
+    <div class="contact">SOUTH FLORIDA | NEW YORK<br>954.779.0921</div>
+    <div class="social">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">i</a>
+    </div>
+  </div>
+
+  <!-- VIDEO HERO -->
+  <div class="hero-video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&mute=1&loop=1&playlist=9DiS2Z_H15U&controls=0&showinfo=0&modestbranding=1&vq=hd1080&rel=0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- SECTION TITLE -->
+  <div class="section-title">
+    EVERY MOMENT, CAPTURED AUTHENTICALLY.
+  </div>
+
+  <!-- CAROUSEL: TIMELESS MOMENTS / BRAND IMPACT -->
+  <div class="carousel-section">
+    <div class="carousel">
+      <div class="carousel-item">
+        <img src="/static/portfolio/timeless-moments.jpg" alt="Timeless Moments">
+        <div class="overlay">TIMELESS MOMENTS</div>
+      </div>
+      <div class="carousel-item">
+        <img src="/static/portfolio/brand-impact.jpg" alt="Brand Impact">
+        <div class="overlay">BRAND IMPACT</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRAVEL SECTION -->
+  <div class="two-column">
+    <div>
+      <h3>TRAVEL</h3>
+      <p>With Italian roots and a passion for storytelling, we've captured weddings and brand shoots across Italy, the USA, and beyond. From the streets of Lake Como to the beaches of California, we go where the story takes us.</p>
+      <p>Whether it's a destination wedding, a brand campaign, or a creative project, we're ready to travel—nationwide and worldwide. Let's bring your vision to life, wherever it unfolds.</p>
+    </div>
+    <img src="/static/portfolio/travel-image.jpg" alt="Travel Photography">
+  </div>
+
+  <!-- IMPACT SECTION -->
+  <div class="two-column" style="direction: rtl;">
+    <div style="direction: ltr;">
+      <h3>IMPACT</h3>
+      <p>We believe in creating visuals that matter—empowering eco-conscious brands and initiatives that make a difference. From partnering with Hilton on sustainability efforts to launching our own eco-friendly brand at Ecolosophy, we amplify brands that stand for something bigger.</p>
+      <p>Let's collaborate on something that not only looks good but also makes a meaningful impact. Together, we'll create stories that move the world forward.</p>
+    </div>
+    <img src="/static/portfolio/impact-image.jpg" alt="Impact" style="direction: ltr;">
+  </div>
+
+  <!-- FAQ SECTION -->
+  <div class="faq-section">
+    <img src="/static/portfolio/faq-image.jpg" alt="FAQ">
+    <div class="faq-content">
+      <h3>What makes you unique?</h3>
+      <p>We're not just here to take photos—we're here to tell your story the way it was meant to be told.</p>
+      <p><strong>No forced moments.<br>No copy-paste edits.<br>Just real,</strong> meaningful connections captured with intention.</p>
+      <p><strong>We keep it real.</strong> Every couple, every brand, every story is different—so why should your photos look the same as everyone else's?</p>
+      <p><strong>We keep it honest.</strong> What you see is what you get. No paid referrals, no outsourcing, no gimmicks.</p>
+      <p>For more than two decades, we've been all about one thing—<strong>capturing stories that last.</strong></p>
+      
+      <h4>How do I book a photoshoot?</h4>
+      <h4>Do you travel for photoshoots?</h4>
+      <h4>How Long Until I Get My Photos?</h4>
+      <h4>Can I customize my photoshoot?</h4>
+      <h4>What should I wear to my photoshoot?</h4>
+      <h4>Do You Offer Video Production?</h4>
+    </div>
+  </div>
+
+  <!-- CTA SECTION -->
+  <div class="cta-section">
+    <h2>LET'S CREATE SOMETHING EXCEPTIONAL.</h2>
+    <p>Have a vision, a question, or an idea you want to bring to life? We'd love to connect and explore how we can turn your concept into a captivating visual story. Reach out to us, and let's discuss how we can collaborate to create something extraordinary.</p>
+    <button onclick="openCheckout()">GET IN TOUCH</button>
+  </div>
+
+  <!-- FEATURED IN -->
+  <div class="featured-section">
+    <h2>WHERE AUTHENTICITY MEETS ART.</h2>
+    <p style="margin-bottom: 60px; color: #666;">Hi, we're Acromatico Photography—a team of storytellers capturing raw, unfiltered, candid moments that feel like you. No forced smiles. No stiff poses. Just real emotions and connections, frozen in time. Since 2005, we've been telling stories for weddings, brands, and unforgettable events with a photojournalistic approach. We take the time to understand your vibe and create images that go beyond photos—they speak to who you truly are.</p>
+    <h3 style="font-size: 18px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px;">FEATURED IN</h3>
+    <div class="featured-logos">
+      <img src="/static/portfolio/brides-logo.png" alt="Brides">
+      <img src="/static/portfolio/fearless-logo.png" alt="Fearless Photographers">
+      <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
+      <img src="/static/portfolio/voyage-logo.png" alt="The Voyage">
+      <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="testimonial-section">
+    <div class="testimonial-content">
+      <p>"They are a joy to be around, extremely authentic, fun-loving people"</p>
+      <div class="author">Jessica F.</div>
+      <div class="subtitle">We're honored to have over 130+ 5-star reviews across Wedding Wire, The Knot, Google, and Yelp.</div>
+    </div>
+  </div>
+
+  <script>
+    function openCheckout() {
+      window.location.href = '#contact';
+    }
+  </script>
+
+</body>
+</html>
