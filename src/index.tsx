@@ -2607,7 +2607,7 @@ app.get('/prints', (c) =>
 )
 // Photography Services Page
 // Photography page - full HTML embedded
-app.get('/photography', (c) => c.redirect('/static/homepage-exact-clone.html'))
+app.get('/photography', (c) => c.redirect('/static/homepage-perfect-clone.html'))
 
 // Photography Checkout API
 app.post('/api/photography/checkout', async (c) => {
