@@ -241,10 +241,53 @@
       text-align: center;
       font-size: 21px;
       color: var(--secondary);
-      margin-bottom: 80px;
+      margin-bottom: 60px;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+    }
+    .testimonials-stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      margin-bottom: 80px;
+      padding: 32px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-stars {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-size: 20px;
+    }
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .stat-text {
+      font-size: 14px;
+      color: var(--secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-divider {
+      width: 1px;
+      height: 48px;
+      background: var(--border);
     }
     .testimonials-grid {
       display: grid;
@@ -273,7 +316,7 @@
       display: flex;
       gap: 4px;
       margin-bottom: 24px;
-      color: #FFD700;
+      color: var(--primary);
       font-size: 18px;
     }
     .testimonial-text {
@@ -300,15 +343,40 @@
       font-size: 14px;
       color: var(--secondary);
     }
-    .testimonials-cta {
+    .as-seen-on {
       text-align: center;
-      padding-top: 40px;
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
     }
-    .testimonials-cta-text {
+    .as-seen-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--secondary);
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+    .publication-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .publication {
       font-size: 19px;
       font-weight: 600;
       color: var(--primary);
-      margin-bottom: 24px;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    .publication:hover {
+      opacity: 1;
+    }
+    .testimonials-cta {
+      text-align: center;
+      padding-top: 40px;
     }
     .testimonials-cta-btn {
       display: inline-block;
@@ -1585,6 +1653,16 @@
       /* Testimonials mobile */
       .testimonials-title { font-size: 36px; }
       .testimonials-subtitle { font-size: 17px; padding: 0 20px; }
+      .testimonials-stats {
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+      }
+      .stat-divider { 
+        display: none; 
+      }
+      .stat-number { font-size: 28px; }
+      .stat-text { font-size: 13px; }
       .testimonials-grid { 
         grid-template-columns: 1fr; 
         gap: 24px; 
@@ -1592,10 +1670,16 @@
       .testimonial-card { padding: 32px 24px; }
       .testimonial-text { font-size: 16px; }
       .author-name { font-size: 16px; }
-      .testimonials-cta-text { font-size: 17px; }
+      .as-seen-title { font-size: 12px; }
+      .publication-logos {
+        gap: 24px;
+      }
+      .publication { font-size: 16px; }
       .testimonials-cta-btn { 
         padding: 14px 40px; 
         font-size: 16px; 
+        width: 100%;
+        max-width: 300px;
       }
       
       /* Package cards mobile */
@@ -1806,6 +1890,30 @@
       <h2 class="testimonials-title">What Our Couples Say</h2>
       <p class="testimonials-subtitle">Real stories from real weddings. Authentic reviews from couples who trusted us with their most important day.</p>
       
+      <!-- Stats Bar -->
+      <div class="testimonials-stats">
+        <div class="stat-item">
+          <div class="stat-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="stat-text">100+ Five-Star Reviews</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <p class="stat-number">500+</p>
+          <p class="stat-text">Weddings Captured</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <p class="stat-number">20+</p>
+          <p class="stat-text">Years Experience</p>
+        </div>
+      </div>
+      
       <div class="testimonials-grid">
         <!-- Testimonial 1 -->
         <div class="testimonial-card">
@@ -1816,7 +1924,7 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
           </div>
-          <p class="testimonial-text">"Italo and his team didn't just capture our wedding—they captured the soul of our love story. Every photo feels like we're reliving that perfect day. Absolutely worth every penny."</p>
+          <p class="testimonial-text">"The first thing people say when they see our photos is 'WOW you look beautiful'. The second thing they say is WOW your photographer did an AMAZING job! The photos tell the story of our day in such a beautiful way."</p>
           <div class="testimonial-author">
             <div class="author-info">
               <h4 class="author-name">Sarah & Michael</h4>
@@ -1834,11 +1942,11 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
           </div>
-          <p class="testimonial-text">"We were blown away. The photos are absolute art—but beyond that, Italo made us feel so comfortable. It felt like having a friend there, not just a photographer. Our families can't stop talking about the photos."</p>
+          <p class="testimonial-text">"They are a combination of Monet & Picasso behind the lens! Their shots are artistic and beautiful. Everyone has raved about all of our photos! They are also just cool people with great personalities."</p>
           <div class="testimonial-author">
             <div class="author-info">
               <h4 class="author-name">Jessica & David</h4>
-              <p class="author-wedding">NYC Rooftop Wedding, 2024</p>
+              <p class="author-wedding">Fort Lauderdale Wedding, 2024</p>
             </div>
           </div>
         </div>
@@ -1852,19 +1960,30 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
           </div>
-          <p class="testimonial-text">"Choosing Acromatico was the best decision we made for our wedding. The quality, the artistry, the professionalism—everything was perfect. Our photos are hanging in every room of our home."</p>
+          <p class="testimonial-text">"They made us feel comfortable and look like movie stars. Capturing moments that I think no other photographer could. What a great experience and I would recommend them with my eyes closed!"</p>
           <div class="testimonial-author">
             <div class="author-info">
               <h4 class="author-name">Carlos & Maria</h4>
-              <p class="author-wedding">Fort Lauderdale Wedding, 2023</p>
+              <p class="author-wedding">Hilton Fort Lauderdale, 2023</p>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- As Seen On -->
+      <div class="as-seen-on">
+        <p class="as-seen-title">AS SEEN ON</p>
+        <div class="publication-logos">
+          <span class="publication">The Knot</span>
+          <span class="publication">WeddingWire</span>
+          <span class="publication">Yelp</span>
+          <span class="publication">Instagram</span>
+          <span class="publication">Facebook</span>
+        </div>
+      </div>
+
       <div class="testimonials-cta">
-        <p class="testimonials-cta-text">Over 500+ five-star reviews</p>
-        <a href="/reviews" class="testimonials-cta-btn">Read More Reviews</a>
+        <a href="https://www.weddingwire.com/biz/acromatico-photography-pompano-beach/342d273516aed128.html" target="_blank" class="testimonials-cta-btn">Read All 100+ Reviews</a>
       </div>
     </div>
   </section>
