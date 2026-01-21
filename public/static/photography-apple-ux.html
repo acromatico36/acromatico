@@ -1130,15 +1130,15 @@
         
         <!-- PACKAGE TYPE TOGGLE -->
         <div class="video-toggle-container" style="margin-bottom: 24px;">
-          <span class="toggle-label active" id="packageLabel">Select Package</span>
-          <div class="video-toggle" id="packageTypeToggle" onclick="togglePackageType()">
+          <span class="toggle-label" id="packageLabel">Select Package</span>
+          <div class="video-toggle active" id="packageTypeToggle" onclick="togglePackageType()">
             <div class="toggle-slider"></div>
           </div>
-          <span class="toggle-label" id="customLabel">Build Custom</span>
+          <span class="toggle-label active" id="customLabel">Build Custom</span>
         </div>
         
         <!-- VIDEO TOGGLE (only visible for packages) -->
-        <div class="video-toggle-container" id="videoToggleContainer">
+        <div class="video-toggle-container" id="videoToggleContainer" style="display: none;">
           <span class="toggle-label active" id="photoLabel">Photography Only</span>
           <div class="video-toggle" id="videoToggle" onclick="toggleVideo()">
             <div class="toggle-slider"></div>
@@ -1148,7 +1148,7 @@
       </div>
       
       <!-- PRESET PACKAGES GRID -->
-      <div class="packages-grid" id="presetsGrid">
+      <div class="packages-grid" id="presetsGrid" style="display: none;">
         <!-- THE START -->
         <div class="package-card" onclick="selectPackage('The Start', 2850, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
@@ -1286,7 +1286,7 @@
       </div>
 
       <!-- CUSTOM BUILDER INTERFACE -->
-      <div class="custom-builder" id="customBuilder" style="display: none;">
+      <div class="custom-builder" id="customBuilder" style="display: block;">
         <div class="builder-container">
           <h3 class="builder-title">Build Your Perfect Package</h3>
           <p class="builder-subtitle">Select exactly what you need. Pricing updates as you build.</p>
@@ -1316,12 +1316,13 @@
           <div class="builder-section">
             <h4 class="builder-section-title">Coverage Hours</h4>
             <div class="builder-slider">
-              <input type="range" id="hoursSlider" min="1" max="12" value="6" step="1" oninput="updateHoursDisplay(this.value); calculateCustomPrice()">
+              <input type="range" id="hoursSlider" min="2" max="12" value="6" step="1" oninput="updateHoursDisplay(this.value); calculateCustomPrice()">
               <div class="slider-display">
                 <span id="hoursDisplay">6</span> hours
                 <span class="slider-price" id="hoursPrice">Base: $2,400</span>
               </div>
             </div>
+            <p style="font-size: 13px; color: #666; margin-top: 8px;">Minimum: 2 hours for weddings, 1 hour for portraits</p>
           </div>
 
           <!-- PHOTOGRAPHERS -->
@@ -1764,7 +1765,7 @@
     };
 
     // PACKAGE TYPE TOGGLE (Preset vs Custom)
-    let isCustomMode = false;
+    let isCustomMode = true; // Default to CUSTOM mode
 
     function togglePackageType() {
       isCustomMode = !isCustomMode;
@@ -1804,9 +1805,32 @@
       const hours = parseInt(document.getElementById('hoursSlider').value);
       const photographers = document.querySelector('input[name="photographers"]:checked').value;
       
-      // Base pricing per hour
-      const hourlyRate = sessionType === 'portrait' ? 400 : 400;
-      let photoPrice = hourlyRate * hours;
+      // Update slider min based on session type
+      const hoursSlider = document.getElementById('hoursSlider');
+      if (sessionType === 'portrait') {
+        hoursSlider.min = 1;
+      } else {
+        hoursSlider.min = 2;
+        // If current value is less than min, set to min
+        if (hours < 2) {
+          hoursSlider.value = 2;
+          updateHoursDisplay(2);
+        }
+      }
+      
+      // Base pricing with minimums
+      let photoPrice;
+      if (sessionType === 'portrait') {
+        // Portrait: $795 for 1 hour, $400/hr after
+        if (hours === 1) {
+          photoPrice = 795;
+        } else {
+          photoPrice = 795 + ((hours - 1) * 400);
+        }
+      } else {
+        // Wedding: $400/hour with 2 hour minimum
+        photoPrice = hours * 400;
+      }
       
       // Photographer pricing
       if (photographers === '1-assistant') {
