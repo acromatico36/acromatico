@@ -1411,7 +1411,7 @@
                 <input type="checkbox" value="second-lead" onchange="updateAddons()">
                 <span class="addon-card">
                   <span class="addon-name">Upgrade to 2 Lead Photographers</span>
-                  <span class="addon-price-label">+$2,000</span>
+                  <span class="addon-price-label" id="presetSecondLeadPrice">+$2,400 (6hr base)</span>
                 </span>
               </label>
             </div>
@@ -1534,14 +1534,14 @@
             <h4 class="builder-section-title">Session Type</h4>
             <div class="builder-options">
               <label class="builder-option">
-                <input type="radio" name="sessionType" value="wedding" checked onchange="calculateCustomPrice()">
+                <input type="radio" name="sessionType" value="wedding" checked onchange="updateSessionType()">
                 <span class="option-card">
                   <span class="option-name">Wedding</span>
                   <span class="option-desc">Full wedding day coverage</span>
                 </span>
               </label>
               <label class="builder-option">
-                <input type="radio" name="sessionType" value="portrait" onchange="calculateCustomPrice()">
+                <input type="radio" name="sessionType" value="portrait" onchange="updateSessionType()">
                 <span class="option-card">
                   <span class="option-name">Portrait</span>
                   <span class="option-desc">Lifestyle & portrait session</span>
@@ -1578,7 +1578,7 @@
                 <input type="radio" name="photographers" value="2" onchange="calculateCustomPrice()">
                 <span class="option-card">
                   <span class="option-name">2 Lead Photographers</span>
-                  <span class="option-price">+$2,000</span>
+                  <span class="option-price" id="twoPhotographersPrice">+$2,400 (6hr minimum)</span>
                 </span>
               </label>
             </div>
@@ -2031,6 +2031,28 @@
       document.getElementById('hoursDisplay').textContent = value;
     }
 
+    // Session type change handler
+    function updateSessionType() {
+      const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
+      const hoursSlider = document.getElementById('hoursSlider');
+      
+      if (sessionType === 'portrait') {
+        // Portrait: default to 1 hour
+        hoursSlider.min = 1;
+        hoursSlider.value = 1;
+        updateHoursDisplay(1);
+      } else {
+        // Wedding: default to 6 hours (minimum 2)
+        hoursSlider.min = 2;
+        if (parseInt(hoursSlider.value) < 6) {
+          hoursSlider.value = 6;
+          updateHoursDisplay(6);
+        }
+      }
+      
+      calculateCustomPrice();
+    }
+
     function calculateCustomPrice() {
       const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
       const hours = parseInt(document.getElementById('hoursSlider').value);
@@ -2064,8 +2086,17 @@
       }
       
       // Photographer pricing
+      // 2 photographers = 6 hour minimum at $400/hr = $2,400 base
+      // Then scales with total hours beyond 6
       if (photographers === '2') {
-        photoPrice += 2000;
+        const minHours = 6;
+        const actualHours = Math.max(hours, minHours);
+        const secondPhotographerCost = actualHours * 400;
+        photoPrice += secondPhotographerCost;
+        
+        // Update price display
+        document.getElementById('twoPhotographersPrice').textContent = 
+          `+$${secondPhotographerCost.toLocaleString()} (${actualHours}hr minimum)`;
       }
       
       // Add-ons
@@ -2291,6 +2322,9 @@
         else rb.checked = false;
       });
       
+      // Reset 2nd photographer price label to base
+      document.getElementById('presetSecondLeadPrice').textContent = '+$2,400 (6hr base)';
+      
       // Smooth scroll to add-ons
       setTimeout(() => {
         document.getElementById('addonsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -2309,7 +2343,17 @@
       
       // Photographer upgrades
       const secondLead = document.querySelector('input[value="second-lead"]');
-      if (secondLead && secondLead.checked) addonsTotal += 2000;
+      if (secondLead && secondLead.checked) {
+        // Base package hours + extra hours
+        const baseHours = 6;
+        const totalHours = baseHours + extraHours;
+        const secondLeadCost = totalHours * 400;
+        addonsTotal += secondLeadCost;
+        
+        // Update label
+        document.getElementById('presetSecondLeadPrice').textContent = 
+          `+$${secondLeadCost.toLocaleString()} (${totalHours}hrs)`;
+      }
       
       // Engagement (if not included)
       if (!basePackageData.hasEngagement) {
