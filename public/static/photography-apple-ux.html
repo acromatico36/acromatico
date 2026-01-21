@@ -155,7 +155,7 @@
     }
     .section-header {
       text-align: center;
-      margin-bottom: 80px;
+      margin-bottom: 40px;
     }
     .section-header h2 {
       font-size: 48px;
@@ -168,6 +168,51 @@
       color: var(--secondary);
       max-width: 800px;
       margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    
+    /* VIDEO TOGGLE */
+    .video-toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .toggle-label {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--secondary);
+      transition: color 0.3s;
+    }
+    .toggle-label.active {
+      color: #000;
+    }
+    .video-toggle {
+      position: relative;
+      width: 60px;
+      height: 32px;
+      background: #e5e5e5;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .video-toggle.active {
+      background: #34c759;
+    }
+    .toggle-slider {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 26px;
+      height: 26px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .video-toggle.active .toggle-slider {
+      transform: translateX(28px);
     }
     .packages-grid {
       display: grid;
@@ -284,6 +329,26 @@
       color: #0071e3;
       font-weight: 700;
       font-size: 18px;
+    }
+    .package-features li.video-feature {
+      color: #34c759;
+      font-weight: 600;
+    }
+    .package-features li.video-feature::before {
+      content: '📹';
+      font-size: 16px;
+    }
+    .video-addon-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #34c759, #30d158);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-left: 8px;
     }
     .select-btn {
       width: 100%;
@@ -748,18 +813,27 @@
       <div class="section-header">
         <h2>Choose Your Collection</h2>
         <p>Over two decades of capturing authentic stories. Each collection designed to fit your celebration.</p>
+        
+        <!-- VIDEO TOGGLE -->
+        <div class="video-toggle-container">
+          <span class="toggle-label active" id="photoLabel">Photography Only</span>
+          <div class="video-toggle" id="videoToggle" onclick="toggleVideo()">
+            <div class="toggle-slider"></div>
+          </div>
+          <span class="toggle-label" id="videoLabel">Add Cinematic Video</span>
+        </div>
       </div>
       
       <div class="packages-grid">
         <!-- THE START -->
-        <div class="package-card" onclick="selectPackage('The Start', 3500, 'wedding', this)">
+        <div class="package-card" onclick="selectPackage('The Start', 2850, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
           <div class="package-name">The Start</div>
           <div class="package-subtitle">Wedding Collection</div>
           <div class="package-price">
             <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$1,167</div>
-            <div class="price-total">Total investment: $3,500</div>
+            <div class="price-amount">$950</div>
+            <div class="price-total">Total investment: $2,850</div>
           </div>
           <ul class="package-features">
             <li>6 hours wedding coverage</li>
@@ -785,9 +859,10 @@
             <li>7 hours wedding coverage</li>
             <li>1 lead photographer</li>
             <li>Complimentary engagement session</li>
+            <li>Premium photo book (10x10, 20 pages)</li>
             <li>Curated images (color & B&W)</li>
             <li>Online gallery + downloads</li>
-            <li>$350 album credit</li>
+            <li>$400 print credit</li>
             <li>Engraved USB keepsake</li>
           </ul>
           <button class="select-btn">Select Collection</button>
@@ -807,11 +882,12 @@
             <li>9 hours wedding coverage</li>
             <li>1 lead photographer + assistant</li>
             <li>Complimentary engagement session</li>
+            <li>Canvas art print (20x30, $450 value)</li>
+            <li>Premium album (12x12, 30 pages)</li>
             <li>Second location coverage</li>
             <li>Premium editing + enhancements</li>
             <li>Online gallery + downloads</li>
-            <li>$500 album credit</li>
-            <li>Engraved USB keepsake</li>
+            <li>$600 print credit</li>
           </ul>
           <button class="select-btn">Select Collection</button>
         </div>
@@ -830,11 +906,11 @@
             <li>10 hours wedding coverage</li>
             <li>2 lead photographers (full team)</li>
             <li>Complimentary engagement session</li>
-            <li>Rehearsal dinner coverage (2hrs)</li>
             <li>Custom premium album included</li>
+            <li>Same-day highlights reel (2-3 min)</li>
             <li>Premium editing + enhancements</li>
             <li>Online gallery + downloads</li>
-            <li>Parent albums available</li>
+            <li>$800 print credit</li>
           </ul>
           <button class="select-btn">Select Collection</button>
         </div>
@@ -852,11 +928,12 @@
           <ul class="package-features">
             <li>12 hours of coverage</li>
             <li>2 lead photographers (full team)</li>
-            <li>Welcome party coverage included</li>
             <li>Complimentary engagement session</li>
-            <li>Custom leather album + parent albums</li>
+            <li>Framed art print (30x40, $850 value)</li>
+            <li>Custom premium album included</li>
+            <li>Same-day highlights reel (3-5 min)</li>
             <li>Unlimited images with premium editing</li>
-            <li>Travel expenses included</li>
+            <li>Travel included (up to 500 miles)</li>
             <li>Online gallery + luxury USB</li>
           </ul>
           <button class="select-btn">Select Collection</button>
@@ -1208,13 +1285,93 @@
     let selectedPrice = 0;
     let sessionType = 'wedding';
     let formData = {};
+    let videoEnabled = false;
+    
+    // Video pricing per package
+    const videoAddons = {
+      'The Start': { price: 1500, features: ['3-4 min highlight film', 'Drone footage included', 'Same-day teaser (1 min)', 'Ceremony + Reception coverage'] },
+      'The Essential': { price: 2000, features: ['5-6 min cinematic film', 'Drone footage included', 'Same-day teaser (1-2 min)', 'Full ceremony + Reception', 'Audio from vows & toasts'] },
+      'The Signature': { price: 2500, features: ['7-8 min cinematic film', 'Drone footage included', 'Same-day teaser (2 min)', 'Full day coverage', 'Audio from vows & toasts', 'Getting ready moments'] },
+      'The Premium': { price: 3000, features: ['10-12 min documentary film', '2 videographers', 'Drone footage included', 'Same-day highlight (3 min)', 'Full day coverage', 'Interview segments', 'Audio from ceremony & toasts'] },
+      'The Legacy': { price: 3500, features: ['15-20 min cinematic documentary', '2 videographers', 'Drone footage included', 'Same-day highlight (4-5 min)', 'Multi-day coverage option', 'Interview segments', 'Audio from all events', 'Raw footage provided'] },
+      'The Hour': { price: 500, features: ['Short cinematic video (2-3 min)', 'Professional audio', 'Quick turnaround'] }
+    };
+
+    function toggleVideo() {
+      videoEnabled = !videoEnabled;
+      const toggle = document.getElementById('videoToggle');
+      const photoLabel = document.getElementById('photoLabel');
+      const videoLabel = document.getElementById('videoLabel');
+      
+      toggle.classList.toggle('active');
+      
+      if (videoEnabled) {
+        photoLabel.classList.remove('active');
+        videoLabel.classList.add('active');
+      } else {
+        photoLabel.classList.add('active');
+        videoLabel.classList.remove('active');
+      }
+      
+      updateAllPackageCards();
+    }
+    
+    function updateAllPackageCards() {
+      // Update all package cards with video pricing
+      document.querySelectorAll('.package-card').forEach(card => {
+        const packageName = card.querySelector('.package-name').textContent;
+        updatePackageCard(card, packageName);
+      });
+    }
+    
+    function updatePackageCard(card, packageName) {
+      const priceAmountEl = card.querySelector('.price-amount');
+      const priceTotalEl = card.querySelector('.price-total');
+      const featuresEl = card.querySelector('.package-features');
+      
+      // Get base price from onclick attribute
+      const onclickAttr = card.getAttribute('onclick');
+      const basePrice = parseInt(onclickAttr.match(/\d+/)[0]);
+      
+      if (videoEnabled && videoAddons[packageName]) {
+        const addon = videoAddons[packageName];
+        const totalPrice = basePrice + addon.price;
+        const installment = Math.round(totalPrice / 3);
+        
+        // Update pricing display
+        priceAmountEl.textContent = packageName === 'The Hour' ? `$${totalPrice}` : `$${installment.toLocaleString()}`;
+        priceTotalEl.textContent = packageName === 'The Hour' ? `Includes cinematic video` : `Total investment: $${totalPrice.toLocaleString()}`;
+        
+        // Add video features if not already added
+        if (!card.querySelector('.video-feature')) {
+          const videoFeatures = addon.features.map(f => `<li class="video-feature">${f}</li>`).join('');
+          featuresEl.innerHTML += videoFeatures;
+        }
+      } else {
+        // Reset to base price
+        const installment = packageName === 'The Hour' ? basePrice : Math.round(basePrice / 3);
+        priceAmountEl.textContent = `$${installment.toLocaleString()}`;
+        
+        if (packageName === 'The Hour') {
+          priceTotalEl.textContent = 'Perfect for engagements & families';
+        } else if (packageName === 'The Start') {
+          priceTotalEl.textContent = `Total investment: $${basePrice.toLocaleString()}`;
+        } else {
+          priceTotalEl.textContent = `Total investment: $${basePrice.toLocaleString()}`;
+        }
+        
+        // Remove video features
+        card.querySelectorAll('.video-feature').forEach(el => el.remove());
+      }
+    }
 
     function selectPackage(name, price, type, element) {
       document.querySelectorAll('.package-card').forEach(c => c.classList.remove('selected'));
       element.classList.add('selected');
       
       selectedPackage = name;
-      selectedPrice = price;
+      // Calculate total price including video if enabled
+      selectedPrice = videoEnabled && videoAddons[name] ? price + videoAddons[name].price : price;
       sessionType = type;
       
       updatePaymentSummary();
