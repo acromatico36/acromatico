@@ -1282,7 +1282,6 @@
             <li>1 lead photographer</li>
             <li>Curated images (color & B&W)</li>
             <li>Online gallery + downloads</li>
-            <li>USB keepsake</li>
           </ul>
           <button class="select-btn">Select & Customize</button>
         </div>
@@ -1309,23 +1308,23 @@
         </div>
 
         <!-- THE SIGNATURE -->
-        <div class="package-card" onclick="selectPackage('The Signature', 4590, 'wedding', this)">
+        <div class="package-card" onclick="selectPackage('The Signature', 3895, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
           <div class="package-name">The Signature</div>
           <div class="package-subtitle">Wedding Collection · Premium</div>
           <div class="package-price">
             <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$1,530</div>
-            <div class="price-total">Total investment: $4,590</div>
+            <div class="price-amount">$1,298</div>
+            <div class="price-total">Total investment: $3,895</div>
           </div>
           <ul class="package-features">
             <li><strong>6 hours wedding coverage</strong></li>
             <li>1 lead photographer</li>
             <li><strong>✓ Engagement session included ($695 value)</strong></li>
-            <li><strong>✓ Premium Album included (12x12, 30 pages, $1,495 value)</strong></li>
+            <li><strong>✓ Standard Album included (13x9.5, $1,495 value)</strong></li>
             <li>Curated images (color & B&W)</li>
             <li>Online gallery + downloads</li>
-            <li>USB keepsake</li>
+            <li>Engraved USB keepsake</li>
           </ul>
           <button class="select-btn">Select & Customize</button>
         </div>
@@ -1394,16 +1393,23 @@
                 </span>
               </label>
               <label class="addon-radio">
+                <input type="radio" name="album" value="small" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Small Album (12x8)</span>
+                  <span class="addon-price-label">+$995</span>
+                </span>
+              </label>
+              <label class="addon-radio">
                 <input type="radio" name="album" value="standard" onchange="updateAddons()">
                 <span class="addon-card">
-                  <span class="addon-name">Standard Album (12x12, 30 pages)</span>
+                  <span class="addon-name">Standard Album (13x9.5)</span>
                   <span class="addon-price-label">+$1,495</span>
                 </span>
               </label>
               <label class="addon-radio">
                 <input type="radio" name="album" value="large" onchange="updateAddons()">
                 <span class="addon-card">
-                  <span class="addon-name">Large Album (16x12, 40 pages)</span>
+                  <span class="addon-name">Large Album (16x12)</span>
                   <span class="addon-price-label">+$1,995</span>
                 </span>
               </label>
@@ -2221,13 +2227,17 @@
       
       // Update album options based on package
       if (basePackageData.hasAlbum) {
-        document.querySelector('#albumAddon .addon-group-title').textContent = 'Album Upgrade';
-        document.querySelector('input[name="album"][value="none"]').parentElement.querySelector('.addon-name').textContent = 'Keep Standard Album (12x12, 30 pages)';
-        document.querySelector('input[name="album"][value="standard"]').parentElement.style.display = 'none';
+        document.querySelector('#albumAddon .addon-group-title').textContent = 'Album Options';
+        document.querySelector('input[name="album"][value="none"]').parentElement.querySelector('.addon-name').textContent = 'Keep Standard Album (13x9.5)';
+        document.querySelector('input[name="album"][value="small"]').parentElement.querySelector('.addon-price-label').textContent = '-$500 (downgrade)';
+        document.querySelector('input[name="album"][value="standard"]').parentElement.querySelector('.addon-price-label').textContent = 'Included';
+        document.querySelector('input[name="album"][value="large"]').parentElement.querySelector('.addon-price-label').textContent = '+$500 (upgrade)';
       } else {
-        document.querySelector('#albumAddon .addon-group-title').textContent = 'Premium Album';
+        document.querySelector('#albumAddon .addon-group-title').textContent = 'Add Premium Album';
         document.querySelector('input[name="album"][value="none"]').parentElement.querySelector('.addon-name').textContent = 'No Album';
-        document.querySelector('input[name="album"][value="standard"]').parentElement.style.display = 'block';
+        document.querySelector('input[name="album"][value="small"]').parentElement.querySelector('.addon-price-label').textContent = '+$995';
+        document.querySelector('input[name="album"][value="standard"]').parentElement.querySelector('.addon-price-label').textContent = '+$1,495';
+        document.querySelector('input[name="album"][value="large"]').parentElement.querySelector('.addon-price-label').textContent = '+$1,995';
       }
       
       // Update video price label
@@ -2271,13 +2281,17 @@
       }
       
       // Album
+      const albumSmall = document.querySelector('input[name="album"][value="small"]');
       const albumStandard = document.querySelector('input[name="album"][value="standard"]');
       const albumLarge = document.querySelector('input[name="album"][value="large"]');
+      if (albumSmall && albumSmall.checked) {
+        addonsTotal += basePackageData.hasAlbum ? -500 : 995; // Downgrade or new small
+      }
       if (albumStandard && albumStandard.checked) {
-        addonsTotal += basePackageData.hasAlbum ? 500 : 1495; // Upgrade or new
+        addonsTotal += basePackageData.hasAlbum ? 0 : 1495; // Keep standard or new
       }
       if (albumLarge && albumLarge.checked) {
-        addonsTotal += basePackageData.hasAlbum ? 1000 : 1995; // Upgrade or new
+        addonsTotal += basePackageData.hasAlbum ? 500 : 1995; // Upgrade or new large
       }
       
       // Video
