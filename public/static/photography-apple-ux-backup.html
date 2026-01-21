@@ -244,27 +244,15 @@
       margin-bottom: 24px;
     }
     .package-price {
-      margin-bottom: 8px;
-    }
-    .price-installment {
-      font-size: 15px;
-      color: var(--secondary);
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-    .price-amount {
-      font-size: 52px;
+      font-size: 48px;
       font-weight: 700;
       letter-spacing: -1px;
+      margin-bottom: 32px;
       color: #000;
-      line-height: 1;
     }
-    .price-total {
-      font-size: 13px;
+    .package-price span {
+      font-size: 17px;
       color: var(--secondary);
-      margin-top: 8px;
-      padding-top: 12px;
-      border-top: 1px solid #e5e5e5;
       font-weight: 400;
     }
     .package-features {
@@ -751,138 +739,107 @@
       </div>
       
       <div class="packages-grid">
-        <!-- THE ESSENTIAL -->
-        <div class="package-card" onclick="selectPackage('The Essential', 4500, 'wedding', this)">
+        <!-- WEDDING ONE -->
+        <div class="package-card" onclick="selectPackage('Wedding One', 3000, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Essential</div>
+          <div class="package-name">One</div>
           <div class="package-subtitle">Wedding Collection</div>
-          <div class="package-price">
-            <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$1,500</div>
-            <div class="price-total">Total investment: $4,500</div>
-          </div>
+          <div class="package-price">$3,000</div>
           <ul class="package-features">
-            <li>7 hours wedding coverage</li>
-            <li>1 lead photographer</li>
-            <li>Complimentary engagement session</li>
+            <li>6 hours wedding coverage</li>
+            <li>1 photographer</li>
             <li>Curated images (color & B&W)</li>
-            <li>Online gallery + downloads</li>
-            <li>$350 album credit</li>
+            <li>Online gallery</li>
+            <li>$250 album credit</li>
             <li>Engraved USB keepsake</li>
           </ul>
           <button class="select-btn">Select Collection</button>
         </div>
 
-        <!-- THE SIGNATURE -->
-        <div class="package-card" onclick="selectPackage('The Signature', 6000, 'wedding', this)">
+        <!-- WEDDING TWO -->
+        <div class="package-card" onclick="selectPackage('Wedding Two', 4000, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Signature</div>
-          <div class="package-subtitle">Wedding Collection · Most Popular</div>
-          <div class="package-price">
-            <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$2,000</div>
-            <div class="price-total">Total investment: $6,000</div>
-          </div>
+          <div class="package-name">Two</div>
+          <div class="package-subtitle">Wedding Collection</div>
+          <div class="package-price">$4,000</div>
           <ul class="package-features">
-            <li>9 hours wedding coverage</li>
-            <li>1 lead photographer + assistant</li>
-            <li>Complimentary engagement session</li>
-            <li>Second location coverage</li>
-            <li>Premium editing + enhancements</li>
-            <li>Online gallery + downloads</li>
-            <li>$500 album credit</li>
+            <li>8 hours wedding coverage</li>
+            <li>1 photographer</li>
+            <li>Curated images (color & B&W)</li>
+            <li>Online gallery</li>
+            <li>$400 album credit</li>
             <li>Engraved USB keepsake</li>
           </ul>
           <button class="select-btn">Select Collection</button>
         </div>
 
-        <!-- THE PREMIUM -->
-        <div class="package-card" onclick="selectPackage('The Premium', 8000, 'wedding', this)">
+        <!-- WEDDING THREE -->
+        <div class="package-card" onclick="selectPackage('Wedding Three', 5000, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Premium</div>
-          <div class="package-subtitle">Luxury Wedding Collection</div>
-          <div class="package-price">
-            <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$2,667</div>
-            <div class="price-total">Total investment: $8,000</div>
-          </div>
+          <div class="package-name">Three</div>
+          <div class="package-subtitle">Wedding Collection</div>
+          <div class="package-price">$5,000</div>
           <ul class="package-features">
             <li>10 hours wedding coverage</li>
-            <li>2 lead photographers (full team)</li>
-            <li>Complimentary engagement session</li>
-            <li>Rehearsal dinner coverage (2hrs)</li>
-            <li>Custom premium album included</li>
-            <li>Premium editing + enhancements</li>
-            <li>Online gallery + downloads</li>
-            <li>Parent albums available</li>
+            <li>1 photographer</li>
+            <li>Curated images (color & B&W)</li>
+            <li>Online gallery</li>
+            <li>$650 album credit</li>
+            <li>Engraved USB keepsake</li>
           </ul>
           <button class="select-btn">Select Collection</button>
         </div>
 
-        <!-- THE LEGACY -->
-        <div class="package-card" style="grid-column: span 1;" onclick="selectPackage('The Legacy', 12500, 'wedding', this)">
+        <!-- WEDDING TRAVEL -->
+        <div class="package-card" style="grid-column: span 1;" onclick="selectPackage('Wedding Travel Collection', 10000, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Legacy</div>
-          <div class="package-subtitle">Ultimate Destination Experience</div>
-          <div class="package-price">
-            <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$4,167</div>
-            <div class="price-total">Total investment: $12,500</div>
-          </div>
+          <div class="package-name">Travel</div>
+          <div class="package-subtitle">Premium Destination Wedding</div>
+          <div class="package-price">$10,000</div>
           <ul class="package-features">
-            <li>12 hours of coverage</li>
-            <li>2 lead photographers (full team)</li>
-            <li>Welcome party coverage included</li>
-            <li>Complimentary engagement session</li>
-            <li>Custom leather album + parent albums</li>
-            <li>Unlimited images with premium editing</li>
-            <li>Travel expenses included</li>
-            <li>Online gallery + luxury USB</li>
+            <li>10 hours of coverage</li>
+            <li>2 photographers</li>
+            <li>Unlimited images</li>
+            <li>Custom editing & enhancements</li>
+            <li>Online gallery</li>
+            <li>$1,000 Album or Travel Credit</li>
+            <li>Engraved USB disk</li>
           </ul>
           <button class="select-btn">Select Collection</button>
         </div>
 
-        <!-- THE HOUR -->
-        <div class="package-card" onclick="selectPackage('The Hour', 795, 'portrait', this)">
+        <!-- PORTRAIT 1HR -->
+        <div class="package-card" onclick="selectPackage('Portrait Collection 1hr', 595, 'portrait', this)">
           <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Hour</div>
+          <div class="package-name">Portrait 1hr</div>
           <div class="package-subtitle">Portrait Session</div>
-          <div class="package-price">
-            <div class="price-installment">Single payment</div>
-            <div class="price-amount">$795</div>
-            <div class="price-total">Perfect for engagements & families</div>
-          </div>
+          <div class="package-price">$595</div>
           <ul class="package-features">
-            <li>1.5 hours coverage</li>
-            <li>Location scouting included</li>
-            <li>Styling guide provided</li>
-            <li>All images curated & edited</li>
-            <li>Online gallery + high-res downloads</li>
-            <li>Print release included</li>
+            <li>1 hour coverage</li>
+            <li>All images curated</li>
+            <li>In-house edits</li>
+            <li>Online gallery</li>
+            <li>Images in high-res</li>
+            <li>Printing options</li>
           </ul>
-          <button class="select-btn">Select Session</button>
+          <button class="select-btn">Select Collection</button>
         </div>
 
-        <!-- THE EXPERIENCE -->
-        <div class="package-card" onclick="selectPackage('The Experience', 995, 'portrait', this)">
+        <!-- PORTRAIT 2HR -->
+        <div class="package-card" onclick="selectPackage('Portrait Collection 2hrs', 695, 'portrait', this)">
           <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Experience</div>
+          <div class="package-name">Portrait 2hrs</div>
           <div class="package-subtitle">Extended Portrait Session</div>
-          <div class="package-price">
-            <div class="price-installment">Single payment</div>
-            <div class="price-amount">$995</div>
-            <div class="price-total">Perfect for maternity & lifestyle</div>
-          </div>
+          <div class="package-price">$695</div>
           <ul class="package-features">
-            <li>2.5 hours coverage</li>
-            <li>Multiple locations + outfit changes</li>
-            <li>Wardrobe consultation</li>
-            <li>Location scouting included</li>
-            <li>All images curated & edited</li>
-            <li>Online gallery + high-res downloads</li>
-            <li>Print release + styling guide</li>
+            <li>2 hours coverage</li>
+            <li>All images curated</li>
+            <li>In-house edits</li>
+            <li>Online gallery</li>
+            <li>Images in high-res</li>
+            <li>Printing options</li>
           </ul>
-          <button class="select-btn">Select Session</button>
+          <button class="select-btn">Select Collection</button>
         </div>
       </div>
     </div>
