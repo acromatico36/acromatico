@@ -452,6 +452,124 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(255,255,255,0.2);
     }
+    
+    /* ADD-ONS SECTION */
+    .addons-section {
+      max-width: 900px;
+      margin: 60px auto 0;
+      padding: 0 20px;
+      animation: fadeInUp 0.4s;
+    }
+    .addons-container {
+      background: var(--bg-gray);
+      border-radius: 24px;
+      padding: 60px 40px;
+    }
+    .addons-title {
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .addons-subtitle {
+      font-size: 17px;
+      color: var(--secondary);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .addon-group {
+      background: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .addon-group-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .addon-slider label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .addon-slider input[type="range"] {
+      flex: 1;
+      height: 6px;
+      border-radius: 5px;
+      background: var(--border);
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .addon-slider input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .addon-slider input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    .addon-options {
+      display: grid;
+      gap: 12px;
+    }
+    .addon-checkbox, .addon-radio {
+      cursor: pointer;
+    }
+    .addon-checkbox input[type="checkbox"],
+    .addon-radio input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .addon-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .addon-checkbox input:checked + .addon-card,
+    .addon-radio input:checked + .addon-card {
+      border-color: var(--accent);
+      background: #f0f7ff;
+    }
+    .addon-card:hover {
+      border-color: #999;
+    }
+    .addon-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+    .addon-price-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .addon-price {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .addons-summary {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-top: 32px;
+    }
       font-weight: 600;
       margin-bottom: 24px;
       letter-spacing: -0.5px;
@@ -1150,139 +1268,205 @@
       <!-- PRESET PACKAGES GRID -->
       <div class="packages-grid" id="presetsGrid" style="display: none;">
         <!-- THE START -->
-        <div class="package-card" onclick="selectPackage('The Start', 2850, 'wedding', this)">
+        <div class="package-card" onclick="selectPackage('The Start', 2400, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
           <div class="package-name">The Start</div>
           <div class="package-subtitle">Wedding Collection</div>
           <div class="package-price">
             <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$950</div>
-            <div class="price-total">Total investment: $2,850</div>
+            <div class="price-amount">$800</div>
+            <div class="price-total">Total investment: $2,400</div>
           </div>
           <ul class="package-features">
-            <li>6 hours wedding coverage</li>
+            <li><strong>6 hours wedding coverage</strong></li>
             <li>1 lead photographer</li>
-            <li>Complimentary engagement session</li>
             <li>Curated images (color & B&W)</li>
             <li>Online gallery + downloads</li>
+            <li>USB keepsake</li>
           </ul>
-          <button class="select-btn">Select Collection</button>
+          <button class="select-btn">Select & Customize</button>
         </div>
 
         <!-- THE ESSENTIAL -->
-        <div class="package-card" onclick="selectPackage('The Essential', 4500, 'wedding', this)">
+        <div class="package-card" onclick="selectPackage('The Essential', 3095, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
           <div class="package-name">The Essential</div>
-          <div class="package-subtitle">Wedding Collection</div>
-          <div class="package-price">
-            <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$1,500</div>
-            <div class="price-total">Total investment: $4,500</div>
-          </div>
-          <ul class="package-features">
-            <li>7 hours wedding coverage</li>
-            <li>1 lead photographer</li>
-            <li>Complimentary engagement session</li>
-            <li>Premium photo book (10x10, 20 pages)</li>
-            <li>Curated images (color & B&W)</li>
-            <li>Online gallery + downloads</li>
-            <li>$400 print credit</li>
-            <li>Engraved USB keepsake</li>
-          </ul>
-          <button class="select-btn">Select Collection</button>
-        </div>
-
-        <!-- THE SIGNATURE -->
-        <div class="package-card" onclick="selectPackage('The Signature', 6000, 'wedding', this)">
-          <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Signature</div>
           <div class="package-subtitle">Wedding Collection · Most Popular</div>
           <div class="package-price">
             <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$2,000</div>
-            <div class="price-total">Total investment: $6,000</div>
+            <div class="price-amount">$1,032</div>
+            <div class="price-total">Total investment: $3,095</div>
           </div>
           <ul class="package-features">
-            <li>9 hours wedding coverage</li>
-            <li>1 lead photographer + assistant</li>
-            <li>Complimentary engagement session</li>
-            <li>Canvas art print (20x30, $450 value)</li>
-            <li>Premium album (12x12, 30 pages)</li>
-            <li>Second location coverage</li>
-            <li>Premium editing + enhancements</li>
+            <li><strong>6 hours wedding coverage</strong></li>
+            <li>1 lead photographer</li>
+            <li><strong>✓ Engagement session included ($695 value)</strong></li>
+            <li>Curated images (color & B&W)</li>
             <li>Online gallery + downloads</li>
-            <li>$600 print credit</li>
+            <li>USB keepsake</li>
           </ul>
-          <button class="select-btn">Select Collection</button>
+          <button class="select-btn">Select & Customize</button>
         </div>
 
-        <!-- THE PREMIUM -->
-        <div class="package-card" onclick="selectPackage('The Premium', 8000, 'wedding', this)">
+        <!-- THE SIGNATURE -->
+        <div class="package-card" onclick="selectPackage('The Signature', 4590, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Premium</div>
-          <div class="package-subtitle">Luxury Wedding Collection</div>
+          <div class="package-name">The Signature</div>
+          <div class="package-subtitle">Wedding Collection · Premium</div>
           <div class="package-price">
             <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$2,667</div>
-            <div class="price-total">Total investment: $8,000</div>
+            <div class="price-amount">$1,530</div>
+            <div class="price-total">Total investment: $4,590</div>
           </div>
           <ul class="package-features">
-            <li>10 hours wedding coverage</li>
-            <li>2 lead photographers (full team)</li>
-            <li>Complimentary engagement session</li>
-            <li>Custom premium album included</li>
-            <li>Premium editing + enhancements</li>
+            <li><strong>6 hours wedding coverage</strong></li>
+            <li>1 lead photographer</li>
+            <li><strong>✓ Engagement session included ($695 value)</strong></li>
+            <li><strong>✓ Premium Album included (12x12, 30 pages, $1,495 value)</strong></li>
+            <li>Curated images (color & B&W)</li>
             <li>Online gallery + downloads</li>
-            <li>$800 print credit</li>
+            <li>USB keepsake</li>
           </ul>
-          <button class="select-btn">Select Collection</button>
+          <button class="select-btn">Select & Customize</button>
         </div>
+      </div>
 
-        <!-- THE LEGACY -->
-        <div class="package-card" style="grid-column: span 1;" onclick="selectPackage('The Legacy', 12500, 'wedding', this)">
-          <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Legacy</div>
-          <div class="package-subtitle">Ultimate Destination Experience</div>
-          <div class="package-price">
-            <div class="price-installment">3 easy payments of</div>
-            <div class="price-amount">$4,167</div>
-            <div class="price-total">Total investment: $12,500</div>
+      <!-- ADD-ONS SECTION (shown after package selection) -->
+      <div class="addons-section" id="addonsSection" style="display: none;">
+        <div class="addons-container">
+          <h3 class="addons-title">Customize Your Package</h3>
+          <p class="addons-subtitle">Add extra hours, upgrade your album, or include additional services.</p>
+
+          <!-- EXTRA HOURS -->
+          <div class="addon-group">
+            <h4 class="addon-group-title">Extra Coverage Hours</h4>
+            <div class="addon-slider">
+              <label>
+                <span>Additional hours: <strong id="extraHoursDisplay">0</strong></span>
+                <input type="range" id="extraHoursSlider" min="0" max="6" value="0" step="1" oninput="updateExtraHours(this.value)">
+                <span class="addon-price">+$<span id="extraHoursPrice">0</span></span>
+              </label>
+            </div>
           </div>
-          <ul class="package-features">
-            <li>Multi-day coverage option (photo + video)</li>
-            <li>2 lead photographers (full team)</li>
-            <li>Complimentary engagement session</li>
-            <li>Framed art print (30x40, $850 value)</li>
-            <li>Custom premium album included</li>
-            <li>Unlimited images with premium editing</li>
-            <li>Travel included (up to 500 miles)</li>
-            <li>Online gallery + luxury USB</li>
-          </ul>
-          <button class="select-btn">Select Collection</button>
-        </div>
 
-        <!-- THE HOUR -->
-        <div class="package-card" onclick="selectPackage('The Hour', 795, 'portrait', this)">
-          <div class="package-badge">SELECTED</div>
-          <div class="package-name">The Hour</div>
-          <div class="package-subtitle">Portrait Session</div>
-          <div class="package-price">
-            <div class="price-installment">Single payment</div>
-            <div class="price-amount">$795</div>
-            <div class="price-total">Perfect for engagements & families</div>
+          <!-- PHOTOGRAPHER UPGRADE -->
+          <div class="addon-group" id="photographerUpgrade">
+            <h4 class="addon-group-title">Photographer Upgrade</h4>
+            <div class="addon-options">
+              <label class="addon-checkbox">
+                <input type="checkbox" value="assistant" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Add Assistant Photographer</span>
+                  <span class="addon-price-label">+$800</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="second-lead" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Upgrade to 2 Lead Photographers</span>
+                  <span class="addon-price-label">+$2,000</span>
+                </span>
+              </label>
+            </div>
           </div>
-          <ul class="package-features">
-            <li>1.5 hours coverage</li>
-            <li>Location scouting included</li>
-            <li>Styling guide provided</li>
-            <li>All images curated & edited</li>
-            <li>Online gallery + high-res downloads</li>
-            <li>Print release included</li>
-          </ul>
-          <button class="select-btn">Select Session</button>
+
+          <!-- ENGAGEMENT SESSION (if not included) -->
+          <div class="addon-group" id="engagementAddon">
+            <h4 class="addon-group-title">Engagement Session</h4>
+            <label class="addon-checkbox">
+              <input type="checkbox" value="engagement" onchange="updateAddons()">
+              <span class="addon-card">
+                <span class="addon-name">Add Engagement Session (1.5 hours)</span>
+                <span class="addon-price-label">+$695</span>
+              </span>
+            </label>
+          </div>
+
+          <!-- ALBUM (if not included or upgrade) -->
+          <div class="addon-group" id="albumAddon">
+            <h4 class="addon-group-title">Premium Album</h4>
+            <div class="addon-options">
+              <label class="addon-radio">
+                <input type="radio" name="album" value="none" checked onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">No Album</span>
+                  <span class="addon-price-label">—</span>
+                </span>
+              </label>
+              <label class="addon-radio">
+                <input type="radio" name="album" value="standard" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Standard Album (12x12, 30 pages)</span>
+                  <span class="addon-price-label">+$1,495</span>
+                </span>
+              </label>
+              <label class="addon-radio">
+                <input type="radio" name="album" value="large" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Large Album (16x12, 40 pages)</span>
+                  <span class="addon-price-label">+$1,995</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- OTHER ADD-ONS -->
+          <div class="addon-group">
+            <h4 class="addon-group-title">Additional Services</h4>
+            <div class="addon-options">
+              <label class="addon-checkbox">
+                <input type="checkbox" value="video" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Cinematic Video (matches photo hours)</span>
+                  <span class="addon-price-label" id="videoPriceLabel">+$2,400</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="canvas" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Canvas Art Print (20x30)</span>
+                  <span class="addon-price-label">+$450</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="framed" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Framed Art Print (30x40)</span>
+                  <span class="addon-price-label">+$850</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="travel" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Travel Coverage (500+ miles)</span>
+                  <span class="addon-price-label">+$1,000</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- PRICING SUMMARY -->
+          <div class="addons-summary">
+            <div class="summary-row">
+              <span id="basePackageName">Base Package</span>
+              <span id="basePackagePrice">$2,400</span>
+            </div>
+            <div class="summary-row" id="addonsRow" style="display: none;">
+              <span>Customizations</span>
+              <span id="addonsTotal">$0</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-total">
+              <span>Total Investment</span>
+              <span id="finalTotalPrice">$2,400</span>
+            </div>
+            <div class="summary-payment">
+              <span>3 easy payments of</span>
+              <span id="finalPaymentAmount">$800</span>
+            </div>
+            <button type="button" class="book-custom-btn" onclick="bookPackageWithAddons()">Book This Package</button>
+          </div>
         </div>
-
-
       </div>
 
       <!-- CUSTOM BUILDER INTERFACE -->
@@ -1997,19 +2181,145 @@
       }
     }
 
+    // Package selection with add-ons
+    let basePackageData = {
+      name: '',
+      price: 0,
+      hasEngagement: false,
+      hasAlbum: false
+    };
+
     function selectPackage(name, price, type, element) {
       document.querySelectorAll('.package-card').forEach(c => c.classList.remove('selected'));
       element.classList.add('selected');
       
+      // Store base package data
+      basePackageData = {
+        name: name,
+        price: price,
+        hasEngagement: name === 'The Essential' || name === 'The Signature',
+        hasAlbum: name === 'The Signature'
+      };
+      
       selectedPackage = name;
-      // Calculate total price including video if enabled
-      selectedPrice = videoEnabled && videoAddons[name] ? price + videoAddons[name].price : price;
+      selectedPrice = price;
       sessionType = type;
       
+      // Show add-ons section
+      document.getElementById('addonsSection').style.display = 'block';
+      document.getElementById('basePackageName').textContent = name;
+      document.getElementById('basePackagePrice').textContent = '$' + price.toLocaleString();
+      document.getElementById('finalTotalPrice').textContent = '$' + price.toLocaleString();
+      document.getElementById('finalPaymentAmount').textContent = '$' + Math.round(price / 3).toLocaleString();
+      
+      // Hide/show engagement addon based on package
+      if (basePackageData.hasEngagement) {
+        document.getElementById('engagementAddon').style.display = 'none';
+      } else {
+        document.getElementById('engagementAddon').style.display = 'block';
+      }
+      
+      // Update album options based on package
+      if (basePackageData.hasAlbum) {
+        document.querySelector('#albumAddon .addon-group-title').textContent = 'Album Upgrade';
+        document.querySelector('input[name="album"][value="none"]').parentElement.querySelector('.addon-name').textContent = 'Keep Standard Album (12x12, 30 pages)';
+        document.querySelector('input[name="album"][value="standard"]').parentElement.style.display = 'none';
+      } else {
+        document.querySelector('#albumAddon .addon-group-title').textContent = 'Premium Album';
+        document.querySelector('input[name="album"][value="none"]').parentElement.querySelector('.addon-name').textContent = 'No Album';
+        document.querySelector('input[name="album"][value="standard"]').parentElement.style.display = 'block';
+      }
+      
+      // Update video price label
+      document.getElementById('videoPriceLabel').textContent = '+$' + price.toLocaleString();
+      
+      // Reset all add-ons
+      document.getElementById('extraHoursSlider').value = 0;
+      updateExtraHours(0);
+      document.querySelectorAll('#addonsSection input[type="checkbox"]').forEach(cb => cb.checked = false);
+      document.querySelectorAll('#addonsSection input[type="radio"]').forEach(rb => {
+        if (rb.value === 'none') rb.checked = true;
+        else rb.checked = false;
+      });
+      
+      // Smooth scroll to add-ons
+      setTimeout(() => {
+        document.getElementById('addonsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    function updateExtraHours(value) {
+      document.getElementById('extraHoursDisplay').textContent = value;
+      document.getElementById('extraHoursPrice').textContent = (value * 400).toLocaleString();
+      updateAddons();
+    }
+
+    function updateAddons() {
+      const extraHours = parseInt(document.getElementById('extraHoursSlider').value);
+      let addonsTotal = extraHours * 400;
+      
+      // Photographer upgrades
+      const assistant = document.querySelector('input[value="assistant"]');
+      const secondLead = document.querySelector('input[value="second-lead"]');
+      if (assistant && assistant.checked) addonsTotal += 800;
+      if (secondLead && secondLead.checked) addonsTotal += 2000;
+      
+      // Engagement (if not included)
+      if (!basePackageData.hasEngagement) {
+        const engagement = document.querySelector('input[value="engagement"]');
+        if (engagement && engagement.checked) addonsTotal += 695;
+      }
+      
+      // Album
+      const albumStandard = document.querySelector('input[name="album"][value="standard"]');
+      const albumLarge = document.querySelector('input[name="album"][value="large"]');
+      if (albumStandard && albumStandard.checked) {
+        addonsTotal += basePackageData.hasAlbum ? 500 : 1495; // Upgrade or new
+      }
+      if (albumLarge && albumLarge.checked) {
+        addonsTotal += basePackageData.hasAlbum ? 1000 : 1995; // Upgrade or new
+      }
+      
+      // Video
+      const video = document.querySelector('input[value="video"]');
+      let videoPrice = 0;
+      if (video && video.checked) {
+        videoPrice = basePackageData.price + (extraHours * 400);
+        addonsTotal += videoPrice;
+      }
+      
+      // Other add-ons
+      const canvas = document.querySelector('input[value="canvas"]');
+      const framed = document.querySelector('input[value="framed"]');
+      const travel = document.querySelector('input[value="travel"]');
+      if (canvas && canvas.checked) addonsTotal += 450;
+      if (framed && framed.checked) addonsTotal += 850;
+      if (travel && travel.checked) addonsTotal += 1000;
+      
+      // Update summary
+      const finalTotal = basePackageData.price + addonsTotal;
+      const paymentAmount = Math.round(finalTotal / 3);
+      
+      if (addonsTotal > 0) {
+        document.getElementById('addonsRow').style.display = 'flex';
+        document.getElementById('addonsTotal').textContent = '+$' + addonsTotal.toLocaleString();
+      } else {
+        document.getElementById('addonsRow').style.display = 'none';
+      }
+      
+      document.getElementById('finalTotalPrice').textContent = '$' + finalTotal.toLocaleString();
+      document.getElementById('finalPaymentAmount').textContent = '$' + paymentAmount.toLocaleString();
+      
+      // Store for booking
+      selectedPrice = finalTotal;
+    }
+
+    function bookPackageWithAddons() {
+      // Open booking modal with final price
       updatePaymentSummary();
       
       // Adjust form based on session type
-      if (type === 'portrait') {
+      if (sessionType === 'portrait') {
         document.getElementById('partnerNameGroup').style.display = 'none';
         document.getElementById('ceremonyVenueGroup').style.display = 'none';
         document.getElementById('receptionVenueGroup').style.display = 'none';
