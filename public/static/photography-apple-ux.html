@@ -533,11 +533,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
       padding: 16px 20px;
       border: 2px solid var(--border);
       border-radius: 12px;
       transition: all 0.2s;
       background: #fff;
+      min-width: 0;
     }
     .addon-checkbox input:checked + .addon-card,
     .addon-radio input:checked + .addon-card {
@@ -551,11 +553,15 @@
       font-size: 15px;
       font-weight: 500;
       color: var(--primary);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
     }
     .addon-price-label {
       font-size: 15px;
       font-weight: 600;
       color: var(--accent);
+      white-space: nowrap;
     }
     .addon-price {
       font-size: 15px;
@@ -1186,14 +1192,63 @@
 
     @media (max-width: 1024px) {
       .packages-grid { grid-template-columns: 1fr; }
+      .builder-options { grid-template-columns: 1fr; }
+      .addon-options { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      .video-overlay h1 { font-size: 40px; }
+      .video-overlay h1 { font-size: 40px; line-height: 1.2; }
       .carousel-title, .section-header h2, .faq-title { font-size: 32px; }
+      .section-header p { font-size: 15px; }
       .swiper-slide { height: 400px; }
       .image-gallery { grid-template-columns: 1fr; }
       .image-gallery img { height: 400px; }
       .modal-body { padding: 32px; }
+      
+      /* Package cards mobile */
+      .package-card { padding: 24px; }
+      .package-name { font-size: 24px; }
+      .package-subtitle { font-size: 13px; }
+      .price-amount { font-size: 40px; }
+      .price-installment, .price-total { font-size: 13px; }
+      .package-features { font-size: 14px; }
+      .package-features li { padding: 8px 0; }
+      
+      /* Custom builder mobile */
+      .builder-container { padding: 40px 24px; }
+      .builder-title { font-size: 28px; }
+      .builder-subtitle { font-size: 15px; }
+      .builder-section { padding: 24px; }
+      .builder-section-title { font-size: 18px; }
+      .option-name { font-size: 14px; }
+      .option-desc { font-size: 12px; }
+      .option-price { font-size: 13px; }
+      .slider-display { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .slider-display #hoursDisplay { font-size: 24px; }
+      
+      /* Add-ons mobile */
+      .addons-container { padding: 40px 24px; }
+      .addons-title { font-size: 28px; }
+      .addons-subtitle { font-size: 15px; }
+      .addon-group { padding: 24px; }
+      .addon-group-title { font-size: 18px; }
+      .addon-card { padding: 14px 16px; flex-wrap: wrap; gap: 8px; }
+      .addon-name { font-size: 14px; line-height: 1.4; word-break: break-word; }
+      .addon-price-label { font-size: 14px; white-space: nowrap; }
+      .addon-slider label { flex-direction: column; gap: 12px; align-items: flex-start; }
+      
+      /* Summary mobile */
+      .addons-summary, .builder-summary { padding: 24px; }
+      .summary-row { font-size: 14px; flex-wrap: wrap; }
+      .summary-total { font-size: 20px; }
+      .summary-payment { font-size: 14px; }
+      
+      /* Toggle mobile */
+      .video-toggle-container { flex-direction: column; gap: 12px; }
+      .toggle-label { font-size: 14px; }
+      
+      /* Modal mobile */
+      .booking-modal { width: 95%; max-height: 90vh; overflow-y: auto; }
+      .modal-title { font-size: 24px; }
     }
   </style>
 </head>
@@ -1353,13 +1408,6 @@
             <h4 class="addon-group-title">Photographer Upgrade</h4>
             <div class="addon-options">
               <label class="addon-checkbox">
-                <input type="checkbox" value="assistant" onchange="updateAddons()">
-                <span class="addon-card">
-                  <span class="addon-name">Add Assistant Photographer</span>
-                  <span class="addon-price-label">+$800</span>
-                </span>
-              </label>
-              <label class="addon-checkbox">
                 <input type="checkbox" value="second-lead" onchange="updateAddons()">
                 <span class="addon-card">
                   <span class="addon-name">Upgrade to 2 Lead Photographers</span>
@@ -1444,7 +1492,7 @@
               <label class="addon-checkbox">
                 <input type="checkbox" value="travel" onchange="updateAddons()">
                 <span class="addon-card">
-                  <span class="addon-name">Travel Coverage (500+ miles)</span>
+                  <span class="addon-name">Travel Coverage (flights, hotels, meals & mileage beyond 50 miles)</span>
                   <span class="addon-price-label">+$1,000</span>
                 </span>
               </label>
@@ -1527,13 +1575,6 @@
                 </span>
               </label>
               <label class="builder-option">
-                <input type="radio" name="photographers" value="1-assistant" onchange="calculateCustomPrice()">
-                <span class="option-card">
-                  <span class="option-name">Lead + Assistant</span>
-                  <span class="option-price">+$800</span>
-                </span>
-              </label>
-              <label class="builder-option">
                 <input type="radio" name="photographers" value="2" onchange="calculateCustomPrice()">
                 <span class="option-card">
                   <span class="option-name">2 Lead Photographers</span>
@@ -1585,7 +1626,7 @@
               <label class="builder-checkbox">
                 <input type="checkbox" value="travel" onchange="calculateCustomPrice()">
                 <span class="checkbox-card">
-                  <span class="checkbox-name">Travel Coverage (500+ miles)</span>
+                  <span class="checkbox-name">Travel Coverage (flights, hotels, meals & mileage beyond 50 miles)</span>
                   <span class="checkbox-price">+$1,000</span>
                 </span>
               </label>
@@ -2023,9 +2064,7 @@
       }
       
       // Photographer pricing
-      if (photographers === '1-assistant') {
-        photoPrice += 800;
-      } else if (photographers === '2') {
+      if (photographers === '2') {
         photoPrice += 2000;
       }
       
@@ -2269,9 +2308,7 @@
       let addonsTotal = extraHours * 400;
       
       // Photographer upgrades
-      const assistant = document.querySelector('input[value="assistant"]');
       const secondLead = document.querySelector('input[value="second-lead"]');
-      if (assistant && assistant.checked) addonsTotal += 800;
       if (secondLead && secondLead.checked) addonsTotal += 2000;
       
       // Engagement (if not included)
