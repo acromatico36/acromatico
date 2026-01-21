@@ -907,7 +907,6 @@
             <li>2 lead photographers (full team)</li>
             <li>Complimentary engagement session</li>
             <li>Custom premium album included</li>
-            <li>Same-day highlights reel (2-3 min)</li>
             <li>Premium editing + enhancements</li>
             <li>Online gallery + downloads</li>
             <li>$800 print credit</li>
@@ -926,12 +925,11 @@
             <div class="price-total">Total investment: $12,500</div>
           </div>
           <ul class="package-features">
-            <li>12 hours of coverage</li>
+            <li>Multi-day coverage option (photo + video)</li>
             <li>2 lead photographers (full team)</li>
             <li>Complimentary engagement session</li>
             <li>Framed art print (30x40, $850 value)</li>
             <li>Custom premium album included</li>
-            <li>Same-day highlights reel (3-5 min)</li>
             <li>Unlimited images with premium editing</li>
             <li>Travel included (up to 500 miles)</li>
             <li>Online gallery + luxury USB</li>
@@ -1287,14 +1285,14 @@
     let formData = {};
     let videoEnabled = false;
     
-    // Video pricing per package
+    // Video pricing per package - SAME AS PHOTOGRAPHY
     const videoAddons = {
-      'The Start': { price: 1500, features: ['3-4 min highlight film', 'Drone footage included', 'Same-day teaser (1 min)', 'Ceremony + Reception coverage'] },
-      'The Essential': { price: 2000, features: ['5-6 min cinematic film', 'Drone footage included', 'Same-day teaser (1-2 min)', 'Full ceremony + Reception', 'Audio from vows & toasts'] },
-      'The Signature': { price: 2500, features: ['7-8 min cinematic film', 'Drone footage included', 'Same-day teaser (2 min)', 'Full day coverage', 'Audio from vows & toasts', 'Getting ready moments'] },
-      'The Premium': { price: 3000, features: ['10-12 min documentary film', '2 videographers', 'Drone footage included', 'Same-day highlight (3 min)', 'Full day coverage', 'Interview segments', 'Audio from ceremony & toasts'] },
-      'The Legacy': { price: 3500, features: ['15-20 min cinematic documentary', '2 videographers', 'Drone footage included', 'Same-day highlight (4-5 min)', 'Multi-day coverage option', 'Interview segments', 'Audio from all events', 'Raw footage provided'] },
-      'The Hour': { price: 500, features: ['Short cinematic video (2-3 min)', 'Professional audio', 'Quick turnaround'] }
+      'The Start': { price: 2850, features: ['3-4 min highlight film', 'Ceremony + Reception coverage', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Essential': { price: 4500, features: ['5-6 min cinematic film', 'Full ceremony + Reception', 'Audio from vows & toasts', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Signature': { price: 6000, features: ['7-8 min cinematic film', 'Full day coverage', 'Audio from vows & toasts', 'Getting ready moments', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Premium': { price: 8000, features: ['10-12 min documentary film', '2 videographers', 'Full day coverage', 'Interview segments', 'Audio from ceremony & toasts', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Legacy': { price: 12500, features: ['15-20 min cinematic documentary', '2 videographers', 'Multi-day coverage option', 'Interview segments', 'Audio from all events', 'Raw footage provided', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Hour': { price: 795, features: ['1-3 min short video', 'Professional audio', 'Digital menu with viewing options', 'Mobile & desktop access'] }
     };
 
     function toggleVideo() {
