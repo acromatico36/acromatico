@@ -144,82 +144,6 @@
       letter-spacing: -1px;
     }
 
-    /* PORTFOLIO GALLERY SECTION */
-    .portfolio-section {
-      background: #fff;
-      padding: 120px 40px;
-    }
-    .portfolio-container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    .portfolio-title {
-      font-size: 56px;
-      font-weight: 700;
-      text-align: center;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-      color: var(--primary);
-    }
-    .portfolio-subtitle {
-      text-align: center;
-      font-size: 21px;
-      color: var(--secondary);
-      margin-bottom: 80px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 60px;
-    }
-    .portfolio-item {
-      overflow: hidden;
-      border-radius: 12px;
-      position: relative;
-      height: 400px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .portfolio-item.tall {
-      height: 550px;
-    }
-    .portfolio-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-    .portfolio-item:hover img {
-      transform: scale(1.05);
-    }
-    .portfolio-cta {
-      text-align: center;
-    }
-    .portfolio-cta-btn {
-      display: inline-block;
-      padding: 16px 48px;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 980px;
-      font-size: 17px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    .portfolio-cta-btn:hover {
-      background: #333;
-      transform: scale(1.05);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-
     /* PACKAGES SECTION - APPLE CARD STYLE */
     .packages-section {
       background: #fff;
@@ -1266,114 +1190,10 @@
       line-height: 1.5;
     }
 
-    /* FOOTER SECTION */
-    .site-footer {
-      background: var(--primary);
-      color: #fff;
-      padding: 80px 40px 40px;
-    }
-    .footer-container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 60px;
-      margin-bottom: 60px;
-    }
-    .footer-brand {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-    .footer-tagline {
-      font-size: 15px;
-      color: #999;
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-    .footer-social {
-      display: flex;
-      gap: 16px;
-    }
-    .footer-social a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      color: #fff;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .footer-social a:hover {
-      background: #fff;
-      color: var(--primary);
-      transform: translateY(-4px);
-    }
-    .footer-title {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .footer-links, .footer-contact {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .footer-links li, .footer-contact li {
-      margin-bottom: 12px;
-    }
-    .footer-links a, .footer-contact a, .footer-contact span {
-      color: #999;
-      text-decoration: none;
-      font-size: 15px;
-      transition: color 0.3s ease;
-    }
-    .footer-links a:hover, .footer-contact a:hover {
-      color: #fff;
-    }
-    .footer-contact i {
-      margin-right: 8px;
-      color: var(--accent);
-      width: 20px;
-    }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 14px;
-      color: #666;
-    }
-    .footer-legal {
-      display: flex;
-      gap: 24px;
-    }
-    .footer-legal a {
-      color: #666;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .footer-legal a:hover {
-      color: #fff;
-    }
-
     @media (max-width: 1024px) {
       .packages-grid { grid-template-columns: 1fr; }
       .builder-options { grid-template-columns: 1fr; }
       .addon-options { grid-template-columns: 1fr; }
-      .footer-grid { 
-        grid-template-columns: 1fr 1fr; 
-        gap: 40px; 
-      }
     }
     @media (max-width: 768px) {
       .video-overlay h1 { font-size: 40px; line-height: 1.2; }
@@ -1383,21 +1203,6 @@
       .image-gallery { grid-template-columns: 1fr; }
       .image-gallery img { height: 400px; }
       .modal-body { padding: 32px; }
-      
-      /* Portfolio mobile */
-      .portfolio-title { font-size: 36px; }
-      .portfolio-subtitle { font-size: 17px; }
-      .portfolio-grid { 
-        grid-template-columns: 1fr; 
-        gap: 16px; 
-      }
-      .portfolio-item, .portfolio-item.tall { 
-        height: 350px; 
-      }
-      .portfolio-cta-btn { 
-        padding: 14px 40px; 
-        font-size: 16px; 
-      }
       
       /* Package cards mobile */
       .package-card { padding: 24px; }
@@ -1444,20 +1249,6 @@
       /* Modal mobile */
       .booking-modal { width: 95%; max-height: 90vh; overflow-y: auto; }
       .modal-title { font-size: 24px; }
-      
-      /* Footer mobile */
-      .footer-grid { 
-        grid-template-columns: 1fr; 
-        gap: 40px; 
-      }
-      .footer-bottom { 
-        flex-direction: column; 
-        gap: 20px; 
-        text-align: center; 
-      }
-      .footer-legal { 
-        justify-content: center; 
-      }
     }
   </style>
 </head>
@@ -1502,64 +1293,6 @@
       <div class="swiper-button-next"></div>
     </div>
   </div>
-
-  <!-- PORTFOLIO GALLERY SECTION -->
-  <section class="portfolio-section" id="portfolio">
-    <div class="portfolio-container">
-      <h2 class="portfolio-title">See Our Work</h2>
-      <p class="portfolio-subtitle">Every frame tells a story. Authentic moments captured with artistry.</p>
-      
-      <div class="portfolio-grid">
-        <!-- Row 1 -->
-        <div class="portfolio-item tall">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-121.jpg" alt="Wedding Portrait" loading="lazy">
-        </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Elle20Hector20E-061.jpg" alt="Engagement Session" loading="lazy">
-        </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-520.jpg" alt="Wedding Details" loading="lazy">
-        </div>
-        
-        <!-- Row 2 -->
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2018/12/Ann20and20David20ES-047.jpg" alt="Couple Portrait" loading="lazy">
-        </div>
-        <div class="portfolio-item tall">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-121.jpg" alt="Bridal Portrait" loading="lazy">
-        </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Elle20Hector20E-061.jpg" alt="Ceremony Moment" loading="lazy">
-        </div>
-        
-        <!-- Row 3 -->
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-520.jpg" alt="Reception Details" loading="lazy">
-        </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2018/12/Ann20and20David20ES-047.jpg" alt="Lifestyle Shot" loading="lazy">
-        </div>
-        <div class="portfolio-item tall">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-121.jpg" alt="Candid Moment" loading="lazy">
-        </div>
-        
-        <!-- Row 4 -->
-        <div class="portfolio-item tall">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Elle20Hector20E-061.jpg" alt="Portrait Session" loading="lazy">
-        </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-520.jpg" alt="Wedding Ceremony" loading="lazy">
-        </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2018/12/Ann20and20David20ES-047.jpg" alt="Getting Ready" loading="lazy">
-        </div>
-      </div>
-      
-      <div class="portfolio-cta">
-        <a href="#packages" class="portfolio-cta-btn">View Collections</a>
-      </div>
-    </div>
-  </section>
 
   <!-- PACKAGES SECTION -->
   <div class="packages-section" id="packages">
@@ -2821,84 +2554,6 @@
       });
     });
   </script>
-
-  <!-- FOOTER SECTION -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-grid">
-        <!-- Column 1: Brand -->
-        <div class="footer-col">
-          <h3 class="footer-brand">ACROMATICO</h3>
-          <p class="footer-tagline">Authentic Stories.<br>Unfiltered Moments.</p>
-          <div class="footer-social">
-            <a href="https://www.facebook.com/acromatico" target="_blank" aria-label="Facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/acromatico" target="_blank" aria-label="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/acromatico" target="_blank" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.youtube.com/acromatico" target="_blank" aria-label="YouTube">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Column 2: Services -->
-        <div class="footer-col">
-          <h4 class="footer-title">Services</h4>
-          <ul class="footer-links">
-            <li><a href="/photography">Wedding Photography</a></li>
-            <li><a href="/photography">Portrait Photography</a></li>
-            <li><a href="/photography">Engagement Sessions</a></li>
-            <li><a href="/photography">Premium Albums</a></li>
-            <li><a href="/video">Cinematic Video</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 3: Company -->
-        <div class="footer-col">
-          <h4 class="footer-title">Company</h4>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">Our Story</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/reviews">Reviews</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 4: Contact -->
-        <div class="footer-col">
-          <h4 class="footer-title">Get In Touch</h4>
-          <ul class="footer-contact">
-            <li>
-              <i class="fas fa-phone"></i>
-              <a href="tel:954-779-0921">954.779.0921</a>
-            </li>
-            <li>
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:info@acromatico.com">info@acromatico.com</a>
-            </li>
-            <li>
-              <i class="fas fa-map-marker-alt"></i>
-              <span>South Florida & NYC</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Acromatico Photography. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
 </body>
 </html>
