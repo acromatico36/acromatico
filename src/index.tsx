@@ -2605,8 +2605,8 @@ app.get('/prints', (c) =>
     </div>
   )
 )
-// Photography Services Page - Full Checkout Experience
-app.get('/photography', (c) => c.redirect('/static/photography-checkout'))
+// Photography Services Page - Apple/Tesla UX
+app.get('/photography', (c) => c.redirect('/static/photography-apple-ux'))
 
 // Photography Booking API
 app.post('/api/photography/book', async (c) => {
