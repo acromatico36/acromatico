@@ -220,6 +220,113 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
+    /* TESTIMONIALS SECTION */
+    .testimonials-section {
+      background: var(--bg-gray);
+      padding: 120px 40px;
+    }
+    .testimonials-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .testimonials-title {
+      font-size: 56px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+    .testimonials-subtitle {
+      text-align: center;
+      font-size: 21px;
+      color: var(--secondary);
+      margin-bottom: 80px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+    .testimonial-card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    .testimonial-card.featured {
+      border: 2px solid var(--accent);
+      box-shadow: 0 8px 24px rgba(0,113,227,0.12);
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+      color: #FFD700;
+      font-size: 18px;
+    }
+    .testimonial-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--primary);
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .author-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .author-wedding {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+    .testimonials-cta {
+      text-align: center;
+      padding-top: 40px;
+    }
+    .testimonials-cta-text {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+    .testimonials-cta-btn {
+      display: inline-block;
+      padding: 16px 48px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 980px;
+      font-size: 17px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .testimonials-cta-btn:hover {
+      background: #333;
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
     /* PACKAGES SECTION - APPLE CARD STYLE */
     .packages-section {
       background: #fff;
@@ -1445,6 +1552,7 @@
       .packages-grid { grid-template-columns: 1fr; }
       .builder-options { grid-template-columns: 1fr; }
       .addon-options { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       .footer-grid { 
         grid-template-columns: 1fr 1fr; 
         gap: 40px; 
@@ -1470,6 +1578,22 @@
         height: 350px; 
       }
       .portfolio-cta-btn { 
+        padding: 14px 40px; 
+        font-size: 16px; 
+      }
+      
+      /* Testimonials mobile */
+      .testimonials-title { font-size: 36px; }
+      .testimonials-subtitle { font-size: 17px; padding: 0 20px; }
+      .testimonials-grid { 
+        grid-template-columns: 1fr; 
+        gap: 24px; 
+      }
+      .testimonial-card { padding: 32px 24px; }
+      .testimonial-text { font-size: 16px; }
+      .author-name { font-size: 16px; }
+      .testimonials-cta-text { font-size: 17px; }
+      .testimonials-cta-btn { 
         padding: 14px 40px; 
         font-size: 16px; 
       }
@@ -1575,20 +1699,20 @@
     
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg')">
           <div class="slide-overlay"><h2>TIMELESS MOMENTS</h2></div>
         </div>
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/pp-image.jpg')">
-          <div class="slide-overlay"><h2>BRAND IMPACT</h2></div>
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Tessa-Kurien-W-HIGH-RES-601.jpg')">
+          <div class="slide-overlay"><h2>AUTHENTIC LOVE</h2></div>
         </div>
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
-          <div class="slide-overlay"><h2>THE PROPOSAL</h2></div>
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-047.jpg')">
+          <div class="slide-overlay"><h2>GOLDEN HOUR</h2></div>
         </div>
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
-          <div class="slide-overlay"><h2>EXPECTING JOY</h2></div>
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg')">
+          <div class="slide-overlay"><h2>PURE EMOTION</h2></div>
         </div>
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
-          <div class="slide-overlay"><h2>FAMILY LOVE</h2></div>
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-223.jpg')">
+          <div class="slide-overlay"><h2>UNFILTERED BEAUTY</h2></div>
         </div>
       </div>
       <div class="swiper-button-prev"></div>
@@ -1672,6 +1796,75 @@
       
       <div class="portfolio-cta">
         <a href="#packages" class="portfolio-cta-btn">View Collections</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="testimonials-container">
+      <h2 class="testimonials-title">What Our Couples Say</h2>
+      <p class="testimonials-subtitle">Real stories from real weddings. Authentic reviews from couples who trusted us with their most important day.</p>
+      
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Italo and his team didn't just capture our wedding—they captured the soul of our love story. Every photo feels like we're reliving that perfect day. Absolutely worth every penny."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4 class="author-name">Sarah & Michael</h4>
+              <p class="author-wedding">Miami Beach Wedding, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card featured">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"We were blown away. The photos are absolute art—but beyond that, Italo made us feel so comfortable. It felt like having a friend there, not just a photographer. Our families can't stop talking about the photos."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4 class="author-name">Jessica & David</h4>
+              <p class="author-wedding">NYC Rooftop Wedding, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Choosing Acromatico was the best decision we made for our wedding. The quality, the artistry, the professionalism—everything was perfect. Our photos are hanging in every room of our home."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4 class="author-name">Carlos & Maria</h4>
+              <p class="author-wedding">Fort Lauderdale Wedding, 2023</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials-cta">
+        <p class="testimonials-cta-text">Over 500+ five-star reviews</p>
+        <a href="/reviews" class="testimonials-cta-btn">Read More Reviews</a>
       </div>
     </div>
   </section>
