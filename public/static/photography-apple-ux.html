@@ -219,6 +219,320 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
       margin-bottom: 60px;
+      transition: opacity 0.3s;
+    }
+    .packages-grid.hidden {
+      display: none;
+    }
+    
+    /* CUSTOM BUILDER */
+    .custom-builder {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      animation: fadeInUp 0.4s;
+    }
+    .builder-container {
+      background: var(--bg-gray);
+      border-radius: 24px;
+      padding: 60px 40px;
+    }
+    .builder-title {
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .builder-subtitle {
+      font-size: 17px;
+      color: var(--secondary);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .builder-section {
+      background: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .builder-section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .builder-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .builder-option {
+      position: relative;
+      cursor: pointer;
+    }
+    .builder-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .option-card {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 20px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .builder-option input:checked + .option-card {
+      border-color: var(--accent);
+      background: #f0f7ff;
+    }
+    .option-card:hover {
+      border-color: #999;
+    }
+    .option-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .option-desc {
+      font-size: 13px;
+      color: var(--secondary);
+    }
+    .option-price {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    
+    /* BUILDER SLIDER */
+    .builder-slider {
+      padding: 20px 0;
+    }
+    .builder-slider input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: var(--border);
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .builder-slider input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .builder-slider input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    .slider-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .slider-display #hoursDisplay {
+      color: var(--accent);
+      font-size: 32px;
+    }
+    .slider-price {
+      font-size: 15px;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+    
+    /* BUILDER CHECKBOXES */
+    .builder-checkboxes {
+      display: grid;
+      gap: 12px;
+    }
+    .builder-checkbox {
+      cursor: pointer;
+    }
+    .builder-checkbox input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .checkbox-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .builder-checkbox input:checked + .checkbox-card {
+      border-color: var(--accent);
+      background: #f0f7ff;
+    }
+    .checkbox-card:hover {
+      border-color: #999;
+    }
+    .checkbox-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+    .checkbox-price {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    /* BUILDER SUMMARY */
+    .builder-summary {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-top: 32px;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .summary-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .summary-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+      margin: 20px 0;
+    }
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .summary-payment {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 24px;
+    }
+    .book-custom-btn {
+      width: 100%;
+      padding: 16px;
+      background: #fff;
+      color: var(--primary);
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .book-custom-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+    }
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+    .builder-options {
+      display: grid;
+      gap: 16px;
+    }
+    .builder-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border: 2px solid #e5e5e5;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .builder-option:hover {
+      border-color: #000;
+      background: #fafafa;
+    }
+    .builder-option.selected {
+      border-color: #000;
+      background: #fafafa;
+    }
+    .option-info {
+      flex: 1;
+    }
+    .option-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .option-desc {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+    .option-price {
+      font-size: 21px;
+      font-weight: 700;
+      color: #000;
+    }
+    .custom-summary {
+      position: sticky;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 100%);
+      padding: 40px;
+      margin: 0 -40px -40px;
+      border-top: 1px solid var(--border);
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      font-size: 15px;
+    }
+    .summary-row.total {
+      font-size: 28px;
+      font-weight: 700;
+      padding-top: 20px;
+      margin-top: 16px;
+      border-top: 2px solid #000;
+    }
+    .builder-cta {
+      width: 100%;
+      padding: 18px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: all 0.3s;
+    }
+    .builder-cta:hover {
+      background: #1d1d1f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .package-card {
       background: #fff;
@@ -814,8 +1128,17 @@
         <h2>Choose Your Collection</h2>
         <p>Over two decades of capturing authentic stories. Each collection designed to fit your celebration.</p>
         
-        <!-- VIDEO TOGGLE -->
-        <div class="video-toggle-container">
+        <!-- PACKAGE TYPE TOGGLE -->
+        <div class="video-toggle-container" style="margin-bottom: 24px;">
+          <span class="toggle-label active" id="packageLabel">Select Package</span>
+          <div class="video-toggle" id="packageTypeToggle" onclick="togglePackageType()">
+            <div class="toggle-slider"></div>
+          </div>
+          <span class="toggle-label" id="customLabel">Build Custom</span>
+        </div>
+        
+        <!-- VIDEO TOGGLE (only visible for packages) -->
+        <div class="video-toggle-container" id="videoToggleContainer">
           <span class="toggle-label active" id="photoLabel">Photography Only</span>
           <div class="video-toggle" id="videoToggle" onclick="toggleVideo()">
             <div class="toggle-slider"></div>
@@ -824,7 +1147,8 @@
         </div>
       </div>
       
-      <div class="packages-grid">
+      <!-- PRESET PACKAGES GRID -->
+      <div class="packages-grid" id="presetsGrid">
         <!-- THE START -->
         <div class="package-card" onclick="selectPackage('The Start', 2850, 'wedding', this)">
           <div class="package-badge">SELECTED</div>
@@ -959,6 +1283,150 @@
         </div>
 
 
+      </div>
+
+      <!-- CUSTOM BUILDER INTERFACE -->
+      <div class="custom-builder" id="customBuilder" style="display: none;">
+        <div class="builder-container">
+          <h3 class="builder-title">Build Your Perfect Package</h3>
+          <p class="builder-subtitle">Select exactly what you need. Pricing updates as you build.</p>
+
+          <!-- SESSION TYPE -->
+          <div class="builder-section">
+            <h4 class="builder-section-title">Session Type</h4>
+            <div class="builder-options">
+              <label class="builder-option">
+                <input type="radio" name="sessionType" value="wedding" checked onchange="calculateCustomPrice()">
+                <span class="option-card">
+                  <span class="option-name">Wedding</span>
+                  <span class="option-desc">Full wedding day coverage</span>
+                </span>
+              </label>
+              <label class="builder-option">
+                <input type="radio" name="sessionType" value="portrait" onchange="calculateCustomPrice()">
+                <span class="option-card">
+                  <span class="option-name">Portrait</span>
+                  <span class="option-desc">Lifestyle & portrait session</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- HOURS -->
+          <div class="builder-section">
+            <h4 class="builder-section-title">Coverage Hours</h4>
+            <div class="builder-slider">
+              <input type="range" id="hoursSlider" min="1" max="12" value="6" step="1" oninput="updateHoursDisplay(this.value); calculateCustomPrice()">
+              <div class="slider-display">
+                <span id="hoursDisplay">6</span> hours
+                <span class="slider-price" id="hoursPrice">Base: $2,400</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHOTOGRAPHERS -->
+          <div class="builder-section">
+            <h4 class="builder-section-title">Photographers</h4>
+            <div class="builder-options">
+              <label class="builder-option">
+                <input type="radio" name="photographers" value="1" checked onchange="calculateCustomPrice()">
+                <span class="option-card">
+                  <span class="option-name">1 Lead Photographer</span>
+                  <span class="option-price">Included</span>
+                </span>
+              </label>
+              <label class="builder-option">
+                <input type="radio" name="photographers" value="1-assistant" onchange="calculateCustomPrice()">
+                <span class="option-card">
+                  <span class="option-name">Lead + Assistant</span>
+                  <span class="option-price">+$800</span>
+                </span>
+              </label>
+              <label class="builder-option">
+                <input type="radio" name="photographers" value="2" onchange="calculateCustomPrice()">
+                <span class="option-card">
+                  <span class="option-name">2 Lead Photographers</span>
+                  <span class="option-price">+$2,000</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ADD-ONS -->
+          <div class="builder-section">
+            <h4 class="builder-section-title">Add-Ons</h4>
+            <div class="builder-checkboxes">
+              <label class="builder-checkbox">
+                <input type="checkbox" value="engagement" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Engagement Session</span>
+                  <span class="checkbox-price">+$695</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="album" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Premium Album (12x12, 30 pages)</span>
+                  <span class="checkbox-price">+$1,495</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="canvas" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Canvas Art Print (20x30)</span>
+                  <span class="checkbox-price">+$450</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="framed" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Framed Art Print (30x40)</span>
+                  <span class="checkbox-price">+$850</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="video" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Cinematic Video</span>
+                  <span class="checkbox-price" id="videoAddonPrice">+$2,400</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="travel" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Travel Coverage (500+ miles)</span>
+                  <span class="checkbox-price">+$1,000</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- PRICING SUMMARY -->
+          <div class="builder-summary">
+            <div class="summary-row">
+              <span>Photography Package</span>
+              <span id="customPhotoPrice">$2,400</span>
+            </div>
+            <div class="summary-row" id="customVideoRow" style="display: none;">
+              <span>+ Cinematic Video</span>
+              <span id="customVideoPrice">$2,400</span>
+            </div>
+            <div class="summary-row" id="customAddonsRow" style="display: none;">
+              <span>+ Add-ons</span>
+              <span id="customAddonsPrice">$0</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-total">
+              <span>Total Investment</span>
+              <span id="customTotalPrice">$2,400</span>
+            </div>
+            <div class="summary-payment">
+              <span>3 easy payments of</span>
+              <span id="customPaymentAmount">$800</span>
+            </div>
+            <button type="button" class="book-custom-btn" onclick="bookCustomPackage()">Book This Package</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1294,6 +1762,148 @@
       'The Legacy': { price: 12500, features: ['15-20 min cinematic documentary', '2 videographers', 'Multi-day coverage option', 'Interview segments', 'Audio from all events', 'Raw footage provided', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
       'The Hour': { price: 795, features: ['1-3 min short video', 'Professional audio', 'Digital menu with viewing options', 'Mobile & desktop access'] }
     };
+
+    // PACKAGE TYPE TOGGLE (Preset vs Custom)
+    let isCustomMode = false;
+
+    function togglePackageType() {
+      isCustomMode = !isCustomMode;
+      const toggle = document.getElementById('packageTypeToggle');
+      const packageLabel = document.getElementById('packageLabel');
+      const customLabel = document.getElementById('customLabel');
+      const presetsGrid = document.getElementById('presetsGrid');
+      const customBuilder = document.getElementById('customBuilder');
+      const videoToggleContainer = document.getElementById('videoToggleContainer');
+      
+      toggle.classList.toggle('active');
+      
+      if (isCustomMode) {
+        // Switch to CUSTOM mode
+        packageLabel.classList.remove('active');
+        customLabel.classList.add('active');
+        presetsGrid.style.display = 'none';
+        customBuilder.style.display = 'block';
+        videoToggleContainer.style.display = 'none'; // Hide video toggle for custom
+      } else {
+        // Switch to PRESET mode
+        packageLabel.classList.add('active');
+        customLabel.classList.remove('active');
+        presetsGrid.style.display = 'grid';
+        customBuilder.style.display = 'none';
+        videoToggleContainer.style.display = 'flex'; // Show video toggle for presets
+      }
+    }
+
+    // CUSTOM BUILDER FUNCTIONS
+    function updateHoursDisplay(value) {
+      document.getElementById('hoursDisplay').textContent = value;
+    }
+
+    function calculateCustomPrice() {
+      const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
+      const hours = parseInt(document.getElementById('hoursSlider').value);
+      const photographers = document.querySelector('input[name="photographers"]:checked').value;
+      
+      // Base pricing per hour
+      const hourlyRate = sessionType === 'portrait' ? 400 : 400;
+      let photoPrice = hourlyRate * hours;
+      
+      // Photographer pricing
+      if (photographers === '1-assistant') {
+        photoPrice += 800;
+      } else if (photographers === '2') {
+        photoPrice += 2000;
+      }
+      
+      // Add-ons
+      let addonsTotal = 0;
+      const addons = {
+        engagement: 695,
+        album: 1495,
+        canvas: 450,
+        framed: 850,
+        video: photoPrice, // Video equals photo price
+        travel: 1000
+      };
+      
+      let videoIncluded = false;
+      let videoPrice = 0;
+      
+      document.querySelectorAll('.builder-checkboxes input[type="checkbox"]:checked').forEach(checkbox => {
+        const addonValue = checkbox.value;
+        if (addonValue === 'video') {
+          videoIncluded = true;
+          videoPrice = photoPrice;
+        } else {
+          addonsTotal += addons[addonValue] || 0;
+        }
+      });
+      
+      // Update video addon price display
+      document.getElementById('videoAddonPrice').textContent = `+$${photoPrice.toLocaleString()}`;
+      
+      // Calculate totals
+      const totalPrice = photoPrice + videoPrice + addonsTotal;
+      const paymentAmount = Math.ceil(totalPrice / 3);
+      
+      // Update displays
+      document.getElementById('hoursPrice').textContent = `Base: $${photoPrice.toLocaleString()}`;
+      document.getElementById('customPhotoPrice').textContent = `$${photoPrice.toLocaleString()}`;
+      
+      // Show/hide video row
+      const videoRow = document.getElementById('customVideoRow');
+      if (videoIncluded) {
+        videoRow.style.display = 'flex';
+        document.getElementById('customVideoPrice').textContent = `$${videoPrice.toLocaleString()}`;
+      } else {
+        videoRow.style.display = 'none';
+      }
+      
+      // Show/hide addons row
+      const addonsRow = document.getElementById('customAddonsRow');
+      if (addonsTotal > 0) {
+        addonsRow.style.display = 'flex';
+        document.getElementById('customAddonsPrice').textContent = `$${addonsTotal.toLocaleString()}`;
+      } else {
+        addonsRow.style.display = 'none';
+      }
+      
+      document.getElementById('customTotalPrice').textContent = `$${totalPrice.toLocaleString()}`;
+      document.getElementById('customPaymentAmount').textContent = `$${paymentAmount.toLocaleString()}`;
+    }
+
+    function bookCustomPackage() {
+      const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
+      const hours = parseInt(document.getElementById('hoursSlider').value);
+      const photographers = document.querySelector('input[name="photographers"]:checked').value;
+      
+      // Get add-ons
+      const selectedAddons = [];
+      document.querySelectorAll('.builder-checkboxes input[type="checkbox"]:checked').forEach(checkbox => {
+        selectedAddons.push(checkbox.value);
+      });
+      
+      // Build custom package name
+      const packageName = `Custom ${sessionType === 'portrait' ? 'Portrait' : 'Wedding'} Package`;
+      
+      // Get total price
+      const totalPrice = parseInt(document.getElementById('customTotalPrice').textContent.replace(/[$,]/g, ''));
+      
+      // Open modal with custom package
+      selectedPackage = packageName;
+      selectedPrice = totalPrice;
+      sessionType === 'portrait' ? 'portrait' : 'wedding';
+      
+      // Store custom details for later
+      window.customPackageDetails = {
+        hours,
+        photographers,
+        addons: selectedAddons,
+        sessionType
+      };
+      
+      openModal();
+    }
 
     function toggleVideo() {
       videoEnabled = !videoEnabled;
