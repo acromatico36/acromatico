@@ -2605,40 +2605,89 @@ app.get('/prints', (c) =>
     </div>
   )
 )
-// Photography Services Page
-// Photography page - full HTML embedded
-app.get('/photography', (c) => c.redirect('/static/homepage-perfect-clone'))
+// Photography Services Page - Full Checkout Experience
+app.get('/photography', (c) => c.redirect('/static/photography-checkout'))
 
-// Photography Checkout API
-app.post('/api/photography/checkout', async (c) => {
+// Photography Booking API
+app.post('/api/photography/book', async (c) => {
   try {
     const formData = await c.req.json()
     
+    // Calculate payment schedule
+    const weddingDate = new Date(formData.weddingDate)
+    const today = new Date()
+    const payment1Date = today.toISOString().split('T')[0] // Today
+    const payment3Date = new Date(weddingDate)
+    payment3Date.setDate(payment3Date.getDate() - 14) // 14 days before wedding
+    
+    // Calculate midpoint for 2nd payment
+    const daysUntilWedding = Math.floor((weddingDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+    const midpointDays = Math.floor(daysUntilWedding / 2)
+    const payment2Date = new Date(today)
+    payment2Date.setDate(payment2Date.getDate() + midpointDays)
+    
     const contract = {
       contractNumber: `AC-${Date.now()}`,
-      clientName: formData.name,
+      brideName: formData.brideName,
+      groomName: formData.groomName,
       email: formData.email,
       phone: formData.phone,
-      partnerName: formData.partnerName,
+      mailingAddress: formData.mailingAddress,
       weddingDate: formData.weddingDate,
-      venue: formData.venue,
+      ceremonyVenue: formData.ceremonyVenue,
+      receptionVenue: formData.receptionVenue,
       package: formData.package,
-      totalAmount: formData.amount,
-      paymentPlan: formData.paymentPlan,
+      totalAmount: formData.totalAmount,
+      paymentSchedule: {
+        payment1: {
+          amount: formData.payment1,
+          dueDate: payment1Date,
+          status: 'pending'
+        },
+        payment2: {
+          amount: formData.payment2,
+          dueDate: payment2Date.toISOString().split('T')[0],
+          status: 'pending'
+        },
+        payment3: {
+          amount: formData.payment3,
+          dueDate: payment3Date.toISOString().split('T')[0],
+          status: 'pending'
+        }
+      },
+      signature: formData.signature,
+      paymentMethod: formData.paymentMethod,
+      agreedToTerms: formData.agreeTerms,
       createdAt: new Date().toISOString(),
       status: 'pending_payment'
     }
     
-    console.log('NEW PHOTOGRAPHY BOOKING:', contract)
+    console.log('📸 NEW PHOTOGRAPHY BOOKING:', {
+      contract: contract.contractNumber,
+      couple: `${formData.brideName} & ${formData.groomName}`,
+      package: formData.package,
+      amount: `$${formData.totalAmount}`,
+      wedding: formData.weddingDate,
+      payments: {
+        today: `$${formData.payment1}`,
+        midpoint: `$${formData.payment2} (${payment2Date.toISOString().split('T')[0]})`,
+        final: `$${formData.payment3} (${payment3Date.toISOString().split('T')[0]})`
+      }
+    })
+    
+    // TODO: Store in D1 database
+    // TODO: Send confirmation email with contract PDF
+    // TODO: Send payment link via Stripe
     
     return c.json({ 
       success: true, 
       contractNumber: contract.contractNumber,
-      message: 'Reservation received! Contract will be sent within 24 hours.' 
+      message: 'Booking confirmed! Check your email for contract and payment details.',
+      paymentSchedule: contract.paymentSchedule
     })
   } catch (error) {
-    console.error('Checkout error:', error)
-    return c.json({ success: false, error: 'Processing failed' }, 500)
+    console.error('❌ Booking error:', error)
+    return c.json({ success: false, error: 'Processing failed. Please contact us directly.' }, 500)
   }
 })
 
