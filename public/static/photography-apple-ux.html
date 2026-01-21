@@ -1366,6 +1366,81 @@
       color: #fff;
     }
 
+    /* LIGHTBOX STYLES */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90vh;
+      object-fit: contain;
+      animation: zoomIn 0.3s;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 32px;
+      right: 48px;
+      color: #fff;
+      font-size: 48px;
+      font-weight: 300;
+      cursor: pointer;
+      z-index: 10001;
+      transition: color 0.3s ease;
+    }
+    .lightbox-close:hover {
+      color: #ccc;
+    }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 17px;
+      text-align: center;
+      max-width: 80%;
+    }
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 48px;
+      font-weight: 300;
+      cursor: pointer;
+      padding: 24px;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      color: #ccc;
+    }
+    .lightbox-prev {
+      left: 32px;
+    }
+    .lightbox-next {
+      right: 32px;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .portfolio-item {
+      cursor: pointer;
+    }
+
     @media (max-width: 1024px) {
       .packages-grid { grid-template-columns: 1fr; }
       .builder-options { grid-template-columns: 1fr; }
@@ -1458,6 +1533,24 @@
       .footer-legal { 
         justify-content: center; 
       }
+      
+      /* Lightbox mobile */
+      .lightbox-close {
+        top: 16px;
+        right: 16px;
+        font-size: 36px;
+      }
+      .lightbox-prev,
+      .lightbox-next {
+        font-size: 32px;
+        padding: 16px;
+      }
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+      .lightbox-caption {
+        bottom: 24px;
+        font-size: 15px;
+      }
     }
   </style>
 </head>
@@ -1510,48 +1603,70 @@
       <p class="portfolio-subtitle">Every frame tells a story. Authentic moments captured with artistry.</p>
       
       <div class="portfolio-grid">
-        <!-- Row 1 -->
-        <div class="portfolio-item tall">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-121.jpg" alt="Wedding Portrait" loading="lazy">
+        <!-- Row 1 - Ceremony & Details -->
+        <div class="portfolio-item tall" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" alt="Bride & Groom First Look" loading="lazy">
         </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Elle20Hector20E-061.jpg" alt="Engagement Session" loading="lazy">
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg" alt="Wedding Ceremony" loading="lazy">
         </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-520.jpg" alt="Wedding Details" loading="lazy">
-        </div>
-        
-        <!-- Row 2 -->
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2018/12/Ann20and20David20ES-047.jpg" alt="Couple Portrait" loading="lazy">
-        </div>
-        <div class="portfolio-item tall">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-121.jpg" alt="Bridal Portrait" loading="lazy">
-        </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Elle20Hector20E-061.jpg" alt="Ceremony Moment" loading="lazy">
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Elle20Hector20E-061.jpg" alt="Engagement Portrait" loading="lazy">
         </div>
         
-        <!-- Row 3 -->
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-520.jpg" alt="Reception Details" loading="lazy">
+        <!-- Row 2 - Couples & Portraits -->
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-047.jpg" alt="Couple at Sunset" loading="lazy">
         </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2018/12/Ann20and20David20ES-047.jpg" alt="Lifestyle Shot" loading="lazy">
+        <div class="portfolio-item tall" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Tessa-Kurien-W-HIGH-RES-601.jpg" alt="Bridal Portrait" loading="lazy">
         </div>
-        <div class="portfolio-item tall">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-121.jpg" alt="Candid Moment" loading="lazy">
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-394.jpg" alt="Wedding Dance" loading="lazy">
         </div>
         
-        <!-- Row 4 -->
-        <div class="portfolio-item tall">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Elle20Hector20E-061.jpg" alt="Portrait Session" loading="lazy">
+        <!-- Row 3 - Reception & Details -->
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-520.jpg" alt="Reception Details" loading="lazy">
         </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2019/11/Jane-Dez-Wedding-520.jpg" alt="Wedding Ceremony" loading="lazy">
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-223.jpg" alt="Candid Moment" loading="lazy">
         </div>
-        <div class="portfolio-item">
-          <img src="https://acromatico.com/wp-content/uploads/2018/12/Ann20and20David20ES-047.jpg" alt="Getting Ready" loading="lazy">
+        <div class="portfolio-item tall" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/KH-Ritz-262.jpg" alt="Wedding Venue" loading="lazy">
+        </div>
+        
+        <!-- Row 4 - Emotions & Moments -->
+        <div class="portfolio-item tall" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Alicia-Claudio-W-157.jpg" alt="Emotional Moment" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-044.jpg" alt="Wedding Kiss" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-550.jpg" alt="Bride Getting Ready" loading="lazy">
+        </div>
+        
+        <!-- Row 5 - Lifestyle & Love -->
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Alessandra-Kainen-W-165.jpg" alt="Couple Laughing" loading="lazy">
+        </div>
+        <div class="portfolio-item tall" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Rhamzi-Caleb-W-41.jpg" alt="Intimate Portrait" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Tessa-Kurien-W-HIGH-RES-152.jpg" alt="Wedding Celebration" loading="lazy">
+        </div>
+        
+        <!-- Row 6 - Final Moments -->
+        <div class="portfolio-item tall" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-333.jpg" alt="Golden Hour Portrait" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-324.jpg" alt="Wedding Detail Shot" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-339.jpg" alt="Romantic Moment" loading="lazy">
         </div>
       </div>
       
@@ -2899,6 +3014,83 @@
       </div>
     </div>
   </footer>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div class="lightbox-caption"></div>
+    <a class="lightbox-prev">&#10094;</a>
+    <a class="lightbox-next">&#10095;</a>
+  </div>
+
+  <script>
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const portfolioItems = document.querySelectorAll('[data-lightbox="portfolio"]');
+    let currentIndex = 0;
+
+    // Open lightbox
+    portfolioItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        currentIndex = index;
+        showLightbox();
+      });
+    });
+
+    function showLightbox() {
+      const img = portfolioItems[currentIndex].querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = img.alt;
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close lightbox
+    document.querySelector('.lightbox-close').addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Navigate lightbox
+    document.querySelector('.lightbox-prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+      showLightbox();
+    });
+
+    document.querySelector('.lightbox-next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % portfolioItems.length;
+      showLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'Escape') {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+        if (e.key === 'ArrowLeft') {
+          currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+          showLightbox();
+        }
+        if (e.key === 'ArrowRight') {
+          currentIndex = (currentIndex + 1) % portfolioItems.length;
+          showLightbox();
+        }
+      }
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
 
 </body>
 </html>
