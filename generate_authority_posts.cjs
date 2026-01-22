@@ -711,7 +711,7 @@ function generatePostHTML(post) {
                 margin: 2rem 0 1rem;
             }
             
-            /* FIXED MOBILE GALLERY - STACKED WITH BREATHING ROOM */
+            /* FIXED MOBILE GALLERY - STACKED WITH BREATHING ROOM + HEIGHT LIMITS */
             .gallery-section { 
                 margin: 3rem 0;
                 gap: 1.5rem;
@@ -723,6 +723,8 @@ function generatePostHTML(post) {
                 margin: 0;
                 width: 100%;
                 box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+                max-height: 70vh;
+                overflow: hidden;
             }
             
             .gallery-item:hover {
@@ -732,8 +734,11 @@ function generatePostHTML(post) {
             .gallery-item img {
                 width: 100%;
                 height: auto;
+                max-height: 70vh;
                 display: block;
                 border-radius: 8px;
+                object-fit: cover;
+                object-position: center;
             }
             
             /* MOBILE FAQ */
