@@ -583,7 +583,6 @@ function generatePostHTML(post) {
             padding: 4rem;
             box-shadow: 0 8px 40px rgba(0,0,0,0.12);
             margin-bottom: 3rem;
-            overflow: hidden;
             max-width: 100%;
         }
         
@@ -627,6 +626,7 @@ function generatePostHTML(post) {
             gap: 1rem;
             width: 100%;
             max-width: 100%;
+            overflow: hidden;
         }
         
         .gallery-item {
