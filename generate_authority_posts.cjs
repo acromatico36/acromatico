@@ -619,10 +619,10 @@ function generatePostHTML(post) {
         }
         
         .gallery-section {
-            margin: 3rem 0;
+            margin: 2rem 0;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         .gallery-item {
@@ -635,6 +635,7 @@ function generatePostHTML(post) {
             width: 100%;
             height: auto;
             display: block;
+            background: #F5F5F7;
         }
         
         .faq-item {
@@ -659,11 +660,86 @@ function generatePostHTML(post) {
         
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero { height: 60vh; padding: 0 4% 4rem; }
-            .content-card { padding: 2rem 1.5rem; margin-top: -4rem; }
-            .content { font-size: 1rem; line-height: 1.7; }
-            .gallery-section { margin: 2rem -1.5rem; }
-            .gallery-item { border-radius: 0; }
+            
+            /* FIXED MOBILE HERO */
+            .hero { 
+                height: 70vh; 
+                min-height: 500px;
+                padding: 0 5% 5rem;
+                margin-top: 0;
+            }
+            
+            /* FIXED CONTAINER - NO HUGE WHITESPACE */
+            .container {
+                margin: -5rem auto 2rem;
+                padding: 0;
+            }
+            
+            /* MOBILE CONTENT CARD */
+            .content-card { 
+                padding: 2rem 1.5rem; 
+                margin: 0 1rem 2rem;
+                border-radius: 16px;
+            }
+            
+            /* MOBILE TEXT */
+            .content { 
+                font-size: 1.05rem; 
+                line-height: 1.8; 
+            }
+            
+            .content-section {
+                margin: 2.5rem 0;
+            }
+            
+            .content-section h2 {
+                font-size: 1.75rem;
+                font-weight: 700;
+                margin-bottom: 1.25rem;
+            }
+            
+            .content-section h3 {
+                font-size: 1.35rem;
+                font-weight: 600;
+                margin: 2rem 0 1rem;
+            }
+            
+            /* FIXED MOBILE GALLERY - FULL BLEED IMAGES */
+            .gallery-section { 
+                margin: 2.5rem 0;
+                gap: 1rem;
+                padding: 0;
+            }
+            
+            .gallery-item { 
+                border-radius: 0;
+                margin: 0;
+                width: 100%;
+            }
+            
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 0;
+            }
+            
+            /* MOBILE FAQ */
+            .faq-item {
+                padding: 1.5rem;
+                margin: 1.75rem 0;
+                border-radius: 12px;
+            }
+            
+            .faq-question {
+                font-size: 1.15rem;
+                font-weight: 600;
+            }
+            
+            .faq-answer {
+                font-size: 1rem;
+                line-height: 1.75;
+            }
         }
     </style>
 </head>
