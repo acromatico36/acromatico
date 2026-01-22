@@ -619,16 +619,23 @@ function generatePostHTML(post) {
         }
         
         .gallery-section {
-            margin: 2rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            margin: 3rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
         
         .gallery-item {
             width: 100%;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
         }
         
         .gallery-item img {
@@ -704,24 +711,29 @@ function generatePostHTML(post) {
                 margin: 2rem 0 1rem;
             }
             
-            /* FIXED MOBILE GALLERY - FULL BLEED IMAGES */
+            /* FIXED MOBILE GALLERY - STACKED WITH BREATHING ROOM */
             .gallery-section { 
-                margin: 2.5rem 0;
-                gap: 1rem;
-                padding: 0;
+                margin: 3rem 0;
+                gap: 1.5rem;
+                grid-template-columns: 1fr;
             }
             
             .gallery-item { 
-                border-radius: 0;
+                border-radius: 8px;
                 margin: 0;
                 width: 100%;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            }
+            
+            .gallery-item:hover {
+                transform: none;
             }
             
             .gallery-item img {
                 width: 100%;
                 height: auto;
                 display: block;
-                border-radius: 0;
+                border-radius: 8px;
             }
             
             /* MOBILE FAQ */
@@ -739,6 +751,31 @@ function generatePostHTML(post) {
             .faq-answer {
                 font-size: 1rem;
                 line-height: 1.75;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            /* TABLET BREAKPOINT */
+            .hero {
+                height: 65vh;
+                min-height: 450px;
+            }
+            
+            .container {
+                padding: 0 3%;
+            }
+            
+            .content-card {
+                padding: 3rem 2.5rem;
+            }
+            
+            .gallery-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.85rem;
             }
         }
     </style>
