@@ -333,7 +333,7 @@
         async function loadBlogPosts() {
             try {
                 // Load the blog posts metadata
-                const response = await fetch('/blog_posts_data/all_posts.json');
+                const response = await fetch('/static/../blog_posts_data/all_posts.json');
                 const posts = await response.json();
                 
                 // Populate blogPostsData
