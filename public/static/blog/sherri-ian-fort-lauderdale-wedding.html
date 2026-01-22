@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherri + Ian | Fort Lauderdale Wedding | Acromatico Photography</title>
+    <title>Sherri + Ian | Fort Lauderdale Wedding | Acromatico</title>
     <meta name="description" content="We&#8217;re back from New York and back to business! Sherri and Ian got married in St. Anthony&#8217;s church, following their reception at the Renaissance in F">
     
     <!-- Open Graph -->
@@ -20,51 +20,6 @@
     <meta property="twitter:description" content="We&#8217;re back from New York and back to business! Sherri and Ian got married in St. Anthony&#8217;s church, following their reception at the Renaissance in F">
     <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/sherri-ean-w-1.jpg">
     
-    <!-- Schema.org Article -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Sherri + Ian | Fort Lauderdale Wedding",
-      "image": ["https://acromatico.com/wp-content/uploads/sherri-ean-w-1.jpg","https://acromatico.com/wp-content/uploads/sherri-ean-w-2.jpg","https://acromatico.com/wp-content/uploads/sherri-ean-w-3.jpg","https://acromatico.com/wp-content/uploads/sherri-ean-w-4.jpg","https://acromatico.com/wp-content/uploads/sherri-ean-w-5.jpg"],
-      "datePublished": "2011-07-19T00:00:00",
-      "dateModified": "undefined",
-      "author": {
-        "@type": "Organization",
-        "name": "Acromatico Photography",
-        "url": "https://acromatico.com/our-story/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Acromatico Photography",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://acromatico.com/wp-content/uploads/logo.png"
-        }
-      },
-      "description": "We&#8217;re back from New York and back to business! Sherri and Ian got married in St. Anthony&#8217;s church, following their reception at the Renaissance in F"
-    }
-    </script>
-    
-    <!-- Schema.org LocalBusiness -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Acromatico Photography",
-      "image": "https://acromatico.com/wp-content/uploads/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Miami",
-        "addressRegion": "FL",
-        "addressCountry": "US"
-      },
-      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
-      "priceRange": "$$$",
-      "url": "https://acromatico.com"
-    }
-    </script>
-    
     <style>
         * {
             margin: 0;
@@ -72,19 +27,11 @@
             box-sizing: border-box;
         }
         
-        :root {
-            --primary: #000;
-            --secondary: #666;
-            --accent: #0066CC;
-            --bg: #FAFAFA;
-            --text: #1D1D1F;
-        }
-        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
             line-height: 1.8;
-            color: var(--text);
-            background: var(--bg);
+            color: #1D1D1F;
+            background: #FAFAFA;
             -webkit-font-smoothing: antialiased;
         }
         
@@ -108,12 +55,9 @@
             align-items: center;
         }
         
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--primary);
-            text-decoration: none;
+        .logo-img {
+            height: 32px;
+            width: auto;
         }
         
         .nav-links {
@@ -122,7 +66,7 @@
         }
         
         .nav-links a {
-            color: var(--text);
+            color: #1D1D1F;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
@@ -135,9 +79,9 @@
         
         /* Hero */
         .hero {
-            height: 75vh;
-            min-height: 500px;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/sherri-ean-w-1.jpg');
+            height: 80vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.25)), url('https://acromatico.com/wp-content/uploads/sherri-ean-w-1.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -147,14 +91,14 @@
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             color: white;
             animation: fadeInUp 1s ease;
         }
         
         .category-badge {
             display: inline-block;
-            background: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
             padding: 0.5rem 1.25rem;
             border-radius: 20px;
@@ -175,13 +119,13 @@
         
         .post-meta {
             font-size: 1rem;
-            opacity: 0.9;
+            opacity: 0.95;
         }
         
         /* Content Container */
         .container {
             max-width: 900px;
-            margin: -6rem auto 0;
+            margin: -6rem auto 4rem;
             padding: 0 5%;
             position: relative;
             z-index: 10;
@@ -199,7 +143,7 @@
         .content {
             font-size: 1.125rem;
             line-height: 1.9;
-            color: var(--text);
+            color: #1D1D1F;
         }
         
         .content p {
@@ -211,7 +155,7 @@
             margin: 3rem 0 1.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            color: var(--primary);
+            color: #000;
         }
         
         .content h2 {
@@ -223,17 +167,17 @@
         }
         
         .content a {
-            color: var(--accent);
+            color: #0066CC;
             text-decoration: none;
             border-bottom: 2px solid transparent;
             transition: border-color 0.3s;
         }
         
         .content a:hover {
-            border-bottom-color: var(--accent);
+            border-bottom-color: #0066CC;
         }
         
-        /* Image Gallery - Masonry Style */
+        /* Image Gallery */
         .gallery {
             margin: 4rem 0;
         }
@@ -249,7 +193,6 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: transform 0.4s, box-shadow 0.4s;
-            cursor: pointer;
         }
         
         .gallery-item:hover {
@@ -265,47 +208,7 @@
         }
         
         .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-        
-        /* CTA */
-        .cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem;
-            text-align: center;
-            border-radius: 16px;
-            margin: 4rem 0;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: white;
-            color: #764ba2;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-        
-        .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            transform: scale(1.05);
         }
         
         /* Animations */
@@ -347,21 +250,15 @@
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .cta {
-                padding: 3rem 2rem;
-            }
-            
-            .cta h2 {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-content">
-            <a href="/" class="logo">ACROMATICO</a>
+            <a href="/">
+                <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="logo-img">
+            </a>
             <div class="nav-links">
                 <a href="/static/our-story-v2.html">Our Story</a>
                 <a href="/blog">Blog</a>
@@ -396,11 +293,95 @@
                         </div>
                     
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-2.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-3.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-3.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-10.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-12.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-14.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-15.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-16.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-17.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-22.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-30.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-36.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-37.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-38.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-39.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-40.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-42.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-44.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-45.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-46.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-47.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-48.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-59.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-56.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-2.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
                         <div class="gallery-item">
@@ -428,35 +409,11 @@
                         </div>
                     
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-10.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
                             <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-11.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-12.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
                             <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-13.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-14.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-15.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-16.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-17.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
                         <div class="gallery-item">
@@ -473,10 +430,6 @@
                     
                         <div class="gallery-item">
                             <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-21.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-22.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
                         <div class="gallery-item">
@@ -508,15 +461,7 @@
                         </div>
                     
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-30.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
                             <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-31.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-32.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
                         <div class="gallery-item">
@@ -532,55 +477,11 @@
                         </div>
                     
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-36.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-37.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-38.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-39.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-40.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
                             <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-41.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-42.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
                             <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-43.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-44.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-45.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-46.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-47.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-48.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
                         <div class="gallery-item">
@@ -612,10 +513,6 @@
                         </div>
                     
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-56.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
                             <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-57.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
@@ -624,19 +521,13 @@
                         </div>
                     
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-59.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
+                            <img src="https://acromatico.com/wp-content/uploads/sherri-ean-w-32.jpg" alt="Sherri + Ian | Fort Lauderdale Wedding" loading="lazy">
                         </div>
                     
                 </div>
             </section>
             
         </article>
-        
-        <section class="cta">
-            <h2>Ready to Tell Your Story?</h2>
-            <p>Let's capture your most authentic, unscripted moments together.</p>
-            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
-        </section>
     </div>
 </body>
 </html>

@@ -1,24 +1,160 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+// Load all posts data
+const allPosts = JSON.parse(fs.readFileSync('./blog_posts_data/all_posts.json', 'utf-8'));
+
+// Output directory
+const outputDir = './public/static/blog';
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+// Helper: Extract all images with metadata
+function extractImagesWithMetadata(content) {
+  const imgRegex = /<img[^>]+>/g;
+  const srcRegex = /(?:src|data-src)="([^"]+)"/;
+  const widthRegex = /width="(\d+)"/;
+  const heightRegex = /height="(\d+)"/;
+  
+  const images = [];
+  const matches = content.match(imgRegex) || [];
+  
+  for (const imgTag of matches) {
+    const srcMatch = imgTag.match(srcRegex);
+    const widthMatch = imgTag.match(widthRegex);
+    const heightMatch = imgTag.match(heightRegex);
+    
+    if (srcMatch && srcMatch[1] && !srcMatch[1].startsWith('data:')) {
+      const width = widthMatch ? parseInt(widthMatch[1]) : 0;
+      const height = heightMatch ? parseInt(heightMatch[1]) : 0;
+      const isLandscape = width > height;
+      const isWide = width >= 1920 || width >= 2400;
+      
+      images.push({
+        url: srcMatch[1],
+        width,
+        height,
+        isLandscape,
+        isWide,
+        score: 0
+      });
+    }
+  }
+  
+  return images;
+}
+
+// Helper: Select BEST cover image
+function selectBestCoverImage(images) {
+  if (images.length === 0) return 'https://acromatico.com/wp-content/uploads/logo.png';
+  
+  // Score each image
+  for (const img of images) {
+    let score = 0;
+    
+    // Prefer wide landscape images (hero material)
+    if (img.isLandscape) score += 10;
+    if (img.isWide) score += 15;
+    
+    // Prefer larger images
+    if (img.width >= 2400) score += 20;
+    else if (img.width >= 1920) score += 15;
+    else if (img.width >= 1600) score += 10;
+    
+    // Aspect ratio score (prefer 3:2 or 16:9)
+    const ratio = img.width / img.height;
+    if (ratio >= 1.4 && ratio <= 1.7) score += 10; // 3:2 ratio
+    if (ratio >= 1.7 && ratio <= 1.9) score += 8;  // 16:9 ratio
+    
+    img.score = score;
+  }
+  
+  // Sort by score (descending)
+  images.sort((a, b) => b.score - a.score);
+  
+  return images[0].url;
+}
+
+// Helper: Clean HTML content
+function cleanContent(content) {
+  // Remove lazy-load placeholders
+  content = content.replace(/src="data:image\/gif[^"]*"/g, '');
+  content = content.replace(/data-src="/g, 'src="');
+  
+  // Remove WordPress figure/gallery blocks
+  content = content.replace(/<figure[^>]*class="wp-block-gallery[^>]*>.*?<\/figure>/gs, '');
+  content = content.replace(/<figure[^>]*class="wp-block-image[^>]*>.*?<\/figure>/gs, '');
+  
+  return content;
+}
+
+// Helper: Get category from title
+function getCategory(title) {
+  const titleLower = title.toLowerCase();
+  if (titleLower.includes('wedding')) return 'Wedding';
+  if (titleLower.includes('engagement')) return 'Engagement';
+  if (titleLower.includes('proposal')) return 'Proposal';
+  if (titleLower.includes('family')) return 'Family';
+  if (titleLower.includes('portrait') || titleLower.includes('senior') || titleLower.includes('headshot')) return 'Portrait';
+  return 'Photography';
+}
+
+// Helper: Clean title
+function cleanTitle(title) {
+  return title
+    .replace(/&#8211;/g, '–')
+    .replace(/&#8217;/g, "'")
+    .replace(/&#038;/g, '&')
+    .replace(/&#8220;/g, '"')
+    .replace(/&#8221;/g, '"');
+}
+
+// Generate HTML for a single post
+function generatePostHTML(post) {
+  const title = cleanTitle(post.title.rendered);
+  const slug = post.slug;
+  const date = new Date(post.date).toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+  const category = getCategory(title);
+  
+  // Extract images with metadata
+  const imagesWithMeta = extractImagesWithMetadata(post.content.rendered);
+  
+  // Select BEST cover image
+  const coverImage = selectBestCoverImage(imagesWithMeta);
+  
+  // Get all image URLs (for gallery)
+  const allImages = imagesWithMeta.map(img => img.url);
+  
+  // Clean content
+  const cleanedContent = cleanContent(post.content.rendered);
+  const excerpt = post.excerpt.rendered.replace(/<[^>]*>/g, '').trim().substring(0, 160);
+  
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIU Photo Portraits | Seedman Family | Acromatico</title>
-    <meta name="description" content="Justin Seedman has dedicated his life to helping others achieve optimal results with healthy lifestyles. By coaching and training an elite team, he built Justin">
+    <title>${title} | Acromatico</title>
+    <meta name="description" content="${excerpt}">
     
     <!-- Open Graph -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://acromatico.com/blog/fiu-photo-portraits-seedman-family">
-    <meta property="og:title" content="FIU Photo Portraits | Seedman Family">
-    <meta property="og:description" content="Justin Seedman has dedicated his life to helping others achieve optimal results with healthy lifestyles. By coaching and training an elite team, he built Justin">
-    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-001-1024x682.jpg">
+    <meta property="og:url" content="https://acromatico.com/blog/${slug}">
+    <meta property="og:title" content="${title}">
+    <meta property="og:description" content="${excerpt}">
+    <meta property="og:image" content="${coverImage}">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://acromatico.com/blog/fiu-photo-portraits-seedman-family">
-    <meta property="twitter:title" content="FIU Photo Portraits | Seedman Family">
-    <meta property="twitter:description" content="Justin Seedman has dedicated his life to helping others achieve optimal results with healthy lifestyles. By coaching and training an elite team, he built Justin">
-    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-001-1024x682.jpg">
+    <meta property="twitter:url" content="https://acromatico.com/blog/${slug}">
+    <meta property="twitter:title" content="${title}">
+    <meta property="twitter:description" content="${excerpt}">
+    <meta property="twitter:image" content="${coverImage}">
     
     <style>
         * {
@@ -81,7 +217,7 @@
         .hero {
             height: 80vh;
             min-height: 600px;
-            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.25)), url('https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-001-1024x682.jpg');
+            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.25)), url('${coverImage}');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -270,70 +406,65 @@
     
     <section class="hero">
         <div class="hero-content">
-            <span class="category-badge">Family</span>
-            <h1>FIU Photo Portraits | Seedman Family</h1>
-            <p class="post-meta">July 1, 2019</p>
+            <span class="category-badge">${category}</span>
+            <h1>${title}</h1>
+            <p class="post-meta">${date}</p>
         </div>
     </section>
     
     <div class="container">
         <article class="content-card">
             <div class="content">
-                <p>Justin Seedman has dedicated his life to helping others achieve optimal results with healthy lifestyles.  By coaching and training an elite team, he built <a href="https://justinfit.com" target="_blank" rel="noopener">JustinFit</a> to carry his mission forward.  Justin&#8217;s family couldn&#8217;t be prouder of his achievements, and they came together in this special occasion to celebrate his graduation in obtaining his Masters in Marketing.  These FIU Photo Portraits represent a symbol of this amazing accomplishment!  What&#8217;s next for the <a href="https://acromatico.com/family-portrait-photos-tree-tops-park/">Seedman Family</a>?  Stay tuned for their family session this December!</p>
+                ${cleanedContent}
             </div>
             
-            
+            ${allImages.length > 0 ? `
             <section class="gallery">
                 <div class="gallery-grid">
-                    
+                    ${allImages.map(img => `
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-001-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
+                            <img src="${img}" alt="${title}" loading="lazy">
                         </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-003-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-004-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-005-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-006-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-007-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-008-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-009-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-010-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-011-1024x682.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/06/fiu-photo-portraits-002-1-682x1024.jpg" alt="FIU Photo Portraits | Seedman Family" loading="lazy">
-                        </div>
-                    
+                    `).join('')}
                 </div>
             </section>
-            
+            ` : ''}
         </article>
     </div>
 </body>
-</html>
+</html>`;
+}
+
+// Generate all posts
+console.log(`🚀 Generating ${allPosts.length} blog posts with BEST cover images...`);
+
+let successCount = 0;
+let errorCount = 0;
+
+for (const post of allPosts) {
+  try {
+    const html = generatePostHTML(post);
+    const filename = `${post.slug}.html`;
+    const filepath = path.join(outputDir, filename);
+    
+    fs.writeFileSync(filepath, html, 'utf-8');
+    successCount++;
+    
+    if (successCount % 50 === 0) {
+      console.log(`✅ Generated ${successCount}/${allPosts.length} posts...`);
+    }
+  } catch (error) {
+    console.error(`❌ Error generating ${post.slug}:`, error.message);
+    errorCount++;
+  }
+}
+
+console.log(`\n🎉 COMPLETE!`);
+console.log(`✅ Success: ${successCount} posts`);
+console.log(`❌ Errors: ${errorCount} posts`);
+console.log(`📁 Output: ${outputDir}`);
+console.log(`\n🎯 FEATURES:`);
+console.log(`  - BEST cover images selected (not just first image)`);
+console.log(`  - Acromatico logo in header`);
+console.log(`  - NO FAQs, NO SEO fluff, NO CTAs`);
+console.log(`  - Clean, authentic stories only`);
