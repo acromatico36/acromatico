@@ -341,8 +341,19 @@ blog.get('/', async (c) => {
         }
         
         function extractImage(content) {
-            const match = content.match(/<img[^>]+src="([^">]+)"/);
-            return match ? match[1] : '';
+            // Extract all img tags
+            const imgRegex = /<img[^>]+>/g;
+            const imgs = content.match(imgRegex) || [];
+            
+            // Find first image with real src (not data: URI)
+            for (const img of imgs) {
+                const srcMatch = img.match(/src="([^">]+)"/);
+                if (srcMatch && srcMatch[1] && !srcMatch[1].startsWith('data:')) {
+                    return srcMatch[1];
+                }
+            }
+            
+            return 'https://acromatico.com/wp-content/uploads/logo.png';
         }
         
         function cleanTitle(title) {
