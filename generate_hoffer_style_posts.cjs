@@ -1,34 +1,118 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+// Load all posts data
+const allPosts = JSON.parse(fs.readFileSync('./blog_posts_data/all_posts.json', 'utf-8'));
+
+// Output directory
+const outputDir = './public/static/blog';
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+// Helper: Extract all images from WordPress content
+function extractImages(content) {
+  const imgRegex = /<img[^>]+>/g;
+  const srcRegex = /(?:src|data-src)="([^"]+)"/;
+  
+  const images = [];
+  const matches = content.match(imgRegex) || [];
+  
+  for (const imgTag of matches) {
+    const srcMatch = imgTag.match(srcRegex);
+    if (srcMatch && srcMatch[1] && !srcMatch[1].startsWith('data:')) {
+      images.push(srcMatch[1]);
+    }
+  }
+  
+  return images;
+}
+
+// Helper: Clean HTML content (remove WordPress blocks, keep text)
+function cleanContent(content) {
+  // Remove lazy-load placeholders
+  content = content.replace(/src="data:image\/gif[^"]*"/g, '');
+  content = content.replace(/data-src="/g, 'src="');
+  
+  // Remove WordPress figure/gallery blocks - we'll render images ourselves
+  content = content.replace(/<figure[^>]*class="wp-block-gallery[^>]*>.*?<\/figure>/gs, '');
+  content = content.replace(/<figure[^>]*class="wp-block-image[^>]*>.*?<\/figure>/gs, '');
+  
+  // Keep only paragraphs, headings, links
+  return content;
+}
+
+// Helper: Get category from title
+function getCategory(title) {
+  const titleLower = title.toLowerCase();
+  if (titleLower.includes('wedding')) return 'Wedding';
+  if (titleLower.includes('engagement')) return 'Engagement';
+  if (titleLower.includes('proposal')) return 'Proposal';
+  if (titleLower.includes('family')) return 'Family';
+  if (titleLower.includes('portrait') || titleLower.includes('senior') || titleLower.includes('headshot')) return 'Portrait';
+  return 'Photography';
+}
+
+// Helper: Clean title
+function cleanTitle(title) {
+  return title
+    .replace(/&#8211;/g, '-')
+    .replace(/&#8217;/g, "'")
+    .replace(/&#038;/g, '&')
+    .replace(/&#8220;/g, '"')
+    .replace(/&#8221;/g, '"');
+}
+
+// Generate HTML for a single post
+function generatePostHTML(post) {
+  const title = cleanTitle(post.title.rendered);
+  const slug = post.slug;
+  const date = new Date(post.date).toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+  const category = getCategory(title);
+  
+  // Extract images
+  const images = extractImages(post.content.rendered);
+  const featuredImage = images[0] || 'https://via.placeholder.com/1920x1280/667eea/ffffff?text=Acromatico';
+  
+  // Clean content (text only)
+  const cleanedContent = cleanContent(post.content.rendered);
+  const excerpt = post.excerpt.rendered.replace(/<[^>]*>/g, '').trim().substring(0, 160);
+  
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newborn Photography Broward | Olivia | Acromatico Photography</title>
-    <meta name="description" content="We absolutely loved working with this tiny beautiful little human and her amazing parents! Enjoy some of our favorites from this adorable newborn session:">
+    <title>${title} | Acromatico Photography</title>
+    <meta name="description" content="${excerpt}">
     
     <!-- Open Graph -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://acromatico.com/blog/newborn-photography-broward-olivia">
-    <meta property="og:title" content="Newborn Photography Broward | Olivia">
-    <meta property="og:description" content="We absolutely loved working with this tiny beautiful little human and her amazing parents! Enjoy some of our favorites from this adorable newborn session:">
-    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-001-1-1024x682.jpg">
+    <meta property="og:url" content="https://acromatico.com/blog/${slug}">
+    <meta property="og:title" content="${title}">
+    <meta property="og:description" content="${excerpt}">
+    <meta property="og:image" content="${featuredImage}">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://acromatico.com/blog/newborn-photography-broward-olivia">
-    <meta property="twitter:title" content="Newborn Photography Broward | Olivia">
-    <meta property="twitter:description" content="We absolutely loved working with this tiny beautiful little human and her amazing parents! Enjoy some of our favorites from this adorable newborn session:">
-    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-001-1-1024x682.jpg">
+    <meta property="twitter:url" content="https://acromatico.com/blog/${slug}">
+    <meta property="twitter:title" content="${title}">
+    <meta property="twitter:description" content="${excerpt}">
+    <meta property="twitter:image" content="${featuredImage}">
     
     <!-- Schema.org Article -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Newborn Photography Broward | Olivia",
-      "image": ["https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-001-1-1024x682.jpg","https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-002-1024x682.jpg","https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-003-1024x682.jpg","https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-004-1024x682.jpg","https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-005-1024x682.jpg"],
-      "datePublished": "2019-12-24T00:03:34",
-      "dateModified": "undefined",
+      "headline": "${title}",
+      "image": ${JSON.stringify(images.slice(0, 5))},
+      "datePublished": "${post.date}",
+      "dateModified": "${post.modified}",
       "author": {
         "@type": "Organization",
         "name": "Acromatico Photography",
@@ -42,7 +126,7 @@
           "url": "https://acromatico.com/wp-content/uploads/logo.png"
         }
       },
-      "description": "We absolutely loved working with this tiny beautiful little human and her amazing parents! Enjoy some of our favorites from this adorable newborn session:"
+      "description": "${excerpt}"
     }
     </script>
     
@@ -137,7 +221,7 @@
         .hero {
             height: 75vh;
             min-height: 500px;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-001-1-1024x682.jpg');
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('${featuredImage}');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -373,105 +457,29 @@
     
     <section class="hero">
         <div class="hero-content">
-            <span class="category-badge">Photography</span>
-            <h1>Newborn Photography Broward | Olivia</h1>
-            <p class="post-meta">December 24, 2019</p>
+            <span class="category-badge">${category}</span>
+            <h1>${title}</h1>
+            <p class="post-meta">${date}</p>
         </div>
     </section>
     
     <div class="container">
         <article class="content-card">
             <div class="content">
-                <p>We absolutely loved working with this tiny beautiful little human and her amazing parents! Enjoy some of our favorites from this adorable newborn session:</p>
+                ${cleanedContent}
             </div>
             
-            
+            ${images.length > 0 ? `
             <section class="gallery">
                 <div class="gallery-grid">
-                    
+                    ${images.map(img => `
                         <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-001-1-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
+                            <img src="${img}" alt="${title}" loading="lazy">
                         </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-002-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-003-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-004-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-005-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-006-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-007-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-008-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-009-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-010-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-011-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-012-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-013-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-014-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-015-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-016-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-017-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-018-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-019-2-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
-                        <div class="gallery-item">
-                            <img src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-020-2-1024x682.jpg" alt="Newborn Photography Broward | Olivia" loading="lazy">
-                        </div>
-                    
+                    `).join('')}
                 </div>
             </section>
-            
+            ` : ''}
         </article>
         
         <section class="cta">
@@ -481,4 +489,34 @@
         </section>
     </div>
 </body>
-</html>
+</html>`;
+}
+
+// Generate all posts
+console.log(`🚀 Generating ${allPosts.length} blog posts...`);
+
+let successCount = 0;
+let errorCount = 0;
+
+for (const post of allPosts) {
+  try {
+    const html = generatePostHTML(post);
+    const filename = `${post.slug}.html`;
+    const filepath = path.join(outputDir, filename);
+    
+    fs.writeFileSync(filepath, html, 'utf-8');
+    successCount++;
+    
+    if (successCount % 50 === 0) {
+      console.log(`✅ Generated ${successCount}/${allPosts.length} posts...`);
+    }
+  } catch (error) {
+    console.error(`❌ Error generating ${post.slug}:`, error.message);
+    errorCount++;
+  }
+}
+
+console.log(`\n🎉 COMPLETE!`);
+console.log(`✅ Success: ${successCount} posts`);
+console.log(`❌ Errors: ${errorCount} posts`);
+console.log(`📁 Output: ${outputDir}`);
