@@ -715,31 +715,31 @@ function generatePostHTML(post) {
             
             /* MOBILE GALLERY - FIXED HEIGHT */
             .gallery-section { 
-                margin: 2rem -1rem;
-                gap: 0.75rem;
-                grid-template-columns: repeat(2, 1fr);
+                margin: 2rem -1rem !important;
+                gap: 0.75rem !important;
+                grid-template-columns: repeat(2, 1fr) !important;
             }
             
             .gallery-item { 
-                border-radius: 4px;
-                margin: 0;
-                width: 100%;
-                box-shadow: none;
-                height: 180px;
-                overflow: hidden;
+                border-radius: 4px !important;
+                margin: 0 !important;
+                width: 100% !important;
+                box-shadow: none !important;
+                height: 180px !important;
+                overflow: hidden !important;
             }
             
             .gallery-item:hover {
-                transform: none;
+                transform: none !important;
             }
             
             .gallery-item img {
-                width: 100%;
-                height: 100%;
-                display: block;
-                border-radius: 4px;
-                object-fit: cover;
-                object-position: center;
+                width: 100% !important;
+                height: 100% !important;
+                display: block !important;
+                border-radius: 4px !important;
+                object-fit: cover !important;
+                object-position: center !important;
             }
             
             /* MOBILE FAQ */
