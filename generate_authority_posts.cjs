@@ -629,8 +629,6 @@ function generatePostHTML(post) {
         
         .gallery-item {
             width: 100%;
-            height: 450px;
-            overflow: hidden;
             border-radius: 0;
         }
         
@@ -640,10 +638,8 @@ function generatePostHTML(post) {
         
         .gallery-item img {
             width: 100%;
-            height: 100%;
+            height: auto;
             display: block;
-            object-fit: cover;
-            object-position: center;
         }
         
         .faq-item {
