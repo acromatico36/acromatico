@@ -3,6 +3,7 @@ import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { renderer } from './renderer'
 import Stripe from 'stripe'
+import blog from './blog-page'
 
 // Shared Header Component
 const Header = () => (
@@ -127,6 +128,9 @@ const app = new Hono<{ Bindings: Bindings }>()
 
 // Enable CORS for API routes
 app.use('/api/*', cors())
+
+// Mount blog routes
+app.route('/blog', blog)
 
 // Stripe Checkout API
 app.post('/api/create-checkout', async (c) => {
