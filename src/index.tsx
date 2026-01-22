@@ -187,6 +187,9 @@ app.get('/api/stripe-key', (c) => {
 app.use('/static/*', serveStatic({ root: './' }))
 app.use('/*.html', serveStatic({ root: './public' }))
 
+// Explicitly serve blog_posts_data
+app.use('/blog_posts_data/*', serveStatic({ root: './' }))
+
 // Use JSX renderer
 app.use(renderer)
 
