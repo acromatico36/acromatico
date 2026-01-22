@@ -627,6 +627,7 @@ function generatePostHTML(post) {
         
         .gallery-item {
             width: 100%;
+            height: 400px;
             overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -640,9 +641,10 @@ function generatePostHTML(post) {
         
         .gallery-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
-            background: #F5F5F7;
+            object-fit: cover;
+            object-position: center;
         }
         
         .faq-item {
@@ -711,19 +713,19 @@ function generatePostHTML(post) {
                 margin: 2rem 0 1rem;
             }
             
-            /* MOBILE GALLERY - COMPACT & CLEAN */
+            /* MOBILE GALLERY - FIXED HEIGHT */
             .gallery-section { 
-                margin: 2rem 0;
-                gap: 1rem;
+                margin: 2rem -1rem;
+                gap: 0.75rem;
                 grid-template-columns: repeat(2, 1fr);
             }
             
             .gallery-item { 
-                border-radius: 6px;
+                border-radius: 4px;
                 margin: 0;
                 width: 100%;
-                box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-                height: 220px;
+                box-shadow: none;
+                height: 180px;
                 overflow: hidden;
             }
             
@@ -735,7 +737,7 @@ function generatePostHTML(post) {
                 width: 100%;
                 height: 100%;
                 display: block;
-                border-radius: 6px;
+                border-radius: 4px;
                 object-fit: cover;
                 object-position: center;
             }
@@ -759,7 +761,7 @@ function generatePostHTML(post) {
         }
         
         @media (min-width: 769px) and (max-width: 1024px) {
-            /* TABLET BREAKPOINT */
+            /* TABLET */
             .hero {
                 height: 65vh;
                 min-height: 450px;
@@ -774,12 +776,13 @@ function generatePostHTML(post) {
             }
             
             .gallery-section {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.25rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                margin: 2.5rem 0;
             }
             
             .gallery-item {
-                height: 280px;
+                height: 220px;
             }
             
             .gallery-item img {
