@@ -632,6 +632,7 @@ function generatePostHTML(post) {
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
         
         .gallery-item:hover {
@@ -645,6 +646,9 @@ function generatePostHTML(post) {
             display: block;
             object-fit: cover;
             object-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         
         .faq-item {
@@ -713,33 +717,41 @@ function generatePostHTML(post) {
                 margin: 2rem 0 1rem;
             }
             
-            /* MOBILE GALLERY - FIXED HEIGHT */
+            /* MOBILE GALLERY - INSTAGRAM STYLE */
             .gallery-section { 
-                margin: 2rem -1rem !important;
-                gap: 0.75rem !important;
+                margin: 2rem 0 !important;
+                gap: 0.5rem !important;
                 grid-template-columns: repeat(2, 1fr) !important;
+                padding: 0 !important;
             }
             
             .gallery-item { 
-                border-radius: 4px !important;
+                border-radius: 0 !important;
                 margin: 0 !important;
                 width: 100% !important;
                 box-shadow: none !important;
-                height: 180px !important;
+                height: 200px !important;
                 overflow: hidden !important;
+                position: relative !important;
             }
             
             .gallery-item:hover {
                 transform: none !important;
+                box-shadow: none !important;
             }
             
             .gallery-item img {
                 width: 100% !important;
-                height: 100% !important;
+                height: 200px !important;
+                max-height: 200px !important;
+                min-height: 200px !important;
                 display: block !important;
-                border-radius: 4px !important;
+                border-radius: 0 !important;
                 object-fit: cover !important;
                 object-position: center !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
             }
             
             /* MOBILE FAQ */
