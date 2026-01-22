@@ -496,7 +496,6 @@ function generatePostHTML(post) {
             color: #1D1D1F;
             background: #FAFAFA;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
         
         nav {
@@ -626,9 +625,6 @@ function generatePostHTML(post) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-            width: 100%;
-            max-width: 100%;
-            overflow: hidden;
         }
         
         .gallery-item {
@@ -636,7 +632,6 @@ function generatePostHTML(post) {
             height: 450px;
             overflow: hidden;
             border-radius: 0;
-            position: relative;
         }
         
         .gallery-item:hover {
@@ -649,9 +644,6 @@ function generatePostHTML(post) {
             display: block;
             object-fit: cover;
             object-position: center;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
         
         .faq-item {
