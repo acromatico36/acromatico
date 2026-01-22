@@ -794,12 +794,17 @@ function generatePostHTML(post) {
             }
             
             .gallery-item {
-                height: 220px;
+                height: 220px !important;
+                max-height: 220px !important;
+                overflow: hidden !important;
             }
             
             .gallery-item img {
-                height: 100%;
-                object-fit: cover;
+                height: 220px !important;
+                max-height: 220px !important;
+                min-height: 220px !important;
+                object-fit: cover !important;
+                object-position: center !important;
             }
             
             .content-section h2 {
