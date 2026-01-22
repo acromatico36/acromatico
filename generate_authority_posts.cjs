@@ -496,6 +496,7 @@ function generatePostHTML(post) {
             color: #1D1D1F;
             background: #FAFAFA;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         
         nav {
@@ -583,6 +584,8 @@ function generatePostHTML(post) {
             padding: 4rem;
             box-shadow: 0 8px 40px rgba(0,0,0,0.12);
             margin-bottom: 3rem;
+            overflow: hidden;
+            max-width: 100%;
         }
         
         .content-section {
@@ -623,7 +626,9 @@ function generatePostHTML(post) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+            width: 100%;
             max-width: 100%;
+            overflow: hidden;
         }
         
         .gallery-item {
