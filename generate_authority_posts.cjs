@@ -625,6 +625,8 @@ function generatePostHTML(post) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+            width: 100%;
+            max-width: 100%;
         }
         
         .gallery-item {
@@ -638,6 +640,7 @@ function generatePostHTML(post) {
         
         .gallery-item img {
             width: 100%;
+            max-width: 100%;
             height: auto;
             display: block;
         }
