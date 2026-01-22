@@ -15,11 +15,12 @@ blog.get('/', async (c) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Acromatico Photography | 501+ Real Stories</title>
-    <meta name="description" content="Explore 501+ real wedding stories, engagement sessions, and love stories captured by Acromatico across South Florida, NYC, and destinations worldwide.">
+    <title>Blog - Acromatico</title>
+    <meta name="description" content="Real wedding stories, engagement sessions, and love stories captured by Acromatico across South Florida, NYC, and destinations worldwide.">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
             background: #FAFAFA;
@@ -27,16 +28,17 @@ blog.get('/', async (c) => {
             line-height: 1.6;
         }
         
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255,255,255,0.72);
-            backdrop-filter: saturate(180%) blur(20px);
+            background: white;
             z-index: 1000;
-            padding: 1rem 5%;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            padding: 1.25rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }
+        
         .nav-content {
             max-width: 1400px;
             margin: 0 auto;
@@ -44,94 +46,77 @@ blog.get('/', async (c) => {
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #1D1D1F;
-            text-decoration: none;
+        
+        .logo-img {
+            height: 32px;
+            width: auto;
         }
+        
         .nav-links {
             display: flex;
             gap: 2rem;
         }
+        
         .nav-links a {
             color: #1D1D1F;
             text-decoration: none;
             font-size: 0.95rem;
+            font-weight: 500;
             transition: opacity 0.3s;
         }
+        
         .nav-links a:hover {
             opacity: 0.6;
         }
         
+        /* Hero */
         .hero {
-            padding: 8rem 5% 4rem;
+            padding: 10rem 5% 4rem;
             text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
+            background: white;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: drift 20s linear infinite;
-        }
-        @keyframes drift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+        
         h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 700;
             margin-bottom: 1rem;
             letter-spacing: -0.03em;
-        }
-        .subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            opacity: 0.95;
-            font-weight: 400;
+            color: #000;
         }
         
-        .controls {
-            padding: 2.5rem 5%;
-            background: white;
-            position: sticky;
-            top: 60px;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        .subtitle {
+            font-size: 1.25rem;
+            color: #666;
         }
+        
+        /* Search & Filters */
+        .controls {
+            padding: 2rem 5%;
+            background: white;
+            border-top: 1px solid #E5E5E7;
+        }
+        
         .controls-wrapper {
             max-width: 1400px;
             margin: 0 auto;
         }
+        
         .search-bar {
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto 1.5rem;
-            padding: 1rem 1.5rem;
-            border: 2px solid #E5E5E7;
-            border-radius: 50px;
-            font-size: 1rem;
+            padding: 0.875rem 1.25rem;
+            border: 1px solid #E5E5E7;
+            border-radius: 8px;
+            font-size: 0.95rem;
             transition: all 0.3s;
-            background: #F5F5F7;
         }
+        
         .search-bar:focus {
             outline: none;
-            border-color: #667eea;
-            background: white;
+            border-color: #000;
         }
+        
         .filters {
             text-align: center;
             display: flex;
@@ -139,141 +124,136 @@ blog.get('/', async (c) => {
             justify-content: center;
             gap: 0.75rem;
         }
+        
         .filter-btn {
-            padding: 0.75rem 1.75rem;
-            border: 2px solid #E5E5E7;
-            border-radius: 50px;
+            padding: 0.625rem 1.5rem;
+            border: 1px solid #E5E5E7;
+            border-radius: 6px;
             background: white;
             cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
+            transition: all 0.2s;
+            font-size: 0.9rem;
             font-weight: 500;
             color: #1D1D1F;
         }
+        
         .filter-btn:hover {
-            border-color: #667eea;
-            color: #667eea;
-        }
-        .filter-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
+            background: #F5F5F7;
         }
         
+        .filter-btn.active {
+            background: #000;
+            color: white;
+            border-color: #000;
+        }
+        
+        /* Blog Grid */
         .grid-wrapper {
             padding: 3rem 5%;
             background: #FAFAFA;
         }
+        
         .grid {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2.5rem;
         }
         
+        /* Blog Cards */
         .card {
             background: white;
-            border-radius: 16px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s;
             text-decoration: none;
             color: inherit;
             display: block;
-            position: relative;
         }
+        
         .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
-        .card-img {
+        
+        .card-img-wrapper {
             width: 100%;
             height: 280px;
+            overflow: hidden;
+            background: #F5F5F7;
+        }
+        
+        .card-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             transition: transform 0.6s;
         }
+        
         .card:hover .card-img {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
+        
         .card-content {
             padding: 1.75rem;
         }
+        
         .card-category {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.4rem 1.1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            background: #F5F5F7;
+            color: #000;
+            padding: 0.375rem 0.875rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 600;
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+        
         .card-title {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 600;
             line-height: 1.4;
-            margin-bottom: 0.5rem;
-            color: #1D1D1F;
+            margin-bottom: 0.75rem;
+            color: #000;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+        
         .card-date {
-            font-size: 0.9rem;
-            color: #86868B;
-            font-weight: 400;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 4rem;
-            font-size: 1.25rem;
+            font-size: 0.875rem;
             color: #86868B;
         }
         
+        /* No Results */
         .no-results {
             text-align: center;
             padding: 4rem;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: #86868B;
             display: none;
         }
         
-        .load-more {
-            text-align: center;
-            padding: 3rem;
-        }
-        .load-more-btn {
-            padding: 1rem 3rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .load-more-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-        }
-        
+        /* Responsive */
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 2rem;
             }
+            
             .nav-links {
                 display: none;
             }
+            
             .hero {
-                padding: 6rem 5% 3rem;
+                padding: 7rem 5% 3rem;
             }
+            
             h1 {
                 font-size: 2.5rem;
             }
@@ -283,7 +263,9 @@ blog.get('/', async (c) => {
 <body>
     <nav>
         <div class="nav-content">
-            <a href="/" class="logo">ACROMATICO</a>
+            <a href="/">
+                <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="logo-img">
+            </a>
             <div class="nav-links">
                 <a href="/static/our-story-v2.html">Our Story</a>
                 <a href="/blog">Blog</a>
@@ -294,10 +276,8 @@ blog.get('/', async (c) => {
     </nav>
     
     <section class="hero">
-        <div class="hero-content">
-            <h1>Love Stories</h1>
-            <p class="subtitle"><span id="total-count">501</span> Real Weddings, Engagements & Moments</p>
-        </div>
+        <h1>Love Stories</h1>
+        <p class="subtitle"><span id="total-count">501</span> Real Weddings, Engagements & Moments</p>
     </section>
     
     <section class="controls">
@@ -325,9 +305,6 @@ blog.get('/', async (c) => {
         <div class="no-results" id="no-results">
             No stories found. Try a different search or filter.
         </div>
-        <div class="load-more" id="load-more" style="display: none;">
-            <button class="load-more-btn" onclick="loadMore()">Load More Stories</button>
-        </div>
     </section>
     
     <script>
@@ -348,7 +325,6 @@ blog.get('/', async (c) => {
                 renderPosts();
             } catch (error) {
                 console.error('Error loading posts:', error);
-                // Fallback to server-rendered preview
                 allPosts = ${JSON.stringify(previewPosts)};
                 renderPosts();
             }
@@ -366,11 +342,11 @@ blog.get('/', async (c) => {
         
         function extractImage(content) {
             const match = content.match(/<img[^>]+src="([^">]+)"/);
-            return match ? match[1] : 'https://via.placeholder.com/400x300/667eea/ffffff?text=Acromatico';
+            return match ? match[1] : '';
         }
         
         function cleanTitle(title) {
-            return title.replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").replace(/&#038;/g, '&');
+            return title.replace(/&#8211;/g, '–').replace(/&#8217;/g, "'").replace(/&#038;/g, '&');
         }
         
         function formatDate(dateStr) {
@@ -384,9 +360,7 @@ blog.get('/', async (c) => {
         function renderPosts() {
             const grid = document.getElementById('grid');
             const noResults = document.getElementById('no-results');
-            const loadMoreBtn = document.getElementById('load-more');
             
-            // Filter posts
             let filtered = allPosts.filter(post => {
                 const title = cleanTitle(post.title.rendered).toLowerCase();
                 const category = getCategory(title);
@@ -397,19 +371,15 @@ blog.get('/', async (c) => {
                 return matchesFilter && matchesSearch;
             });
             
-            // Show/hide no results
             if (filtered.length === 0) {
                 noResults.style.display = 'block';
-                loadMoreBtn.style.display = 'none';
                 return;
             } else {
                 noResults.style.display = 'none';
             }
             
-            // Clear grid
             grid.innerHTML = '';
             
-            // Render posts
             const postsToShow = filtered.slice(0, displayedPosts + POSTS_PER_PAGE);
             displayedPosts = postsToShow.length;
             
@@ -423,7 +393,9 @@ blog.get('/', async (c) => {
                 card.href = \`/blog/\${post.slug}\`;
                 card.className = 'card';
                 card.innerHTML = \`
-                    <img src="\${img}" alt="\${title}" class="card-img" loading="lazy">
+                    <div class="card-img-wrapper">
+                        <img src="\${img}" alt="\${title}" class="card-img" loading="lazy">
+                    </div>
                     <div class="card-content">
                         <span class="card-category">\${category}</span>
                         <h3 class="card-title">\${title}</h3>
@@ -433,21 +405,8 @@ blog.get('/', async (c) => {
                 
                 grid.appendChild(card);
             });
-            
-            // Show/hide load more button
-            if (displayedPosts < filtered.length) {
-                loadMoreBtn.style.display = 'block';
-            } else {
-                loadMoreBtn.style.display = 'none';
-            }
         }
         
-        function loadMore() {
-            displayedPosts += POSTS_PER_PAGE;
-            renderPosts();
-        }
-        
-        // Filter functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
         const searchBar = document.getElementById('search');
         
@@ -467,7 +426,6 @@ blog.get('/', async (c) => {
             renderPosts();
         });
         
-        // Initialize
         loadAllPosts();
     </script>
 </body>
