@@ -711,19 +711,19 @@ function generatePostHTML(post) {
                 margin: 2rem 0 1rem;
             }
             
-            /* FIXED MOBILE GALLERY - STACKED WITH BREATHING ROOM + HEIGHT LIMITS */
+            /* MOBILE GALLERY - COMPACT & CLEAN */
             .gallery-section { 
-                margin: 3rem 0;
-                gap: 1.5rem;
-                grid-template-columns: 1fr;
+                margin: 2rem 0;
+                gap: 1rem;
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .gallery-item { 
-                border-radius: 8px;
+                border-radius: 6px;
                 margin: 0;
                 width: 100%;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-                max-height: 70vh;
+                box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+                height: 220px;
                 overflow: hidden;
             }
             
@@ -733,10 +733,9 @@ function generatePostHTML(post) {
             
             .gallery-item img {
                 width: 100%;
-                height: auto;
-                max-height: 70vh;
+                height: 100%;
                 display: block;
-                border-radius: 8px;
+                border-radius: 6px;
                 object-fit: cover;
                 object-position: center;
             }
@@ -776,7 +775,16 @@ function generatePostHTML(post) {
             
             .gallery-section {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+                gap: 1.25rem;
+            }
+            
+            .gallery-item {
+                height: 280px;
+            }
+            
+            .gallery-item img {
+                height: 100%;
+                object-fit: cover;
             }
             
             .content-section h2 {
