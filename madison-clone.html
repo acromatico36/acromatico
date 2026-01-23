@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madison & Jordan - Cork Factory Hotel Wedding</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #3a3a3a;
+            background: #ffffff;
+        }
+        
+        /* Hero Section - EXACTLY like Hoffer */
+        .hero-section {
+            min-height: 100vh;
+            background-image: url('https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-1.jpg');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.19);
+        }
+        
+        /* Off-Canvas Menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .menu-btn img {
+            width: 40px;
+            height: auto;
+        }
+        
+        .off-canvas-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1002;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .off-canvas-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .off-canvas-menu {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            max-width: 90%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 1003;
+            overflow-y: auto;
+            transition: right 0.3s ease;
+            padding: 60px 40px;
+        }
+        
+        .off-canvas-menu.active {
+            right: 0;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #3a3a3a;
+        }
+        
+        .menu-logo {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #3a3a3a;
+        }
+        
+        .menu-nav {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        
+        .menu-nav li {
+            margin-bottom: 20px;
+        }
+        
+        .menu-nav a {
+            text-decoration: none;
+            color: #3a3a3a;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .menu-nav a:hover {
+            color: #728012;
+        }
+        
+        /* Content Container */
+        .content-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .post-title {
+            font-size: 40px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .post-intro {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a3a3a;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Gallery Container - MASONRY LAYOUT */
+        .gallery-container {
+            column-count: 2;
+            column-gap: 10px;
+            margin-bottom: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                column-count: 1;
+            }
+        }
+        
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            opacity: 0.9;
+        }
+        
+        /* Section Headings */
+        .section-heading {
+            font-size: 30px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin: 60px 0 30px 0;
+            text-align: center;
+        }
+        
+        .section-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a3a3a;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* GLightbox Customization */
+        .glightbox-clean .gslide-description {
+            background: rgba(0, 0, 0, 0.75);
+        }
+        
+        .glightbox-clean .gslide-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Button -->
+    <button class="menu-btn" id="menuBtn" aria-label="Open Menu">
+        <img src="https://hofferphotography.com/wp-content/uploads/2019/12/rectangle.png" alt="Menu">
+    </button>
+    
+    <!-- Off-Canvas Menu -->
+    <div class="off-canvas-overlay" id="overlay"></div>
+    <div class="off-canvas-menu" id="menu">
+        <button class="close-menu" id="closeMenu" aria-label="Close Menu">&times;</button>
+        <div class="menu-logo">Acromatico Photography</div>
+        <ul class="menu-nav">
+            <li><a href="/">Portfolios</a></li>
+            <li><a href="/blog">Recent Work</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/reviews">Reviews</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section"></section>
+    
+    <!-- Main Content -->
+    <div class="content-container">
+        <h1 class="post-title">Madison & Jordan | Cork Factory Hotel Wedding</h1>
+        
+        <div class="post-intro">
+            <p>Madison and Jordan's Cork Factory Hotel wedding was nothing short of magical. From the romantic first look to the emotional ceremony, every moment was filled with love and joy. The Cork Factory Hotel provided the perfect industrial-chic backdrop for their celebration, with its exposed brick walls and stunning natural light.</p>
+        </div>
+        
+        <!-- Gallery 1 -->
+        <div class="gallery-container">
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-2.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-2.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-3.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-3.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-4.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-4.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-5.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-5.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-6-scaled.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-6-scaled.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-7.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-7.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-8.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-8.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-9.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-9.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+        </div>
+        
+        <h2 class="section-heading">Wedding Portraits at Cork Factory</h2>
+        <div class="section-text">
+            <p>The couple took advantage of the beautiful architecture and natural light throughout the Cork Factory Hotel for their portraits. Every corner of this venue offers unique photo opportunities, from the intimate indoor spaces to the charming outdoor areas.</p>
+        </div>
+        
+        <!-- Gallery 2 -->
+        <div class="gallery-container">
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-17.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-17.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-18.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-18.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-19.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-19.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-20.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-20.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-21.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-21.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-22.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-22.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+        </div>
+        
+        <h2 class="section-heading">The Reception</h2>
+        <div class="section-text">
+            <p>As the evening progressed, the celebration moved into full swing with heartfelt toasts, joyful dancing, and unforgettable moments shared with family and friends. The Cork Factory Hotel's elegant reception space was transformed into a romantic setting that perfectly captured Madison and Jordan's vision for their special day.</p>
+        </div>
+        
+        <!-- Gallery 3 -->
+        <div class="gallery-container">
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-30.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-30.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-31.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-31.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-32.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-32.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+            <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-33.jpg" class="gallery-item glightbox">
+                <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-33.jpg" alt="Wedding Photo" class="gallery-image" loading="lazy">
+            </a>
+        </div>
+    </div>
+    
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <script>
+        // Initialize GLightbox
+        const lightbox = GLightbox({
+            touchNavigation: true,
+            loop: true,
+            autoplayVideos: true,
+            closeButton: true,
+            closeOnOutsideClick: true,
+            keyboardNavigation: true
+        });
+        
+        // Menu functionality
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const overlay = document.getElementById('overlay');
+        const menu = document.getElementById('menu');
+        
+        function openMenu() {
+            menu.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenuFunc() {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        menuBtn.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+        
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menu.classList.contains('active')) {
+                closeMenuFunc();
+            }
+        });
+    </script>
+</body>
+</html>
