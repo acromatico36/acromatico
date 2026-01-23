@@ -103,19 +103,21 @@ const html = `<!DOCTYPE html>
         
         .nav-links a:hover { opacity: 0.6; }
         
-        /* Hero */
+        /* Hero - Full Screen */
         .hero {
-            height: 70vh;
-            min-height: 500px;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('${coverImage}') center/cover;
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('${coverImage}') center/cover;
             display: flex;
-            align-items: flex-end;
-            padding: 0 2rem 6rem;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
             margin-top: 60px;
         }
         
         .hero-content {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             color: white;
         }
@@ -135,7 +137,7 @@ const html = `<!DOCTYPE html>
         /* Main Content */
         .container {
             max-width: 900px;
-            margin: -5rem auto 4rem;
+            margin: -8rem auto 4rem;
             padding: 0 2rem;
             position: relative;
         }
@@ -148,16 +150,16 @@ const html = `<!DOCTYPE html>
         }
         
         .content p {
-            font-size: 1.125rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
             color: #333;
         }
         
         .content h2 {
             font-size: 1.75rem;
             font-weight: 700;
-            margin: 3rem 0 1rem;
+            margin: 2.5rem 0 1rem;
             color: #000;
         }
         
@@ -165,8 +167,8 @@ const html = `<!DOCTYPE html>
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 2rem 0;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
         }
         
         .gallery-image {
@@ -239,10 +241,13 @@ const html = `<!DOCTYPE html>
         
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero { height: 60vh; min-height: 400px; padding-bottom: 4rem; }
-            .container { margin-top: -3rem; padding: 0 1rem; }
+            .hero { 
+                height: 100vh; 
+                min-height: 600px;
+            }
+            .container { margin-top: -6rem; padding: 0 1rem; }
             .content-card { padding: 2rem 1.5rem; }
-            .gallery { grid-template-columns: 1fr; gap: 0.75rem; }
+            .gallery { grid-template-columns: 1fr; gap: 0.35rem; margin: 1rem 0; }
         }
     </style>
 </head>
