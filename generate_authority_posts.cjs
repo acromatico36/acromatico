@@ -642,7 +642,10 @@ function generatePostHTML(post) {
             width: 100%;
             max-width: 100%;
             height: auto;
+            max-height: 500px;
             display: block;
+            object-fit: cover;
+            object-position: center;
         }
         
         .faq-item {
