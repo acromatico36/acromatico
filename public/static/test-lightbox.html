@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Title | Acromatico Photography</title>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: #1D1D1F;
+            background: #FAFAFA;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-img { height: 32px; width: auto; }
+        
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            text-decoration: none;
+            color: #1D1D1F;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #0066CC; }
+        
+        .hero {
+            height: 80vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 5% 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('HERO_IMAGE_URL') center/cover no-repeat;
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 900px;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-meta {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: -6rem auto 4rem;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 3rem;
+        }
+        
+        .content-section {
+            margin: 3rem 0;
+        }
+        
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1D1D1F;
+        }
+        
+        .content-section p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4448;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* ===== WORDPRESS-STYLE 2-COLUMN GALLERY ===== */
+        .wp-block-columns {
+            display: flex;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .wp-block-column {
+            flex: 1;
+            min-width: 0; /* Important for flexbox image sizing */
+        }
+        
+        @media (max-width: 768px) {
+            .wp-block-columns {
+                flex-direction: column;
+            }
+        }
+        
+        .wp-block-image {
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        
+        .wp-block-image:hover {
+            opacity: 0.9;
+        }
+        
+        .wp-block-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0;
+        }
+        
+        /* ===== LIGHTBOX OVERLAY ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            line-height: 1;
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 2rem;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            user-select: none;
+            border-radius: 8px;
+        }
+        
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .lightbox-prev {
+            left: 20px;
+        }
+        
+        .lightbox-next {
+            right: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 2.5rem 2rem;
+            }
+            
+            .wp-block-columns {
+                gap: 1rem;
+            }
+            
+            .wp-block-image {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <a href="/">
+                <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="/our-story">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="/portfolio">Portfolio</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">WEDDING</span>
+            <h1>Rustic Barn Wedding at Rolling Meadow Farm</h1>
+            <p class="hero-meta">Sade & Luke | October 15, 2024</p>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-card">
+            <!-- Introduction -->
+            <div class="content-section">
+                <p>Sade and Luke's rustic barn wedding at Rolling Meadow Farm was everything a fall celebration should be - warm, intimate, and absolutely stunning. The golden autumn light filtered through the barn's wooden beams, creating the perfect atmosphere for their special day.</p>
+            </div>
+            
+            <!-- WordPress-Style 2-Column Gallery Section 1 -->
+            <div class="wp-block-columns">
+                <div class="wp-block-column">
+                    <figure class="wp-block-image">
+                        <img src="https://acromatico.com/wp-content/uploads/2023/10/Lake-Como-Family-Session-O-2.jpeg" alt="Photo 1" class="lightbox-trigger">
+                    </figure>
+                    <figure class="wp-block-image">
+                        <img src="https://acromatico.com/wp-content/uploads/2023/10/Lake-Como-Family-Session-O-4.jpeg" alt="Photo 2" class="lightbox-trigger">
+                    </figure>
+                </div>
+                <div class="wp-block-column">
+                    <figure class="wp-block-image">
+                        <img src="https://acromatico.com/wp-content/uploads/2023/10/Lake-Como-Family-Session-O-3.jpeg" alt="Photo 3" class="lightbox-trigger">
+                    </figure>
+                    <figure class="wp-block-image">
+                        <img src="https://acromatico.com/wp-content/uploads/2023/10/Lake-Como-Family-Session-O-5.jpeg" alt="Photo 4" class="lightbox-trigger">
+                    </figure>
+                </div>
+            </div>
+            
+            <!-- Story Section -->
+            <div class="content-section">
+                <h2>The Venue</h2>
+                <p>Rolling Meadow Farm offers the perfect blend of rustic charm and modern elegance. The restored barn features soaring ceilings with exposed wooden beams, creating an intimate yet spacious feel for the celebration.</p>
+            </div>
+            
+            <!-- WordPress-Style 2-Column Gallery Section 2 -->
+            <div class="wp-block-columns">
+                <div class="wp-block-column">
+                    <figure class="wp-block-image">
+                        <img src="https://acromatico.com/wp-content/uploads/2023/10/Lake-Como-Family-Session-O-6.jpeg" alt="Photo 5" class="lightbox-trigger">
+                    </figure>
+                </div>
+                <div class="wp-block-column">
+                    <figure class="wp-block-image">
+                        <img src="https://acromatico.com/wp-content/uploads/2023/10/Lake-Como-Family-Session-O-7.jpeg" alt="Photo 6" class="lightbox-trigger">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#8249;</span>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+        </div>
+        <span class="lightbox-nav lightbox-next" id="lightbox-next">&#8250;</span>
+    </div>
+    
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        
+        // Get all lightbox trigger images
+        const images = Array.from(document.querySelectorAll('.lightbox-trigger'));
+        let currentIndex = 0;
+        
+        // Open lightbox
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                showLightbox(img.src, img.alt);
+            });
+        });
+        
+        function showLightbox(src, alt) {
+            lightboxImg.src = src;
+            lightboxImg.alt = alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Navigate lightbox
+        lightboxPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showLightbox(images[currentIndex].src, images[currentIndex].alt);
+        });
+        
+        lightboxNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showLightbox(images[currentIndex].src, images[currentIndex].alt);
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') lightboxPrev.click();
+            if (e.key === 'ArrowRight') lightboxNext.click();
+        });
+    </script>
+</body>
+</html>

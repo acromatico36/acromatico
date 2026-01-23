@@ -909,5 +909,65 @@ Miami offers an unparalleled mix of tropical beauty, Art Deco architecture, and 
             <p style="color: rgba(255,255,255,0.4); font-size: 0.875rem; margin: 0;">© 2026 Acromatico Photography. Capturing love stories worldwide.</p>
         </div>
     </footer>
+    
+    <!-- Lightbox -->
+    <div id="lightbox" style="display: none; position: fixed; z-index: 10000; inset: 0; background: rgba(0,0,0,0.95); align-items: center; justify-content: center;">
+        <span id="lightbox-close" style="position: absolute; top: 20px; right: 40px; font-size: 3rem; color: white; cursor: pointer; background: rgba(0,0,0,0.5); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; line-height: 1;">&times;</span>
+        <span id="lightbox-prev" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; font-size: 2rem; padding: 1rem 1.5rem; cursor: pointer; user-select: none; border-radius: 8px;">&#8249;</span>
+        <div style="max-width: 90vw; max-height: 90vh; position: relative;">
+            <img id="lightbox-img" src="" alt="" style="max-width: 100%; max-height: 90vh; object-fit: contain;">
+        </div>
+        <span id="lightbox-next" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; font-size: 2rem; padding: 1rem 1.5rem; cursor: pointer; user-select: none; border-radius: 8px;">&#8250;</span>
+    </div>
+    
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const images = Array.from(document.querySelectorAll('.gallery-item img'));
+        let currentIndex = 0;
+        
+        images.forEach((img, index) => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        
+        lightboxPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+            lightboxImg.alt = images[currentIndex].alt;
+        });
+        
+        lightboxNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+            lightboxImg.alt = images[currentIndex].alt;
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display !== 'flex') return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') lightboxPrev.click();
+            if (e.key === 'ArrowRight') lightboxNext.click();
+        });
+    </script>
 </body>
 </html>
