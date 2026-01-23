@@ -163,11 +163,10 @@ const html = `<!DOCTYPE html>
             color: #000;
         }
         
-        /* Two-Column Gallery (WordPress Style) */
+        /* Two-Column Gallery (Masonry Style like WordPress) */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.5rem;
+            column-count: 2;
+            column-gap: 0.5rem;
             margin: 1.5rem 0;
         }
         
@@ -175,6 +174,9 @@ const html = `<!DOCTYPE html>
             width: 100%;
             cursor: pointer;
             transition: opacity 0.3s;
+            break-inside: avoid;
+            margin-bottom: 0.5rem;
+            display: inline-block;
         }
         
         .gallery-image:hover {
@@ -247,7 +249,14 @@ const html = `<!DOCTYPE html>
             }
             .container { margin-top: -6rem; padding: 0 1rem; }
             .content-card { padding: 2rem 1.5rem; }
-            .gallery { grid-template-columns: 1fr; gap: 0.35rem; margin: 1rem 0; }
+            .gallery { 
+                column-count: 1;
+                column-gap: 0;
+                margin: 1rem 0;
+            }
+            .gallery-image {
+                margin-bottom: 0.35rem;
+            }
         }
     </style>
 </head>
