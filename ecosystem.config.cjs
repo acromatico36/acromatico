@@ -3,7 +3,8 @@ module.exports = {
     {
       name: 'acromatico',
       script: 'npx',
-      args: 'wrangler pages dev dist --d1=acromatico-db --local --ip 0.0.0.0 --port 3000',
+      script: 'npm',
+      args: 'run dev -- --host 0.0.0.0 --port 3000',
       env: {
         NODE_ENV: 'development',
         PORT: 3000
