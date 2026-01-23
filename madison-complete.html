@@ -47,44 +47,29 @@
             top: 20px;
             right: 20px;
             z-index: 9999;
-            background: #b7c726;
+            background: transparent;
             border: none;
-            color: #000000;
-            width: 44px;
-            height: 44px;
             cursor: pointer;
+            width: 50px;
+            height: 50px;
+            padding: 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 5px;
-            border-radius: 2px;
             transition: all 0.3s;
         }
         
-        .menu-toggle:hover {
-            background: #3a3a3a;
-            color: #ffffff;
-        }
-        
-        .menu-toggle span {
-            display: block;
-            width: 20px;
-            height: 2px;
-            background: currentColor;
+        .menu-toggle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
             transition: all 0.3s;
         }
         
-        .menu-toggle.active span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-        
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
+        .menu-toggle:hover img {
+            transform: scale(1.1);
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,0.5));
         }
         
         .ast-mobile-popup-drawer {
@@ -110,10 +95,12 @@
         }
         
         .mobile-menu-logo {
-            font-size: 24px;
-            font-weight: 600;
             margin-bottom: 40px;
-            color: #3a3a3a;
+        }
+        
+        .mobile-menu-logo img {
+            max-width: 200px;
+            height: auto;
         }
         
         .main-header-menu {
@@ -237,17 +224,17 @@
     </style>
 </head>
 <body>
-    <button class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <img src="/static/acromatico-logo-white.png" alt="Menu">
     </button>
     
     <div class="ast-mobile-popup-overlay" id="overlay"></div>
     
     <div class="ast-mobile-popup-drawer" id="drawer">
         <div class="ast-mobile-popup-inner">
-            <div class="mobile-menu-logo">Acromatico Photography</div>
+            <div class="mobile-menu-logo">
+                <img src="/static/acromatico-logo-black.png" alt="Acromatico Photography">
+            </div>
             <ul class="main-header-menu">
                 <li class="menu-item"><a href="/" class="menu-link">Portfolios</a></li>
                 <li class="menu-item"><a href="/blog" class="menu-link">Recent Work</a></li>
@@ -266,7 +253,12 @@
         <h1 class="post-title">Madison & Jordan | Cork Factory Hotel Wedding</h1>
         
         <div class="post-intro">
-            <p>Madison and Jordan's Cork Factory Hotel wedding was nothing short of magical. From the romantic first look to the emotional ceremony, every moment was filled with love and joy. The Cork Factory Hotel provided the perfect industrial-chic backdrop for their celebration.</p>
+            <p>Madison and Jordan's Cork Factory Hotel wedding was nothing short of magical. From the romantic first look to the emotional ceremony, every moment was filled with love and joy. The Cork Factory Hotel provided the perfect industrial-chic backdrop for their celebration, blending historic charm with modern elegance for an unforgettable day.</p>
+        </div>
+        
+        <h2 class="section-heading">The Perfect Lancaster Venue</h2>
+        <div class="section-text">
+            <p>The Cork Factory Hotel in Lancaster, Pennsylvania, is a photographer's dream venue. This beautifully restored historic building offers stunning industrial architecture with exposed brick walls, soaring ceilings, and gorgeous natural light streaming through large windows. Madison and Jordan chose this unique venue for its authentic character and intimate atmosphere, creating the perfect setting for their celebration.</p>
         </div>
         
         <div class="gallery-container">
@@ -483,6 +475,61 @@
             <a href="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-75.jpg" class="gallery-item glightbox">
                 <img src="https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-75.jpg" alt="Madison & Jordan Wedding" class="gallery-image" loading="lazy">
             </a>
+        </div>
+        
+        <h2 class="section-heading">Getting Ready: The Anticipation Builds</h2>
+        <div class="section-text">
+            <p>The morning began with Madison and her bridesmaids getting ready in the hotel's elegant bridal suite. Surrounded by her closest friends, Madison radiated excitement as she slipped into her stunning wedding gown. Meanwhile, Jordan and his groomsmen prepared in another suite, sharing laughs and memories as they got ready for the big moment ahead.</p>
+        </div>
+        
+        <h2 class="section-heading">The First Look: A Private Moment</h2>
+        <div class="section-text">
+            <p>One of the most emotional moments of the day was Madison and Jordan's first look. Set against the Cork Factory's industrial backdrop, Jordan's face lit up the moment he saw his bride. The intimate moment allowed them to share their emotions privately before the ceremony, creating memories they'll treasure forever.</p>
+        </div>
+        
+        <h2 class="section-heading">The Ceremony: Saying "I Do"</h2>
+        <div class="section-text">
+            <p>The ceremony took place in the hotel's beautiful event space, with natural light flooding through the windows. As Madison walked down the aisle, there wasn't a dry eye in the room. The couple exchanged heartfelt vows they'd written themselves, promising a lifetime of love, laughter, and adventure together.</p>
+        </div>
+        
+        <h2 class="section-heading">Portraits at the Cork Factory</h2>
+        <div class="section-text">
+            <p>After the ceremony, we took advantage of the Cork Factory Hotel's incredible architecture for couples portraits. The exposed brick walls, vintage industrial details, and dramatic lighting created the perfect backdrop for romantic photos. Madison and Jordan's natural chemistry made every shot effortless and genuine.</p>
+        </div>
+        
+        <h2 class="section-heading">The Reception: Dancing the Night Away</h2>
+        <div class="section-text">
+            <p>The reception was a beautiful celebration filled with heartfelt toasts, delicious food, and non-stop dancing. Madison and Jordan's first dance was a showstopper, followed by emotional parent dances that had everyone reaching for tissues. The dance floor stayed packed all night as guests celebrated the newlyweds.</p>
+        </div>
+        
+        <h2 class="section-heading">Why Choose Cork Factory Hotel for Your Wedding?</h2>
+        <div class="section-text">
+            <p>The Cork Factory Hotel offers everything couples need for an unforgettable wedding day:</p>
+            <ul style="max-width: 800px; margin: 20px auto; line-height: 2; padding-left: 40px;">
+                <li><strong>Unique Industrial Elegance:</strong> Exposed brick, high ceilings, and historic character</li>
+                <li><strong>All-Inclusive Convenience:</strong> Guest rooms, ceremony space, and reception all in one location</li>
+                <li><strong>Perfect for Photos:</strong> Incredible natural light and architectural details</li>
+                <li><strong>Lancaster Location:</strong> Easy access to downtown Lancaster's charm</li>
+                <li><strong>Intimate Atmosphere:</strong> Perfect size for creating a warm, personal celebration</li>
+            </ul>
+        </div>
+        
+        <h2 class="section-heading">Planning Your Cork Factory Wedding</h2>
+        <div class="section-text">
+            <p>If you're considering the Cork Factory Hotel for your wedding, here are some tips from Madison and Jordan's experience:</p>
+            <ul style="max-width: 800px; margin: 20px auto; line-height: 2; padding-left: 40px;">
+                <li>Schedule a first look to ease nerves and capture private moments</li>
+                <li>Take advantage of the hotel's industrial architecture for unique photos</li>
+                <li>Consider an all-day timeline to maximize photo opportunities</li>
+                <li>Work with vendors familiar with the venue's layout and lighting</li>
+                <li>Book guest rooms early for your out-of-town guests</li>
+            </ul>
+        </div>
+        
+        <h2 class="section-heading">Ready to Book Your Wedding Photographer?</h2>
+        <div class="section-text">
+            <p>Madison and Jordan's Cork Factory Hotel wedding was everything they dreamed of and more. If you're planning your own Lancaster wedding and looking for a photographer who will capture every meaningful moment with artistry and authenticity, I'd love to hear from you.</p>
+            <p style="text-align: center; margin-top: 30px;"><strong>Contact Acromatico Photography today to discuss your wedding photography needs and check availability for your date.</strong></p>
         </div>
     </div>
     
