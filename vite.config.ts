@@ -11,5 +11,10 @@ export default defineConfig({
       entry: 'src/index.tsx'
     })
   ],
-  publicDir: 'public'
+  publicDir: 'public',
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+    allowedHosts: ['.sandbox.novita.ai', '.sandbox.gensparksite.com', 'localhost']
+  }
 })

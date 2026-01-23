@@ -2613,7 +2613,7 @@ app.get('/prints', (c) =>
   )
 )
 // Photography Services Page - Apple/Tesla UX
-app.get('/photography', (c) => c.redirect('/static/photography-apple-ux'))
+app.get('/photography', (c) => c.redirect('/static/photography-apple-ux.html'))
 
 // Photography Booking API
 app.post('/api/photography/book', async (c) => {
@@ -2699,7 +2699,7 @@ app.post('/api/photography/book', async (c) => {
 })
 
 // OLD: Full photography route (removed for performance)
-app.get('/blog', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Blog - Coming Soon</h1></div>))
+// Blog route is defined at the top with app.route('/blog', blog)
 
 // About page
 app.get('/about', (c) =>
