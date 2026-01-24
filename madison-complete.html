@@ -50,18 +50,22 @@
             z-index: 9999;
             padding: 20px 40px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
         
         .site-logo {
-            max-width: 160px;
+            max-width: 200px;
             height: auto;
             filter: brightness(0) invert(1);
             transition: all 0.3s;
         }
         
         .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
             background: transparent;
             border: none;
             cursor: pointer;
@@ -93,7 +97,7 @@
             }
             
             .site-logo {
-                max-width: 120px;
+                max-width: 150px;
             }
         }
         
