@@ -42,11 +42,26 @@
             background-color: rgba(0, 0, 0, 0.19);
         }
         
-        .menu-toggle {
+        .site-header {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 9999;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .site-logo {
+            max-width: 160px;
+            height: auto;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle {
             background: transparent;
             border: none;
             cursor: pointer;
@@ -70,6 +85,16 @@
         .menu-toggle:hover img {
             transform: scale(1.1);
             filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,0.5));
+        }
+        
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 15px 20px;
+            }
+            
+            .site-logo {
+                max-width: 120px;
+            }
         }
         
         .ast-mobile-popup-drawer {
@@ -224,9 +249,14 @@
     </style>
 </head>
 <body>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-        <img src="/static/acromatico-logo-transparent.png" alt="Menu">
-    </button>
+    <header class="site-header">
+        <a href="/" class="site-logo-link">
+            <img src="/static/acromatico-logo-transparent.png" alt="Acromatico Photography" class="site-logo">
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <img src="/static/acromatico-logo-transparent.png" alt="Menu">
+        </button>
+    </header>
     
     <div class="ast-mobile-popup-overlay" id="overlay"></div>
     
