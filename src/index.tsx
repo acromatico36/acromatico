@@ -30,9 +30,19 @@ const Header = () => (
         filter: brightness(0) invert(1);
         transition: all 0.3s ease;
       }
+      .header-signin {
+        display: inline-block;
+      }
       @media (max-width: 768px) {
         .site-logo-header {
           width: 150px;
+        }
+        .header-signin {
+          display: none; /* Hide Sign In on mobile */
+        }
+        .btn-primary {
+          padding: 0.5rem 1rem;
+          font-size: 0.875rem;
         }
       }
     `}</style>
@@ -51,7 +61,7 @@ const Header = () => (
           <a href="/pricing" class="btn-primary px-6 py-3 rounded-full font-semibold">
             Enroll Now
           </a>
-          <a href="/login" class="text-gray-300 hover:text-white transition">Sign In</a>
+          <a href="/login" class="header-signin text-gray-300 hover:text-white transition">Sign In</a>
         </div>
       </div>
     </div>
@@ -134,6 +144,39 @@ const Footer = () => (
           </ul>
         </div>
       </div>
+      
+      {/* Sign In Section - Prominent on Mobile */}
+      <div class="pt-8 pb-8 border-t border-white/10 text-center">
+        <style>{`
+          .footer-signin-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: rgba(71, 148, 166, 0.15);
+            border: 2px solid #4794A6;
+            color: #4794A6;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+          }
+          .footer-signin-btn:hover {
+            background: #4794A6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(71, 148, 166, 0.4);
+          }
+          @media (min-width: 769px) {
+            .footer-signin-btn {
+              display: none; /* Hide on desktop - it's in header */
+            }
+          }
+        `}</style>
+        <a href="/login" class="footer-signin-btn">
+          Sign In to Your Account →
+        </a>
+      </div>
+      
       <div class="pt-8 border-t border-white/10 text-center text-gray-400 text-sm">
         <p>&copy; 2026 Acromatico. Built for creators, by creators.</p>
       </div>
