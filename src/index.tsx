@@ -24,6 +24,17 @@ const Header = () => (
         transform: translateY(-2px);
         box-shadow: 0 8px 30px rgba(71, 148, 166, 0.5);
       }
+      .site-logo-header {
+        width: 200px;
+        height: auto;
+        filter: brightness(0) invert(1);
+        transition: all 0.3s ease;
+      }
+      @media (max-width: 768px) {
+        .site-logo-header {
+          width: 150px;
+        }
+      }
     `}</style>
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex justify-between h-20 items-center">
@@ -33,7 +44,7 @@ const Header = () => (
         </div>
         <div class="flex-1 flex justify-center">
           <a href="/">
-            <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto" />
+            <img src="/static/acromatico-logo-transparent.png?v=3" alt="Acromatico" class="site-logo-header" />
           </a>
         </div>
         <div class="flex items-center space-x-4">
@@ -50,6 +61,18 @@ const Header = () => (
 // Prints Header Component (light background with cart)
 const PrintsHeader = () => (
   <nav class="glass-nav fixed top-0 left-0 right-0 z-50" style="background: rgba(253, 253, 251, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid #E8E5E0;">
+    <style>{`
+      .site-logo-prints {
+        width: 200px;
+        height: auto;
+        transition: all 0.3s ease;
+      }
+      @media (max-width: 768px) {
+        .site-logo-prints {
+          width: 150px;
+        }
+      }
+    `}</style>
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex justify-between h-20 items-center">
         <div class="flex items-center space-x-4 opacity-0">
@@ -58,7 +81,7 @@ const PrintsHeader = () => (
         </div>
         <div class="flex-1 flex justify-center">
           <a href="/">
-            <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="h-8 w-auto" />
+            <img src="/static/acromatico-logo-transparent.png?v=3" alt="Acromatico" class="site-logo-prints" />
           </a>
         </div>
         <div class="flex items-center space-x-6">
