@@ -24,6 +24,37 @@
       scroll-behavior: smooth;
     }
 
+    /* HEADER */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+    }
+    
+    .site-logo {
+      max-width: 160px;
+      height: auto;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s;
+    }
+    
+    @media (max-width: 768px) {
+      .site-header {
+        padding: 15px 20px;
+      }
+      
+      .site-logo {
+        max-width: 120px;
+      }
+    }
+
     /* VIDEO HERO */
     .video-hero {
       position: relative;
@@ -1766,6 +1797,12 @@
   </style>
 </head>
 <body>
+
+  <header class="site-header">
+    <a href="/" class="site-logo-link">
+      <img src="/static/acromatico-logo-transparent.png" alt="Acromatico Photography" class="site-logo">
+    </a>
+  </header>
 
   <!-- VIDEO HERO -->
   <div class="video-hero">
