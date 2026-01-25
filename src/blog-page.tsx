@@ -463,7 +463,7 @@ blog.get('/', async (c) => {
 // Individual blog post - redirect to static file
 blog.get('/:slug', async (c) => {
   const slug = c.req.param('slug')
-  return c.redirect(`/static/blog/${slug}.html`)
+  return c.redirect(`/static/blog_posts/${slug}.html`)
 })
 
 export default blog
