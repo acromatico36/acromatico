@@ -239,6 +239,61 @@
             color: #728012;
         }
         
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            margin-top: 10px;
+        }
+        
+        .search-results.active {
+            display: block;
+        }
+        
+        .search-result-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-result-item:hover {
+            background: #f8f8f8;
+        }
+        
+        .search-result-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 5px;
+        }
+        
+        .search-result-category {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .search-no-results {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
         .mobile-menu-nav {
             flex: 1;
         }
@@ -797,13 +852,14 @@
                 <img src="/static/acromatico-logo-black.png" alt="Acromatico Photography">
             </div>
             <div class="mobile-menu-search">
-                <input type="search" placeholder="Search our site" aria-label="Search">
+                <input type="search" id="siteSearch" placeholder="Search our site" aria-label="Search" autocomplete="off">
                 <button type="submit" aria-label="Submit search">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
                     </svg>
                 </button>
+                <div class="search-results" id="searchResults"></div>
             </div>
             <nav class="mobile-menu-nav">
                 <ul>
@@ -1356,6 +1412,74 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && drawer.classList.contains('active')) {
                 closeMenu();
+            }
+        });
+        
+        // Predictive Search
+        const siteSearch = document.getElementById('siteSearch');
+        const searchResults = document.getElementById('searchResults');
+        
+        // Sample blog posts data - in production, this would come from your blog index
+        const blogPosts = [
+            { title: 'Madison & Jordan | Cork Factory Hotel Wedding', url: '/static/madison-clone.html', category: 'Weddings' },
+            { title: 'Sarah & Mike | Rustic Barn Wedding', url: '/static/blog/rustic-barn-wedding-pennsylvania.html', category: 'Weddings' },
+            { title: 'Emma & James | Lancaster Estate', url: '/static/blog/lancaster-estate-wedding.html', category: 'Weddings' },
+            { title: 'Kate & Alex | Philadelphia Industrial Venue', url: '/static/blog/philadelphia-industrial-wedding.html', category: 'Weddings' },
+            { title: 'Jessica & Victor | Key West Wedding', url: '/static/blog/key-west-wedding.html', category: 'Weddings' },
+            { title: 'Miami Beach Engagement Session', url: '/static/blog/miami-beach-engagement.html', category: 'Engagements' },
+            { title: 'Wynwood Portrait Session', url: '/static/blog/wynwood-portrait.html', category: 'Portraits' },
+            { title: 'Family Maternity Photography', url: '/static/blog/family-maternity.html', category: 'Family' }
+        ];
+        
+        function performSearch(query) {
+            if (!query || query.length < 2) {
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            const lowerQuery = query.toLowerCase();
+            const results = blogPosts.filter(post => 
+                post.title.toLowerCase().includes(lowerQuery) ||
+                post.category.toLowerCase().includes(lowerQuery)
+            );
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = '<div class="search-no-results">No results found. Try different keywords.</div>';
+                searchResults.classList.add('active');
+                return;
+            }
+            
+            const html = results.slice(0, 5).map(post => `
+                <div class="search-result-item" onclick="window.location.href='${post.url}'">
+                    <div class="search-result-title">${post.title}</div>
+                    <div class="search-result-category">${post.category}</div>
+                </div>
+            `).join('');
+            
+            searchResults.innerHTML = html;
+            searchResults.classList.add('active');
+        }
+        
+        let searchTimeout;
+        siteSearch.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                performSearch(e.target.value);
+            }, 300); // Debounce 300ms
+        });
+        
+        // Close search results when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.mobile-menu-search')) {
+                searchResults.classList.remove('active');
+            }
+        });
+        
+        // Handle Enter key
+        siteSearch.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && searchResults.querySelector('.search-result-item')) {
+                const firstResult = searchResults.querySelector('.search-result-item');
+                firstResult.click();
             }
         });
     </script>
