@@ -520,6 +520,13 @@
             margin: 0 auto;
         }
         
+        /* Force 3 columns on desktop */
+        @media (min-width: 769px) {
+            .related-posts-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+        
         .related-post {
             border-radius: 12px;
             overflow: hidden;
