@@ -415,6 +415,7 @@
         }
         
         /* Author Bio */
+        /* Author Bio */
         .author-bio {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 50px;
@@ -423,6 +424,12 @@
             display: flex;
             align-items: center;
             gap: 40px;
+        }
+        
+        .author-headshots {
+            display: flex;
+            gap: 20px;
+            flex-shrink: 0;
         }
         
         .author-bio img {
@@ -543,6 +550,16 @@
             .author-bio {
                 flex-direction: column;
                 text-align: center;
+            }
+            
+            .author-headshots {
+                justify-content: center;
+            }
+            
+            .author-bio img {
+                width: 120px;
+                height: 120px;
+            }
                 padding: 30px 20px;
             }
             
@@ -1029,7 +1046,10 @@
         
         <!-- Author Bio -->
         <div class="author-bio">
-            <img src="/static/italo-headshot.jpg" alt="Ale & Italo Campilii - South Florida Wedding Photography Team">
+            <div class="author-headshots">
+                <img src="/static/ale-headshot.jpg" alt="Ale Campilii - Wedding Photographer & Creative Director">
+                <img src="/static/italo-headshot.jpg" alt="Italo Campilii - Wedding Photographer & CMO">
+            </div>
             <div class="author-info">
                 <h3>About Ale & Italo Campilii</h3>
                 <p>We're <strong>Ale & Italo Campilii</strong> — a husband-and-wife photography team based between South Florida and NYC. For over 20 years, we've been capturing love stories with a documentary style that's honest, warm, and totally us. We believe the best wedding photos happen when couples feel like themselves, not like they're performing for the camera.</p>
