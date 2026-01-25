@@ -182,8 +182,60 @@
         
         .mobile-menu-logo {
             max-width: 180px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             filter: none;
+        }
+        
+        .mobile-menu-logo img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .mobile-menu-search {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .mobile-menu-search input {
+            width: 100%;
+            padding: 15px 45px 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: #4a4a4a;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-search input:focus {
+            outline: none;
+            border-color: #728012;
+            box-shadow: 0 0 0 3px rgba(114, 128, 18, 0.1);
+        }
+        
+        .mobile-menu-search input::placeholder {
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+        }
+        
+        .mobile-menu-search button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu-search button:hover {
+            color: #728012;
         }
         
         .mobile-menu-nav {
@@ -741,7 +793,16 @@
     <div class="ast-mobile-popup-drawer" id="drawer">
         <div class="ast-mobile-popup-inner">
             <div class="mobile-menu-logo">
-                <img src="/static/acromatico-logo-transparent.png?v=3" alt="Acromatico Photography">
+                <img src="/static/acromatico-logo-black.png" alt="Acromatico Photography">
+            </div>
+            <div class="mobile-menu-search">
+                <input type="search" placeholder="Search our site" aria-label="Search">
+                <button type="submit" aria-label="Submit search">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
             </div>
             <nav class="mobile-menu-nav">
                 <ul>
