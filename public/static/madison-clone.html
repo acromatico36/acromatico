@@ -332,24 +332,52 @@
             display: inline-block;
             padding: 16px 40px;
             background: #ffffff;
-            color: #667eea;
+            color: #1a1a1a;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
             font-size: 16px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             margin: 0 10px;
+            border: 2px solid #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background: #f0f0f0;
         }
         
         .cta-button.secondary {
             background: transparent;
             color: #ffffff;
             border: 2px solid #ffffff;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #ffffff;
+            color: #1a1a1a;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.3);
         }
         
         /* Vendor Credits */
@@ -486,25 +514,31 @@
         
         .related-posts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
         
         .related-post {
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
         }
         
         .related-post:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
         }
         
         .related-post img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .related-post:hover img {
+            transform: scale(1.08);
         }
         
         .related-post h3 {
@@ -581,6 +615,14 @@
             .cta-button {
                 display: block;
                 margin: 10px 0;
+            }
+            
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .related-post img {
+                height: 200px;
             }
             
             .related-posts-grid {
