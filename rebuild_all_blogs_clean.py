@@ -1,42 +1,53 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+Complete blog rebuild script - removes ALL Madison content and uses correct data
+"""
+import json
+import os
+import re
+from pathlib import Path
+
+def create_clean_template():
+    """Create a clean blog template without any Madison-specific content"""
+    return '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tommy | Newborn Session</title>
+    <title>{{TITLE}}</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="View 15 photos from this beautiful session captured by Acromatico Photography in South Florida.">
-    <meta name="keywords" content="Tommy | Newborn Session, South Florida photographer, wedding photography, portrait photography, Acromatico Photography">
+    <meta name="description" content="{{DESCRIPTION}}">
+    <meta name="keywords" content="{{KEYWORDS}}">
     <meta name="author" content="Italo Campilii">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://acromatico.com/blog/tommy-newborn-session">
-    <meta property="og:title" content="Tommy | Newborn Session">
-    <meta property="og:description" content="View 15 photos from this beautiful session captured by Acromatico Photography in South Florida.">
-    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001.jpg">
+    <meta property="og:url" content="https://acromatico.com/blog/{{SLUG}}">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:image" content="{{HERO_URL}}">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://acromatico.com/blog/tommy-newborn-session">
-    <meta property="twitter:title" content="Tommy | Newborn Session">
-    <meta property="twitter:description" content="View 15 photos from this beautiful session captured by Acromatico Photography in South Florida.">
-    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001.jpg">
+    <meta property="twitter:url" content="https://acromatico.com/blog/{{SLUG}}">
+    <meta property="twitter:title" content="{{TITLE}}">
+    <meta property="twitter:description" content="{{DESCRIPTION}}">
+    <meta property="twitter:image" content="{{HERO_URL}}">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://acromatico.com/blog/tommy-newborn-session">
+    <link rel="canonical" href="https://acromatico.com/blog/{{SLUG}}">
     
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "Tommy | Newborn Session",
-      "image": "https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001.jpg",
-      "datePublished": "2026-01-27",
-      "dateModified": "2026-01-27",
+      "headline": "{{TITLE}}",
+      "image": "{{HERO_URL}}",
+      "datePublished": "{{DATE_PUBLISHED}}",
+      "dateModified": "{{DATE_MODIFIED}}",
       "author": {
         "@type": "Person",
         "name": "Italo Campilii",
@@ -51,10 +62,10 @@
           "url": "https://acromatico.com/static/acromatico-logo-transparent.png"
         }
       },
-      "description": "View 15 photos from this beautiful session captured by Acromatico Photography in South Florida.",
+      "description": "{{DESCRIPTION}}",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://acromatico.com/blog/tommy-newborn-session"
+        "@id": "https://acromatico.com/blog/{{SLUG}}"
       }
     }
     </script>
@@ -80,7 +91,7 @@
         
         .hero-section {
             min-height: 100vh;
-            background-image: url('https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001.jpg');
+            background-image: url('{{HERO_URL}}');
             background-position: center center;
             background-size: cover;
             position: relative;
@@ -238,58 +249,14 @@
     <section class="hero-section">
         <div class="hero-overlay">
             <div class="hero-content">
-                <h1>Tommy | Newborn Session</h1>
+                <h1>{{TITLE}}</h1>
             </div>
         </div>
     </section>
 
     <section class="content-section">
         <div class="gallery-grid">
-                        <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001.jpg" alt="Tommy | Newborn Session - Photo 1" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-2.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-2.jpg" alt="Tommy | Newborn Session - Photo 2" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-3.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-3.jpg" alt="Tommy | Newborn Session - Photo 3" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-4.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-4.jpg" alt="Tommy | Newborn Session - Photo 4" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-5.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-5.jpg" alt="Tommy | Newborn Session - Photo 5" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-6.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-6.jpg" alt="Tommy | Newborn Session - Photo 6" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-7.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-7.jpg" alt="Tommy | Newborn Session - Photo 7" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-8.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-8.jpg" alt="Tommy | Newborn Session - Photo 8" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-9.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-9.jpg" alt="Tommy | Newborn Session - Photo 9" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-10.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-10.jpg" alt="Tommy | Newborn Session - Photo 10" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-11.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-11.jpg" alt="Tommy | Newborn Session - Photo 11" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-12.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-12.jpg" alt="Tommy | Newborn Session - Photo 12" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-13.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-13.jpg" alt="Tommy | Newborn Session - Photo 13" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-14.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-14.jpg" alt="Tommy | Newborn Session - Photo 14" loading="lazy">
-            </a>
-            <a href="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-15.jpg" class="gallery-item glightbox">
-                <img src="https://acromatico.com/wp-content/uploads/2015/08/Newborn-Session-001-15.jpg" alt="Tommy | Newborn Session - Photo 15" loading="lazy">
-            </a>
+            {{GALLERY_IMAGES}}
         </div>
     </section>
 
@@ -305,4 +272,115 @@
         });
     </script>
 </body>
-</html>
+</html>'''
+
+def load_watermark_mappings():
+    """Load all watermark-free URL mappings"""
+    mappings = {}
+    
+    # Load from watermark_removal_results.json
+    if os.path.exists('watermark_removal_results.json'):
+        with open('watermark_removal_results.json', 'r') as f:
+            data = json.load(f)
+            # mappings is already a dict in the JSON file
+            mappings = data.get('mappings', {})
+    
+    print(f"Loaded {len(mappings)} watermark-free URL mappings")
+    return mappings
+
+def rebuild_blog_post(post_data, template, mappings, blog_dir):
+    """Rebuild a single blog post with clean data"""
+    slug = post_data['slug']
+    title = post_data['title']
+    hero_url = post_data['hero_url']
+    total_images = post_data.get('total_images', 0)
+    
+    # Use watermark-free URL if available
+    clean_hero_url = mappings.get(hero_url, hero_url)
+    
+    # Generate description
+    description = f"View {total_images} photos from this beautiful session captured by Acromatico Photography in South Florida."
+    
+    # Extract main keyword from title for SEO
+    keywords = f"{title}, South Florida photographer, wedding photography, portrait photography, Acromatico Photography"
+    
+    # Generate dates
+    date_published = "2026-01-27"
+    date_modified = "2026-01-27"
+    
+    # Build gallery HTML
+    gallery_html = []
+    base_url = hero_url.rsplit('-1.', 1)[0] if '-1.' in hero_url else hero_url.rsplit('.', 1)[0]
+    ext = hero_url.split('.')[-1]
+    
+    for i in range(1, total_images + 1):
+        if i == 1:
+            img_url = hero_url
+        else:
+            img_url = f"{base_url}-{i}.{ext}"
+        
+        # Use watermark-free version if available
+        clean_img_url = mappings.get(img_url, img_url)
+        
+        gallery_html.append(f'''            <a href="{clean_img_url}" class="gallery-item glightbox">
+                <img src="{clean_img_url}" alt="{title} - Photo {i}" loading="lazy">
+            </a>''')
+    
+    gallery_images_html = '\n'.join(gallery_html)
+    
+    # Fill template
+    html_content = template.replace('{{TITLE}}', title)
+    html_content = html_content.replace('{{SLUG}}', slug)
+    html_content = html_content.replace('{{HERO_URL}}', clean_hero_url)
+    html_content = html_content.replace('{{DESCRIPTION}}', description)
+    html_content = html_content.replace('{{KEYWORDS}}', keywords)
+    html_content = html_content.replace('{{DATE_PUBLISHED}}', date_published)
+    html_content = html_content.replace('{{DATE_MODIFIED}}', date_modified)
+    html_content = html_content.replace('{{GALLERY_IMAGES}}', gallery_images_html)
+    
+    # Write to file
+    output_path = blog_dir / f"{slug}.html"
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(html_content)
+    
+    return True
+
+def main():
+    # Load data
+    with open('remaining_to_process.json', 'r') as f:
+        posts = json.load(f)
+    
+    print(f"Found {len(posts)} blog posts to rebuild")
+    
+    # Load mappings
+    mappings = load_watermark_mappings()
+    
+    # Create clean template
+    template = create_clean_template()
+    
+    # Setup directories
+    blog_dir = Path('public/static/blog')
+    blog_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Rebuild all posts
+    success_count = 0
+    failed_count = 0
+    
+    for i, post in enumerate(posts, 1):
+        try:
+            rebuild_blog_post(post, template, mappings, blog_dir)
+            success_count += 1
+            if i % 50 == 0:
+                print(f"Progress: {i}/{len(posts)} posts rebuilt...")
+        except Exception as e:
+            print(f"ERROR rebuilding {post.get('slug', 'unknown')}: {str(e)}")
+            failed_count += 1
+    
+    print(f"\n✅ REBUILD COMPLETE:")
+    print(f"  - Successfully rebuilt: {success_count} posts")
+    print(f"  - Failed: {failed_count} posts")
+    print(f"  - Watermark-free URLs used: {len(mappings)}")
+    print(f"  - ALL Madison content removed ✅")
+
+if __name__ == '__main__':
+    main()
