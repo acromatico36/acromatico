@@ -37,3 +37,6 @@ Thumbs.db
 *.bak
 *.tar.gz
 *.zip
+
+# SmugMug API credentials
+.env.smugmug
