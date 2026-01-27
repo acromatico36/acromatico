@@ -401,7 +401,7 @@ blog.get('/', async (c) => {
                 const date = formatDate(post.date);
                 
                 const card = document.createElement('a');
-                card.href = \`/blog/\${post.slug}\`;
+                card.href = \`/blog/\${post.slug}.html\`;
                 card.className = 'card';
                 card.innerHTML = \`
                     <div class="card-img-wrapper">
@@ -464,14 +464,6 @@ blog.get('/', async (c) => {
 blog.get('/:slug', async (c) => {
   const slug = c.req.param('slug')
   return c.redirect(`/static/blog/${slug}.html`)
-})
-
-// Blog post detail page - serve static HTML files
-blog.get('/:slug', async (c) => {
-  const slug = c.req.param('slug')
-  
-  // Redirect to /blog/{slug}.html (files are at root of dist/)
-  return c.redirect(`/blog/${slug}.html`)
 })
 
 export default blog
