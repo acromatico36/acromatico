@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photography - Book Your Story | Acromatico</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Photography - Book Your Story | Acromatico</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+<style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --primary: #000;
@@ -687,464 +688,481 @@
       .modal-body { padding: 32px; }
     }
   </style>
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Acromatico Photography Blog Post",
+  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "image": [
+    "https://acromatico.com/static/acromatico-logo-dark.png"
+  ],
+  "datePublished": "2024-01-15",
+  "dateModified": "2026-01-28",
+  "author": {
+    "@type": "Person",
+    "name": "Italo Campilii",
+    "url": "https://acromatico.com/our-story",
+    "image": "https://acromatico.com/wp-content/uploads/2018/09/italo-campilii-acromatico-photography.jpg",
+    "jobTitle": "Professional Photographer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Acromatico Photography"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Acromatico Photography",
+    "url": "https://acromatico.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://acromatico.com/static/acromatico-logo-dark.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://acromatico.com/static/blog/photography-apple-ux-backup.html"
+  }
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://acromatico.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://acromatico.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Acromatico Photography Blog Post",
+      "item": "https://acromatico.com/static/blog/photography-apple-ux-backup.html"
+    }
+  ]
+}
+</script></head>
 <body>
-
-  <!-- VIDEO HERO -->
-  <div class="video-hero">
-    <iframe 
-      src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&mute=1&loop=1&playlist=9DiS2Z_H15U&controls=0&showinfo=0&modestbranding=1&vq=hd1080&rel=0" 
-      allow="autoplay; encrypted-media" 
-      allowfullscreen>
-    </iframe>
-    <div class="video-overlay">
-      <h1>Your Story, Unfiltered.<br>Let's Create Something Real</h1>
-      <a href="#packages" class="hero-cta">Explore Packages</a>
-    </div>
-  </div>
-
-  <!-- CAROUSEL SECTION -->
-  <div class="carousel-wrapper">
-    <h2 class="carousel-title">Every Moment, Captured Authentically.</h2>
-    
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
-          <div class="slide-overlay"><h2>TIMELESS MOMENTS</h2></div>
-        </div>
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/pp-image.jpg')">
-          <div class="slide-overlay"><h2>BRAND IMPACT</h2></div>
-        </div>
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
-          <div class="slide-overlay"><h2>THE PROPOSAL</h2></div>
-        </div>
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
-          <div class="slide-overlay"><h2>EXPECTING JOY</h2></div>
-        </div>
-        <div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
-          <div class="slide-overlay"><h2>FAMILY LOVE</h2></div>
-        </div>
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-  </div>
-
-  <!-- PACKAGES SECTION -->
-  <div class="packages-section" id="packages">
-    <div class="packages-container">
-      <div class="section-header">
-        <h2>Choose Your Collection</h2>
-        <p>Over two decades of capturing authentic stories. Each collection designed to fit your celebration.</p>
-      </div>
-      
-      <div class="packages-grid">
-        <!-- WEDDING ONE -->
-        <div class="package-card" onclick="selectPackage('Wedding One', 3000, 'wedding', this)">
-          <div class="package-badge">SELECTED</div>
-          <div class="package-name">One</div>
-          <div class="package-subtitle">Wedding Collection</div>
-          <div class="package-price">$3,000</div>
-          <ul class="package-features">
-            <li>6 hours wedding coverage</li>
-            <li>1 photographer</li>
-            <li>Curated images (color & B&W)</li>
-            <li>Online gallery</li>
-            <li>$250 album credit</li>
-            <li>Engraved USB keepsake</li>
-          </ul>
-          <button class="select-btn">Select Collection</button>
-        </div>
-
-        <!-- WEDDING TWO -->
-        <div class="package-card" onclick="selectPackage('Wedding Two', 4000, 'wedding', this)">
-          <div class="package-badge">SELECTED</div>
-          <div class="package-name">Two</div>
-          <div class="package-subtitle">Wedding Collection</div>
-          <div class="package-price">$4,000</div>
-          <ul class="package-features">
-            <li>8 hours wedding coverage</li>
-            <li>1 photographer</li>
-            <li>Curated images (color & B&W)</li>
-            <li>Online gallery</li>
-            <li>$400 album credit</li>
-            <li>Engraved USB keepsake</li>
-          </ul>
-          <button class="select-btn">Select Collection</button>
-        </div>
-
-        <!-- WEDDING THREE -->
-        <div class="package-card" onclick="selectPackage('Wedding Three', 5000, 'wedding', this)">
-          <div class="package-badge">SELECTED</div>
-          <div class="package-name">Three</div>
-          <div class="package-subtitle">Wedding Collection</div>
-          <div class="package-price">$5,000</div>
-          <ul class="package-features">
-            <li>10 hours wedding coverage</li>
-            <li>1 photographer</li>
-            <li>Curated images (color & B&W)</li>
-            <li>Online gallery</li>
-            <li>$650 album credit</li>
-            <li>Engraved USB keepsake</li>
-          </ul>
-          <button class="select-btn">Select Collection</button>
-        </div>
-
-        <!-- WEDDING TRAVEL -->
-        <div class="package-card" style="grid-column: span 1;" onclick="selectPackage('Wedding Travel Collection', 10000, 'wedding', this)">
-          <div class="package-badge">SELECTED</div>
-          <div class="package-name">Travel</div>
-          <div class="package-subtitle">Premium Destination Wedding</div>
-          <div class="package-price">$10,000</div>
-          <ul class="package-features">
-            <li>10 hours of coverage</li>
-            <li>2 photographers</li>
-            <li>Unlimited images</li>
-            <li>Custom editing & enhancements</li>
-            <li>Online gallery</li>
-            <li>$1,000 Album or Travel Credit</li>
-            <li>Engraved USB disk</li>
-          </ul>
-          <button class="select-btn">Select Collection</button>
-        </div>
-
-        <!-- PORTRAIT 1HR -->
-        <div class="package-card" onclick="selectPackage('Portrait Collection 1hr', 595, 'portrait', this)">
-          <div class="package-badge">SELECTED</div>
-          <div class="package-name">Portrait 1hr</div>
-          <div class="package-subtitle">Portrait Session</div>
-          <div class="package-price">$595</div>
-          <ul class="package-features">
-            <li>1 hour coverage</li>
-            <li>All images curated</li>
-            <li>In-house edits</li>
-            <li>Online gallery</li>
-            <li>Images in high-res</li>
-            <li>Printing options</li>
-          </ul>
-          <button class="select-btn">Select Collection</button>
-        </div>
-
-        <!-- PORTRAIT 2HR -->
-        <div class="package-card" onclick="selectPackage('Portrait Collection 2hrs', 695, 'portrait', this)">
-          <div class="package-badge">SELECTED</div>
-          <div class="package-name">Portrait 2hrs</div>
-          <div class="package-subtitle">Extended Portrait Session</div>
-          <div class="package-price">$695</div>
-          <ul class="package-features">
-            <li>2 hours coverage</li>
-            <li>All images curated</li>
-            <li>In-house edits</li>
-            <li>Online gallery</li>
-            <li>Images in high-res</li>
-            <li>Printing options</li>
-          </ul>
-          <button class="select-btn">Select Collection</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BOOKING MODAL -->
-  <div class="modal-overlay" id="bookingModal">
-    <div class="booking-modal">
-      <div class="modal-header">
-        <h2 class="modal-title">Book Your Session</h2>
-        <button class="close-btn" onclick="closeModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="step-indicator">
-          <div class="step-dot active" data-step="1"></div>
-          <div class="step-dot" data-step="2"></div>
-          <div class="step-dot" data-step="3"></div>
-          <div class="step-dot" data-step="4"></div>
-          <div class="step-dot" data-step="5"></div>
-        </div>
-
-        <form id="bookingForm">
-          <!-- STEP 1: NAMES -->
-          <div class="form-step active" data-step="1">
-            <h2 class="form-question">Let's start with your names</h2>
-            <div class="form-group">
-              <label class="form-label">Your Name</label>
-              <input type="text" class="form-input" name="name1" required>
-            </div>
-            <div class="form-group" id="partnerNameGroup">
-              <label class="form-label">Partner's Name</label>
-              <input type="text" class="form-input" name="name2">
-            </div>
-            <div class="form-nav">
-              <button type="button" class="btn btn-secondary" disabled>Back</button>
-              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
-            </div>
-          </div>
-
-          <!-- STEP 2: CONTACT -->
-          <div class="form-step" data-step="2">
-            <h2 class="form-question">How can we reach you?</h2>
-            <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input type="email" class="form-input" name="email" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Phone Number</label>
-              <input type="tel" class="form-input" name="phone" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Mailing Address</label>
-              <input type="text" class="form-input" name="address" required>
-            </div>
-            <div class="form-nav">
-              <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
-            </div>
-          </div>
-
-          <!-- STEP 3: EVENT DETAILS -->
-          <div class="form-step" data-step="3">
-            <h2 class="form-question" id="eventDetailsTitle">Tell us about your big day</h2>
-            <div class="form-group">
-              <label class="form-label" id="eventDateLabel">Wedding Date</label>
-              <input type="date" class="form-input" name="eventDate" required>
-            </div>
-            <div class="form-group" id="ceremonyVenueGroup">
-              <label class="form-label">Ceremony Venue</label>
-              <input type="text" class="form-input" name="ceremonyVenue">
-            </div>
-            <div class="form-group" id="receptionVenueGroup">
-              <label class="form-label">Reception Venue</label>
-              <input type="text" class="form-input" name="receptionVenue">
-            </div>
-            <div class="form-nav">
-              <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
-            </div>
-          </div>
-
-          <!-- STEP 4: REVIEW & CONTRACT -->
-          <div class="form-step" data-step="4">
-            <h2 class="form-question">Review your booking</h2>
-            
-            <div class="payment-summary">
-              <div class="payment-row">
-                <span>Collection:</span>
-                <span id="summaryPackage">-</span>
-              </div>
-              <div class="payment-row">
-                <span>Total Amount:</span>
-                <span id="summaryTotal">$0</span>
-              </div>
-              <div class="payment-row total">
-                <span>Payment Plan:</span>
-                <span>3 Installments</span>
-              </div>
-              <div class="payment-row">
-                <span>1st Payment (Due Today):</span>
-                <span id="payment1">$0</span>
-              </div>
-              <div class="payment-row">
-                <span>2nd Payment:</span>
-                <span id="payment2">$0</span>
-              </div>
-              <div class="payment-row">
-                <span>3rd Payment (14 days before):</span>
-                <span id="payment3">$0</span>
-              </div>
-            </div>
-
-            <div class="contract-preview" id="contractText">
-              <h3>PHOTOGRAPHY AGREEMENT</h3>
-              <p>This Contract is entered into and effective as of [DATE], between [CLIENT] and Acromatico Photography.</p>
-              
-              <h3>SERVICES PROVIDED</h3>
-              <p>On [EVENT_DATE], Acromatico will provide the following photography services: [PACKAGE]</p>
-              
-              <h3>PAYMENT TERMS</h3>
-              <p>Total Amount: $[TOTAL]</p>
-              <p>Payment Schedule:</p>
-              <ul>
-                <li>1st Payment: $[PAY1] - Due today</li>
-                <li>2nd Payment: $[PAY2] - Due [MID_DATE]</li>
-                <li>3rd Payment: $[PAY3] - Due 14 days before event</li>
-              </ul>
-              
-              <h3>CANCELLATION POLICY</h3>
-              <p>All deposit fees are non-refundable. A minimum of 30 days notice required for cancellation.</p>
-              
-              <h3>COPYRIGHT</h3>
-              <p>Copyright of all photographs retained by Acromatico. Upon final payment, limited copyright transferred to Client for personal use.</p>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Digital Signature (Type your full name)</label>
-              <input type="text" class="form-input" name="signature" placeholder="Type your full name" required>
-            </div>
-
-            <div class="form-group">
-              <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
-                <input type="checkbox" name="agreeTerms" required style="width: 20px; height: 20px;">
-                <span style="font-size: 15px;">I have read and agree to all terms of this agreement</span>
-              </label>
-            </div>
-
-            <div class="form-nav">
-              <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue to Payment</button>
-            </div>
-          </div>
-
-          <!-- STEP 5: PAYMENT -->
-          <div class="form-step" data-step="5">
-            <h2 class="form-question">Complete your booking</h2>
-            
-            <div class="payment-summary">
-              <div class="payment-row total">
-                <span>Due Today:</span>
-                <span id="dueToday">$0</span>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Payment Method</label>
-              <select class="form-input" name="paymentMethod">
-                <option value="stripe">Credit/Debit Card (Stripe)</option>
-                <option value="zelle">Zelle</option>
-                <option value="venmo">Venmo</option>
-                <option value="bank">Bank Transfer</option>
-              </select>
-            </div>
-
-            <div style="background: var(--bg-gray); border-radius: 18px; padding: 32px; margin: 24px 0; text-align: center;">
-              <p style="font-size: 15px; color: var(--secondary); margin-bottom: 12px;">
-                <strong>Secure Payment Processing</strong>
-              </p>
-              <p style="font-size: 13px; color: var(--secondary);">
+<!-- VIDEO HERO -->
+<div class="video-hero">
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=9DiS2Z_H15U&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;vq=hd1080&amp;rel=0">
+</iframe>
+<div class="video-overlay">
+<h1>Your Story, Unfiltered.<br/>Let's Create Something Real</h1>
+<a class="hero-cta" href="#packages">Explore Packages</a>
+</div>
+</div>
+<!-- CAROUSEL SECTION -->
+<div class="carousel-wrapper">
+<h2 class="carousel-title">Every Moment, Captured Authentically.</h2>
+<div class="swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
+<div class="slide-overlay"><h2>TIMELESS MOMENTS</h2></div>
+</div>
+<div class="swiper-slide" style="background-image: url('/static/portfolio/pp-image.jpg')">
+<div class="slide-overlay"><h2>BRAND IMPACT</h2></div>
+</div>
+<div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
+<div class="slide-overlay"><h2>THE PROPOSAL</h2></div>
+</div>
+<div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
+<div class="slide-overlay"><h2>EXPECTING JOY</h2></div>
+</div>
+<div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
+<div class="slide-overlay"><h2>FAMILY LOVE</h2></div>
+</div>
+</div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+</div>
+</div>
+<!-- PACKAGES SECTION -->
+<div class="packages-section" id="packages">
+<div class="packages-container">
+<div class="section-header">
+<h2>Choose Your Collection</h2>
+<p>Over two decades of capturing authentic stories. Each collection designed to fit your celebration.</p>
+</div>
+<div class="packages-grid">
+<!-- WEDDING ONE -->
+<div class="package-card" onclick="selectPackage('Wedding One', 3000, 'wedding', this)">
+<div class="package-badge">SELECTED</div>
+<div class="package-name">One</div>
+<div class="package-subtitle">Wedding Collection</div>
+<div class="package-price">$3,000</div>
+<ul class="package-features">
+<li>6 hours wedding coverage</li>
+<li>1 photographer</li>
+<li>Curated images (color &amp; B&amp;W)</li>
+<li>Online gallery</li>
+<li>$250 album credit</li>
+<li>Engraved USB keepsake</li>
+</ul>
+<button class="select-btn">Select Collection</button>
+</div>
+<!-- WEDDING TWO -->
+<div class="package-card" onclick="selectPackage('Wedding Two', 4000, 'wedding', this)">
+<div class="package-badge">SELECTED</div>
+<div class="package-name">Two</div>
+<div class="package-subtitle">Wedding Collection</div>
+<div class="package-price">$4,000</div>
+<ul class="package-features">
+<li>8 hours wedding coverage</li>
+<li>1 photographer</li>
+<li>Curated images (color &amp; B&amp;W)</li>
+<li>Online gallery</li>
+<li>$400 album credit</li>
+<li>Engraved USB keepsake</li>
+</ul>
+<button class="select-btn">Select Collection</button>
+</div>
+<!-- WEDDING THREE -->
+<div class="package-card" onclick="selectPackage('Wedding Three', 5000, 'wedding', this)">
+<div class="package-badge">SELECTED</div>
+<div class="package-name">Three</div>
+<div class="package-subtitle">Wedding Collection</div>
+<div class="package-price">$5,000</div>
+<ul class="package-features">
+<li>10 hours wedding coverage</li>
+<li>1 photographer</li>
+<li>Curated images (color &amp; B&amp;W)</li>
+<li>Online gallery</li>
+<li>$650 album credit</li>
+<li>Engraved USB keepsake</li>
+</ul>
+<button class="select-btn">Select Collection</button>
+</div>
+<!-- WEDDING TRAVEL -->
+<div class="package-card" onclick="selectPackage('Wedding Travel Collection', 10000, 'wedding', this)" style="grid-column: span 1;">
+<div class="package-badge">SELECTED</div>
+<div class="package-name">Travel</div>
+<div class="package-subtitle">Premium Destination Wedding</div>
+<div class="package-price">$10,000</div>
+<ul class="package-features">
+<li>10 hours of coverage</li>
+<li>2 photographers</li>
+<li>Unlimited images</li>
+<li>Custom editing &amp; enhancements</li>
+<li>Online gallery</li>
+<li>$1,000 Album or Travel Credit</li>
+<li>Engraved USB disk</li>
+</ul>
+<button class="select-btn">Select Collection</button>
+</div>
+<!-- PORTRAIT 1HR -->
+<div class="package-card" onclick="selectPackage('Portrait Collection 1hr', 595, 'portrait', this)">
+<div class="package-badge">SELECTED</div>
+<div class="package-name">Portrait 1hr</div>
+<div class="package-subtitle">Portrait Session</div>
+<div class="package-price">$595</div>
+<ul class="package-features">
+<li>1 hour coverage</li>
+<li>All images curated</li>
+<li>In-house edits</li>
+<li>Online gallery</li>
+<li>Images in high-res</li>
+<li>Printing options</li>
+</ul>
+<button class="select-btn">Select Collection</button>
+</div>
+<!-- PORTRAIT 2HR -->
+<div class="package-card" onclick="selectPackage('Portrait Collection 2hrs', 695, 'portrait', this)">
+<div class="package-badge">SELECTED</div>
+<div class="package-name">Portrait 2hrs</div>
+<div class="package-subtitle">Extended Portrait Session</div>
+<div class="package-price">$695</div>
+<ul class="package-features">
+<li>2 hours coverage</li>
+<li>All images curated</li>
+<li>In-house edits</li>
+<li>Online gallery</li>
+<li>Images in high-res</li>
+<li>Printing options</li>
+</ul>
+<button class="select-btn">Select Collection</button>
+</div>
+</div>
+</div>
+</div>
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+<div class="booking-modal">
+<div class="modal-header">
+<h2 class="modal-title">Book Your Session</h2>
+<button class="close-btn" onclick="closeModal()">✕</button>
+</div>
+<div class="modal-body">
+<div class="step-indicator">
+<div class="step-dot active" data-step="1"></div>
+<div class="step-dot" data-step="2"></div>
+<div class="step-dot" data-step="3"></div>
+<div class="step-dot" data-step="4"></div>
+<div class="step-dot" data-step="5"></div>
+</div>
+<form id="bookingForm">
+<!-- STEP 1: NAMES -->
+<div class="form-step active" data-step="1">
+<h2 class="form-question">Let's start with your names</h2>
+<div class="form-group">
+<label class="form-label">Your Name</label>
+<input class="form-input" name="name1" required="" type="text"/>
+</div>
+<div class="form-group" id="partnerNameGroup">
+<label class="form-label">Partner's Name</label>
+<input class="form-input" name="name2" type="text"/>
+</div>
+<div class="form-nav">
+<button class="btn btn-secondary" disabled="" type="button">Back</button>
+<button class="btn btn-primary" onclick="nextStep()" type="button">Continue</button>
+</div>
+</div>
+<!-- STEP 2: CONTACT -->
+<div class="form-step" data-step="2">
+<h2 class="form-question">How can we reach you?</h2>
+<div class="form-group">
+<label class="form-label">Email Address</label>
+<input class="form-input" name="email" required="" type="email"/>
+</div>
+<div class="form-group">
+<label class="form-label">Phone Number</label>
+<input class="form-input" name="phone" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label class="form-label">Mailing Address</label>
+<input class="form-input" name="address" required="" type="text"/>
+</div>
+<div class="form-nav">
+<button class="btn btn-secondary" onclick="prevStep()" type="button">Back</button>
+<button class="btn btn-primary" onclick="nextStep()" type="button">Continue</button>
+</div>
+</div>
+<!-- STEP 3: EVENT DETAILS -->
+<div class="form-step" data-step="3">
+<h2 class="form-question" id="eventDetailsTitle">Tell us about your big day</h2>
+<div class="form-group">
+<label class="form-label" id="eventDateLabel">Wedding Date</label>
+<input class="form-input" name="eventDate" required="" type="date"/>
+</div>
+<div class="form-group" id="ceremonyVenueGroup">
+<label class="form-label">Ceremony Venue</label>
+<input class="form-input" name="ceremonyVenue" type="text"/>
+</div>
+<div class="form-group" id="receptionVenueGroup">
+<label class="form-label">Reception Venue</label>
+<input class="form-input" name="receptionVenue" type="text"/>
+</div>
+<div class="form-nav">
+<button class="btn btn-secondary" onclick="prevStep()" type="button">Back</button>
+<button class="btn btn-primary" onclick="nextStep()" type="button">Continue</button>
+</div>
+</div>
+<!-- STEP 4: REVIEW & CONTRACT -->
+<div class="form-step" data-step="4">
+<h2 class="form-question">Review your booking</h2>
+<div class="payment-summary">
+<div class="payment-row">
+<span>Collection:</span>
+<span id="summaryPackage">-</span>
+</div>
+<div class="payment-row">
+<span>Total Amount:</span>
+<span id="summaryTotal">$0</span>
+</div>
+<div class="payment-row total">
+<span>Payment Plan:</span>
+<span>3 Installments</span>
+</div>
+<div class="payment-row">
+<span>1st Payment (Due Today):</span>
+<span id="payment1">$0</span>
+</div>
+<div class="payment-row">
+<span>2nd Payment:</span>
+<span id="payment2">$0</span>
+</div>
+<div class="payment-row">
+<span>3rd Payment (14 days before):</span>
+<span id="payment3">$0</span>
+</div>
+</div>
+<div class="contract-preview" id="contractText">
+<h3>PHOTOGRAPHY AGREEMENT</h3>
+<p>This Contract is entered into and effective as of [DATE], between [CLIENT] and Acromatico Photography.</p>
+<h3>SERVICES PROVIDED</h3>
+<p>On [EVENT_DATE], Acromatico will provide the following photography services: [PACKAGE]</p>
+<h3>PAYMENT TERMS</h3>
+<p>Total Amount: $[TOTAL]</p>
+<p>Payment Schedule:</p>
+<ul>
+<li>1st Payment: $[PAY1] - Due today</li>
+<li>2nd Payment: $[PAY2] - Due [MID_DATE]</li>
+<li>3rd Payment: $[PAY3] - Due 14 days before event</li>
+</ul>
+<h3>CANCELLATION POLICY</h3>
+<p>All deposit fees are non-refundable. A minimum of 30 days notice required for cancellation.</p>
+<h3>COPYRIGHT</h3>
+<p>Copyright of all photographs retained by Acromatico. Upon final payment, limited copyright transferred to Client for personal use.</p>
+</div>
+<div class="form-group">
+<label class="form-label">Digital Signature (Type your full name)</label>
+<input class="form-input" name="signature" placeholder="Type your full name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+<input name="agreeTerms" required="" style="width: 20px; height: 20px;" type="checkbox"/>
+<span style="font-size: 15px;">I have read and agree to all terms of this agreement</span>
+</label>
+</div>
+<div class="form-nav">
+<button class="btn btn-secondary" onclick="prevStep()" type="button">Back</button>
+<button class="btn btn-primary" onclick="nextStep()" type="button">Continue to Payment</button>
+</div>
+</div>
+<!-- STEP 5: PAYMENT -->
+<div class="form-step" data-step="5">
+<h2 class="form-question">Complete your booking</h2>
+<div class="payment-summary">
+<div class="payment-row total">
+<span>Due Today:</span>
+<span id="dueToday">$0</span>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Payment Method</label>
+<select class="form-input" name="paymentMethod">
+<option value="stripe">Credit/Debit Card (Stripe)</option>
+<option value="zelle">Zelle</option>
+<option value="venmo">Venmo</option>
+<option value="bank">Bank Transfer</option>
+</select>
+</div>
+<div style="background: var(--bg-gray); border-radius: 18px; padding: 32px; margin: 24px 0; text-align: center;">
+<p style="font-size: 15px; color: var(--secondary); margin-bottom: 12px;">
+<strong>Secure Payment Processing</strong>
+</p>
+<p style="font-size: 13px; color: var(--secondary);">
                 You will receive a secure payment link via email to complete your transaction.
               </p>
-            </div>
-
-            <div class="form-nav">
-              <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-              <button type="submit" class="btn btn-primary">Confirm Booking</button>
-            </div>
-          </div>
-
-          <!-- SUCCESS STATE -->
-          <div class="form-step" data-step="success">
-            <div class="success-state">
-              <div class="success-icon">✓</div>
-              <h2 class="success-title">Booking Confirmed!</h2>
-              <p class="success-message">
+</div>
+<div class="form-nav">
+<button class="btn btn-secondary" onclick="prevStep()" type="button">Back</button>
+<button class="btn btn-primary" type="submit">Confirm Booking</button>
+</div>
+</div>
+<!-- SUCCESS STATE -->
+<div class="form-step" data-step="success">
+<div class="success-state">
+<div class="success-icon">✓</div>
+<h2 class="success-title">Booking Confirmed!</h2>
+<p class="success-message">
                 Thank you for choosing Acromatico Photography. We've sent a confirmation email with your contract and payment details. 
                 We can't wait to capture your story!
               </p>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- AUTHENTICITY SECTION -->
-  <div class="authenticity-section">
-    <h2>Where Authenticity Meets Art.</h2>
-    <p>Hi, we're Acromatico Photography—a team of storytellers capturing raw, unfiltered, candid moments that feel like you. Since 2005, we've been telling stories for weddings, brands, and unforgettable events with a photojournalistic approach.</p>
-    <a href="/about" class="cta-button">Get to know us</a>
-    
-    <div class="featured-title">Featured In</div>
-    <div class="logos-marquee">
-      <div class="logos-track">
-        <img src="/static/portfolio/brides-logo.png" alt="Brides">
-        <img src="/static/portfolio/fearless-logo.png" alt="Fearless">
-        <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
-        <img src="/static/portfolio/perfect-wedding-guide.png" alt="Perfect Wedding Guide">
-        <img src="/static/portfolio/voyage-logo.png" alt="Voyage">
-        <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
-        <img src="/static/portfolio/ppa-logo.png" alt="PPA">
-        <!-- DUPLICATE -->
-        <img src="/static/portfolio/brides-logo.png" alt="Brides">
-        <img src="/static/portfolio/fearless-logo.png" alt="Fearless">
-        <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
-        <img src="/static/portfolio/perfect-wedding-guide.png" alt="Perfect Wedding Guide">
-        <img src="/static/portfolio/voyage-logo.png" alt="Voyage">
-        <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
-        <img src="/static/portfolio/ppa-logo.png" alt="PPA">
-      </div>
-    </div>
-  </div>
-
-  <!-- FAQ SECTION -->
-  <div class="faq-section">
-    <div class="faq-container">
-      <h2 class="faq-title">Frequently Asked Questions</h2>
-      
-      <div class="faq-item" onclick="toggleFAQ(this)">
-        <button class="faq-question">
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- AUTHENTICITY SECTION -->
+<div class="authenticity-section">
+<h2>Where Authenticity Meets Art.</h2>
+<p>Hi, we're Acromatico Photography—a team of storytellers capturing raw, unfiltered, candid moments that feel like you. Since 2005, we've been telling stories for weddings, brands, and unforgettable events with a photojournalistic approach.</p>
+<a class="cta-button" href="/about">Get to know us</a>
+<div class="featured-title">Featured In</div>
+<div class="logos-marquee">
+<div class="logos-track">
+<img alt="Brides" src="/static/portfolio/brides-logo.png"/>
+<img alt="Fearless" src="/static/portfolio/fearless-logo.png"/>
+<img alt="The Knot" src="/static/portfolio/theknot-logo.png"/>
+<img alt="Perfect Wedding Guide" src="/static/portfolio/perfect-wedding-guide.png"/>
+<img alt="Voyage" src="/static/portfolio/voyage-logo.png"/>
+<img alt="WeddingWire" src="/static/portfolio/weddingwire-logo.png"/>
+<img alt="PPA" src="/static/portfolio/ppa-logo.png"/>
+<!-- DUPLICATE -->
+<img alt="Brides" src="/static/portfolio/brides-logo.png"/>
+<img alt="Fearless" src="/static/portfolio/fearless-logo.png"/>
+<img alt="The Knot" src="/static/portfolio/theknot-logo.png"/>
+<img alt="Perfect Wedding Guide" src="/static/portfolio/perfect-wedding-guide.png"/>
+<img alt="Voyage" src="/static/portfolio/voyage-logo.png"/>
+<img alt="WeddingWire" src="/static/portfolio/weddingwire-logo.png"/>
+<img alt="PPA" src="/static/portfolio/ppa-logo.png"/>
+</div>
+</div>
+</div>
+<!-- FAQ SECTION -->
+<div class="faq-section">
+<div class="faq-container">
+<h2 class="faq-title">Frequently Asked Questions</h2>
+<div class="faq-item" onclick="toggleFAQ(this)">
+<button class="faq-question">
           What makes you unique? 
           <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>We're not just here to take photos—we're here to tell your story the way it was meant to be told. No forced moments. No copy-paste edits. Just real, meaningful connections captured with intention.</p>
-          <p><strong>We keep it real.</strong> Every couple, every brand, every story is different—so why should your photos look the same as everyone else's?</p>
-          <p><strong>We keep it honest.</strong> No paid referrals, no outsourcing, no gimmicks—just a team that genuinely cares about making every moment unforgettable.</p>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFAQ(this)">
-        <button class="faq-question">
+</button>
+<div class="faq-answer">
+<p>We're not just here to take photos—we're here to tell your story the way it was meant to be told. No forced moments. No copy-paste edits. Just real, meaningful connections captured with intention.</p>
+<p><strong>We keep it real.</strong> Every couple, every brand, every story is different—so why should your photos look the same as everyone else's?</p>
+<p><strong>We keep it honest.</strong> No paid referrals, no outsourcing, no gimmicks—just a team that genuinely cares about making every moment unforgettable.</p>
+</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(this)">
+<button class="faq-question">
           How do I book a photoshoot? 
           <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Super simple. Select your package above, fill out the booking form, and you'll receive a contract and payment link via email. We'll schedule a consultation 2-3 weeks before your event to finalize all the details.</p>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFAQ(this)">
-        <button class="faq-question">
+</button>
+<div class="faq-answer">
+<p>Super simple. Select your package above, fill out the booking form, and you'll receive a contract and payment link via email. We'll schedule a consultation 2-3 weeks before your event to finalize all the details.</p>
+</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(this)">
+<button class="faq-question">
           Do you travel for photoshoots? 
           <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Absolutely! We're always down to capture stories wherever they unfold. Travel costs are covered by our Travel Collection package, or can be added to any package.</p>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFAQ(this)">
-        <button class="faq-question">
+</button>
+<div class="faq-answer">
+<p>Absolutely! We're always down to capture stories wherever they unfold. Travel costs are covered by our Travel Collection package, or can be added to any package.</p>
+</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(this)">
+<button class="faq-question">
           How long until I get my photos? 
           <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>For portraits and weddings, expect your fully edited photos within 4–12 weeks. You'll receive a sneak peek within 48 hours of your event.</p>
-        </div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFAQ(this)">
-        <button class="faq-question">
+</button>
+<div class="faq-answer">
+<p>For portraits and weddings, expect your fully edited photos within 4–12 weeks. You'll receive a sneak peek within 48 hours of your event.</p>
+</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(this)">
+<button class="faq-question">
           What's your cancellation policy? 
           <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>All deposits are non-refundable. We require 30 days notice for cancellations. Less than 30 days notice results in full payment due. If we cancel, you receive a full refund including deposit.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- IMAGE GALLERY -->
-  <div class="image-gallery">
-    <img src="/static/portfolio/jeanine-joe.jpg" alt="Jeanine & Joe">
-    <img src="/static/portfolio/switzerland.jpg" alt="Switzerland">
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer-logo">
-    <img src="/static/portfolio/acromatico-logo.png" alt="Acromatico">
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
+</button>
+<div class="faq-answer">
+<p>All deposits are non-refundable. We require 30 days notice for cancellations. Less than 30 days notice results in full payment due. If we cancel, you receive a full refund including deposit.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- IMAGE GALLERY -->
+<div class="image-gallery">
+<img alt="Jeanine &amp; Joe" src="/static/portfolio/jeanine-joe.jpg"/>
+<img alt="Switzerland" src="/static/portfolio/switzerland.jpg"/>
+</div>
+<!-- FOOTER -->
+<div class="footer-logo">
+<img alt="Acromatico" src="/static/portfolio/acromatico-logo.png"/>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
     const swiper = new Swiper('.swiper', {
       slidesPerView: 2,
       spaceBetween: 20,
@@ -1317,6 +1335,5 @@
       });
     });
   </script>
-
 </body>
 </html>

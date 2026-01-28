@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
 body { margin: 0; padding: 20px; background: #f0f0f0; }
 .info { background: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
@@ -50,27 +51,85 @@ body { margin: 0; padding: 20px; background: #f0f0f0; }
     }
 }
 </style>
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Acromatico Photography Blog Post",
+  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "image": [
+    "https://acromatico.com/static/acromatico-logo-dark.png"
+  ],
+  "datePublished": "2024-01-15",
+  "dateModified": "2026-01-28",
+  "author": {
+    "@type": "Person",
+    "name": "Italo Campilii",
+    "url": "https://acromatico.com/our-story",
+    "image": "https://acromatico.com/wp-content/uploads/2018/09/italo-campilii-acromatico-photography.jpg",
+    "jobTitle": "Professional Photographer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Acromatico Photography"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Acromatico Photography",
+    "url": "https://acromatico.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://acromatico.com/static/acromatico-logo-dark.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://acromatico.com/static/blog/mobile-test-simple.html"
+  }
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://acromatico.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://acromatico.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Acromatico Photography Blog Post",
+      "item": "https://acromatico.com/static/blog/mobile-test-simple.html"
+    }
+  ]
+}
+</script></head>
 <body>
 <div class="info">
-<strong>Screen:</strong> <span id="w"></span>px<br>
+<strong>Screen:</strong> <span id="w"></span>px<br/>
 <strong>Expected:</strong> <span id="expected"></span>
 </div>
-
 <div class="test">
 <h2>Test 1: Lake Como Image</h2>
 <div class="gallery-item">
-<img src="https://acromatico.com/wp-content/uploads/2023/10/Lake-Como-Family-Session-O-2.jpeg">
+<img src="https://acromatico.com/wp-content/uploads/2023/10/Lake-Como-Family-Session-O-2.jpeg"/>
 </div>
 </div>
-
 <div class="test">
 <h2>Test 2: Placeholder</h2>
 <div class="gallery-item">
-<img src="https://via.placeholder.com/800x1200/ff0000/ffffff?text=Portrait">
+<img src="https://via.placeholder.com/800x1200/ff0000/ffffff?text=Portrait"/>
 </div>
 </div>
-
 <script>
 const w = window.innerWidth;
 document.getElementById('w').textContent = w;

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Debug Test - Gallery Heights</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CSS Debug Test - Gallery Heights</title>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -154,40 +155,98 @@
             }
         }
     </style>
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Acromatico Photography Blog Post",
+  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "image": [
+    "https://acromatico.com/static/acromatico-logo-dark.png"
+  ],
+  "datePublished": "2024-01-15",
+  "dateModified": "2026-01-28",
+  "author": {
+    "@type": "Person",
+    "name": "Italo Campilii",
+    "url": "https://acromatico.com/our-story",
+    "image": "https://acromatico.com/wp-content/uploads/2018/09/italo-campilii-acromatico-photography.jpg",
+    "jobTitle": "Professional Photographer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Acromatico Photography"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Acromatico Photography",
+    "url": "https://acromatico.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://acromatico.com/static/acromatico-logo-dark.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://acromatico.com/static/blog/css-debug-test.html"
+  }
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://acromatico.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://acromatico.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Acromatico Photography Blog Post",
+      "item": "https://acromatico.com/static/blog/css-debug-test.html"
+    }
+  ]
+}
+</script></head>
 <body>
-    <div class="info">
-        <h1>📱 CSS Gallery Debug Test</h1>
-        <p><strong>What you should see:</strong></p>
-        <ul>
-            <li>📱 <strong>Mobile (&lt;768px)</strong>: GREEN border, "MOBILE: 200px" label, 2 columns, 200px tall images</li>
-            <li>📱 <strong>Tablet (769-1024px)</strong>: BLUE border, "TABLET: 220px" label, 3 columns, 220px tall images</li>
-            <li>💻 <strong>Desktop (&gt;1024px)</strong>: RED border, "DESKTOP: 400px" label, auto-fit grid, 400px tall images</li>
-        </ul>
-    </div>
-    
-    <div class="device-info">
-        <div>Screen Width: <span id="width"></span>px</div>
-        <div>Active Breakpoint: <span id="breakpoint"></span></div>
-        <div>Expected Height: <span id="expected"></span></div>
-    </div>
-    
-    <div class="gallery-section">
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1200" alt="Test Image 1">
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=1200" alt="Test Image 2">
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&h=1200" alt="Test Image 3">
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=1200" alt="Test Image 4">
-        </div>
-    </div>
-    
-    <script>
+<div class="info">
+<h1>📱 CSS Gallery Debug Test</h1>
+<p><strong>What you should see:</strong></p>
+<ul>
+<li>📱 <strong>Mobile (&lt;768px)</strong>: GREEN border, "MOBILE: 200px" label, 2 columns, 200px tall images</li>
+<li>📱 <strong>Tablet (769-1024px)</strong>: BLUE border, "TABLET: 220px" label, 3 columns, 220px tall images</li>
+<li>💻 <strong>Desktop (&gt;1024px)</strong>: RED border, "DESKTOP: 400px" label, auto-fit grid, 400px tall images</li>
+</ul>
+</div>
+<div class="device-info">
+<div>Screen Width: <span id="width"></span>px</div>
+<div>Active Breakpoint: <span id="breakpoint"></span></div>
+<div>Expected Height: <span id="expected"></span></div>
+</div>
+<div class="gallery-section">
+<div class="gallery-item">
+<img alt="Test Image 1" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&amp;h=1200"/>
+</div>
+<div class="gallery-item">
+<img alt="Test Image 2" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&amp;h=1200"/>
+</div>
+<div class="gallery-item">
+<img alt="Test Image 3" src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&amp;h=1200"/>
+</div>
+<div class="gallery-item">
+<img alt="Test Image 4" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&amp;h=1200"/>
+</div>
+</div>
+<script>
         function updateInfo() {
             const width = window.innerWidth;
             document.getElementById('width').textContent = width;
