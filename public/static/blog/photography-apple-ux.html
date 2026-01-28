@@ -1858,41 +1858,32 @@
 }
 </script></head>
 <body>
-<header class="site-header">
-<a class="site-logo-link" href="/">
-<img alt="Acromatico Photography" class="site-logo" src="/static/acromatico-logo-transparent.png?v=3"/>
-</a>
-</header>
-<!-- VIDEO HERO -->
-<div class="video-hero">
-<iframe allow="autoplay; encrypted-media" allowfullscreen="" src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=9DiS2Z_H15U&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;vq=hd1080&amp;rel=0">
-</iframe>
-<div class="video-overlay">
-<h1>Your Story, Unfiltered.<br/>Let's Create Something Real</h1>
-<a class="hero-cta" href="#packages">Explore Packages</a>
-</div>
-</div>
-<!-- CAROUSEL SECTION -->
-<div class="carousel-wrapper">
-<h2 class="carousel-title">Every Moment, Captured Authentically.</h2>
-<div class="swiper">
-<div class="swiper-wrapper">
-<div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg')">
-<div class="slide-overlay"><h2>TIMELESS MOMENTS</h2></div>
-</div>
-<div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Tessa-Kurien-W-HIGH-RES-601.jpg')">
-<div class="slide-overlay"><h2>AUTHENTIC LOVE</h2></div>
-</div>
-<div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-047.jpg')">
-<div class="slide-overlay"><h2>GOLDEN HOUR</h2></div>
-</div>
-<div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg')">
-<div class="slide-overlay"><h2>PURE EMOTION</h2></div>
-</div>
-<div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-223.jpg')">
-<div class="slide-overlay"><h2>UNFILTERED BEAUTY</h2></div>
-</div>
-</div>
+<!-- DYNAMIC HEADER & MENU - Loaded from /api/header API -->
+<div id="header-container"></div>
+
+<script>
+// Load header dynamically from server
+(function() {
+  fetch('/api/header')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('header-container').innerHTML = html;
+      
+      // Execute any scripts in the loaded HTML
+      const scripts = document.getElementById('header-container').querySelectorAll('script');
+      scripts.forEach(script => {
+        const newScript = document.createElement('script');
+        if (script.src) {
+          newScript.src = script.src;
+        } else {
+          newScript.textContent = script.textContent;
+        }
+        document.body.appendChild(newScript);
+      });
+    })
+    .catch(error => console.error('Header load error:', error));
+})();
+</script>
 <div class="swiper-button-prev"></div>
 <div class="swiper-button-next"></div>
 </div>

@@ -5,6 +5,7 @@ import { renderer } from './renderer'
 import Stripe from 'stripe'
 import blog from './blog-page'
 import { footerHTML } from './components/footer'
+import { headerHTML } from './components/header'
 
 // Shared Header Component
 const Header = () => (
@@ -198,6 +199,11 @@ app.use('/api/*', cors())
 
 // Mount blog routes
 app.route('/blog', blog)
+
+// Header API - Returns HTML for dynamic header/menu loading
+app.get('/api/header', (c) => {
+  return c.html(headerHTML)
+})
 
 // Footer API - Returns HTML for dynamic footer loading
 app.get('/api/footer', (c) => {
