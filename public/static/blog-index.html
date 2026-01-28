@@ -90,10 +90,10 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
         }
         
         :root {
-            --primary: #000;
-            --accent: #667eea;
-            --bg: #FAFAFA;
-            --text: #1D1D1F;
+            --primary: #4794A6;
+            --accent: #5aa5b8;
+            --bg: #ffffff;
+            --text: #3a3a3a;
         }
         
         body {
@@ -131,32 +131,73 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
             z-index: 2;
         }
         
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+
         
 
+        
+
+
+        
+
+
+
+        .blog-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+        
+        .blog-card-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 10;
+            background: #4794A6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .blog-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #3a3a3a;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .blog-card-excerpt {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+            flex: 1;
+        }
+        
+        .blog-card-date {
+            font-size: 0.85rem;
+            color: #4794A6;
+            font-weight: 500;
+            margin-top: auto;
+        }
+
+
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem) !important;
+            font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
             font-weight: 700 !important;
             letter-spacing: -0.02em !important;
-            margin-bottom: 1rem !important;
+            margin-bottom: 0.75rem !important;
             position: relative !important;
             z-index: 10 !important;
         }
         
         .hero p {
-            font-size: 1.3rem !important;
+            font-size: 1.1rem !important;
             opacity: 1 !important;
             max-width: 600px !important;
             margin: 0 auto !important;
@@ -164,22 +205,22 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
             z-index: 10 !important;
         }
 
-        /* Filter Bar */
+        /* Filter Bar - Minimal dropdown */
         .filter-bar {
-            padding: 2rem 5%;
+            padding: 2rem 5% 1rem;
             text-align: center;
-            background: white;
-            position: sticky;
-            top: 60px;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: transparent;
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
         }
         
-        .filter-btn {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            margin: 0.5rem;
-            border: 2px solid #ddd;
+        .filter-dropdown {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #e0e0e0;
             border-radius: 50px;
             background: white;
             color: var(--text);
@@ -187,41 +228,45 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
+            font-family: inherit;
         }
         
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-            transform: translateY(-2px);
+        .filter-dropdown:hover,
+        .filter-dropdown:focus {
+            border-color: #4794A6;
+            outline: none;
         }
         
-        /* Search Bar */
+        .filter-btn {
+            display: none;
+        }
+        
+        /* Search Bar - Minimal */
         .search-container {
-            max-width: 600px;
-            margin: 2rem auto 0;
+            max-width: 400px;
+            margin: 0;
             position: relative;
+            flex: 1;
         }
         
         .search-input {
             width: 100%;
-            padding: 1rem 1.5rem;
-            border: 2px solid #ddd;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #e0e0e0;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: border-color 0.3s;
         }
         
         .search-input:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: #4794A6;
         }
         
-        /* Masonry Grid */
+        /* Blog Grid - Hoffer-inspired equal-height */
         .masonry-container {
-            padding: 3rem 5%;
-            max-width: 1400px;
+            padding: 0 5%;
+            max-width: 1240px;
             margin: 0 auto;
         }
         
@@ -229,7 +274,6 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
-            animation: fadeIn 0.8s ease;
         }
         
         .blog-card {
@@ -398,6 +442,41 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
             height: auto !important;
             transition: all 0.3s !important;
         }
+
+        
+        /* Responsive - Mobile adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 250px;
+                padding: 4rem 5% 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem !important;
+            }
+            
+            .hero p {
+                font-size: 1rem !important;
+            }
+            
+            .masonry-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .filter-bar {
+                flex-direction: column;
+                padding: 1.5rem 5%;
+            }
+            
+            .search-container {
+                max-width: 100%;
+            }
+            
+            .blog-card-image {
+                height: 250px;
+            }
+        }
     </style>
     <link rel="preload" href="/static/acromatico-logo-transparent.png" as="image">
 </head>
@@ -447,14 +526,16 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
         <p>501+ Real weddings, engagements, and moments that matter</p>
     </section>
     
-    <!-- Filter Bar -->
+    <!-- Filter Bar - Minimal dropdown style -->
     <section class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Stories</button>
-        <button class="filter-btn" data-filter="wedding">Weddings</button>
-        <button class="filter-btn" data-filter="engagement">Engagements</button>
-        <button class="filter-btn" data-filter="family">Family</button>
-        <button class="filter-btn" data-filter="portrait">Portraits</button>
-        <button class="filter-btn" data-filter="proposal">Proposals</button>
+        <select class="filter-dropdown" id="categoryFilter">
+            <option value="all">All Stories (501+)</option>
+            <option value="wedding">Weddings</option>
+            <option value="engagement">Engagements</option>
+            <option value="family">Family</option>
+            <option value="portrait">Portraits</option>
+            <option value="proposal">Proposals</option>
+        </select>
         
         <div class="search-container">
             <input 
@@ -560,8 +641,8 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
                 
                 card.innerHTML = `
                     <img src="${post.image}" alt="${post.title}" class="blog-card-image" loading="lazy">
+                    <span class="blog-card-category">${post.category}</span>
                     <div class="blog-card-content">
-                        <span class="blog-card-category">${post.category}</span>
                         <h3 class="blog-card-title">${post.title}</h3>
                         <p class="blog-card-excerpt">${post.excerpt}</p>
                         <p class="blog-card-date">${post.date}</p>
@@ -572,25 +653,22 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
             });
         }
         
-        // Filter functionality
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Update active state
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
+        // Filter functionality - Dropdown style
+        const categoryFilter = document.getElementById('categoryFilter');
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', function() {
+                const filter = this.value;
                 const cards = document.querySelectorAll('.blog-card');
                 
                 cards.forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
+                        card.style.display = 'flex';
                     } else {
                         card.style.display = 'none';
                     }
                 });
             });
-        });
+        }
         
         // Search functionality
         document.getElementById('searchInput').addEventListener('input', function(e) {
