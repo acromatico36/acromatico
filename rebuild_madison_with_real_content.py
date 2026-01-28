@@ -99,6 +99,7 @@ def rebuild_post(template_html, post):
     html = re.sub(r'<title>[^<]+</title>',
                  f'<title>{title} | Acromatico Photography</title>', html)
     
+    # Replace ALL Open Graph and Twitter Card meta tags
     html = re.sub(r'<meta property="og:title" content="[^"]*"',
                  f'<meta property="og:title" content="{title}"', html)
     
@@ -107,6 +108,36 @@ def rebuild_post(template_html, post):
     
     html = re.sub(r'<meta property="og:image" content="[^"]*"',
                  f'<meta property="og:image" content="{hero_image}"', html)
+    
+    # Replace ALL meta descriptions
+    desc_text = f"Professional {category.lower()} photography in {location}. {title}."
+    html = re.sub(r'<meta name="description" content="[^"]*"',
+                 f'<meta name="description" content="{desc_text}"', html)
+    
+    html = re.sub(r'<meta name="keywords" content="[^"]*"',
+                 f'<meta name="keywords" content="{location} photographer, {category.lower()} photography, Acromatico Photography"', html)
+    
+    html = re.sub(r'<meta property="og:description" content="[^"]*"',
+                 f'<meta property="og:description" content="{desc_text}"', html)
+    
+    html = re.sub(r'<meta property="twitter:title" content="[^"]*"',
+                 f'<meta property="twitter:title" content="{title}"', html)
+    
+    html = re.sub(r'<meta property="twitter:description" content="[^"]*"',
+                 f'<meta property="twitter:description" content="{desc_text}"', html)
+    
+    html = re.sub(r'<meta property="twitter:image" content="[^"]*"',
+                 f'<meta property="twitter:image" content="{hero_image}"', html)
+    
+    # Replace JSON-LD structured data
+    html = re.sub(r'"headline":\s*"[^"]*"',
+                 f'"headline": "{title}"', html)
+    
+    html = re.sub(r'"image":\s*"[^"]*"',
+                 f'"image": "{hero_image}"', html)
+    
+    html = re.sub(r'"description":\s*"[^"]*(?:Stunning|View|See)[^"]*"',
+                 f'"description": "{desc_text}"', html)
     
     # Replace hero image
     html = re.sub(r'background-image: url\([\'"]https://hofferphotography\.com/[^)]+\)',
@@ -124,7 +155,7 @@ def rebuild_post(template_html, post):
     html = re.sub(r'<p class="post-meta">[^<]+</p>',
                  f'<p class="post-meta">{formatted_date} • {location}</p>', html)
     
-    # Build complete content container
+    # Build complete content container with proper closing
     content_container = f'''
     <div class="content-container">
         <h1 class="post-title">{title}</h1>
@@ -148,14 +179,23 @@ def rebuild_post(template_html, post):
     content_container += '''
         </div>
     </div>
-'''
     
-    # Replace entire content-container section
-    html = re.sub(r'<div class="content-container">.*?</div>\s*</div>',
+    <!-- POST FOOTER -->
+    <div class="post-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Acromatico Photography. All rights reserved.</p>
+        </div>
+    </div>
+    
+</body>
+</html>'''
+    
+    # Replace from content-container to end of file
+    # This removes ALL Madison template content (FAQ, author-bio, related-posts)
+    html = re.sub(r'<div class="content-container">.*$',
                  content_container,
                  html,
-                 flags=re.DOTALL,
-                 count=1)
+                 flags=re.DOTALL)
     
 
     
