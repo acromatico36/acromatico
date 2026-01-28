@@ -33,39 +33,7 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        
-        nav a:hover {
-            opacity: 0.6;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-        
-        /* Hero */
+/* Hero */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -107,6 +75,25 @@
             margin: 0 auto;
         }
         
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem) !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.02em !important;
+            margin-bottom: 1rem !important;
+            position: relative !important;
+            z-index: 10 !important;
+        }
+        
+        .hero p {
+            font-size: 1.3rem !important;
+            opacity: 1 !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            z-index: 10 !important;
+        }
+
         /* Filter Bar */
         .filter-bar {
             padding: 2rem 5%;
