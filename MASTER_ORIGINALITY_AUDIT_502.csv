@@ -1,0 +1,502 @@
+post_num,title,slug,status,no_madison,has_content
+1,Rustic Barn Wedding at Rolling Meadow Farm | Sade + Luke,rustic-barn-wedding-at-rolling-meadow-farm-sade-luke,ORIGINAL,✓,✓
+2,Hudson Valley Barn Engagement | Kate + Steve,hudson-valley-barn-engagement-kate-steve,ORIGINAL,✓,✓
+3,Surprise Proposal Sarasota | A Romantic Moment to Remember,surprise-proposal-sarasota,ORIGINAL,✓,✓
+4,Cold Spring NY Wedding | Zeynep + Dominic’s Dream Celebration in the Hudson Valley&#8221;,cold-spring-ny-wedding-zeynep-dominic,ORIGINAL,✓,✓
+5,"Piano Teacher Photo Session | Mistico Restaurant, Miami FL",piano-teacher-photo-session-mistico-restaurant-miami-fl,ORIGINAL,✓,✓
+6,Family Portrait Photos at Villa del Balbianello | Lake Como,family-portrait-photos-at-villa-del-balbianello-lake-como,ORIGINAL,✓,✓
+7,Family Photo Shoot at Villa del Balbianello | Lake Como Italy,family-photo-shoot-at-villa-del-balbianello-lake-como-italy,ORIGINAL,✓,✓
+8,Davie FL Wedding Photography | Alicia + Claudio,davie-fl-wedding-photography,ORIGINAL,✓,✓
+9,20th Anniversary Photo Session | Mares Family,20th-anniversary-photo-session,ORIGINAL,✓,✓
+10,Newborn Session | Baby Noah,newborn-session,ORIGINAL,✓,✓
+11,Tree Tops Park Family Photo Shoot,tree-tops-park-family-photo-shoot,ORIGINAL,✓,✓
+12,Ritz Carlton Wedding | Coconut Grove | Pakistani &amp; Syrian | Kawthr + Hamad,ritz-carlton-wedding-coconut-grove-pakistani-syrian,ORIGINAL,✓,✓
+13,50th Anniversary Photography,50th-anniversary-photography,ORIGINAL,✓,✓
+14,Vizcaya Portrait Session,vizcaya-portrait-session,ORIGINAL,✓,✓
+15,Family Beach Sunrise Photos | Cardiello Family,family-beach-sunrise-photos-cardiello-family,ORIGINAL,✓,✓
+16,Robbins Preserve Maternity Session | Carol + Diego,robbins-preserve-maternity-session-carol-diego,ORIGINAL,✓,✓
+17,Tree Tops Park Family Session | Giacaman Family,tree-tops-park-family-session-giacaman-family,ORIGINAL,✓,✓
+18,Sheraton Suites Fort Lauderdale Plantation Wedding | Jessica + Kiran,sheraton-suites-fort-lauderdale-plantation-wedding-jessica-kiran,ORIGINAL,✓,✓
+19,"Whitney Farms Golf Course Wedding &#8211; Monroe, CT | Jennifer + Gregory",whitney-farms-golf-course-wedding-monroe-ct-jennifer-gregory,ORIGINAL,✓,✓
+20,"Destination Wedding &#8211; Destin, FL | Dawn + Terry",destination-wedding-destin-fl-dawn-terry,ORIGINAL,✓,✓
+21,Deer Creek Country Club Wedding | Sabrina + Andersson,deer-creek-country-club-wedding-sabrina-andersson,ORIGINAL,✓,✓
+22,Doral Park Country Club | Heidy + David,doral-park-country-club-heidy-david,ORIGINAL,✓,✓
+23,Atticus Roche | Miami Newborn Session,atticus-roche-miami-newborn-session,ORIGINAL,✓,✓
+24,South Florida Engagement Session | Heidy + David,south-florida-engagement-session-heidy-david,ORIGINAL,✓,✓
+25,Weston Baby Shower | Atticus,weston-baby-shower-atticus,ORIGINAL,✓,✓
+26,Tree Tops Park Family Session | Grugal Family,tree-tops-park-family-session-grugal-family,ORIGINAL,✓,✓
+27,Coral Gables Entrance Park,coral-gables-entrance-park,ORIGINAL,✓,✓
+28,Greenpoint Loft Wedding &#8211; Brooklyn | Nessa + Torry,greenpoint-loft-wedding-brooklyn-nessa-torry,ORIGINAL,✓,✓
+29,Newborn Photography | Emilia,newborn-photography-emilia,ORIGINAL,✓,✓
+30,Lightner Museum Wedding | Jane + Dez,lightner-museum-wedding-jane-dez,ORIGINAL,✓,✓
+31,Lifestyle Newborn Session | Jaelyn,lifestyle-newborn-session-jaelyn,ORIGINAL,✓,✓
+32,"Glen Island Park Maternity, NY | Paula",glen-island-park-maternity-ny-paula,ORIGINAL,✓,✓
+33,Miami Studio Headshots | Kata + Carlos,miami-studio-headshots-kata-carlos,ORIGINAL,✓,✓
+34,Miami Family Session | Von Kretschmann Family,miami-family-session-von-kretschmann-family,ORIGINAL,✓,✓
+35,Awosting Falls Engagement | Nessa + Torry,awosting-falls-engagement-nessa-torry,ORIGINAL,✓,✓
+36,Pullman Miami Airport Hotel Wedding | Oni + Noel,pullman-miami-airport-hotel-wedding-oni-noel,ORIGINAL,✓,✓
+37,"Boho Senior Portrait, Bal Harbour | Jocelyn",boho-senior-portrait-bal-harbour-jocelyn,ORIGINAL,✓,✓
+38,Crystal Ballroom Wedding | Alissa + Imran,crystal-ballroom-wedding-alissa-imran,ORIGINAL,✓,✓
+39,Wynwood Portrait | Alexa,wynwood-portrait-alexa,ORIGINAL,✓,✓
+40,Robbins Preserve Family Session | Seedman Family,robbins-preserve-family-session-seedman-family,ORIGINAL,✓,✓
+41,Newborn Photography | Celine,newborn-photography-celine,ORIGINAL,✓,✓
+42,Hugh Taylor Birch Park  Family Session | Visbal Family,hugh-taylor-birch-park-family-session-visbal-family,ORIGINAL,✓,✓
+43,Fort Lauderdale Indian Wedding | Alissa + Imran,fort-lauderdale-indian-wedding-alissa-imran,ORIGINAL,✓,✓
+44,The Cruz Building Engagement | Oni + Noel,the-cruz-building-engagement-oni-noel,ORIGINAL,✓,✓
+45,Dog Family Portrait | Doozer + Buckley,dog-family-portrait-doozer-buckley,ORIGINAL,✓,✓
+46,Robbins Preserve Family Session | Campilii Family,robbins-preserve-family-session-campilii-family,ORIGINAL,✓,✓
+47,Bal Harbour Anniversary Photoshoot | Ashley + Alex,bal-harbour-anniversary-photoshoot-ashley-alex,ORIGINAL,✓,✓
+48,Matheson Hammock Park Family Portrait | Cardiello Family,matheson-hammock-park-family-portrait-cardiello-family,ORIGINAL,✓,✓
+49,Tree Tops Park Maternity | Josey + Freddie,tree-tops-park-maternity-josey-freddie,ORIGINAL,✓,✓
+50,Fern Forest Nature Center Wedding | Geriliz + Paul,fern-forest-nature-center-wedding-geriliz-paul,ORIGINAL,✓,✓
+51,"VIP Country Club Indian Wedding, NY &#8211; Tessa + Kurien",vip-country-club-indian-wedding-ny-tessa-kurien,ORIGINAL,✓,✓
+52,Bill Baggs State Park Family Session |The Rivera Family,bill-baggs-state-park-family-session-the-rivera-family,ORIGINAL,✓,✓
+53,Firefighter Family Session | The Albadalejo Family,firefighter-family-session-the-albadalejo-family,ORIGINAL,✓,✓
+54,Connecticut Micro Wedding | Tammy + Tay,connecticut-micro-wedding-tammy-tay,ORIGINAL,✓,✓
+55,"Wilton, CT Group Portrait | Personal Branding Photoshoot",wilton-ct-group-portrait-personal-branding-photoshoot,ORIGINAL,✓,✓
+56,"Terrace On The Park Indian Wedding, NY &#8211; Tintu + Nemo",terrace-on-the-park-indian-wedding-ny-tintu-nemo,ORIGINAL,✓,✓
+57,Baby Portrait Miami | Olivia,baby-portrait-miami-olivia,ORIGINAL,✓,✓
+58,"Cold Spring, NY &#8211; Engagement | Tammy + Tay",cold-spring-ny-engagement-tammy-tay,ORIGINAL,✓,✓
+59,Robbins Park Maternity | Giacaman Family,robbins-park-maternity-giacaman-family,ORIGINAL,✓,✓
+60,The Ritz-Carlton Bal Harbour Engagement | Jessica + Kiran,the-ritz-carlton-bal-harbour-engagement-jessica-kiran,ORIGINAL,✓,✓
+61,Garden Wedding | Lisay + Alex,garden-wedding-lisay-alex,ORIGINAL,✓,✓
+62,Tree Tops Park | Family Session,tree-tops-park-family-session,ORIGINAL,✓,✓
+63,Tree Tops Park Family Session | Miguez Family,tree-tops-park-family-session-miguez-family,ORIGINAL,✓,✓
+64,Central Park Indian Engagement | Tintu + Nemo,central-park-indian-engagement-tintu-nemo,ORIGINAL,✓,✓
+65,South Pointe Park Portrait Session | Heimy + Harold,south-pointe-park-portrait-session-heimy-harold,ORIGINAL,✓,✓
+66,Personal Brand Photoshoot | Jeilen,personal-brand-photoshoot-jeilen,ORIGINAL,✓,✓
+67,Secret Gardens Miami Engagement Session,secret-gardens-miami,ORIGINAL,✓,✓
+68,Stamford Museum &#038; Nature Center Micro Wedding | Yadi + Jordan,stamford-museum-nature-center-micro-wedding-yadi-jordan,ORIGINAL,✓,✓
+69,East Miami Wedding | Michelle + Felipe,east-miami-wedding-michelle-felipe,ORIGINAL,✓,✓
+70,Vizcaya Engagement Session | Lisay + Alex,vizcaya-engagement-session-lisay-alex,ORIGINAL,✓,✓
+71,"Cold Spring, NY &#8211; Engagement | Yadi + Jordan",cold-spring-ny-engagement-yadi-jordan,ORIGINAL,✓,✓
+72,Personal Brand Photoshoot | Alicia From Legally Techie,personal-brand-photoshoot-alicia-from-legally-techie,ORIGINAL,✓,✓
+73,"Pawling, NY &#8211; Snow Portrait | Tifah",pawling-ny-snow-portrait-tifah,ORIGINAL,✓,✓
+74,Coral Gables Country Club Wedding | Chiara + Rene,coral-gables-country-club-wedding-chiara-rene,ORIGINAL,✓,✓
+75,Florida Golf Course Wedding | Ashley + Alex,florida-golf-course-wedding-ashley-alex,ORIGINAL,✓,✓
+76,Miami Marriott Biscayne Bay Wedding | Natalya + Peter,miami-marriott-biscayne-bay-wedding-natalya-peter,ORIGINAL,✓,✓
+77,Bal Harbour Maternity Session | Jessica + Danny,bal-harbour-maternity-session-jessica-danny,ORIGINAL,✓,✓
+78,Deerfield Beach Family Session |Visbal Family,deerfield-beach-family-session-visbal-family,ORIGINAL,✓,✓
+79,"Arlington, MA &#8211; Micro Wedding | Elle + Hector",arlington-ma-micro-wedding-elle-hector,ORIGINAL,✓,✓
+80,Tree Tops Park Wedding | Laura +Antonio,tree-tops-park-wedding-laura-antonio,ORIGINAL,✓,✓
+81,"Beacon, NY &#8211; Engagement | Elle + Hector",beacon-ny-engagement-elle-hector,ORIGINAL,✓,✓
+82,"Shoreham, Long Island, NY &#8211; Indian Wedding | Christine + Shawn",shoreham-long-island-ny-indian-wedding-christine-shawn,ORIGINAL,✓,✓
+83,Rusty Pelican Wedding | Ashley + Mike,rusty-pelican-wedding-ashley-mike,ORIGINAL,✓,✓
+84,"Gather Greene &#8211; Coxsackie, NY, Anniversary | Tica + Justin",gather-greene-coxsackie-ny-anniversary-tica-justin,ORIGINAL,✓,✓
+85,"New Milford, CT &#8211; Fall Wedding | Si + Marcos",new-milford-ct-fall-wedding-si-marcos,ORIGINAL,✓,✓
+86,Lincoln Road Miami Engagement Session | Natalya + Peter,lincoln-road-miami-engagement-session-natalya-peter,ORIGINAL,✓,✓
+87,Robbins Lodge Family Session | Rodriguez Family,robbins-lodge-family-session-tejuca-family,ORIGINAL,✓,✓
+88,Newborn Photography| Luca,newborn-photography-luca,ORIGINAL,✓,✓
+89,"Blue Hill Farm Engagement, New York | Paula + Roy",blue-hill-farm-engagement-new-york-paula-roy,ORIGINAL,✓,✓
+90,Fort Myers Wedding | Angelica + Jeasiel,fort-myers-wedding-angelica-jeasiel,ORIGINAL,✓,✓
+91,Shula&#8217;s Hotel Wedding | Lorena + Manny,shulas-hotel-wedding-lorena-manny,ORIGINAL,✓,✓
+92,"Waterfall Engagement, Connecticut | Si + Marcos",waterfall-engagement-connecticut-si-marcos,ORIGINAL,✓,✓
+93,"Sunflower Maze Proposal, Connecticut | Si + Marcos",sunflower-maze-proposal-connecticut-si-marcos,ORIGINAL,✓,✓
+94,Baby Photo Session Miami |Isaac,baby-photo-session-miami-isaac,ORIGINAL,✓,✓
+95,New York Indian Wedding | Geeta + Vir,new-york-indian-wedding-geeta-vir,ORIGINAL,✓,✓
+96,Miami Beach Maternity Session | Cardiello Family,miami-beach-maternity-session-cardiello-family,ORIGINAL,✓,✓
+97,Miami Proposal | Chiara + Rene,miami-proposal-chiara-rene,ORIGINAL,✓,✓
+98,Baby Photo Session | Olivia Roze,baby-photo-session-olivia-roze,ORIGINAL,✓,✓
+99,Brooklyn New York Engagement | Geeta + Vir,brooklyn-engagement-new-york-geeta-vir,ORIGINAL,✓,✓
+100,Country Club Prado Engagement Session | Angelica + Jeasiel,country-club-prado-engagement-session-angelica-jeasiel,ORIGINAL,✓,✓
+101,Warwick New York Wedding | Sofia + Benjamin,warwick-new-york-wedding-sofia-benjamin,ORIGINAL,✓,✓
+102,Dumbo Brooklyn Engagement | Christine + Shawn,dumbo-brooklyn-engagement-christine-shawn,ORIGINAL,✓,✓
+103,Virginia Family Session | The Garcia&#8217;s,virginia-family-session-the-garcias,ORIGINAL,✓,✓
+104,Boho Wedding Miami | Vane + Sebas,boho-wedding-miami,ORIGINAL,✓,✓
+105,Prado Entrance Coral Gables | Laura + Jose,prado-entrance-coral-gables-laura-jose,ORIGINAL,✓,✓
+106,New York Portrait | Yadi,new-york-portrait-yadi,ORIGINAL,✓,✓
+107,Prado Entrance Coral Gables Portrait Session | Nat + Gus + Brownie,prado-entrance-coral-gables-portrait-session-nat-gus-brownie,ORIGINAL,✓,✓
+108,Newborn Photography Broward | Olivia,newborn-photography-broward-olivia,ORIGINAL,✓,✓
+109,Newborn Session Memorial Hospital | Olivia,newborn-session-memorial-hospital-olivia,ORIGINAL,✓,✓
+110,Tree Tops Park Engagement Session | Sofia + Benjamin,tree-tops-park-engagement-session-sofia-benjamin,ORIGINAL,✓,✓
+111,Pembroke Falls Baby Shower | Katrina + Billy,pembroke-falls-baby-shower-katrina-billy,ORIGINAL,✓,✓
+112,Tree Tops Park Family Session | Blanco Family,tree-tops-park-family-session-blanco-family,ORIGINAL,✓,✓
+113,Tree Tops Park Family Session | Visbal Family,tree-tops-park-family-session-visbal-family,ORIGINAL,✓,✓
+114,Tree Tops Park Maternity Session | Katrina + Billy,tree-tops-park-maternity-session-katrina-billy,ORIGINAL,✓,✓
+115,Reception Palace Ballrooms Wedding | Nikki +Peter,reception-palace-ballrooms-wedding-nikki-peter,ORIGINAL,✓,✓
+116,Weston Hills Country Club Wedding | Deidre + Earl,weston-hills-country-club-wedding-deidre-earl,ORIGINAL,✓,✓
+117,"Warwick, New York Wedding | Jemma + Luke",warwick-new-york-wedding-jemma-luke,ORIGINAL,✓,✓
+118,Maryland Wedding | Kim + Toby,maryland-wedding-kim-toby,ORIGINAL,✓,✓
+119,Fort Lauderdale Family Session | Govot Family,fort-lauderdale-family-session-govot-family,ORIGINAL,✓,✓
+120,New York Wedding | Kaleigh + Ramon,new-york-wedding-kaleigh-ramon,ORIGINAL,✓,✓
+121,FIU Photo Portraits | Seedman Family,fiu-photo-portraits-seedman-family,ORIGINAL,✓,✓
+122,Newborn Photographer Miami | Jillian,newborn-photographer-miami-jillian,ORIGINAL,✓,✓
+123,Boston Wedding | Catherine + Junior,boston-wedding-catherine-junior,ORIGINAL,✓,✓
+124,Miramar Florida Wedding | Miosotis + Neil,miramar-florida-wedding-miosotis-neil,ORIGINAL,✓,✓
+125,Family Portrait Photography | Cardiello Family,family-portrait-photography-cardiello-family,ORIGINAL,✓,✓
+126,Tideline Ocean Resort Wedding | Jessika + Marcus,tideline-ocean-resort-wedding-jessika-marcus,ORIGINAL,✓,✓
+127,Villagio Resorts Texas Wedding | Karina + Jeramy,villagio-resorts-texas-wedding-karina-jeramy,ORIGINAL,✓,✓
+128,Matheson Hammock Park Maternity Session | Laura + Manuel,matheson-hammock-park-maternity-session-laura-manuel,ORIGINAL,✓,✓
+129,HILTON FORT LAUDERDALE BEACH RESORT WEDDING | VERONICA + JAMES,hilton-fort-lauderdale-beach-resort-wedding,ORIGINAL,✓,✓
+130,Weston Florida Wedding | Keila + Jonny,weston-florida-wedding,ORIGINAL,✓,✓
+131,New York City Engagement | Kathy + Vince,new-york-city-engagement-kathy-vince,ORIGINAL,✓,✓
+132,Key Largo Wedding,key-largo-wedding,ORIGINAL,✓,✓
+133,New York Engagement | Jemma + Luke,new-york-engagement-jemma-luke,ORIGINAL,✓,✓
+134,Deerfield Beach Newborn Photography,deerfield-beach-newborn-photography,ORIGINAL,✓,✓
+135,The Addison Wedding,the-addison-wedding,ORIGINAL,✓,✓
+136,The Rusty Pelican Wedding,the-rusty-pelican-wedding,ORIGINAL,✓,✓
+137,The Palms Hotel Miami Beach Wedding,the-palms-hotel-miami-beach-wedding,ORIGINAL,✓,✓
+138,Fort De Soto St. Petersburg Family Session,fort-desoto-st-peterburg-family-session,ORIGINAL,✓,✓
+139,Boca Raton Wedding | Olga + Thomas,boca-raton-wedding-olga-thomas,ORIGINAL,✓,✓
+140,Heron Bay Plaza Del Lago Wedding | Michelle + Michael,heron-bay-plaza-del-lago-wedding-michelle-michael,ORIGINAL,✓,✓
+141,Dania Beach Family Portrait | Visbal Family,dania-beach-family-portrait-visbal-family,ORIGINAL,✓,✓
+142,Vizcaya Engagement Session | Ann + David,vizcaya-engagement-session-ann-david,ORIGINAL,✓,✓
+143,Deer Creek Country Club Wedding | Emily + Mike,deer-creek-country-club-wedding-emily-mike,ORIGINAL,✓,✓
+144,Connecticut Wedding | Makenna + Ethan,connecticut-wedding-makenna-ethan,ORIGINAL,✓,✓
+145,SaltWater Brewery Engagement Session | Stephanie + Rudy,saltwater-brewery-engagement-session-stephanie-rudy,ORIGINAL,✓,✓
+146,Tree Tops Park Family Session | Marra + Cardiello Family,tree-tops-park-family-session-marra-cardiello-family,ORIGINAL,✓,✓
+147,Matheson Hammock Park Family Session | Felicia + Steven,matheson-hammock-park-family-session-felicia-steven,ORIGINAL,✓,✓
+148,Vizcaya Engagement Session | Edith + Carlos,vizcaya-engagement-session-edith-carlos,ORIGINAL,✓,✓
+149,Arnold Arboretum Boston Engagement | Catherine + Junior,arnold-arboretum-boston-engagement-catherine-junior,ORIGINAL,✓,✓
+150,Anglins Fishing Pier Engagement Session,anglins-fishing-pier-engagement-session,ORIGINAL,✓,✓
+151,New York Wedding | Michelle + Jose,new-york-wedding-michelle-jose,ORIGINAL,✓,✓
+152,Matheson Hammock Park Portrait Session | Abigail,matheson-hammock-park-portrait-session-abigail,ORIGINAL,✓,✓
+153,Young At Art Museum Wedding | Mary + PJ,young-at-art-museum-wedding-mary-pj,ORIGINAL,✓,✓
+154,The Historic Maxwell Room Wedding | Monica + Cristian,the-historic-maxwell-room-wedding-monica-cristian,ORIGINAL,✓,✓
+155,Benvenuto Wedding | Lauren + Angelo,benvenuto-wedding-lauren-angelo,ORIGINAL,✓,✓
+156,Newborn Photography | Carter,newborn-photography-carter,ORIGINAL,✓,✓
+157,Newborn Portrait | Oliver,newborn-portrait-oliver,ORIGINAL,✓,✓
+158,The High Line New York City Engagement | Michelle + Michael,the-high-line-new-york-city-engagement-michelle-michael,ORIGINAL,✓,✓
+159,Postcard Inn St. Pete Beach Wedding | Meg + Doug,postcard-inn-st-pete-beach-wedding-meg-doug,ORIGINAL,✓,✓
+160,The Ritz-Carlton Fort Lauderdale Wedding | Shelly + Orayne,the-ritz-carlton-fort-lauderdale-wedding-shelly-orayne,ORIGINAL,✓,✓
+161,High School Graduation Party | Britney,high-school-graduation-party-britney,ORIGINAL,✓,✓
+162,Miami Wedding | Jessica + Victor,miami-wedding-jessica-victor,ORIGINAL,✓,✓
+163,50&#8217;s Anniversary | Maria + Antonio,50s-anniversary-maria-antonio,ORIGINAL,✓,✓
+164,Coral Gables Country Club Wedding | Vianca + Harold,coral-gables-country-club-wedding-vianca-harold,ORIGINAL,✓,✓
+165,Bill Baggs Cape Florida State Park Wedding | Lindsay + Russ,bill-baggs-cape-florida-state-park-wedding-lindsay-russ,ORIGINAL,✓,✓
+166,Key Largo Lighthouse Wedding | Andrea + Lee,key-largo-lighthouse-wedding-andrea-lee,ORIGINAL,✓,✓
+167,Newborn Session | Sofia,newborn-session-sofia,ORIGINAL,✓,✓
+168,"Tree Tops Park Family Session | Janel, Esteban &#038; Noah",tree-tops-park-family-session-janel-esteban-noah,ORIGINAL,✓,✓
+169,Louisiana Wedding | Maria + Randy,louisiana-wedding-maria-randy,ORIGINAL,✓,✓
+170,Key West Wedding | Melissa + Brian,key-west-wedding-melissa-brian,ORIGINAL,✓,✓
+171,Miami Wedding | Michelle + Claudio,miami-wedding-michelle-claudio,ORIGINAL,✓,✓
+172,Bill Baggs Engagement Session | Emily + Michael,bill-baggs-engagement-session-emily-michael,ORIGINAL,✓,✓
+173,Key Largo Wedding | Stephanie + Alex,key-largo-wedding-stephanie-alex,ORIGINAL,✓,✓
+174,Tree Tops Park Maternity Session | Janicel + Matias,tree-tops-park-maternity-session-janicel-matias,ORIGINAL,✓,✓
+175,Hugh Taylor Birch State Park Family Session | Cardiello Family,hugh-taylor-birch-state-park-family-session-cardiello-family,ORIGINAL,✓,✓
+176,New York Engagement | Michelle + Jose,new-york-engagement-michelle-jose,ORIGINAL,✓,✓
+177,Miami Wedding | Derek + Shelly,miami-wedding-derek-shelly,ORIGINAL,✓,✓
+178,The Kampong Wedding | Paula + Frank,the-kampong-wedding-paula-frank,ORIGINAL,✓,✓
+179,Vizcaya Wedding | Melissa + Steve,vizcaya-wedding-melissa-steve,ORIGINAL,✓,✓
+180,Bonaventure Resort And Spa Wedding | Shannon + Lou,bonaventure-resort-and-spa-wedding-shannon-lou,ORIGINAL,✓,✓
+181,Bayside Engagement Session | Mary + PJ,bayside-engagement-session-mary-pj,ORIGINAL,✓,✓
+182,"Parkland Family Session | Sherri, Ian, Michael &#038; Chloe",parkland-family-session-sherri-ian-michael-chloe,ORIGINAL,✓,✓
+183,Coral Reef Yacht Club Wedding | Angela + Christian,coral-reef-yacht-club-wedding-angela-christian,ORIGINAL,✓,✓
+184,Tree Tops Park Maternity Session | Veronica + Jesse,tree-tops-park-maternity-session-veronica-jesse,ORIGINAL,✓,✓
+185,West Palm Wedding | Moises + Any,west-palm-wedding-moises-any,ORIGINAL,✓,✓
+186,New York Snow Portrait | Kirsy,new-york-snow-portrait-kirsy,ORIGINAL,✓,✓
+187,Fort Lauderdale Wedding | Moises + Any,fort-lauderdale-wedding-moises-any,ORIGINAL,✓,✓
+188,Miami Family Portrait,miami-family-portrait,ORIGINAL,✓,✓
+189,Trump Doral Wedding | Sara + Giovanni,trump-doral-wedding-sara-giovanni,ORIGINAL,✓,✓
+190,Family Portrait Photos | Tree Tops Park,family-portrait-photos-tree-tops-park,ORIGINAL,✓,✓
+191,Fort Lauderdale Family Session | Visbal Family,fort-lauderdale-family-session-visbal-family,ORIGINAL,✓,✓
+192,Pembroke Pines Portrait Session | Lisa + Andrea,pembroke-pines-portrait-session-lisa-andrea,ORIGINAL,✓,✓
+193,Pembroke Pines Portrait Session | Bertha,pembroke-pines-portrait-session-bertha,ORIGINAL,✓,✓
+194,Newborn Session | Angel,newborn-session-angel,ORIGINAL,✓,✓
+195,Spencer and Sequoia | Arts Garage Concert,spencer-and-sequoia-arts-garage-concert,ORIGINAL,✓,✓
+196,Trump National Doral Wedding | Sara + Giovanni,trump-national-doral-wedding-sara-giovanni,ORIGINAL,✓,✓
+197,Miami Beach Family Session | Our Family,miami-beach-family-session-our-family,ORIGINAL,✓,✓
+198,Fort Lauderdale Courthouse Wedding | Bertha &#038; Fredly,fort-lauderdale-courthouse-wedding-bertha-fredly,ORIGINAL,✓,✓
+199,South Pointe Park After Wedding | Tatiana + Justin,south-pointe-park-after-wedding-tatiana-justin,ORIGINAL,✓,✓
+200,Vizcaya Engagement Session | Sara + Giovanni,vizcaya-engagement-session-sara-giovanni,ORIGINAL,✓,✓
+201,Pier house Key West Wedding | Jamie + Alex,pier-house-key-west-wedding-jamie-alex,ORIGINAL,✓,✓
+202,JustinFit | Pembroke Pines In-Home Personal Trainer,justinfit-pembroke-pines-in-home-personal-trainer,ORIGINAL,✓,✓
+203,Jessica + Carlos | Long Key Nature Center Wedding,jessica-carlos-long-key-nature-center-wedding,ORIGINAL,✓,✓
+204,Miami Maternity Session | Francia and Freddy,miami-maternity-session-francia-and-freddy,ORIGINAL,✓,✓
+205,Walton House Miami Wedding | Jany + Danny,walton-house-miami-wedding-jany-danny,ORIGINAL,✓,✓
+206,"Oleg | Portrait in Milan, Italy",oleg-portrait-in-milan-italy,ORIGINAL,✓,✓
+207,"Dale | Portrait in Milan, Italy",dale-portrait-in-milan-italy,ORIGINAL,✓,✓
+208,Corinna | Sunflower Portrait in Italy,corinna-sunflower-portrait-in-italy,ORIGINAL,✓,✓
+209,Liz + Adam | Miramar Wedding,liz-adam-miramar-wedding,ORIGINAL,✓,✓
+210,"Chloe, Scarlett + April | Parco Sempione Family Session in Milan, Italy",chloe-scarlett-april-parco-sempione-family-session-in-milan-italy,ORIGINAL,✓,✓
+211,Visbal Family | Fort Lauderdale Family Session,visbal-family-fort-lauderdale-family-session,ORIGINAL,✓,✓
+212,"Peyton + Giordano | Milan, Italy | Portrait Session",peyton-giordano-milan-italy-portrait-session,ORIGINAL,✓,✓
+213,Natalia + Gustavo | Miami Wedding,natalia-gustavo-miami-wedding,ORIGINAL,✓,✓
+214,The Cardiello Family | Bill Baggs Florida Family Session,the-cardiello-family-bill-baggs-florida-family-session,ORIGINAL,✓,✓
+215,Justin | Milano Portrait,justin-milano-portrait,ORIGINAL,✓,✓
+216,Claire | Newborn Session,claire-newborn-session,ORIGINAL,✓,✓
+217,Julian | Baby Session,julian-baby-session,ORIGINAL,✓,✓
+218,Nathan | Newborn Session,nathan-newborn-session,ORIGINAL,✓,✓
+219,Jennifer Avila | Dark Fantasy Editorial,jennifer-avila-dark-fantasy-editorial,ORIGINAL,✓,✓
+220,Jill + Larry | Cruise Wedding,jill-larry-cruise-wedding,ORIGINAL,✓,✓
+221,Olivia | Newborn Session,olivia-newborn-session,ORIGINAL,✓,✓
+222,Annalise + Ryan | Key Largo Wedding,annalise-ryan-key-largo-wedding,ORIGINAL,✓,✓
+223,Visbal Family | Hugh Taylor Brich Park Maternity Session,visbal-family-hugh-taylor-brich-park-maternity-session,ORIGINAL,✓,✓
+224,Daniela + Arnaud | The Addison Boca Raton Wedding,daniela-arnaud-the-addison-boca-raton-wedding,ORIGINAL,✓,✓
+225,Rachel + Glenn | Star Harbor Fort Lauderdale Wedding,rachel-glenn-star-harbor-fort-lauderdale-wedding,ORIGINAL,✓,✓
+226,Rachel + Glenn | Fort Lauderdale Engament Session,rachel-glenn-fort-lauderdale-engament-session,ORIGINAL,✓,✓
+227,"Ale, Italo, Matteo &#038; Lorenzo | Bal Harbour Maternity Session",ale-italo-matteo-lorenzo-bal-harbour-maternity-session,ORIGINAL,✓,✓
+228,Lladeris + Joseito | Hugh Taylor Birch Park Engagement,lladeris-joseito-hugh-taylor-birch-park-engagement,ORIGINAL,✓,✓
+229,Elana + Eddie | Renaissance Fort Lauderdale-Plantation Hotel Wedding,elana-eddie-renaissance-fort-lauderdale-plantation-hotel-wedding,ORIGINAL,✓,✓
+230,Bessy + Justin | The Secret Garden Homestead Maternity Session,bessy-justin-the-secret-garden-homestead-maternity-session,ORIGINAL,✓,✓
+231,Sami + Ariel| Prado Entrance Coral Gables,sami-ariel-prado-entrance-coral-gables,ORIGINAL,✓,✓
+232,Tiffany + Robbie | Naples Wedding,tiffany-robbie-naples-wedding,ORIGINAL,✓,✓
+233,Esther + Adam | Ernest Hemingway House Key West Wedding,esther-adam-ernest-hemingway-house-key-west-wedding,ORIGINAL,✓,✓
+234,Sophia | Newborn Photography,sophia-newborn-photography,ORIGINAL,✓,✓
+235,Albaladejo Family | Matheson Hammock Park Family Session,albaladejo-family-matheson-hammock-park-family-session,ORIGINAL,✓,✓
+236,Cardiello Family | Matheson Hammock Park Family Portrait,cardiello-family-matheson-hammock-park-family-portrait,ORIGINAL,✓,✓
+237,Visbal Family Session | Pompano Beach Family Portrait,visbal-family-session-pompano-beach-family-portrait,ORIGINAL,✓,✓
+238,Kayla + Tony | Tamarac Community Center Wedding,kayla-tony-tamarac-community-center-wedding,ORIGINAL,✓,✓
+239,Editorial Photo Session,editorial-photo-session,ORIGINAL,✓,✓
+240,Melissa + Elias | Miami Seaquarium Wedding,melissa-elias-miami-seaquarium-wedding,ORIGINAL,✓,✓
+241,Kelly + Kurt | Hilton Hotel Fort Lauderdale Wedding,kelly-kurt-hilton-hotel-fort-lauderdale-wedding,ORIGINAL,✓,✓
+242,Genevieve + Brian | Deerfield Beach Wedding,genevieve-brian-deerfield-beach-wedding,ORIGINAL,✓,✓
+243,Natalie + Shawn | Long Key Nature Center Wedding,natalie-shawn-long-key-nature-center-wedding,ORIGINAL,✓,✓
+244,Mary Jo + Michael | Bill Baggs Cape Florida Engagement Session,mary-jo-michael-bill-baggs-cape-florida-engagement-session,ORIGINAL,✓,✓
+245,Christina + Spencer | Casa Marina Key West,christina-spencer-casa-marina-key-west,ORIGINAL,✓,✓
+246,Vanessa + Kevin | Country Wedding,vanessa-kevin-country-wedding,ORIGINAL,✓,✓
+247,Sklar Family  | Bal Harbour Family Portrait,sklar-family-bal-harbour-family-portrait,ORIGINAL,✓,✓
+248,Diana + Gaston | The Kampong Miami After Wedding Session,diana-gaston-the-kampong-miami-after-wedding-session,ORIGINAL,✓,✓
+249,Visbal Family | Fort Lauderdale Family Portrait,visbal-family-fort-lauderdale-family-portrait,ORIGINAL,✓,✓
+250,Natalie + Shawn | Firefighter Engagement Session,natalie-shawn-firefighter-engagement-session,ORIGINAL,✓,✓
+251,Elana + Eddie |  Fort Lauderdale Engagement Session,elana-eddie-fort-lauderdale-engagement-session,ORIGINAL,✓,✓
+252,Vanessa + Jordan | Southwest Ranches Portrait,vanessa-jordan-southwest-ranches-portrait,ORIGINAL,✓,✓
+253,Tommy | Newborn Session,tommy-newborn-session,ORIGINAL,✓,✓
+254,Cinndy + Eric | Miami Wedding,cinndy-eric-miami-wedding,ORIGINAL,✓,✓
+255,Kenia + Michael | FIU Graduation Session,kenia-michael-fiu-graduation-session,ORIGINAL,✓,✓
+256,Jeanine + Joe | Postcard Inn Islamorada Wedding,jeanine-joe-postcard-inn-islamorada-wedding,ORIGINAL,✓,✓
+257,Lyndsay + Matthew | Hyatt Regency Pier 66 Wedding,lyndsay-matthew-hyatt-regency-pier-66-wedding,ORIGINAL,✓,✓
+258,Vanessa + Jordan | Miami Wedding,vanessa-jordan-miami-wedding,ORIGINAL,✓,✓
+259,Jessica + Ryan | The Cooper Estate Wedding,jessica-ryan-the-cooper-estate-wedding,ORIGINAL,✓,✓
+260,Giacaman Family | Naples Family Portrait,giacaman-family-naples-family-portrait,ORIGINAL,✓,✓
+261,Stephanie + Sal | Coral Gables Country Club Wedding,stephanie-sal-coral-gables-country-club-wedding,ORIGINAL,✓,✓
+262,Ale + Italo + Matteo | Family Portrait,ale-italo-matteo-family-portrait,ORIGINAL,✓,✓
+263,Cristy + Jason | Family Portrait Session,cristy-jason-family-portrait-session,ORIGINAL,✓,✓
+264,Laurie + Mark | The Westin Diplomat Resort Wedding,laurie-mark-the-westin-diplomat-resort-wedding,ORIGINAL,✓,✓
+265,Jocelin + Gabriel | Brickell Bay Engagement,jocelin-gabriel-brickell-bay-engagement,ORIGINAL,✓,✓
+266,Christa + Danny | Tree Tops Park Maternity Session,christa-danny-tree-tops-park-maternity-session,ORIGINAL,✓,✓
+267,Cinndy + Eric | Matheson Hammock Park Engagement,cinndy-eric-matheson-hammock-park-engagement,NEEDS_REVIEW,✗,✓
+268,Kelly +Kurt | Bill Baggs State Park Engagement Session,kelly-kurt-bill-baggs-state-park-engagement-session,ORIGINAL,✓,✓
+269,Lauren + Rob | Key Largo Wedding,lauren-rob-key-largo-wedding,ORIGINAL,✓,✓
+270,Linares Family | Family Portrait,linares-family-family-portrait,ORIGINAL,✓,✓
+271,Susy + Nico | South Florida Maternity Session,susy-nico-south-florida-maternity-session,ORIGINAL,✓,✓
+272,Elizabeth + Brian | Rusty Pelican Wedding,elizabeth-brian-rusty-pelican-wedding,ORIGINAL,✓,✓
+273,Cardiello Family | Bal Harbour Family Portrait,cardiello-family-bal-harbour-family-portrait,ORIGINAL,✓,✓
+274,Silvia + Max | Longan&#8217;s Place Wedding,silvia-max-longans-place-wedding,ORIGINAL,✓,✓
+275,Baby Visbal | Newborn Session,baby-visbal-newborn-session,ORIGINAL,✓,✓
+276,Mari + Karim | The Addison Boca Raton Wedding,mari-karim-the-addison-boca-raton-wedding,ORIGINAL,✓,✓
+277,Wilmiris + Victor | Fairchild Tropical Botanic Garden Engagement,wilmiris-victor-fairchild-tropical-botanic-garden-engagement,ORIGINAL,✓,✓
+278,Nadege + Joey | Family Portrait,nadege-joey-family-portrait,ORIGINAL,✓,✓
+279,Chloe | Newborn Session,chloe-newborn-session,ORIGINAL,✓,✓
+280,Charissa + Leonard | South Pointe Park Engagement,charissa-leonard-south-pointe-park-engagement,ORIGINAL,✓,✓
+281,Adriana + Francisco | Bill Baggs State Park After Wedding Session,adriana-francisco-bill-baggs-state-park-after-wedding-session,ORIGINAL,✓,✓
+282,Leidys + Michael |Westin Colonnade Wedding in Coral Gables,leidys-michael-westin-colonnade-wedding-in-coral-gables,ORIGINAL,✓,✓
+283,Jannah + Rudy | Morikami Museum and Japanese Gardens Wedding,jannah-rudy-morikami-museum-and-japanese-gardens-wedding,ORIGINAL,✓,✓
+284,Sarah + Alex | Tideline Ocean Resort Wedding,sarah-alex-tideline-ocean-resort-wedding,ORIGINAL,✓,✓
+285,Sherri + Ian | Park Family Session,sherri-ian-park-family-session,ORIGINAL,✓,✓
+286,Brit + Steve | Oldest House Key West Wedding,brit-steve-oldest-house-key-west-wedding,ORIGINAL,✓,✓
+287,Kenia + Michael | Coral Gables Wedding,kenia-michael-coral-gables-wedding,ORIGINAL,✓,✓
+288,Jennifer + Miguel | Key Largo Wedding,jennifer-miguel-key-largo-wedding,ORIGINAL,✓,✓
+289,Teresa + Shane | Wedding at the Addison in Boca Raton,teresa-shane-wedding-at-the-addison-in-boca-raton,ORIGINAL,✓,✓
+290,H &#038; M | Bill Baggs Engagement Session,h-m-bill-baggs-engagement-session,ORIGINAL,✓,✓
+291,Rosie + Odie | Shane Center Wedding,rosie-odie-shane-center-wedding,ORIGINAL,✓,✓
+292,Jeanine + Joe | Airplane Engagement Session,jeanine-joe-airplane-engagement-session,ORIGINAL,✓,✓
+293,Jessica + Angus | Kampong Gardens Wedding,jessica-angus-kampong-gardens-wedding,ORIGINAL,✓,✓
+294,Shauna + Dwayne | Bal Harbour Portrait Session,shauna-dwayne-bal-harbour-portrait-session,ORIGINAL,✓,✓
+295,Estefania + Sergio | Paramount Bay Wedding,estefania-sergio-paramount-bay-wedding,ORIGINAL,✓,✓
+296,Smathers Beach Wedding | Key West,smathers-beach-wedding,ORIGINAL,✓,✓
+297,Ashley + Matt | Postcard Inn Wedding,ashley-matt-postcard-inn-wedding,ORIGINAL,✓,✓
+298,Laura + Ronald | Palm Beach Gardens Wedding,laura-ronald-palm-beach-gardens-wedding,ORIGINAL,✓,✓
+299,Dina + Krishna | Spanish Monastery Wedding,dina-krishna-spanish-monastery-wedding,ORIGINAL,✓,✓
+300,Sarah + Shawn | Casa Marina Key West Wedding,sarah-shawn-casa-marina-key-west-wedding,ORIGINAL,✓,✓
+301,Jessica + Angus | Bill Baggs State Park Engagement,jessica-angus-bill-baggs-state-park-engagement,ORIGINAL,✓,✓
+302,Veronica + Lazaro | Jungle Island Wedding,veronica-lazaro-jungle-island-wedding,ORIGINAL,✓,✓
+303,Nicole + George | The One Resort Bal Harbour Wedding,nicole-george-the-one-resort-bal-harbour-wedding,ORIGINAL,✓,✓
+304,Stephanie + Salehin | Coral Gables Engagement,stephanie-salehin-coral-gables-engagement,ORIGINAL,✓,✓
+305,Justina + Nathan | Eden Regal Ballroom Wedding,justina-nathan-eden-regal-ballroom-wedding,ORIGINAL,✓,✓
+306,Jaclyn + Jared | Miami Beach Portrait Session,jaclyn-jared-miami-beach-portrait-session,ORIGINAL,✓,✓
+307,Heather + Justin | Key West Wedding,heather-justin-key-west-wedding,ORIGINAL,✓,✓
+308,Kenia + Michael | Fairchild Botanic Garden Engagement Session,kenia-michael-fairchild-botanic-garden-engagement-session,ORIGINAL,✓,✓
+309,Keith Lorren | South Beach Portrait,keith-lorren-south-beach-portrait,ORIGINAL,✓,✓
+310,Bessy + Justin | Cauley Square Maternity Session,bessy-justin-cauley-square-maternity-session,ORIGINAL,✓,✓
+311,Kindlee + Donald |Fairchild Tropical Botanic Garden Maternity Session,kindlee-donald-fairchild-tropical-botanic-garden-maternity-session,ORIGINAL,✓,✓
+312,Susan + Jay | Acqualina Resort &#038; Spa Wedding,susan-jay-acqualina-resort-spa-wedding,ORIGINAL,✓,✓
+313,Tiffanie + Cole | Hyatt Regency Coral Gables Wedding,tiffanie-cole-hyatt-regency-coral-gables-wedding,ORIGINAL,✓,✓
+314,Rosie + Odie | South Pointe Park Engagement,rosie-odie-south-pointe-park-engagement,ORIGINAL,✓,✓
+315,Veronica + Lazaro | Wynwood Engagement,veronica-lazaro-wynwood-engagement,ORIGINAL,✓,✓
+316,Tiffany + Zach | Frenchman&#8217;s Creek Wedding,tiffany-zach-frenchmans-creek-wedding,ORIGINAL,✓,✓
+317,Felicia + Steven | Key West Wedding,felicia-steven-key-west-wedding,ORIGINAL,✓,✓
+318,Sarah + Alex | Flagler Museum Engagement,sarah-alex-flagler-museum-engagement,ORIGINAL,✓,✓
+319,Estefania + Sergio | Fairchild Botanical Garden Engagement Session,estefania-sergio-fairchild-botanical-garden-engagement-session,ORIGINAL,✓,✓
+320,Lisa + Andrea | Hilton Ft. Lauderdale Wedding,lisa-andrea-hilton-ft-lauderdale-wedding,ORIGINAL,✓,✓
+321,Bethany + Tyler | Key Largo Engagement Session,bethany-tyler-key-largo-engagement-session,ORIGINAL,✓,✓
+322,Romina + Karel | South Beach Engagement Session,romina-karel-south-beach-engagement-session,ORIGINAL,✓,✓
+323,Hermosilla Family | Bal Harbour Family Session,hermosilla-family-bal-harbour-family-session,ORIGINAL,✓,✓
+324,Youmee + Andre | The Kampong Wedding Coconut Grove,youmee-andre-the-kampong-wedding-coconut-grove,ORIGINAL,✓,✓
+325,Christina + Chad | Douglas Entrance Wedding | South Florida,christina-chad-douglas-entrance-wedding-south-florida,ORIGINAL,✓,✓
+326,Lisa + Andrea | Flagler Museum Engagement,lisa-andrea-flagler-museum-engagement,ORIGINAL,✓,✓
+327,Estephania + Lief | Floridian Ballroom Wedding,estephania-lief-floridian-ballroom-wedding,ORIGINAL,✓,✓
+328,Liam | Toddler Session,liam-toddler-session,ORIGINAL,✓,✓
+329,Mary + Zasha | Sundy House Wedding,mary-zasha-sundy-house-wedding,ORIGINAL,✓,✓
+330,Michael | Baby Session,michael-baby-session,ORIGINAL,✓,✓
+331,Pompano Citi Centre | Commercial Photography,pompano-citi-centre-commercial-photography,ORIGINAL,✓,✓
+332,County Square | Miami Commercial Photographer,county-square-miami-commercial-photographer,ORIGINAL,✓,✓
+333,Laura + Chin | Miami Beach Engagement Session,laura-chin-miami-beach-engagement-session,ORIGINAL,✓,✓
+334,Jany + Josh |Ritz Carlton Key Biscayne Wedding,jany-josh-ritz-carlton-key-biscayne-wedding,ORIGINAL,✓,✓
+335,Melissa + Alex | Bal Harbour After Wedding Session,melissa-alex-bal-harbour-after-wedding-session,ORIGINAL,✓,✓
+336,Johanne + Rudiny | King&#8217;s Point at Delray Beach Wedding,johanne-rudiny-kings-point-at-delray-beach-wedding,ORIGINAL,✓,✓
+337,Ale | Maternity Session,ale-maternity-session,ORIGINAL,✓,✓
+338,Jamie + Michael | Lighthouse Point Yacht Club Wedding,jamie-michael-lighthouse-point-yacht-club-wedding,ORIGINAL,✓,✓
+339,Nicole + George | Engagement,nicole-george-engagement,ORIGINAL,✓,✓
+340,Monica + Camilo | Deerfield Beach After Wedding Session,monica-camilo-deerfield-beach-after-wedding-session,ORIGINAL,✓,✓
+341,Monica + Camilo | Carolina Golf Club Wedding,monica-camilo-carolina-golf-club-wedding,ORIGINAL,✓,✓
+342,Sofie + Kalle | Hollywood Beach Wedding,sofie-kalle-hollywood-beach-wedding,ORIGINAL,✓,✓
+343,Tiffanie + Cole | Vizcaya Engagement Session,tiffanie-cole-vizcaya-engagement-session,ORIGINAL,✓,✓
+344,Mary + Zasha | Flagler Museum Palm Beach Engagement Session,mary-zasha-flagler-museum-palm-beach-engagement-session,ORIGINAL,✓,✓
+345,Jamie + Michael | Southwest Ranches Engagement,jamie-michael-southwest-ranches-engagement,ORIGINAL,✓,✓
+346,Johanne + Rudy | Gold Coast Train Museum Engagement,johanne-rudy-gold-coast-train-museum-engagement,ORIGINAL,✓,✓
+347,Sopra Centre | Boca Raton Commercial Photography,sopra-centre-boca-raton-commercial-photography,ORIGINAL,✓,✓
+348,Alyssa + Don | The Mayfair Hotel Wedding,alyssa-don-the-mayfair-hotel-wedding,ORIGINAL,✓,✓
+349,Kristin + Rick | Shane Center Wedding,kristin-rick-shane-center-wedding,ORIGINAL,✓,✓
+350,Laura + Ronald | Vizcaya Engagement,laura-ronald-vizcaya-engagement,ORIGINAL,✓,✓
+351,Tica + Justin | Douglas Entrance Coral Gables Wedding,tica-justin-douglas-entrance-coral-gables-wedding,ORIGINAL,✓,✓
+352,Ale | Key West Maternity Session,ale-key-west-maternity-session,ORIGINAL,✓,✓
+353,Monica + Camilo | Vizcaya Engagement Session,monica-camilo-vizcaya-engagement-session,ORIGINAL,✓,✓
+354,De&#8217;Anne + Max | Signature Grand Wedding,deanne-max-signature-grand-wedding,ORIGINAL,✓,✓
+355,Zarine + Tim | Bal Harbour Maternity Session,zarine-tim-bal-harbour-maternity-session,ORIGINAL,✓,✓
+356,Lauren + Greg | Westin Hotel Wedding,lauren-greg-westin-hotel-wedding,ORIGINAL,✓,✓
+357,Veronica + Andres | Coral Springs Wedding,veronica-andres-coral-springs-wedding,ORIGINAL,✓,✓
+358,Chelsea + Jim | The Omphoy Resort After Wedding,chelsea-jim-the-omphoy-resort-after-wedding,ORIGINAL,✓,✓
+359,Michael | Newborn Session,michael-newborn-session,ORIGINAL,✓,✓
+360,Lauren + Greg | NYC Engagement,lauren-greg-nyc-engagement,ORIGINAL,✓,✓
+361,Chelsea + Jim | Benvenuto Wedding,chelsea-jim-benvenuto-wedding,ORIGINAL,✓,✓
+362,Veronica + Andres | Underwater Engagement Session,veronica-andres-underwater-engagement-session,ORIGINAL,✓,✓
+363,Tica + Justin | Underwater Engagement Session,tica-justin-underwater-engagement-session,ORIGINAL,✓,✓
+364,Tiffany + Anthony | The Frenchman&#8217;s Reserve Wedding,tiffany-anthony-the-frenchmans-reserve-wedding,ORIGINAL,✓,✓
+365,Sherri + Ian | Deerfield Beach Maternity Session,sherri-ian-deerfield-beach-maternity-session,ORIGINAL,✓,✓
+366,Lori + Ben | The Palms Hotel at Miami Beach Wedding,lori-ben-the-palms-hotel-at-miami-beach-wedding,ORIGINAL,✓,✓
+367,Sabrina | Vizcaya Portrait Session,sabrina-vizcaya-portrait-session,ORIGINAL,✓,✓
+368,Cruz Building Wedding,cruz-building-wedding,ORIGINAL,✓,✓
+369,Michy + Steven | Crandon Park Key Biscayne Engagement Session,michy-steven-crandon-park-key-biscayne-engagement-session,ORIGINAL,✓,✓
+370,De&#8217;Anne + Max | Deerfield Beach Engagement,deanne-max-deerfield-beach-engagement,ORIGINAL,✓,✓
+371,Joey-Ann + Richard | Bayside Miami Engagement Session,joey-ann-richard-bayside-miami-engagement-session,ORIGINAL,✓,✓
+372,Stephanie + Danny | Doral Park Country Club Wedding,stephanie-danny-doral-park-country-club-wedding,ORIGINAL,✓,✓
+373,Jany + Josh | Vizcaya Engagement Session,jany-josh-vizcaya-engagement-session,ORIGINAL,✓,✓
+374,Chloe + Luis | Cutler Bay Wedding,chloe-luis-cutler-bay-wedding,ORIGINAL,✓,✓
+375,Jessica + Beau | Tree Tops Park Engagement Session,jessica-beau-tree-tops-park-engagement-session,ORIGINAL,✓,✓
+376,Paige + John | Ft. Lauderdale Engagement Session,paige-john-ft-lauderdale-engagement-session,ORIGINAL,✓,✓
+377,Ciara + Jordan | Signature Grand Wedding,ciara-jordan-signature-grand-wedding,ORIGINAL,✓,✓
+378,Bessy + Justin | Charles Deering Estate Day After Session,bessy-justin-charles-deering-estate-day-after-session,ORIGINAL,✓,✓
+379,Melissa + Jose | Vizcaya Museum Miami Day After Session,melissa-jose-vizcaya-museum-miami-day-after-session,ORIGINAL,✓,✓
+380,Chloe + Luis | Epic Hotel Engagement Session,chloe-luis-epic-hotel-engagement-session,ORIGINAL,✓,✓
+381,Liam | Newborn Portrait Session,liam-newborn-portrait-session,ORIGINAL,✓,✓
+382,Melissa + Alex | Southwest Ranches Engagement,melissa-alex-southwest-ranches-engagement,ORIGINAL,✓,✓
+383,Bessy + Justin | Coral Gables Country Club Wedding,bessy-justin-coral-gables-country-club-wedding,ORIGINAL,✓,✓
+384,Laura + Robbie | Doubletree Biscayne Bay Miami Wedding,laura-robbie-doubletree-biscayne-bay-miami-wedding,ORIGINAL,✓,✓
+385,Waldo + Valentina | Wynwood Art District Portrait Session,waldo-valentina-wynwood-art-district-portrait-session,ORIGINAL,✓,✓
+386,One Investment Group | Commercial Photography,one-investment-group-commercial-photography,ORIGINAL,✓,✓
+387,Jessica + Joe | Matheson Hammock Park Wedding,jessica-joe-matheson-hammock-park-wedding,ORIGINAL,✓,✓
+388,Shravani + Mohinder | Boca Beach Resort Engagement Session,shravani-mohinder-boca-beach-resort-engagement-session,ORIGINAL,✓,✓
+389,Acromatico Team | 2012 In Pictures,acromatico-team-2012-in-pictures,ORIGINAL,✓,✓
+390,Ciara + Jordan | Wynwood Art District Session,ciara-jordan-wynwood-art-district-session,ORIGINAL,✓,✓
+391,Suzie + Ray | Killian Palms Country Club Wedding,suzie-ray-killian-palms-country-club-wedding,ORIGINAL,✓,✓
+392,Jayson Milner Brickell Chiropractor | Commercial Photography,jayson-milner-brickell-chiropractor-commercial-photography,ORIGINAL,✓,✓
+393,Melissa + Jose | Vizcaya Wedding,melissa-jose-vizcaya-wedding,ORIGINAL,✓,✓
+394,Melissa + Spencer | The Addison Boca Raton Wedding,melissa-spencer-the-addison-boca-raton-wedding,ORIGINAL,✓,✓
+395,Angelica + Huy | Hilton Key Largo Wedding,angelica-huy-hilton-key-largo-wedding,ORIGINAL,✓,✓
+396,Janel + Esteban | Underwater Session,janel-esteban-underwater-session,ORIGINAL,✓,✓
+397,Mondestin Family | Maternity Session,mondestin-family-maternity-session,ORIGINAL,✓,✓
+398,Alexia | Deerfield Beach Senior Session,alexia-deerfield-beach-senior-session,ORIGINAL,✓,✓
+399,Lori + Ben | Fort Lauderdale Beach Engagement,lori-ben-fort-lauderdale-beach-engagement,ORIGINAL,✓,✓
+400,Stephanie + Danny | Hugh Taylor Birch Park Engagement,stephanie-danny-hugh-taylor-birch-park-engagement,ORIGINAL,✓,✓
+401,Suzie + Rey | The Forge Miami Beach Engagement,suzie-rey-the-forge-miami-beach-engagement,ORIGINAL,✓,✓
+402,Danay + Joshua | Tree Tops Park Engagement Session,danay-joshua-tree-tops-park-engagement-session,ORIGINAL,✓,✓
+403,Brittany + Travis | The Addison Boca Raton Wedding,brittany-travis-the-addison-boca-raton-wedding,ORIGINAL,✓,✓
+404,Tracy + Matt | Deerfield Beach Engagement Session,tracy-matt-deerfield-beach-engagement-session,ORIGINAL,✓,✓
+405,Dolores + Claudio | Coral Gables Anniversary,dolores-claudio-coral-gables-anniversary,ORIGINAL,✓,✓
+406,Patricia + Alex | Key Biscayne Wedding,patricia-alex-key-biscayne-wedding,ORIGINAL,✓,✓
+407,Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session,aviva-patrick-key-biscayne-bill-baggs-after-wedding-session,ORIGINAL,✓,✓
+408,Aviva + Patrick | The Rusty Pelican Wedding,aviva-patrick-the-rusty-pelican-wedding,ORIGINAL,✓,✓
+409,Kelly + Jared | Maxwell Room Ft. Lauderdale Wedding,kelly-jared-maxwell-room-ft-lauderdale-wedding,ORIGINAL,✓,✓
+410,Lily + Juan | Hillcrest Country Club Wedding,lily-juan-hillcrest-country-club-wedding,ORIGINAL,✓,✓
+411,Europe | Travel photography,europe-travel-photography,ORIGINAL,✓,✓
+412,Katia + Matteo | Italy after wedding session,katia-matteo-italy-after-wedding-session,ORIGINAL,✓,✓
+413,"Katia + Matteo | Abruzzo, Italy Wedding",katia-matteo-abruzzo-italy-wedding,ORIGINAL,✓,✓
+414,Angela + John | Vizcaya Engagement Session,angela-john-vizcaya-engagement-session,ORIGINAL,✓,✓
+415,Tiffany + Alan | Hollywood Beach Maternity Session,tiffany-alan-hollywood-beach-maternity-session,ORIGINAL,✓,✓
+416,Katia + Matteo | Engagement session in Italy,katia-matteo-engagement-session-in-italy,ORIGINAL,✓,✓
+417,Grace + Bill | Riverside Hotel Anniversary,grace-bill-riverside-hotel-anniversary,ORIGINAL,✓,✓
+418,Patricia + Alex | Gold Coast Railroad Engagement Session,patricia-alex-gold-coast-railroad-engagement-session,ORIGINAL,✓,✓
+419,kate + tamas | delray beach wedding,kate-tamas-delray-beach-wedding,ORIGINAL,✓,✓
+420,Vaz Twins | Matheson Hammock Park Kids Potrait,vaz-twins-matheson-hammock-park-kids-potrait,ORIGINAL,✓,✓
+421,Melissa + Jose | Book &#038; Books at Coral Gables Engagement Session,melissa-jose-book-books-at-coral-gables-engagement-session,ORIGINAL,✓,✓
+422,Lily + Adnan | Boca Resort at Boca Raton After Wedding Session,lily-adnan-boca-resort-at-boca-raton-after-wedding-session,ORIGINAL,✓,✓
+423,Liz + Luis | Charles Deering Estate Wedding,liz-luis-charles-deering-estate-wedding,ORIGINAL,✓,✓
+424,Kelly + Jared | Gold coast railroad museum engagement session,kelly-jared-gold-coast-railroad-museum-engagement-session,ORIGINAL,✓,✓
+425,Brittany + Travis | Cardinal Gibbons High School Engagement Session,brittany-travis-cardinal-gibbons-high-school-engagement-session,ORIGINAL,✓,✓
+426,The Scovino Family | Key Biscayne Bill Baggs Family Session,the-scovino-family-key-biscayne-bill-baggs-family-session,ORIGINAL,✓,✓
+427,Bessy + Justin | The Biltmore Engagement Session,bessy-justin-the-biltmore-engagement-session,ORIGINAL,✓,✓
+428,Jennifer + Danny | Miami Beach Botanical Garden Wedding,jennifer-danny-miami-beach-botanical-garden-wedding,ORIGINAL,✓,✓
+429,Liz + Luis | The Miami Fair Engagement Session,liz-luis-the-miami-fair-engagement-session,ORIGINAL,✓,✓
+430,Shannon + Bob | Boynton Beach Wedding,shannon-bob-boynton-beach-wedding,ORIGINAL,✓,✓
+431,Leonor + Sergio | Fontainebleau and Shane center wedding,leonor-sergio-fontainebleau-and-shane-center-wedding,ORIGINAL,✓,✓
+432,The Myles Family |  Bill Baggs Family Portrait,the-myles-family-bill-baggs-family-portrait,ORIGINAL,✓,✓
+433,Cancun | Travel Photography,cancun-travel-photography,ORIGINAL,✓,✓
+434,Melissa + Spencer | Flagler Museum Palm Beach Engagement,melissa-spencer-flagler-museum-palm-beach-engagement,ORIGINAL,✓,✓
+435,Nadine + Ariel | The Spanish Monastery Wedding,nadine-ariel-the-spanish-monastery-wedding,ORIGINAL,✓,✓
+436,the bosque family | gold coast railroad museum family portrait,the-bosque-family-gold-coast-railroad-museum-family-portrait,ORIGINAL,✓,✓
+437,leonor + sergio | wynwood art district engagement session,leonor-sergio-wynwood-art-district-engagement-session,ORIGINAL,✓,✓
+438,Best of 2011,best-of-2011,ORIGINAL,✓,✓
+439,everglades holiday park | travel photography,everglades-holiday-park-travel-photography,ORIGINAL,✓,✓
+440,hazel + alex | coral gables after wedding session,hazel-alex-coral-gables-after-wedding-session,ORIGINAL,✓,✓
+441,lauren + juan | bridal shower,lauren-juan-bridal-shower,ORIGINAL,✓,✓
+442,cat + allan | hilton key largo wedding,cat-allan-hilton-key-largo-wedding,ORIGINAL,✓,✓
+443,hazel + alex | women&#8217;s club coral gables wedding,hazel-alex-womens-club-coral-gables-wedding,ORIGINAL,✓,✓
+444,Ashley  + Brad | Volunteer park wedding,ashley-brad-volunteer-park-wedding,ORIGINAL,✓,✓
+445,Katrina + Keith | doubletree grand biscayne wedding,katrina-keith-doubletree-grand-biscayne-wedding,ORIGINAL,✓,✓
+446,christy + manny | hyatt coral gables wedding,christy-manny-hyatt-coral-gables-wedding,ORIGINAL,✓,✓
+447,gina + moe | tree tops park engagement session,gina-moe-tree-tops-park-engagement-session,ORIGINAL,✓,✓
+448,nadine + ariel | miami beach cinematheque engagement session,nadine-ariel-miami-beach-cinematheque-engagement-session,ORIGINAL,✓,✓
+449,federica + mark | eden roc miami wedding,federica-mark-eden-roc-miami-wedding,ORIGINAL,✓,✓
+450,a day in las vegas | travel photography,a-day-in-las-vegas-travel-photography,ORIGINAL,✓,✓
+451,katrina + keith | wynwood art district engagement session,katrina-keith-wynwood-art-district-engagement-session,ORIGINAL,✓,✓
+452,Michelle + Oscar | The Biltmore &#8211; Renaissance Wedding,michelle-oscar-the-biltmore-renaissance-wedding,ORIGINAL,✓,✓
+453,new york trip | brooklyn bridge and the city,new-york-trip-brooklyn-bridge-and-the-city,ORIGINAL,✓,✓
+454,The village at Gulfstream Park and Casino | Hallandale Beach,the-village-at-gulfstream-park-and-casino-hallandale-beach,ORIGINAL,✓,✓
+455,katherine | portrait session,katherine-portrait-session,ORIGINAL,✓,✓
+456,latoya + anthony | jacaranda country club wedding,latoya-anthony-jacaranda-country-club-wedding,ORIGINAL,✓,✓
+457,aruba | travel photography,aruba-travel-photography,ORIGINAL,✓,✓
+458,ashley + brad | university of miami engagement session,ashley-brad-university-of-miami-engagement-session,ORIGINAL,✓,✓
+459,tiffany + brendan | delray beach club wedding,tiffany-brendan-delray-beach-club-wedding,ORIGINAL,✓,✓
+460,amanda + laurent | coral gables day after session,amanda-laurent-coral-gables-day-after-session,ORIGINAL,✓,✓
+461,Amanda + Laurent | Key Biscayne Wedding,amanda-laurent-key-biscayne-wedding,ORIGINAL,✓,✓
+462,Christina + Jean | Hollywood Beach Engagement Session,christina-jean-hollywood-beach-engagement-session,ORIGINAL,✓,✓
+463,Sherri + Ian | Fort Lauderdale Wedding,sherri-ian-fort-lauderdale-wedding,ORIGINAL,✓,✓
+464,Latoya + Anthony | Bill Baggs Engagement Session,latoya-anthony-bill-baggs-engagement-session,ORIGINAL,✓,✓
+465,Lea + Claudio | Four Seasons Hotel Wedding,lea-claudio-four-seasons-hotel-wedding,ORIGINAL,✓,✓
+466,Federica + Mark | Lincoln Road Engagement Session,federica-mark-lincoln-road-engagement-session,ORIGINAL,✓,✓
+467,Rachel + Joshua | Boca Raton Wedding,rachel-joshua-boca-raton-wedding,ORIGINAL,✓,✓
+468,Michelle + Oscar | Gold Coast Train Museum Engagement Session,michelle-oscar-gold-coast-train-museum-engagement-session,ORIGINAL,✓,✓
+469,Colleen + Gary | Vero Beach Wedding,colleen-gary-vero-beach-wedding,ORIGINAL,✓,✓
+470,Cameran + Simon | Fort Lauderdale Beach Wedding,cameran-simon-fort-lauderdale-beach-wedding,ORIGINAL,✓,✓
+471,Christy + Manny | Coral Gables Engagement Session,christy-manny-coral-gables-engagement-session,ORIGINAL,✓,✓
+472,Odalys + David | Coral Gables After Wedding Session,odalys-david-coral-gables-after-wedding-session,ORIGINAL,✓,✓
+473,Odalys + David | Miami Wedding,odalys-david-miami-wedding,ORIGINAL,✓,✓
+474,Jacqueline + Evan | Coral Gables Wedding,jacqueline-evan-coral-gables-wedding,ORIGINAL,✓,✓
+475,Claudia + Raidel | Casa Rita Wedding,claudia-raidel-casa-rita-wedding,ORIGINAL,✓,✓
+476,Sherri + Ian | Miami Engagement Session,sherri-ian-miami-engagement-session,ORIGINAL,✓,✓
+477,Janel + Esteban | Bill Baggs After Wedding Session,janel-esteban-bill-baggs-after-wedding-session,ORIGINAL,✓,✓
+478,Claudia + Raidel | South Florida Engagement Session,claudia-raidel-south-florida-engagement-session,ORIGINAL,✓,✓
+479,Viviana + Jahziel | Coral Gables Wedding in Miami,viviana-jahziel-coral-gables-wedding-in-miami,ORIGINAL,✓,✓
+480,Tiffany + Brendan | Engagement Session,tiffany-brendan-engagement-session,ORIGINAL,✓,✓
+481,Pablo | Welcome Back Party,pablo-welcome-back-party,ORIGINAL,✓,✓
+482,Janicel + Matias | Trash-the-dress After Wedding Session,janicel-matias-trash-the-dress-after-wedding-session,ORIGINAL,✓,✓
+483,Lea + Claudio | South Florida Engagement Session,lea-claudio-south-florida-engagement-session,ORIGINAL,✓,✓
+484,Ruth + Joel | Miami Wedding,ruth-joel-miami-wedding,ORIGINAL,✓,✓
+485,Christy + Manny | South Florida Bridal Party,christy-manny-south-florida-bridal-party,ORIGINAL,✓,✓
+486,Odalys + David | South Florida Engagement Session,odalys-david-south-florida-engagement-session,ORIGINAL,✓,✓
+487,Khadine + Dwayne | Miami Wedding,khadine-dwayne-miami-wedding,ORIGINAL,✓,✓
+488,Khadine + Dwayne | Miami Destination Engagement Session,khadine-dwayne-miami-destination-engagement-session,ORIGINAL,✓,✓
+489,Janel + Esteban | Kendall Wedding,janel-esteban-kendall-wedding,ORIGINAL,✓,✓
+490,Mayra + Chris | Engagement Session,mayra-chris-engagement-session,ORIGINAL,✓,✓
+491,Andrea + Randy | Engagement Session,andrea-randy-engagement-session,ORIGINAL,✓,✓
+492,Melina + Kyle | Bridal Shower,melina-kyle-bridal-shower,ORIGINAL,✓,✓
+493,Ruth + Joel | Engagement Session,ruth-joel-engagement-session,ORIGINAL,✓,✓
+494,Maria + Mark | After Wedding Session,maria-mark-after-wedding-session,ORIGINAL,✓,✓
+495,Denise + Orlando | Wedding,denise-orlando-wedding,ORIGINAL,✓,✓
+496,Noris + Ramon | Miami Beach After Wedding Session,noris-ramon-miami-beach-after-wedding-session,ORIGINAL,✓,✓
+497,Katie + Matt | Engagement Session,katie-matt-engagement-session,ORIGINAL,✓,✓
+498,Dolores + Claudio | Anniversary,dolores-claudio-anniversary,ORIGINAL,✓,✓
+499,Vanessa + Jonathan | After Wedding Session,vanessa-jonathan-after-wedding-session,ORIGINAL,✓,✓
+500,Janel + Esteban | Deerfield Beach Engagement,janel-esteban-deerfield-beach-engagement,ORIGINAL,✓,✓
+501,Daniela + Derlin | Miami Beach Engagement Session,daniela-derlin-miami-beach-engagement-session,ORIGINAL,✓,✓
