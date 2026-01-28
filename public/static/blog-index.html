@@ -269,13 +269,44 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <a href="/" class="logo">ACROMATICO</a>
-        <div>
-            <a href="/">Home</a>
-        </div>
-    </nav>
+<!-- Static Header with Logo and Hamburger -->
+<header class="site-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; padding: 20px 40px; display: flex; justify-content: center; align-items: center;">
+  <a href="/">
+    <img src="/static/acromatico-logo-transparent.png" alt="Acromatico Photography" class="site-logo" style="max-width: 200px; height: auto; transition: all 0.3s;" />
+  </a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu" style="position: fixed; top: 25px; right: 30px; z-index: 10000; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); border-radius: 8px; padding: 10px; border: none; cursor: pointer; width: 40px; height: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;">
+    <span style="display: block; width: 30px; height: 2px; background: #ffffff; transition: all 0.3s ease; border-radius: 2px;"></span>
+    <span style="display: block; width: 30px; height: 2px; background: #ffffff; transition: all 0.3s ease; border-radius: 2px;"></span>
+    <span style="display: block; width: 30px; height: 2px; background: #ffffff; transition: all 0.3s ease; border-radius: 2px;"></span>
+  </button>
+</header>
+
+<!-- DYNAMIC MOBILE MENU - Loaded from /api/mobile-menu -->
+<div id="mobile-menu-container"></div>
+
+<script>
+// Load mobile menu dynamically
+(function() {
+  fetch('/api/mobile-menu')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('mobile-menu-container').innerHTML = html;
+      const scripts = document.getElementById('mobile-menu-container').querySelectorAll('script');
+      scripts.forEach(script => {
+        const newScript = document.createElement('script');
+        if (script.src) {
+          newScript.src = script.src;
+        } else {
+          newScript.textContent = script.textContent;
+        }
+        document.body.appendChild(newScript);
+      });
+    })
+    .catch(error => console.error('Mobile menu load error:', error));
+})();
+</script>
+
+
     
     <!-- Hero -->
     <section class="hero">
@@ -315,15 +346,21 @@
         </div>
     </section>
     
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Acromatico Photography. All rights reserved.</p>
-        <p>
-            <a href="/" style="color: white; opacity: 0.8;">Home</a> • 
-            <a href="/static/our-story-new.html" style="color: white; opacity: 0.8;">Our Story</a> • 
-            <a href="https://acromatico.com/contact-us/" style="color: white; opacity: 0.8;">Contact</a>
-        </p>
-    </footer>
+    <!-- DYNAMIC FOOTER - Loaded from /api/footer -->
+<div id="footer-container"></div>
+
+<script>
+// Load footer dynamically
+(function() {
+  fetch('/api/footer')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    })
+    .catch(error => console.error('Footer load error:', error));
+})();
+</script>
+
     
     <script>
         // Blog posts data - will be populated from JSON
