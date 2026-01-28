@@ -316,14 +316,20 @@
     </section>
     
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Acromatico Photography. All rights reserved.</p>
-        <p>
-            <a href="/" style="color: white; opacity: 0.8;">Home</a> • 
-            <a href="/static/our-story-new.html" style="color: white; opacity: 0.8;">Our Story</a> • 
-            <a href="https://acromatico.com/contact-us/" style="color: white; opacity: 0.8;">Contact</a>
-        </p>
-    </footer>
+    <!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
+<div id="footer-container"></div>
+
+<script>
+// Load footer dynamically from server
+(function() {
+  fetch('/api/footer')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    })
+    .catch(error => console.error('Footer load error:', error));
+})();
+</script>
     
     <script>
         // Blog posts data - will be populated from JSON

@@ -1191,19 +1191,19 @@
         });
     </script>
 <!-- Footer -->
-<footer class="post-footer">
-<div class="footer-content">
-<p>© 2026 Acromatico Photography. Award-winning wedding photography in South Florida, NYC &amp; Pennsylvania.</p>
-<nav class="footer-nav">
-<a href="/">Home</a>
-<a href="/blog">Blog</a>
-<a href="/photography">Photography</a>
-<a href="/academy">Academy</a>
-<a href="/prints">Art Prints</a>
-<a href="/our-story">Our Story</a>
-<a href="/contact">Contact</a>
-</nav>
-</div>
-</footer>
+<!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
+<div id="footer-container"></div>
+
+<script>
+// Load footer dynamically from server
+(function() {
+  fetch('/api/footer')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    })
+    .catch(error => console.error('Footer load error:', error));
+})();
+</script>
 </body>
 </html>

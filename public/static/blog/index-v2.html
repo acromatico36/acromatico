@@ -610,18 +610,20 @@
 <a class="cta-button" href="https://acromatico.com/contact-us/">Get in Touch</a>
 </section>
 <!-- Footer -->
-<footer>
-<div class="footer-links">
-<a href="/">Home</a>
-<a href="/static/our-story-new.html">Our Story</a>
-<a href="/static/blog-index.html">Blog</a>
-<a href="https://acromatico.com/galleries/wedding-photography/">Portfolio</a>
-<a href="https://acromatico.com/contact-us/">Contact</a>
-<a href="https://www.instagram.com/acromatico" target="_blank">Instagram</a>
-</div>
-<p>© 2026 Acromatico Photography. All rights reserved.</p>
-<p style="opacity: 0.7; margin-top: 1rem;">Serving South Florida, NYC, Hudson Valley &amp; Destinations Worldwide</p>
-</footer>
+<!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
+<div id="footer-container"></div>
+
+<script>
+// Load footer dynamically from server
+(function() {
+  fetch('/api/footer')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    })
+    .catch(error => console.error('Footer load error:', error));
+})();
+</script>
 <script>
         // Navbar scroll effect
         window.addEventListener('scroll', () => {

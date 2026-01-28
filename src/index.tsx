@@ -4,6 +4,7 @@ import { serveStatic } from 'hono/cloudflare-workers'
 import { renderer } from './renderer'
 import Stripe from 'stripe'
 import blog from './blog-page'
+import { footerHTML } from './components/footer'
 
 // Shared Header Component
 const Header = () => (
@@ -197,6 +198,11 @@ app.use('/api/*', cors())
 
 // Mount blog routes
 app.route('/blog', blog)
+
+// Footer API - Returns HTML for dynamic footer loading
+app.get('/api/footer', (c) => {
+  return c.html(footerHTML)
+})
 
 // Stripe Checkout API
 app.post('/api/create-checkout', async (c) => {

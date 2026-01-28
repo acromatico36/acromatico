@@ -466,14 +466,19 @@
 <a class="cta-button" href="https://acromatico.com/contact-us/">Get in Touch</a>
 </section>
 <!-- Footer -->
-<footer>
-<p>
-<a href="/static/index-v2.html">Home</a>
-<a href="/static/blog-index.html">Blog</a>
-<a href="https://acromatico.com/galleries/wedding-photography/">Portfolio</a>
-<a href="https://acromatico.com/contact-us/">Contact</a>
-</p>
-<p style="margin-top: 2rem;">© 2026 Acromatico Photography. All rights reserved.</p>
-</footer>
+<!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
+<div id="footer-container"></div>
+
+<script>
+// Load footer dynamically from server
+(function() {
+  fetch('/api/footer')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    })
+    .catch(error => console.error('Footer load error:', error));
+})();
+</script>
 </body>
 </html>
