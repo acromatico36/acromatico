@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acromatico - Award-Winning Photography & Filmmaking</title>
+    <meta name="description" content="Real moments. Real stories. Real emotions. Award-winning wedding photography and filmmaking serving South Florida, NYC, and destinations worldwide.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Acromatico - Award-Winning Photography">
+    <meta property="og:description" content="Real moments. Real stories. Real emotions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acromatico.com">
+    <meta property="og:image" content="https://acromatico.com/og-image.jpg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --accent: #667eea;
+            --text: #1D1D1F;
+            --bg: #000;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: white;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        
+        nav.scrolled {
+            background: rgba(0,0,0,0.95);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 1;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=2400') center/cover;
+            opacity: 0.3;
+            animation: slowZoom 20s infinite alternate;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 5%;
+            max-width: 1200px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+        }
+        
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s backwards;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1.2rem 3rem;
+            background: white;
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 1s ease 0.4s backwards;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+        
+        /* Service Portals Section */
+        .services {
+            padding: 8rem 5%;
+            background: #FAFAFA;
+            color: var(--text);
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.3rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text);
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .service-card-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-card-image {
+            transform: scale(1.08);
+        }
+        
+        .service-card-content {
+            padding: 2rem;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .service-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #666;
+        }
+        
+        .service-arrow {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.4s;
+        }
+        
+        .service-card:hover .service-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .stat {
+            animation: fadeIn 1s ease;
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 8rem 5%;
+            background: white;
+            color: var(--text);
+        }
+        
+        .testimonial-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial {
+            padding: 3rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.8rem;
+            font-weight: 300;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .testimonial-author {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 8rem 5%;
+            background: var(--primary);
+            text-align: center;
+            color: white;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+        
+        .final-cta p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .final-cta .cta-button {
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="nav">
+        <a href="/" class="logo">ACROMATICO</a>
+        <div class="nav-links">
+            <a href="/static/our-story-new.html">Our Story</a>
+            <a href="/static/blog-index.html">Blog</a>
+            <a href="https://acromatico.com/contact-us/">Contact</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>ACROMATICO</h1>
+            <p>Real moments. Real stories. Real emotions.<br>Award-winning photography & filmmaking.</p>
+            <a href="#services" class="cta-button">Explore Our Work</a>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>What We Do</h2>
+            <p>Four pillars of storytelling, one unified vision</p>
+        </div>
+        
+        <div class="service-grid">
+            <!-- Photography -->
+            <a href="https://acromatico.com/galleries/wedding-photography/" class="service-card">
+                <img 
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800" 
+                    alt="Photography" 
+                    class="service-card-image"
+                >
+                <div class="service-card-content">
+                    <div class="service-icon">📸</div>
+                    <h3>Photography</h3>
+                    <p>Authentic, cinematic moments captured with editorial precision. Weddings, engagements, and love stories worldwide.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </a>
+            
+            <!-- Education -->
+            <a href="https://www.mentorme.live" class="service-card">
+                <img 
+                    src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800" 
+                    alt="Education" 
+                    class="service-card-image"
+                >
+                <div class="service-card-content">
+                    <div class="service-icon">🎓</div>
+                    <h3>Education</h3>
+                    <p>Workshops, mentorships, and courses for photographers who want to level up their craft and business.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </a>
+            
+            <!-- Art Prints -->
+            <a href="https://acromatico.smugmug.com" class="service-card">
+                <img 
+                    src="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?q=80&w=800" 
+                    alt="Art Prints" 
+                    class="service-card-image"
+                >
+                <div class="service-card-content">
+                    <div class="service-icon">🖼️</div>
+                    <h3>Art Prints</h3>
+                    <p>Limited-edition fine art prints from our global travels. Museum-quality pieces for collectors.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </a>
+            
+            <!-- Branding -->
+            <a href="https://acromatico.com/video-production/" class="service-card">
+                <img 
+                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800" 
+                    alt="Branding" 
+                    class="service-card-image"
+                >
+                <div class="service-card-content">
+                    <div class="service-icon">✨</div>
+                    <h3>Branding</h3>
+                    <p>Strategic visual storytelling for brands who want to stand out. Content, campaigns, and creative direction.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">501+</div>
+                <div class="stat-label">Love Stories Captured</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Countries Visited</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Real Moments</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Passion</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>What People Say</h2>
+            <p>Real feedback from real couples</p>
+        </div>
+        
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p class="testimonial-text">"Acromatico captured our wedding in a way that felt completely authentic. Every photo tells our story exactly as it happened—raw, emotional, and beautiful."</p>
+                <p class="testimonial-author">— Sarah & Michael, NYC</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Let's Create Something Unforgettable</h2>
+        <p>Your story deserves to be told beautifully.</p>
+        <a href="https://acromatico.com/contact-us/" class="cta-button">Get in Touch</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/static/our-story-new.html">Our Story</a>
+            <a href="/static/blog-index.html">Blog</a>
+            <a href="https://acromatico.com/galleries/wedding-photography/">Portfolio</a>
+            <a href="https://acromatico.com/contact-us/">Contact</a>
+            <a href="https://www.instagram.com/acromatico" target="_blank">Instagram</a>
+        </div>
+        <p>&copy; 2026 Acromatico Photography. All rights reserved.</p>
+        <p style="opacity: 0.7; margin-top: 1rem;">Serving South Florida, NYC, Hudson Valley & Destinations Worldwide</p>
+    </footer>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.service-card, .stat, .testimonial').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

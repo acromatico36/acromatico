@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miami Wedding | Michelle + Claudio | Acromatico Photography</title>
+    <meta name="description" content="Congratulations Michelle and Claudio on your wedding and baby to come! This for sure was the sweetest, most beautiful mommy bride. We wish you guys the very bes">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/miami-wedding-michelle-claudio">
+    <meta property="og:title" content="Miami Wedding | Michelle + Claudio">
+    <meta property="og:description" content="Congratulations Michelle and Claudio on your wedding and baby to come! This for sure was the sweetest, most beautiful mommy bride. We wish you guys the very bes">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-002.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/miami-wedding-michelle-claudio">
+    <meta property="twitter:title" content="Miami Wedding | Michelle + Claudio">
+    <meta property="twitter:description" content="Congratulations Michelle and Claudio on your wedding and baby to come! This for sure was the sweetest, most beautiful mommy bride. We wish you guys the very bes">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-002.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Miami Wedding | Michelle + Claudio",
+      "image": ["https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-002.jpg","https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-001.jpg","https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-005.jpg","https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-003.jpg","https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-004.jpg"],
+      "datePublished": "2018-04-21T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "Congratulations Michelle and Claudio on your wedding and baby to come! This for sure was the sweetest, most beautiful mommy bride. We wish you guys the very bes"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-002.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>Miami Wedding | Michelle + Claudio</h1>
+            <p class="post-meta">April 21, 2018</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>Congratulations Michelle and Claudio on your wedding and baby to come! This for sure was the sweetest, most beautiful mommy bride. We wish you guys the very best on this new adventure and little family to come. Please enjoy some of our favorites from this Miami wedding.</p>
+<p><img decoding="async" class="aligncenter size-full wp-image-13801 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-002.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13800 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-001.jpg" alt="" width="1820" height="1022"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1022;" /><img decoding="async" class="aligncenter size-full wp-image-13799 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-005.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13798 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-003.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13797 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-004.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13796 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-007.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13795 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-008.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13794 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-006.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13793 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-009.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13792 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-010.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13791 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-011.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13790 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-012.jpg" alt="" width="1820" height="1022"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1022;" /><img decoding="async" class="aligncenter size-full wp-image-13789 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-013.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13788 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-016.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13787 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-015.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13786 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-017.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13785 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-018.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13784 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-019.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13783 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-021.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13782 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-022.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13781 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-024.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13780 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-023.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13779 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-025.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13778 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-026.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13777 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-027.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13776 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-029.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13775 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-028.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13774 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-030.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13773 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-031.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13772 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-033.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13771 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-034.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13770 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-035.jpg" alt="" width="1820" height="1022"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1022;" /><img decoding="async" class="aligncenter size-full wp-image-13769 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-032.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13768 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-036.jpg" alt="" width="1820" height="1022"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1022;" /><img decoding="async" class="aligncenter size-full wp-image-13767 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-037.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13766 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-039.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13765 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-038.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13764 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-041.jpg" alt="" width="1820" height="1365"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1365;" /><img decoding="async" class="aligncenter size-full wp-image-13762 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-040.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13761 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-043.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13760 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-044.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13759 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-045.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13758 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-046.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13757 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-047.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13756 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-048.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13755 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-049.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13754 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-050.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13753 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-051.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13752 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-052.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13751 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-053.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13750 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-054.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13749 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-055.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13748 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-056.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13747 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-057.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13746 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-058.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13745 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-059.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13744 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-060.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13743 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-062.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13742 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-061.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13741 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-063.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /><img decoding="async" class="aligncenter size-full wp-image-13740 lazyload" src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-064.jpg" alt="" width="1820" height="1211"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1211;" /></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-002.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-001.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-005.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-003.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-004.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-007.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-008.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-006.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-009.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-010.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-011.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-012.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-013.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-016.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-015.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-017.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-018.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-019.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-021.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-022.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-024.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-023.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-025.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-026.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-027.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-029.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-028.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-030.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-031.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-033.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-034.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-035.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-032.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-036.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-037.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-039.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-038.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-041.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-040.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-043.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-044.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-045.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-046.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-047.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-048.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-049.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-050.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-051.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-052.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-053.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-054.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-055.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-056.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-057.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-058.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-059.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-060.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-062.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-061.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-063.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/04/Miami-Wedding-064.jpg" alt="Miami Wedding | Michelle + Claudio" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

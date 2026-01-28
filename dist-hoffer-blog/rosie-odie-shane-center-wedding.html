@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosie + Odie | Shane Center Wedding | Acromatico Photography</title>
+    <meta name="description" content="We had such an awesome time shooting Rosie and Odie&#8217;s wedding. You might remember them from their engagement session in the Summer. Rosie and Odie got rea">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/rosie-odie-shane-center-wedding">
+    <meta property="og:title" content="Rosie + Odie | Shane Center Wedding">
+    <meta property="og:description" content="We had such an awesome time shooting Rosie and Odie&#8217;s wedding. You might remember them from their engagement session in the Summer. Rosie and Odie got rea">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-001.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/rosie-odie-shane-center-wedding">
+    <meta property="twitter:title" content="Rosie + Odie | Shane Center Wedding">
+    <meta property="twitter:description" content="We had such an awesome time shooting Rosie and Odie&#8217;s wedding. You might remember them from their engagement session in the Summer. Rosie and Odie got rea">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-001.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Rosie + Odie | Shane Center Wedding",
+      "image": ["https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-001.jpg","https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-002.jpg","https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-003.jpg","https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-004.jpg","https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-005.jpg"],
+      "datePublished": "2015-01-12T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "We had such an awesome time shooting Rosie and Odie&#8217;s wedding. You might remember them from their engagement session in the Summer. Rosie and Odie got rea"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-001.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>Rosie + Odie | Shane Center Wedding</h1>
+            <p class="post-meta">January 12, 2015</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>We had such an awesome time shooting Rosie and Odie&#8217;s wedding. You might remember them from their <a href="https://acromatico.com/rosie-odie-south-pointe-park-engagement/">engagement</a> session in the Summer. Rosie and Odie got ready at the Fountainbleau in Miami. They just couldn&#8217;t wait to see each other for the first time, so they had to do their first look before their ceremony took place. What a beautiful moment it was! Odie just couldn&#8217;t take his eyes off his beautiful bride. Despite the crazy weather, their outdoor ceremony overlooking the water at the Shane Center was just beautiful! Rosie changed in to a gorgeous sexy dress to get her party on during hora loca. Check out some of our favorites from this awesome wedding!</p>
+<p>&nbsp;</p>
+<p><img decoding="async" class="aligncenter size-full wp-image-7811 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-001.jpg" alt="Shane Center Wedding-001" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7812 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-002.jpg" alt="Shane Center Wedding-002" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7813 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-003.jpg" alt="Shane Center Wedding-003" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7814 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-004.jpg" alt="Shane Center Wedding-004" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7815 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-005.jpg" alt="Shane Center Wedding-005" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7816 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-006.jpg" alt="Shane Center Wedding-006" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7817 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-007.jpg" alt="Shane Center Wedding-007" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7818 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-008.jpg" alt="Shane Center Wedding-008" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7819 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-009.jpg" alt="Shane Center Wedding-009" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7820 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-010.jpg" alt="Shane Center Wedding-010" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7821 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-011.jpg" alt="Shane Center Wedding-011" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7822 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-012.jpg" alt="Shane Center Wedding-012" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7823 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-013.jpg" alt="Shane Center Wedding-013" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7824 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-014.jpg" alt="Shane Center Wedding-014" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7825 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-015.jpg" alt="Shane Center Wedding-015" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7826 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-016.jpg" alt="Shane Center Wedding-016" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7827 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-017.jpg" alt="Shane Center Wedding-017" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7828 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-018.jpg" alt="Shane Center Wedding-018" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7829 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-019.jpg" alt="Shane Center Wedding-019" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7830 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-020.jpg" alt="Shane Center Wedding-020" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7831 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-021.jpg" alt="Shane Center Wedding-021" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7832 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-022.jpg" alt="Shane Center Wedding-022" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7833 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-023.jpg" alt="Shane Center Wedding-023" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7834 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-024.jpg" alt="Shane Center Wedding-024" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7835 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-025.jpg" alt="Shane Center Wedding-025" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7836 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-026.jpg" alt="Shane Center Wedding-026" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7837 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-027.jpg" alt="Shane Center Wedding-027" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7838 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-028.jpg" alt="Shane Center Wedding-028" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7839 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-029.jpg" alt="Shane Center Wedding-029" width="910" height="1365"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1365;" /> <img decoding="async" class="aligncenter size-full wp-image-7840 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-030.jpg" alt="Shane Center Wedding-030" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7841 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-031.jpg" alt="Shane Center Wedding-031" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7842 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-032.jpg" alt="Shane Center Wedding-032" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7843 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-033.jpg" alt="Shane Center Wedding-033" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7844 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-034.jpg" alt="Shane Center Wedding-034" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7845 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-035.jpg" alt="Shane Center Wedding-035" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /> <img decoding="async" class="aligncenter size-full wp-image-7846 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-036.jpg" alt="Shane Center Wedding-036" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7847 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-037.jpg" alt="Shane Center Wedding-037" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /> <img decoding="async" class="aligncenter size-full wp-image-7848 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-038.jpg" alt="Shane Center Wedding-038" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7849 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-039.jpg" alt="Shane Center Wedding-039" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7850 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-040.jpg" alt="Shane Center Wedding-040" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7851 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-041.jpg" alt="Shane Center Wedding-041" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7852 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-042.jpg" alt="Shane Center Wedding-042" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7853 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-043.jpg" alt="Shane Center Wedding-043" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7854 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-044.jpg" alt="Shane Center Wedding-044" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7855 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-045.jpg" alt="Shane Center Wedding-045" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7856 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-046.jpg" alt="Shane Center Wedding-046" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7857 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-047.jpg" alt="Shane Center Wedding-047" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7858 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-048.jpg" alt="Shane Center Wedding-048" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7859 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-049.jpg" alt="Shane Center Wedding-049" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7860 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-050.jpg" alt="Shane Center Wedding-050" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /> <img decoding="async" class="aligncenter size-full wp-image-7861 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-051.jpg" alt="Shane Center Wedding-051" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7862 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-052.jpg" alt="Shane Center Wedding-052" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7863 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-053.jpg" alt="Shane Center Wedding-053" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /> <img decoding="async" class="aligncenter size-full wp-image-7864 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-054.jpg" alt="Shane Center Wedding-054" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7865 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-055.jpg" alt="Shane Center Wedding-055" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7866 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-056.jpg" alt="Shane Center Wedding-056" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7867 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-057.jpg" alt="Shane Center Wedding-057" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-7868 lazyload" src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-058.jpg" alt="Shane Center Wedding-058" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-001.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-002.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-003.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-004.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-005.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-006.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-007.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-008.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-009.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-010.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-011.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-012.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-013.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-014.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-015.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-016.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-017.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-018.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-019.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-020.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-021.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-022.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-023.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-024.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-025.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-026.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-027.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-028.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-029.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-030.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-031.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-032.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-033.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-034.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-035.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-036.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-037.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-038.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-039.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-040.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-041.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-042.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-043.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-044.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-045.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-046.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-047.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-048.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-049.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-050.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-051.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-052.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-053.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-054.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-055.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-056.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-057.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Shane-Center-Wedding-058.jpg" alt="Rosie + Odie | Shane Center Wedding" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aruba | travel photography | Acromatico Photography</title>
+    <meta name="description" content="After a looong wedding season, vacations were very much needed. If you are planing your honeymoon and have no idea were to go, well let us give you a hand&#8230">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/aruba-travel-photography">
+    <meta property="og:title" content="aruba | travel photography">
+    <meta property="og:description" content="After a looong wedding season, vacations were very much needed. If you are planing your honeymoon and have no idea were to go, well let us give you a hand&#8230">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/ARUBA-1.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/aruba-travel-photography">
+    <meta property="twitter:title" content="aruba | travel photography">
+    <meta property="twitter:description" content="After a looong wedding season, vacations were very much needed. If you are planing your honeymoon and have no idea were to go, well let us give you a hand&#8230">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/ARUBA-1.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "aruba | travel photography",
+      "image": ["https://acromatico.com/wp-content/uploads/ARUBA-1.jpg","https://acromatico.com/wp-content/uploads/ARUBA-2.jpg","https://acromatico.com/wp-content/uploads/ARUBA-3.jpg","https://acromatico.com/wp-content/uploads/ARUBA-4.jpg","https://acromatico.com/wp-content/uploads/ARUBA-5.jpg"],
+      "datePublished": "2011-08-15T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "After a looong wedding season, vacations were very much needed. If you are planing your honeymoon and have no idea were to go, well let us give you a hand&#8230"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/ARUBA-1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Photography</span>
+            <h1>aruba | travel photography</h1>
+            <p class="post-meta">August 15, 2011</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>After a looong wedding season, vacations were very much needed. If you are planing your honeymoon and have no idea were to go, well let us give you a hand&#8230;ARUBA!! From the crystal clear turquoise waters to the white sandy beaches, this unbelievable 20-mile long island is a place you&#8217;ll never forget. Being that we wanted pure relaxation, we selected an adult only hotel &#8211; the Marriott Renaissance Marina. What really caught our attention is the private island the hotel has to offer. With a 10 minute boat ride, we were sent off to paradise. But we had to explore the entire island, so we rented a Jeep (Ale&#8217;s dream) and drove around the entire island in a day. What a blast! The island people were so nice to guide us through directions, and you&#8217;ll be pleased to know they speak just about any language you speak &#8211; 7 to be exact. Our most favorite spot in the island was Baby Beach &#8211; where ultra-clear warm waters mesmerized our eyes. This is where inspiration kicked in, and we were able to capture what is the biggest panoramic print we&#8217;ve ever done &#8211; almost 10 feet long!</p>
+<p>So here&#8217;s the great news we&#8217;ve been talking about for the past few weeks. Ready? Since Aruba and starting today, we will take one shot of each place that we travel to that is worth to give you that &#8220;gasp&#8221; feeling and will add it to our newest line of products &#8211; panoramic prints. Starting today, you can order our favorite picture or almost any travel picture in a panoramic canvas, sizes ranging from 3 to 10 feet wide (and counting!). More information coming soon. Enjoy the post!</p>
+<p><img decoding="async" title="ARUBA-1" src="https://acromatico.com/wp-content/uploads/ARUBA-1.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-2" src="https://acromatico.com/wp-content/uploads/ARUBA-2.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-3" src="https://acromatico.com/wp-content/uploads/ARUBA-3.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-4" src="https://acromatico.com/wp-content/uploads/ARUBA-4.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-5" src="https://acromatico.com/wp-content/uploads/ARUBA-5.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-6" src="https://acromatico.com/wp-content/uploads/ARUBA-6.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-7" src="https://acromatico.com/wp-content/uploads/ARUBA-7.jpg" alt="" width="910" height="675"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="ARUBA-8" src="https://acromatico.com/wp-content/uploads/ARUBA-8.jpg" alt="" width="910" height="675"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="ARUBA-9" src="https://acromatico.com/wp-content/uploads/ARUBA-9.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-10" src="https://acromatico.com/wp-content/uploads/ARUBA-10.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-11" src="https://acromatico.com/wp-content/uploads/ARUBA-11.jpg" alt="" width="910" height="300"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/300;" /><img decoding="async" title="ARUBA-12" src="https://acromatico.com/wp-content/uploads/ARUBA-12.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-13" src="https://acromatico.com/wp-content/uploads/ARUBA-13.jpg" alt="" width="910" height="300"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/300;" /><img decoding="async" title="ARUBA-14" src="https://acromatico.com/wp-content/uploads/ARUBA-14.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-15" src="https://acromatico.com/wp-content/uploads/ARUBA-15.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-16" src="https://acromatico.com/wp-content/uploads/ARUBA-16.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-17" src="https://acromatico.com/wp-content/uploads/ARUBA-17.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-18" src="https://acromatico.com/wp-content/uploads/ARUBA-18.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-19" src="https://acromatico.com/wp-content/uploads/ARUBA-19.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></p>
+<p>The view from our hotel</p>
+<p><img decoding="async" title="ARUBA-20" src="https://acromatico.com/wp-content/uploads/ARUBA-20.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-21" src="https://acromatico.com/wp-content/uploads/ARUBA-21.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-22" src="https://acromatico.com/wp-content/uploads/ARUBA-22.jpg" alt="" width="910" height="300"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/300;" /><img decoding="async" title="ARUBA-23" src="https://acromatico.com/wp-content/uploads/ARUBA-23.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-24" src="https://acromatico.com/wp-content/uploads/ARUBA-24.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-25" src="https://acromatico.com/wp-content/uploads/ARUBA-25.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-26" src="https://acromatico.com/wp-content/uploads/ARUBA-26.jpg" alt="" width="910" height="415"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/415;" /><img decoding="async" title="ARUBA-27" src="https://acromatico.com/wp-content/uploads/ARUBA-27.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-28" src="https://acromatico.com/wp-content/uploads/ARUBA-28.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-29" src="https://acromatico.com/wp-content/uploads/ARUBA-29.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-30" src="https://acromatico.com/wp-content/uploads/ARUBA-30.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-31" src="https://acromatico.com/wp-content/uploads/ARUBA-31.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-32" src="https://acromatico.com/wp-content/uploads/ARUBA-32.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-33" src="https://acromatico.com/wp-content/uploads/ARUBA-33.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-34" src="https://acromatico.com/wp-content/uploads/ARUBA-34.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-35" src="https://acromatico.com/wp-content/uploads/ARUBA-35.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-36" src="https://acromatico.com/wp-content/uploads/ARUBA-36.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-37" src="https://acromatico.com/wp-content/uploads/ARUBA-37.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-38" src="https://acromatico.com/wp-content/uploads/ARUBA-38.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-39" src="https://acromatico.com/wp-content/uploads/ARUBA-39.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-40" src="https://acromatico.com/wp-content/uploads/ARUBA-40.jpg" alt="" width="910" height="300"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/300;" /><img decoding="async" title="ARUBA-41" src="https://acromatico.com/wp-content/uploads/ARUBA-41.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-42" src="https://acromatico.com/wp-content/uploads/ARUBA-42.jpg" alt="" width="910" height="675"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="ARUBA-43" src="https://acromatico.com/wp-content/uploads/ARUBA-43.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-44" src="https://acromatico.com/wp-content/uploads/ARUBA-44.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-45" src="https://acromatico.com/wp-content/uploads/ARUBA-45.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-46" src="https://acromatico.com/wp-content/uploads/ARUBA-46.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-47" src="https://acromatico.com/wp-content/uploads/ARUBA-47.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-48" src="https://acromatico.com/wp-content/uploads/ARUBA-48.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-49" src="https://acromatico.com/wp-content/uploads/ARUBA-49.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-50" src="https://acromatico.com/wp-content/uploads/ARUBA-50.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-51" src="https://acromatico.com/wp-content/uploads/ARUBA-51.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-52" src="https://acromatico.com/wp-content/uploads/ARUBA-52.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="ARUBA-53" src="https://acromatico.com/wp-content/uploads/ARUBA-53.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-1.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-2.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-3.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-4.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-5.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-6.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-7.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-8.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-9.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-10.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-11.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-12.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-13.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-14.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-15.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-16.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-17.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-18.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-19.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-20.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-21.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-22.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-23.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-24.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-25.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-26.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-27.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-28.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-29.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-30.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-31.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-32.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-33.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-34.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-35.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-36.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-37.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-38.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-39.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-40.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-41.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-42.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-43.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-44.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-45.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-46.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-47.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-48.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-49.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-50.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-51.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-52.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/ARUBA-53.jpg" alt="aruba | travel photography" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

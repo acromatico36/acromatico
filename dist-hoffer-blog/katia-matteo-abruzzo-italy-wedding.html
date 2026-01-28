@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katia + Matteo | Abruzzo, Italy Wedding | Acromatico Photography</title>
+    <meta name="description" content="When they said &#8220;come to Italy for our wedding&#8221; we said YES!  We really had been missing Italy for a while, and it&#8217;s so good to be back in this">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/katia-matteo-abruzzo-italy-wedding">
+    <meta property="og:title" content="Katia + Matteo | Abruzzo, Italy Wedding">
+    <meta property="og:description" content="When they said &#8220;come to Italy for our wedding&#8221; we said YES!  We really had been missing Italy for a while, and it&#8217;s so good to be back in this">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/italy-wedding-1.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/katia-matteo-abruzzo-italy-wedding">
+    <meta property="twitter:title" content="Katia + Matteo | Abruzzo, Italy Wedding">
+    <meta property="twitter:description" content="When they said &#8220;come to Italy for our wedding&#8221; we said YES!  We really had been missing Italy for a while, and it&#8217;s so good to be back in this">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/italy-wedding-1.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Katia + Matteo | Abruzzo, Italy Wedding",
+      "image": ["https://acromatico.com/wp-content/uploads/italy-wedding-1.jpg","https://acromatico.com/wp-content/uploads/italy-wedding-2.jpg","https://acromatico.com/wp-content/uploads/italy-wedding-3.jpg","https://acromatico.com/wp-content/uploads/italy-wedding-4.jpg","https://acromatico.com/wp-content/uploads/italy-wedding-5.jpg"],
+      "datePublished": "2012-06-21T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "When they said &#8220;come to Italy for our wedding&#8221; we said YES!  We really had been missing Italy for a while, and it&#8217;s so good to be back in this"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/italy-wedding-1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>Katia + Matteo | Abruzzo, Italy Wedding</h1>
+            <p class="post-meta">June 21, 2012</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>When they said &#8220;come to Italy for our wedding&#8221; we said YES!  We really had been missing Italy for a while, and it&#8217;s so good to be back in this beautiful part of the Adriatic Coast. Not only did we enjoy shooting this wedding but we got to pig out. If you didn&#8217;t know, Italian weddings last from noon to midnight and you get tons and tons of delicious home-made traditional plates, so it&#8217;s hour after hour of eating and partying. This is by far one of our biggest posts! We couldn&#8217;t contain our clicks shooting this beautiful couple. You may already know these faces from their <a title="engagement session" href="https://acromatico.com/engagement/katia-matteo-engagement-session-in-italy/">engagement session</a>, well, here they are now officially MARRIED! Katia e Matteo: auguri auguri e tanti più auguri ancora! Enjoy our mega post, stay tuned for their after session.</p>
+<p><img decoding="async" title="italy wedding-1" src="https://acromatico.com/wp-content/uploads/italy-wedding-1.jpg" alt="" width="910" height="577"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/577;" /><img decoding="async" title="italy wedding-2" src="https://acromatico.com/wp-content/uploads/italy-wedding-2.jpg" alt="" width="910" height="704"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/704;" /><img decoding="async" title="italy wedding-3" src="https://acromatico.com/wp-content/uploads/italy-wedding-3.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-4" src="https://acromatico.com/wp-content/uploads/italy-wedding-4.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-5" src="https://acromatico.com/wp-content/uploads/italy-wedding-5.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-6" src="https://acromatico.com/wp-content/uploads/italy-wedding-6.jpg" alt="" width="910" height="578"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/578;" /><img decoding="async" title="italy wedding-7" src="https://acromatico.com/wp-content/uploads/italy-wedding-7.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-8" src="https://acromatico.com/wp-content/uploads/italy-wedding-8.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-9" src="https://acromatico.com/wp-content/uploads/italy-wedding-9.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-10" src="https://acromatico.com/wp-content/uploads/italy-wedding-10.jpg" alt="" width="910" height="680"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" /><img decoding="async" title="italy wedding-11" src="https://acromatico.com/wp-content/uploads/italy-wedding-11.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-12" src="https://acromatico.com/wp-content/uploads/italy-wedding-12.jpg" alt="" width="910" height="374"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/374;" /><img decoding="async" title="italy wedding-13" src="https://acromatico.com/wp-content/uploads/italy-wedding-13.jpg" alt="" width="910" height="594"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/594;" /><img decoding="async" title="italy wedding-14" src="https://acromatico.com/wp-content/uploads/italy-wedding-14.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-15" src="https://acromatico.com/wp-content/uploads/italy-wedding-15.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-16" src="https://acromatico.com/wp-content/uploads/italy-wedding-16.jpg" alt="" width="910" height="680"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" /><img decoding="async" title="italy wedding-17" src="https://acromatico.com/wp-content/uploads/italy-wedding-17.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-18" src="https://acromatico.com/wp-content/uploads/italy-wedding-18.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-19" src="https://acromatico.com/wp-content/uploads/italy-wedding-19.jpg" alt="" width="910" height="680"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" /><img decoding="async" title="italy wedding-20" src="https://acromatico.com/wp-content/uploads/italy-wedding-20.jpg" alt="" width="910" height="757"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/757;" /><img decoding="async" title="italy wedding-21" src="https://acromatico.com/wp-content/uploads/italy-wedding-21.jpg" alt="" width="910" height="813"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/813;" /><img decoding="async" title="italy wedding-22" src="https://acromatico.com/wp-content/uploads/italy-wedding-22.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-23" src="https://acromatico.com/wp-content/uploads/italy-wedding-23.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-24" src="https://acromatico.com/wp-content/uploads/italy-wedding-24.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-25" src="https://acromatico.com/wp-content/uploads/italy-wedding-25.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-26" src="https://acromatico.com/wp-content/uploads/italy-wedding-26.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-27" src="https://acromatico.com/wp-content/uploads/italy-wedding-27.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-28" src="https://acromatico.com/wp-content/uploads/italy-wedding-28.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-29" src="https://acromatico.com/wp-content/uploads/italy-wedding-29.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-30" src="https://acromatico.com/wp-content/uploads/italy-wedding-30.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-31" src="https://acromatico.com/wp-content/uploads/italy-wedding-31.jpg" alt="" width="910" height="614"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/614;" /><img decoding="async" title="italy wedding-32" src="https://acromatico.com/wp-content/uploads/italy-wedding-32.jpg" alt="" width="910" height="201"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/201;" /><img decoding="async" title="italy wedding-33" src="https://acromatico.com/wp-content/uploads/italy-wedding-33.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-34" src="https://acromatico.com/wp-content/uploads/italy-wedding-34.jpg" alt="" width="910" height="1365"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1365;" /><img decoding="async" title="italy wedding-35" src="https://acromatico.com/wp-content/uploads/italy-wedding-35.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-36" src="https://acromatico.com/wp-content/uploads/italy-wedding-36.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-37" src="https://acromatico.com/wp-content/uploads/italy-wedding-37.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-38" src="https://acromatico.com/wp-content/uploads/italy-wedding-38.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-39" src="https://acromatico.com/wp-content/uploads/italy-wedding-39.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-40" src="https://acromatico.com/wp-content/uploads/italy-wedding-40.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-41" src="https://acromatico.com/wp-content/uploads/italy-wedding-41.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-42" src="https://acromatico.com/wp-content/uploads/italy-wedding-42.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-43" src="https://acromatico.com/wp-content/uploads/italy-wedding-43.jpg" alt="" width="910" height="680"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" /><img decoding="async" title="italy wedding-44" src="https://acromatico.com/wp-content/uploads/italy-wedding-44.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-45" src="https://acromatico.com/wp-content/uploads/italy-wedding-45.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-46" src="https://acromatico.com/wp-content/uploads/italy-wedding-46.jpg" alt="" width="910" height="1365"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1365;" /><img decoding="async" title="italy wedding-47" src="https://acromatico.com/wp-content/uploads/italy-wedding-47.jpg" alt="" width="910" height="680"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" /><img decoding="async" title="italy wedding-48" src="https://acromatico.com/wp-content/uploads/italy-wedding-48.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-49" src="https://acromatico.com/wp-content/uploads/italy-wedding-49.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-50" src="https://acromatico.com/wp-content/uploads/italy-wedding-50.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-51" src="https://acromatico.com/wp-content/uploads/italy-wedding-51.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-52" src="https://acromatico.com/wp-content/uploads/italy-wedding-52.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-53" src="https://acromatico.com/wp-content/uploads/italy-wedding-53.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-54" src="https://acromatico.com/wp-content/uploads/italy-wedding-54.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-55" src="https://acromatico.com/wp-content/uploads/italy-wedding-55.jpg" alt="" width="910" height="888"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/888;" /><img decoding="async" title="italy wedding-56" src="https://acromatico.com/wp-content/uploads/italy-wedding-56.jpg" alt="" width="910" height="680"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" /><img decoding="async" title="italy wedding-57" src="https://acromatico.com/wp-content/uploads/italy-wedding-57.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-58" src="https://acromatico.com/wp-content/uploads/italy-wedding-58.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-59" src="https://acromatico.com/wp-content/uploads/italy-wedding-59.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-60" src="https://acromatico.com/wp-content/uploads/italy-wedding-60.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-61" src="https://acromatico.com/wp-content/uploads/italy-wedding-61.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-62" src="https://acromatico.com/wp-content/uploads/italy-wedding-62.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-63" src="https://acromatico.com/wp-content/uploads/italy-wedding-63.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-64" src="https://acromatico.com/wp-content/uploads/italy-wedding-64.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-65" src="https://acromatico.com/wp-content/uploads/italy-wedding-65.jpg" alt="" width="910" height="680"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" /><img decoding="async" title="italy wedding-66" src="https://acromatico.com/wp-content/uploads/italy-wedding-66.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-67" src="https://acromatico.com/wp-content/uploads/italy-wedding-67.jpg" alt="" width="910" height="548"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/548;" /><img decoding="async" title="italy wedding-68" src="https://acromatico.com/wp-content/uploads/italy-wedding-68.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-69" src="https://acromatico.com/wp-content/uploads/italy-wedding-69.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-70" src="https://acromatico.com/wp-content/uploads/italy-wedding-70.jpg" alt="" width="910" height="642"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/642;" /><img decoding="async" title="italy wedding-71" src="https://acromatico.com/wp-content/uploads/italy-wedding-71.jpg" alt="" width="910" height="756"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/756;" /><img decoding="async" title="italy wedding-72" src="https://acromatico.com/wp-content/uploads/italy-wedding-72.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-73" src="https://acromatico.com/wp-content/uploads/italy-wedding-73.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-74" src="https://acromatico.com/wp-content/uploads/italy-wedding-74.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-75" src="https://acromatico.com/wp-content/uploads/italy-wedding-75.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-76" src="https://acromatico.com/wp-content/uploads/italy-wedding-76.jpg" alt="" width="910" height="201"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/201;" /><img decoding="async" title="italy wedding-77" src="https://acromatico.com/wp-content/uploads/italy-wedding-77.jpg" alt="" width="910" height="247"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/247;" /><img decoding="async" title="italy wedding-78" src="https://acromatico.com/wp-content/uploads/italy-wedding-78.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-79" src="https://acromatico.com/wp-content/uploads/italy-wedding-79.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-80" src="https://acromatico.com/wp-content/uploads/italy-wedding-80.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-81" src="https://acromatico.com/wp-content/uploads/italy-wedding-81.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-82" src="https://acromatico.com/wp-content/uploads/italy-wedding-82.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-83" src="https://acromatico.com/wp-content/uploads/italy-wedding-83.jpg" alt="" width="910" height="303"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" /><img decoding="async" title="italy wedding-84" src="https://acromatico.com/wp-content/uploads/italy-wedding-84.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-85" src="https://acromatico.com/wp-content/uploads/italy-wedding-85.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-86" src="https://acromatico.com/wp-content/uploads/italy-wedding-86.jpg" alt="" width="910" height="303"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" /><img decoding="async" title="italy wedding-87" src="https://acromatico.com/wp-content/uploads/italy-wedding-87.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="italy wedding-88" src="https://acromatico.com/wp-content/uploads/italy-wedding-88.jpg" alt="" width="910" height="303"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" /><img decoding="async" title="italy wedding-89" src="https://acromatico.com/wp-content/uploads/italy-wedding-89.jpg" alt="" width="910" height="303"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" /><img decoding="async" title="italy wedding-90" src="https://acromatico.com/wp-content/uploads/italy-wedding-90.jpg" alt="" width="910" height="607"  class="lazyload" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-1.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-2.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-3.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-4.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-5.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-6.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-7.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-8.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-9.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-10.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-11.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-12.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-13.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-14.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-15.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-16.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-17.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-18.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-19.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-20.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-21.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-22.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-23.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-24.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-25.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-26.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-27.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-28.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-29.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-30.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-31.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-32.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-33.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-34.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-35.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-36.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-37.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-38.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-39.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-40.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-41.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-42.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-43.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-44.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-45.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-46.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-47.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-48.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-49.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-50.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-51.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-52.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-53.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-54.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-55.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-56.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-57.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-58.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-59.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-60.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-61.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-62.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-63.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-64.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-65.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-66.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-67.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-68.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-69.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-70.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-71.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-72.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-73.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-74.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-75.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-76.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-77.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-78.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-79.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-80.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-81.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-82.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-83.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-84.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-85.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-86.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-87.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-88.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-89.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/italy-wedding-90.jpg" alt="Katia + Matteo | Abruzzo, Italy Wedding" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

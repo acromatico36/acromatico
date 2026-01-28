@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acromatico - Candid Photography, Authentic Storytelling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Roboto', -apple-system, sans-serif; 
+      background: #ffffff; 
+      color: #222222;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      background: white;
+    }
+    
+    .header img { max-width: 150px; margin-bottom: 20px; }
+    
+    .header h1 {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 5px;
+    }
+    
+    .header h2 {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 15px;
+    }
+    
+    .header .contact {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+    }
+    
+    .hero-video-container { 
+      position: relative; 
+      height: 70vh; 
+      min-height: 500px;
+      overflow: hidden; 
+      background: #000;
+    }
+    
+    .hero-video-container iframe { 
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      width: 177.77777778vh;
+      min-width: 100%;
+      height: 56.25vw;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: none;
+    }
+    
+    .section-title {
+      text-align: center;
+      padding: 80px 20px 60px;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    
+    .carousel-section {
+      padding: 0 20px 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .carousel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .carousel-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    
+    .carousel-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .carousel-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1400px;
+      margin: 80px auto;
+      padding: 0 40px;
+      align-items: center;
+    }
+    
+    .two-column h3 {
+      font-size: 32px;
+      font-weight: 300;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .two-column p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    
+    .two-column img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    
+    .featured-section {
+      background: white;
+      padding: 100px 40px;
+      text-align: center;
+    }
+    
+    .featured-section h2 {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    
+    .featured-section p {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      color: #666;
+      line-height: 1.8;
+    }
+    
+    .featured-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 40px auto 0;
+    }
+    
+    .featured-logos img {
+      height: 50px;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .featured-logos img:hover {
+      opacity: 1;
+    }
+    
+    .full-width-image {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: cover;
+      margin: 80px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .carousel { grid-template-columns: 1fr; }
+      .two-column { grid-template-columns: 1fr; gap: 40px; }
+      .carousel-item .overlay { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="/static/portfolio/acromatico-logo.png" alt="Acromatico">
+    <h1>CANDID PHOTOGRAPHY</h1>
+    <h2>AUTHENTIC STORYTELLING IMAGERY</h2>
+    <div class="contact">SOUTH FLORIDA | NEW YORK<br>954.779.0921</div>
+  </div>
+
+  <div class="hero-video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&mute=1&loop=1&playlist=9DiS2Z_H15U&controls=0&showinfo=0&modestbranding=1&vq=hd1080&rel=0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="section-title">
+    EVERY MOMENT, CAPTURED AUTHENTICALLY.
+  </div>
+
+  <div class="carousel-section">
+    <div class="carousel">
+      <div class="carousel-item">
+        <img src="/static/portfolio/jeanine-joe.jpg" alt="Timeless Moments">
+        <div class="overlay">TIMELESS MOMENTS</div>
+      </div>
+      <div class="carousel-item">
+        <img src="/static/portfolio/pp-image.jpg" alt="Brand Impact">
+        <div class="overlay">BRAND IMPACT</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-column">
+    <div>
+      <h3>TRAVEL</h3>
+      <p>With Italian roots and a passion for storytelling, we've captured weddings and brand shoots across Italy, the USA, and beyond. From the streets of Lake Como to the beaches of California, we go where the story takes us.</p>
+      <p>Whether it's a destination wedding, a brand campaign, or a creative project, we're ready to travel—nationwide and worldwide. Let's bring your vision to life, wherever it unfolds.</p>
+    </div>
+    <img src="/static/portfolio/switzerland.jpg" alt="Travel Photography">
+  </div>
+
+  <div class="two-column" style="direction: rtl;">
+    <div style="direction: ltr;">
+      <h3>IMPACT</h3>
+      <p>We believe in creating visuals that matter—empowering eco-conscious brands and initiatives that make a difference. From partnering with Hilton on sustainability efforts to launching our own eco-friendly brand at Ecolosophy, we amplify brands that stand for something bigger.</p>
+      <p>Let's collaborate on something that not only looks good but also makes a meaningful impact. Together, we'll create stories that move the world forward.</p>
+    </div>
+    <img src="/static/portfolio/jeanine-joe.jpg" alt="Impact" style="direction: ltr;">
+  </div>
+
+  <img src="/static/portfolio/switzerland.jpg" alt="Destination" class="full-width-image">
+
+  <div class="featured-section">
+    <h2>WHERE AUTHENTICITY MEETS ART.</h2>
+    <p>Hi, we're Acromatico Photography—a team of storytellers capturing raw, unfiltered, candid moments that feel like you. No forced smiles. No stiff poses. Just real emotions and connections, frozen in time. Since 2005, we've been telling stories for weddings, brands, and unforgettable events with a photojournalistic approach.</p>
+    <h3 style="font-size: 18px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px;">FEATURED IN</h3>
+    <div class="featured-logos">
+      <img src="/static/portfolio/brides-logo.png" alt="Brides">
+      <img src="/static/portfolio/fearless-logo.png" alt="Fearless Photographers">
+      <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
+      <img src="/static/portfolio/voyage-logo.png" alt="Voyage">
+      <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
+    </div>
+  </div>
+
+</body>
+</html>

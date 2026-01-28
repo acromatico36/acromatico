@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smathers Beach Wedding | Key West | Acromatico Photography</title>
+    <meta name="description" content="This lovely couple from Philadelphia, Jennifer and Christopher, met online. They&#8217;ve been inseparable ever since! Along with their family, they came down f">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/smathers-beach-wedding">
+    <meta property="og:title" content="Smathers Beach Wedding | Key West">
+    <meta property="og:description" content="This lovely couple from Philadelphia, Jennifer and Christopher, met online. They&#8217;ve been inseparable ever since! Along with their family, they came down f">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-001.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/smathers-beach-wedding">
+    <meta property="twitter:title" content="Smathers Beach Wedding | Key West">
+    <meta property="twitter:description" content="This lovely couple from Philadelphia, Jennifer and Christopher, met online. They&#8217;ve been inseparable ever since! Along with their family, they came down f">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-001.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Smathers Beach Wedding | Key West",
+      "image": ["https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-001.jpg","https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-002.jpg","https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-003.jpg","https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-004.jpg","https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-005.jpg"],
+      "datePublished": "2014-12-03T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "This lovely couple from Philadelphia, Jennifer and Christopher, met online. They&#8217;ve been inseparable ever since! Along with their family, they came down f"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-001.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>Smathers Beach Wedding | Key West</h1>
+            <p class="post-meta">December 3, 2014</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>This lovely couple from Philadelphia, Jennifer and Christopher, met online. They&#8217;ve been inseparable ever since! Along with their family, they came down for a sweet, romantic, destination wedding on the beautiful Smathers Beach in Key West. Definitely an excellent choice!</p><div class="wp-block-image"><figure class="aligncenter"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-001.jpg" alt="Smathers beach Florida" class="wp-image-7616 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></figure></div><h2 class="wp-block-heading">A gorgeous day in Key West</h2><p>These two look like they came from the Vogue magazine. &nbsp;After their ceremony, we took some beautiful shots at the Casa Marina in Key West. See for yourselves this beautiful wedding. Congrats again on your wedding!</p><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-002.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-002.jpg" alt="Smathers beach wedding" class="wp-image-7617 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-003.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-003.jpg" alt="Bride and groom hugging on beach" class="wp-image-7618 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a></figure></div><h2 class="wp-block-heading"><strong>Smathers Beach: The Perfect Wedding Destination</strong></h2><p>When it comes to saying “I do”, there is no place more magical than Smathers Beach in Key West, Florida. With its sugar-white sand and turquoise waters, Smathers Beach is the perfect setting for a romantic beach wedding.</p><p>Located just a short drive from Key West, Smathers Beach is easily accessible for all your guests. And with its convenient location, there is no need to worry about guests getting lost or running late.</p><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-004.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-004.jpg" alt="Bride and groom on Sail boat" class="wp-image-7619 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-005.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-005.jpg" alt="Bride and groom Sailboat sunset" class="wp-image-7620 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a></figure></div><p>If you are looking for a beach wedding destination that is truly unique and unforgettable, then look no further than Smathers Beach in Key West, Florida!</p><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-006.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-006.jpg" alt="Bride on sailboat smathers beach key west" class="wp-image-7621 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><h2 class="wp-block-heading"><strong>Why Smathers Beach is the perfect wedding destination</strong></h2><p>Smathers Beach is the perfect destination for your beach wedding for a number of reasons. </p><p>First, the beach is absolutely beautiful and is sure to provide a stunning backdrop for your wedding photos. </p><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-007.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-007.jpg" alt="bride and groom kissing under veil" class="wp-image-7622 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-008.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-008.jpg" alt="bride and groom kissing under veil" class="wp-image-7623 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><p>Second, the beach is conveniently located and is easily accessible for all your guests. And finally, the beach is a unique and unforgettable setting for your wedding day.</p><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-009.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-009.jpg" alt="Smathers beach florida wedding" class="wp-image-7624 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-011.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-011.jpg" alt="Smathers beach key west wedding" class="wp-image-7626 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><h2 class="wp-block-heading"><strong>Make your wedding day unforgettable at Smathers Beach</strong></h2><p>There are a number of ways to make your wedding day at Smathers Beach truly unforgettable. A stunning wedding dress will surely compliment the beach setting and make you stand out. </p><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-010.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-010.jpg" alt="Key West Wedding" class="wp-image-7625 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><p>Opting in for a beach-themed wedding cake is sure to impress your guests. And planning to say your “I do’s” at sunset will make a truly romantic and unforgettable experience.</p><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-012.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-012.jpg" alt="Smathers beach wedding ceremony setup" class="wp-image-7627 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-013.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-013.jpg" alt="Bride walking with father on beach" class="wp-image-7628 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-014.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-014.jpg" alt="Bride looking at groom " class="wp-image-7629 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-015.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-015.jpg" alt="Bride groom say I do" class="wp-image-7630 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-016.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-016.jpg" alt="bride groom kissing on beach" class="wp-image-7631 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a><figcaption class="wp-element-caption">This is one of our favorite parts of the ceremony &#8211; while the couple take their first married kiss &#8211; we capture them behind the scenes in the blink of an eye.</figcaption></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-017.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-017.jpg" alt="Bride groom walking out on beach with flowers being tossed" class="wp-image-7632 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-018.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-018.jpg" alt="Husband and wife together for life sign" class="wp-image-7633 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-019.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-019.jpg" alt="Bride and groom sunset smothers beach" class="wp-image-7634 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-020.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-020.jpg" alt="Bride and groom with sparklers heart sunset" class="wp-image-7635 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a><figcaption class="wp-element-caption">Sparklers make all the weddings fun!</figcaption></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-021.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-021.jpg" alt="Bride and groom jumping on beach sunset" class="wp-image-7636 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a><figcaption class="wp-element-caption">And of course, that gorgeous Key West sunset that we can&#8217;t get enough of!</figcaption></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-022.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-022.jpg" alt="Bride and groom sunset key west" class="wp-image-7637 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-023.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-023.jpg" alt="Smathers beach sunset key west bride and groom" class="wp-image-7638 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-024.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-024.jpg" alt="Smathers beach sunset key west" class="wp-image-7639 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-025.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-025.jpg" alt="bride and groom kissing sunset" class="wp-image-7640 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-026.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-026.jpg" alt="Key west wedding sparklers" class="wp-image-7641 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-027.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-027.jpg" alt="Bride and groom walking key west" class="wp-image-7642 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><h2 class="wp-block-heading">Casa Marina &#8211; an incredible Key West venue for your wedding</h2><p>If you are looking for an incredible Key West venue for your beach wedding, look no further than Casa Marina. Casa Marina is a historic oceanfront resort that offers a variety of unique and beautiful event spaces for your wedding. </p><p>From the stunning beachfront lawn to the elegant ballroom, Casa Marina is sure to have a space that is perfect for your wedding. If you are searching for a true beachside wedding venue, look no further than the intimate Casa Marina beach. This unique spot is perfect for a small wedding or elopement and offers beautiful views of the water. The charming Pavilion provides an ideal place to exchange your vows, with its scenic views of the sand and sea.</p><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-028.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-028.jpg" alt="Casa Marina Key West Wedding" class="wp-image-7643 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><p>For something truly unique, check out the stunning Casa Marina Courtyard. This romantic setting is complete with oversized hanging lanterns and bubbling fountains that create a one-of-a-kind atmosphere for your big day. The gorgeous courtyard also provides plenty of room for dining and dancing – making it perfect for an outdoor reception under the stars.</p><p>Casa Marina also features a variety of indoor event spaces to suit every taste. The elegant Key West Ballroom has high ceilings and beautiful chandeliers, while the oceanfront banquet room boasts stunning views of the water. If you are looking for a slightly more laid-back atmosphere, try holding your wedding in the historic Library Bar or on the spacious Outdoor Terrace.</p><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-029.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-029.jpg" alt="Casa marina bride and groom key west" class="wp-image-7644 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-030.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-030.jpg" alt="bride and groom kissing limousine" class="wp-image-7645 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1365;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-031.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-031.jpg" alt="limousine bride and groom wedding" class="wp-image-7646 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><div class="wp-block-image"><figure class="aligncenter"><a href="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-032.jpg"><img decoding="async" src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-032.jpg" alt="wedding limousine bride and groom" class="wp-image-7647 lazyload"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></figure></div><h2 class="wp-block-heading">Key west is truly the ultimate South Florida destination to get married</h2><p>When It comes to weddings, Key west is truly the ultimate South Florida destination to get married. Why? The weather is beautiful all year long, the island vibe and crystal-clear waters offer a truly unique setting, and there are tons of great venues to choose from.</p><p>Whether you’re looking for a beachfront ceremony or a grand ballroom affair, you can find it in Key West. And with so many things to do on the island, your guests will be extremely entertained, and feel like they&#8217;re on vacation while having so much fun during your most special day!</p>
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-001.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-002.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-003.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-004.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-005.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-006.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-007.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-008.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-009.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-011.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-010.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-012.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-013.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-014.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-015.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-016.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-017.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-018.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-019.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-020.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-021.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-022.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-023.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-024.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-025.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-026.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-027.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-028.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-029.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-030.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-031.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2014/12/Key-West-Wedding-032.jpg" alt="Smathers Beach Wedding | Key West" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fort Lauderdale Indian Wedding | Alissa + Imran | Acromatico Photography</title>
+    <meta name="description" content="This next amazing wedding, was a cultural celebration right in the heart of Fort Lauderdale. Alissa + Imran got to have their Indian Wedding celebration with th">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/fort-lauderdale-indian-wedding-alissa-imran">
+    <meta property="og:title" content="Fort Lauderdale Indian Wedding | Alissa + Imran">
+    <meta property="og:description" content="This next amazing wedding, was a cultural celebration right in the heart of Fort Lauderdale. Alissa + Imran got to have their Indian Wedding celebration with th">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-001-1-1024x683.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/fort-lauderdale-indian-wedding-alissa-imran">
+    <meta property="twitter:title" content="Fort Lauderdale Indian Wedding | Alissa + Imran">
+    <meta property="twitter:description" content="This next amazing wedding, was a cultural celebration right in the heart of Fort Lauderdale. Alissa + Imran got to have their Indian Wedding celebration with th">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-001-1-1024x683.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Fort Lauderdale Indian Wedding | Alissa + Imran",
+      "image": ["https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-001-1-1024x683.jpg","https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-002-1024x683.jpg","https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-003-1024x683.jpg","https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-004-1024x683.jpg","https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-005-1024x683.jpg"],
+      "datePublished": "2021-11-28T03:55:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "This next amazing wedding, was a cultural celebration right in the heart of Fort Lauderdale. Alissa + Imran got to have their Indian Wedding celebration with th"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-001-1-1024x683.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>Fort Lauderdale Indian Wedding | Alissa + Imran</h1>
+            <p class="post-meta">November 28, 2021</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>This next amazing wedding, was a cultural celebration right in the heart of Fort Lauderdale.</p><p>Alissa + Imran got to have their Indian Wedding celebration with their closest family and friends and we got to be a part of it! It was so much fun being able to work together with this beautiful couple. It was such a pleasure to be able to work with thee most amazing team:</p><p>MUA: <a href="http://www.dejalanee.com" target="_blank" rel="noopener">Deja Lanee</a> + <a href="http://www.makemeupnyrva.com" target="_blank" rel="noopener">Make Me Up Nyrva</a></p><p>Hair: <a href="https://www.instagram.com/lisasmakeover/?hl=en" target="_blank" rel="noopener">@lisasmakeover</a></p><p>Tassa Band: <a href="https://www.instagram.com/dr_tassa_school/?hl=en" target="_blank" rel="noopener">Dynamic Rhythms Junior</a></p><p>Big shot out to everyone that turned their beautiful backyard in the most gorgeous space! Everything came together so beautifully.</p><p>Huge congrats to you Alissa and Imran. Thank you for trusting us to capture the most important day of your life. Please enjoy some of our favorites from this colorful, cultural, Indian Wedding:</p></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-002-1024x683.jpg" alt="" data-id="29543" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-002.jpg" data-link="https://acromatico.com/?attachment_id=29543" class="wp-image-29543 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-003-1024x683.jpg" alt="" data-id="29544" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-003.jpg" data-link="https://acromatico.com/?attachment_id=29544" class="wp-image-29544 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-004-1024x683.jpg" alt="" data-id="29545" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-004.jpg" data-link="https://acromatico.com/?attachment_id=29545" class="wp-image-29545 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-005-1024x683.jpg" alt="" data-id="29546" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-005.jpg" data-link="https://acromatico.com/?attachment_id=29546" class="wp-image-29546 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="767" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-006-1024x767.jpg" alt="" data-id="29547" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-006.jpg" data-link="https://acromatico.com/?attachment_id=29547" class="wp-image-29547 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/767;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-007-1024x683.jpg" alt="" data-id="29548" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-007.jpg" data-link="https://acromatico.com/?attachment_id=29548" class="wp-image-29548 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-008-1024x683.jpg" alt="" data-id="29549" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-008.jpg" data-link="https://acromatico.com/?attachment_id=29549" class="wp-image-29549 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-009-1024x683.jpg" alt="" data-id="29550" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-009.jpg" data-link="https://acromatico.com/?attachment_id=29550" class="wp-image-29550 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-010-1024x683.jpg" alt="" data-id="29551" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-010.jpg" data-link="https://acromatico.com/?attachment_id=29551" class="wp-image-29551 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-011-1024x683.jpg" alt="" data-id="29552" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-011.jpg" data-link="https://acromatico.com/?attachment_id=29552" class="wp-image-29552 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-012-1024x683.jpg" alt="" data-id="29553" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-012.jpg" data-link="https://acromatico.com/?attachment_id=29553" class="wp-image-29553 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-013-1024x683.jpg" alt="" data-id="29554" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-013.jpg" data-link="https://acromatico.com/?attachment_id=29554" class="wp-image-29554 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-014-1024x683.jpg" alt="" data-id="29555" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-014.jpg" data-link="https://acromatico.com/?attachment_id=29555" class="wp-image-29555 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-015-1024x683.jpg" alt="" data-id="29556" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-015.jpg" data-link="https://acromatico.com/?attachment_id=29556" class="wp-image-29556 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-016-1024x683.jpg" alt="" data-id="29557" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-016.jpg" data-link="https://acromatico.com/?attachment_id=29557" class="wp-image-29557 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-017-1024x683.jpg" alt="" data-id="29558" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-017.jpg" data-link="https://acromatico.com/?attachment_id=29558" class="wp-image-29558 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-018-1024x683.jpg" alt="" data-id="29559" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-018.jpg" data-link="https://acromatico.com/?attachment_id=29559" class="wp-image-29559 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-019-1024x683.jpg" alt="" data-id="29560" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-019.jpg" data-link="https://acromatico.com/?attachment_id=29560" class="wp-image-29560 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-020-1024x683.jpg" alt="" data-id="29561" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-020.jpg" data-link="https://acromatico.com/?attachment_id=29561" class="wp-image-29561 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-021-1024x683.jpg" alt="" data-id="29562" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-021.jpg" data-link="https://acromatico.com/?attachment_id=29562" class="wp-image-29562 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-022-1024x683.jpg" alt="" data-id="29563" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-022.jpg" data-link="https://acromatico.com/?attachment_id=29563" class="wp-image-29563 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-023-1024x683.jpg" alt="" data-id="29564" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-023.jpg" data-link="https://acromatico.com/?attachment_id=29564" class="wp-image-29564 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-024-1024x683.jpg" alt="" data-id="29565" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-024.jpg" data-link="https://acromatico.com/?attachment_id=29565" class="wp-image-29565 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="472" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-025-1024x472.jpg" alt="" data-id="29566" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-025.jpg" data-link="https://acromatico.com/?attachment_id=29566" class="wp-image-29566 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/472;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-026-1024x683.jpg" alt="" data-id="29567" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-026.jpg" data-link="https://acromatico.com/?attachment_id=29567" class="wp-image-29567 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="767" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-027-1024x767.jpg" alt="" data-id="29568" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-027.jpg" data-link="https://acromatico.com/?attachment_id=29568" class="wp-image-29568 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/767;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-028-1024x683.jpg" alt="" data-id="29569" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-028.jpg" data-link="https://acromatico.com/?attachment_id=29569" class="wp-image-29569 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-029-1024x683.jpg" alt="" data-id="29570" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-029.jpg" data-link="https://acromatico.com/?attachment_id=29570" class="wp-image-29570 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-030-1024x683.jpg" alt="" data-id="29571" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-030.jpg" data-link="https://acromatico.com/?attachment_id=29571" class="wp-image-29571 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-031-1024x683.jpg" alt="" data-id="29572" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-031.jpg" data-link="https://acromatico.com/?attachment_id=29572" class="wp-image-29572 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-032-1024x683.jpg" alt="" data-id="29573" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-032.jpg" data-link="https://acromatico.com/?attachment_id=29573" class="wp-image-29573 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-033-1024x683.jpg" alt="" data-id="29574" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-033.jpg" data-link="https://acromatico.com/?attachment_id=29574" class="wp-image-29574 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-034-1024x683.jpg" alt="" data-id="29575" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-034.jpg" data-link="https://acromatico.com/?attachment_id=29575" class="wp-image-29575 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-035-1024x683.jpg" alt="" data-id="29576" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-035.jpg" data-link="https://acromatico.com/?attachment_id=29576" class="wp-image-29576 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-036-1024x683.jpg" alt="" data-id="29577" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-036.jpg" data-link="https://acromatico.com/?attachment_id=29577" class="wp-image-29577 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-037-1024x683.jpg" alt="" data-id="29578" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-037.jpg" data-link="https://acromatico.com/?attachment_id=29578" class="wp-image-29578 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-038-1024x683.jpg" alt="" data-id="29579" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-038.jpg" data-link="https://acromatico.com/?attachment_id=29579" class="wp-image-29579 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-039-1024x683.jpg" alt="" data-id="29580" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-039.jpg" data-link="https://acromatico.com/?attachment_id=29580" class="wp-image-29580 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-040-1024x683.jpg" alt="" data-id="29581" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-040.jpg" data-link="https://acromatico.com/?attachment_id=29581" class="wp-image-29581 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-041-1024x683.jpg" alt="" data-id="29582" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-041.jpg" data-link="https://acromatico.com/?attachment_id=29582" class="wp-image-29582 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-042-1024x683.jpg" alt="" data-id="29583" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-042.jpg" data-link="https://acromatico.com/?attachment_id=29583" class="wp-image-29583 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-043-1024x683.jpg" alt="" data-id="29584" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-043.jpg" data-link="https://acromatico.com/?attachment_id=29584" class="wp-image-29584 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-044-1024x683.jpg" alt="" data-id="29585" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-044.jpg" data-link="https://acromatico.com/?attachment_id=29585" class="wp-image-29585 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-045-1024x683.jpg" alt="" data-id="29586" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-045.jpg" data-link="https://acromatico.com/?attachment_id=29586" class="wp-image-29586 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="341" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-046-1024x341.jpg" alt="" data-id="29587" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-046.jpg" data-link="https://acromatico.com/?attachment_id=29587" class="wp-image-29587 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/341;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-047-1024x683.jpg" alt="" data-id="29588" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-047.jpg" data-link="https://acromatico.com/?attachment_id=29588" class="wp-image-29588 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-048-1024x683.jpg" alt="" data-id="29589" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-048.jpg" data-link="https://acromatico.com/?attachment_id=29589" class="wp-image-29589 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-049-1024x683.jpg" alt="" data-id="29590" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-049.jpg" data-link="https://acromatico.com/?attachment_id=29590" class="wp-image-29590 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-050-1024x683.jpg" alt="" data-id="29591" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-050.jpg" data-link="https://acromatico.com/?attachment_id=29591" class="wp-image-29591 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-051-1024x683.jpg" alt="" data-id="29592" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-051.jpg" data-link="https://acromatico.com/?attachment_id=29592" class="wp-image-29592 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-052-1024x683.jpg" alt="" data-id="29593" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-052.jpg" data-link="https://acromatico.com/?attachment_id=29593" class="wp-image-29593 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-053-1024x683.jpg" alt="" data-id="29594" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-053.jpg" data-link="https://acromatico.com/?attachment_id=29594" class="wp-image-29594 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="341" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-054-1024x341.jpg" alt="" data-id="29595" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-054.jpg" data-link="https://acromatico.com/?attachment_id=29595" class="wp-image-29595 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/341;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-055-1024x683.jpg" alt="" data-id="29596" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-055.jpg" data-link="https://acromatico.com/?attachment_id=29596" class="wp-image-29596 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="341" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-056-1024x341.jpg" alt="" data-id="29597" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-056.jpg" data-link="https://acromatico.com/?attachment_id=29597" class="wp-image-29597 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/341;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-057-1024x683.jpg" alt="" data-id="29598" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-057.jpg" data-link="https://acromatico.com/?attachment_id=29598" class="wp-image-29598 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-058-1024x683.jpg" alt="" data-id="29599" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-058.jpg" data-link="https://acromatico.com/?attachment_id=29599" class="wp-image-29599 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-059-1024x683.jpg" alt="" data-id="29600" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-059.jpg" data-link="https://acromatico.com/?attachment_id=29600" class="wp-image-29600 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-060-1024x683.jpg" alt="" data-id="29601" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-060.jpg" data-link="https://acromatico.com/?attachment_id=29601" class="wp-image-29601 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="341" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-061-1024x341.jpg" alt="" data-id="29602" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-061.jpg" data-link="https://acromatico.com/?attachment_id=29602" class="wp-image-29602 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/341;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-062-1024x683.jpg" alt="" data-id="29603" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-062.jpg" data-link="https://acromatico.com/?attachment_id=29603" class="wp-image-29603 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-063-1024x683.jpg" alt="" data-id="29604" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-063.jpg" data-link="https://acromatico.com/?attachment_id=29604" class="wp-image-29604 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="341" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-064-1024x341.jpg" alt="" data-id="29605" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-064.jpg" data-link="https://acromatico.com/?attachment_id=29605" class="wp-image-29605 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/341;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-065-1024x683.jpg" alt="" data-id="29606" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-065.jpg" data-link="https://acromatico.com/?attachment_id=29606" class="wp-image-29606 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-066-1024x683.jpg" alt="" data-id="29607" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-066.jpg" data-link="https://acromatico.com/?attachment_id=29607" class="wp-image-29607 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-067-1024x683.jpg" alt="" data-id="29608" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-067.jpg" data-link="https://acromatico.com/?attachment_id=29608" class="wp-image-29608 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="767" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-068-1024x767.jpg" alt="" data-id="29609" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-068.jpg" data-link="https://acromatico.com/?attachment_id=29609" class="wp-image-29609 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/767;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-069-1024x683.jpg" alt="" data-id="29610" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-069.jpg" data-link="https://acromatico.com/?attachment_id=29610" class="wp-image-29610 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-070-1024x683.jpg" alt="" data-id="29611" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-070.jpg" data-link="https://acromatico.com/?attachment_id=29611" class="wp-image-29611 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-071-1024x683.jpg" alt="" data-id="29612" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-071.jpg" data-link="https://acromatico.com/?attachment_id=29612" class="wp-image-29612 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-072-1024x683.jpg" alt="" data-id="29613" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-072.jpg" data-link="https://acromatico.com/?attachment_id=29613" class="wp-image-29613 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-073-1024x683.jpg" alt="" data-id="29614" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-073.jpg" data-link="https://acromatico.com/?attachment_id=29614" class="wp-image-29614 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="341" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-074-1024x341.jpg" alt="" data-id="29615" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-074.jpg" data-link="https://acromatico.com/?attachment_id=29615" class="wp-image-29615 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/341;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-075-1024x683.jpg" alt="" data-id="29616" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-075.jpg" data-link="https://acromatico.com/?attachment_id=29616" class="wp-image-29616 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-076-1024x683.jpg" alt="" data-id="29617" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-076.jpg" data-link="https://acromatico.com/?attachment_id=29617" class="wp-image-29617 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="341" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-077-1024x341.jpg" alt="" data-id="29618" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-077.jpg" data-link="https://acromatico.com/?attachment_id=29618" class="wp-image-29618 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/341;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-078-1024x683.jpg" alt="" data-id="29619" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-078.jpg" data-link="https://acromatico.com/?attachment_id=29619" class="wp-image-29619 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-079-1024x683.jpg" alt="" data-id="29620" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-079.jpg" data-link="https://acromatico.com/?attachment_id=29620" class="wp-image-29620 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-080-1024x683.jpg" alt="" data-id="29621" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-080.jpg" data-link="https://acromatico.com/?attachment_id=29621" class="wp-image-29621 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-081-1024x683.jpg" alt="" data-id="29622" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-081.jpg" data-link="https://acromatico.com/?attachment_id=29622" class="wp-image-29622 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-082-1024x683.jpg" alt="" data-id="29623" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-082.jpg" data-link="https://acromatico.com/?attachment_id=29623" class="wp-image-29623 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-083-1024x683.jpg" alt="" data-id="29624" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-083.jpg" data-link="https://acromatico.com/?attachment_id=29624" class="wp-image-29624 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-084-1024x683.jpg" alt="" data-id="29625" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-084.jpg" data-link="https://acromatico.com/?attachment_id=29625" class="wp-image-29625 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="767" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-085-1024x767.jpg" alt="" data-id="29626" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-085.jpg" data-link="https://acromatico.com/?attachment_id=29626" class="wp-image-29626 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/767;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-086-1024x683.jpg" alt="" data-id="29627" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-086.jpg" data-link="https://acromatico.com/?attachment_id=29627" class="wp-image-29627 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-087-1024x683.jpg" alt="" data-id="29628" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-087.jpg" data-link="https://acromatico.com/?attachment_id=29628" class="wp-image-29628 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="767" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-088-1024x767.jpg" alt="" data-id="29629" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-088.jpg" data-link="https://acromatico.com/?attachment_id=29629" class="wp-image-29629 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/767;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-089-1024x683.jpg" alt="" data-id="29630" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-089.jpg" data-link="https://acromatico.com/?attachment_id=29630" class="wp-image-29630 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-090-1024x683.jpg" alt="" data-id="29631" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-090.jpg" data-link="https://acromatico.com/?attachment_id=29631" class="wp-image-29631 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="767" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-091-1024x767.jpg" alt="" data-id="29632" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-091.jpg" data-link="https://acromatico.com/?attachment_id=29632" class="wp-image-29632 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/767;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-092-1024x683.jpg" alt="" data-id="29633" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-092.jpg" data-link="https://acromatico.com/?attachment_id=29633" class="wp-image-29633 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-093-1024x683.jpg" alt="" data-id="29634" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-093.jpg" data-link="https://acromatico.com/?attachment_id=29634" class="wp-image-29634 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-094-1024x683.jpg" alt="" data-id="29635" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-094.jpg" data-link="https://acromatico.com/?attachment_id=29635" class="wp-image-29635 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-095-1024x683.jpg" alt="" data-id="29636" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-095.jpg" data-link="https://acromatico.com/?attachment_id=29636" class="wp-image-29636 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-096-1024x683.jpg" alt="" data-id="29637" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-096.jpg" data-link="https://acromatico.com/?attachment_id=29637" class="wp-image-29637 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-097-1024x683.jpg" alt="" data-id="29638" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-097.jpg" data-link="https://acromatico.com/?attachment_id=29638" class="wp-image-29638 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-098-1024x683.jpg" alt="" data-id="29639" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-098.jpg" data-link="https://acromatico.com/?attachment_id=29639" class="wp-image-29639 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-099-1024x683.jpg" alt="" data-id="29640" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-099.jpg" data-link="https://acromatico.com/?attachment_id=29640" class="wp-image-29640 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-100-1024x683.jpg" alt="" data-id="29641" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-100.jpg" data-link="https://acromatico.com/?attachment_id=29641" class="wp-image-29641 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-101-1024x683.jpg" alt="" data-id="29642" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-101.jpg" data-link="https://acromatico.com/?attachment_id=29642" class="wp-image-29642 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-102-1024x683.jpg" alt="" data-id="29643" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-102.jpg" data-link="https://acromatico.com/?attachment_id=29643" class="wp-image-29643 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-103-1024x683.jpg" alt="" data-id="29644" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-103.jpg" data-link="https://acromatico.com/?attachment_id=29644" class="wp-image-29644 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-104-1024x683.jpg" alt="" data-id="29645" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-104.jpg" data-link="https://acromatico.com/?attachment_id=29645" class="wp-image-29645 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-105-1024x683.jpg" alt="" data-id="29646" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-105.jpg" data-link="https://acromatico.com/?attachment_id=29646" class="wp-image-29646 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-106-1024x683.jpg" alt="" data-id="29647" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-106.jpg" data-link="https://acromatico.com/?attachment_id=29647" class="wp-image-29647 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-107-1024x683.jpg" alt="" data-id="29648" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-107.jpg" data-link="https://acromatico.com/?attachment_id=29648" class="wp-image-29648 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-108-1024x683.jpg" alt="" data-id="29649" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-108.jpg" data-link="https://acromatico.com/?attachment_id=29649" class="wp-image-29649 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-109-1024x683.jpg" alt="" data-id="29650" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-109.jpg" data-link="https://acromatico.com/?attachment_id=29650" class="wp-image-29650 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-110-1024x683.jpg" alt="" data-id="29651" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-110.jpg" data-link="https://acromatico.com/?attachment_id=29651" class="wp-image-29651 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="767" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-111-1024x767.jpg" alt="" data-id="29652" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-111.jpg" data-link="https://acromatico.com/?attachment_id=29652" class="wp-image-29652 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/767;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-112-1024x683.jpg" alt="" data-id="29653" data-full-url="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-112.jpg" data-link="https://acromatico.com/?attachment_id=29653" class="wp-image-29653 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li></ul></figure><p></p>
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-001-1-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-002-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-003-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-004-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-005-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-006-1024x767.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-007-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-008-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-009-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-010-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-011-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-012-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-013-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-014-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-015-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-016-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-017-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-018-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-019-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-020-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-021-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-022-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-023-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-024-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-025-1024x472.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-026-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-027-1024x767.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-028-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-029-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-030-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-031-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-032-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-033-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-034-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-035-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-036-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-037-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-038-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-039-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-040-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-041-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-042-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-043-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-044-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-045-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-046-1024x341.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-047-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-048-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-049-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-050-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-051-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-052-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-053-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-054-1024x341.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-055-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-056-1024x341.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-057-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-058-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-059-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-060-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-061-1024x341.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-062-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-063-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-064-1024x341.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-065-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-066-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-067-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-068-1024x767.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-069-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-070-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-071-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-072-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-073-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-074-1024x341.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-075-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-076-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-077-1024x341.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-078-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-079-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-080-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-081-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-082-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-083-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-084-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-085-1024x767.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-086-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-087-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-088-1024x767.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-089-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-090-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-091-1024x767.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-092-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-093-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-094-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-095-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-096-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-097-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-098-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-099-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-100-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-101-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-102-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-103-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-104-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-105-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-106-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-107-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-108-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-109-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-110-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-111-1024x767.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-112-1024x683.jpg" alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

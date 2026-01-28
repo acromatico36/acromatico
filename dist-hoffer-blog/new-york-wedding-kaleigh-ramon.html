@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York Wedding | Kaleigh + Ramon | Acromatico Photography</title>
+    <meta name="description" content="With back to back weddings in two days and two states, this weekend was full of love and one for the books. A story about a southern guy and his blonde gal: Kal">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/new-york-wedding-kaleigh-ramon">
+    <meta property="og:title" content="New York Wedding | Kaleigh + Ramon">
+    <meta property="og:description" content="With back to back weddings in two days and two states, this weekend was full of love and one for the books. A story about a southern guy and his blonde gal: Kal">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-001-1024x683.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/new-york-wedding-kaleigh-ramon">
+    <meta property="twitter:title" content="New York Wedding | Kaleigh + Ramon">
+    <meta property="twitter:description" content="With back to back weddings in two days and two states, this weekend was full of love and one for the books. A story about a southern guy and his blonde gal: Kal">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-001-1024x683.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "New York Wedding | Kaleigh + Ramon",
+      "image": ["https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-001-1024x683.jpg","https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-002-1024x683.jpg","https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-003-1024x683.jpg","https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-004-1024x683.jpg","https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-005-1024x683.jpg"],
+      "datePublished": "2019-07-01T04:43:56",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "With back to back weddings in two days and two states, this weekend was full of love and one for the books. A story about a southern guy and his blonde gal: Kal"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-001-1024x683.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>New York Wedding | Kaleigh + Ramon</h1>
+            <p class="post-meta">July 1, 2019</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>With back to back weddings in two days and two states, this weekend was full of love and one for the books. A story about a southern guy and his blonde gal:</p><p>Kaleigh and Ramon chose to do their first look in one of my favorite little cities: Beacon, NY. This place has my heart for it&#8217;s character and artsy hipster vibes. Of course, out of all days it could&#8217;ve rained on, it decided to rain right on their wedding day. This wasn&#8217;t going to stop these two from anything, especially from being happy despite it all. After getting together at <a href="https://www.scenichudson.org/parks/madambrettpark" target="_blank" rel="noopener">Madam Brett Park</a>, we made it just in time for their first look and a few quick photos when it decided to pour. </p><p>We decided to hit up our favorite guys at the <a href="https://hudsonvalleybrewery.com" target="_blank" rel="noopener">Hudson Valley Brewery</a> to take some shelter, sours and pics. Thankfully they were awesome enough to let us take over for a few minutes while we went to our next location: Cold Spring, NY. </p><p>At the Dockside Park, we fell in love with the gorgeous moody views and little hills in the back. These colors were just perfect! Despite it being summer, it sure didn&#8217;t feel like it. We figured if summer isn&#8217;t coming, we&#8217;re bringing it no matter what. Nothing could make it feel more like summer than getting some ice cream at <a href="http://moomooscreamery.com" target="_blank" rel="noopener">Moo Moo&#8217;s Creamery</a>. I will definitely be back for more! </p><p>To wrap things up after the ceremony and the on-and-off rain, the Dramatic Hall at the <a href="https://www.peekskillcentralmarket.com" target="_blank" rel="noopener">Peekskill Central Market</a> couldn&#8217;t have been more of a perfect start to an amazing wedding reception. New York sure knows how to party and have a great time. Kaleigh and Ramon, thank you for letting us be a part of your wedding day. We had so much fun! Take a look at some of our faves from this day:</p><ul class="wp-block-gallery aligncenter columns-1 wp-block-gallery-6 is-layout-flex wp-block-gallery-is-layout-flex"><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-001-1024x683.jpg" alt="" data-id="19845" data-link="https://acromatico.com/?attachment_id=19845" class="wp-image-19845 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-002-1024x683.jpg" alt="" data-id="19847" data-link="https://acromatico.com/?attachment_id=19847" class="wp-image-19847 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-003-1024x683.jpg" alt="" data-id="19849" data-link="https://acromatico.com/?attachment_id=19849" class="wp-image-19849 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-004-1024x683.jpg" alt="" data-id="19851" data-link="https://acromatico.com/?attachment_id=19851" class="wp-image-19851 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-005-1024x683.jpg" alt="" data-id="19853" data-link="https://acromatico.com/?attachment_id=19853" class="wp-image-19853 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-006-1024x683.jpg" alt="" data-id="19855" data-link="https://acromatico.com/?attachment_id=19855" class="wp-image-19855 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-007-1024x683.jpg" alt="" data-id="19857" data-link="https://acromatico.com/?attachment_id=19857" class="wp-image-19857 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-008-1024x683.jpg" alt="" data-id="19859" data-link="https://acromatico.com/?attachment_id=19859" class="wp-image-19859 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-009-1024x683.jpg" alt="" data-id="19861" data-link="https://acromatico.com/?attachment_id=19861" class="wp-image-19861 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-010-1024x683.jpg" alt="" data-id="19863" data-link="https://acromatico.com/?attachment_id=19863" class="wp-image-19863 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-011-1024x683.jpg" alt="" data-id="19865" data-link="https://acromatico.com/?attachment_id=19865" class="wp-image-19865 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-012-1024x683.jpg" alt="" data-id="19867" data-link="https://acromatico.com/?attachment_id=19867" class="wp-image-19867 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-013-1024x683.jpg" alt="" data-id="19869" data-link="https://acromatico.com/?attachment_id=19869" class="wp-image-19869 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-014-1024x683.jpg" alt="" data-id="19871" data-link="https://acromatico.com/?attachment_id=19871" class="wp-image-19871 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-015-1024x683.jpg" alt="" data-id="19873" data-link="https://acromatico.com/?attachment_id=19873" class="wp-image-19873 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-016-1024x683.jpg" alt="" data-id="19875" data-link="https://acromatico.com/?attachment_id=19875" class="wp-image-19875 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-017-1024x683.jpg" alt="" data-id="19877" data-link="https://acromatico.com/?attachment_id=19877" class="wp-image-19877 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-018-1024x683.jpg" alt="" data-id="19879" data-link="https://acromatico.com/?attachment_id=19879" class="wp-image-19879 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-019-1024x683.jpg" alt="" data-id="19881" data-link="https://acromatico.com/?attachment_id=19881" class="wp-image-19881 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-020-1024x683.jpg" alt="" data-id="19883" data-link="https://acromatico.com/?attachment_id=19883" class="wp-image-19883 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-021-1024x683.jpg" alt="" data-id="19885" data-link="https://acromatico.com/?attachment_id=19885" class="wp-image-19885 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-022-1024x683.jpg" alt="" data-id="19887" data-link="https://acromatico.com/?attachment_id=19887" class="wp-image-19887 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-023-1024x683.jpg" alt="" data-id="19889" data-link="https://acromatico.com/?attachment_id=19889" class="wp-image-19889 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-024-1024x683.jpg" alt="" data-id="19892" data-link="https://acromatico.com/?attachment_id=19892" class="wp-image-19892 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-025-1024x683.jpg" alt="" data-id="19894" data-link="https://acromatico.com/?attachment_id=19894" class="wp-image-19894 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-026-1024x683.jpg" alt="" data-id="19896" data-link="https://acromatico.com/?attachment_id=19896" class="wp-image-19896 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-027-1024x683.jpg" alt="" data-id="19898" data-link="https://acromatico.com/?attachment_id=19898" class="wp-image-19898 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-028-1024x683.jpg" alt="" data-id="19901" data-link="https://acromatico.com/?attachment_id=19901" class="wp-image-19901 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-029-1024x683.jpg" alt="" data-id="19904" data-link="https://acromatico.com/?attachment_id=19904" class="wp-image-19904 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-030-1-1024x683.jpg" alt="" data-id="19906" data-link="https://acromatico.com/?attachment_id=19906" class="wp-image-19906 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-031-1-1024x683.jpg" alt="" data-id="19908" data-link="https://acromatico.com/?attachment_id=19908" class="wp-image-19908 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-032-1-1024x683.jpg" alt="" data-id="19910" data-link="https://acromatico.com/?attachment_id=19910" class="wp-image-19910 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-033-1-1024x683.jpg" alt="" data-id="19912" data-link="https://acromatico.com/?attachment_id=19912" class="wp-image-19912 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-034-1-1024x683.jpg" alt="" data-id="19914" data-link="https://acromatico.com/?attachment_id=19914" class="wp-image-19914 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-035-1-1024x683.jpg" alt="" data-id="19916" data-link="https://acromatico.com/?attachment_id=19916" class="wp-image-19916 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-036-1-1024x683.jpg" alt="" data-id="19918" data-link="https://acromatico.com/?attachment_id=19918" class="wp-image-19918 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-037-1-1024x683.jpg" alt="" data-id="19920" data-link="https://acromatico.com/?attachment_id=19920" class="wp-image-19920 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-038-1-1024x683.jpg" alt="" data-id="19922" data-link="https://acromatico.com/?attachment_id=19922" class="wp-image-19922 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-039-1-1024x683.jpg" alt="" data-id="19923" data-link="https://acromatico.com/?attachment_id=19923" class="wp-image-19923 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-040-1-1024x683.jpg" alt="" data-id="19926" data-link="https://acromatico.com/?attachment_id=19926" class="wp-image-19926 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-041-1-1024x683.jpg" alt="" data-id="19928" data-link="https://acromatico.com/?attachment_id=19928" class="wp-image-19928 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-042-1-1024x683.jpg" alt="" data-id="19930" data-link="https://acromatico.com/?attachment_id=19930" class="wp-image-19930 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="341" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-043-1-1024x341.jpg" alt="" data-id="19932" data-link="https://acromatico.com/?attachment_id=19932" class="wp-image-19932 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/341;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-044-1-1024x683.jpg" alt="" data-id="19933" data-link="https://acromatico.com/?attachment_id=19933" class="wp-image-19933 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-045-1-1024x683.jpg" alt="" data-id="19935" data-link="https://acromatico.com/?attachment_id=19935" class="wp-image-19935 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-046-1-1024x683.jpg" alt="" data-id="19937" data-link="https://acromatico.com/?attachment_id=19937" class="wp-image-19937 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-047-1-1024x683.jpg" alt="" data-id="19939" data-link="https://acromatico.com/?attachment_id=19939" class="wp-image-19939 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-048-1-1024x683.jpg" alt="" data-id="19941" data-link="https://acromatico.com/?attachment_id=19941" class="wp-image-19941 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-049-1-1024x683.jpg" alt="" data-id="19944" data-link="https://acromatico.com/?attachment_id=19944" class="wp-image-19944 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-050-1-1024x683.jpg" alt="" data-id="19946" data-link="https://acromatico.com/?attachment_id=19946" class="wp-image-19946 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-051-1-1024x683.jpg" alt="" data-id="19948" data-link="https://acromatico.com/?attachment_id=19948" class="wp-image-19948 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-052-1-1024x683.jpg" alt="" data-id="19950" data-link="https://acromatico.com/?attachment_id=19950" class="wp-image-19950 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-053-1-1024x683.jpg" alt="" data-id="19952" data-link="https://acromatico.com/?attachment_id=19952" class="wp-image-19952 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-054-1-1024x683.jpg" alt="" data-id="19954" data-link="https://acromatico.com/?attachment_id=19954" class="wp-image-19954 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-055-1-1024x683.jpg" alt="" data-id="19956" data-link="https://acromatico.com/?attachment_id=19956" class="wp-image-19956 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-056-1-1024x683.jpg" alt="" data-id="19958" data-link="https://acromatico.com/?attachment_id=19958" class="wp-image-19958 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-057-1-1024x683.jpg" alt="" data-id="19960" data-link="https://acromatico.com/?attachment_id=19960" class="wp-image-19960 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-058-1-1024x683.jpg" alt="" data-id="19962" data-link="https://acromatico.com/?attachment_id=19962" class="wp-image-19962 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-059-1-1024x683.jpg" alt="" data-id="19964" data-link="https://acromatico.com/?attachment_id=19964" class="wp-image-19964 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-060-1-1024x683.jpg" alt="" data-id="19965" data-link="https://acromatico.com/?attachment_id=19965" class="wp-image-19965 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-061-1-1024x683.jpg" alt="" data-id="19966" data-link="https://acromatico.com/?attachment_id=19966" class="wp-image-19966 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-062-1-1024x683.jpg" alt="" data-id="19967" data-link="https://acromatico.com/?attachment_id=19967" class="wp-image-19967 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-063-1-1024x683.jpg" alt="" data-id="19968" data-link="https://acromatico.com/?attachment_id=19968" class="wp-image-19968 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1024" height="683" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-064-1-1024x683.jpg" alt="" data-id="19969" data-link="https://acromatico.com/?attachment_id=19969" class="wp-image-19969 lazyload"  style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/683;" /></figure></li></ul>
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-001-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-002-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-003-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-004-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-005-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-006-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-007-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-008-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-009-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-010-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-011-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-012-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-013-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-014-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-015-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-016-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-017-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-018-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-019-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-020-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-021-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-022-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-023-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-024-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-025-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-026-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-027-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-028-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-029-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-030-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-031-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-032-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-033-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-034-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-035-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-036-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-037-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-038-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-039-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-040-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-041-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-042-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-043-1-1024x341.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-044-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-045-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-046-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-047-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-048-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-049-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-050-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-051-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-052-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-053-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-054-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-055-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-056-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-057-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-058-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-059-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-060-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-061-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-062-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-063-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-064-1-1024x683.jpg" alt="New York Wedding | Kaleigh + Ramon" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

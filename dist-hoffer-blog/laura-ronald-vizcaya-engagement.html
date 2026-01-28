@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laura + Ronald | Vizcaya Engagement | Acromatico Photography</title>
+    <meta name="description" content="What do you get when you put a sheriff detective and a pretty blonde girl? Laura + Rondald! He found his perfect match using some of his detective skills. Laura">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/laura-ronald-vizcaya-engagement">
+    <meta property="og:title" content="Laura + Ronald | Vizcaya Engagement">
+    <meta property="og:description" content="What do you get when you put a sheriff detective and a pretty blonde girl? Laura + Rondald! He found his perfect match using some of his detective skills. Laura">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2013/10/untitled-001.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/laura-ronald-vizcaya-engagement">
+    <meta property="twitter:title" content="Laura + Ronald | Vizcaya Engagement">
+    <meta property="twitter:description" content="What do you get when you put a sheriff detective and a pretty blonde girl? Laura + Rondald! He found his perfect match using some of his detective skills. Laura">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2013/10/untitled-001.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Laura + Ronald | Vizcaya Engagement",
+      "image": ["https://acromatico.com/wp-content/uploads/2013/10/untitled-001.jpg","https://acromatico.com/wp-content/uploads/2013/10/untitled-002.jpg","https://acromatico.com/wp-content/uploads/2013/10/untitled-003.jpg","https://acromatico.com/wp-content/uploads/2013/10/untitled-004.jpg","https://acromatico.com/wp-content/uploads/2013/10/untitled-005.jpg"],
+      "datePublished": "2013-10-25T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "What do you get when you put a sheriff detective and a pretty blonde girl? Laura + Rondald! He found his perfect match using some of his detective skills. Laura"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2013/10/untitled-001.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Engagement</span>
+            <h1>Laura + Ronald | Vizcaya Engagement</h1>
+            <p class="post-meta">October 25, 2013</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>What do you get when you put a sheriff detective and a pretty blonde girl? Laura + Rondald! He found his perfect match using some of his detective skills. Laura and Ronald chose our top hit location, the beautiful Vizcaya gardens, for their amazing engagement session. No matter how many times we shoot here, this place never gets played out for us, we just love it! Enjoy some of our favorites from this last e-session:</p>
+<p><a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-001-3/" rel="attachment wp-att-4369"><img decoding="async" class="aligncenter size-full wp-image-4369 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-001.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-002-3/" rel="attachment wp-att-4370"><img decoding="async" class="aligncenter size-full wp-image-4370 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-002.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-003-3/" rel="attachment wp-att-4371"><img decoding="async" class="aligncenter size-full wp-image-4371 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-003.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-004-3/" rel="attachment wp-att-4372"><img decoding="async" class="aligncenter size-full wp-image-4372 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-004.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-005-3/" rel="attachment wp-att-4373"><img decoding="async" class="aligncenter size-full wp-image-4373 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-005.jpg" width="910" height="1365"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1365;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-006-3/" rel="attachment wp-att-4374"><img decoding="async" class="aligncenter size-full wp-image-4374 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-006.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-007-3/" rel="attachment wp-att-4375"><img decoding="async" class="aligncenter size-full wp-image-4375 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-007.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-008-2/" rel="attachment wp-att-4376"><img decoding="async" class="aligncenter size-full wp-image-4376 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-008.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-009-2/" rel="attachment wp-att-4377"><img decoding="async" class="aligncenter size-full wp-image-4377 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-009.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-010-2/" rel="attachment wp-att-4378"><img decoding="async" class="aligncenter size-full wp-image-4378 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-010.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-011-2/" rel="attachment wp-att-4379"><img decoding="async" class="aligncenter size-full wp-image-4379 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-011.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-012-2/" rel="attachment wp-att-4380"><img decoding="async" class="aligncenter size-full wp-image-4380 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-012.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-013-2/" rel="attachment wp-att-4381"><img decoding="async" class="aligncenter size-full wp-image-4381 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-013.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-014-2/" rel="attachment wp-att-4382"><img decoding="async" class="aligncenter size-full wp-image-4382 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-014.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-015-2/" rel="attachment wp-att-4383"><img decoding="async" class="aligncenter size-full wp-image-4383 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-015.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-016-2/" rel="attachment wp-att-4384"><img decoding="async" class="aligncenter size-full wp-image-4384 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-016.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-017-2/" rel="attachment wp-att-4385"><img decoding="async" class="aligncenter size-full wp-image-4385 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-017.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-018-2/" rel="attachment wp-att-4386"><img decoding="async" class="aligncenter size-full wp-image-4386 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-018.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-019-2/" rel="attachment wp-att-4387"><img decoding="async" class="aligncenter size-full wp-image-4387 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-019.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-020-2/" rel="attachment wp-att-4388"><img decoding="async" class="aligncenter size-full wp-image-4388 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-020.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-021-2/" rel="attachment wp-att-4389"><img decoding="async" class="aligncenter size-full wp-image-4389 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-021.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-022-2/" rel="attachment wp-att-4390"><img decoding="async" class="aligncenter size-full wp-image-4390 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-022.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-ronald-vizcaya-engagement/attachment/untitled-023-2/" rel="attachment wp-att-4391"><img decoding="async" class="aligncenter size-full wp-image-4391 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/untitled-023.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-001.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-002.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-003.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-004.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-005.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-006.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-007.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-008.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-009.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-010.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-011.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-012.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-013.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-014.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-015.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-016.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-017.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-018.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-019.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-020.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-021.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-022.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/untitled-023.jpg" alt="Laura + Ronald | Vizcaya Engagement" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

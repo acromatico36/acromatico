@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lauren + Greg | Westin Hotel Wedding | Acromatico Photography</title>
+    <meta name="description" content="You might remember Lauren and Greg from their stormy and rainy New York City engagement session a couple of months ago. This time around they brought the sun to">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/lauren-greg-westin-hotel-wedding">
+    <meta property="og:title" content="Lauren + Greg | Westin Hotel Wedding">
+    <meta property="og:description" content="You might remember Lauren and Greg from their stormy and rainy New York City engagement session a couple of months ago. This time around they brought the sun to">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0011.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/lauren-greg-westin-hotel-wedding">
+    <meta property="twitter:title" content="Lauren + Greg | Westin Hotel Wedding">
+    <meta property="twitter:description" content="You might remember Lauren and Greg from their stormy and rainy New York City engagement session a couple of months ago. This time around they brought the sun to">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0011.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Lauren + Greg | Westin Hotel Wedding",
+      "image": ["https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0011.jpg","https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0021.jpg","https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0031.jpg","https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0041.jpg","https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0051.jpg"],
+      "datePublished": "2013-09-13T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "You might remember Lauren and Greg from their stormy and rainy New York City engagement session a couple of months ago. This time around they brought the sun to"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0011.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>Lauren + Greg | Westin Hotel Wedding</h1>
+            <p class="post-meta">September 13, 2013</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>You might remember Lauren and Greg from their stormy and rainy New York City engagement session a couple of months ago. This time around they brought the sun to the sunshine state and had the most gorgeous day to get married! They chose the Westin hotel in Fort Lauderdale for their gorgeous, breathtaking reception where they danced the night away. These two were a blast to work with and we are really excited to show you a preview of their big day. Check out some of our favorites:</p>
+<p><a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0011.jpg"><img decoding="async" class="aligncenter size-full wp-image-4032 lazyload" alt="Westin Fort Lauderdale Wedding-001" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0011.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0021.jpg"><img decoding="async" class="aligncenter size-full wp-image-4033 lazyload" alt="Westin Fort Lauderdale Wedding-002" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0021.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0031.jpg"><img decoding="async" class="aligncenter size-large wp-image-4034 lazyload" alt="Westin Fort Lauderdale Wedding-003" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0031.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0041.jpg"><img decoding="async" class="aligncenter size-large wp-image-4035 lazyload" alt="Westin Fort Lauderdale Wedding-004" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0041.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0051.jpg"><img decoding="async" class="aligncenter size-large wp-image-4036 lazyload" alt="Westin Fort Lauderdale Wedding-005" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0051.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0061.jpg"><img decoding="async" class="aligncenter size-large wp-image-4037 lazyload" alt="Westin Fort Lauderdale Wedding-006" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0061.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0071.jpg"><img decoding="async" class="aligncenter size-large wp-image-4038 lazyload" alt="Westin Fort Lauderdale Wedding-007" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0071.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0081.jpg"><img decoding="async" class="aligncenter size-large wp-image-4039 lazyload" alt="Westin Fort Lauderdale Wedding-008" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0081.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0091.jpg"><img decoding="async" class="aligncenter size-large wp-image-4040 lazyload" alt="Westin Fort Lauderdale Wedding-009" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0091.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0101.jpg"><img decoding="async" class="aligncenter size-large wp-image-4041 lazyload" alt="Westin Fort Lauderdale Wedding-010" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0101.jpg" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0111.jpg"><img decoding="async" class="aligncenter size-large wp-image-4042 lazyload" alt="Westin Fort Lauderdale Wedding-011" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0111.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0121.jpg"><img decoding="async" class="aligncenter size-full wp-image-4043 lazyload" alt="Westin Fort Lauderdale Wedding-012" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0121.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0131.jpg"><img decoding="async" class="aligncenter size-large wp-image-4044 lazyload" alt="Westin Fort Lauderdale Wedding-013" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0131.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0141.jpg"><img decoding="async" class="aligncenter size-large wp-image-4045 lazyload" alt="Westin Fort Lauderdale Wedding-014" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0141.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0151.jpg"><img decoding="async" class="aligncenter size-large wp-image-4046 lazyload" alt="Westin Fort Lauderdale Wedding-015" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0151.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0161.jpg"><img decoding="async" class="aligncenter size-large wp-image-4047 lazyload" alt="Westin Fort Lauderdale Wedding-016" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0161.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0171.jpg"><img decoding="async" class="aligncenter size-large wp-image-4048 lazyload" alt="Westin Fort Lauderdale Wedding-017" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0171.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0181.jpg"><img decoding="async" class="aligncenter size-large wp-image-4049 lazyload" alt="Westin Fort Lauderdale Wedding-018" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0181.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0191.jpg"><img decoding="async" class="aligncenter size-large wp-image-4050 lazyload" alt="Westin Fort Lauderdale Wedding-019" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0191.jpg" width="910" height="418"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0201.jpg"><img decoding="async" class="aligncenter size-large wp-image-4051 lazyload" alt="Westin Fort Lauderdale Wedding-020" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0201.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0211.jpg"><img decoding="async" class="aligncenter size-large wp-image-4052 lazyload" alt="Westin Fort Lauderdale Wedding-021" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0211.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0221.jpg"><img decoding="async" class="aligncenter size-large wp-image-4053 lazyload" alt="Westin Fort Lauderdale Wedding-022" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0221.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0231.jpg"><img decoding="async" class="aligncenter size-large wp-image-4054 lazyload" alt="Westin Fort Lauderdale Wedding-023" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0231.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0241.jpg"><img decoding="async" class="aligncenter size-large wp-image-4055 lazyload" alt="Westin Fort Lauderdale Wedding-024" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0241.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0251.jpg"><img decoding="async" class="aligncenter size-large wp-image-4056 lazyload" alt="Westin Fort Lauderdale Wedding-025" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0251.jpg" width="910" height="418"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0261.jpg"><img decoding="async" class="aligncenter size-large wp-image-4057 lazyload" alt="Westin Fort Lauderdale Wedding-026" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0261.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0271.jpg"><img decoding="async" class="aligncenter size-large wp-image-4058 lazyload" alt="Westin Fort Lauderdale Wedding-027" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0271.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0281.jpg"><img decoding="async" class="aligncenter size-large wp-image-4059 lazyload" alt="Westin Fort Lauderdale Wedding-028" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0281.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0291.jpg"><img decoding="async" class="aligncenter size-large wp-image-4060 lazyload" alt="Westin Fort Lauderdale Wedding-029" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0291.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0301.jpg"><img decoding="async" class="aligncenter size-large wp-image-4061 lazyload" alt="Westin Fort Lauderdale Wedding-030" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0301.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0311.jpg"><img decoding="async" class="aligncenter size-large wp-image-4062 lazyload" alt="Westin Fort Lauderdale Wedding-031" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0311.jpg" width="910" height="418"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0321.jpg"><img decoding="async" class="aligncenter size-large wp-image-4063 lazyload" alt="Westin Fort Lauderdale Wedding-032" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0321.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0331.jpg"><img decoding="async" class="aligncenter size-large wp-image-4064 lazyload" alt="Westin Fort Lauderdale Wedding-033" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0331.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0341.jpg"><img decoding="async" class="aligncenter size-large wp-image-4065 lazyload" alt="Westin Fort Lauderdale Wedding-034" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0341.jpg" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0351.jpg"><img decoding="async" class="aligncenter size-large wp-image-4066 lazyload" alt="Westin Fort Lauderdale Wedding-035" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0351.jpg" width="910" height="149"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/149;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0361.jpg"><img decoding="async" class="aligncenter size-large wp-image-4067 lazyload" alt="Westin Fort Lauderdale Wedding-036" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0361.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0371.jpg"><img decoding="async" class="aligncenter size-large wp-image-4068 lazyload" alt="Westin Fort Lauderdale Wedding-037" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0371.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0381.jpg"><img decoding="async" class="aligncenter size-large wp-image-4069 lazyload" alt="Westin Fort Lauderdale Wedding-038" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0381.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0391.jpg"><img decoding="async" class="aligncenter size-large wp-image-4070 lazyload" alt="Westin Fort Lauderdale Wedding-039" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0391.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0401.jpg"><img decoding="async" class="aligncenter size-large wp-image-4071 lazyload" alt="Westin Fort Lauderdale Wedding-040" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0401.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0411.jpg"><img decoding="async" class="aligncenter size-large wp-image-4072 lazyload" alt="Westin Fort Lauderdale Wedding-041" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0411.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0421.jpg"><img decoding="async" class="aligncenter size-large wp-image-4073 lazyload" alt="Westin Fort Lauderdale Wedding-042" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0421.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0431.jpg"><img decoding="async" class="aligncenter size-large wp-image-4074 lazyload" alt="Westin Fort Lauderdale Wedding-043" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0431.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0441.jpg"><img decoding="async" class="aligncenter size-large wp-image-4075 lazyload" alt="Westin Fort Lauderdale Wedding-044" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0441.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0451.jpg"><img decoding="async" class="aligncenter size-large wp-image-4076 lazyload" alt="Westin Fort Lauderdale Wedding-045" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0451.jpg" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0461.jpg"><img decoding="async" class="aligncenter size-large wp-image-4077 lazyload" alt="Westin Fort Lauderdale Wedding-046" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0461.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0471.jpg"><img decoding="async" class="aligncenter size-full wp-image-4078 lazyload" alt="Westin Fort Lauderdale Wedding-047" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0471.jpg" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0481.jpg"><img decoding="async" class="aligncenter size-large wp-image-4079 lazyload" alt="Westin Fort Lauderdale Wedding-048" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0481.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0491.jpg"><img decoding="async" class="aligncenter size-large wp-image-4080 lazyload" alt="Westin Fort Lauderdale Wedding-049" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0491.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0501.jpg"><img decoding="async" class="aligncenter size-large wp-image-4081 lazyload" alt="Westin Fort Lauderdale Wedding-050" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0501.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0511.jpg"><img decoding="async" class="aligncenter size-large wp-image-4082 lazyload" alt="Westin Fort Lauderdale Wedding-051" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0511.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0521.jpg"><img decoding="async" class="aligncenter size-large wp-image-4083 lazyload" alt="Westin Fort Lauderdale Wedding-052" src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0521.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0011.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0021.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0031.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0041.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0051.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0061.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0071.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0081.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0091.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0101.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0111.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0121.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0131.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0141.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0151.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0161.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0171.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0181.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0191.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0201.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0211.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0221.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0231.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0241.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0251.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0261.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0271.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0281.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0291.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0301.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0311.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0321.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0331.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0341.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0351.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0361.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0371.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0381.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0391.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0401.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0411.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0421.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0431.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0441.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0451.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0461.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0471.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0481.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0491.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0501.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0511.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/09/Westin-Fort-Lauderdale-Wedding-0521.jpg" alt="Lauren + Greg | Westin Hotel Wedding" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

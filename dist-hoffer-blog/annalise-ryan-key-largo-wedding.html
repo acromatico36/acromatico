@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annalise + Ryan | Key Largo Wedding | Acromatico Photography</title>
+    <meta name="description" content="This next wedding we are taking it down to The Keys, Key Largo that is! Annalise and Ryan had their beautiful destination wedding at the Key Largo Lighthouse. D">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/annalise-ryan-key-largo-wedding">
+    <meta property="og:title" content="Annalise + Ryan | Key Largo Wedding">
+    <meta property="og:description" content="This next wedding we are taking it down to The Keys, Key Largo that is! Annalise and Ryan had their beautiful destination wedding at the Key Largo Lighthouse. D">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-001.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/annalise-ryan-key-largo-wedding">
+    <meta property="twitter:title" content="Annalise + Ryan | Key Largo Wedding">
+    <meta property="twitter:description" content="This next wedding we are taking it down to The Keys, Key Largo that is! Annalise and Ryan had their beautiful destination wedding at the Key Largo Lighthouse. D">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-001.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Annalise + Ryan | Key Largo Wedding",
+      "image": ["https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-001.jpg","https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-002.jpg","https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-003.jpg","https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-004.jpg","https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-005.jpg"],
+      "datePublished": "2016-12-23T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "This next wedding we are taking it down to The Keys, Key Largo that is! Annalise and Ryan had their beautiful destination wedding at the Key Largo Lighthouse. D"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-001.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>Annalise + Ryan | Key Largo Wedding</h1>
+            <p class="post-meta">December 23, 2016</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>This next wedding we are taking it down to The Keys, Key Largo that is! Annalise and Ryan had their beautiful destination wedding at the Key Largo Lighthouse. Despite the crazy rain that kept coming down, this day was perfect. Annalise was looking gorgeous in her beautiful dress and Ryan was speechless as he saw her walking down the aisle. With their family and friends, they said their &#8220;I do&#8217;s&#8221; and no matter what, this was their special day, and no rain could ruin it. We made the best out of it and absolutely enjoyed capturing your day. Congrats again guys! Here are some of our faves:</p>
+<p><img decoding="async" class="aligncenter size-full wp-image-11212 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-001.jpg" alt="key-largo-wedding-001" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11213 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-002.jpg" alt="key-largo-wedding-002" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11214 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-003.jpg" alt="key-largo-wedding-003" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11215 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-004.jpg" alt="key-largo-wedding-004" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11216 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-005.jpg" alt="key-largo-wedding-005" width="910" height="681"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" /> <img decoding="async" class="aligncenter size-full wp-image-11217 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-006.jpg" alt="key-largo-wedding-006" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11218 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-007.jpg" alt="key-largo-wedding-007" width="910" height="681"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" /> <img decoding="async" class="aligncenter size-full wp-image-11219 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-008.jpg" alt="key-largo-wedding-008" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11220 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-009.jpg" alt="key-largo-wedding-009" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11221 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-010.jpg" alt="key-largo-wedding-010" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11222 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-011.jpg" alt="key-largo-wedding-011" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11223 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-012.jpg" alt="key-largo-wedding-012" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11224 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-013.jpg" alt="key-largo-wedding-013" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11225 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-014.jpg" alt="key-largo-wedding-014" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11226 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-015.jpg" alt="key-largo-wedding-015" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11227 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-016.jpg" alt="key-largo-wedding-016" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11228 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-017.jpg" alt="key-largo-wedding-017" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11229 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-018.jpg" alt="key-largo-wedding-018" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11230 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-019.jpg" alt="key-largo-wedding-019" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11231 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-020.jpg" alt="key-largo-wedding-020" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11232 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-021.jpg" alt="key-largo-wedding-021" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11233 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-022.jpg" alt="key-largo-wedding-022" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11234 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-023.jpg" alt="key-largo-wedding-023" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11235 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-024.jpg" alt="key-largo-wedding-024" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11236 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-025.jpg" alt="key-largo-wedding-025" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11237 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-026.jpg" alt="key-largo-wedding-026" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11238 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-027.jpg" alt="key-largo-wedding-027" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11239 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-028.jpg" alt="key-largo-wedding-028" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11240 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-029.jpg" alt="key-largo-wedding-029" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11241 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-030.jpg" alt="key-largo-wedding-030" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11242 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-031.jpg" alt="key-largo-wedding-031" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11243 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-032.jpg" alt="key-largo-wedding-032" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11244 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-033.jpg" alt="key-largo-wedding-033" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11245 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-034.jpg" alt="key-largo-wedding-034" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11246 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-035.jpg" alt="key-largo-wedding-035" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11247 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-036.jpg" alt="key-largo-wedding-036" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11248 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-037.jpg" alt="key-largo-wedding-037" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11249 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-038.jpg" alt="key-largo-wedding-038" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11250 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-039.jpg" alt="key-largo-wedding-039" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11251 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-040.jpg" alt="key-largo-wedding-040" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11252 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-041.jpg" alt="key-largo-wedding-041" width="910" height="681"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" /> <img decoding="async" class="aligncenter size-full wp-image-11253 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-042.jpg" alt="key-largo-wedding-042" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11254 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-043.jpg" alt="key-largo-wedding-043" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11255 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-044.jpg" alt="key-largo-wedding-044" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11256 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-045.jpg" alt="key-largo-wedding-045" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11257 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-046.jpg" alt="key-largo-wedding-046" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11258 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-047.jpg" alt="key-largo-wedding-047" width="910" height="303"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" /> <img decoding="async" class="aligncenter size-full wp-image-11259 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-048.jpg" alt="key-largo-wedding-048" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11260 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-049.jpg" alt="key-largo-wedding-049" width="910" height="303"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" /> <img decoding="async" class="aligncenter size-full wp-image-11261 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-050.jpg" alt="key-largo-wedding-050" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11262 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-051.jpg" alt="key-largo-wedding-051" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11263 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-052.jpg" alt="key-largo-wedding-052" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /> <img decoding="async" class="aligncenter size-full wp-image-11264 lazyload" src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-053.jpg" alt="key-largo-wedding-053" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-001.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-002.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-003.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-004.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-005.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-006.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-007.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-008.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-009.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-010.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-011.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-012.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-013.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-014.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-015.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-016.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-017.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-018.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-019.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-020.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-021.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-022.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-023.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-024.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-025.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-026.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-027.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-028.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-029.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-030.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-031.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-032.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-033.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-034.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-035.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-036.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-037.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-038.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-039.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-040.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-041.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-042.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-043.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-044.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-045.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-046.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-047.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-048.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-049.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-050.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-051.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-052.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2016/12/Key-Largo-Wedding-053.jpg" alt="Annalise + Ryan | Key Largo Wedding" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postcard Inn St. Pete Beach Wedding | Meg + Doug | Acromatico Photography</title>
+    <meta name="description" content="First time in St. Pete Beach for us and we LOVED it! This wedding at the beautiful Postcard Inn was so amazing! Meg and Doug traveled all the way from New Jerse">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/postcard-inn-st-pete-beach-wedding-meg-doug">
+    <meta property="og:title" content="Postcard Inn St. Pete Beach Wedding | Meg + Doug">
+    <meta property="og:description" content="First time in St. Pete Beach for us and we LOVED it! This wedding at the beautiful Postcard Inn was so amazing! Meg and Doug traveled all the way from New Jerse">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-001.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/postcard-inn-st-pete-beach-wedding-meg-doug">
+    <meta property="twitter:title" content="Postcard Inn St. Pete Beach Wedding | Meg + Doug">
+    <meta property="twitter:description" content="First time in St. Pete Beach for us and we LOVED it! This wedding at the beautiful Postcard Inn was so amazing! Meg and Doug traveled all the way from New Jerse">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-001.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Postcard Inn St. Pete Beach Wedding | Meg + Doug",
+      "image": ["https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-001.jpg","https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-002.jpg","https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-003.jpg","https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-004.jpg","https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-005.jpg"],
+      "datePublished": "2018-07-09T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "First time in St. Pete Beach for us and we LOVED it! This wedding at the beautiful Postcard Inn was so amazing! Meg and Doug traveled all the way from New Jerse"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-001.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>Postcard Inn St. Pete Beach Wedding | Meg + Doug</h1>
+            <p class="post-meta">July 9, 2018</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>First time in St. Pete Beach for us and we LOVED it! This wedding at the beautiful Postcard Inn was so amazing! Meg and Doug traveled all the way from New Jersey to get celebrate their big day with their closest friends and super awesome families, everyone was ready to party and have a great time as it shows on the pictures. Enjoy some of our favorites from this beautiful day:</p>
+<p><img decoding="async" class="aligncenter size-full wp-image-14524 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-001.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14525 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-002.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14526 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-003.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14527 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-004.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14528 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-005.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14529 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-006.jpg" alt="" width="1820" height="1363"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1363;" /> <img decoding="async" class="aligncenter size-full wp-image-14530 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-007.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14531 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-008.jpg" alt="" width="1820" height="1363"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1363;" /> <img decoding="async" class="aligncenter size-full wp-image-14532 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-009.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14533 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-010.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14534 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-011.jpg" alt="" width="1820" height="1363"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1363;" /> <img decoding="async" class="aligncenter size-full wp-image-14535 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-012.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14536 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-013.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14537 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-014.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14538 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-015.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14539 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-016.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14540 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-017.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14541 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-018.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14542 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-019.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14543 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-020.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14544 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-021.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14545 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-022.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14546 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-023.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14547 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-024.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14548 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-025.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14549 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-026.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14550 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-027.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14551 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-028.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14552 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-029.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14553 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-030.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14554 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-031.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14555 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-032.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14556 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-033.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14557 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-034.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14558 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-035.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14559 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-036.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14560 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-037.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14561 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-038.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14562 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-039.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14563 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-040.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14564 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-041.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14565 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-042.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14566 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-043.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14567 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-044.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14568 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-045.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14569 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-046.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14570 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-047.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14571 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-048.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14572 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-049.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14573 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-050.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14574 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-051.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14575 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-052.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14576 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-053.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14577 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-054.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14578 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-055.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14579 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-056.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14580 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-057.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14581 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-058.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14582 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-059.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14583 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-060.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14584 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-061.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14585 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-062.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14586 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-063.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14587 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-064.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14588 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-065.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14589 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-066.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14590 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-067.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14591 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-068.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14592 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-069.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14593 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-070.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14594 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-071.jpg" alt="" width="1820" height="1363"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1363;" /> <img decoding="async" class="aligncenter size-full wp-image-14595 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-072.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14596 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-073.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14597 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-074.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14598 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-075.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14599 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-076.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14600 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-077.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /> <img decoding="async" class="aligncenter size-full wp-image-14601 lazyload" src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-078.jpg" alt="" width="1820" height="1213"  style="--smush-placeholder-width: 1820px; --smush-placeholder-aspect-ratio: 1820/1213;" /></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-001.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-002.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-003.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-004.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-005.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-006.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-007.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-008.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-009.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-010.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-011.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-012.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-013.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-014.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-015.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-016.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-017.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-018.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-019.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-020.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-021.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-022.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-023.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-024.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-025.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-026.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-027.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-028.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-029.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-030.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-031.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-032.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-033.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-034.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-035.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-036.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-037.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-038.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-039.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-040.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-041.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-042.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-043.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-044.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-045.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-046.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-047.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-048.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-049.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-050.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-051.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-052.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-053.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-054.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-055.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-056.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-057.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-058.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-059.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-060.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-061.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-062.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-063.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-064.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-065.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-066.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-067.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-068.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-069.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-070.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-071.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-072.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-073.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-074.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-075.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-076.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-077.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/07/St.-Pete-Beach-Wedding-078.jpg" alt="Postcard Inn St. Pete Beach Wedding | Meg + Doug" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

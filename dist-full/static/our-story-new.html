@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | ACROMATICO - Award-Winning Photography & Film</title>
+    <meta name="description" content="Meet Ale & Italo, the award-winning duo behind Acromatico. From Abruzzo, Italy to the world. Featured by Apple, Martha Stewart, The Knot, and more.">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #000;
+            --bg-white: #fff;
+            --bg-gray: #f5f5f7;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: white;
+        }
+        
+        /* HERO */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 80px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            font-weight: 300;
+        }
+        
+        /* STORY SECTION */
+        .story-section {
+            max-width: 1000px;
+            margin: 120px auto;
+            padding: 0 40px;
+        }
+        
+        .story-section h2 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            letter-spacing: -1px;
+        }
+        
+        .story-section p {
+            font-size: 21px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: #1d1d1f;
+        }
+        
+        /* TEAM GRID */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .team-member h3 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .team-member p {
+            font-size: 17px;
+            color: #6e6e73;
+        }
+        
+        /* PUBLICATIONS */
+        .publications {
+            background: var(--bg-gray);
+            padding: 120px 40px;
+            text-align: center;
+        }
+        
+        .publications h2 {
+            font-size: 48px;
+            margin-bottom: 64px;
+        }
+        
+        .pub-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 64px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pub-item {
+            font-size: 24px;
+            font-weight: 700;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .pub-item:hover {
+            opacity: 1;
+        }
+        
+        /* CTA */
+        .cta {
+            background: #000;
+            color: white;
+            padding: 120px 40px;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 56px;
+            margin-bottom: 24px;
+        }
+        
+        .cta p {
+            font-size: 21px;
+            margin-bottom: 48px;
+            opacity: 0.8;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 48px; }
+            .story-section h2 { font-size: 40px; }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <h1>Our Story</h1>
+            <p>Authentic Moments. Unfiltered Storytelling.</p>
+        </div>
+    </section>
+    
+    <!-- STORY -->
+    <section class="story-section">
+        <h2>Meet Ale & Italo</h2>
+        <p>We're Ale & Italo, the award-winning photography and filmmaking duo behind Acromatico. Our journey started in the hills of Abruzzo, Italy, but our work has taken us around the world—from the streets of New York to the beaches of South Florida, and everywhere in between.</p>
+        
+        <p>We believe in capturing real moments, real energy, and real emotion. No forced poses, no cookie-cutter shots. Just you, living your story, while we document it with an artistic eye and an unfiltered approach.</p>
+        
+        <p>Our work has been featured by Apple, Martha Stewart, The Knot, WeddingWire, Style Me Pretty, and countless other publications. But what matters most? The couples, families, and brands who trust us to tell their stories.</p>
+    </section>
+    
+    <!-- TEAM -->
+    <div class="team-grid">
+        <div class="team-member">
+            <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" alt="Ale & Italo">
+            <h3>Ale & Italo</h3>
+            <p>Founders & Lead Photographers</p>
+        </div>
+        
+        <div class="team-member">
+            <img src="https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-333.jpg" alt="Tica">
+            <h3>Tica</h3>
+            <p>Creative Studio Director & Fashion Photographer</p>
+        </div>
+        
+        <div class="team-member">
+            <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-324.jpg" alt="Josh">
+            <h3>Josh</h3>
+            <p>Video Mastermind</p>
+        </div>
+        
+        <div class="team-member">
+            <img src="https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-339.jpg" alt="Team Acromatico">
+            <h3>Team Acromatico</h3>
+            <p>Your Story, Our Passion</p>
+        </div>
+    </div>
+    
+    <!-- PUBLICATIONS -->
+    <section class="publications">
+        <h2>As Featured In</h2>
+        <div class="pub-grid">
+            <div class="pub-item">Apple</div>
+            <div class="pub-item">Martha Stewart</div>
+            <div class="pub-item">The Knot</div>
+            <div class="pub-item">WeddingWire</div>
+            <div class="pub-item">Style Me Pretty</div>
+            <div class="pub-item">Yelp</div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Ready to Tell Your Story?</h2>
+        <p>Let's create something unforgettable together</p>
+        <a href="/static/photography-apple-ux.html" class="cta-btn">View Our Work</a>
+    </section>
+</body>
+</html>

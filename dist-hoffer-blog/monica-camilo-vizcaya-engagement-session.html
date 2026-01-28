@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monica + Camilo | Vizcaya Engagement Session | Acromatico Photography</title>
+    <meta name="description" content="So I guess we have a winner! Vizcaya is officially our #1 most requested for engagement sessions. This next couple, Monica and Camilo, did an amazing job choosi">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session">
+    <meta property="og:title" content="Monica + Camilo | Vizcaya Engagement Session">
+    <meta property="og:description" content="So I guess we have a winner! Vizcaya is officially our #1 most requested for engagement sessions. This next couple, Monica and Camilo, did an amazing job choosi">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-001.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session">
+    <meta property="twitter:title" content="Monica + Camilo | Vizcaya Engagement Session">
+    <meta property="twitter:description" content="So I guess we have a winner! Vizcaya is officially our #1 most requested for engagement sessions. This next couple, Monica and Camilo, did an amazing job choosi">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-001.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Monica + Camilo | Vizcaya Engagement Session",
+      "image": ["https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-001.jpg","https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-002.jpg","https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-003.jpg","https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-004.jpg","https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-005.jpg"],
+      "datePublished": "2013-10-09T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "So I guess we have a winner! Vizcaya is officially our #1 most requested for engagement sessions. This next couple, Monica and Camilo, did an amazing job choosi"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-001.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Engagement</span>
+            <h1>Monica + Camilo | Vizcaya Engagement Session</h1>
+            <p class="post-meta">October 9, 2013</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p><a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-001/" rel="attachment wp-att-4192">So I guess we have a winner! Vizcaya is officially our #1 most requested for engagement sessions. This next couple, Monica and Camilo, did an amazing job choosing this location for their european-isk e-session. It fit their theme and personalities just perfect! We are very excited to share with you some of our faves from their beautiful session and we can&#8217;t wait to shoot their wedding next month! Enjoy some of the highlights from that day:</a></p>
+<p><a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-001/" rel="attachment wp-att-4192"><img decoding="async" class="aligncenter size-full wp-image-4192 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-001.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-002/" rel="attachment wp-att-4193"><img decoding="async" class="aligncenter size-full wp-image-4193 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-002.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-003/" rel="attachment wp-att-4194"><img decoding="async" class="aligncenter size-full wp-image-4194 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-003.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-004/" rel="attachment wp-att-4195"><img decoding="async" class="aligncenter size-full wp-image-4195 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-004.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-005/" rel="attachment wp-att-4196"><img decoding="async" class="aligncenter size-full wp-image-4196 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-005.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-006/" rel="attachment wp-att-4197"><img decoding="async" class="aligncenter size-full wp-image-4197 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-006.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-007/" rel="attachment wp-att-4198"><img decoding="async" class="aligncenter size-full wp-image-4198 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-007.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-008/" rel="attachment wp-att-4199"><img decoding="async" class="aligncenter size-full wp-image-4199 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-008.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-009/" rel="attachment wp-att-4200"><img decoding="async" class="aligncenter size-full wp-image-4200 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-009.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-010/" rel="attachment wp-att-4201"><img decoding="async" class="aligncenter size-full wp-image-4201 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-010.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-011/" rel="attachment wp-att-4202"><img decoding="async" class="aligncenter size-full wp-image-4202 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-011.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-012/" rel="attachment wp-att-4203"><img decoding="async" class="aligncenter size-full wp-image-4203 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-012.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-013/" rel="attachment wp-att-4204"><img decoding="async" class="aligncenter size-full wp-image-4204 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-013.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-014/" rel="attachment wp-att-4205"><img decoding="async" class="aligncenter size-full wp-image-4205 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-014.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-015/" rel="attachment wp-att-4206"><img decoding="async" class="aligncenter size-full wp-image-4206 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-015.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-016/" rel="attachment wp-att-4207"><img decoding="async" class="aligncenter size-full wp-image-4207 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-016.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-017/" rel="attachment wp-att-4208"><img decoding="async" class="aligncenter size-full wp-image-4208 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-017.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-018/" rel="attachment wp-att-4209"><img decoding="async" class="aligncenter size-full wp-image-4209 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-018.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-019/" rel="attachment wp-att-4210"><img decoding="async" class="aligncenter size-full wp-image-4210 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-019.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-020/" rel="attachment wp-att-4211"><img decoding="async" class="aligncenter size-full wp-image-4211 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-020.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-021/" rel="attachment wp-att-4212"><img decoding="async" class="aligncenter size-full wp-image-4212 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-021.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-022/" rel="attachment wp-att-4213"><img decoding="async" class="aligncenter size-full wp-image-4213 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-022.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-023/" rel="attachment wp-att-4214"><img decoding="async" class="aligncenter size-full wp-image-4214 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-023.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-024/" rel="attachment wp-att-4215"><img decoding="async" class="aligncenter size-full wp-image-4215 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-024.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-025/" rel="attachment wp-att-4216"><img decoding="async" class="aligncenter size-full wp-image-4216 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-025.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-026/" rel="attachment wp-att-4217"><img decoding="async" class="aligncenter size-full wp-image-4217 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-026.jpg" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/monica-camilo-vizcaya-engagement-session/attachment/vizcaya-engagement-session-027/" rel="attachment wp-att-4218"><img decoding="async" class="aligncenter size-full wp-image-4218 lazyload" alt="" src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-027.jpg" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-001.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-002.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-003.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-004.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-005.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-006.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-007.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-008.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-009.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-010.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-011.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-012.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-013.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-014.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-015.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-016.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-017.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-018.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-019.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-020.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-021.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-022.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-023.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-024.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-025.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-026.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2013/10/Vizcaya-engagement-session-027.jpg" alt="Monica + Camilo | Vizcaya Engagement Session" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acromatico Team | 2012 In Pictures | Acromatico Photography</title>
+    <meta name="description" content="It’s hard to believe that 2012 is almost over, it’s been an amazing year! We’ve met so many awesome people in this last year and have gone through so many new a">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/acromatico-team-2012-in-pictures">
+    <meta property="og:title" content="Acromatico Team | 2012 In Pictures">
+    <meta property="og:description" content="It’s hard to believe that 2012 is almost over, it’s been an amazing year! We’ve met so many awesome people in this last year and have gone through so many new a">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2012/12/untitled-0011.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/acromatico-team-2012-in-pictures">
+    <meta property="twitter:title" content="Acromatico Team | 2012 In Pictures">
+    <meta property="twitter:description" content="It’s hard to believe that 2012 is almost over, it’s been an amazing year! We’ve met so many awesome people in this last year and have gone through so many new a">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2012/12/untitled-0011.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Acromatico Team | 2012 In Pictures",
+      "image": ["https://acromatico.com/wp-content/uploads/2012/12/untitled-0011.jpg","https://acromatico.com/wp-content/uploads/2012/12/untitled-0021.jpg","https://acromatico.com/wp-content/uploads/2012/12/untitled-0031.jpg","https://acromatico.com/wp-content/uploads/2012/12/untitled-0041.jpg","https://acromatico.com/wp-content/uploads/2012/12/untitled-0051.jpg"],
+      "datePublished": "2012-12-31T00:00:00",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "It’s hard to believe that 2012 is almost over, it’s been an amazing year! We’ve met so many awesome people in this last year and have gone through so many new a"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2012/12/untitled-0011.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Photography</span>
+            <h1>Acromatico Team | 2012 In Pictures</h1>
+            <p class="post-meta">December 31, 2012</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>It’s hard to believe that 2012 is almost over, it’s been an amazing year! We’ve met so many awesome people in this last year and have gone through so many new awesome experiences. We can’t wait to start off next year and surprise you with so many things. Before we close off the year, we want to thank all of our new (and older) clients, we couldn’t have done this without you! The weddings, the engagement sessions, the mansion weddings, Italy sessions, all our brand new moms with their maternity sessions, even our brave underwater session volunteers! We can’t thank you enough for choosing us, it’s very hard to let go of this year, but we are extremely happy to start off a brand new year with new goodies yet to come. We’ve had many ups (we got to travel all the way across Europe!), and yes, we’ve had our downs as well: dropping lenses and breaking them, getting water in our iphone during a beach session, and we’ve had many embarrassing moments (we prefer not to disclose lol!)…but hey, we’re human, and that’s all part of the fun! We have an amazing team and each and every session we’ve done has been a blast! We also have a new member on our team: Alessandro. We are so happy you are on board, you&#8217;re the best Ale! And how we could forget Tica, the best assistant anybody could have!  To everyone who made this incredible 2012 possible, we can only say.. Thank you! Relive some of our best moments through these pictures, we love you all. Enjoy!</p>
+<p>&nbsp;</p>
+<p><a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-001-2/" rel="attachment wp-att-1862"><img decoding="async" class="aligncenter size-full wp-image-1862 lazyload" title="untitled-001" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0011.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-002-2/" rel="attachment wp-att-1863"><img decoding="async" class="aligncenter size-full wp-image-1863 lazyload" title="untitled-002" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0021.jpg" alt="" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-003-2/" rel="attachment wp-att-1864"><img decoding="async" class="aligncenter size-full wp-image-1864 lazyload" title="untitled-003" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0031.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-004-2/" rel="attachment wp-att-1865"><img decoding="async" class="aligncenter size-full wp-image-1865 lazyload" title="untitled-004" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0041.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-005-2/" rel="attachment wp-att-1866"><img decoding="async" class="aligncenter size-full wp-image-1866 lazyload" title="untitled-005" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0051.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-006-2/" rel="attachment wp-att-1867"><img decoding="async" class="aligncenter size-full wp-image-1867 lazyload" title="untitled-006" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0061.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-007-2/" rel="attachment wp-att-1868"><img decoding="async" class="aligncenter size-full wp-image-1868 lazyload" title="untitled-007" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0071.jpg" alt="" width="910" height="418"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-008/" rel="attachment wp-att-1869"><img decoding="async" class="aligncenter size-full wp-image-1869 lazyload" title="untitled-008" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-008.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-009/" rel="attachment wp-att-1870"><img decoding="async" class="aligncenter size-full wp-image-1870 lazyload" title="untitled-009" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-009.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-010/" rel="attachment wp-att-1871"><img decoding="async" class="aligncenter size-full wp-image-1871 lazyload" title="untitled-010" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-010.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-011/" rel="attachment wp-att-1872"><img decoding="async" class="aligncenter size-full wp-image-1872 lazyload" title="untitled-011" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-011.jpg" alt="" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-012/" rel="attachment wp-att-1873"><img decoding="async" class="aligncenter size-full wp-image-1873 lazyload" title="untitled-012" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-012.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-013/" rel="attachment wp-att-1874"><img decoding="async" class="aligncenter size-full wp-image-1874 lazyload" title="untitled-013" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-013.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-014/" rel="attachment wp-att-1875"><img decoding="async" class="aligncenter size-full wp-image-1875 lazyload" title="untitled-014" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-014.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-015/" rel="attachment wp-att-1876"><img decoding="async" class="aligncenter size-full wp-image-1876 lazyload" title="untitled-015" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-015.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-016/" rel="attachment wp-att-1877"><img decoding="async" class="aligncenter size-full wp-image-1877 lazyload" title="untitled-016" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-016.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-017/" rel="attachment wp-att-1878"><img decoding="async" class="aligncenter size-full wp-image-1878 lazyload" title="untitled-017" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-017.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-018/" rel="attachment wp-att-1879"><img decoding="async" class="aligncenter size-full wp-image-1879 lazyload" title="untitled-018" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-018.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-019/" rel="attachment wp-att-1880"><img decoding="async" class="aligncenter size-full wp-image-1880 lazyload" title="untitled-019" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-019.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-020/" rel="attachment wp-att-1881"><img decoding="async" class="aligncenter size-full wp-image-1881 lazyload" title="untitled-020" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-020.jpg" alt="" width="910" height="531"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/531;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-021/" rel="attachment wp-att-1882"><img decoding="async" class="aligncenter size-full wp-image-1882 lazyload" title="untitled-021" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-021.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-022/" rel="attachment wp-att-1883"><img decoding="async" class="aligncenter size-full wp-image-1883 lazyload" title="untitled-022" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-022.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-023/" rel="attachment wp-att-1884"><img decoding="async" class="aligncenter size-full wp-image-1884 lazyload" title="untitled-023" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-023.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-024/" rel="attachment wp-att-1885"><img decoding="async" class="aligncenter size-full wp-image-1885 lazyload" title="untitled-024" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-024.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-025/" rel="attachment wp-att-1886"><img decoding="async" class="aligncenter size-full wp-image-1886 lazyload" title="untitled-025" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-025.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-026/" rel="attachment wp-att-1887"><img decoding="async" class="aligncenter size-full wp-image-1887 lazyload" title="untitled-026" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-026.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-027/" rel="attachment wp-att-1888"><img decoding="async" class="aligncenter size-full wp-image-1888 lazyload" title="untitled-027" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-027.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-028/" rel="attachment wp-att-1889"><img decoding="async" class="aligncenter size-full wp-image-1889 lazyload" title="untitled-028" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-028.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-029/" rel="attachment wp-att-1890"><img decoding="async" class="aligncenter size-full wp-image-1890 lazyload" title="untitled-029" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-029.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-030/" rel="attachment wp-att-1891"><img decoding="async" class="aligncenter size-full wp-image-1891 lazyload" title="untitled-030" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-030.jpg" alt="" width="910" height="374"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/374;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-031/" rel="attachment wp-att-1892"><img decoding="async" class="aligncenter size-full wp-image-1892 lazyload" title="untitled-031" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-031.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-032/" rel="attachment wp-att-1893"><img decoding="async" class="aligncenter size-full wp-image-1893 lazyload" title="untitled-032" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-032.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-033/" rel="attachment wp-att-1894"><img decoding="async" class="aligncenter size-full wp-image-1894 lazyload" title="untitled-033" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-033.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-034/" rel="attachment wp-att-1895"><img decoding="async" class="aligncenter size-full wp-image-1895 lazyload" title="untitled-034" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-034.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-035/" rel="attachment wp-att-1896"><img decoding="async" class="aligncenter size-full wp-image-1896 lazyload" title="untitled-035" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-035.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-036/" rel="attachment wp-att-1897"><img decoding="async" class="aligncenter size-full wp-image-1897 lazyload" title="untitled-036" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-036.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-037/" rel="attachment wp-att-1898"><img decoding="async" class="aligncenter size-full wp-image-1898 lazyload" title="untitled-037" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-037.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-038/" rel="attachment wp-att-1899"><img decoding="async" class="aligncenter size-full wp-image-1899 lazyload" title="untitled-038" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-038.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-039/" rel="attachment wp-att-1900"><img decoding="async" class="aligncenter size-full wp-image-1900 lazyload" title="untitled-039" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-039.jpg" alt="" width="910" height="450"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/450;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-040/" rel="attachment wp-att-1901"><img decoding="async" class="aligncenter size-full wp-image-1901 lazyload" title="untitled-040" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-040.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-041/" rel="attachment wp-att-1902"><img decoding="async" class="aligncenter size-full wp-image-1902 lazyload" title="untitled-041" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-041.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-042/" rel="attachment wp-att-1903"><img decoding="async" class="aligncenter size-full wp-image-1903 lazyload" title="untitled-042" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-042.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-043/" rel="attachment wp-att-1904"><img decoding="async" class="aligncenter size-full wp-image-1904 lazyload" title="untitled-043" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-043.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-044/" rel="attachment wp-att-1905"><img decoding="async" class="aligncenter size-full wp-image-1905 lazyload" title="untitled-044" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-044.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-045/" rel="attachment wp-att-1906"><img decoding="async" class="aligncenter size-full wp-image-1906 lazyload" title="untitled-045" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-045.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-046/" rel="attachment wp-att-1907"><img decoding="async" class="aligncenter size-full wp-image-1907 lazyload" title="untitled-046" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-046.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-047/" rel="attachment wp-att-1908"><img decoding="async" class="aligncenter size-full wp-image-1908 lazyload" title="untitled-047" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-047.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-048/" rel="attachment wp-att-1909"><img decoding="async" class="aligncenter size-full wp-image-1909 lazyload" title="untitled-048" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-048.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-049/" rel="attachment wp-att-1910"><img decoding="async" class="aligncenter size-full wp-image-1910 lazyload" title="untitled-049" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-049.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-050/" rel="attachment wp-att-1911"><img decoding="async" class="aligncenter size-full wp-image-1911 lazyload" title="untitled-050" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-050.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-051/" rel="attachment wp-att-1912"><img decoding="async" class="aligncenter size-full wp-image-1912 lazyload" title="untitled-051" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-051.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-052/" rel="attachment wp-att-1913"><img decoding="async" class="aligncenter size-full wp-image-1913 lazyload" title="untitled-052" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-052.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-053/" rel="attachment wp-att-1914"><img decoding="async" class="aligncenter size-full wp-image-1914 lazyload" title="untitled-053" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-053.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-054/" rel="attachment wp-att-1915"><img decoding="async" class="aligncenter size-full wp-image-1915 lazyload" title="untitled-054" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-054.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-055/" rel="attachment wp-att-1916"><img decoding="async" class="aligncenter size-full wp-image-1916 lazyload" title="untitled-055" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-055.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-056/" rel="attachment wp-att-1917"><img decoding="async" class="aligncenter size-full wp-image-1917 lazyload" title="untitled-056" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-056.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-057/" rel="attachment wp-att-1918"><img decoding="async" class="aligncenter size-full wp-image-1918 lazyload" title="untitled-057" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-057.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-058/" rel="attachment wp-att-1919"><img decoding="async" class="aligncenter size-full wp-image-1919 lazyload" title="untitled-058" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-058.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-059/" rel="attachment wp-att-1920"><img decoding="async" class="aligncenter size-full wp-image-1920 lazyload" title="untitled-059" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-059.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-060/" rel="attachment wp-att-1921"><img decoding="async" class="aligncenter size-full wp-image-1921 lazyload" title="untitled-060" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-060.jpg" alt="" width="910" height="302"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-061/" rel="attachment wp-att-1922"><img decoding="async" class="aligncenter size-full wp-image-1922 lazyload" title="untitled-061" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-061.jpg" alt="" width="910" height="679"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-062/" rel="attachment wp-att-1923"><img decoding="async" class="aligncenter size-full wp-image-1923 lazyload" title="untitled-062" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-062.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-063/" rel="attachment wp-att-1924"><img decoding="async" class="aligncenter size-full wp-image-1924 lazyload" title="untitled-063" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-063.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/acromatico-team-2012-in-pictures-3/attachment/untitled-064/" rel="attachment wp-att-1925"><img decoding="async" class="aligncenter size-full wp-image-1925 lazyload" title="untitled-064" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-064.jpg" alt="" width="910" height="607"  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0011.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0021.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0031.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0041.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0051.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0061.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0071.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-008.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-009.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-010.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-011.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-012.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-013.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-014.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-015.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-016.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-017.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-018.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-019.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-020.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-021.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-022.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-023.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-024.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-025.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-026.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-027.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-028.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-029.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-030.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-031.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-032.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-033.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-034.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-035.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-036.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-037.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-038.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-039.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-040.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-041.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-042.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-043.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-044.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-045.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-046.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-047.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-048.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-049.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-050.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-051.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-052.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-053.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-054.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-055.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-056.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-057.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-058.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-059.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-060.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-061.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-062.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-063.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2012/12/untitled-064.jpg" alt="Acromatico Team | 2012 In Pictures" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

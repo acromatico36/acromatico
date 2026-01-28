@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Test - 501 Posts</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fafafa;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+        .count {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .post-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .post-card a {
+            color: #1D1D1F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .post-card a:hover {
+            color: #667eea;
+        }
+        .status {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .status.success {
+            color: #22c55e;
+        }
+        .status.error {
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 501 Blog Posts Built</h1>
+    <div class="count" id="count">Loading...</div>
+    <div class="grid" id="grid"></div>
+
+    <script>
+        // Load all posts
+        fetch('/blog_posts_data/all_posts.json')
+            .then(res => res.json())
+            .then(posts => {
+                document.getElementById('count').textContent = `Total: ${posts.length} posts`;
+                
+                const grid = document.getElementById('grid');
+                
+                posts.forEach((post, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'post-card';
+                    
+                    const link = document.createElement('a');
+                    link.href = `/static/blog/${post.slug}.html`;
+                    link.textContent = post.title.rendered;
+                    link.target = '_blank';
+                    
+                    const status = document.createElement('div');
+                    status.className = 'status';
+                    status.textContent = 'Testing...';
+                    
+                    card.appendChild(link);
+                    card.appendChild(status);
+                    grid.appendChild(card);
+                    
+                    // Test if file exists
+                    fetch(`/static/blog/${post.slug}.html`, { method: 'HEAD' })
+                        .then(res => {
+                            if (res.ok) {
+                                status.textContent = '✅ Accessible';
+                                status.className = 'status success';
+                            } else {
+                                status.textContent = `❌ ${res.status}`;
+                                status.className = 'status error';
+                            }
+                        })
+                        .catch(err => {
+                            status.textContent = '❌ Error';
+                            status.className = 'status error';
+                        });
+                });
+            })
+            .catch(err => {
+                document.getElementById('count').textContent = '❌ Failed to load posts';
+                console.error(err);
+            });
+    </script>
+</body>
+</html>

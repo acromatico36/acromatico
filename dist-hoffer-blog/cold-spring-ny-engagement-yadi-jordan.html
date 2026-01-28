@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold Spring, NY - Engagement | Yadi + Jordan | Acromatico Photography</title>
+    <meta name="description" content="For this next sesh, we decided to take it to Cold Spring. Why? The name says it all..because it should already be spring and it&#8217;s just plain cold! With ju">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/cold-spring-ny-engagement-yadi-jordan">
+    <meta property="og:title" content="Cold Spring, NY - Engagement | Yadi + Jordan">
+    <meta property="og:description" content="For this next sesh, we decided to take it to Cold Spring. Why? The name says it all..because it should already be spring and it&#8217;s just plain cold! With ju">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-001-1.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/cold-spring-ny-engagement-yadi-jordan">
+    <meta property="twitter:title" content="Cold Spring, NY - Engagement | Yadi + Jordan">
+    <meta property="twitter:description" content="For this next sesh, we decided to take it to Cold Spring. Why? The name says it all..because it should already be spring and it&#8217;s just plain cold! With ju">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-001-1.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Cold Spring, NY - Engagement | Yadi + Jordan",
+      "image": ["https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-001-1.jpg","https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-002-1.jpg","https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-003-1.jpg","https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-004-1.jpg","https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-005-1.jpg"],
+      "datePublished": "2021-03-07T00:55:34",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "For this next sesh, we decided to take it to Cold Spring. Why? The name says it all..because it should already be spring and it&#8217;s just plain cold! With ju"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-001-1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Engagement</span>
+            <h1>Cold Spring, NY - Engagement | Yadi + Jordan</h1>
+            <p class="post-meta">March 7, 2021</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <p>For this next sesh, we decided to take it to Cold Spring. Why? The name says it all..because it should already be spring and it&#8217;s just plain cold! </p><p>With just a few days away from their wedding and lot&#8217;s of final things left for the big day, we decided to do an early morning engagement session this am. Streets were empty in this little town, zero humans around, what could possibly be wrong with this picture? The fact that we did NOT plan for it to be THIS cold. After many heat breaks (right in our cars), frozen hands, windy winds, random seagulls and an undecided flying scarf later, Yadi and Jordan made it all look very easy.</p><p>I&#8217;ve known these two for a few years and I go a little back with Jordan and working together. Too many fun memories! I do have to say, their love story wasn&#8217;t one out of the books or the guy gets the girl and they live happily ever type of thing. They&#8217;ve had to endure many things: one of them being this pandemic. Despite the distance and having to be away from each other for almost a year, their relationship is: goals. They were so easy to work with and had such a great chemistry not just with each other but in front of the lens too. It made my job way too easy! They basically read my lips as I was talking with a mask on and translated everything that was on my mind! We had a way too good photo connection too. HA!</p><p>These cuties will be celebrating their micro wedding in just a few days and I can&#8217;t wait to document their very special day! For now, I&#8217;ll be taking a break from the screen. It&#8217;s been a while since I&#8217;ve done a same day blog, so fun!</p><p>Enjoy some of my faves from this Cold Spring Engagement session here in freezing cold New York. Stay tuned for their wedding, can&#8217;t wait!</p></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-002-1.jpg" alt="" data-id="26929" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-002-1.jpg" data-link="https://acromatico.com/?attachment_id=26929" class="wp-image-26929 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-003-1.jpg" alt="" data-id="26930" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-003-1.jpg" data-link="https://acromatico.com/?attachment_id=26930" class="wp-image-26930 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-004-1.jpg" alt="" data-id="26931" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-004-1.jpg" data-link="https://acromatico.com/?attachment_id=26931" class="wp-image-26931 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-005-1.jpg" alt="" data-id="26932" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-005-1.jpg" data-link="https://acromatico.com/?attachment_id=26932" class="wp-image-26932 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-006-1.jpg" alt="" data-id="26933" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-006-1.jpg" data-link="https://acromatico.com/?attachment_id=26933" class="wp-image-26933 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-007.jpg" alt="" data-id="26934" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-007.jpg" data-link="https://acromatico.com/?attachment_id=26934" class="wp-image-26934 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-008.jpg" alt="" data-id="26935" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-008.jpg" data-link="https://acromatico.com/?attachment_id=26935" class="wp-image-26935 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-009.jpg" alt="" data-id="26936" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-009.jpg" data-link="https://acromatico.com/?attachment_id=26936" class="wp-image-26936 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-010.jpg" alt="" data-id="26937" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-010.jpg" data-link="https://acromatico.com/?attachment_id=26937" class="wp-image-26937 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-011.jpg" alt="" data-id="26938" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-011.jpg" data-link="https://acromatico.com/?attachment_id=26938" class="wp-image-26938 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-012.jpg" alt="" data-id="26939" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-012.jpg" data-link="https://acromatico.com/?attachment_id=26939" class="wp-image-26939 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-013.jpg" alt="" data-id="26940" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-013.jpg" data-link="https://acromatico.com/?attachment_id=26940" class="wp-image-26940 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-014.jpg" alt="" data-id="26941" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-014.jpg" data-link="https://acromatico.com/?attachment_id=26941" class="wp-image-26941 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-015.jpg" alt="" data-id="26942" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-015.jpg" data-link="https://acromatico.com/?attachment_id=26942" class="wp-image-26942 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-016.jpg" alt="" data-id="26943" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-016.jpg" data-link="https://acromatico.com/?attachment_id=26943" class="wp-image-26943 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-017.jpg" alt="" data-id="26945" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-017.jpg" data-link="https://acromatico.com/?attachment_id=26945" class="wp-image-26945 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-018.jpg" alt="" data-id="26946" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-018.jpg" data-link="https://acromatico.com/?attachment_id=26946" class="wp-image-26946 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-019.jpg" alt="" data-id="26949" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-019.jpg" data-link="https://acromatico.com/?attachment_id=26949" class="wp-image-26949 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-020.jpg" alt="" data-id="26950" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-020.jpg" data-link="https://acromatico.com/?attachment_id=26950" class="wp-image-26950 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-021.jpg" alt="" data-id="26951" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-021.jpg" data-link="https://acromatico.com/?attachment_id=26951" class="wp-image-26951 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1438" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-022.jpg" alt="" data-id="26952" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-022.jpg" data-link="https://acromatico.com/?attachment_id=26952" class="wp-image-26952 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1438;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-023.jpg" alt="" data-id="26953" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-023.jpg" data-link="https://acromatico.com/?attachment_id=26953" class="wp-image-26953 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-024.jpg" alt="" data-id="26954" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-024.jpg" data-link="https://acromatico.com/?attachment_id=26954" class="wp-image-26954 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-025.jpg" alt="" data-id="26955" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-025.jpg" data-link="https://acromatico.com/?attachment_id=26955" class="wp-image-26955 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-026.jpg" alt="" data-id="26956" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-026.jpg" data-link="https://acromatico.com/?attachment_id=26956" class="wp-image-26956 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-027.jpg" alt="" data-id="26957" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-027.jpg" data-link="https://acromatico.com/?attachment_id=26957" class="wp-image-26957 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-028.jpg" alt="" data-id="26958" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-028.jpg" data-link="https://acromatico.com/?attachment_id=26958" class="wp-image-26958 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-029.jpg" alt="" data-id="26959" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-029.jpg" data-link="https://acromatico.com/?attachment_id=26959" class="wp-image-26959 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-030.jpg" alt="" data-id="26960" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-030.jpg" data-link="https://acromatico.com/?attachment_id=26960" class="wp-image-26960 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-031.jpg" alt="" data-id="26961" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-031.jpg" data-link="https://acromatico.com/?attachment_id=26961" class="wp-image-26961 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-032.jpg" alt="" data-id="26962" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-032.jpg" data-link="https://acromatico.com/?attachment_id=26962" class="wp-image-26962 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-033.jpg" alt="" data-id="26963" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-033.jpg" data-link="https://acromatico.com/?attachment_id=26963" class="wp-image-26963 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-034.jpg" alt="" data-id="26964" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-034.jpg" data-link="https://acromatico.com/?attachment_id=26964" class="wp-image-26964 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-035.jpg" alt="" data-id="26965" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-035.jpg" data-link="https://acromatico.com/?attachment_id=26965" class="wp-image-26965 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-036.jpg" alt="" data-id="26966" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-036.jpg" data-link="https://acromatico.com/?attachment_id=26966" class="wp-image-26966 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-037.jpg" alt="" data-id="26967" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-037.jpg" data-link="https://acromatico.com/?attachment_id=26967" class="wp-image-26967 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-038.jpg" alt="" data-id="26968" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-038.jpg" data-link="https://acromatico.com/?attachment_id=26968" class="wp-image-26968 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-039.jpg" alt="" data-id="26969" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-039.jpg" data-link="https://acromatico.com/?attachment_id=26969" class="wp-image-26969 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-040.jpg" alt="" data-id="26970" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-040.jpg" data-link="https://acromatico.com/?attachment_id=26970" class="wp-image-26970 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-041.jpg" alt="" data-id="26971" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-041.jpg" data-link="https://acromatico.com/?attachment_id=26971" class="wp-image-26971 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-042.jpg" alt="" data-id="26972" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-042.jpg" data-link="https://acromatico.com/?attachment_id=26972" class="wp-image-26972 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-043.jpg" alt="" data-id="26973" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-043.jpg" data-link="https://acromatico.com/?attachment_id=26973" class="wp-image-26973 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-044.jpg" alt="" data-id="26974" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-044.jpg" data-link="https://acromatico.com/?attachment_id=26974" class="wp-image-26974 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-045.jpg" alt="" data-id="26975" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-045.jpg" data-link="https://acromatico.com/?attachment_id=26975" class="wp-image-26975 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-046.jpg" alt="" data-id="26976" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-046.jpg" data-link="https://acromatico.com/?attachment_id=26976" class="wp-image-26976 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-047.jpg" alt="" data-id="26977" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-047.jpg" data-link="https://acromatico.com/?attachment_id=26977" class="wp-image-26977 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-048.jpg" alt="" data-id="26978" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-048.jpg" data-link="https://acromatico.com/?attachment_id=26978" class="wp-image-26978 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-049.jpg" alt="" data-id="26979" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-049.jpg" data-link="https://acromatico.com/?attachment_id=26979" class="wp-image-26979 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-050.jpg" alt="" data-id="26980" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-050.jpg" data-link="https://acromatico.com/?attachment_id=26980" class="wp-image-26980 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-051.jpg" alt="" data-id="26981" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-051.jpg" data-link="https://acromatico.com/?attachment_id=26981" class="wp-image-26981 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-052.jpg" alt="" data-id="26982" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-052.jpg" data-link="https://acromatico.com/?attachment_id=26982" class="wp-image-26982 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-053-1.jpg" alt="" data-id="26983" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-053-1.jpg" data-link="https://acromatico.com/?attachment_id=26983" class="wp-image-26983 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-054.jpg" alt="" data-id="26984" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-054.jpg" data-link="https://acromatico.com/?attachment_id=26984" class="wp-image-26984 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1498" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-055.jpg" alt="" data-id="26985" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-055.jpg" data-link="https://acromatico.com/?attachment_id=26985" class="wp-image-26985 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1498;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-056.jpg" alt="" data-id="26986" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-056.jpg" data-link="https://acromatico.com/?attachment_id=26986" class="wp-image-26986 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-057.jpg" alt="" data-id="26987" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-057.jpg" data-link="https://acromatico.com/?attachment_id=26987" class="wp-image-26987 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1333" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-058.jpg" alt="" data-id="26988" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-058.jpg" data-link="https://acromatico.com/?attachment_id=26988" class="wp-image-26988 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-059.jpg" alt="" data-id="26989" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-059.jpg" data-link="https://acromatico.com/?attachment_id=26989" class="wp-image-26989 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-060.jpg" alt="" data-id="26990" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-060.jpg" data-link="https://acromatico.com/?attachment_id=26990" class="wp-image-26990 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-061.jpg" alt="" data-id="26991" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-061.jpg" data-link="https://acromatico.com/?attachment_id=26991" class="wp-image-26991 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-062.jpg" alt="" data-id="26992" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-062.jpg" data-link="https://acromatico.com/?attachment_id=26992" class="wp-image-26992 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-063.jpg" alt="" data-id="26993" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-063.jpg" data-link="https://acromatico.com/?attachment_id=26993" class="wp-image-26993 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-064.jpg" alt="" data-id="26994" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-064.jpg" data-link="https://acromatico.com/?attachment_id=26994" class="wp-image-26994 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-065.jpg" alt="" data-id="26995" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-065.jpg" data-link="https://acromatico.com/?attachment_id=26995" class="wp-image-26995 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-066.jpg" alt="" data-id="26996" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-066.jpg" data-link="https://acromatico.com/?attachment_id=26996" class="wp-image-26996 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-067.jpg" alt="" data-id="26997" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-067.jpg" data-link="https://acromatico.com/?attachment_id=26997" class="wp-image-26997 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-068.jpg" alt="" data-id="26998" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-068.jpg" data-link="https://acromatico.com/?attachment_id=26998" class="wp-image-26998 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-069.jpg" alt="" data-id="26999" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-069.jpg" data-link="https://acromatico.com/?attachment_id=26999" class="wp-image-26999 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-070.jpg" alt="" data-id="27000" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-070.jpg" data-link="https://acromatico.com/?attachment_id=27000" class="wp-image-27000 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1498" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-071.jpg" alt="" data-id="27001" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-071.jpg" data-link="https://acromatico.com/?attachment_id=27001" class="wp-image-27001 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1498;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-072.jpg" alt="" data-id="27002" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-072.jpg" data-link="https://acromatico.com/?attachment_id=27002" class="wp-image-27002 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-073.jpg" alt="" data-id="27003" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-073.jpg" data-link="https://acromatico.com/?attachment_id=27003" class="wp-image-27003 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1438" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-074.jpg" alt="" data-id="27004" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-074.jpg" data-link="https://acromatico.com/?attachment_id=27004" class="wp-image-27004 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1438;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-075.jpg" alt="" data-id="27005" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-075.jpg" data-link="https://acromatico.com/?attachment_id=27005" class="wp-image-27005 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-076.jpg" alt="" data-id="27007" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-076.jpg" data-link="https://acromatico.com/?attachment_id=27007" class="wp-image-27007 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="2000" height="1498" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-077.jpg" alt="" data-id="27008" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-077.jpg" data-link="https://acromatico.com/?attachment_id=27008" class="wp-image-27008 lazyload"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1498;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-078.jpg" alt="" data-id="27009" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-078.jpg" data-link="https://acromatico.com/?attachment_id=27009" class="wp-image-27009 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-079.jpg" alt="" data-id="27010" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-079.jpg" data-link="https://acromatico.com/?attachment_id=27010" class="wp-image-27010 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li><li class="blocks-gallery-item"><figure><img decoding="async" width="1920" height="1280" src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-080.jpg" alt="" data-id="27011" data-full-url="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-080.jpg" data-link="https://acromatico.com/?attachment_id=27011" class="wp-image-27011 lazyload"  style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" /></figure></li></ul></figure>
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-001-1.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-002-1.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-003-1.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-004-1.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-005-1.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-006-1.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-007.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-008.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-009.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-010.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-011.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-012.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-013.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-014.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-015.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-016.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-017.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-018.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-019.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-020.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-021.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-022.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-023.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-024.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-025.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-026.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-027.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-028.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-029.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-030.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-031.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-032.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-033.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-034.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-035.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-036.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-037.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-038.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-039.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-040.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-041.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-042.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-043.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-044.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-045.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-046.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-047.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-048.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-049.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-050.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-051.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-052.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-053-1.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-054.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-055.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-056.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-057.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-058.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-059.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-060.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-061.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-062.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-063.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-064.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-065.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-066.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-067.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-068.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-069.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-070.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-071.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-072.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-073.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-074.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-075.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-076.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-077.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-078.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-079.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2021/03/Cold-Spring-Engagement-080.jpg" alt="Cold Spring, NY - Engagement | Yadi + Jordan" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>

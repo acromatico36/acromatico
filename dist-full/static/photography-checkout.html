@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Packages - Book Your Session | Acromatico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* VIDEO HERO */
+    .video-hero {
+      position: relative;
+      height: 70vh;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-hero iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.77777778vh;
+      min-width: 100%;
+      height: 56.25vw;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: none;
+    }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+    .video-overlay h1 {
+      color: #fff;
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      max-width: 900px;
+      line-height: 1.4;
+    }
+
+    /* PACKAGES SECTION */
+    .packages-section {
+      background: #fff;
+      padding: 100px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 60px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* PACKAGE CARDS */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+    .package-card {
+      background: #fff;
+      border: 2px solid #e0e0e0;
+      padding: 40px;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+    .package-card:hover {
+      border-color: #000;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .package-card.selected {
+      border-color: #000;
+      background: #f9f9f9;
+    }
+    .package-card.selected::after {
+      content: '✓ SELECTED';
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #000;
+      color: #fff;
+      padding: 5px 15px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .package-name {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .package-price {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #000;
+    }
+    .package-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 25px;
+    }
+    .package-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .package-features li::before {
+      content: '✓';
+      color: #000;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+    .select-package-btn {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 15px 35px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s;
+    }
+    .select-package-btn:hover {
+      background: #333;
+    }
+
+    /* BOOKING FORM - QUIZ STYLE */
+    .booking-section {
+      background: #f5f5f5;
+      padding: 100px 40px;
+      display: none;
+    }
+    .booking-section.active {
+      display: block;
+    }
+    .booking-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 60px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+    }
+    .form-step {
+      display: none;
+    }
+    .form-step.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step-indicator {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+      gap: 15px;
+    }
+    .step-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      transition: all 0.3s;
+    }
+    .step-dot.active {
+      background: #000;
+      transform: scale(1.3);
+    }
+    .form-question {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 25px;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+      transition: border-color 0.3s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #000;
+    }
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+    .btn {
+      padding: 15px 35px;
+      border: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background: #d0d0d0;
+    }
+    .btn-primary {
+      background: #000;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #333;
+    }
+
+    /* CONTRACT PREVIEW */
+    .contract-preview {
+      background: #fff;
+      padding: 40px;
+      border: 2px solid #e0e0e0;
+      margin: 40px 0;
+      max-height: 400px;
+      overflow-y: scroll;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .contract-preview h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    .contract-preview p {
+      margin-bottom: 15px;
+    }
+    .signature-pad {
+      border: 2px solid #000;
+      margin: 20px 0;
+      cursor: crosshair;
+    }
+
+    /* PAYMENT SUMMARY */
+    .payment-summary {
+      background: #f9f9f9;
+      padding: 30px;
+      border: 2px solid #e0e0e0;
+      margin: 30px 0;
+    }
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .payment-row.total {
+      font-weight: 700;
+      font-size: 20px;
+      border-bottom: none;
+      margin-top: 15px;
+    }
+
+    /* SUCCESS MESSAGE */
+    .success-section {
+      display: none;
+      background: #f5f5f5;
+      padding: 100px 40px;
+      text-align: center;
+    }
+    .success-section.active {
+      display: block;
+    }
+    .success-icon {
+      font-size: 80px;
+      color: #4CAF50;
+      margin-bottom: 30px;
+    }
+    .success-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .success-message {
+      font-size: 18px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .video-overlay h1 { font-size: 28px; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .booking-container { padding: 40px 30px; }
+      .form-question { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- VIDEO HERO -->
+  <div class="video-hero">
+    <iframe 
+      src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&mute=1&loop=1&playlist=9DiS2Z_H15U&controls=0&showinfo=0&modestbranding=1&vq=hd1080&rel=0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+    <div class="video-overlay">
+      <h1>Your Story Deserves To Be Captured Authentically</h1>
+    </div>
+  </div>
+
+  <!-- PACKAGES SECTION -->
+  <div class="packages-section" id="packages">
+    <h2 class="section-title">Wedding Photography Packages</h2>
+    <p class="section-subtitle">Over two decades of capturing authentic stories. Choose the collection that fits your celebration.</p>
+    
+    <div class="packages-grid">
+      <!-- WEDDING ONE -->
+      <div class="package-card" onclick="selectPackage('Wedding One', 3000, this)">
+        <div class="package-name">One</div>
+        <div class="package-price">$3,000</div>
+        <ul class="package-features">
+          <li>6 hours wedding coverage</li>
+          <li>1 photographer</li>
+          <li>Curated images (color & B&W)</li>
+          <li>Online gallery</li>
+          <li>$250 album credit</li>
+          <li>Engraved USB keepsake</li>
+        </ul>
+        <button class="select-package-btn">Select Package</button>
+      </div>
+
+      <!-- WEDDING TWO -->
+      <div class="package-card" onclick="selectPackage('Wedding Two', 4000, this)">
+        <div class="package-name">Two</div>
+        <div class="package-price">$4,000</div>
+        <ul class="package-features">
+          <li>8 hours wedding coverage</li>
+          <li>1 photographer</li>
+          <li>Curated images (color & B&W)</li>
+          <li>Online gallery</li>
+          <li>$400 album credit</li>
+          <li>Engraved USB keepsake</li>
+        </ul>
+        <button class="select-package-btn">Select Package</button>
+      </div>
+
+      <!-- WEDDING THREE -->
+      <div class="package-card" onclick="selectPackage('Wedding Three', 5000, this)">
+        <div class="package-name">Three</div>
+        <div class="package-price">$5,000</div>
+        <ul class="package-features">
+          <li>10 hours wedding coverage</li>
+          <li>1 photographer</li>
+          <li>Curated images (color & B&W)</li>
+          <li>Online gallery</li>
+          <li>$650 album credit</li>
+          <li>Engraved USB keepsake</li>
+        </ul>
+        <button class="select-package-btn">Select Package</button>
+      </div>
+
+      <!-- WEDDING TRAVEL -->
+      <div class="package-card" onclick="selectPackage('Wedding Travel Collection', 10000, this)">
+        <div class="package-name">Travel</div>
+        <div class="package-price">$10,000</div>
+        <ul class="package-features">
+          <li>10 hours of coverage</li>
+          <li>2 photographers</li>
+          <li>Unlimited images</li>
+          <li>Custom editing & enhancements</li>
+          <li>Online gallery</li>
+          <li>$1,000 Album or Travel Credit</li>
+          <li>Engraved USB disk</li>
+        </ul>
+        <button class="select-package-btn">Select Package</button>
+      </div>
+
+      <!-- PORTRAIT 1HR -->
+      <div class="package-card" onclick="selectPackage('Portrait Collection 1hr', 595, this)">
+        <div class="package-name">Portrait 1hr</div>
+        <div class="package-price">$595</div>
+        <ul class="package-features">
+          <li>1 hour coverage</li>
+          <li>All images curated</li>
+          <li>In-house edits</li>
+          <li>Online gallery</li>
+          <li>Images in high-res</li>
+          <li>Printing options</li>
+        </ul>
+        <button class="select-package-btn">Select Package</button>
+      </div>
+
+      <!-- PORTRAIT 2HR -->
+      <div class="package-card" onclick="selectPackage('Portrait Collection 2hrs', 695, this)">
+        <div class="package-name">Portrait 2hrs</div>
+        <div class="package-price">$695</div>
+        <ul class="package-features">
+          <li>2 hours coverage</li>
+          <li>All images curated</li>
+          <li>In-house edits</li>
+          <li>Online gallery</li>
+          <li>Images in high-res</li>
+          <li>Printing options</li>
+        </ul>
+        <button class="select-package-btn">Select Package</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING FORM - QUIZ STYLE -->
+  <div class="booking-section" id="bookingSection">
+    <div class="booking-container">
+      <div class="step-indicator">
+        <div class="step-dot active" data-step="1"></div>
+        <div class="step-dot" data-step="2"></div>
+        <div class="step-dot" data-step="3"></div>
+        <div class="step-dot" data-step="4"></div>
+        <div class="step-dot" data-step="5"></div>
+      </div>
+
+      <form id="bookingForm">
+        <!-- STEP 1: NAMES -->
+        <div class="form-step active" data-step="1">
+          <h2 class="form-question">Let's start with your names</h2>
+          <div class="form-group">
+            <label class="form-label">Bride's Name</label>
+            <input type="text" class="form-input" name="brideName" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Groom's Name</label>
+            <input type="text" class="form-input" name="groomName" required>
+          </div>
+          <div class="form-nav">
+            <button type="button" class="btn btn-secondary" onclick="prevStep()" style="visibility: hidden;">Back</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: CONTACT INFO -->
+        <div class="form-step" data-step="2">
+          <h2 class="form-question">How can we reach you?</h2>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" name="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-input" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mailing Address</label>
+            <input type="text" class="form-input" name="mailingAddress" required>
+          </div>
+          <div class="form-nav">
+            <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: WEDDING DETAILS -->
+        <div class="form-step" data-step="3">
+          <h2 class="form-question">Tell us about your big day</h2>
+          <div class="form-group">
+            <label class="form-label">Wedding Date</label>
+            <input type="date" class="form-input" name="weddingDate" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ceremony Venue Name & Address</label>
+            <input type="text" class="form-input" name="ceremonyVenue" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Reception Venue Name & Address</label>
+            <input type="text" class="form-input" name="receptionVenue" required>
+          </div>
+          <div class="form-nav">
+            <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: REVIEW & CONTRACT -->
+        <div class="form-step" data-step="4">
+          <h2 class="form-question">Review your booking</h2>
+          
+          <div class="payment-summary">
+            <div class="payment-row">
+              <span>Package:</span>
+              <span id="summaryPackage">-</span>
+            </div>
+            <div class="payment-row">
+              <span>Total Amount:</span>
+              <span id="summaryTotal">$0</span>
+            </div>
+            <div class="payment-row">
+              <span>1st Payment (Due Today):</span>
+              <span id="payment1">$0</span>
+            </div>
+            <div class="payment-row">
+              <span>2nd Payment:</span>
+              <span id="payment2">$0</span>
+            </div>
+            <div class="payment-row">
+              <span>3rd Payment (14 days before wedding):</span>
+              <span id="payment3">$0</span>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 40px; margin-bottom: 20px;">Contract Agreement</h3>
+          <div class="contract-preview" id="contractText">
+            <h3>WEDDING PHOTOGRAPHY AGREEMENT</h3>
+            <p><strong>This Contract is entered into and effective as of [DATE]</strong></p>
+            <p><strong>Between:</strong> [CLIENT NAMES] (Client)</p>
+            <p><strong>And:</strong> Acromatico Photography</p>
+            
+            <h3>SERVICES PROVIDED</h3>
+            <p>On [WEDDING DATE], Acromatico will provide to Client the following photography services:</p>
+            <p><strong>Package:</strong> [PACKAGE NAME]</p>
+            
+            <h3>PAYMENT</h3>
+            <p>Client agrees to pay Acromatico $[TOTAL] (Lump Sum All-Inclusive) in consideration for the photography services to be rendered by Acromatico.</p>
+            <p>The parties agree that this Contract needs to be signed, and a non-refundable retainer fee of $[PAYMENT_1] is required to reserve the specified services.</p>
+            <p>The remaining payments are structured as follows:</p>
+            <ul>
+              <li>2nd Payment of $[PAYMENT_2] due on [MID_DATE]</li>
+              <li>Final payment of $[PAYMENT_3] due 14 days prior to your wedding.</li>
+            </ul>
+            
+            <h3>CANCELLATION POLICY</h3>
+            <p>All deposit fees are non-refundable. A minimum of 30 days notice will be required for cancellation of this contract by Client.</p>
+            
+            <h3>WORK PRODUCT OWNERSHIP</h3>
+            <p>The copyright of all photographs produced is retained by Acromatico, Inc. at its official website www.acromatico.com. Upon final payment by Client, limited copyright ownership of the resulting images will be transferred to Client for personal use.</p>
+            
+            <h3>CLIENT SIGNATURE</h3>
+            <p>By signing below, you agree to all terms and conditions outlined in this agreement.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Full Name (Type to sign)</label>
+            <input type="text" class="form-input" name="signature" placeholder="Type your full name as signature" required>
+          </div>
+
+          <div class="form-group">
+            <label style="display: flex; align-items: center; gap: 10px;">
+              <input type="checkbox" name="agreeTerms" required>
+              <span>I have read and agree to the terms of this contract</span>
+            </label>
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep()">Continue to Payment</button>
+          </div>
+        </div>
+
+        <!-- STEP 5: PAYMENT -->
+        <div class="form-step" data-step="5">
+          <h2 class="form-question">Complete your first payment</h2>
+          
+          <div class="payment-summary">
+            <div class="payment-row total">
+              <span>Amount Due Today:</span>
+              <span id="paymentDueToday">$0</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Payment Method</label>
+            <select class="form-input" name="paymentMethod">
+              <option value="stripe">Credit/Debit Card (Stripe)</option>
+              <option value="zelle">Zelle</option>
+              <option value="venmo">Venmo</option>
+              <option value="bank">Bank Transfer</option>
+            </select>
+          </div>
+
+          <div id="stripeCardInfo" style="margin: 30px 0; padding: 30px; border: 2px solid #e0e0e0; background: #f9f9f9;">
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+              <strong>Payment processing will be handled securely via Stripe</strong>
+            </p>
+            <p style="text-align: center; font-size: 14px; color: #999;">
+              You will receive a payment link via email to complete your transaction securely.
+            </p>
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+            <button type="submit" class="btn btn-primary">Complete Booking</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SUCCESS SECTION -->
+  <div class="success-section" id="successSection">
+    <div class="success-icon">✓</div>
+    <h2 class="success-title">Booking Confirmed!</h2>
+    <p class="success-message">
+      Thank you for choosing Acromatico Photography. We've sent a confirmation email with your contract and payment details. 
+      We can't wait to capture your special day!
+    </p>
+    <button class="btn btn-primary" style="margin-top: 40px;" onclick="location.reload()">Book Another Session</button>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    let selectedPackage = null;
+    let selectedPrice = 0;
+    let formData = {};
+
+    function selectPackage(packageName, price, element) {
+      // Remove selected class from all cards
+      document.querySelectorAll('.package-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      
+      // Add selected class to clicked card
+      element.classList.add('selected');
+      
+      // Store selection
+      selectedPackage = packageName;
+      selectedPrice = price;
+      
+      // Show booking section
+      setTimeout(() => {
+        document.getElementById('bookingSection').classList.add('active');
+        document.getElementById('bookingSection').scrollIntoView({ behavior: 'smooth' });
+        
+        // Update payment summary
+        updatePaymentSummary();
+      }, 300);
+    }
+
+    function updatePaymentSummary() {
+      const payment1 = Math.round(selectedPrice / 3);
+      const payment2 = Math.round(selectedPrice / 3);
+      const payment3 = selectedPrice - payment1 - payment2; // Remaining amount
+      
+      document.getElementById('summaryPackage').textContent = selectedPackage;
+      document.getElementById('summaryTotal').textContent = '$' + selectedPrice.toLocaleString();
+      document.getElementById('payment1').textContent = '$' + payment1.toLocaleString();
+      document.getElementById('payment2').textContent = '$' + payment2.toLocaleString();
+      document.getElementById('payment3').textContent = '$' + payment3.toLocaleString();
+      document.getElementById('paymentDueToday').textContent = '$' + payment1.toLocaleString();
+    }
+
+    function nextStep() {
+      const currentStepElement = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+      const inputs = currentStepElement.querySelectorAll('input[required], select[required]');
+      
+      // Validate current step
+      let isValid = true;
+      inputs.forEach(input => {
+        if (!input.value) {
+          isValid = false;
+          input.style.borderColor = 'red';
+        } else {
+          input.style.borderColor = '#e0e0e0';
+        }
+      });
+      
+      if (!isValid) {
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      // Store form data
+      inputs.forEach(input => {
+        formData[input.name] = input.value;
+      });
+      
+      // Move to next step
+      if (currentStep < 5) {
+        currentStepElement.classList.remove('active');
+        currentStep++;
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+        
+        // Update step indicator
+        document.querySelectorAll('.step-dot').forEach((dot, index) => {
+          if (index < currentStep) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+        
+        // Update contract preview on step 4
+        if (currentStep === 4) {
+          updateContractPreview();
+        }
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+        currentStep--;
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+        
+        // Update step indicator
+        document.querySelectorAll('.step-dot').forEach((dot, index) => {
+          if (index < currentStep) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+    }
+
+    function updateContractPreview() {
+      const payment1 = Math.round(selectedPrice / 3);
+      const payment2 = Math.round(selectedPrice / 3);
+      const payment3 = selectedPrice - payment1 - payment2;
+      
+      const weddingDate = new Date(formData.weddingDate);
+      const midDate = new Date(weddingDate);
+      midDate.setDate(midDate.getDate() - 30); // 30 days before wedding as example
+      
+      let contractHtml = document.getElementById('contractText').innerHTML;
+      contractHtml = contractHtml.replace('[DATE]', new Date().toLocaleDateString());
+      contractHtml = contractHtml.replace('[CLIENT NAMES]', `${formData.brideName} & ${formData.groomName}`);
+      contractHtml = contractHtml.replace('[WEDDING DATE]', formData.weddingDate);
+      contractHtml = contractHtml.replace('[PACKAGE NAME]', selectedPackage);
+      contractHtml = contractHtml.replace('[TOTAL]', selectedPrice.toLocaleString());
+      contractHtml = contractHtml.replace('[PAYMENT_1]', payment1.toLocaleString());
+      contractHtml = contractHtml.replace('[PAYMENT_2]', payment2.toLocaleString());
+      contractHtml = contractHtml.replace('[PAYMENT_3]', payment3.toLocaleString());
+      contractHtml = contractHtml.replace('[MID_DATE]', midDate.toLocaleDateString());
+      
+      document.getElementById('contractText').innerHTML = contractHtml;
+    }
+
+    // Form submission
+    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Collect all form data
+      const formInputs = document.querySelectorAll('#bookingForm input, #bookingForm select');
+      formInputs.forEach(input => {
+        if (input.type !== 'checkbox') {
+          formData[input.name] = input.value;
+        } else {
+          formData[input.name] = input.checked;
+        }
+      });
+      
+      // Add package info
+      formData.package = selectedPackage;
+      formData.totalAmount = selectedPrice;
+      formData.payment1 = Math.round(selectedPrice / 3);
+      formData.payment2 = Math.round(selectedPrice / 3);
+      formData.payment3 = selectedPrice - formData.payment1 - formData.payment2;
+      
+      // Submit to backend
+      try {
+        const response = await fetch('/api/photography/book', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+          // Show success
+          document.getElementById('bookingSection').classList.remove('active');
+          document.getElementById('successSection').classList.add('active');
+          document.getElementById('successSection').scrollIntoView({ behavior: 'smooth' });
+        } else {
+          alert('Something went wrong. Please try again or contact us directly at info@acromatico.com');
+        }
+      } catch (error) {
+        alert('Something went wrong. Please try again or contact us directly at info@acromatico.com');
+      }
+    });
+  </script>
+
+</body>
+</html>

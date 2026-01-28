@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecticut Wedding | Makenna + Ethan | Acromatico Photography</title>
+    <meta name="description" content="There are perfect couples. There are perfect weddings. There is perfect weather… :::psyche::: I mean, you can’t have all three in one day, can you? Gladly for u">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acromatico.com/blog/connecticut-wedding-makenna-ethan">
+    <meta property="og:title" content="Connecticut Wedding | Makenna + Ethan">
+    <meta property="og:description" content="There are perfect couples. There are perfect weddings. There is perfect weather… :::psyche::: I mean, you can’t have all three in one day, can you? Gladly for u">
+    <meta property="og:image" content="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-001-2.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/blog/connecticut-wedding-makenna-ethan">
+    <meta property="twitter:title" content="Connecticut Wedding | Makenna + Ethan">
+    <meta property="twitter:description" content="There are perfect couples. There are perfect weddings. There is perfect weather… :::psyche::: I mean, you can’t have all three in one day, can you? Gladly for u">
+    <meta property="twitter:image" content="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-001-2.jpg">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Connecticut Wedding | Makenna + Ethan",
+      "image": ["https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-001-2.jpg","https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-002-2.jpg","https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-003-2.jpg","https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-004-2.jpg","https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-007-2.jpg"],
+      "datePublished": "2018-11-02T02:57:10",
+      "dateModified": "undefined",
+      "author": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "url": "https://acromatico.com/our-story/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Acromatico Photography",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://acromatico.com/wp-content/uploads/logo.png"
+        }
+      },
+      "description": "There are perfect couples. There are perfect weddings. There is perfect weather… :::psyche::: I mean, you can’t have all three in one day, can you? Gladly for u"
+    }
+    </script>
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Acromatico Photography",
+      "image": "https://acromatico.com/wp-content/uploads/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Miami", "Fort Lauderdale", "Palm Beach", "New York City", "Hudson Valley", "Destinations Worldwide"],
+      "priceRange": "$$$",
+      "url": "https://acromatico.com"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --secondary: #666;
+            --accent: #0066CC;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-001-2.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 8rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 900px;
+            margin: -6rem auto 0;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            margin-bottom: 4rem;
+        }
+        
+        .content {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .content p {
+            margin: 1.75rem 0;
+        }
+        
+        .content h2,
+        .content h3 {
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+        }
+        
+        .content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Image Gallery - Masonry Style */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+                padding: 0 4% 4rem;
+            }
+            
+            .content-card {
+                padding: 2.5rem 2rem;
+                margin-top: -4rem;
+            }
+            
+            .content {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                padding: 3rem 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <div class="nav-links">
+                <a href="/static/our-story-v2.html">Our Story</a>
+                <a href="/blog">Blog</a>
+                <a href="https://acromatico.com/galleries">Portfolio</a>
+                <a href="https://acromatico.com/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <span class="category-badge">Wedding</span>
+            <h1>Connecticut Wedding | Makenna + Ethan</h1>
+            <p class="post-meta">November 2, 2018</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <article class="content-card">
+            <div class="content">
+                <div>
+<p>There are perfect couples. There are perfect weddings. There is perfect weather… :::psyche::: I mean, you can’t have all three in one day, can you? Gladly for us, the first two were true… and that’s what really counts!</p>
+<p>Makenna and Ethan make the perfect couple and their wedding day could not have been more perfect! These dear friends of ours were a pleasure to work with. I have to say, this was one of the chillest bride’s we’ve had the honor towork with. Working with them made our job so much easier. Being a photographer is a lot of improvising, problem solving and just going with the flow (Oh and casually eating donuts without getting caught). Yes, rain was unexpected but we still made the best of it. Honestly, sometimes a little speed bump can end up making the best situations. These guys had their first look planned out to be outdoors, thankfully, with their plan b, we were able to do their first look at an even cooler spot. Their nice friends at the Hotchkiss Fyler House made their first look possible! This mansion was last occupied back in the 50’s and still looks intact today. Such a cool spot! Only downfall: everything was basically off limits and I had to watch every move I made without trying to knock everything down. Bottom line: we made it out alive without breaking anything. It was a success!</p>
+<p>Despite this cold, rainy, “fall” day, nothing could stop them from smiling. They looked absolutely flawless and radiant despite all the gloominess. Makenna and Ethan made it way too easy for us. Check out some shots we took right after the ceremony at the Litchfield Distillery (which by the way guys, you have to check this place out!).</p>
+<p>Loved everything about this wedding, I could honestly write a whole paragraph about the food but I’m trying to stay brief here. The Washington Club, was a great location for their reception. This barn-y, rustic-y, vibe-y place gave us all the fall feels. Absolutely loved it!</p>
+<p>Makenna and Ethan, thank you once again for letting us capture your big day. We couldn’t be more honored! Here is a sneak peak of the Endsley’s:</p>
+</div>
+<p><img decoding="async" class="aligncenter size-full wp-image-17890 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-001-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17891 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-002-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17892 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-003-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17893 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-004-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /><img decoding="async" class="aligncenter size-full wp-image-17896 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-007-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17894 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-005-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17895 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-006-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /><img decoding="async" class="aligncenter size-full wp-image-17897 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-008-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17898 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-009-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17899 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-010-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /><img decoding="async" class="aligncenter size-full wp-image-17901 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-012-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17900 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-011-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17902 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-013-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17903 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-014-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17904 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-015-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17905 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-016-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17906 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-017-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17907 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-018-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17908 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-019-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17909 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-020-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /><img decoding="async" class="aligncenter size-full wp-image-17911 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-022-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17910 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-021-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17913 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-024-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /><img decoding="async" class="aligncenter size-full wp-image-17912 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-023-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17914 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-025-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17915 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-026-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17916 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-027-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17917 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-028-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17918 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-029-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17919 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-030-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17920 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-031-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17921 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-032-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17922 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-033-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17923 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-034-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17924 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-035-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17925 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-036-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17926 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-037-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17927 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-038-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17928 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-039-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17929 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-040-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17930 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-041-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17931 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-042-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17932 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-043-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17933 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-044-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17934 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-045-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17935 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-046-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17936 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-047-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17937 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-048-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17938 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-049-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17939 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-050-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17940 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-051-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17941 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-052-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17942 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-053-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17943 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-054-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17944 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-055-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17945 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-056-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17946 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-057-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17947 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-058-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17948 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-059-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17949 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-060-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17950 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-061-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17951 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-062-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17952 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-063-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17953 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-064-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17954 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-065-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17955 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-066-2.jpg" alt="" width="2000" height="918"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/918;" /> <img decoding="async" class="aligncenter size-full wp-image-17956 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-067-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17957 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-068-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17958 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-069-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17959 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-070-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17960 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-071-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17961 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-072-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17962 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-073-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17963 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-074-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17964 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-075-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17965 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-076-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17966 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-077-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17967 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-078-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17968 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-079-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /> <img decoding="async" class="aligncenter size-full wp-image-17969 lazyload" src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-080-2.jpg" alt="" width="2000" height="1333"  style="--smush-placeholder-width: 2000px; --smush-placeholder-aspect-ratio: 2000/1333;" /></p>
+
+            </div>
+            
+            
+            <section class="gallery">
+                <div class="gallery-grid">
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-001-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-002-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-003-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-004-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-007-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-005-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-006-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-008-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-009-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-010-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-012-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-011-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-013-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-014-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-015-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-016-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-017-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-018-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-019-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-020-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-022-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-021-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-024-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-023-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-025-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-026-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-027-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-028-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-029-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-030-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-031-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-032-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-033-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-034-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-035-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-036-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-037-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-038-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-039-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-040-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-041-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-042-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-043-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-044-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-045-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-046-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-047-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-048-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-049-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-050-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-051-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-052-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-053-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-054-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-055-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-056-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-057-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-058-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-059-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-060-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-061-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-062-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-063-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-064-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-065-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-066-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-067-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-068-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-069-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-070-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-071-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-072-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-073-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-074-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-075-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-076-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-077-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-078-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-079-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <img src="https://acromatico.com/wp-content/uploads/2018/11/Connecticut-Wedding-080-2.jpg" alt="Connecticut Wedding | Makenna + Ethan" loading="lazy">
+                        </div>
+                    
+                </div>
+            </section>
+            
+        </article>
+        
+        <section class="cta">
+            <h2>Ready to Tell Your Story?</h2>
+            <p>Let's capture your most authentic, unscripted moments together.</p>
+            <a href="https://acromatico.com/contact" class="btn">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>
