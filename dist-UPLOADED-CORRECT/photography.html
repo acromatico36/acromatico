@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storytelling Photography - Acromatico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;600&family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Roboto', -apple-system, sans-serif; 
+      background: #ffffff; 
+      color: #666666;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    
+    h1, h2, h3, h4, h5, h6 { 
+      font-family: 'Roboto Condensed', sans-serif; 
+      font-weight: 600; 
+      letter-spacing: 3px; 
+      text-transform: uppercase;
+      color: #222222;
+    }
+    
+    /* HERO WITH YOUTUBE VIDEO BACKGROUND */
+    .hero-video-container { 
+      position: relative; 
+      height: 70vh; 
+      min-height: 500px;
+      overflow: hidden; 
+      background: #000;
+    }
+    
+    .hero-video-container iframe { 
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      width: 177.77777778vh;
+      min-width: 100%;
+      height: 56.25vw;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: none;
+    }
+    
+    .hero-overlay { 
+      position: absolute; 
+      inset: 0; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      text-align: center; 
+      color: white; 
+      z-index: 2;
+      background: rgba(0,0,0,0.35);
+    }
+    
+    .hero-overlay h1 { 
+      font-size: 56px; 
+      font-weight: 600; 
+      margin-bottom: 20px; 
+      text-shadow: 0 2px 20px rgba(0,0,0,0.7);
+      letter-spacing: 3px;
+      color: white;
+    }
+    
+    .hero-overlay p { 
+      font-size: 18px; 
+      margin-bottom: 40px; 
+      text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+    
+    /* CONTENT SECTIONS */
+    .content-section { 
+      max-width: 1200px; 
+      margin: 80px auto; 
+      padding: 0 40px; 
+      text-align: center;
+    }
+    
+    .content-section h2 { 
+      font-size: 34px; 
+      margin-bottom: 40px; 
+      letter-spacing: 3px;
+    }
+    
+    .content-section p { 
+      font-size: 16px; 
+      line-height: 2; 
+      margin-bottom: 24px;
+      color: #666666;
+    }
+    
+    .content-section p strong {
+      color: #222222;
+      font-weight: 600;
+    }
+    
+    /* FULL WIDTH IMAGE */
+    .full-width-image { 
+      width: 100%; 
+      height: 60vh; 
+      object-fit: cover; 
+      margin: 60px 0;
+      display: block;
+    }
+    
+    /* IMAGE GRID */
+    .image-grid { 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 30px; 
+      max-width: 1400px; 
+      margin: 80px auto; 
+      padding: 0 40px;
+    }
+    
+    .image-grid img { 
+      width: 100%; 
+      height: 500px; 
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* PACKAGES */
+    .packages-section { 
+      background: #ffffff; 
+      padding: 100px 40px; 
+      text-align: center;
+    }
+    
+    .packages-section h2 { 
+      font-size: 42px; 
+      margin-bottom: 60px;
+    }
+    
+    .price-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 40px; 
+      max-width: 1200px; 
+      margin: 0 auto;
+    }
+    
+    .price-box { 
+      background: white; 
+      padding: 50px 30px; 
+      border: 1px solid #e7e7e7; 
+      transition: all 0.3s; 
+      cursor: pointer;
+    }
+    
+    .price-box:hover { 
+      border-color: #8d9199; 
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+      transform: translateY(-5px);
+    }
+    
+    .price-box h3 { 
+      font-size: 20px; 
+      margin-bottom: 20px; 
+      letter-spacing: 2px;
+    }
+    
+    .price-box .amount { 
+      font-size: 42px; 
+      font-weight: 300; 
+      margin: 30px 0; 
+      color: #222222;
+    }
+    
+    .price-box .payment-plan { 
+      font-size: 13px; 
+      color: #8D9199; 
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .price-box ul { 
+      list-style: none; 
+      text-align: left; 
+      margin: 30px 0; 
+      border-top: 1px solid #e7e7e7; 
+      padding-top: 30px;
+    }
+    
+    .price-box li { 
+      padding: 8px 0; 
+      font-size: 14px; 
+      color: #666666;
+    }
+    
+    .price-box li:before { 
+      content: "✓"; 
+      margin-right: 12px; 
+      color: #8d9199; 
+      font-weight: 600;
+    }
+    
+    .price-box button { 
+      width: 100%; 
+      padding: 16px; 
+      background: #8d9199; 
+      color: white; 
+      border: none; 
+      font-size: 14px; 
+      font-weight: 600; 
+      cursor: pointer; 
+      letter-spacing: 2px; 
+      text-transform: uppercase; 
+      transition: all 0.3s;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    
+    .price-box button:hover { 
+      background: #485A71;
+    }
+    
+    /* MODAL */
+    .modal { 
+      display: none; 
+      position: fixed; 
+      inset: 0; 
+      background: rgba(0,0,0,0.85); 
+      z-index: 1000; 
+      align-items: center; 
+      justify-content: center;
+      overflow-y: auto;
+    }
+    
+    .modal.active { display: flex; }
+    
+    .modal-content { 
+      background: white; 
+      max-width: 600px; 
+      width: 90%; 
+      max-height: 90vh; 
+      overflow-y: auto; 
+      padding: 50px; 
+      position: relative;
+      margin: 20px;
+    }
+    
+    .modal-close { 
+      position: absolute; 
+      top: 20px; 
+      right: 20px; 
+      font-size: 30px; 
+      cursor: pointer; 
+      color: #999; 
+      line-height: 1;
+    }
+    
+    .modal-close:hover { color: #222; }
+    
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+    
+    .quiz-step h2 { 
+      font-size: 28px; 
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
+    
+    .quiz-step input, 
+    .quiz-step textarea, 
+    .quiz-step select { 
+      width: 100%; 
+      padding: 15px; 
+      margin-bottom: 20px; 
+      border: 1px solid #cccccc; 
+      font-size: 15px;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    .quiz-step input:focus,
+    .quiz-step textarea:focus,
+    .quiz-step select:focus {
+      border-color: #8d9199;
+      outline: none;
+    }
+    
+    .quiz-step button { 
+      width: 100%; 
+      padding: 16px; 
+      background: #8d9199; 
+      color: white; 
+      border: none; 
+      font-size: 14px; 
+      cursor: pointer; 
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      font-family: 'Roboto Condensed', sans-serif;
+      transition: all 0.3s;
+    }
+    
+    .quiz-step button:hover { background: #485A71; }
+    
+    .quiz-nav { 
+      display: flex; 
+      gap: 10px; 
+      margin-top: 20px;
+    }
+    
+    .quiz-nav button { flex: 1; }
+    .btn-back { background: #666 !important; }
+    .btn-back:hover { background: #555 !important; }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) { 
+      .hero-overlay h1 { font-size: 36px; }
+      .hero-overlay p { font-size: 16px; }
+      .price-grid { grid-template-columns: 1fr; }
+      .image-grid { grid-template-columns: 1fr; }
+      .content-section h2 { font-size: 28px; }
+      .modal-content { padding: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO WITH YOUTUBE VIDEO BACKGROUND -->
+  <div class="hero-video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&mute=1&loop=1&playlist=9DiS2Z_H15U&controls=0&showinfo=0&modestbranding=1&vq=hd1080&rel=0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+    <div class="hero-overlay">
+      <div>
+        <h1>STORYTELLING PHOTOGRAPHY</h1>
+        <p>LIFESTYLE PHOTOGRAPHY & CINEMATIC STORYTELLING</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT SECTION -->
+  <div class="content-section">
+    <h2>WE'RE NOT JUST HERE TO TAKE PHOTOS—WE'RE HERE TO TELL YOUR STORY THE WAY IT WAS MEANT TO BE TOLD.</h2>
+    
+    <p><strong>No forced moments.<br>No copy-paste edits.<br>Just real,</strong> meaningful connections captured with intention.</p>
+    
+    <p><strong>We keep it real.</strong> Every couple, every brand, every story is different—so why should your photos look the same as everyone else's? We take the time to understand who you are and craft images that feel like <em>you</em>. No awkward poses, no stiff smiles—just raw, authentic moments that hit home.</p>
+    
+    <p><strong>We keep it honest.</strong> What you see is what you get. No paid referrals, no outsourcing, no gimmicks—just a team that genuinely cares about making every moment unforgettable.</p>
+    
+    <p>For more than two decades, we've been all about one thing—<strong>capturing stories that last.</strong> Let's create something real, together.</p>
+  </div>
+
+  <!-- FULL WIDTH IMAGE -->
+  <img src="/static/portfolio/couple-portrait.jpg" alt="Authentic Couple Photography" class="full-width-image">
+
+  <!-- IMAGE GRID -->
+  <div class="image-grid">
+    <img src="/static/portfolio/outdoor-ceremony.jpg" alt="Wedding Ceremony">
+    <img src="/static/portfolio/golden-sunset.jpg" alt="Golden Hour">
+  </div>
+
+  <!-- ANOTHER FULL WIDTH -->
+  <img src="/static/portfolio/switzerland-landscape.jpg" alt="Destination Wedding" class="full-width-image">
+
+  <!-- PACKAGES SECTION -->
+  <div class="packages-section">
+    <h2>INVESTMENT OPTIONS</h2>
+    <div class="price-grid">
+      <div class="price-box">
+        <h3>THE ESSENTIAL</h3>
+        <div class="amount">$3,500</div>
+        <div class="payment-plan">3 easy payments of $1,167</div>
+        <ul>
+          <li>6 hours coverage</li>
+          <li>1 award-winning photographer</li>
+          <li>All edited images</li>
+          <li>Private online gallery</li>
+          <li>High-resolution downloads</li>
+          <li>$350 album credit</li>
+        </ul>
+        <button onclick="openCheckout('essential', 3500)">RESERVE NOW</button>
+      </div>
+      
+      <div class="price-box" style="border: 2px solid #8d9199;">
+        <h3>THE COMPLETE</h3>
+        <div class="amount">$7,500</div>
+        <div class="payment-plan">3 easy payments of $2,500</div>
+        <ul>
+          <li>10 hours full-day coverage</li>
+          <li>Lead + assistant photographer</li>
+          <li>Unlimited edited images</li>
+          <li>3-5 minute cinematic film</li>
+          <li>Engagement session included</li>
+          <li>$800 album credit</li>
+        </ul>
+        <button onclick="openCheckout('complete', 7500)">RESERVE NOW</button>
+      </div>
+      
+      <div class="price-box">
+        <h3>THE LEGACY</h3>
+        <div class="amount">$15,000+</div>
+        <div class="payment-plan">Custom payment plan</div>
+        <ul>
+          <li>Multi-day coverage (3 days)</li>
+          <li>2 lead photographers</li>
+          <li>10-15 minute feature film</li>
+          <li>Drone footage included</li>
+          <li>Custom luxury album</li>
+          <li>Worldwide travel included</li>
+        </ul>
+        <button onclick="openCheckout('legacy', 15000)">INQUIRE NOW</button>
+      </div>
+    </div>
+    
+    <p style="margin-top: 60px; font-size: 14px; color: #8D9199; letter-spacing: 1px; text-transform: uppercase;">
+      Only 3 bookings per month • 20+ years experience • Featured on Brides, The Knot & Zola
+    </p>
+  </div>
+
+  <!-- MORE IMAGES -->
+  <div class="image-grid">
+    <img src="/static/portfolio/intimate-moment.jpg" alt="Intimate Moment">
+    <img src="/static/portfolio/waterfront-beauty.jpg" alt="Waterfront">
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal" id="checkoutModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeCheckout()">&times;</span>
+      
+      <!-- Step 1: Tell us about you -->
+      <div class="quiz-step active" id="step1">
+        <h2>Let's get to know you</h2>
+        <p style="margin-bottom: 30px; color: #666;">First, the basics:</p>
+        <input type="text" id="name" placeholder="Your Name *" required>
+        <input type="email" id="email" placeholder="Email Address *" required>
+        <input type="tel" id="phone" placeholder="Phone Number *" required>
+        <button onclick="nextStep(2)">Next →</button>
+      </div>
+      
+      <!-- Step 2: Wedding Details -->
+      <div class="quiz-step" id="step2">
+        <h2>Tell us about your big day</h2>
+        <input type="text" id="partnerName" placeholder="Partner's Name">
+        <input type="date" id="weddingDate" placeholder="Wedding Date *" required>
+        <input type="text" id="venue" placeholder="Venue / Location *" required>
+        <textarea id="vision" rows="4" placeholder="Tell us your vision for the day..."></textarea>
+        <div class="quiz-nav">
+          <button class="btn-back" onclick="prevStep(1)">← Back</button>
+          <button onclick="nextStep(3)">Next →</button>
+        </div>
+      </div>
+      
+      <!-- Step 3: Confirm Package -->
+      <div class="quiz-step" id="step3">
+        <h2>Confirm Your Package</h2>
+        <div style="background: #f5f5f5; padding: 30px; margin: 30px 0; border-left: 4px solid black;">
+          <h3 id="packageName" style="font-size: 24px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; color: #222;">THE COMPLETE</h3>
+          <p id="packageAmount" style="font-size: 36px; font-weight: 300; margin: 20px 0; color: #222;">$7,500</p>
+          <p style="color: #666; margin-bottom: 20px;">Payment Plan:</p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px; color: #666;">✓ <strong id="payment1" style="color: #222;">$2,500</strong> due today</li>
+            <li style="margin-bottom: 10px; color: #666;">✓ <strong id="payment2" style="color: #222;">$2,500</strong> due 60 days before wedding</li>
+            <li style="margin-bottom: 10px; color: #666;">✓ <strong id="payment3" style="color: #222;">$2,500</strong> due 14 days before wedding</li>
+          </ul>
+        </div>
+        <p style="font-size: 14px; color: #666; margin: 20px 0;">By clicking "Complete Reservation", you agree to our <a href="#" style="color: black;">Terms & Conditions</a> and authorize the payment plan above.</p>
+        <div class="quiz-nav">
+          <button class="btn-back" onclick="prevStep(2)">← Back</button>
+          <button onclick="submitCheckout()">Complete Reservation</button>
+        </div>
+      </div>
+      
+      <!-- Step 4: Success -->
+      <div class="quiz-step" id="step4">
+        <div style="text-align: center; padding: 40px 0;">
+          <div style="font-size: 60px; margin-bottom: 20px;">✓</div>
+          <h2>You're All Set!</h2>
+          <p style="margin: 20px 0; font-size: 18px; color: #666;">We've received your reservation and sent a confirmation to <strong id="confirmEmail" style="color: #222;"></strong></p>
+          <p style="margin: 20px 0; color: #666;">Your contract will be emailed within 24 hours.</p>
+          <p style="background: #f5f5f5; padding: 20px; margin: 30px 0; color: #666;">First payment of <strong id="confirmPayment" style="color: #222;"></strong> charged today.</p>
+          <p style="color: #666; font-size: 14px;">Questions? Email us at <a href="mailto:hello@acromatico.com" style="color: black;">hello@acromatico.com</a></p>
+          <button onclick="closeCheckout()">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    let currentPackage = '';
+    let currentAmount = 0;
+    
+    function openCheckout(pkg, amount) {
+      currentPackage = pkg;
+      currentAmount = amount;
+      
+      const packageNames = {
+        essential: 'THE ESSENTIAL',
+        complete: 'THE COMPLETE',
+        legacy: 'THE LEGACY'
+      };
+      
+      document.getElementById('packageName').textContent = packageNames[pkg];
+      document.getElementById('packageAmount').textContent = '$' + amount.toLocaleString();
+      
+      const paymentAmount = Math.ceil(amount / 3);
+      document.getElementById('payment1').textContent = '$' + paymentAmount.toLocaleString();
+      document.getElementById('payment2').textContent = '$' + paymentAmount.toLocaleString();
+      document.getElementById('payment3').textContent = '$' + paymentAmount.toLocaleString();
+      
+      document.getElementById('checkoutModal').classList.add('active');
+    }
+    
+    function closeCheckout() {
+      document.getElementById('checkoutModal').classList.remove('active');
+      document.querySelectorAll('.quiz-step').forEach(step => step.classList.remove('active'));
+      document.getElementById('step1').classList.add('active');
+    }
+    
+    function nextStep(stepNumber) {
+      if (stepNumber === 2) {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        if (!name || !email || !phone) {
+          alert('Please fill out all required fields');
+          return;
+        }
+      }
+      
+      if (stepNumber === 3) {
+        const weddingDate = document.getElementById('weddingDate').value;
+        const venue = document.getElementById('venue').value;
+        if (!weddingDate || !venue) {
+          alert('Please fill out all required fields');
+          return;
+        }
+      }
+      
+      document.querySelectorAll('.quiz-step').forEach(step => step.classList.remove('active'));
+      document.getElementById('step' + stepNumber).classList.add('active');
+    }
+    
+    function prevStep(stepNumber) {
+      document.querySelectorAll('.quiz-step').forEach(step => step.classList.remove('active'));
+      document.getElementById('step' + stepNumber).classList.add('active');
+    }
+    
+    async function submitCheckout() {
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        partnerName: document.getElementById('partnerName').value,
+        weddingDate: document.getElementById('weddingDate').value,
+        venue: document.getElementById('venue').value,
+        vision: document.getElementById('vision').value,
+        package: currentPackage,
+        amount: currentAmount,
+        paymentPlan: {
+          payment1: Math.ceil(currentAmount / 3),
+          payment1Date: 'Today',
+          payment2: Math.ceil(currentAmount / 3),
+          payment2Date: '60 days before wedding',
+          payment3: Math.ceil(currentAmount / 3),
+          payment3Date: '14 days before wedding'
+        }
+      };
+      
+      try {
+        const response = await fetch('/api/photography/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+          document.getElementById('confirmEmail').textContent = formData.email;
+          document.getElementById('confirmPayment').textContent = '$' + formData.paymentPlan.payment1.toLocaleString();
+          nextStep(4);
+        } else {
+          alert('Something went wrong. Please try again or email us at hello@acromatico.com');
+        }
+      } catch (error) {
+        console.error('Checkout error:', error);
+        alert('Something went wrong. Please try again or email us at hello@acromatico.com');
+      }
+    }
+  </script>
+
+</body>
+</html>

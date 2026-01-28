@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Gallery Test</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        /* MOBILE GALLERY - INSTAGRAM STYLE */
+        .gallery-section { 
+            margin: 2rem 0 !important;
+            gap: 0.5rem !important;
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            padding: 0 !important;
+        }
+        
+        .gallery-item { 
+            border-radius: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            box-shadow: none !important;
+            height: 200px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            background: #ddd;
+        }
+        
+        .gallery-item img {
+            width: 100% !important;
+            height: 200px !important;
+            max-height: 200px !important;
+            min-height: 200px !important;
+            display: block !important;
+            border-radius: 0 !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mobile Gallery Test - Should be 2 columns, 200px tall images</h1>
+    
+    <section class="gallery-section">
+        <div class="gallery-item">
+            <img src="https://acromatico.com/wp-content/uploads/2025/09/rustic-barn-wedding-001.jpg" alt="Test 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://acromatico.com/wp-content/uploads/2025/09/rustic-barn-wedding-002.jpg" alt="Test 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://acromatico.com/wp-content/uploads/2025/09/rustic-barn-wedding-003.jpg" alt="Test 3">
+        </div>
+        <div class="gallery-item">
+            <img src="https://acromatico.com/wp-content/uploads/2025/09/rustic-barn-wedding-004.jpg" alt="Test 4">
+        </div>
+        <div class="gallery-item">
+            <img src="https://acromatico.com/wp-content/uploads/2025/09/rustic-barn-wedding-005.jpg" alt="Test 5">
+        </div>
+        <div class="gallery-item">
+            <img src="https://acromatico.com/wp-content/uploads/2025/09/rustic-barn-wedding-009.jpg" alt="Test 6">
+        </div>
+    </section>
+    
+    <p style="margin-top: 20px; font-size: 14px; color: #666;">
+        If images are HUGE and full-screen, the CSS isn't working.<br>
+        If images are 200px tall in 2 columns, the CSS IS working!
+    </p>
+</body>
+</html>

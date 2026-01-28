@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madison & Jordan | Cork Factory Hotel Wedding</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #3a3a3a;
+            background: #ffffff;
+        }
+        
+        /* Hero Section - 100vh with background */
+        .hero-section {
+            min-height: 100vh;
+            background-image: url('https://hofferphotography.com/wp-content/uploads/2026/01/Madison-Jordan-Cork-Factory-Wedding-Photographer-1.jpg');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.19);
+        }
+        
+        /* HOFFER'S MENU SYSTEM - EXACT CLONE */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: #b7c726;
+            border: none;
+            color: #000000;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle:hover {
+            background: #3a3a3a;
+            color: #ffffff;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: currentColor;
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+        
+        /* Mobile Popup Drawer */
+        .ast-mobile-popup-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: #ffffff;
+            z-index: 9998;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .ast-mobile-popup-drawer.active {
+            right: 0;
+        }
+        
+        .ast-mobile-popup-inner {
+            padding: 80px 40px 40px;
+        }
+        
+        .mobile-menu-logo {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #3a3a3a;
+        }
+        
+        .main-header-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .main-header-menu .menu-item {
+            margin-bottom: 25px;
+        }
+        
+        .main-header-menu .menu-link {
+            text-decoration: none;
+            color: #3a3a3a;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: block;
+        }
+        
+        .main-header-menu .menu-link:hover {
+            color: #728012;
+        }
+        
+        /* Overlay */
+        .ast-mobile-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9997;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .ast-mobile-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Content Container */
+        .content-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .post-title {
+            font-size: 40px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.4em;
+        }
+        
+        .post-intro {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a3a3a;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Gallery Container - MASONRY LAYOUT */
+        .gallery-container {
+            column-count: 2;
+            column-gap: 10px;
+            margin-bottom: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                column-count: 1;
+            }
+        }
+        
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            opacity: 0.9;
+        }
+        
+        /* Section Headings */
+        .section-heading {
+            font-size: 30px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin: 60px 0 30px 0;
+            text-align: center;
+            line-height: 1.3em;
+        }
+        
+        .section-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a3a3a;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 30px;
+            }
+            
+            .section-heading {
+                font-size: 25px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Toggle Button -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Mobile Popup Overlay -->
+    <div class="ast-mobile-popup-overlay" id="overlay"></div>
+    
+    <!-- Mobile Popup Drawer -->
+    <div class="ast-mobile-popup-drawer" id="drawer">
+        <div class="ast-mobile-popup-inner">
+            <div class="mobile-menu-logo">Acromatico Photography</div>
+            <ul class="main-header-menu">
+                <li class="menu-item"><a href="/" class="menu-link">Portfolios</a></li>
+                <li class="menu-item"><a href="/blog" class="menu-link">Recent Work</a></li>
+                <li class="menu-item"><a href="/about" class="menu-link">About Us</a></li>
+                <li class="menu-item"><a href="/faq" class="menu-link">FAQ</a></li>
+                <li class="menu-item"><a href="/reviews" class="menu-link">Reviews</a></li>
+                <li class="menu-item"><a href="/pricing" class="menu-link">Pricing</a></li>
+                <li class="menu-item"><a href="/contact" class="menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section"></section>
+    
+    <!-- Main Content -->
+    <div class="content-container">
+        <h1 class="post-title">Madison & Jordan | Cork Factory Hotel Wedding</h1>
+        
+        <div class="post-intro">
+            <p>Madison and Jordan's Cork Factory Hotel wedding was nothing short of magical. From the romantic first look to the emotional ceremony, every moment was filled with love and joy.</p>
+        </div>
+        
+        <!-- First Section Images -->
+        <div class="gallery-container" id="gallery1">

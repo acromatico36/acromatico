@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACROMATICO | Authentic Stories. Unfiltered Moments.</title>
+    <meta name="description" content="Award-winning photography, education, art prints, and branding services. South Florida + NYC. Shut up and take my money level quality.">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #000;
+            --bg-white: #fff;
+            --accent: #007aff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            overflow-x: hidden;
+            background: #000;
+            color: white;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        }
+        
+        .hero-content h1 {
+            font-size: 96px;
+            font-weight: 700;
+            letter-spacing: -3px;
+            margin-bottom: 24px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-content p {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 48px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        /* SERVICE PORTALS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            min-height: 100vh;
+        }
+        
+        .service-portal {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-portal:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+        
+        .service-portal:hover .service-overlay {
+            opacity: 0.95;
+        }
+        
+        .service-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-portal:hover .service-bg {
+            transform: scale(1.1);
+        }
+        
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.85;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+        
+        .service-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        
+        .service-desc {
+            font-size: 17px;
+            font-weight: 400;
+            opacity: 0.8;
+            max-width: 300px;
+            text-align: center;
+        }
+        
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 56px;
+            }
+            .hero-content p {
+                font-size: 21px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-title {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ACROMATICO</h1>
+            <p>Authentic Stories. Unfiltered Moments.</p>
+        </div>
+    </section>
+    
+    <!-- SERVICES GRID -->
+    <div class="services-grid">
+        <!-- PHOTOGRAPHY -->
+        <a href="/static/photography-apple-ux.html" class="service-portal">
+            <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" alt="Photography" class="service-bg">
+            <div class="service-overlay">
+                <div class="service-icon">📸</div>
+                <h2 class="service-title">Photography</h2>
+                <p class="service-desc">Weddings, Portraits, Commercial</p>
+            </div>
+        </a>
+        
+        <!-- EDUCATION -->
+        <a href="#education" class="service-portal">
+            <img src="https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-333.jpg" alt="Education" class="service-bg">
+            <div class="service-overlay">
+                <div class="service-icon">🎓</div>
+                <h2 class="service-title">Education</h2>
+                <p class="service-desc">Workshops, Courses, Mentorship</p>
+            </div>
+        </a>
+        
+        <!-- ART PRINTS -->
+        <a href="#art-prints" class="service-portal">
+            <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-324.jpg" alt="Art Prints" class="service-bg">
+            <div class="service-overlay">
+                <div class="service-icon">🖼️</div>
+                <h2 class="service-title">Art Prints</h2>
+                <p class="service-desc">Limited Editions, Gallery-Quality</p>
+            </div>
+        </a>
+        
+        <!-- BRANDING -->
+        <a href="#branding" class="service-portal">
+            <img src="https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-339.jpg" alt="Branding" class="service-bg">
+            <div class="service-overlay">
+                <div class="service-icon">🎬</div>
+                <h2 class="service-title">Branding</h2>
+                <p class="service-desc">Video, Content, Strategy</p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>

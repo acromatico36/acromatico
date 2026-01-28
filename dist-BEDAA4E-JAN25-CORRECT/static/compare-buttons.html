@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { padding: 40px; font-family: Arial; }
+.container { max-width: 1200px; margin: 0 auto; }
+.comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0; }
+.section { padding: 30px; background: #f5f5f5; border-radius: 12px; }
+h2 { text-align: center; color: #333; }
+.label { font-weight: bold; margin-bottom: 20px; text-align: center; }
+
+.cta-section { background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%); padding: 60px 40px; text-align: center; border-radius: 12px; color: #ffffff; margin: 20px 0; }
+
+/* OLD STYLE */
+.btn-old {
+    display: inline-block;
+    padding: 16px 40px;
+    background: #ffffff;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* NEW STYLE */
+.btn-new {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #ffffff;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* OLD GRID */
+.grid-old {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* NEW GRID */
+.grid-new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.post-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.post-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #ddd;
+}
+.post-card h3 {
+    padding: 15px;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Button & Grid Comparison</h1>
+    
+    <div class="comparison">
+        <div class="section">
+            <div class="label">❌ OLD BUTTON (What You Were Seeing)</div>
+            <div class="cta-section">
+                <h3>Planning Your Pennsylvania Wedding?</h3>
+                <a href="#" class="btn-old">VIEW PACKAGES & PRICING</a>
+            </div>
+            <p><strong>Issues:</strong> Too wide (16px 40px padding), purple text, uppercase, letter-spacing</p>
+        </div>
+        
+        <div class="section">
+            <div class="label">✅ NEW BUTTON (What You Should See Now)</div>
+            <div class="cta-section">
+                <h3>Planning Your Pennsylvania Wedding?</h3>
+                <a href="#" class="btn-new">View Packages & Pricing</a>
+            </div>
+            <p><strong>Fixed:</strong> Compact (12px 24px), black text, normal case</p>
+        </div>
+    </div>
+    
+    <hr style="margin: 60px 0;">
+    
+    <div class="comparison">
+        <div class="section">
+            <div class="label">❌ OLD GRID (Stacked)</div>
+            <div class="grid-old">
+                <div class="post-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23667eea' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dy='.3em' font-size='20'%3EPost 1%3C/text%3E%3C/svg%3E">
+                    <h3>Post Title 1</h3>
+                </div>
+                <div class="post-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23764ba2' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dy='.3em' font-size='20'%3EPost 2%3C/text%3E%3C/svg%3E">
+                    <h3>Post Title 2</h3>
+                </div>
+                <div class="post-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23667eea' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dy='.3em' font-size='20'%3EPost 3%3C/text%3E%3C/svg%3E">
+                    <h3>Post Title 3</h3>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="label">✅ NEW GRID (Side-by-Side)</div>
+            <div class="grid-new">
+                <div class="post-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23667eea' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dy='.3em' font-size='20'%3EPost 1%3C/text%3E%3C/svg%3E">
+                    <h3>Post Title 1</h3>
+                </div>
+                <div class="post-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23764ba2' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dy='.3em' font-size='20'%3EPost 2%3C/text%3E%3C/svg%3E">
+                    <h3>Post Title 2</h3>
+                </div>
+                <div class="post-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23667eea' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dy='.3em' font-size='20'%3EPost 3%3C/text%3E%3C/svg%3E">
+                    <h3>Post Title 3</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin: 60px 0; padding: 30px; background: #e8f5e9; border-radius: 12px;">
+        <h2>✅ The Madison Clone Should Look Like The RIGHT SIDE</h2>
+        <p><a href="/static/madison-clone.html" style="display: inline-block; padding: 15px 30px; background: #4CAF50; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">View Madison Clone</a></p>
+    </div>
+</div>
+</body>
+</html>

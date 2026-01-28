@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madison + Jordan | Cork Factory Hotel</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- PhotoSwipe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #3a3a3a;
+            background: #fff;
+        }
+
+        /* FIXED MENU TRIGGER - Top Right */
+        .menu-trigger {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 999;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .menu-trigger img {
+            width: 45%;
+        }
+
+        /* OFF-CANVAS MENU */
+        .off-canvas-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s;
+            z-index: 998;
+        }
+
+        .off-canvas-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .off-canvas-menu {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            max-width: 90%;
+            height: 100vh;
+            background: #fff;
+            transition: right 0.3s;
+            z-index: 999;
+            overflow-y: auto;
+            padding: 40px;
+        }
+
+        .off-canvas-menu.active {
+            right: 0;
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: #728012;
+            cursor: pointer;
+        }
+
+        .menu-logo {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .menu-logo h2 {
+            font-size: 3em;
+            font-weight: 400;
+            color: #54595F;
+        }
+
+        .menu-logo h3 {
+            font-size: 15px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #728012;
+        }
+
+        .menu-divider {
+            width: 60%;
+            height: 1px;
+            background: #e7e7e7;
+            margin: 15px auto;
+        }
+
+        .menu-nav {
+            margin: 30px 0;
+        }
+
+        .menu-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .menu-nav li {
+            padding: 10px 0;
+        }
+
+        .menu-nav a {
+            font-size: 20px;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: #728012;
+            text-decoration: none;
+        }
+
+        .menu-nav a:hover {
+            color: #b7c726;
+        }
+
+        /* HERO SECTION - Full screen with overlay text */
+        .hero-section {
+            min-height: 100vh;
+            background: #54595F url('https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.19);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content .venue {
+            font-size: 15px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 4em;
+            font-weight: 400;
+            letter-spacing: -1.5px;
+            line-height: 0.9em;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin: 50px 0 30px;
+        }
+
+        /* GALLERY - Masonry 2 columns */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8em;
+            }
+
+            .hero-section {
+                min-height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Menu Trigger -->
+    <button class="menu-trigger" id="menuTrigger">
+        <img src="https://hofferphotography.com/wp-content/uploads/2019/12/rectangle.png" alt="Menu">
+    </button>
+
+    <!-- Off-Canvas Overlay -->
+    <div class="off-canvas-overlay" id="overlay"></div>
+
+    <!-- Off-Canvas Menu -->
+    <div class="off-canvas-menu" id="menu">
+        <button class="menu-close" id="menuClose">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="menu-logo">
+            <h2>Acromatico</h2>
+            <h3>photography</h3>
+        </div>
+
+        <div class="menu-divider"></div>
+
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="/photography">Portfolios</a></li>
+                <li><a href="/blog">Recent Work</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/academy">FAQ</a></li>
+                <li><a href="/prints">Reviews</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <p class="venue">Selby Gardens Sarasota</p>
+            <h1>Isander + Natalie</h1>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        
+        <h2 class="section-heading">The Proposal</h2>
+
+        <!-- Gallery Section 1 -->
+        <div class="gallery-container">
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" alt="">
+            </a>
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" alt="">
+            </a>
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" alt="">
+            </a>
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" alt="">
+            </a>
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" alt="">
+            </a>
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" alt="">
+            </a>
+        </div>
+
+        <h2 class="section-heading">The Celebration</h2>
+
+        <!-- Gallery Section 2 -->
+        <div class="gallery-container">
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" alt="">
+            </a>
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" alt="">
+            </a>
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" alt="">
+            </a>
+            <a class="gallery-item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" data-pswp-width="1920" data-pswp-height="1280">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" alt="">
+            </a>
+        </div>
+
+    </div>
+
+    <!-- PhotoSwipe -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js"></script>
+    
+    <script>
+        // Menu
+        const menuTrigger = document.getElementById('menuTrigger');
+        const menuClose = document.getElementById('menuClose');
+        const menu = document.getElementById('menu');
+        const overlay = document.getElementById('overlay');
+
+        menuTrigger.onclick = () => {
+            menu.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeMenu = () => {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        menuClose.onclick = closeMenu;
+        overlay.onclick = closeMenu;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+
+        // Lightbox
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '.gallery-container',
+            children: 'a',
+            pswpModule: () => PhotoSwipe
+        });
+        lightbox.init();
+    </script>
+</body>
+</html>

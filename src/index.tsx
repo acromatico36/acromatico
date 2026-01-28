@@ -196,7 +196,7 @@ const app = new Hono<{ Bindings: Bindings }>()
 app.use('/api/*', cors())
 
 // Mount blog routes
-// app.route('/blog', blog) // DISABLED: Let Cloudflare serve static blog HTML files
+app.route('/blog', blog)
 
 // Stripe Checkout API
 app.post('/api/create-checkout', async (c) => {
@@ -2765,7 +2765,7 @@ app.post('/api/photography/book', async (c) => {
 })
 
 // OLD: Full photography route (removed for performance)
-// Blog route is defined at the top with // app.route('/blog', blog) // DISABLED: Let Cloudflare serve static blog HTML files
+// Blog route is defined at the top with app.route('/blog', blog)
 
 // About page
 app.get('/about', (c) =>

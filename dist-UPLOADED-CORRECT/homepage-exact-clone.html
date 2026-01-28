@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storytelling Photography - Acromatico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      background: #fff;
+      color: #333;
+    }
+
+    /* LOGO HEADER */
+    .logo-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #fff;
+    }
+    
+    .logo-header img {
+      max-width: 200px;
+      height: auto;
+    }
+
+    /* VIDEO HERO */
+    .video-hero {
+      position: relative;
+      height: 80vh;
+      min-height: 600px;
+      overflow: hidden;
+      background: #000;
+    }
+    
+    .video-hero iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.77777778vh;
+      min-width: 100%;
+      height: 56.25vw;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: none;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 40px;
+    }
+    
+    .video-overlay h1 {
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      max-width: 900px;
+      line-height: 1.3;
+    }
+
+    /* PUBLICATION LOGOS */
+    .featured-logos {
+      background: #fff;
+      padding: 60px 40px;
+      text-align: center;
+    }
+    
+    .featured-logos h3 {
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+    
+    .logos-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .logos-grid img {
+      height: 50px;
+      width: auto;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .logos-grid img:hover {
+      opacity: 1;
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      text-align: center;
+      padding: 80px 40px 60px;
+      font-size: 36px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      background: #f9f9f9;
+    }
+
+    /* CAROUSEL SECTION */
+    .carousel-section {
+      background: #f9f9f9;
+      padding: 0 40px 100px;
+    }
+    
+    .swiper {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .swiper-slide {
+      position: relative;
+      height: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .slide-overlay h2 {
+      color: #fff;
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* MAIN COPY */
+    .main-copy {
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 0 40px;
+      text-align: center;
+      line-height: 2;
+      font-size: 18px;
+      color: #555;
+    }
+    
+    .main-copy p {
+      margin-bottom: 30px;
+    }
+    
+    .main-copy strong {
+      color: #222;
+      font-weight: 700;
+    }
+
+    /* IMAGE GALLERY */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 1600px;
+      margin: 0 auto 100px;
+    }
+    
+    .image-gallery img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
+
+    /* FOOTER */
+    .footer-logo {
+      text-align: center;
+      padding: 80px 40px;
+      background: #fff;
+    }
+    
+    .footer-logo img {
+      max-width: 200px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      .video-overlay h1 { font-size: 28px; }
+      .section-title { font-size: 24px; }
+      .logos-grid { gap: 30px; }
+      .logos-grid img { height: 35px; }
+      .swiper-slide { height: 350px; }
+      .slide-overlay h2 { font-size: 24px; }
+      .image-gallery { grid-template-columns: 1fr; }
+      .image-gallery img { height: 400px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO HEADER -->
+  <div class="logo-header">
+    <img src="/static/portfolio/acromatico-logo.png" alt="Acromatico">
+  </div>
+
+  <!-- VIDEO HERO -->
+  <div class="video-hero">
+    <iframe 
+      src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&mute=1&loop=1&playlist=9DiS2Z_H15U&controls=0&showinfo=0&modestbranding=1&vq=hd1080&rel=0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+    <div class="video-overlay">
+      <h1>Your Story, Unfiltered. Let's Create Something Real</h1>
+    </div>
+  </div>
+
+  <!-- PUBLICATION LOGOS -->
+  <div class="featured-logos">
+    <h3>As Featured On</h3>
+    <div class="logos-grid">
+      <img src="/static/portfolio/brides-logo.png" alt="Brides">
+      <img src="/static/portfolio/fearless-logo.png" alt="Fearless Photographers">
+      <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
+      <img src="/static/portfolio/voyage-logo.png" alt="Voyage Magazine">
+      <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
+    </div>
+  </div>
+
+  <!-- SECTION TITLE -->
+  <div class="section-title">
+    Every Moment, Captured Authentically.
+  </div>
+
+  <!-- CAROUSEL -->
+  <div class="carousel-section">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
+          <div class="slide-overlay">
+            <h2>TIMELESS MOMENTS</h2>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/portfolio/pp-image.jpg')">
+          <div class="slide-overlay">
+            <h2>BRAND IMPACT</h2>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
+          <div class="slide-overlay">
+            <h2>THE PROPOSAL</h2>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/portfolio/jeanine-joe.jpg')">
+          <div class="slide-overlay">
+            <h2>EXPECTING JOY</h2>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/portfolio/switzerland.jpg')">
+          <div class="slide-overlay">
+            <h2>FAMILY LOVE</h2>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+
+  <!-- MAIN COPY -->
+  <div class="main-copy">
+    <p>We're not just here to take photos—we're here to tell your story the way it was meant to be told.</p>
+    
+    <p><strong>No forced moments.<br>No copy-paste edits.<br>Just real,</strong> meaningful connections captured with intention.</p>
+    
+    <p><strong>We keep it real.</strong> Every couple, every brand, every story is different—so why should your photos look the same as everyone else's? We take the time to understand who you are and craft images that feel like <em>you</em>. No awkward poses, no stiff smiles—just raw, authentic moments that hit home.</p>
+    
+    <p><strong>We keep it honest.</strong> What you see is what you get. No paid referrals, no outsourcing, no gimmicks—just a team that genuinely cares about making every moment unforgettable.</p>
+    
+    <p>For more than two decades, we've been all about one thing—<strong>capturing stories that last.</strong> Let's create something real, together.</p>
+  </div>
+
+  <!-- IMAGE GALLERY -->
+  <div class="image-gallery">
+    <img src="/static/portfolio/jeanine-joe.jpg" alt="Jeanine & Joe">
+    <img src="/static/portfolio/switzerland.jpg" alt="Switzerland">
+  </div>
+
+  <!-- FOOTER LOGO -->
+  <div class="footer-logo">
+    <img src="/static/portfolio/acromatico-logo.png" alt="Acromatico">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 2,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
