@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Acromatico Photography | Weddings, Engagements & Love Stories</title>
+    <meta name="description" content="Explore 501+ real wedding stories, engagement sessions, and love stories captured by Acromatico. Serving South Florida, NYC, and destinations worldwide.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog - Acromatico Photography">
+    <meta property="og:description" content="501+ Real wedding stories and love stories captured worldwide">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acromatico.com/blog">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --accent: #667eea;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.6;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 8rem 5% 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Filter Bar */
+        .filter-bar {
+            padding: 2rem 5%;
+            text-align: center;
+            background: white;
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .filter-btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            margin: 0.5rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            background: white;
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        /* Masonry Grid */
+        .masonry-container {
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .blog-card-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-card:hover .blog-card-image {
+            transform: scale(1.05);
+        }
+        
+        .blog-card-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-card-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-card-excerpt {
+            color: var(--secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .blog-card-date {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            text-align: center;
+            padding: 4rem;
+            font-size: 1.2rem;
+            color: #999;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--accent);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 4rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .masonry-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="logo">ACROMATICO</a>
+        <div>
+            <a href="/">Home</a>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Love Stories</h1>
+        <p>501+ Real weddings, engagements, and moments that matter</p>
+    </section>
+    
+    <!-- Filter Bar -->
+    <section class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Stories</button>
+        <button class="filter-btn" data-filter="wedding">Weddings</button>
+        <button class="filter-btn" data-filter="engagement">Engagements</button>
+        <button class="filter-btn" data-filter="family">Family</button>
+        <button class="filter-btn" data-filter="portrait">Portraits</button>
+        <button class="filter-btn" data-filter="proposal">Proposals</button>
+        
+        <div class="search-container">
+            <input 
+                type="text" 
+                class="search-input" 
+                placeholder="Search stories..." 
+                id="searchInput"
+            >
+        </div>
+    </section>
+    
+    <!-- Loading State -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Loading 501 stories...</p>
+    </div>
+    
+    <!-- Masonry Grid -->
+    <section class="masonry-container">
+        <div class="masonry-grid" id="masonryGrid">
+            <!-- Blog cards will be dynamically loaded here -->
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Acromatico Photography. All rights reserved.</p>
+        <p>
+            <a href="/" style="color: white; opacity: 0.8;">Home</a> • 
+            <a href="/static/our-story-new.html" style="color: white; opacity: 0.8;">Our Story</a> • 
+            <a href="https://acromatico.com/contact-us/" style="color: white; opacity: 0.8;">Contact</a>
+        </p>
+    </footer>
+    
+    <script>
+        // Blog posts data - will be populated from JSON
+        const blogPostsData = [];
+        
+        // Fetch blog posts from JSON
+        async function loadBlogPosts() {
+            try {
+                // Load the blog posts metadata
+                const response = await fetch('/static/../blog_posts_data/all_posts.json');
+                const posts = await response.json();
+                
+                // Populate blogPostsData
+                posts.forEach(post => {
+                    // Extract first image from content
+                    const imgMatch = post.content.rendered.match(/<img[^>]+src="([^">]+)"/);
+                    const featuredImage = imgMatch ? imgMatch[1] : 'https://acromatico.com/wp-content/uploads/default-wedding.jpg';
+                    
+                    // Clean excerpt
+                    const excerpt = post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 140) + '...';
+                    
+                    // Determine category
+                    let category = 'Photography';
+                    const title = post.title.rendered.toLowerCase();
+                    if (title.includes('wedding')) category = 'Wedding';
+                    else if (title.includes('engagement')) category = 'Engagement';
+                    else if (title.includes('family')) category = 'Family';
+                    else if (title.includes('portrait')) category = 'Portrait';
+                    else if (title.includes('proposal')) category = 'Proposal';
+                    
+                    blogPostsData.push({
+                        slug: post.slug,
+                        title: post.title.rendered,
+                        excerpt: excerpt,
+                        image: featuredImage,
+                        category: category,
+                        date: new Date(post.date).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        })
+                    });
+                });
+                
+                // Hide loading, show grid
+                document.getElementById('loading').style.display = 'none';
+                renderBlogPosts(blogPostsData);
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                document.getElementById('loading').innerHTML = '<p>❌ Error loading posts. Please refresh.</p>';
+            }
+        }
+        
+        // Render blog posts
+        function renderBlogPosts(posts) {
+            const grid = document.getElementById('masonryGrid');
+            grid.innerHTML = '';
+            
+            posts.forEach(post => {
+                const card = document.createElement('a');
+                card.href = `/static/blog/${post.slug}.html`;
+                card.className = 'blog-card';
+                card.setAttribute('data-category', post.category.toLowerCase());
+                
+                card.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}" class="blog-card-image" loading="lazy">
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">${post.category}</span>
+                        <h3 class="blog-card-title">${post.title}</h3>
+                        <p class="blog-card-excerpt">${post.excerpt}</p>
+                        <p class="blog-card-date">${post.date}</p>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+        
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                const cards = document.querySelectorAll('.blog-card');
+                
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.blog-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.blog-card-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.blog-card-excerpt').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Load posts on page load
+        loadBlogPosts();
+    </script>
+</body>
+</html>

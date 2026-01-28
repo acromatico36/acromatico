@@ -1,0 +1,3437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography - Book Your Story | Acromatico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #000;
+      --secondary: #666;
+      --accent: #0071e3;
+      --bg-gray: #f5f5f7;
+      --border: #d2d2d7;
+    }
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #1d1d1f;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    /* HEADER */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+    }
+    
+    .site-logo {
+      max-width: 200px;
+      height: auto;
+      transition: all 0.3s;
+    }
+    
+    @media (max-width: 768px) {
+      .site-header {
+        padding: 15px 20px;
+      }
+      
+      .site-logo {
+        max-width: 150px;
+      }
+    }
+
+    /* VIDEO HERO */
+    .video-hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-hero iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.77777778vh;
+      min-width: 100%;
+      height: 56.25vw;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: none;
+    }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      gap: 40px;
+    }
+    .video-overlay h1 {
+      color: #fff;
+      font-size: 64px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      max-width: 1000px;
+      line-height: 1.1;
+      opacity: 0;
+      animation: fadeInUp 1s 0.3s forwards;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 40px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      color: #000;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 500;
+      border-radius: 980px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      animation: fadeInUp 1s 0.6s forwards;
+    }
+    .hero-cta:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .hero-cta::after {
+      content: '→';
+      font-size: 20px;
+      transition: transform 0.3s;
+    }
+    .hero-cta:hover::after {
+      transform: translateX(4px);
+    }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+      from { transform: translateY(30px); }
+    }
+
+    /* CAROUSEL SECTION */
+    .carousel-wrapper {
+      background: var(--bg-gray);
+      padding: 120px 40px;
+    }
+    .carousel-title {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #1d1d1f;
+      margin-bottom: 80px;
+    }
+    .swiper {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .swiper-slide {
+      position: relative;
+      height: 600px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .swiper-slide:hover {
+      transform: scale(1.02);
+    }
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 60px;
+    }
+    .slide-overlay h2 {
+      color: #fff;
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+
+    /* PORTFOLIO GALLERY SECTION */
+    .portfolio-section {
+      background: #fff;
+      padding: 120px 40px;
+    }
+    .portfolio-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .portfolio-title {
+      font-size: 56px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+    .portfolio-subtitle {
+      text-align: center;
+      font-size: 21px;
+      color: var(--secondary);
+      margin-bottom: 80px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .portfolio-grid {
+      column-count: 3;
+      column-gap: 16px;
+      margin-bottom: 60px;
+    }
+    .portfolio-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      overflow: hidden;
+      border-radius: 8px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
+      width: 100%;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+    .portfolio-cta {
+      text-align: center;
+    }
+    .portfolio-cta-btn {
+      display: inline-block;
+      padding: 16px 48px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 980px;
+      font-size: 17px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .portfolio-cta-btn:hover {
+      background: #333;
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* TESTIMONIALS SECTION */
+    .testimonials-section {
+      background: var(--bg-gray);
+      padding: 120px 40px;
+    }
+    .testimonials-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .testimonials-title {
+      font-size: 56px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+    .testimonials-subtitle {
+      text-align: center;
+      font-size: 21px;
+      color: var(--secondary);
+      margin-bottom: 60px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .testimonials-stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      margin-bottom: 80px;
+      padding: 32px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-stars {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-size: 20px;
+    }
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .stat-text {
+      font-size: 14px;
+      color: var(--secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-divider {
+      width: 1px;
+      height: 48px;
+      background: var(--border);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+    .testimonial-card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    .testimonial-card.featured {
+      border: 2px solid var(--accent);
+      box-shadow: 0 8px 24px rgba(0,113,227,0.12);
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+      color: var(--primary);
+      font-size: 18px;
+    }
+    .testimonial-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--primary);
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .author-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .author-wedding {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+    .as-seen-on {
+      text-align: center;
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+    }
+    .as-seen-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--secondary);
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+    .publication-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .publication {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--primary);
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    .publication:hover {
+      opacity: 1;
+    }
+    .testimonials-cta {
+      text-align: center;
+      padding-top: 40px;
+    }
+    .testimonials-cta-btn {
+      display: inline-block;
+      padding: 16px 48px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 980px;
+      font-size: 17px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .testimonials-cta-btn:hover {
+      background: #333;
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* PACKAGES SECTION - APPLE CARD STYLE */
+    .packages-section {
+      background: #fff;
+      padding: 120px 40px;
+    }
+    .packages-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-header h2 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section-header p {
+      font-size: 21px;
+      color: var(--secondary);
+      max-width: 800px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    
+    /* VIDEO TOGGLE */
+    .video-toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .toggle-label {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--secondary);
+      transition: color 0.3s;
+    }
+    .toggle-label.active {
+      color: #000;
+    }
+    .video-toggle {
+      position: relative;
+      width: 60px;
+      height: 32px;
+      background: #e5e5e5;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .video-toggle.active {
+      background: #34c759;
+    }
+    .toggle-slider {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 26px;
+      height: 26px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .video-toggle.active .toggle-slider {
+      transform: translateX(28px);
+    }
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 60px;
+      transition: opacity 0.3s;
+    }
+    .packages-grid.hidden {
+      display: none;
+    }
+    
+    /* CUSTOM BUILDER */
+    .custom-builder {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      animation: fadeInUp 0.4s;
+    }
+    .builder-container {
+      background: var(--bg-gray);
+      border-radius: 24px;
+      padding: 60px 40px;
+    }
+    .builder-title {
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .builder-subtitle {
+      font-size: 17px;
+      color: var(--secondary);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .builder-section {
+      background: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .builder-section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .builder-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .builder-option {
+      position: relative;
+      cursor: pointer;
+    }
+    .builder-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .option-card {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 20px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .builder-option input:checked + .option-card {
+      border-color: var(--accent);
+      background: #f0f7ff;
+    }
+    .option-card:hover {
+      border-color: #999;
+    }
+    .option-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .option-desc {
+      font-size: 13px;
+      color: var(--secondary);
+    }
+    .option-price {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    
+    /* BUILDER SLIDER */
+    .builder-slider {
+      padding: 20px 0;
+    }
+    .builder-slider input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: var(--border);
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .builder-slider input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .builder-slider input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    .slider-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .slider-display #hoursDisplay {
+      color: var(--accent);
+      font-size: 32px;
+    }
+    .slider-price {
+      font-size: 15px;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+    
+    /* BUILDER CHECKBOXES */
+    .builder-checkboxes {
+      display: grid;
+      gap: 12px;
+    }
+    .builder-checkbox {
+      cursor: pointer;
+    }
+    .builder-checkbox input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .checkbox-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .builder-checkbox input:checked + .checkbox-card {
+      border-color: var(--accent);
+      background: #f0f7ff;
+    }
+    .checkbox-card:hover {
+      border-color: #999;
+    }
+    .checkbox-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+    .checkbox-price {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    /* BUILDER SUMMARY */
+    .builder-summary {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-top: 32px;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .summary-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .summary-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+      margin: 20px 0;
+    }
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .summary-payment {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 24px;
+    }
+    .book-custom-btn {
+      width: 100%;
+      padding: 16px;
+      background: #fff;
+      color: var(--primary);
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .book-custom-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+    }
+    
+    /* ADD-ONS SECTION */
+    .addons-section {
+      max-width: 900px;
+      margin: 60px auto 0;
+      padding: 0 20px;
+      animation: fadeInUp 0.4s;
+    }
+    .addons-container {
+      background: var(--bg-gray);
+      border-radius: 24px;
+      padding: 60px 40px;
+    }
+    .addons-title {
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .addons-subtitle {
+      font-size: 17px;
+      color: var(--secondary);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .addon-group {
+      background: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .addon-group-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .addon-slider label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .addon-slider input[type="range"] {
+      flex: 1;
+      height: 6px;
+      border-radius: 5px;
+      background: var(--border);
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .addon-slider input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .addon-slider input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    .addon-options {
+      display: grid;
+      gap: 12px;
+    }
+    .addon-checkbox, .addon-radio {
+      cursor: pointer;
+    }
+    .addon-checkbox input[type="checkbox"],
+    .addon-radio input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .addon-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s;
+      background: #fff;
+      min-width: 0;
+    }
+    .addon-checkbox input:checked + .addon-card,
+    .addon-radio input:checked + .addon-card {
+      border-color: var(--accent);
+      background: #f0f7ff;
+    }
+    .addon-card:hover {
+      border-color: #999;
+    }
+    .addon-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--primary);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+    .addon-price-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .addon-price {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .addons-summary {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-top: 32px;
+    }
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+    .builder-options {
+      display: grid;
+      gap: 16px;
+    }
+    .builder-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border: 2px solid #e5e5e5;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .builder-option:hover {
+      border-color: #000;
+      background: #fafafa;
+    }
+    .builder-option.selected {
+      border-color: #000;
+      background: #fafafa;
+    }
+    .option-info {
+      flex: 1;
+    }
+    .option-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .option-desc {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+    .option-price {
+      font-size: 21px;
+      font-weight: 700;
+      color: #000;
+    }
+    .custom-summary {
+      position: sticky;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 100%);
+      padding: 40px;
+      margin: 0 -40px -40px;
+      border-top: 1px solid var(--border);
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      font-size: 15px;
+    }
+    .summary-row.total {
+      font-size: 28px;
+      font-weight: 700;
+      padding-top: 20px;
+      margin-top: 16px;
+      border-top: 2px solid #000;
+    }
+    .builder-cta {
+      width: 100%;
+      padding: 18px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: all 0.3s;
+    }
+    .builder-cta:hover {
+      background: #1d1d1f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .package-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .package-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0071e3, #00d4ff);
+      transform: scaleX(0);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .package-card:hover {
+      border-color: #000;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      transform: translateY(-8px);
+    }
+    .package-card:hover::before {
+      transform: scaleX(1);
+    }
+    .package-card.selected {
+      border-color: #000;
+      border-width: 2px;
+      background: #fafafa;
+    }
+    .package-card.selected::before {
+      transform: scaleX(1);
+    }
+    .package-badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: #000;
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .package-card.selected .package-badge {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .package-name {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .package-subtitle {
+      font-size: 15px;
+      color: var(--secondary);
+      margin-bottom: 24px;
+    }
+    .package-price {
+      margin-bottom: 8px;
+    }
+    .price-installment {
+      font-size: 15px;
+      color: var(--secondary);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .price-amount {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #000;
+      line-height: 1;
+    }
+    .price-total {
+      font-size: 13px;
+      color: var(--secondary);
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid #e5e5e5;
+      font-weight: 400;
+    }
+    .package-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .package-features li {
+      padding: 12px 0;
+      font-size: 15px;
+      color: #1d1d1f;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .package-features li::before {
+      content: '✓';
+      color: #0071e3;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .package-features li.video-feature {
+      color: #34c759;
+      font-weight: 600;
+    }
+    .package-features li.video-feature::before {
+      content: '📹';
+      font-size: 16px;
+    }
+    .video-addon-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #34c759, #30d158);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-left: 8px;
+    }
+    .select-btn {
+      width: 100%;
+      padding: 16px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .select-btn:hover {
+      background: #1d1d1f;
+      transform: translateY(-2px);
+    }
+
+    /* MODAL OVERLAY */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(20px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 40px;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .booking-modal {
+      background: #fff;
+      border-radius: 28px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .modal-overlay.active .booking-modal {
+      transform: scale(1) translateY(0);
+    }
+    .modal-header {
+      padding: 40px 48px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-title {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+    .close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: var(--bg-gray);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .close-btn:hover {
+      background: #e5e5e5;
+      transform: rotate(90deg);
+    }
+    .modal-body {
+      padding: 48px;
+    }
+    .form-step {
+      display: none;
+    }
+    .form-step.active {
+      display: block;
+      animation: fadeInUp 0.4s;
+    }
+    .step-indicator {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 48px;
+      justify-content: center;
+    }
+    .step-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e5e5e5;
+      transition: all 0.3s;
+    }
+    .step-dot.active {
+      width: 32px;
+      border-radius: 4px;
+      background: #000;
+    }
+    .form-question {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+      color: #1d1d1f;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--secondary);
+    }
+    .form-input {
+      width: 100%;
+      padding: 16px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 17px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s;
+      background: #fff;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #0071e3;
+      box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+    }
+    .form-nav {
+      display: flex;
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .btn {
+      flex: 1;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-secondary {
+      background: var(--bg-gray);
+      color: #1d1d1f;
+    }
+    .btn-secondary:hover {
+      background: #e5e5e5;
+    }
+    .btn-primary {
+      background: #000;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #1d1d1f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .payment-summary {
+      background: var(--bg-gray);
+      border-radius: 18px;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+    }
+    .payment-row:last-child {
+      border-bottom: none;
+    }
+    .payment-row.total {
+      font-size: 21px;
+      font-weight: 600;
+      margin-top: 16px;
+      padding-top: 24px;
+      border-top: 2px solid #000;
+    }
+    .contract-preview {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 32px 0;
+    }
+    .contract-preview h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    .contract-preview p {
+      margin-bottom: 12px;
+      color: var(--secondary);
+    }
+
+    /* AUTHENTICITY SECTION */
+    .authenticity-section {
+      background: #fff;
+      padding: 120px 40px;
+      text-align: center;
+    }
+    .authenticity-section h2 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+    }
+    .authenticity-section p {
+      max-width: 800px;
+      margin: 0 auto 48px;
+      font-size: 21px;
+      line-height: 1.5;
+      color: var(--secondary);
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 16px 40px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 500;
+      border-radius: 980px;
+      transition: all 0.3s;
+      margin-bottom: 80px;
+    }
+    .cta-button:hover {
+      background: #1d1d1f;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    .featured-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      color: var(--secondary);
+    }
+    .logos-marquee {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .logos-track {
+      display: inline-flex;
+      gap: 80px;
+      animation: scroll 40s linear infinite;
+    }
+    .logos-track img {
+      height: 48px;
+      width: auto;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+    .logos-track img:hover {
+      opacity: 1;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* FAQ SECTION */
+    .faq-section {
+      background: var(--bg-gray);
+      padding: 120px 40px;
+    }
+    .faq-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .faq-title {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 60px;
+    }
+    .faq-item {
+      margin-bottom: 12px;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .faq-item:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .faq-question {
+      width: 100%;
+      padding: 28px 32px;
+      background: transparent;
+      border: none;
+      text-align: left;
+      font-size: 19px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s;
+    }
+    .faq-question:hover {
+      color: #0071e3;
+    }
+    .faq-icon {
+      font-size: 24px;
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      padding: 0 32px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-answer.active {
+      max-height: 1000px;
+      padding: 0 32px 32px;
+    }
+    .faq-answer p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--secondary);
+      margin-bottom: 16px;
+    }
+
+    /* IMAGE GALLERY */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .image-gallery img {
+      width: 100%;
+      height: 700px;
+      object-fit: cover;
+      transition: all 0.5s;
+    }
+    .image-gallery img:hover {
+      filter: brightness(1.1);
+    }
+
+    /* FOOTER */
+    .footer-logo {
+      text-align: center;
+      padding: 100px 40px;
+      background: #fff;
+    }
+    .footer-logo img {
+      max-width: 200px;
+      opacity: 0.3;
+    }
+
+    /* SUCCESS STATE */
+    .success-state {
+      text-align: center;
+      padding: 80px 48px;
+    }
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #34c759;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      color: #fff;
+      font-size: 40px;
+    }
+    .success-title {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .success-message {
+      font-size: 17px;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    /* FOOTER SECTION */
+    .site-footer {
+      background: var(--primary);
+      color: #fff;
+      padding: 80px 40px 40px;
+    }
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    .footer-brand {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .footer-tagline {
+      font-size: 15px;
+      color: #999;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-social a:hover {
+      background: #fff;
+      color: var(--primary);
+      transform: translateY(-4px);
+    }
+    .footer-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .footer-links, .footer-contact {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links li, .footer-contact li {
+      margin-bottom: 12px;
+    }
+    .footer-links a, .footer-contact a, .footer-contact span {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover, .footer-contact a:hover {
+      color: #fff;
+    }
+    .footer-contact i {
+      margin-right: 8px;
+      color: var(--accent);
+      width: 20px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 14px;
+      color: #666;
+    }
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-legal a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-legal a:hover {
+      color: #fff;
+    }
+
+    /* LIGHTBOX STYLES */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90vh;
+      object-fit: contain;
+      animation: zoomIn 0.3s;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 32px;
+      right: 48px;
+      color: #fff;
+      font-size: 48px;
+      font-weight: 300;
+      cursor: pointer;
+      z-index: 10001;
+      transition: color 0.3s ease;
+    }
+    .lightbox-close:hover {
+      color: #ccc;
+    }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 17px;
+      text-align: center;
+      max-width: 80%;
+    }
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 48px;
+      font-weight: 300;
+      cursor: pointer;
+      padding: 24px;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      color: #ccc;
+    }
+    .lightbox-prev {
+      left: 32px;
+    }
+    .lightbox-next {
+      right: 32px;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .portfolio-item {
+      cursor: pointer;
+    }
+
+    @media (max-width: 1024px) {
+      .packages-grid { grid-template-columns: 1fr; }
+      .builder-options { grid-template-columns: 1fr; }
+      .addon-options { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { 
+        column-count: 2; 
+        column-gap: 12px; 
+      }
+      .footer-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 40px; 
+      }
+    }
+    @media (max-width: 768px) {
+      .video-overlay h1 { font-size: 40px; line-height: 1.2; }
+      .carousel-title, .section-header h2, .faq-title { font-size: 32px; }
+      .section-header p { font-size: 15px; }
+      .swiper-slide { height: 400px; }
+      .image-gallery { grid-template-columns: 1fr; }
+      .image-gallery img { height: 400px; }
+      .modal-body { padding: 32px; }
+      
+      /* Portfolio mobile */
+      .portfolio-title { font-size: 36px; }
+      .portfolio-subtitle { font-size: 17px; }
+      .portfolio-grid { 
+        column-count: 1; 
+        column-gap: 12px; 
+      }
+      .portfolio-item { 
+        margin-bottom: 12px; 
+      }
+      .portfolio-cta-btn { 
+        padding: 14px 40px; 
+        font-size: 16px; 
+      }
+      
+      /* Testimonials mobile */
+      .testimonials-title { font-size: 36px; }
+      .testimonials-subtitle { font-size: 17px; padding: 0 20px; }
+      .testimonials-stats {
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+      }
+      .stat-divider { 
+        display: none; 
+      }
+      .stat-number { font-size: 28px; }
+      .stat-text { font-size: 13px; }
+      .testimonials-grid { 
+        grid-template-columns: 1fr; 
+        gap: 24px; 
+      }
+      .testimonial-card { padding: 32px 24px; }
+      .testimonial-text { font-size: 16px; }
+      .author-name { font-size: 16px; }
+      .as-seen-title { font-size: 12px; }
+      .publication-logos {
+        gap: 24px;
+      }
+      .publication { font-size: 16px; }
+      .testimonials-cta-btn { 
+        padding: 14px 40px; 
+        font-size: 16px; 
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      /* Package cards mobile */
+      .package-card { padding: 24px; }
+      .package-name { font-size: 24px; }
+      .package-subtitle { font-size: 13px; }
+      .price-amount { font-size: 40px; }
+      .price-installment, .price-total { font-size: 13px; }
+      .package-features { font-size: 14px; }
+      .package-features li { padding: 8px 0; }
+      
+      /* Custom builder mobile */
+      .builder-container { padding: 40px 24px; }
+      .builder-title { font-size: 28px; }
+      .builder-subtitle { font-size: 15px; }
+      .builder-section { padding: 24px; }
+      .builder-section-title { font-size: 18px; }
+      .option-name { font-size: 14px; }
+      .option-desc { font-size: 12px; }
+      .option-price { font-size: 13px; }
+      .slider-display { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .slider-display #hoursDisplay { font-size: 24px; }
+      
+      /* Add-ons mobile */
+      .addons-container { padding: 40px 24px; }
+      .addons-title { font-size: 28px; }
+      .addons-subtitle { font-size: 15px; }
+      .addon-group { padding: 24px; }
+      .addon-group-title { font-size: 18px; }
+      .addon-card { padding: 14px 16px; flex-wrap: wrap; gap: 8px; }
+      .addon-name { font-size: 14px; line-height: 1.4; word-break: break-word; }
+      .addon-price-label { font-size: 14px; white-space: nowrap; }
+      .addon-slider label { flex-direction: column; gap: 12px; align-items: flex-start; }
+      
+      /* Summary mobile */
+      .addons-summary, .builder-summary { padding: 24px; }
+      .summary-row { font-size: 14px; flex-wrap: wrap; }
+      .summary-total { font-size: 20px; }
+      .summary-payment { font-size: 14px; }
+      
+      /* Toggle mobile */
+      .video-toggle-container { flex-direction: column; gap: 12px; }
+      .toggle-label { font-size: 14px; }
+      
+      /* Modal mobile */
+      .booking-modal { width: 95%; max-height: 90vh; overflow-y: auto; }
+      .modal-title { font-size: 24px; }
+      
+      /* Footer mobile */
+      .footer-grid { 
+        grid-template-columns: 1fr; 
+        gap: 40px; 
+      }
+      .footer-bottom { 
+        flex-direction: column; 
+        gap: 20px; 
+        text-align: center; 
+      }
+      .footer-legal { 
+        justify-content: center; 
+      }
+      
+      /* Lightbox mobile */
+      .lightbox-close {
+        top: 16px;
+        right: 16px;
+        font-size: 36px;
+      }
+      .lightbox-prev,
+      .lightbox-next {
+        font-size: 32px;
+        padding: 16px;
+      }
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+      .lightbox-caption {
+        bottom: 24px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="site-logo-link">
+      <img src="/static/acromatico-logo-transparent.png?v=3" alt="Acromatico Photography" class="site-logo">
+    </a>
+  </header>
+
+  <!-- VIDEO HERO -->
+  <div class="video-hero">
+    <iframe 
+      src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&mute=1&loop=1&playlist=9DiS2Z_H15U&controls=0&showinfo=0&modestbranding=1&vq=hd1080&rel=0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+    <div class="video-overlay">
+      <h1>Your Story, Unfiltered.<br>Let's Create Something Real</h1>
+      <a href="#packages" class="hero-cta">Explore Packages</a>
+    </div>
+  </div>
+
+  <!-- CAROUSEL SECTION -->
+  <div class="carousel-wrapper">
+    <h2 class="carousel-title">Every Moment, Captured Authentically.</h2>
+    
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg')">
+          <div class="slide-overlay"><h2>TIMELESS MOMENTS</h2></div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Tessa-Kurien-W-HIGH-RES-601.jpg')">
+          <div class="slide-overlay"><h2>AUTHENTIC LOVE</h2></div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-047.jpg')">
+          <div class="slide-overlay"><h2>GOLDEN HOUR</h2></div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg')">
+          <div class="slide-overlay"><h2>PURE EMOTION</h2></div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-223.jpg')">
+          <div class="slide-overlay"><h2>UNFILTERED BEAUTY</h2></div>
+        </div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO GALLERY SECTION -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="portfolio-container">
+      <h2 class="portfolio-title">See Our Work</h2>
+      <p class="portfolio-subtitle">Every frame tells a story. Authentic moments captured with artistry.</p>
+      
+      <div class="portfolio-grid">
+        <!-- Seamless masonry grid - images flow naturally -->
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" alt="Bride & Groom First Look" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg" alt="Wedding Ceremony" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Elle20Hector20E-061.jpg" alt="Engagement Portrait" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-047.jpg" alt="Couple at Sunset" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Tessa-Kurien-W-HIGH-RES-601.jpg" alt="Bridal Portrait" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-394.jpg" alt="Wedding Dance" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-520.jpg" alt="Reception Details" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-223.jpg" alt="Candid Moment" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/KH-Ritz-262.jpg" alt="Wedding Venue" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Alicia-Claudio-W-157.jpg" alt="Emotional Moment" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-044.jpg" alt="Wedding Kiss" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-550.jpg" alt="Bride Getting Ready" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Alessandra-Kainen-W-165.jpg" alt="Couple Laughing" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Rhamzi-Caleb-W-41.jpg" alt="Intimate Portrait" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Tessa-Kurien-W-HIGH-RES-152.jpg" alt="Wedding Celebration" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-333.jpg" alt="Golden Hour Portrait" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-324.jpg" alt="Wedding Detail Shot" loading="lazy">
+        </div>
+        <div class="portfolio-item" data-lightbox="portfolio">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-339.jpg" alt="Romantic Moment" loading="lazy">
+        </div>
+      </div>
+      
+      <div class="portfolio-cta">
+        <a href="#packages" class="portfolio-cta-btn">View Collections</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="testimonials-container">
+      <h2 class="testimonials-title">What Our Couples Say</h2>
+      <p class="testimonials-subtitle">Real stories from real weddings. Authentic reviews from couples who trusted us with their most important day.</p>
+      
+      <!-- Stats Bar -->
+      <div class="testimonials-stats">
+        <div class="stat-item">
+          <div class="stat-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="stat-text">100+ Five-Star Reviews</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <p class="stat-number">500+</p>
+          <p class="stat-text">Weddings Captured</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <p class="stat-number">20+</p>
+          <p class="stat-text">Years Experience</p>
+        </div>
+      </div>
+      
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"The first thing people say when they see our photos is 'WOW you look beautiful'. The second thing they say is WOW your photographer did an AMAZING job! The photos tell the story of our day in such a beautiful way."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4 class="author-name">Sarah & Michael</h4>
+              <p class="author-wedding">Miami Beach Wedding, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card featured">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"They are a combination of Monet & Picasso behind the lens! Their shots are artistic and beautiful. Everyone has raved about all of our photos! They are also just cool people with great personalities."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4 class="author-name">Jessica & David</h4>
+              <p class="author-wedding">Fort Lauderdale Wedding, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"They made us feel comfortable and look like movie stars. Capturing moments that I think no other photographer could. What a great experience and I would recommend them with my eyes closed!"</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4 class="author-name">Carlos & Maria</h4>
+              <p class="author-wedding">Hilton Fort Lauderdale, 2023</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- As Seen On -->
+      <div class="as-seen-on">
+        <p class="as-seen-title">AS SEEN ON</p>
+        <div class="publication-logos">
+          <span class="publication">The Knot</span>
+          <span class="publication">WeddingWire</span>
+          <span class="publication">Yelp</span>
+          <span class="publication">Instagram</span>
+          <span class="publication">Facebook</span>
+        </div>
+      </div>
+
+      <div class="testimonials-cta">
+        <a href="https://www.weddingwire.com/biz/acromatico-photography-pompano-beach/342d273516aed128.html" target="_blank" class="testimonials-cta-btn">Read All 100+ Reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES SECTION -->
+  <div class="packages-section" id="packages">
+    <div class="packages-container">
+      <div class="section-header">
+        <h2>Choose Your Collection</h2>
+        <p>Over two decades of capturing authentic stories. Each collection designed to fit your celebration.</p>
+        
+        <!-- PACKAGE TYPE TOGGLE -->
+        <div class="video-toggle-container" style="margin-bottom: 24px;">
+          <span class="toggle-label" id="packageLabel">Select Package</span>
+          <div class="video-toggle active" id="packageTypeToggle" onclick="togglePackageType()">
+            <div class="toggle-slider"></div>
+          </div>
+          <span class="toggle-label active" id="customLabel">Build Custom</span>
+        </div>
+        
+        <!-- VIDEO TOGGLE (only visible for packages) -->
+        <div class="video-toggle-container" id="videoToggleContainer" style="display: none;">
+          <span class="toggle-label active" id="photoLabel">Photography Only</span>
+          <div class="video-toggle" id="videoToggle" onclick="toggleVideo()">
+            <div class="toggle-slider"></div>
+          </div>
+          <span class="toggle-label" id="videoLabel">Add Cinematic Video</span>
+        </div>
+      </div>
+      
+      <!-- PRESET PACKAGES GRID -->
+      <div class="packages-grid" id="presetsGrid" style="display: none;">
+        <!-- THE START -->
+        <div class="package-card" onclick="selectPackage('The Start', 2400, 'wedding', this)">
+          <div class="package-badge">SELECTED</div>
+          <div class="package-name">The Start</div>
+          <div class="package-subtitle">Wedding Collection</div>
+          <div class="package-price">
+            <div class="price-installment">3 easy payments of</div>
+            <div class="price-amount">$800</div>
+            <div class="price-total">Total investment: $2,400</div>
+          </div>
+          <ul class="package-features">
+            <li><strong>6 hours wedding coverage</strong></li>
+            <li>1 lead photographer</li>
+            <li>Curated images (color & B&W)</li>
+            <li>Online gallery + downloads</li>
+          </ul>
+          <button class="select-btn">Select & Customize</button>
+        </div>
+
+        <!-- THE ESSENTIAL -->
+        <div class="package-card" onclick="selectPackage('The Essential', 3095, 'wedding', this)">
+          <div class="package-badge">SELECTED</div>
+          <div class="package-name">The Essential</div>
+          <div class="package-subtitle">Wedding Collection · Most Popular</div>
+          <div class="package-price">
+            <div class="price-installment">3 easy payments of</div>
+            <div class="price-amount">$1,032</div>
+            <div class="price-total">Total investment: $3,095</div>
+          </div>
+          <ul class="package-features">
+            <li><strong>6 hours wedding coverage</strong></li>
+            <li>1 lead photographer</li>
+            <li><strong>✓ Engagement session included ($695 value)</strong></li>
+            <li>Curated images (color & B&W)</li>
+            <li>Online gallery + downloads</li>
+            <li>USB keepsake</li>
+          </ul>
+          <button class="select-btn">Select & Customize</button>
+        </div>
+
+        <!-- THE SIGNATURE -->
+        <div class="package-card" onclick="selectPackage('The Signature', 3895, 'wedding', this)">
+          <div class="package-badge">SELECTED</div>
+          <div class="package-name">The Signature</div>
+          <div class="package-subtitle">Wedding Collection · Premium</div>
+          <div class="package-price">
+            <div class="price-installment">3 easy payments of</div>
+            <div class="price-amount">$1,298</div>
+            <div class="price-total">Total investment: $3,895</div>
+          </div>
+          <ul class="package-features">
+            <li><strong>6 hours wedding coverage</strong></li>
+            <li>1 lead photographer</li>
+            <li><strong>✓ Engagement session included ($695 value)</strong></li>
+            <li><strong>✓ Standard Album included (13x9.5, $1,495 value)</strong></li>
+            <li>Curated images (color & B&W)</li>
+            <li>Online gallery + downloads</li>
+            <li>Engraved USB keepsake</li>
+          </ul>
+          <button class="select-btn">Select & Customize</button>
+        </div>
+      </div>
+
+      <!-- ADD-ONS SECTION (shown after package selection) -->
+      <div class="addons-section" id="addonsSection" style="display: none;">
+        <div class="addons-container">
+          <h3 class="addons-title">Customize Your Package</h3>
+          <p class="addons-subtitle">Add extra hours, upgrade your album, or include additional services.</p>
+
+          <!-- EXTRA HOURS -->
+          <div class="addon-group">
+            <h4 class="addon-group-title">Extra Coverage Hours</h4>
+            <div class="addon-slider">
+              <label>
+                <span>Additional hours: <strong id="extraHoursDisplay">0</strong></span>
+                <input type="range" id="extraHoursSlider" min="0" max="6" value="0" step="1" oninput="updateExtraHours(this.value)">
+                <span class="addon-price">+$<span id="extraHoursPrice">0</span></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- PHOTOGRAPHER UPGRADE -->
+          <div class="addon-group" id="photographerUpgrade">
+            <h4 class="addon-group-title">Photographer Upgrade</h4>
+            <div class="addon-options">
+              <label class="addon-checkbox">
+                <input type="checkbox" value="second-lead" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Upgrade to 2 Lead Photographers</span>
+                  <span class="addon-price-label" id="presetSecondLeadPrice">+$2,400 (6hr base)</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ENGAGEMENT SESSION (if not included) -->
+          <div class="addon-group" id="engagementAddon">
+            <h4 class="addon-group-title">Engagement Session</h4>
+            <label class="addon-checkbox">
+              <input type="checkbox" value="engagement" onchange="updateAddons()">
+              <span class="addon-card">
+                <span class="addon-name">Add Engagement Session (1.5 hours)</span>
+                <span class="addon-price-label">+$695</span>
+              </span>
+            </label>
+          </div>
+
+          <!-- ALBUM (if not included or upgrade) -->
+          <div class="addon-group" id="albumAddon">
+            <h4 class="addon-group-title">Premium Album</h4>
+            <div class="addon-options">
+              <label class="addon-radio">
+                <input type="radio" name="album" value="none" checked onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">No Album</span>
+                  <span class="addon-price-label">—</span>
+                </span>
+              </label>
+              <label class="addon-radio">
+                <input type="radio" name="album" value="small" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Small Album (12x8)</span>
+                  <span class="addon-price-label">+$995</span>
+                </span>
+              </label>
+              <label class="addon-radio">
+                <input type="radio" name="album" value="standard" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Standard Album (13x9.5)</span>
+                  <span class="addon-price-label">+$1,495</span>
+                </span>
+              </label>
+              <label class="addon-radio">
+                <input type="radio" name="album" value="large" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Large Album (16x12)</span>
+                  <span class="addon-price-label">+$1,995</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- OTHER ADD-ONS -->
+          <div class="addon-group">
+            <h4 class="addon-group-title">Additional Services</h4>
+            <div class="addon-options">
+              <label class="addon-checkbox">
+                <input type="checkbox" value="video" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Cinematic Video (matches photo hours)</span>
+                  <span class="addon-price-label" id="videoPriceLabel">+$2,400</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="canvas" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Canvas Art Print (20x30)</span>
+                  <span class="addon-price-label">+$450</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="framed" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Framed Art Print (30x40)</span>
+                  <span class="addon-price-label">+$850</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="travel" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Travel Coverage (flights, hotels, meals & mileage beyond 50 miles)</span>
+                  <span class="addon-price-label">+$1,000</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- PRICING SUMMARY -->
+          <div class="addons-summary">
+            <div class="summary-row">
+              <span id="basePackageName">Base Package</span>
+              <span id="basePackagePrice">$2,400</span>
+            </div>
+            <div class="summary-row" id="addonsRow" style="display: none;">
+              <span>Customizations</span>
+              <span id="addonsTotal">$0</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-total">
+              <span>Total Investment</span>
+              <span id="finalTotalPrice">$2,400</span>
+            </div>
+            <div class="summary-payment">
+              <span>3 easy payments of</span>
+              <span id="finalPaymentAmount">$800</span>
+            </div>
+            <button type="button" class="book-custom-btn" onclick="bookPackageWithAddons()">Book This Package</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOM BUILDER INTERFACE -->
+      <div class="custom-builder" id="customBuilder" style="display: block;">
+        <div class="builder-container">
+          <h3 class="builder-title">Build Your Perfect Package</h3>
+          <p class="builder-subtitle">Select exactly what you need. Pricing updates as you build.</p>
+
+          <!-- SESSION TYPE -->
+          <div class="builder-section">
+            <h4 class="builder-section-title">Session Type</h4>
+            <div class="builder-options">
+              <label class="builder-option">
+                <input type="radio" name="sessionType" value="wedding" checked onchange="updateSessionType()">
+                <span class="option-card">
+                  <span class="option-name">Wedding</span>
+                  <span class="option-desc">Full wedding day coverage</span>
+                </span>
+              </label>
+              <label class="builder-option">
+                <input type="radio" name="sessionType" value="portrait" onchange="updateSessionType()">
+                <span class="option-card">
+                  <span class="option-name">Portrait</span>
+                  <span class="option-desc">Lifestyle & portrait session</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- HOURS -->
+          <div class="builder-section">
+            <h4 class="builder-section-title">Coverage Hours</h4>
+            <div class="builder-slider">
+              <input type="range" id="hoursSlider" min="2" max="12" value="6" step="1" oninput="updateHoursDisplay(this.value); calculateCustomPrice()">
+              <div class="slider-display">
+                <span id="hoursDisplay">6</span> hours
+                <span class="slider-price" id="hoursPrice">Base: $2,400</span>
+              </div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-top: 8px;">Minimum: 2 hours for weddings, 1 hour for portraits</p>
+          </div>
+
+          <!-- PHOTOGRAPHERS -->
+          <div class="builder-section">
+            <h4 class="builder-section-title">Photographers</h4>
+            <div class="builder-options">
+              <label class="builder-option">
+                <input type="radio" name="photographers" value="1" checked onchange="calculateCustomPrice()">
+                <span class="option-card">
+                  <span class="option-name">1 Lead Photographer</span>
+                  <span class="option-price">Included</span>
+                </span>
+              </label>
+              <label class="builder-option">
+                <input type="radio" name="photographers" value="2" onchange="calculateCustomPrice()">
+                <span class="option-card">
+                  <span class="option-name">2 Lead Photographers</span>
+                  <span class="option-price" id="twoPhotographersPrice">+$2,400 (6hr minimum)</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ADD-ONS -->
+          <div class="builder-section">
+            <h4 class="builder-section-title">Add-Ons</h4>
+            <div class="builder-checkboxes">
+              <label class="builder-checkbox">
+                <input type="checkbox" value="engagement" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Engagement Session</span>
+                  <span class="checkbox-price">+$695</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="album" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Premium Album (12x12, 30 pages)</span>
+                  <span class="checkbox-price">+$1,495</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="canvas" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Canvas Art Print (20x30)</span>
+                  <span class="checkbox-price">+$450</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="framed" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Framed Art Print (30x40)</span>
+                  <span class="checkbox-price">+$850</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="video" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Cinematic Video</span>
+                  <span class="checkbox-price" id="videoAddonPrice">+$2,400</span>
+                </span>
+              </label>
+              <label class="builder-checkbox">
+                <input type="checkbox" value="travel" onchange="calculateCustomPrice()">
+                <span class="checkbox-card">
+                  <span class="checkbox-name">Travel Coverage (flights, hotels, meals & mileage beyond 50 miles)</span>
+                  <span class="checkbox-price">+$1,000</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- PRICING SUMMARY -->
+          <div class="builder-summary">
+            <div class="summary-row">
+              <span>Photography Package</span>
+              <span id="customPhotoPrice">$2,400</span>
+            </div>
+            <div class="summary-row" id="customVideoRow" style="display: none;">
+              <span>+ Cinematic Video</span>
+              <span id="customVideoPrice">$2,400</span>
+            </div>
+            <div class="summary-row" id="customAddonsRow" style="display: none;">
+              <span>+ Add-ons</span>
+              <span id="customAddonsPrice">$0</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-total">
+              <span>Total Investment</span>
+              <span id="customTotalPrice">$2,400</span>
+            </div>
+            <div class="summary-payment">
+              <span>3 easy payments of</span>
+              <span id="customPaymentAmount">$800</span>
+            </div>
+            <button type="button" class="book-custom-btn" onclick="bookCustomPackage()">Book This Package</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="booking-modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Book Your Session</h2>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="step-indicator">
+          <div class="step-dot active" data-step="1"></div>
+          <div class="step-dot" data-step="2"></div>
+          <div class="step-dot" data-step="3"></div>
+          <div class="step-dot" data-step="4"></div>
+          <div class="step-dot" data-step="5"></div>
+        </div>
+
+        <form id="bookingForm">
+          <!-- STEP 1: NAMES -->
+          <div class="form-step active" data-step="1">
+            <h2 class="form-question">Let's start with your names</h2>
+            <div class="form-group">
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-input" name="name1" required>
+            </div>
+            <div class="form-group" id="partnerNameGroup">
+              <label class="form-label">Partner's Name</label>
+              <input type="text" class="form-input" name="name2">
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-secondary" disabled>Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 2: CONTACT -->
+          <div class="form-step" data-step="2">
+            <h2 class="form-question">How can we reach you?</h2>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" name="email" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-input" name="phone" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mailing Address</label>
+              <input type="text" class="form-input" name="address" required>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: EVENT DETAILS -->
+          <div class="form-step" data-step="3">
+            <h2 class="form-question" id="eventDetailsTitle">Tell us about your big day</h2>
+            <div class="form-group">
+              <label class="form-label" id="eventDateLabel">Wedding Date</label>
+              <input type="date" class="form-input" name="eventDate" required>
+            </div>
+            <div class="form-group" id="ceremonyVenueGroup">
+              <label class="form-label">Ceremony Venue</label>
+              <input type="text" class="form-input" name="ceremonyVenue">
+            </div>
+            <div class="form-group" id="receptionVenueGroup">
+              <label class="form-label">Reception Venue</label>
+              <input type="text" class="form-input" name="receptionVenue">
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 4: REVIEW & CONTRACT -->
+          <div class="form-step" data-step="4">
+            <h2 class="form-question">Review your booking</h2>
+            
+            <div class="payment-summary">
+              <div class="payment-row">
+                <span>Collection:</span>
+                <span id="summaryPackage">-</span>
+              </div>
+              <div class="payment-row">
+                <span>Total Amount:</span>
+                <span id="summaryTotal">$0</span>
+              </div>
+              <div class="payment-row total">
+                <span>Payment Plan:</span>
+                <span>3 Installments</span>
+              </div>
+              <div class="payment-row">
+                <span>1st Payment (Due Today):</span>
+                <span id="payment1">$0</span>
+              </div>
+              <div class="payment-row">
+                <span>2nd Payment:</span>
+                <span id="payment2">$0</span>
+              </div>
+              <div class="payment-row">
+                <span>3rd Payment (14 days before):</span>
+                <span id="payment3">$0</span>
+              </div>
+            </div>
+
+            <div class="contract-preview" id="contractText">
+              <h3>PHOTOGRAPHY AGREEMENT</h3>
+              <p>This Contract is entered into and effective as of [DATE], between [CLIENT] and Acromatico Photography.</p>
+              
+              <h3>SERVICES PROVIDED</h3>
+              <p>On [EVENT_DATE], Acromatico will provide the following photography services: [PACKAGE]</p>
+              
+              <h3>PAYMENT TERMS</h3>
+              <p>Total Amount: $[TOTAL]</p>
+              <p>Payment Schedule:</p>
+              <ul>
+                <li>1st Payment: $[PAY1] - Due today</li>
+                <li>2nd Payment: $[PAY2] - Due [MID_DATE]</li>
+                <li>3rd Payment: $[PAY3] - Due 14 days before event</li>
+              </ul>
+              
+              <h3>CANCELLATION POLICY</h3>
+              <p>All deposit fees are non-refundable. A minimum of 30 days notice required for cancellation.</p>
+              
+              <h3>COPYRIGHT</h3>
+              <p>Copyright of all photographs retained by Acromatico. Upon final payment, limited copyright transferred to Client for personal use.</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Digital Signature (Type your full name)</label>
+              <input type="text" class="form-input" name="signature" placeholder="Type your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                <input type="checkbox" name="agreeTerms" required style="width: 20px; height: 20px;">
+                <span style="font-size: 15px;">I have read and agree to all terms of this agreement</span>
+              </label>
+            </div>
+
+            <div class="form-nav">
+              <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue to Payment</button>
+            </div>
+          </div>
+
+          <!-- STEP 5: PAYMENT -->
+          <div class="form-step" data-step="5">
+            <h2 class="form-question">Complete your booking</h2>
+            
+            <div class="payment-summary">
+              <div class="payment-row total">
+                <span>Due Today:</span>
+                <span id="dueToday">$0</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Payment Method</label>
+              <select class="form-input" name="paymentMethod">
+                <option value="stripe">Credit/Debit Card (Stripe)</option>
+                <option value="zelle">Zelle</option>
+                <option value="venmo">Venmo</option>
+                <option value="bank">Bank Transfer</option>
+              </select>
+            </div>
+
+            <div style="background: var(--bg-gray); border-radius: 18px; padding: 32px; margin: 24px 0; text-align: center;">
+              <p style="font-size: 15px; color: var(--secondary); margin-bottom: 12px;">
+                <strong>Secure Payment Processing</strong>
+              </p>
+              <p style="font-size: 13px; color: var(--secondary);">
+                You will receive a secure payment link via email to complete your transaction.
+              </p>
+            </div>
+
+            <div class="form-nav">
+              <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+              <button type="submit" class="btn btn-primary">Confirm Booking</button>
+            </div>
+          </div>
+
+          <!-- SUCCESS STATE -->
+          <div class="form-step" data-step="success">
+            <div class="success-state">
+              <div class="success-icon">✓</div>
+              <h2 class="success-title">Booking Confirmed!</h2>
+              <p class="success-message">
+                Thank you for choosing Acromatico Photography. We've sent a confirmation email with your contract and payment details. 
+                We can't wait to capture your story!
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTHENTICITY SECTION -->
+  <div class="authenticity-section">
+    <h2>Where Authenticity Meets Art.</h2>
+    <p>Hi, we're Acromatico Photography—a team of storytellers capturing raw, unfiltered, candid moments that feel like you. Since 2005, we've been telling stories for weddings, brands, and unforgettable events with a photojournalistic approach.</p>
+    <a href="/about" class="cta-button">Get to know us</a>
+    
+    <div class="featured-title">Featured In</div>
+    <div class="logos-marquee">
+      <div class="logos-track">
+        <img src="/static/portfolio/brides-logo.png" alt="Brides">
+        <img src="/static/portfolio/fearless-logo.png" alt="Fearless">
+        <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
+        <img src="/static/portfolio/perfect-wedding-guide.png" alt="Perfect Wedding Guide">
+        <img src="/static/portfolio/voyage-logo.png" alt="Voyage">
+        <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
+        <img src="/static/portfolio/ppa-logo.png" alt="PPA">
+        <!-- DUPLICATE -->
+        <img src="/static/portfolio/brides-logo.png" alt="Brides">
+        <img src="/static/portfolio/fearless-logo.png" alt="Fearless">
+        <img src="/static/portfolio/theknot-logo.png" alt="The Knot">
+        <img src="/static/portfolio/perfect-wedding-guide.png" alt="Perfect Wedding Guide">
+        <img src="/static/portfolio/voyage-logo.png" alt="Voyage">
+        <img src="/static/portfolio/weddingwire-logo.png" alt="WeddingWire">
+        <img src="/static/portfolio/ppa-logo.png" alt="PPA">
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ SECTION -->
+  <div class="faq-section">
+    <div class="faq-container">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <button class="faq-question">
+          What makes you unique? 
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We're not just here to take photos—we're here to tell your story the way it was meant to be told. No forced moments. No copy-paste edits. Just real, meaningful connections captured with intention.</p>
+          <p><strong>We keep it real.</strong> Every couple, every brand, every story is different—so why should your photos look the same as everyone else's?</p>
+          <p><strong>We keep it honest.</strong> No paid referrals, no outsourcing, no gimmicks—just a team that genuinely cares about making every moment unforgettable.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <button class="faq-question">
+          How do I book a photoshoot? 
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Super simple. Select your package above, fill out the booking form, and you'll receive a contract and payment link via email. We'll schedule a consultation 2-3 weeks before your event to finalize all the details.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <button class="faq-question">
+          Do you travel for photoshoots? 
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely! We're always down to capture stories wherever they unfold. Travel costs are covered by our Travel Collection package, or can be added to any package.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <button class="faq-question">
+          How long until I get my photos? 
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>For portraits and weddings, expect your fully edited photos within 4–12 weeks. You'll receive a sneak peek within 48 hours of your event.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <button class="faq-question">
+          What's your cancellation policy? 
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>All deposits are non-refundable. We require 30 days notice for cancellations. Less than 30 days notice results in full payment due. If we cancel, you receive a full refund including deposit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMAGE GALLERY -->
+  <div class="image-gallery">
+    <img src="/static/portfolio/jeanine-joe.jpg" alt="Jeanine & Joe">
+    <img src="/static/portfolio/switzerland.jpg" alt="Switzerland">
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-logo">
+    <img src="/static/portfolio/acromatico-logo.png" alt="Acromatico">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 2,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: { delay: 5000 },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        320: { slidesPerView: 1 },
+        768: { slidesPerView: 2 }
+      }
+    });
+
+    let currentStep = 1;
+    let selectedPackage = null;
+    let selectedPrice = 0;
+    let sessionType = 'wedding';
+    let formData = {};
+    let videoEnabled = false;
+    
+    // Video pricing per package - SAME AS PHOTOGRAPHY
+    const videoAddons = {
+      'The Start': { price: 2850, features: ['3-4 min highlight film', 'Ceremony + Reception coverage', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Essential': { price: 4500, features: ['5-6 min cinematic film', 'Full ceremony + Reception', 'Audio from vows & toasts', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Signature': { price: 6000, features: ['7-8 min cinematic film', 'Full day coverage', 'Audio from vows & toasts', 'Getting ready moments', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Premium': { price: 8000, features: ['10-12 min documentary film', '2 videographers', 'Full day coverage', 'Interview segments', 'Audio from ceremony & toasts', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Legacy': { price: 12500, features: ['15-20 min cinematic documentary', '2 videographers', 'Multi-day coverage option', 'Interview segments', 'Audio from all events', 'Raw footage provided', 'Digital menu with viewing options', 'Apple TV / Roku compatible', 'Mobile & desktop access'] },
+      'The Hour': { price: 795, features: ['1-3 min short video', 'Professional audio', 'Digital menu with viewing options', 'Mobile & desktop access'] }
+    };
+
+    // PACKAGE TYPE TOGGLE (Preset vs Custom)
+    let isCustomMode = true; // Default to CUSTOM mode
+
+    function togglePackageType() {
+      isCustomMode = !isCustomMode;
+      const toggle = document.getElementById('packageTypeToggle');
+      const packageLabel = document.getElementById('packageLabel');
+      const customLabel = document.getElementById('customLabel');
+      const presetsGrid = document.getElementById('presetsGrid');
+      const customBuilder = document.getElementById('customBuilder');
+      const videoToggleContainer = document.getElementById('videoToggleContainer');
+      
+      toggle.classList.toggle('active');
+      
+      if (isCustomMode) {
+        // Switch to CUSTOM mode
+        packageLabel.classList.remove('active');
+        customLabel.classList.add('active');
+        presetsGrid.style.display = 'none';
+        customBuilder.style.display = 'block';
+        videoToggleContainer.style.display = 'none'; // Hide video toggle for custom
+      } else {
+        // Switch to PRESET mode
+        packageLabel.classList.add('active');
+        customLabel.classList.remove('active');
+        presetsGrid.style.display = 'grid';
+        customBuilder.style.display = 'none';
+        videoToggleContainer.style.display = 'flex'; // Show video toggle for presets
+      }
+    }
+
+    // CUSTOM BUILDER FUNCTIONS
+    function updateHoursDisplay(value) {
+      document.getElementById('hoursDisplay').textContent = value;
+    }
+
+    // Session type change handler
+    function updateSessionType() {
+      const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
+      const hoursSlider = document.getElementById('hoursSlider');
+      
+      if (sessionType === 'portrait') {
+        // Portrait: default to 1 hour
+        hoursSlider.min = 1;
+        hoursSlider.value = 1;
+        updateHoursDisplay(1);
+      } else {
+        // Wedding: default to 6 hours (minimum 2)
+        hoursSlider.min = 2;
+        if (parseInt(hoursSlider.value) < 6) {
+          hoursSlider.value = 6;
+          updateHoursDisplay(6);
+        }
+      }
+      
+      calculateCustomPrice();
+    }
+
+    function calculateCustomPrice() {
+      const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
+      const hours = parseInt(document.getElementById('hoursSlider').value);
+      const photographers = document.querySelector('input[name="photographers"]:checked').value;
+      
+      // Update slider min based on session type
+      const hoursSlider = document.getElementById('hoursSlider');
+      if (sessionType === 'portrait') {
+        hoursSlider.min = 1;
+      } else {
+        hoursSlider.min = 2;
+        // If current value is less than min, set to min
+        if (hours < 2) {
+          hoursSlider.value = 2;
+          updateHoursDisplay(2);
+        }
+      }
+      
+      // Base pricing with minimums
+      let photoPrice;
+      if (sessionType === 'portrait') {
+        // Portrait: $795 for 1 hour, $400/hr after
+        if (hours === 1) {
+          photoPrice = 795;
+        } else {
+          photoPrice = 795 + ((hours - 1) * 400);
+        }
+      } else {
+        // Wedding: $400/hour with 2 hour minimum
+        photoPrice = hours * 400;
+      }
+      
+      // Photographer pricing
+      // 2 photographers = 6 hour minimum at $400/hr = $2,400 base
+      // Then scales with total hours beyond 6
+      if (photographers === '2') {
+        const minHours = 6;
+        const actualHours = Math.max(hours, minHours);
+        const secondPhotographerCost = actualHours * 400;
+        photoPrice += secondPhotographerCost;
+        
+        // Update price display
+        document.getElementById('twoPhotographersPrice').textContent = 
+          `+$${secondPhotographerCost.toLocaleString()} (${actualHours}hr minimum)`;
+      }
+      
+      // Add-ons
+      let addonsTotal = 0;
+      const addons = {
+        engagement: 695,
+        album: 1495,
+        canvas: 450,
+        framed: 850,
+        video: photoPrice, // Video equals photo price
+        travel: 1000
+      };
+      
+      let videoIncluded = false;
+      let videoPrice = 0;
+      
+      document.querySelectorAll('.builder-checkboxes input[type="checkbox"]:checked').forEach(checkbox => {
+        const addonValue = checkbox.value;
+        if (addonValue === 'video') {
+          videoIncluded = true;
+          videoPrice = photoPrice;
+        } else {
+          addonsTotal += addons[addonValue] || 0;
+        }
+      });
+      
+      // Update video addon price display
+      document.getElementById('videoAddonPrice').textContent = `+$${photoPrice.toLocaleString()}`;
+      
+      // Calculate totals
+      const totalPrice = photoPrice + videoPrice + addonsTotal;
+      const paymentAmount = Math.ceil(totalPrice / 3);
+      
+      // Update displays
+      document.getElementById('hoursPrice').textContent = `Base: $${photoPrice.toLocaleString()}`;
+      document.getElementById('customPhotoPrice').textContent = `$${photoPrice.toLocaleString()}`;
+      
+      // Show/hide video row
+      const videoRow = document.getElementById('customVideoRow');
+      if (videoIncluded) {
+        videoRow.style.display = 'flex';
+        document.getElementById('customVideoPrice').textContent = `$${videoPrice.toLocaleString()}`;
+      } else {
+        videoRow.style.display = 'none';
+      }
+      
+      // Show/hide addons row
+      const addonsRow = document.getElementById('customAddonsRow');
+      if (addonsTotal > 0) {
+        addonsRow.style.display = 'flex';
+        document.getElementById('customAddonsPrice').textContent = `$${addonsTotal.toLocaleString()}`;
+      } else {
+        addonsRow.style.display = 'none';
+      }
+      
+      document.getElementById('customTotalPrice').textContent = `$${totalPrice.toLocaleString()}`;
+      document.getElementById('customPaymentAmount').textContent = `$${paymentAmount.toLocaleString()}`;
+    }
+
+    function bookCustomPackage() {
+      const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
+      const hours = parseInt(document.getElementById('hoursSlider').value);
+      const photographers = document.querySelector('input[name="photographers"]:checked').value;
+      
+      // Get add-ons
+      const selectedAddons = [];
+      document.querySelectorAll('.builder-checkboxes input[type="checkbox"]:checked').forEach(checkbox => {
+        selectedAddons.push(checkbox.value);
+      });
+      
+      // Build custom package name
+      const packageName = `Custom ${sessionType === 'portrait' ? 'Portrait' : 'Wedding'} Package`;
+      
+      // Get total price
+      const totalPrice = parseInt(document.getElementById('customTotalPrice').textContent.replace(/[$,]/g, ''));
+      
+      // Open modal with custom package
+      selectedPackage = packageName;
+      selectedPrice = totalPrice;
+      sessionType === 'portrait' ? 'portrait' : 'wedding';
+      
+      // Store custom details for later
+      window.customPackageDetails = {
+        hours,
+        photographers,
+        addons: selectedAddons,
+        sessionType
+      };
+      
+      openModal();
+    }
+
+    function toggleVideo() {
+      videoEnabled = !videoEnabled;
+      const toggle = document.getElementById('videoToggle');
+      const photoLabel = document.getElementById('photoLabel');
+      const videoLabel = document.getElementById('videoLabel');
+      
+      toggle.classList.toggle('active');
+      
+      if (videoEnabled) {
+        photoLabel.classList.remove('active');
+        videoLabel.classList.add('active');
+      } else {
+        photoLabel.classList.add('active');
+        videoLabel.classList.remove('active');
+      }
+      
+      updateAllPackageCards();
+    }
+    
+    function updateAllPackageCards() {
+      // Update all package cards with video pricing
+      document.querySelectorAll('.package-card').forEach(card => {
+        const packageName = card.querySelector('.package-name').textContent;
+        updatePackageCard(card, packageName);
+      });
+    }
+    
+    function updatePackageCard(card, packageName) {
+      const priceAmountEl = card.querySelector('.price-amount');
+      const priceTotalEl = card.querySelector('.price-total');
+      const featuresEl = card.querySelector('.package-features');
+      
+      // Get base price from onclick attribute
+      const onclickAttr = card.getAttribute('onclick');
+      const basePrice = parseInt(onclickAttr.match(/\d+/)[0]);
+      
+      if (videoEnabled && videoAddons[packageName]) {
+        const addon = videoAddons[packageName];
+        const totalPrice = basePrice + addon.price;
+        const installment = Math.round(totalPrice / 3);
+        
+        // Update pricing display
+        priceAmountEl.textContent = packageName === 'The Hour' ? `$${totalPrice}` : `$${installment.toLocaleString()}`;
+        priceTotalEl.textContent = packageName === 'The Hour' ? `Includes cinematic video` : `Total investment: $${totalPrice.toLocaleString()}`;
+        
+        // Add video features if not already added
+        if (!card.querySelector('.video-feature')) {
+          const videoFeatures = addon.features.map(f => `<li class="video-feature">${f}</li>`).join('');
+          featuresEl.innerHTML += videoFeatures;
+        }
+      } else {
+        // Reset to base price
+        const installment = packageName === 'The Hour' ? basePrice : Math.round(basePrice / 3);
+        priceAmountEl.textContent = `$${installment.toLocaleString()}`;
+        
+        if (packageName === 'The Hour') {
+          priceTotalEl.textContent = 'Perfect for engagements & families';
+        } else if (packageName === 'The Start') {
+          priceTotalEl.textContent = `Total investment: $${basePrice.toLocaleString()}`;
+        } else {
+          priceTotalEl.textContent = `Total investment: $${basePrice.toLocaleString()}`;
+        }
+        
+        // Remove video features
+        card.querySelectorAll('.video-feature').forEach(el => el.remove());
+      }
+    }
+
+    // Package selection with add-ons
+    let basePackageData = {
+      name: '',
+      price: 0,
+      hasEngagement: false,
+      hasAlbum: false
+    };
+
+    function selectPackage(name, price, type, element) {
+      document.querySelectorAll('.package-card').forEach(c => c.classList.remove('selected'));
+      element.classList.add('selected');
+      
+      // Store base package data
+      basePackageData = {
+        name: name,
+        price: price,
+        hasEngagement: name === 'The Essential' || name === 'The Signature',
+        hasAlbum: name === 'The Signature'
+      };
+      
+      selectedPackage = name;
+      selectedPrice = price;
+      sessionType = type;
+      
+      // Show add-ons section
+      document.getElementById('addonsSection').style.display = 'block';
+      document.getElementById('basePackageName').textContent = name;
+      document.getElementById('basePackagePrice').textContent = '$' + price.toLocaleString();
+      document.getElementById('finalTotalPrice').textContent = '$' + price.toLocaleString();
+      document.getElementById('finalPaymentAmount').textContent = '$' + Math.round(price / 3).toLocaleString();
+      
+      // Hide/show engagement addon based on package
+      if (basePackageData.hasEngagement) {
+        document.getElementById('engagementAddon').style.display = 'none';
+      } else {
+        document.getElementById('engagementAddon').style.display = 'block';
+      }
+      
+      // Update album options based on package
+      if (basePackageData.hasAlbum) {
+        document.querySelector('#albumAddon .addon-group-title').textContent = 'Album Options';
+        document.querySelector('input[name="album"][value="none"]').parentElement.querySelector('.addon-name').textContent = 'Keep Standard Album (13x9.5)';
+        document.querySelector('input[name="album"][value="small"]').parentElement.querySelector('.addon-price-label').textContent = '-$500 (downgrade)';
+        document.querySelector('input[name="album"][value="standard"]').parentElement.querySelector('.addon-price-label').textContent = 'Included';
+        document.querySelector('input[name="album"][value="large"]').parentElement.querySelector('.addon-price-label').textContent = '+$500 (upgrade)';
+      } else {
+        document.querySelector('#albumAddon .addon-group-title').textContent = 'Add Premium Album';
+        document.querySelector('input[name="album"][value="none"]').parentElement.querySelector('.addon-name').textContent = 'No Album';
+        document.querySelector('input[name="album"][value="small"]').parentElement.querySelector('.addon-price-label').textContent = '+$995';
+        document.querySelector('input[name="album"][value="standard"]').parentElement.querySelector('.addon-price-label').textContent = '+$1,495';
+        document.querySelector('input[name="album"][value="large"]').parentElement.querySelector('.addon-price-label').textContent = '+$1,995';
+      }
+      
+      // Update video price label
+      document.getElementById('videoPriceLabel').textContent = '+$' + price.toLocaleString();
+      
+      // Reset all add-ons
+      document.getElementById('extraHoursSlider').value = 0;
+      updateExtraHours(0);
+      document.querySelectorAll('#addonsSection input[type="checkbox"]').forEach(cb => cb.checked = false);
+      document.querySelectorAll('#addonsSection input[type="radio"]').forEach(rb => {
+        if (rb.value === 'none') rb.checked = true;
+        else rb.checked = false;
+      });
+      
+      // Reset 2nd photographer price label to base
+      document.getElementById('presetSecondLeadPrice').textContent = '+$2,400 (6hr base)';
+      
+      // Smooth scroll to add-ons
+      setTimeout(() => {
+        document.getElementById('addonsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    function updateExtraHours(value) {
+      document.getElementById('extraHoursDisplay').textContent = value;
+      document.getElementById('extraHoursPrice').textContent = (value * 400).toLocaleString();
+      updateAddons();
+    }
+
+    function updateAddons() {
+      const extraHours = parseInt(document.getElementById('extraHoursSlider').value);
+      let addonsTotal = extraHours * 400;
+      
+      // Photographer upgrades
+      const secondLead = document.querySelector('input[value="second-lead"]');
+      if (secondLead && secondLead.checked) {
+        // Base package hours + extra hours
+        const baseHours = 6;
+        const totalHours = baseHours + extraHours;
+        const secondLeadCost = totalHours * 400;
+        addonsTotal += secondLeadCost;
+        
+        // Update label
+        document.getElementById('presetSecondLeadPrice').textContent = 
+          `+$${secondLeadCost.toLocaleString()} (${totalHours}hrs)`;
+      }
+      
+      // Engagement (if not included)
+      if (!basePackageData.hasEngagement) {
+        const engagement = document.querySelector('input[value="engagement"]');
+        if (engagement && engagement.checked) addonsTotal += 695;
+      }
+      
+      // Album
+      const albumSmall = document.querySelector('input[name="album"][value="small"]');
+      const albumStandard = document.querySelector('input[name="album"][value="standard"]');
+      const albumLarge = document.querySelector('input[name="album"][value="large"]');
+      if (albumSmall && albumSmall.checked) {
+        addonsTotal += basePackageData.hasAlbum ? -500 : 995; // Downgrade or new small
+      }
+      if (albumStandard && albumStandard.checked) {
+        addonsTotal += basePackageData.hasAlbum ? 0 : 1495; // Keep standard or new
+      }
+      if (albumLarge && albumLarge.checked) {
+        addonsTotal += basePackageData.hasAlbum ? 500 : 1995; // Upgrade or new large
+      }
+      
+      // Video
+      const video = document.querySelector('input[value="video"]');
+      let videoPrice = 0;
+      if (video && video.checked) {
+        videoPrice = basePackageData.price + (extraHours * 400);
+        addonsTotal += videoPrice;
+      }
+      
+      // Other add-ons
+      const canvas = document.querySelector('input[value="canvas"]');
+      const framed = document.querySelector('input[value="framed"]');
+      const travel = document.querySelector('input[value="travel"]');
+      if (canvas && canvas.checked) addonsTotal += 450;
+      if (framed && framed.checked) addonsTotal += 850;
+      if (travel && travel.checked) addonsTotal += 1000;
+      
+      // Update summary
+      const finalTotal = basePackageData.price + addonsTotal;
+      const paymentAmount = Math.round(finalTotal / 3);
+      
+      if (addonsTotal > 0) {
+        document.getElementById('addonsRow').style.display = 'flex';
+        document.getElementById('addonsTotal').textContent = '+$' + addonsTotal.toLocaleString();
+      } else {
+        document.getElementById('addonsRow').style.display = 'none';
+      }
+      
+      document.getElementById('finalTotalPrice').textContent = '$' + finalTotal.toLocaleString();
+      document.getElementById('finalPaymentAmount').textContent = '$' + paymentAmount.toLocaleString();
+      
+      // Store for booking
+      selectedPrice = finalTotal;
+    }
+
+    function bookPackageWithAddons() {
+      // Open booking modal with final price
+      updatePaymentSummary();
+      
+      // Adjust form based on session type
+      if (sessionType === 'portrait') {
+        document.getElementById('partnerNameGroup').style.display = 'none';
+        document.getElementById('ceremonyVenueGroup').style.display = 'none';
+        document.getElementById('receptionVenueGroup').style.display = 'none';
+        document.getElementById('eventDetailsTitle').textContent = 'Tell us about your session';
+        document.getElementById('eventDateLabel').textContent = 'Session Date';
+      } else {
+        document.getElementById('partnerNameGroup').style.display = 'block';
+        document.getElementById('ceremonyVenueGroup').style.display = 'block';
+        document.getElementById('receptionVenueGroup').style.display = 'block';
+        document.getElementById('eventDetailsTitle').textContent = 'Tell us about your big day';
+        document.getElementById('eventDateLabel').textContent = 'Wedding Date';
+      }
+      
+      setTimeout(() => {
+        document.getElementById('bookingModal').classList.add('active');
+      }, 200);
+    }
+
+    function closeModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+    }
+
+    function updatePaymentSummary() {
+      const p1 = Math.round(selectedPrice / 3);
+      const p2 = Math.round(selectedPrice / 3);
+      const p3 = selectedPrice - p1 - p2;
+      
+      document.getElementById('summaryPackage').textContent = selectedPackage;
+      document.getElementById('summaryTotal').textContent = '$' + selectedPrice.toLocaleString();
+      document.getElementById('payment1').textContent = '$' + p1.toLocaleString();
+      document.getElementById('payment2').textContent = '$' + p2.toLocaleString();
+      document.getElementById('payment3').textContent = '$' + p3.toLocaleString();
+      document.getElementById('dueToday').textContent = '$' + p1.toLocaleString();
+      
+      // Update contract
+      const contract = document.getElementById('contractText').innerHTML;
+      document.getElementById('contractText').innerHTML = contract
+        .replace('[PACKAGE]', selectedPackage)
+        .replace('[TOTAL]', selectedPrice.toLocaleString())
+        .replace('[PAY1]', p1.toLocaleString())
+        .replace('[PAY2]', p2.toLocaleString())
+        .replace('[PAY3]', p3.toLocaleString());
+    }
+
+    function nextStep() {
+      const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+      const inputs = currentStepEl.querySelectorAll('input[required]:not([style*="display: none"]), select[required]');
+      
+      let isValid = true;
+      inputs.forEach(input => {
+        if (!input.value || (input.type === 'checkbox' && !input.checked)) {
+          isValid = false;
+          input.style.borderColor = '#ff3b30';
+        } else {
+          input.style.borderColor = 'var(--border)';
+        }
+      });
+      
+      if (!isValid) return;
+      
+      inputs.forEach(input => {
+        formData[input.name] = input.type === 'checkbox' ? input.checked : input.value;
+      });
+      
+      if (currentStep < 5) {
+        currentStepEl.classList.remove('active');
+        currentStep++;
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+        
+        document.querySelectorAll('.step-dot').forEach((dot, i) => {
+          if (i < currentStep) dot.classList.add('active');
+          else dot.classList.remove('active');
+        });
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+        currentStep--;
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+        
+        document.querySelectorAll('.step-dot').forEach((dot, i) => {
+          if (i < currentStep) dot.classList.add('active');
+          else dot.classList.remove('active');
+        });
+      }
+    }
+
+    function toggleFAQ(item) {
+      item.classList.toggle('active');
+      const answer = item.querySelector('.faq-answer');
+      answer.classList.toggle('active');
+    }
+
+    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const allInputs = document.querySelectorAll('#bookingForm input, #bookingForm select');
+      allInputs.forEach(input => {
+        formData[input.name] = input.type === 'checkbox' ? input.checked : input.value;
+      });
+      
+      formData.package = selectedPackage;
+      formData.totalAmount = selectedPrice;
+      formData.sessionType = sessionType;
+      formData.payment1 = Math.round(selectedPrice / 3);
+      formData.payment2 = Math.round(selectedPrice / 3);
+      formData.payment3 = selectedPrice - formData.payment1 - formData.payment2;
+      
+      try {
+        const response = await fetch('/api/photography/book', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+          document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+          document.querySelector('.form-step[data-step="success"]').classList.add('active');
+          document.querySelector('.step-indicator').style.display = 'none';
+        } else {
+          alert('Something went wrong. Please contact us at info@acromatico.com');
+        }
+      } catch (error) {
+        alert('Something went wrong. Please contact us at info@acromatico.com');
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <!-- FOOTER SECTION -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="footer-col">
+          <h3 class="footer-brand">ACROMATICO</h3>
+          <p class="footer-tagline">Authentic Stories.<br>Unfiltered Moments.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/acromatico" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/acromatico" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/acromatico" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.youtube.com/acromatico" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Column 2: Services -->
+        <div class="footer-col">
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="/photography">Wedding Photography</a></li>
+            <li><a href="/photography">Portrait Photography</a></li>
+            <li><a href="/photography">Engagement Sessions</a></li>
+            <li><a href="/photography">Premium Albums</a></li>
+            <li><a href="/video">Cinematic Video</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 3: Company -->
+        <div class="footer-col">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">Our Story</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/reviews">Reviews</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 4: Contact -->
+        <div class="footer-col">
+          <h4 class="footer-title">Get In Touch</h4>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-phone"></i>
+              <a href="tel:954-779-0921">954.779.0921</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@acromatico.com">info@acromatico.com</a>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>South Florida & NYC</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Acromatico Photography. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div class="lightbox-caption"></div>
+    <a class="lightbox-prev">&#10094;</a>
+    <a class="lightbox-next">&#10095;</a>
+  </div>
+
+  <script>
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const portfolioItems = document.querySelectorAll('[data-lightbox="portfolio"]');
+    let currentIndex = 0;
+
+    // Open lightbox
+    portfolioItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        currentIndex = index;
+        showLightbox();
+      });
+    });
+
+    function showLightbox() {
+      const img = portfolioItems[currentIndex].querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = img.alt;
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close lightbox
+    document.querySelector('.lightbox-close').addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Navigate lightbox
+    document.querySelector('.lightbox-prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+      showLightbox();
+    });
+
+    document.querySelector('.lightbox-next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % portfolioItems.length;
+      showLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'Escape') {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+        if (e.key === 'ArrowLeft') {
+          currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+          showLightbox();
+        }
+        if (e.key === 'ArrowRight') {
+          currentIndex = (currentIndex + 1) % portfolioItems.length;
+          showLightbox();
+        }
+      }
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+
+</body>
+</html>

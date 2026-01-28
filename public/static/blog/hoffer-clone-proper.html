@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Proposal Sarasota | Acromatico Photography</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- PhotoSwipe CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #3a3a3a;
+            background: #fff;
+        }
+
+        /* Hamburger Menu - Fixed Top Right */
+        .menu-trigger {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-trigger img {
+            width: 45px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        /* Off-Canvas Menu */
+        .off-canvas-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .off-canvas-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .off-canvas-menu {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            max-width: 90%;
+            height: 100vh;
+            background: #fff;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 999;
+            overflow-y: auto;
+            padding: 40px 30px;
+        }
+
+        .off-canvas-menu.active {
+            right: 0;
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 30px;
+            color: #728012;
+            padding: 5px 10px;
+        }
+
+        .menu-logo {
+            text-align: center;
+            margin: 40px 0 30px 0;
+        }
+
+        .menu-logo h2 {
+            font-size: 3em;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            color: #54595F;
+            margin-bottom: -10px;
+        }
+
+        .menu-logo h3 {
+            font-size: 15px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #728012;
+        }
+
+        .menu-divider {
+            width: 60%;
+            height: 1px;
+            background: #e7e7e7;
+            margin: 15px auto;
+        }
+
+        .menu-nav ul {
+            list-style: none;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .menu-nav li {
+            padding: 10px 0;
+        }
+
+        .menu-nav a {
+            font-size: 20px;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: #728012;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .menu-nav a:hover {
+            color: #b7c726;
+        }
+
+        /* Hero Section - Full Screen */
+        .hero-section {
+            min-height: 100vh;
+            background-image: url('https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .main-content h1 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #3a3a3a;
+            text-align: center;
+        }
+
+        .main-content h2 {
+            font-size: 30px;
+            font-weight: 600;
+            margin: 50px 0 20px 0;
+            color: #3a3a3a;
+            text-align: center;
+        }
+
+        .main-content p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #3a3a3a;
+        }
+
+        /* Gallery - Masonry Layout (like Hoffer) */
+        .gallery-container {
+            column-count: 2;
+            column-gap: 10px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                column-count: 1;
+            }
+
+            .main-content h1 {
+                font-size: 30px;
+            }
+
+            .main-content h2 {
+                font-size: 25px;
+            }
+
+            .hero-section {
+                min-height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Trigger -->
+    <button class="menu-trigger" id="menuTrigger">
+        <img src="https://hofferphotography.com/wp-content/uploads/2019/12/rectangle.png" alt="Menu">
+    </button>
+
+    <!-- Off-Canvas Overlay -->
+    <div class="off-canvas-overlay" id="offCanvasOverlay"></div>
+
+    <!-- Off-Canvas Menu -->
+    <div class="off-canvas-menu" id="offCanvasMenu">
+        <button class="menu-close" id="menuClose">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="menu-logo">
+            <a href="/">
+                <h2>Acromatico</h2>
+                <h3>photography</h3>
+            </a>
+        </div>
+
+        <div class="menu-divider"></div>
+
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="/photography">Portfolios</a></li>
+                <li><a href="/blog">Recent Work</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/academy">FAQ</a></li>
+                <li><a href="/prints">Reviews</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Full Screen Hero -->
+    <div class="hero-section"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Surprise Proposal Sarasota | A Romantic Moment to Remember</h1>
+
+        <p>When Isander reached out to me about planning a surprise proposal at the beautiful Selby Gardens in Sarasota, I knew we were in for something special. The gardens provide the perfect backdrop for romantic moments, with lush tropical plants, serene water features, and hidden corners perfect for an intimate proposal.</p>
+
+        <p>Isander wanted to create a moment that Natalie would never forget. We carefully planned every detail, from the timing to ensure perfect lighting, to the exact spot where he would get down on one knee. The anticipation was building as we waited for the perfect moment.</p>
+
+        <!-- Gallery 1 -->
+        <div class="gallery-container" id="gallery-1">
+            <a class="gallery-item pswp-gallery__item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" data-pswp-width="1920" data-pswp-height="1280" target="_blank">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" alt="Surprise proposal moment">
+            </a>
+            <a class="gallery-item pswp-gallery__item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" data-pswp-width="1920" data-pswp-height="1280" target="_blank">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" alt="Happy couple after proposal">
+            </a>
+            <a class="gallery-item pswp-gallery__item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" data-pswp-width="1920" data-pswp-height="1280" target="_blank">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" alt="Engagement ring closeup">
+            </a>
+            <a class="gallery-item pswp-gallery__item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" data-pswp-width="1920" data-pswp-height="1280" target="_blank">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-2-2.jpeg" alt="Celebrating the engagement">
+            </a>
+        </div>
+
+        <h2>The Perfect Moment</h2>
+        <p>As they walked through the gardens, I positioned myself discreetly to capture every emotion. When Isander got down on one knee, Natalie's face lit up with pure joy and surprise. The golden hour light filtering through the palm trees created a magical atmosphere that you can see in these photos.</p>
+
+        <p>After the proposal, we spent some time capturing their happiness and excitement. The gardens offered countless beautiful spots for portraits, and the newly engaged couple was glowing with love and joy.</p>
+
+        <!-- Gallery 2 -->
+        <div class="gallery-container" id="gallery-2">
+            <a class="gallery-item pswp-gallery__item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" data-pswp-width="1920" data-pswp-height="1280" target="_blank">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-3-2.jpeg" alt="Couple walking in gardens">
+            </a>
+            <a class="gallery-item pswp-gallery__item" href="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" data-pswp-width="1920" data-pswp-height="1280" target="_blank">
+                <img src="https://acromatico.com/wp-content/uploads/2024/09/Selby-gardens-sarasota-proposal-engagement-photos-8-2.jpeg" alt="Ring detail shot">
+            </a>
+        </div>
+
+        <h2>Planning Your Own Surprise Proposal</h2>
+        <p>If you're planning a surprise proposal in Sarasota, Selby Gardens is an incredible location. The variety of settings within the gardens means you'll have plenty of options for both the proposal moment and follow-up photos. The best times to visit are early morning or late afternoon for the most beautiful light.</p>
+
+        <p>Whether you're planning a proposal, engagement session, or wedding photography in the Sarasota area, I'd love to help you capture these precious moments. Feel free to reach out to discuss your vision!</p>
+    </div>
+
+    <!-- PhotoSwipe JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js"></script>
+    
+    <script>
+        // Menu functionality
+        const menuTrigger = document.getElementById('menuTrigger');
+        const menuClose = document.getElementById('menuClose');
+        const offCanvasMenu = document.getElementById('offCanvasMenu');
+        const offCanvasOverlay = document.getElementById('offCanvasOverlay');
+
+        menuTrigger.addEventListener('click', () => {
+            offCanvasMenu.classList.add('active');
+            offCanvasOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMenu() {
+            offCanvasMenu.classList.remove('active');
+            offCanvasOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        menuClose.addEventListener('click', closeMenu);
+        offCanvasOverlay.addEventListener('click', closeMenu);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+
+        // PhotoSwipe Lightbox
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '.gallery-container',
+            children: 'a',
+            pswpModule: () => PhotoSwipe,
+            bgOpacity: 0.95,
+            showHideAnimationType: 'fade',
+            zoom: true,
+            loop: true,
+            pinchToClose: true,
+            closeOnVerticalDrag: true,
+            arrowKeys: true
+        });
+
+        lightbox.init();
+    </script>
+</body>
+</html>
