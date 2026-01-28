@@ -846,19 +846,31 @@
     </style>
 </head>
 <body>
-<!-- DYNAMIC HEADER & MENU - Loaded from /api/header API -->
-<div id="header-container"></div>
+<!-- Static Header with Logo and Hamburger -->
+<header class="site-header">
+  <a href="/">
+    <img src="/static/acromatico-logo-white.png" alt="Acromatico Photography" class="site-logo" />
+  </a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- DYNAMIC MOBILE MENU - Loaded from /api/mobile-menu API -->
+<div id="mobile-menu-container"></div>
 
 <script>
-// Load header dynamically from server
+// Load mobile menu dynamically from server
 (function() {
-  fetch('/api/header')
+  fetch('/api/mobile-menu')
     .then(response => response.text())
     .then(html => {
-      document.getElementById('header-container').innerHTML = html;
+      document.getElementById('mobile-menu-container').innerHTML = html;
       
       // Execute any scripts in the loaded HTML
-      const scripts = document.getElementById('header-container').querySelectorAll('script');
+      const scripts = document.getElementById('mobile-menu-container').querySelectorAll('script');
       scripts.forEach(script => {
         const newScript = document.createElement('script');
         if (script.src) {
@@ -869,7 +881,7 @@
         document.body.appendChild(newScript);
       });
     })
-    .catch(error => console.error('Header load error:', error));
+    .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
 </div>
