@@ -401,7 +401,7 @@ blog.get('/', async (c) => {
                 const date = formatDate(post.date);
                 
                 const card = document.createElement('a');
-                card.href = \`/blog/${post.slug}\`;
+                card.href = \`/blog/\${post.slug}\`;
                 card.className = 'card';
                 card.innerHTML = \`
                     <div class="card-img-wrapper">
