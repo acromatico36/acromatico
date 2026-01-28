@@ -2,274 +2,191 @@
 <html lang="en">
 <head>
 
-<style>
-/* CRITICAL CSS - Loads First to Prevent FOUC */
-body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; }
-
-/* Force hamburger menu visibility */
-.menu-toggle {
-    position: fixed !important;
-    top: 25px !important;
-    right: 30px !important;
-    z-index: 10000 !important;
-    background: rgba(0, 0, 0, 0.8) !important;
-    backdrop-filter: blur(10px) !important;
-    border-radius: 8px !important;
-    padding: 10px !important;
-    border: none !important;
-    cursor: pointer !important;
-    width: 40px !important;
-    height: 40px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 6px !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-.menu-toggle span {
-    display: block !important;
-    width: 30px !important;
-    height: 2px !important;
-    background: #ffffff !important;
-    border-radius: 2px !important;
-}
-
-/* Force header visibility */
-.site-header {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 9999 !important;
-    padding: 20px 40px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(20px) !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-}
-
-.site-logo {
-    max-width: 200px !important;
-    height: auto !important;
-    display: block !important;
-    opacity: 1 !important;
-}
-
-/* Force hero text visibility */
-.hero h1, .hero p {
-    position: relative !important;
-    z-index: 100 !important;
-    color: white !important;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-</style>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Acromatico Photography | Weddings, Engagements & Love Stories</title>
-    <meta name="description" content="Explore 501+ real wedding stories, engagement sessions, and love stories captured by Acromatico. Serving South Florida, NYC, and destinations worldwide.">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Blog - Acromatico Photography">
-    <meta property="og:description" content="501+ Real wedding stories and love stories captured worldwide">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://acromatico.com/blog">
-    
     <style>
+        /* CSS Variables - Acromatico Teal Branding */
+        :root {
+            --primary: #000000;
+            --accent: #4794A6;  /* Acromatico Teal */
+            --secondary: #666666;
+            --bg: #FAFAFA;
+            --text: #1D1D1F;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        :root {
-            --primary: #4794A6;
-            --accent: #5aa5b8;
-            --bg: #ffffff;
-            --text: #3a3a3a;
-        }
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             color: var(--text);
-            -webkit-font-smoothing: antialiased;
+            background: var(--bg);
+            line-height: 1.6;
         }
         
-/* Hero */
+        /* Header - Fixed with white translucent background */
+        .site-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 9999 !important;
+            padding: 20px 40px !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .site-logo {
+            max-width: 200px !important;
+            height: auto !important;
+            transition: all 0.3s !important;
+        }
+        
+        /* Hamburger Menu - Always Visible */
+        .menu-toggle {
+            position: fixed !important;
+            top: 25px !important;
+            right: 30px !important;
+            z-index: 10000 !important;
+            background: rgba(0, 0, 0, 0.6) !important;
+            backdrop-filter: blur(10px) !important;
+            border-radius: 8px !important;
+            padding: 10px !important;
+            border: none !important;
+            cursor: pointer !important;
+            width: 40px !important;
+            height: 40px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+        }
+        
+        .menu-toggle span {
+            display: block !important;
+            width: 30px !important;
+            height: 2px !important;
+            background: #ffffff !important;
+            transition: all 0.3s ease !important;
+            border-radius: 2px !important;
+        }
+        
+        .menu-toggle:hover {
+            background: rgba(71, 148, 166, 0.9) !important;
+        }
+        
+        /* Hero Section - Compact 300px Hoffer Style */
         .hero {
             position: relative;
-            min-height: 300px;
+            min-height: 300px;  /* Hoffer-inspired: compact, not full-screen */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, rgba(71, 148, 166, 0.85) 0%, rgba(90, 165, 184, 0.85) 100%),
-                        url('/static/images/no-logo/20th-anniversary-photo-session.jpeg') center/cover no-repeat;
             color: white;
-            padding: 6rem 5% 3rem;
-            margin-bottom: 3rem;
+            padding: 8rem 5% 3rem;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(71, 148, 166, 0.85) 0%, 
+                    rgba(71, 148, 166, 0.70) 100%),  /* Acromatico Teal */
+                url('/static/images/no-logo/20th-anniversary-photo-session.jpeg') 
+                    center/cover no-repeat;
         }
         
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);  /* Slightly darker for text readability */
             z-index: 1;
         }
         
-        .hero h1,
-        .hero p {
+        .hero > * {
             position: relative;
-            z-index: 10;
-            color: white !important;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 2;
         }
         
-
-        
-
-        
-
-
-        
-
-
-
-        .blog-card-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            flex: 1;
-        }
-        
-        .blog-card-category {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            z-index: 10;
-            background: #4794A6;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 3px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .blog-card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #3a3a3a;
-            line-height: 1.4;
-            margin: 0;
-        }
-        
-        .blog-card-excerpt {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.6;
-            flex: 1;
-        }
-        
-        .blog-card-date {
-            font-size: 0.85rem;
-            color: #4794A6;
-            font-weight: 500;
-            margin-top: auto;
-        }
-
-
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
-            font-weight: 700 !important;
-            letter-spacing: -0.02em !important;
-            margin-bottom: 0.75rem !important;
-            position: relative !important;
-            z-index: 10 !important;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+            color: white !important;
         }
         
         .hero p {
-            font-size: 1.1rem !important;
-            opacity: 1 !important;
-            max-width: 600px !important;
-            margin: 0 auto !important;
-            position: relative !important;
-            z-index: 10 !important;
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+            color: white !important;
         }
-
-        /* Filter Bar - Minimal dropdown */
+        
+        /* Filter Bar - Minimal Dropdown Style */
         .filter-bar {
-            padding: 2rem 5% 1rem;
-            text-align: center;
-            background: transparent;
-            max-width: 1240px;
-            margin: 0 auto;
+            position: sticky;
+            top: 80px;
+            background: white;
+            padding: 1.5rem 5%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             display: flex;
-            justify-content: space-between;
+            gap: 1.5rem;
             align-items: center;
-            gap: 1rem;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            z-index: 100;
         }
         
         .filter-dropdown {
             padding: 0.75rem 1.5rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 50px;
-            background: white;
-            color: var(--text);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--accent);
+            background: white;
             cursor: pointer;
-            transition: all 0.3s;
-            font-family: inherit;
+            transition: all 0.3s ease;
+            outline: none;
         }
         
         .filter-dropdown:hover,
         .filter-dropdown:focus {
-            border-color: #4794A6;
-            outline: none;
+            background: var(--accent);
+            color: white;
         }
         
-        .filter-btn {
-            display: none;
-        }
-        
-        /* Search Bar - Minimal */
+        /* Search Container */
         .search-container {
-            max-width: 400px;
-            margin: 0;
-            position: relative;
             flex: 1;
+            max-width: 400px;
         }
         
         .search-input {
             width: 100%;
             padding: 0.75rem 1.5rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            transition: border-color 0.3s;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
         }
         
         .search-input:focus {
-            outline: none;
-            border-color: #4794A6;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(71, 148, 166, 0.1);
         }
         
-        /* Blog Grid - Hoffer-inspired equal-height */
+        /* Blog Grid - Hoffer-Inspired Equal Heights */
         .masonry-container {
-            padding: 0 5%;
+            padding: 3rem 5%;
             max-width: 1240px;
             margin: 0 auto;
         }
@@ -278,30 +195,33 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
+            animation: fadeIn 0.6s ease-in;
         }
         
+        /* Blog Cards - Hoffer-Inspired Design */
         .blog-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 0;  /* Hoffer uses no border-radius */
             overflow: hidden;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
             text-decoration: none;
             color: var(--text);
-            display: block;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;  /* Equal heights */
         }
         
         .blog-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
         
         .blog-card-image {
             width: 100%;
-            aspect-ratio: 16/10;
+            height: 300px;  /* Fixed height like Hoffer */
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.3s ease;
         }
         
         .blog-card:hover .blog-card-image {
@@ -310,17 +230,21 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
         
         .blog-card-content {
             padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .blog-card-category {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--accent);  /* Acromatico Teal */
             color: white;
-            padding: 0.3rem 1rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            align-self: flex-start;
         }
         
         .blog-card-title {
@@ -328,12 +252,14 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
             font-weight: 600;
             line-height: 1.4;
             margin-bottom: 0.75rem;
+            color: var(--primary);
         }
         
         .blog-card-excerpt {
             color: var(--secondary);
             line-height: 1.6;
             font-size: 0.95rem;
+            flex: 1;
         }
         
         .blog-card-date {
@@ -379,76 +305,7 @@ body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'S
             to { transform: rotate(360deg); }
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .masonry-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .filter-btn {
-                padding: 0.6rem 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Hamburger Menu - Always Visible */
-        .menu-toggle {
-            position: fixed !important;
-            top: 25px !important;
-            right: 30px !important;
-            z-index: 10000 !important;
-            background: rgba(0, 0, 0, 0.6) !important;
-            backdrop-filter: blur(10px) !important;
-            border-radius: 8px !important;
-            padding: 10px !important;
-            border: none !important;
-            cursor: pointer !important;
-            width: 40px !important;
-            height: 40px !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 6px !important;
-        }
-        
-        .menu-toggle span {
-            display: block !important;
-            width: 30px !important;
-            height: 2px !important;
-            background: #ffffff !important;
-            transition: all 0.3s ease !important;
-            border-radius: 2px !important;
-        }
-        
-        .menu-toggle:hover {
-            background: rgba(71, 148, 166, 0.9) !important;
-        }
-        
-        .site-header {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            z-index: 9999 !important;
-            padding: 20px 40px !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(20px) !important;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        .site-logo {
-            max-width: 200px !important;
-            height: auto !important;
-            transition: all 0.3s !important;
-        }
-
-        
-        /* Responsive - Mobile adjustments */
+        /* Responsive - Mobile */
         @media (max-width: 768px) {
             .hero {
                 min-height: 250px;
