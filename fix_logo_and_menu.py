@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+Fix blog index:
+1. Add actual Acromatico logo image (not text)
+2. Fix hamburger menu functionality
+"""
+
+html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -313,3 +320,16 @@
     </script>
 </body>
 </html>
+"""
+
+# Write the fixed HTML
+with open('/home/user/webapp/public/static/blog-index.html', 'w') as f:
+    f.write(html_content)
+
+print("✅ FIXED LOGO AND MENU!")
+print("   1. Using actual Acromatico logo image (not text)")
+print("   2. Logo inverted to white for dark background")
+print("   3. Mobile menu functionality restored")
+print("   4. Hamburger button properly connected")
+print("")
+print("🔗 Test: http://localhost:3000/static/blog-index.html")
