@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+Add background image to hero section from blog posts
+"""
+
+html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -301,3 +306,16 @@
     </script>
 </body>
 </html>
+"""
+
+# Write the fixed HTML
+with open('/home/user/webapp/public/static/blog-index.html', 'w') as f:
+    f.write(html_content)
+
+print("✅ HERO BACKGROUND IMAGE ADDED!")
+print("   - Using first blog post image: rustic-barn-wedding-001.jpg")
+print("   - Dark overlay for text readability")
+print("   - Centered ACROMATICO logo with shadow")
+print("   - Full height hero (100vh)")
+print("")
+print("🔗 Test: http://localhost:3000/static/blog-index.html")
