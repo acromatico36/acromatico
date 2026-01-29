@@ -82,7 +82,18 @@
         
         /* NO HERO - Photography First */
         .hero {
-            display: none !important;  /* Remove hero completely */
+            display: none !important;
+            height: 0 !important;
+            min-height: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+            visibility: hidden !important;
+        }
+        
+        /* Filter bar - minimal, hidden by default */
+        .filter-bar {
+            display: none !important;
         }
         
         /* Filter Bar - Minimal Hoffer Style */
@@ -147,7 +158,7 @@
         .masonry-container {
             padding: 2rem 5% 4rem;
             max-width: 1240px;
-            margin: 0 auto;
+            margin: 80px auto 0;  /* 80px for fixed header */
         }
         
         .masonry-grid {
@@ -332,35 +343,12 @@
 
 
     
-    <!-- Hero -->
-    <section class="hero">
-        <h1>Love Stories</h1>
-        <p>501+ Real weddings, engagements, and moments that matter</p>
-    </section>
     
-    <!-- Filter Bar - Minimal dropdown style -->
-    <section class="filter-bar">
-        <select class="filter-dropdown" id="categoryFilter">
-            <option value="all">All Stories (501+)</option>
-            <option value="wedding">Weddings</option>
-            <option value="engagement">Engagements</option>
-            <option value="family">Family</option>
-            <option value="portrait">Portraits</option>
-            <option value="proposal">Proposals</option>
-        </select>
-        
-        <div class="search-container">
-            <input 
-                type="text" 
-                class="search-input" 
-                placeholder="Search stories..." 
-                id="searchInput"
-            >
-        </div>
-    </section>
+    
+    
     
     <!-- Loading State -->
-    <div class="loading" id="loading">
+    <div class="loading" id="loading" style="margin-top: 100px;">
         <div class="spinner"></div>
         <p>Loading 501 stories...</p>
     </div>
