@@ -29,12 +29,12 @@ export const mobileMenuHTML = `
     
     <nav class="mobile-menu-nav">
       <ul>
-        <li><a href="/">Portfolios</a></li>
-        <li><a href="/static/blog-index.html">Recent Work</a></li>
-        <li><a href="/our-story">About Us</a></li>
+        <li><a href="/">PORTFOLIOS</a></li>
+        <li><a href="/static/blog-index.html">RECENT WORK</a></li>
+        <li><a href="/our-story">ABOUT US</a></li>
         <li><a href="/faq">FAQ</a></li>
-        <li><a href="/photography">Pricing</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/photography">PRICING</a></li>
+        <li><a href="/contact">CONTACT</a></li>
       </ul>
     </nav>
     
