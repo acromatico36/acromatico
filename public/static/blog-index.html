@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Acromatico Photography</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -17,40 +18,234 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
             overflow-x: hidden;
             background: #000;
             color: white;
         }
         
-        /* HAMBURGER MENU - FIXED TOP RIGHT */
-        #menuToggle {
+        /* EXACT HAMBURGER FROM BLOG POSTS */
+        .menu-toggle {
             position: fixed;
-            top: 24px;
-            right: 24px;
-            width: 48px;
-            height: 48px;
-            background: var(--accent);
+            top: 25px;
+            right: 30px;
+            z-index: 10000;
+            background: transparent;
             border: none;
-            border-radius: 8px;
             cursor: pointer;
-            z-index: 1000;
+            width: 40px;
+            height: 40px;
+            padding: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 6px;
             transition: all 0.3s ease;
         }
         
-        #menuToggle:hover {
-            transform: scale(1.05);
+        .menu-toggle span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
         }
         
-        #menuToggle i {
+        .menu-toggle:hover span {
+            background: #4794A6;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        /* EXACT DRAWER FROM BLOG POSTS */
+        .ast-mobile-popup-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 420px;
+            height: 100%;
+            background: #f8f8f8;
+            z-index: 9998;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+        }
+        
+        .ast-mobile-popup-drawer.active {
+            right: 0;
+        }
+        
+        .ast-mobile-popup-inner {
+            padding: 60px 50px 40px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+        
+        .mobile-menu-logo {
+            max-width: 180px;
+            margin: 0 auto 30px auto;
+            filter: none;
+            text-align: center;
+        }
+        
+        .mobile-menu-logo img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .mobile-menu-search {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .mobile-menu-search input {
+            width: 100%;
+            padding: 15px 45px 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: #4a4a4a;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-search input:focus {
+            outline: none;
+            border-color: #4794A6;
+            box-shadow: 0 0 0 3px rgba(71, 148, 166, 0.1);
+        }
+        
+        .mobile-menu-search input::placeholder {
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+        }
+        
+        .mobile-menu-search button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu-search button:hover {
+            color: #4794A6;
+        }
+        
+        .mobile-menu-nav {
+            flex: 1;
+        }
+        
+        .mobile-menu-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .mobile-menu-nav li {
+            margin-bottom: 8px;
+        }
+        
+        .mobile-menu-nav a {
+            display: inline-block;
+            padding: 18px 0;
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .mobile-menu-nav a:hover,
+        .mobile-menu-nav a.active {
+            color: #4794A6;
+        }
+        
+        .mobile-menu-footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        .mobile-menu-tagline {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 20px;
+        }
+        
+        .mobile-menu-social {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .mobile-menu-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4a4a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
-        /* HERO SECTION WITH BACKGROUND IMAGE */
+        .mobile-menu-social a:hover {
+            background: #4794A6;
+            transform: translateY(-3px);
+        }
+        
+        .ast-mobile-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9997;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .ast-mobile-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* HERO SECTION */
         .hero {
             height: 100vh;
             position: relative;
@@ -62,7 +257,6 @@
             overflow: hidden;
         }
         
-        /* Dark overlay for readability */
         .hero::before {
             content: '';
             position: absolute;
@@ -79,12 +273,10 @@
             z-index: 2;
         }
         
-        /* ACTUAL LOGO IMAGE */
         .hero-logo {
             max-width: 400px;
             width: 80%;
             height: auto;
-            margin-bottom: 24px;
             filter: brightness(0) invert(1);
             animation: fadeInUp 1s ease;
         }
@@ -92,23 +284,17 @@
         .hero-content p {
             font-size: 28px;
             font-weight: 300;
-            margin-bottom: 48px;
+            margin-top: 24px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
             animation: fadeInUp 1s ease 0.2s both;
         }
         
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        /* BLOG GRID - STARTS AFTER HERO */
+        /* BLOG GRID */
         .blog-container {
             background: white;
             min-height: 100vh;
@@ -145,12 +331,10 @@
             transition: all 0.4s ease;
         }
         
-        /* COLOR BY DEFAULT */
         .blog-card .blog-image {
             filter: none;
         }
         
-        /* B&W ON HOVER */
         .blog-card:hover .blog-image {
             filter: grayscale(100%);
             transform: scale(1.05);
@@ -163,7 +347,6 @@
             right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             padding: 30px 20px;
-            transition: all 0.4s ease;
         }
         
         .blog-title {
@@ -173,173 +356,27 @@
             line-height: 1.4;
         }
         
-        /* MOBILE */
         @media (max-width: 768px) {
-            .hero-logo {
-                max-width: 280px;
-            }
-            .hero-content p {
-                font-size: 21px;
-            }
-            .blog-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            #menuToggle {
-                top: 16px;
-                right: 16px;
-            }
+            .hero-logo { max-width: 280px; }
+            .hero-content p { font-size: 21px; }
+            .blog-grid { grid-template-columns: 1fr; gap: 30px; }
+            .menu-toggle { top: 16px; right: 16px; }
         }
         
         @media (min-width: 769px) and (max-width: 1024px) {
-            .blog-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* MOBILE MENU DRAWER STYLES - CRITICAL! */
-        .ast-mobile-popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        
-        .ast-mobile-popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .ast-mobile-popup-drawer {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 320px;
-            max-width: 85vw;
-            background: white;
-            z-index: 1001;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            overflow-y: auto;
-            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .ast-mobile-popup-drawer.active {
-            transform: translateX(0);
-        }
-        
-        .ast-mobile-popup-inner {
-            padding: 24px;
-        }
-        
-        .mobile-menu-logo {
-            margin-bottom: 32px;
-            text-align: center;
-        }
-        
-        .mobile-menu-logo img {
-            max-width: 180px;
-            height: auto;
-        }
-        
-        .mobile-menu-search {
-            position: relative;
-            margin-bottom: 32px;
-        }
-        
-        .mobile-menu-search input {
-            width: 100%;
-            padding: 12px 40px 12px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-search input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(71, 148, 166, 0.1);
-        }
-        
-        .mobile-menu-search button {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #666;
-            cursor: pointer;
-        }
-        
-        .mobile-menu-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .mobile-menu-nav ul li {
-            margin-bottom: 8px;
-        }
-        
-        .mobile-menu-nav ul li a {
-            display: block;
-            padding: 12px 16px;
-            color: #1d1d1f;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 500;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-nav ul li a:hover {
-            background: #f5f5f5;
-            color: var(--accent);
-        }
-        
-        .mobile-menu-footer {
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .mobile-menu-tagline {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 16px;
-        }
-        
-        .mobile-menu-social {
-            display: flex;
-            gap: 16px;
-        }
-        
-        .mobile-menu-social a {
-            color: #666;
-            transition: color 0.3s ease;
-        }
-        
-        .mobile-menu-social a:hover {
-            color: var(--accent);
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
-    <!-- HAMBURGER MENU BUTTON -->
-    <button id="menuToggle" aria-label="Menu">
-        <i class="fas fa-bars"></i>
+    <!-- EXACT HAMBURGER FROM BLOG POSTS -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
     </button>
     
-    <!-- HERO SECTION WITH ACTUAL LOGO -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <img src="/static/acromatico-logo-black.png" alt="Acromatico Photography" class="hero-logo">
@@ -356,90 +393,48 @@
         </div>
     </div>
     
-    <!-- MOBILE MENU (injected from API) -->
+    <!-- DYNAMIC MOBILE MENU - Loaded from /api/mobile-menu API -->
     <div id="mobile-menu-container"></div>
     
-    <!-- FOOTER (injected from API) -->
+    <!-- FOOTER -->
     <div id="footer-container"></div>
     
     <script>
         console.log('🚀 Blog index initializing...');
         
-        // Fetch and inject mobile menu
-        fetch('/api/mobile-menu')
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById('mobile-menu-container').innerHTML = html;
-                console.log('✅ Mobile menu HTML loaded');
-                
-                // Wait a moment for scripts to execute
-                setTimeout(() => {
-                    const drawer = document.getElementById('drawer');
-                    const overlay = document.getElementById('overlay');
-                    const menuToggle = document.getElementById('menuToggle');
+        // Load mobile menu dynamically from server - EXACT SAME AS BLOG POSTS
+        (function() {
+            fetch('/api/mobile-menu')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('mobile-menu-container').innerHTML = html;
+                    console.log('✅ Mobile menu loaded');
                     
-                    if (!drawer || !overlay || !menuToggle) {
-                        console.error('❌ Missing menu elements');
-                        return;
-                    }
-                    
-                    console.log('✅ Menu elements found, setting up toggle');
-                    
-                    // Setup toggle function
-                    function toggleMenu() {
-                        const isActive = drawer.classList.contains('active');
-                        console.log('🍔 Menu toggle clicked, isActive:', isActive);
-                        
-                        if (isActive) {
-                            drawer.classList.remove('active');
-                            overlay.classList.remove('active');
-                            menuToggle.classList.remove('active');
-                            document.body.style.overflow = '';
-                            console.log('✅ Menu closed');
+                    // Execute any scripts in the loaded HTML
+                    const scripts = document.getElementById('mobile-menu-container').querySelectorAll('script');
+                    scripts.forEach(script => {
+                        const newScript = document.createElement('script');
+                        if (script.src) {
+                            newScript.src = script.src;
                         } else {
-                            drawer.classList.add('active');
-                            overlay.classList.add('active');
-                            menuToggle.classList.add('active');
-                            document.body.style.overflow = 'hidden';
-                            console.log('✅ Menu opened');
+                            newScript.textContent = script.textContent;
                         }
-                    }
-                    
-                    // Attach click handler to hamburger
-                    menuToggle.addEventListener('click', toggleMenu);
-                    console.log('✅ Hamburger click listener attached');
-                    
-                    // Close on overlay click
-                    overlay.addEventListener('click', toggleMenu);
-                    
-                    // Close on ESC key
-                    document.addEventListener('keydown', (e) => {
-                        if (e.key === 'Escape' && drawer.classList.contains('active')) {
-                            toggleMenu();
-                        }
+                        document.body.appendChild(newScript);
                     });
-                    
-                    // Close menu when clicking menu links
-                    const menuLinks = drawer.querySelectorAll('a');
-                    menuLinks.forEach(link => {
-                        link.addEventListener('click', () => {
-                            setTimeout(toggleMenu, 300);
-                        });
-                    });
-                    
-                    console.log('✅ Mobile menu fully initialized');
-                }, 100);
-            })
-            .catch(err => console.error('❌ Mobile menu error:', err));
+                })
+                .catch(error => console.error('❌ Mobile menu error:', error));
+        })();
         
-        // Fetch and inject footer
-        fetch('/api/footer')
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById('footer-container').innerHTML = html;
-                console.log('✅ Footer loaded');
-            })
-            .catch(err => console.error('❌ Footer error:', err));
+        // Load footer dynamically from server
+        (function() {
+            fetch('/api/footer')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('footer-container').innerHTML = html;
+                    console.log('✅ Footer loaded');
+                })
+                .catch(error => console.error('❌ Footer error:', error));
+        })();
         
         // Fetch blog posts
         console.log('📥 Fetching blog posts...');
@@ -452,22 +447,18 @@
                 blogGrid.innerHTML = '';
                 
                 posts.forEach(post => {
-                    // Extract first image from content
                     let imageUrl = '';
                     
-                    // Try data-src first (lazy loading)
                     const dataSrcMatch = post.content.rendered.match(/data-src=["']([^"']+)["']/);
                     if (dataSrcMatch && dataSrcMatch[1] && !dataSrcMatch[1].includes('data:image')) {
                         imageUrl = dataSrcMatch[1];
                     } else {
-                        // Fallback to regular src
                         const srcMatch = post.content.rendered.match(/src=["']([^"']+)["']/);
                         if (srcMatch && srcMatch[1] && !srcMatch[1].includes('data:image')) {
                             imageUrl = srcMatch[1];
                         }
                     }
                     
-                    // Create card
                     const card = document.createElement('a');
                     card.className = 'blog-card';
                     card.href = `/static/blog/${post.slug}.html`;
@@ -486,11 +477,6 @@
             })
             .catch(err => {
                 console.error('❌ Error loading posts:', err);
-                document.getElementById('blog-grid').innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">
-                        <p>Error loading blog posts. Please refresh the page.</p>
-                    </div>
-                `;
             });
     </script>
 </body>
