@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+ADD PROPER DESKTOP NAVIGATION
+- Desktop (>768px): Logo + Full Nav Menu (Portfolio, Work, About, FAQ, Pricing, Contact)
+- Mobile (<=768px): Logo + Hamburger Menu
+"""
+
+html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -346,3 +353,16 @@
     </script>
 </body>
 </html>
+'''
+
+with open('/home/user/webapp/public/static/blog-index.html', 'w') as f:
+    f.write(html_content)
+
+print("✅ DESKTOP NAVIGATION ADDED!")
+print("\nDesktop (>768px):")
+print("  - Logo + Full Nav Menu visible")
+print("  - Hamburger hidden")
+print("\nMobile (<=768px):")
+print("  - Logo + Hamburger visible")
+print("  - Desktop nav hidden")
+print("\nTest: http://localhost:3000/static/blog-index.html")
