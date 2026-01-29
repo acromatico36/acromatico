@@ -235,18 +235,65 @@
             .then(res => res.text())
             .then(html => {
                 document.getElementById('mobile-menu-container').innerHTML = html;
-                console.log('✅ Mobile menu loaded with toggle functionality');
+                console.log('✅ Mobile menu HTML loaded');
                 
-                // Verify menu elements exist
-                const drawer = document.getElementById('drawer');
-                const overlay = document.getElementById('overlay');
-                const menuToggle = document.getElementById('menuToggle');
-                
-                if (drawer && overlay && menuToggle) {
-                    console.log('✅ All menu elements present');
-                } else {
-                    console.error('❌ Missing menu elements:', { drawer: !!drawer, overlay: !!overlay, menuToggle: !!menuToggle });
-                }
+                // Wait a moment for scripts to execute
+                setTimeout(() => {
+                    const drawer = document.getElementById('drawer');
+                    const overlay = document.getElementById('overlay');
+                    const menuToggle = document.getElementById('menuToggle');
+                    
+                    if (!drawer || !overlay || !menuToggle) {
+                        console.error('❌ Missing menu elements');
+                        return;
+                    }
+                    
+                    console.log('✅ Menu elements found, setting up toggle');
+                    
+                    // Setup toggle function
+                    function toggleMenu() {
+                        const isActive = drawer.classList.contains('active');
+                        console.log('🍔 Menu toggle clicked, isActive:', isActive);
+                        
+                        if (isActive) {
+                            drawer.classList.remove('active');
+                            overlay.classList.remove('active');
+                            menuToggle.classList.remove('active');
+                            document.body.style.overflow = '';
+                            console.log('✅ Menu closed');
+                        } else {
+                            drawer.classList.add('active');
+                            overlay.classList.add('active');
+                            menuToggle.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                            console.log('✅ Menu opened');
+                        }
+                    }
+                    
+                    // Attach click handler to hamburger
+                    menuToggle.addEventListener('click', toggleMenu);
+                    console.log('✅ Hamburger click listener attached');
+                    
+                    // Close on overlay click
+                    overlay.addEventListener('click', toggleMenu);
+                    
+                    // Close on ESC key
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape' && drawer.classList.contains('active')) {
+                            toggleMenu();
+                        }
+                    });
+                    
+                    // Close menu when clicking menu links
+                    const menuLinks = drawer.querySelectorAll('a');
+                    menuLinks.forEach(link => {
+                        link.addEventListener('click', () => {
+                            setTimeout(toggleMenu, 300);
+                        });
+                    });
+                    
+                    console.log('✅ Mobile menu fully initialized');
+                }, 100);
             })
             .catch(err => console.error('❌ Mobile menu error:', err));
         
