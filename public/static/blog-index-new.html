@@ -207,9 +207,6 @@
         <div class="blog-grid" id="blogGrid"></div>
     </div>
     
-    <!-- Footer Container -->
-    <div id="footer-container"></div>
-    
     <script>
         // Load mobile menu
         fetch('/api/mobile-menu')
@@ -225,12 +222,6 @@
                 });
             })
             .catch(e => console.error('Menu load error:', e));
-        
-        // Load footer
-        fetch('/api/footer')
-            .then(r => r.text())
-            .then(html => document.getElementById('footer-container').innerHTML = html)
-            .catch(e => console.error('Footer load error:', e));
         
         // Toggle mobile menu
         document.getElementById('menuToggle').addEventListener('click', () => {
