@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+FIX: Remove conflicting hamburger toggle - let mobile menu handle it
+The mobile menu already has its own toggle function that works with #drawer and #overlay
+"""
+
+html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -308,3 +314,13 @@
     </script>
 </body>
 </html>
+'''
+
+with open('/home/user/webapp/public/static/blog-index.html', 'w') as f:
+    f.write(html_content)
+
+print("✅ FIXED HAMBURGER MENU!")
+print("\nRemoved conflicting toggle listener")
+print("Mobile menu now handles toggle itself")
+print("Same behavior as blog posts")
+print("\nTest: http://localhost:3000/static/blog-index.html")
