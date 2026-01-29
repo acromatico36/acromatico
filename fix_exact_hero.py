@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+Fix blog index header to EXACTLY match homepage hero section
+- Full height hero (100vh) with centered ACROMATICO logo
+- Same font, same spacing, same gradient background
+- Hamburger fixed top-right
+"""
+
+html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -281,3 +289,17 @@
     </script>
 </body>
 </html>
+"""
+
+# Write the fixed HTML
+with open('/home/user/webapp/public/static/blog-index.html', 'w') as f:
+    f.write(html_content)
+
+print("✅ HERO SECTION FIXED!")
+print("   - Full height hero (100vh) with centered ACROMATICO logo")
+print("   - EXACT match to homepage styling")
+print("   - Same font, spacing, gradient background")
+print("   - Hamburger fixed top-right")
+print("   - Blog grid starts after hero")
+print("")
+print("🔗 Test: http://localhost:3000/static/blog-index.html")
