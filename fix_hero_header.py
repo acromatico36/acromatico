@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+SIMPLE HERO HEADER - Like Homepage
+- Centered ACROMATICO logo at top
+- Hamburger menu (top right)
+- Clean hero section
+- Then blog grid starts below
+"""
+
+html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -309,3 +318,15 @@
     </script>
 </body>
 </html>
+'''
+
+with open('/home/user/webapp/public/static/blog-index.html', 'w') as f:
+    f.write(html_content)
+
+print("✅ SIMPLE HERO HEADER!")
+print("\nLayout:")
+print("  - Centered ACROMATICO logo at top")
+print("  - Hamburger (fixed top-right)")
+print("  - Blog grid below")
+print("  - Clean and simple!")
+print("\nTest: http://localhost:3000/static/blog-index.html")
