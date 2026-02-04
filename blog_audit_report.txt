@@ -1,0 +1,194 @@
+FULL BLOG POST AUDIT REPORT
+======================================================================
+
+Total posts: 536
+Perfect posts: 499
+Posts with issues: 37
+
+ISSUE COUNTS:
+  MISSING_TITLE: 36
+  NO_CONTENT_SECTION: 30
+  NO_HERO_IMAGE: 26
+  LOW_IMAGE_COUNT_0: 6
+  LOW_IMAGE_COUNT_1: 1
+  LOW_WORD_COUNT_22: 1
+  LOW_IMAGE_COUNT_2: 1
+
+
+ALL PROBLEMATIC POSTS:
+----------------------------------------------------------------------
+
+NEW-CONTENT-SECTIONS.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+blog-index.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - LOW_IMAGE_COUNT_1
+  - LOW_WORD_COUNT_22
+
+blog-post-template-new.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+blog-template.html
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+blog-test.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - LOW_IMAGE_COUNT_0
+  - NO_CONTENT_SECTION
+
+blog-theme-master.html
+  - MISSING_TITLE
+
+css-debug-test.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+hoffer-clone-proper.html
+  - MISSING_TITLE
+  - NO_CONTENT_SECTION
+
+hoffer-exact-clone.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+hoffer-final.html
+  - MISSING_TITLE
+  - NO_CONTENT_SECTION
+
+hoffer-menu-clone.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+hoffer-menu-test.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+homepage-exact-clone.html
+  - MISSING_TITLE
+  - NO_CONTENT_SECTION
+
+homepage-perfect-clone.html
+  - MISSING_TITLE
+  - NO_CONTENT_SECTION
+
+hudson-valley-barn-engagement-kate-steve.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - LOW_IMAGE_COUNT_0
+  - NO_CONTENT_SECTION
+
+index-real.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+index-v2.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+
+index.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+madison-clone.html
+  - MISSING_TITLE
+  - NO_CONTENT_SECTION
+
+madison-complete-backup-20260125-041909.html
+  - MISSING_TITLE
+  - NO_CONTENT_SECTION
+
+madison-complete.html
+  - MISSING_TITLE
+
+madison-full-clone.html
+  - MISSING_TITLE
+  - LOW_IMAGE_COUNT_0
+  - NO_CONTENT_SECTION
+
+mobile-gallery-test.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+mobile-test-simple.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - LOW_IMAGE_COUNT_2
+  - NO_CONTENT_SECTION
+
+our-story-new.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+our-story-v2.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+
+our-story.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - LOW_IMAGE_COUNT_0
+
+photography-apple-ux-backup-20260121-200647.html
+  - MISSING_TITLE
+  - NO_CONTENT_SECTION
+
+photography-apple-ux-backup.html
+  - MISSING_TITLE
+  - NO_CONTENT_SECTION
+
+photography-apple-ux.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+
+photography-checkout.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - LOW_IMAGE_COUNT_0
+  - NO_CONTENT_SECTION
+
+photography-clean.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+photography-homepage-exact.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+photography.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+rustic-barn-wedding-at-rolling-meadow-farm-sade-luke.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - LOW_IMAGE_COUNT_0
+  - NO_CONTENT_SECTION
+
+surprise-proposal-sarasota-NEW.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
+
+test-lightbox.html
+  - MISSING_TITLE
+  - NO_HERO_IMAGE
+  - NO_CONTENT_SECTION
