@@ -302,7 +302,7 @@ def build_complete_post_html(post_data: Dict, checklist_item: Dict) -> str:
 
 <div class="hero-section">
 <h1 class="hero-title">''' + title + '''</h1>
-</section>
+</div>
 
 <div class="content-container">
 <div class="section-text">
