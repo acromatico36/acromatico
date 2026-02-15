@@ -8,30 +8,35 @@
    Cameran + Simon | Fort Lauderdale Beach Wedding | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Professional wedding photography at Lauderdale Beach. Cameran + Simon | Fort Lauderdale Beach Wedding." name="description"/>
-<meta content="Lauderdale Beach photographer, Wedding photography, Acromatico" name="keywords"/>
+<meta content="Our biggest wedding post EVER! Over 130 pictures and countless smiles. And talk about destination wedding! Cameran and Simon flew all the way from California to..." name="description"/>
+<meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
 <meta content="https://acromatico.com/blog/cameran-simon-fort-lauderdale-beach-wedding" property="og:url"/>
 <meta content="Cameran + Simon | Fort Lauderdale Beach Wedding" property="og:title"/>
-<meta content="Professional wedding photography at Lauderdale Beach. Cameran + Simon | Fort Lauderdale Beach Wedding." property="og:description"/>
-<meta content="/static/images/no-logo/cameran-simon-fort-lauderdale-beach-wedding.jpg" property="og:image"/>
+<meta content="Our biggest wedding post EVER! Over 130 pictures and countless smiles. And talk about destination wedding! Cameran and Simon flew all the way from California to..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
 <meta content="https://acromatico.com/blog/cameran-simon-fort-lauderdale-beach-wedding" property="twitter:url"/>
 <meta content="Cameran + Simon | Fort Lauderdale Beach Wedding" property="twitter:title"/>
-<meta content="Professional wedding photography at Lauderdale Beach. Cameran + Simon | Fort Lauderdale Beach Wedding." property="twitter:description"/>
-<meta content="/static/images/no-logo/cameran-simon-fort-lauderdale-beach-wedding.jpg" property="twitter:image"/>
+<meta content="Our biggest wedding post EVER! Over 130 pictures and countless smiles. And talk about destination wedding! Cameran and Simon flew all the way from California to..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
 <link href="https://acromatico.com/blog/cameran-simon-fort-lauderdale-beach-wedding" rel="canonical"/>
+<!-- Open Graph Extended -->
+<meta content="Photography" property="article:section"/>
+<meta content="Wedding Photography" property="article:tag"/>
+<meta content="South Florida Photographer" property="article:tag"/>
+<meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
+
    * {
             margin: 0;
             padding: 0;
@@ -49,10 +54,13 @@
         
         .hero-section {
             min-height: 100vh;
-            background-image: url('/static/images/no-logo/cameran-simon-fort-lauderdale-beach-wedding.jpg');
+            background-image: url('/static/images/no-logo/20th-anniversary-photo-session.jpeg');
             background-position: center center;
             background-size: cover;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-section::before {
@@ -62,7 +70,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.19);
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         .site-header {
@@ -446,6 +468,11 @@
                 column-count: 1;
             }
             
+            .hero-title {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+            
             .post-title {
                 font-size: 30px;
             }
@@ -463,6 +490,8 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
         }
         
         .gallery-image:hover {
@@ -474,9 +503,17 @@
             font-weight: 400;
             color: #2a2a2a;
             letter-spacing: -0.3px;
-            margin: 60px 0 30px 0;
+            margin: 80px 0 30px 0;
+            padding-top: 60px;
             text-align: center;
             line-height: 1.3em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .section-heading:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 60px;
         }
         
         .section-text {
@@ -487,6 +524,31 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        /* Featured Section Images */
+        .featured-image {
+            max-width: 1000px;
+            margin: 50px auto 60px auto;
+            text-align: center;
+        }
+        
+        .section-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 0 20px;
+            text-align: center;
         }
         
         /* CTA Sections */
@@ -665,6 +727,14 @@
             object-fit: cover;
             border: 5px solid #ffffff;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .author-bio img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.3);
+            border-color: #f0f0f0;
         }
         
         .author-info h3 {
@@ -833,15 +903,104 @@
                 height: 300px;
             }
         }
-  </style>
+  
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does wedding photography cost in South Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is included in your wedding photography packages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many photos will we receive from our wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you travel for destination weddings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your photography style?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far in advance should we book our wedding photographer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide a second photographer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if you're sick or unable to photograph our wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will we receive our wedding photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer albums and prints?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Acromatico Photography Blog Post",
-  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "headline": "Cameran + Simon | Fort Lauderdale Beach Wedding",
+  "description": "Our biggest wedding post EVER! Over 130 pictures and countless smiles. And talk about destination wedding! Cameran and Simon flew all the way from California to...",
   "image": [
-    "/static/images/no-logo/cameran-simon-fort-lauderdale-beach-wedding.jpg",
+    "https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-001.jpg",
     "https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-002.jpg",
     "https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-003.jpg",
     "https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-004.jpg",
@@ -853,7 +1012,7 @@
     "https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-010.jpg"
   ],
   "datePublished": "2024-01-15",
-  "dateModified": "2026-01-28",
+  "dateModified": "2026-02-15",
   "author": {
     "@type": "Person",
     "name": "Italo Campilii",
@@ -876,97 +1035,11 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/static/blog/cameran-simon-fort-lauderdale-beach-wedding.html"
+    "@id": "https://acromatico.com/blog/cameran-simon-fort-lauderdale-beach-wedding"
   }
 }
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does wedding photography cost at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wedding photography at Fort Lauderdale Beach typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.View our complete pricing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best time for a ceremony at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. Fort Lauderdale Beach's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Fort Lauderdale Beach allow drone photography?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Fort Lauderdale Beach permits drone photography with advance notice and proper licensing. The hotel's urban Fort Lauderdale Beach location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many guests can Fort Lauderdale Beach accommodate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Fort Lauderdale Beach can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the best photo locations at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a getting ready space at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Fort Lauderdale Beach offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long should I book photography for a Fort Lauderdale Beach wedding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We recommend 8-10 hours of coverage for Fort Lauderdale Beach weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Fort Lauderdale Beach have indoor backup for rain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Fort Lauderdale Beach is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What time should I schedule first look at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How far in advance should I book Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Fort Lauderdale Beach typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available."
-      }
-    }
-  ]
-}
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -986,20 +1059,38 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Acromatico Photography Blog Post",
-      "item": "https://acromatico.com/static/blog/cameran-simon-fort-lauderdale-beach-wedding.html"
+      "name": "Cameran + Simon | Fort Lauderdale Beach Wedding",
+      "item": "https://acromatico.com/blog/cameran-simon-fort-lauderdale-beach-wedding"
     }
   ]
 }
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ImageObject",
-  "url": "/static/images/no-logo/cameran-simon-fort-lauderdale-beach-wedding.jpg",
-  "caption": "Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 1",
-  "description": "Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 1"
+  "@type": "LocalBusiness",
+  "name": "Acromatico Photography",
+  "image": "https://acromatico.com/static/acromatico-logo-dark.png",
+  "description": "Professional wedding and portrait photography in South Florida and NYC",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.7617",
+    "longitude": "-80.1918"
+  },
+  "url": "https://acromatico.com",
+  "telephone": "+1-305-555-0100",
+  "priceRange": "$$$$",
+  "areaServed": ["Miami", "South Florida", "New York City"],
+  "servesCuisine": "Photography Services"
 }
-</script></head>
+</script>
+</head>
 <body>
 <!-- Static Header with Logo and Hamburger -->
 <header class="site-header">
@@ -1039,37 +1130,25 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-</div>
-<section class="hero-section">
-<h1 class="hero-title">Cameran + Simon | Fort Lauderdale Beach Wedding</h1></section>
+
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-001.jpg');">
+<h1 class="hero-title">Cameran + Simon | Fort Lauderdale Beach Wedding</h1>
+</section>
+
 <div class="content-container">
-<h2 class="section-heading">The Emotional Ceremony</h2>
-<div class="section-text">
-<p>Cameran's wedding was a beautiful blend of tradition and personal touches. The couple wrote their own vows, creating one of the most heartfelt moments of the day. As a wedding photographer, I've witnessed countless ceremonies, but the emotion in this room was palpable.</p>
-<p>the venue's wedding space features 20-foot ceilings with original exposed brick and massive windows that flood the room with natural light. This architectural beauty meant we didn't need to rely on flash photography, allowing for more authentic, documentary-style images that captured the genuine emotions of the moment.</p>
-<p>Cameran and Simon's walk down the aisle created the kind of authentic moments that great wedding photography is built on. The industrial setting provided a stunning contrast to the softness and romance of the wedding, creating images with both drama and intimacy.</p>
+<div class="post-intro">
+Our biggest wedding post EVER! Over 130 pictures and countless smiles. And talk about destination wedding! Cameran and Simon flew all the way from California to get married in South Florida, while the rest of their global family flew as far as from London! It was the most relaxing, laid back, emotional and sentimental wedding we have attended to so far. These English / American folks had the best bride and groom dedications we’ve ever heard in a wedding – period. We’re so happy for these two, they look so great together! Enjoy the set, more pictures coming soon to our print store!
+
+<a href="http://images.galaxyimage.com/Weddings/Cameran-and-Simon/16983354_vpd6BV#1286555915_hMz3nMZ" target="_blank">:: GET YOUR PRINTS HERE  ::</a>
+
+ 
+
+<img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-001.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-002.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-003.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-004.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-005.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-006.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-007.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-008.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-009.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-010.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-011.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-012.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-013.jpg" alt="undefined" width="910" height="300" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/300;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-014.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-015.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-016.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-017.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-018.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-019.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-020.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-021.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-022.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-023.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-024.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-025.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-026.jpg" alt="undefined" width="910" height="610" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/610;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-027.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-028.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-029.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-030.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-031.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-032.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-033.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-034.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-035.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-036.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-037.jpg" alt="undefined" width="910" height="415" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/415;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-038.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-039.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-040.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-041.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-042.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-043.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-044.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-045.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-046.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-047.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-048.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-049.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-050.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-051.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-052.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-053.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-054.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-055.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-056.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-057.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-058.jpg" alt="undefined" width="910" height="610" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/610;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-059.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-060.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-061.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-062.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-063.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-064.jpg" alt="undefined" width="910" height="725" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/725;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-065.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-066.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-067.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-068.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-069.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-070.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-071.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-072.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-073.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-074.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-075.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-076.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-077.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-078.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-079.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-080.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-081.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-082.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-083.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-084.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-085.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-086.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-087.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-088.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-089.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-090.jpg" alt="undefined" width="910" height="568" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/568;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-092.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-093.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-094.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-095.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-096.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-097.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-098.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-099.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-100.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-101.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-102.jpg" alt="undefined" width="910" height="675" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/675;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-103.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-104.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-105.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-106.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-107.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-108.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-109.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-110.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-111.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-112.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-113.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-114.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-115.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-116.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-117.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-118.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /><img decoding="async" title="undefined" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-119.jpg" alt="undefined" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" />
 </div>
-<h2 class="section-heading">Couple Portraits at Golden Hour</h2>
-<div class="section-text">
-<p>One of the advantages of this session at the venue is its proximity to beautiful natural surroundings. After the wedding, we stole Cameran and Simon away for twenty minutes of golden hour portraits—a decision that resulted in some of the most stunning images of their entire day.</p>
-<p>For couples planning their the venue wedding, I always recommend building in 20-30 minutes for golden hour portraits if your timing allows. The combination of industrial architecture and natural beauty creates incredibly versatile backdrops for wedding photography.</p>
-<p>Cameran and Simon were naturals in front of the camera, laughing and enjoying each other's company while we captured everything from dramatic wide shots showcasing the venue's architecture to intimate close-ups that highlighted their genuine connection.</p>
-</div>
-<h2 class="section-heading">Reception Celebration</h2>
-<div class="section-text">
-<p>The celebration at the venue was everything a wedding should be—elegant, fun, and filled with unforgettable moments. The exposed brick walls and industrial lighting created an atmosphere that was both sophisticated and warm, perfect for both the formal dinner service and the energetic dancing that followed.</p>
-<p>Cameran and Simon's first dance was followed by heartfelt toasts from family and friends, each sharing stories that highlighted the couple's journey together. The dance floor stayed packed all night, with guests celebrating under the romantic glow of string lights suspended from the high ceilings.</p>
-<p>the venue's in-house catering team provided a delicious farm-to-table menu that perfectly complemented the venue's rustic-elegant aesthetic. The combination of excellent food, beautiful space, and joyful celebration created an atmosphere that was both relaxed and special.</p>
-</div>
-<h2 class="section-heading">Details That Made the Day Special</h2>
-<div class="section-text">
-<p>Cameran and Simon incorporated several personal touches that made their the venue wedding uniquely theirs. From custom cocktail napkins featuring their hashtag to centerpieces made from locally-sourced flowers, every detail reflected their style and personality.</p>
-<p>The couple chose a color palette of deep burgundy, sage green, and gold that beautifully complemented the venue's industrial aesthetic. The bouquet featured garden roses, eucalyptus, and seasonal blooms that added organic texture to the industrial setting.</p>
-<p>One of my favorite details was their guest book alternative—a vintage camera where guests could leave Polaroid photos and messages. This interactive element not only provided entertainment but created a keepsake that Cameran and Simon will treasure for years to come.</p>
-</div>
+
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="/static/images/no-logo/cameran-simon-fort-lauderdale-beach-wedding.jpg">
-<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 1" class="gallery-image" loading="lazy" src="/static/images/no-logo/cameran-simon-fort-lauderdale-beach-wedding.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-001.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-001.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-002.jpg">
 <img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-002.jpg"/>
@@ -1218,143 +1297,356 @@
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-050.jpg">
 <img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-050.jpg"/>
 </a>
-</div><div class="cta-section mid-post"><h3>Planning Your Wedding?</h3><p>Let's create stunning photos that tell your unique love story. Award-winning wedding photography with a photojournalistic style that captures authentic moments.</p><a class="cta-button" href="/photography">View Packages &amp; Pricing</a></div><div class="faq-section" itemscope="" itemtype="https://schema.org/FAQPage">
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-051.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-051.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-052.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-052.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-053.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-053.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-054.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-054.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-055.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-055.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-056.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-056.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-057.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 57" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-057.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-058.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 58" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-058.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-059.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 59" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-059.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-060.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 60" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-060.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-061.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 61" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-061.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-062.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 62" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-062.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-063.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 63" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-063.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-064.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 64" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-064.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-065.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 65" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-065.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-066.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 66" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-066.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-067.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 67" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-067.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-068.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 68" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-068.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-069.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 69" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-069.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-070.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 70" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-070.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-071.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 71" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-071.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-072.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 72" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-072.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-073.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 73" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-073.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-074.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 74" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-074.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-075.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 75" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-075.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-076.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 76" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-076.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-077.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 77" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-077.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-078.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 78" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-078.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-079.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 79" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-079.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-080.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 80" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-080.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-081.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 81" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-081.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-082.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 82" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-082.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-083.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 83" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-083.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-084.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 84" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-084.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-085.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 85" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-085.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-086.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 86" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-086.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-087.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 87" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-087.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-088.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 88" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-088.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-089.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 89" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-089.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-090.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 90" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-090.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-092.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 91" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-092.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-093.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 92" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-093.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-094.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 93" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-094.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-095.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 94" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-095.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-096.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 95" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-096.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-097.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 96" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-097.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-098.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 97" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-098.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-099.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 98" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-099.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-100.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 99" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-100.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-101.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 100" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-101.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-102.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 101" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-102.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-103.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 102" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-103.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-104.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 103" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-104.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-105.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 104" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-105.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-106.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 105" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-106.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-107.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 106" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-107.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-108.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 107" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-108.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-109.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 108" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-109.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-110.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 109" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-110.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-111.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 110" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-111.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-112.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 111" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-112.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-113.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 112" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-113.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-114.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 113" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-114.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-115.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 114" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-115.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-116.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 115" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-116.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-117.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 116" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-117.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-118.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 117" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-118.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-119.jpg">
+<img alt="Cameran + Simon | Fort Lauderdale Beach Wedding - Photo 118" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Fort-Lauderdale-Wedding-119.jpg"/>
+</a>
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+<h2 style="font-size: 36px; font-weight: 400; text-align: center; margin-bottom: 40px; color: #2a2a2a;">Frequently Asked Questions</h2>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How much does wedding photography cost at Fort Lauderdale Beach?
+      How much does wedding photography cost in South Florida?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Wedding photography at Fort Lauderdale Beach typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.
-       <a href="/photography">
-        View our complete pricing
-       </a>
-       .
+       Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What's the best time for a ceremony at Fort Lauderdale Beach?
+      What is included in your wedding photography packages?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. Fort Lauderdale Beach's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits.
+       All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Fort Lauderdale Beach allow drone photography?
+      How many photos will we receive from our wedding?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Fort Lauderdale Beach permits drone photography with advance notice and proper licensing. The hotel's urban Fort Lauderdale Beach location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images.
+       You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How many guests can Fort Lauderdale Beach accommodate?
+      Do you travel for destination weddings?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Fort Lauderdale Beach can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity.
+       Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What are the best photo locations at Fort Lauderdale Beach?
+      What is your photography style?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options.
+       Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Is there a getting ready space at Fort Lauderdale Beach?
+      How far in advance should we book our wedding photographer?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Fort Lauderdale Beach offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen.
+       We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How long should I book photography for a Fort Lauderdale Beach wedding?
+      Do you provide a second photographer?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       We recommend 8-10 hours of coverage for Fort Lauderdale Beach weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing.
+       Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Fort Lauderdale Beach have indoor backup for rain?
+      What happens if you're sick or unable to photograph our wedding?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Absolutely. Fort Lauderdale Beach is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine.
+       We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What time should I schedule first look at Fort Lauderdale Beach?
+      When will we receive our wedding photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM.
+       You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How far in advance should I book Fort Lauderdale Beach?
+      Do you offer albums and prints?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Fort Lauderdale Beach typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available.
+       Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs.
       </p>
 </div>
 </div>
-</div><div class="author-bio"><div class="author-headshots">
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio">
+<div class="author-headshots">
 <img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
 <img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
-</div><div class="author-content">
-<h3 style="color: #ffffff;">About Acromatico Photography</h3>
-<p style="color: #ffffff;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
+</div>
+<div class="author-content">
+<h3 style="color: #ffffff; font-size: 32px; margin-bottom: 25px;">About Acromatico Photography</h3>
+<p style="color: #ffffff; margin-bottom: 25px;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
 <p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
-</div></div><div class="related-posts">
-<h2>
-     Related Sessions
-    </h2>
+</div>
+</div>
+
+<!-- Related Posts -->
+<div class="related-posts">
+<h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/newborn-session-sofia.html">
-<img alt="Newborn Session | Sofia" loading="lazy" src="https://acromatico.com/wp-content/uploads/2018/05/newborn-session-001.jpg"/>
-<h3>Newborn Session | Sofia</h3>
+<a href="/static/blog/adriana-francisco-bill-baggs-state-park-after-wedding-session.html">
+<img alt="Adriana + Francisco | Bill Baggs State Park After Wedding Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/02/Bill-Baggs-State-Park-After-Wedding-Session-001.jpg"/>
+<h3>Adriana + Francisco | Bill Baggs State Park After Wedding Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/gina-moe-tree-tops-park-engagement-session.html">
-<img alt="gina + moe | tree tops park engagement session" loading="lazy" src="https://acromatico.com/wp-content/uploads/tree-tops-park-engagement-1.jpg"/>
-<h3>gina + moe | tree tops park engagement session</h3>
+<a href="/static/blog/alyssa-don-the-mayfair-hotel-wedding.html">
+<img alt="Alyssa + Don | The Mayfair Hotel Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/11/Mayfair-Hotel-Coral-Gables-Wedding-001.jpg"/>
+<h3>Alyssa + Don | The Mayfair Hotel Wedding</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/virginia-family-session-the-garcias.html">
-<img alt="Virginia Family Session | The Garcia’s" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/03/Virginia-Family-Session-001-2-1024x682.jpg"/>
-<h3>Virginia Family Session | The Garcia’s</h3>
+<a href="/static/blog/amanda-laurent-key-biscayne-wedding.html">
+<img alt="Amanda + Laurent | Key Biscayne Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/Amanda-Laurent-W-1.jpg"/>
+<h3>Amanda + Laurent | Key Biscayne Wedding</h3>
 </a>
 </article>
 </div>
-</div></div>
+</div>
+</div>
+
 <!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
 <div id="footer-container"></div>
 
@@ -1368,6 +1660,21 @@
     })
     .catch(error => console.error('Footer load error:', error));
 })();
+</script>
+
+<!-- GLightbox JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    // Initialize GLightbox for gallery
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true,
+        closeButton: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        slideEffect: 'slide'
+    });
 </script>
 </body>
 </html>

@@ -8,7 +8,7 @@
    Michael | Newborn Session | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Professional wedding photography at our location. Michael | Newborn Session." name="description"/>
+<meta content="Twinkle twinkle little star..on the blog is where you are. Little Michael has been featured twice on our blog now, except last time he was here we couldn’t see ..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
@@ -16,22 +16,27 @@
 <meta content="article" property="og:type"/>
 <meta content="https://acromatico.com/blog/michael-newborn-session" property="og:url"/>
 <meta content="Michael | Newborn Session" property="og:title"/>
-<meta content="Professional wedding photography at our location. Michael | Newborn Session." property="og:description"/>
-<meta content="/static/images/no-logo/michael-newborn-session.jpg" property="og:image"/>
+<meta content="Twinkle twinkle little star..on the blog is where you are. Little Michael has been featured twice on our blog now, except last time he was here we couldn’t see ..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/08/baby-session-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
 <meta content="https://acromatico.com/blog/michael-newborn-session" property="twitter:url"/>
 <meta content="Michael | Newborn Session" property="twitter:title"/>
-<meta content="Professional wedding photography at our location. Michael | Newborn Session." property="twitter:description"/>
-<meta content="/static/images/no-logo/michael-newborn-session.jpg" property="twitter:image"/>
+<meta content="Twinkle twinkle little star..on the blog is where you are. Little Michael has been featured twice on our blog now, except last time he was here we couldn’t see ..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/08/baby-session-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
 <link href="https://acromatico.com/blog/michael-newborn-session" rel="canonical"/>
+<!-- Open Graph Extended -->
+<meta content="Photography" property="article:section"/>
+<meta content="Newborn Photography" property="article:tag"/>
+<meta content="South Florida Photographer" property="article:tag"/>
+<meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
+
    * {
             margin: 0;
             padding: 0;
@@ -49,10 +54,13 @@
         
         .hero-section {
             min-height: 100vh;
-            background-image: url('/static/images/no-logo/michael-newborn-session.jpg');
+            background-image: url('/static/images/no-logo/20th-anniversary-photo-session.jpeg');
             background-position: center center;
             background-size: cover;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-section::before {
@@ -62,7 +70,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.19);
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         .site-header {
@@ -446,6 +468,11 @@
                 column-count: 1;
             }
             
+            .hero-title {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+            
             .post-title {
                 font-size: 30px;
             }
@@ -463,6 +490,8 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
         }
         
         .gallery-image:hover {
@@ -474,9 +503,17 @@
             font-weight: 400;
             color: #2a2a2a;
             letter-spacing: -0.3px;
-            margin: 60px 0 30px 0;
+            margin: 80px 0 30px 0;
+            padding-top: 60px;
             text-align: center;
             line-height: 1.3em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .section-heading:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 60px;
         }
         
         .section-text {
@@ -487,6 +524,31 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        /* Featured Section Images */
+        .featured-image {
+            max-width: 1000px;
+            margin: 50px auto 60px auto;
+            text-align: center;
+        }
+        
+        .section-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 0 20px;
+            text-align: center;
         }
         
         /* CTA Sections */
@@ -665,6 +727,14 @@
             object-fit: cover;
             border: 5px solid #ffffff;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .author-bio img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.3);
+            border-color: #f0f0f0;
         }
         
         .author-info h3 {
@@ -833,15 +903,104 @@
                 height: 300px;
             }
         }
-  </style>
+  
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best age for newborn photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The ideal window is 5-14 days old when babies are sleepiest and most flexible for those curly, posed shots. However, we photograph newborns up to 4 weeks old—lifestyle sessions work beautifully at any age within the first month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a newborn session take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plan for 2-3 hours. Newborns need time for feeding, soothing, diaper changes, and settling into poses. We work at your baby's pace with no rushing. Sessions are relaxed and flexible, accommodating your baby's needs throughout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we do an in-home or studio newborn session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both have advantages! In-home sessions offer comfort, convenience, and include your nursery and home environment. Studio sessions provide controlled lighting and a full range of props and backdrops. We offer both options and help you choose based on your preference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should we bring to a newborn session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bring extra diapers, wipes, pacifiers (if used), and bottles/breastfeeding supplies. We provide all blankets, wraps, props, and backdrops. If you have special items (heirloom blankets, meaningful props), bring those too! Keep your home warm (75-80°F) for in-home sessions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are posed newborn photos safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Safety is our absolute priority. All posed shots are achieved through gentle, patient handling. We never force babies into positions. Some "floating" or "hanging" poses you see online are composite images (multiple photos merged). We're trained in safe newborn posing and handling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can siblings and parents be included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! We recommend starting with solo baby shots while they're sleepiest, then adding family and sibling photos. We're experienced at working with toddlers and making family photos stress-free. Parent shots often include lifestyle moments of feeding, cuddling, and bonding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does newborn photography cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Newborn sessions start at $500 and include 2-3 hours of photography, all props and setups, professional editing, and an online gallery. Most families receive 40-60 beautifully edited images. Print packages and albums are available as add-ons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my baby cries during the session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Totally normal! We pause for feeding, soothing, diaper changes—whatever your baby needs. Sessions are flexible and relaxed. Crying babies are part of newborn photography, and we're patient and experienced at soothing techniques. Your baby's comfort always comes first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will we receive our newborn photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your complete edited gallery is delivered within 3-4 weeks after your session. We share 5-10 sneak peek images within 48-72 hours. All images are professionally edited with our signature soft, timeless style and delivered via online gallery with download and print rights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we book before baby arrives?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We recommend booking during your second trimester to secure your spot. Newborn photographers book up quickly, especially during busy seasons. After booking, you'll contact us once baby arrives, and we'll schedule your session within that ideal 5-14 day window."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Acromatico Photography Blog Post",
-  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "headline": "Michael | Newborn Session",
+  "description": "Twinkle twinkle little star..on the blog is where you are. Little Michael has been featured twice on our blog now, except last time he was here we couldn’t see ...",
   "image": [
-    "/static/images/no-logo/michael-newborn-session.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/08/baby-session-001.jpg",
     "https://acromatico.com/wp-content/uploads/2013/08/baby-session-002.jpg",
     "https://acromatico.com/wp-content/uploads/2013/08/baby-session-003.jpg",
     "https://acromatico.com/wp-content/uploads/2013/08/baby-session-004.jpg",
@@ -853,7 +1012,7 @@
     "https://acromatico.com/wp-content/uploads/2013/08/baby-session-010.jpg"
   ],
   "datePublished": "2024-01-15",
-  "dateModified": "2026-01-28",
+  "dateModified": "2026-02-15",
   "author": {
     "@type": "Person",
     "name": "Italo Campilii",
@@ -876,97 +1035,11 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/static/blog/michael-newborn-session.html"
+    "@id": "https://acromatico.com/blog/michael-newborn-session"
   }
 }
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does wedding photography cost at Newborn?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wedding photography at Newborn typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.View our complete pricing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best time for a ceremony at Newborn?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. Newborn's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Newborn allow drone photography?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Newborn permits drone photography with advance notice and proper licensing. The hotel's urban Newborn location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many guests can Newborn accommodate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Newborn can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the best photo locations at Newborn?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a getting ready space at Newborn?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Newborn offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long should I book photography for a Newborn wedding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We recommend 8-10 hours of coverage for Newborn weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Newborn have indoor backup for rain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Newborn is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What time should I schedule first look at Newborn?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How far in advance should I book Newborn?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Newborn typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available."
-      }
-    }
-  ]
-}
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -986,20 +1059,38 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Acromatico Photography Blog Post",
-      "item": "https://acromatico.com/static/blog/michael-newborn-session.html"
+      "name": "Michael | Newborn Session",
+      "item": "https://acromatico.com/blog/michael-newborn-session"
     }
   ]
 }
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ImageObject",
-  "url": "/static/images/no-logo/michael-newborn-session.jpg",
-  "caption": "Michael | Newborn Session - Photo 1",
-  "description": "Michael | Newborn Session - Photo 1"
+  "@type": "LocalBusiness",
+  "name": "Acromatico Photography",
+  "image": "https://acromatico.com/static/acromatico-logo-dark.png",
+  "description": "Professional wedding and portrait photography in South Florida and NYC",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.7617",
+    "longitude": "-80.1918"
+  },
+  "url": "https://acromatico.com",
+  "telephone": "+1-305-555-0100",
+  "priceRange": "$$$$",
+  "areaServed": ["Miami", "South Florida", "New York City"],
+  "servesCuisine": "Photography Services"
 }
-</script></head>
+</script>
+</head>
 <body>
 <!-- Static Header with Logo and Hamburger -->
 <header class="site-header">
@@ -1039,37 +1130,21 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-</div>
-<section class="hero-section">
-<h1 class="hero-title">Michael | Newborn Session</h1></section>
+
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2013/08/baby-session-001.jpg');">
+<h1 class="hero-title">Michael | Newborn Session</h1>
+</section>
+
 <div class="content-container">
-<h2 class="section-heading">The Emotional Ceremony</h2>
-<div class="section-text">
-<p>Michael's newborn session was a beautiful blend of tradition and personal touches. The couple wrote their own vows, creating one of the most heartfelt moments of the day. As a newborn session photographer, I've witnessed countless ceremonies, but the emotion in this room was palpable.</p>
-<p>the venue's newborn session space features 20-foot ceilings with original exposed brick and massive windows that flood the room with natural light. This architectural beauty meant we didn't need to rely on flash photography, allowing for more authentic, documentary-style images that captured the genuine emotions of the moment.</p>
-<p>Newborn Session's walk down the aisle created the kind of authentic moments that great newborn session photography is built on. The industrial setting provided a stunning contrast to the softness and romance of the newborn session, creating images with both drama and intimacy.</p>
+<div class="post-intro">
+Twinkle twinkle little star..on the blog is where you are. Little Michael has been featured twice on our blog now, except last time he was here we couldn’t see him yet, he was still in his moms belly! Now that he’s revealed his identity to us, we are more than happy to present him to the world. Welcome baby Michael, congrats Sherri and Ian on your newborn, he’s a true sweetheart! Fall in love with him just as we did, enjoy some of our favorites from this newborn session:
+
+<a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-001/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-001.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-002/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-002.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-003/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-003.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-004/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-004.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-005/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-005.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-006/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-006.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-007/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-007.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-008/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-008.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-009/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-009.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-010/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-010.jpg" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-011/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-011.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-012/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-012.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-013/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-013.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-014/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-014.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-015/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-015.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-016/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-016.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-017/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-017.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/michael-newborn-session/attachment/baby-session-018/" target="_blank"><img decoding="async"  alt="" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-018.jpg" width="910" height="418" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" /></a>
 </div>
-<h2 class="section-heading">Couple Portraits at Golden Hour</h2>
-<div class="section-text">
-<p>One of the advantages of this session at the venue is its proximity to beautiful natural surroundings. After the newborn session, we stole Newborn Session away for twenty minutes of golden hour portraits—a decision that resulted in some of the most stunning images of their entire day.</p>
-<p>For couples planning their the venue newborn session, I always recommend building in 20-30 minutes for golden hour portraits if your timing allows. The combination of industrial architecture and natural beauty creates incredibly versatile backdrops for newborn session photography.</p>
-<p>Newborn Session were naturals in front of the camera, laughing and enjoying each other's company while we captured everything from dramatic wide shots showcasing the venue's architecture to intimate close-ups that highlighted their genuine connection.</p>
-</div>
-<h2 class="section-heading">Reception Celebration</h2>
-<div class="section-text">
-<p>The celebration at the venue was everything a newborn session should be—elegant, fun, and filled with unforgettable moments. The exposed brick walls and industrial lighting created an atmosphere that was both sophisticated and warm, perfect for both the formal dinner service and the energetic dancing that followed.</p>
-<p>Newborn Session's first dance was followed by heartfelt toasts from family and friends, each sharing stories that highlighted the couple's journey together. The dance floor stayed packed all night, with guests celebrating under the romantic glow of string lights suspended from the high ceilings.</p>
-<p>the venue's in-house catering team provided a delicious farm-to-table menu that perfectly complemented the venue's rustic-elegant aesthetic. The combination of excellent food, beautiful space, and joyful celebration created an atmosphere that was both relaxed and special.</p>
-</div>
-<h2 class="section-heading">Details That Made the Day Special</h2>
-<div class="section-text">
-<p>Newborn Session incorporated several personal touches that made their the venue newborn session uniquely theirs. From custom cocktail napkins featuring their hashtag to centerpieces made from locally-sourced flowers, every detail reflected their style and personality.</p>
-<p>The couple chose a color palette of deep burgundy, sage green, and gold that beautifully complemented the venue's industrial aesthetic. The bouquet featured garden roses, eucalyptus, and seasonal blooms that added organic texture to the industrial setting.</p>
-<p>One of my favorite details was their guest book alternative—a vintage camera where guests could leave Polaroid photos and messages. This interactive element not only provided entertainment but created a keepsake that Newborn Session will treasure for years to come.</p>
-</div>
+
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="/static/images/no-logo/michael-newborn-session.jpg">
-<img alt="Michael | Newborn Session - Photo 1" class="gallery-image" loading="lazy" src="/static/images/no-logo/michael-newborn-session.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/08/baby-session-001.jpg">
+<img alt="Michael | Newborn Session - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-001.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/08/baby-session-002.jpg">
 <img alt="Michael | Newborn Session - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-002.jpg"/>
@@ -1122,143 +1197,152 @@
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/08/baby-session-018.jpg">
 <img alt="Michael | Newborn Session - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/08/baby-session-018.jpg"/>
 </a>
-</div><div class="cta-section mid-post"><h3>Planning Your Wedding?</h3><p>Let's create stunning photos that tell your unique love story. Award-winning wedding photography with a photojournalistic style that captures authentic moments.</p><a class="cta-button" href="/photography">View Packages &amp; Pricing</a></div><div class="faq-section" itemscope="" itemtype="https://schema.org/FAQPage">
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+<h2 style="font-size: 36px; font-weight: 400; text-align: center; margin-bottom: 40px; color: #2a2a2a;">Frequently Asked Questions</h2>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How much does wedding photography cost at Newborn?
+      What is the best age for newborn photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Wedding photography at Newborn typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.
-       <a href="/photography">
-        View our complete pricing
-       </a>
-       .
+       The ideal window is 5-14 days old when babies are sleepiest and most flexible for those curly, posed shots. However, we photograph newborns up to 4 weeks old—lifestyle sessions work beautifully at any age within the first month.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What's the best time for a ceremony at Newborn?
+      How long does a newborn session take?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. Newborn's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits.
+       Plan for 2-3 hours. Newborns need time for feeding, soothing, diaper changes, and settling into poses. We work at your baby's pace with no rushing. Sessions are relaxed and flexible, accommodating your baby's needs throughout.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Newborn allow drone photography?
+      Should we do an in-home or studio newborn session?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Newborn permits drone photography with advance notice and proper licensing. The hotel's urban Newborn location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images.
+       Both have advantages! In-home sessions offer comfort, convenience, and include your nursery and home environment. Studio sessions provide controlled lighting and a full range of props and backdrops. We offer both options and help you choose based on your preference.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How many guests can Newborn accommodate?
+      What should we bring to a newborn session?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Newborn can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity.
+       Bring extra diapers, wipes, pacifiers (if used), and bottles/breastfeeding supplies. We provide all blankets, wraps, props, and backdrops. If you have special items (heirloom blankets, meaningful props), bring those too! Keep your home warm (75-80°F) for in-home sessions.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What are the best photo locations at Newborn?
+      Are posed newborn photos safe?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options.
+       Safety is our absolute priority. All posed shots are achieved through gentle, patient handling. We never force babies into positions. Some "floating" or "hanging" poses you see online are composite images (multiple photos merged). We're trained in safe newborn posing and handling.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Is there a getting ready space at Newborn?
+      Can siblings and parents be included?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Newborn offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen.
+       Absolutely! We recommend starting with solo baby shots while they're sleepiest, then adding family and sibling photos. We're experienced at working with toddlers and making family photos stress-free. Parent shots often include lifestyle moments of feeding, cuddling, and bonding.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How long should I book photography for a Newborn wedding?
+      How much does newborn photography cost?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       We recommend 8-10 hours of coverage for Newborn weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing.
+       Newborn sessions start at $500 and include 2-3 hours of photography, all props and setups, professional editing, and an online gallery. Most families receive 40-60 beautifully edited images. Print packages and albums are available as add-ons.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Newborn have indoor backup for rain?
+      What if my baby cries during the session?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Absolutely. Newborn is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine.
+       Totally normal! We pause for feeding, soothing, diaper changes—whatever your baby needs. Sessions are flexible and relaxed. Crying babies are part of newborn photography, and we're patient and experienced at soothing techniques. Your baby's comfort always comes first.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What time should I schedule first look at Newborn?
+      When will we receive our newborn photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM.
+       Your complete edited gallery is delivered within 3-4 weeks after your session. We share 5-10 sneak peek images within 48-72 hours. All images are professionally edited with our signature soft, timeless style and delivered via online gallery with download and print rights.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How far in advance should I book Newborn?
+      Should we book before baby arrives?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Newborn typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available.
+       Yes! We recommend booking during your second trimester to secure your spot. Newborn photographers book up quickly, especially during busy seasons. After booking, you'll contact us once baby arrives, and we'll schedule your session within that ideal 5-14 day window.
       </p>
 </div>
 </div>
-</div><div class="author-bio"><div class="author-headshots">
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio">
+<div class="author-headshots">
 <img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
 <img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
-</div><div class="author-content">
-<h3 style="color: #ffffff;">About Acromatico Photography</h3>
-<p style="color: #ffffff;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
+</div>
+<div class="author-content">
+<h3 style="color: #ffffff; font-size: 32px; margin-bottom: 25px;">About Acromatico Photography</h3>
+<p style="color: #ffffff; margin-bottom: 25px;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
 <p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
-</div></div><div class="related-posts">
-<h2>
-     Related Sessions
-    </h2>
+</div>
+</div>
+
+<!-- Related Posts -->
+<div class="related-posts">
+<h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/lily-adnan-boca-resort-at-boca-raton-after-wedding-session.html">
-<img alt="Lily + Adnan | Boca Resort at Boca Raton After Wedding Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/Boca-Raton-Resort-Wedding-1.jpg"/>
-<h3>Lily + Adnan | Boca Resort at Boca Raton After Wedding Session</h3>
+<a href="/static/blog/atticus-roche-miami-newborn-session.html">
+<img alt="Atticus Roche | Miami Newborn Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/08/Miami-Newborn-Session-1.jpg"/>
+<h3>Atticus Roche | Miami Newborn Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/new-york-wedding-kaleigh-ramon.html">
-<img alt="New York Wedding | Kaleigh + Ramon" loading="lazy" src="https://acromatico.com/wp-content/uploads/2019/07/New-York-Wedding-001-1024x683.jpg"/>
-<h3>New York Wedding | Kaleigh + Ramon</h3>
+<a href="/static/blog/baby-photo-session-miami-isaac.html">
+<img alt="Baby Photo Session Miami |Isaac" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/miami-baby-photo-session-1-1-1024x682.jpg"/>
+<h3>Baby Photo Session Miami |Isaac</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/katherine-portrait-session.html">
-<img alt="katherine | portrait session" loading="lazy" src="https://acromatico.com/wp-content/uploads/quince-photo-session-miami-1.jpg"/>
-<h3>katherine | portrait session</h3>
+<a href="/static/blog/baby-photo-session-olivia-roze.html">
+<img alt="Baby Photo Session | Olivia Roze" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/07/Baby-Photo-Session-001-1024x767.jpg"/>
+<h3>Baby Photo Session | Olivia Roze</h3>
 </a>
 </article>
 </div>
-</div></div>
+</div>
+</div>
+
 <!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
 <div id="footer-container"></div>
 
@@ -1272,6 +1356,21 @@
     })
     .catch(error => console.error('Footer load error:', error));
 })();
+</script>
+
+<!-- GLightbox JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    // Initialize GLightbox for gallery
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true,
+        closeButton: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        slideEffect: 'slide'
+    });
 </script>
 </body>
 </html>

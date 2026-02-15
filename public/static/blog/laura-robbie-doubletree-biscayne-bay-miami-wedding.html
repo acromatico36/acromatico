@@ -8,30 +8,35 @@
    Laura + Robbie | Doubletree Biscayne Bay Miami Wedding | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Professional wedding photography at Bay Miami. Laura + Robbie | Doubletree Biscayne Bay Miami Wedding." name="description"/>
-<meta content="Bay Miami photographer, Wedding photography, Acromatico" name="keywords"/>
+<meta content="Vintage weddings bring so much nostalgia.  Laura’s retro – fashion look and Robbie’s charming personality made a fantastic combination for this beautiful couple..." name="description"/>
+<meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
 <meta content="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-bay-miami-wedding" property="og:url"/>
 <meta content="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding" property="og:title"/>
-<meta content="Professional wedding photography at Bay Miami. Laura + Robbie | Doubletree Biscayne Bay Miami Wedding." property="og:description"/>
-<meta content="/static/images/no-logo/laura-robbie-doubletree-biscayne-bay-miami-wedding.jpg" property="og:image"/>
+<meta content="Vintage weddings bring so much nostalgia.  Laura’s retro – fashion look and Robbie’s charming personality made a fantastic combination for this beautiful couple..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
 <meta content="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-bay-miami-wedding" property="twitter:url"/>
 <meta content="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding" property="twitter:title"/>
-<meta content="Professional wedding photography at Bay Miami. Laura + Robbie | Doubletree Biscayne Bay Miami Wedding." property="twitter:description"/>
-<meta content="/static/images/no-logo/laura-robbie-doubletree-biscayne-bay-miami-wedding.jpg" property="twitter:image"/>
+<meta content="Vintage weddings bring so much nostalgia.  Laura’s retro – fashion look and Robbie’s charming personality made a fantastic combination for this beautiful couple..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
 <link href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-bay-miami-wedding" rel="canonical"/>
+<!-- Open Graph Extended -->
+<meta content="Photography" property="article:section"/>
+<meta content="Wedding Photography" property="article:tag"/>
+<meta content="South Florida Photographer" property="article:tag"/>
+<meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
+
    * {
             margin: 0;
             padding: 0;
@@ -49,10 +54,13 @@
         
         .hero-section {
             min-height: 100vh;
-            background-image: url('/static/images/no-logo/laura-robbie-doubletree-biscayne-bay-miami-wedding.jpg');
+            background-image: url('/static/images/no-logo/20th-anniversary-photo-session.jpeg');
             background-position: center center;
             background-size: cover;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-section::before {
@@ -62,7 +70,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.19);
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         .site-header {
@@ -446,6 +468,11 @@
                 column-count: 1;
             }
             
+            .hero-title {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+            
             .post-title {
                 font-size: 30px;
             }
@@ -463,6 +490,8 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
         }
         
         .gallery-image:hover {
@@ -474,9 +503,17 @@
             font-weight: 400;
             color: #2a2a2a;
             letter-spacing: -0.3px;
-            margin: 60px 0 30px 0;
+            margin: 80px 0 30px 0;
+            padding-top: 60px;
             text-align: center;
             line-height: 1.3em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .section-heading:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 60px;
         }
         
         .section-text {
@@ -487,6 +524,31 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        /* Featured Section Images */
+        .featured-image {
+            max-width: 1000px;
+            margin: 50px auto 60px auto;
+            text-align: center;
+        }
+        
+        .section-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 0 20px;
+            text-align: center;
         }
         
         /* CTA Sections */
@@ -665,6 +727,14 @@
             object-fit: cover;
             border: 5px solid #ffffff;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .author-bio img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.3);
+            border-color: #f0f0f0;
         }
         
         .author-info h3 {
@@ -833,15 +903,104 @@
                 height: 300px;
             }
         }
-  </style>
+  
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does wedding photography cost in South Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is included in your wedding photography packages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many photos will we receive from our wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you travel for destination weddings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your photography style?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far in advance should we book our wedding photographer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide a second photographer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if you're sick or unable to photograph our wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will we receive our wedding photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer albums and prints?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Acromatico Photography Blog Post",
-  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "headline": "Laura + Robbie | Doubletree Biscayne Bay Miami Wedding",
+  "description": "Vintage weddings bring so much nostalgia.  Laura’s retro – fashion look and Robbie’s charming personality made a fantastic combination for this beautiful couple...",
   "image": [
-    "/static/images/no-logo/laura-robbie-doubletree-biscayne-bay-miami-wedding.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-001.jpg",
     "https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-002.jpg",
     "https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-003.jpg",
     "https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-004.jpg",
@@ -853,7 +1012,7 @@
     "https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-010.jpg"
   ],
   "datePublished": "2024-01-15",
-  "dateModified": "2026-01-28",
+  "dateModified": "2026-02-15",
   "author": {
     "@type": "Person",
     "name": "Italo Campilii",
@@ -876,97 +1035,11 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/static/blog/laura-robbie-doubletree-biscayne-bay-miami-wedding.html"
+    "@id": "https://acromatico.com/blog/laura-robbie-doubletree-biscayne-bay-miami-wedding"
   }
 }
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does wedding photography cost at Doubletree Biscayne Bay Miami?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wedding photography at Doubletree Biscayne Bay Miami typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.View our complete pricing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best time for a ceremony at Doubletree Biscayne Bay Miami?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. Doubletree Biscayne Bay Miami's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Doubletree Biscayne Bay Miami allow drone photography?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Doubletree Biscayne Bay Miami permits drone photography with advance notice and proper licensing. The hotel's urban Doubletree Biscayne Bay Miami location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many guests can Doubletree Biscayne Bay Miami accommodate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Doubletree Biscayne Bay Miami can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the best photo locations at Doubletree Biscayne Bay Miami?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a getting ready space at Doubletree Biscayne Bay Miami?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Doubletree Biscayne Bay Miami offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long should I book photography for a Doubletree Biscayne Bay Miami wedding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We recommend 8-10 hours of coverage for Doubletree Biscayne Bay Miami weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Doubletree Biscayne Bay Miami have indoor backup for rain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Doubletree Biscayne Bay Miami is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What time should I schedule first look at Doubletree Biscayne Bay Miami?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How far in advance should I book Doubletree Biscayne Bay Miami?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Doubletree Biscayne Bay Miami typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available."
-      }
-    }
-  ]
-}
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -986,20 +1059,38 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Acromatico Photography Blog Post",
-      "item": "https://acromatico.com/static/blog/laura-robbie-doubletree-biscayne-bay-miami-wedding.html"
+      "name": "Laura + Robbie | Doubletree Biscayne Bay Miami Wedding",
+      "item": "https://acromatico.com/blog/laura-robbie-doubletree-biscayne-bay-miami-wedding"
     }
   ]
 }
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ImageObject",
-  "url": "/static/images/no-logo/laura-robbie-doubletree-biscayne-bay-miami-wedding.jpg",
-  "caption": "Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 1",
-  "description": "Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 1"
+  "@type": "LocalBusiness",
+  "name": "Acromatico Photography",
+  "image": "https://acromatico.com/static/acromatico-logo-dark.png",
+  "description": "Professional wedding and portrait photography in South Florida and NYC",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.7617",
+    "longitude": "-80.1918"
+  },
+  "url": "https://acromatico.com",
+  "telephone": "+1-305-555-0100",
+  "priceRange": "$$$$",
+  "areaServed": ["Miami", "South Florida", "New York City"],
+  "servesCuisine": "Photography Services"
 }
-</script></head>
+</script>
+</head>
 <body>
 <!-- Static Header with Logo and Hamburger -->
 <header class="site-header">
@@ -1039,37 +1130,23 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-</div>
-<section class="hero-section">
-<h1 class="hero-title">Laura + Robbie | Doubletree Biscayne Bay Miami Wedding</h1></section>
+
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-001.jpg');">
+<h1 class="hero-title">Laura + Robbie | Doubletree Biscayne Bay Miami Wedding</h1>
+</section>
+
 <div class="content-container">
-<h2 class="section-heading">The Emotional Ceremony</h2>
-<div class="section-text">
-<p>Laura's wedding was a beautiful blend of tradition and personal touches. The couple wrote their own vows, creating one of the most heartfelt moments of the day. As a wedding photographer, I've witnessed countless ceremonies, but the emotion in this room was palpable.</p>
-<p>Miami's wedding space features 20-foot ceilings with original exposed brick and massive windows that flood the room with natural light. This architectural beauty meant we didn't need to rely on flash photography, allowing for more authentic, documentary-style images that captured the genuine emotions of the moment.</p>
-<p>Laura and Robbie's walk down the aisle created the kind of authentic moments that great wedding photography is built on. The industrial setting provided a stunning contrast to the softness and romance of the wedding, creating images with both drama and intimacy.</p>
+<div class="post-intro">
+Vintage weddings bring so much nostalgia.  Laura’s retro – fashion look and Robbie’s charming personality made a fantastic combination for this beautiful couple.  They said their “I do’s” overlooking the breezy Biscayne bay and the city – so romantic!  We loved being there to witness their most special day and capture all of the emotion that surrounded them.  Enjoy some of our favorites from the day!
+
+ 
+
+<a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-001/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-001" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-001.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-002/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-002" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-002.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-003/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-003" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-003.jpg" width="910" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-004/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-004" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-004.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-005/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-005" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-005.jpg" width="910" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-006/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-006" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-006.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-007/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-007" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-007.jpg" width="910" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-008/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-008" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-008.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-009/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-009" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-009.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-010/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-010" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-010.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-011/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-011" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-011.jpg" width="910" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-012/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-012" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-012.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-013/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-013" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-013.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-014/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-014" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-014.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-015/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-015" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-015.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-016/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-016" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-016.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-017/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-017" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-017.jpg" width="910" height="418" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-018/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-018" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-018.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-019/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-019" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-019.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-020/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-020" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-020.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-021/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-021" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-021.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-022/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-022" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-022.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-023/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-023" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-023.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-024/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-024" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-024.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-025/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-025" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-025.jpg" width="910" height="641" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/641;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-026/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-026" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-026.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-027/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-027" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-027.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-028/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-028" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-028.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-029/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-029" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-029.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-030/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-030" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-030.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-031/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-031" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-031.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-032/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-032" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-032.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-033/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-033" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-033.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-034/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-034" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-034.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-035/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-035" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-035.jpg" width="910" height="418" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-036/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-036" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-036.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-037/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-037" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-037.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-038/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-038" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-038.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-039/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-039" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-039.jpg" width="910" height="418" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-040/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-040" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-040.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-041/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-041" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-041.jpg" width="910" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-042/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-042" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-042.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-043/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-043" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-043.jpg" width="910" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-044/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-044" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-044.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-045/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-045" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-045.jpg" width="910" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-046/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-046" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-046.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-047/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-047" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-047.jpg" width="910" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-048/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-048" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-048.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-049/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-049" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-049.jpg" width="910" height="200" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/200;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-050/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-050" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-050.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-051/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-051" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-051.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-052/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-052" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-052.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-053/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-053" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-053.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-054/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-054" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-054.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/laura-robbie-doubletree-biscayne-wedding/attachment/doubletree-hotel-biscayne-bay-wedding-055/" target="_blank"><img decoding="async"  title="Doubletree Hotel Biscayne Bay Wedding-055" alt="" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-055.jpg" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a>
 </div>
-<h2 class="section-heading">Couple Portraits at Golden Hour</h2>
-<div class="section-text">
-<p>One of the advantages of this session at Miami is its proximity to beautiful natural surroundings. After the wedding, we stole Laura and Robbie away for twenty minutes of golden hour portraits—a decision that resulted in some of the most stunning images of their entire day.</p>
-<p>For couples planning their Miami wedding, I always recommend building in 20-30 minutes for golden hour portraits if your timing allows. The combination of industrial architecture and natural beauty creates incredibly versatile backdrops for wedding photography.</p>
-<p>Laura and Robbie were naturals in front of the camera, laughing and enjoying each other's company while we captured everything from dramatic wide shots showcasing the venue's architecture to intimate close-ups that highlighted their genuine connection.</p>
-</div>
-<h2 class="section-heading">Reception Celebration</h2>
-<div class="section-text">
-<p>The celebration at Miami was everything a wedding should be—elegant, fun, and filled with unforgettable moments. The exposed brick walls and industrial lighting created an atmosphere that was both sophisticated and warm, perfect for both the formal dinner service and the energetic dancing that followed.</p>
-<p>Laura and Robbie's first dance was followed by heartfelt toasts from family and friends, each sharing stories that highlighted the couple's journey together. The dance floor stayed packed all night, with guests celebrating under the romantic glow of string lights suspended from the high ceilings.</p>
-<p>Miami's in-house catering team provided a delicious farm-to-table menu that perfectly complemented the venue's rustic-elegant aesthetic. The combination of excellent food, beautiful space, and joyful celebration created an atmosphere that was both relaxed and special.</p>
-</div>
-<h2 class="section-heading">Details That Made the Day Special</h2>
-<div class="section-text">
-<p>Laura and Robbie incorporated several personal touches that made their Miami wedding uniquely theirs. From custom cocktail napkins featuring their hashtag to centerpieces made from locally-sourced flowers, every detail reflected their style and personality.</p>
-<p>The couple chose a color palette of deep burgundy, sage green, and gold that beautifully complemented Miami's industrial aesthetic. The bouquet featured garden roses, eucalyptus, and seasonal blooms that added organic texture to the industrial setting.</p>
-<p>One of my favorite details was their guest book alternative—a vintage camera where guests could leave Polaroid photos and messages. This interactive element not only provided entertainment but created a keepsake that Laura and Robbie will treasure for years to come.</p>
-</div>
+
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="/static/images/no-logo/laura-robbie-doubletree-biscayne-bay-miami-wedding.jpg">
-<img alt="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 1" class="gallery-image" loading="lazy" src="/static/images/no-logo/laura-robbie-doubletree-biscayne-bay-miami-wedding.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-001.jpg">
+<img alt="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-001.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-002.jpg">
 <img alt="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-002.jpg"/>
@@ -1218,143 +1295,167 @@
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-050.jpg">
 <img alt="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-050.jpg"/>
 </a>
-</div><div class="cta-section mid-post"><h3>Planning Your Wedding?</h3><p>Let's create stunning photos that tell your unique love story. Award-winning wedding photography with a photojournalistic style that captures authentic moments.</p><a class="cta-button" href="/photography">View Packages &amp; Pricing</a></div><div class="faq-section" itemscope="" itemtype="https://schema.org/FAQPage">
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-051.jpg">
+<img alt="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-051.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-052.jpg">
+<img alt="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-052.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-053.jpg">
+<img alt="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-053.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-054.jpg">
+<img alt="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-054.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-055.jpg">
+<img alt="Laura + Robbie | Doubletree Biscayne Bay Miami Wedding - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Doubletree-Hotel-Biscayne-Bay-Wedding-055.jpg"/>
+</a>
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+<h2 style="font-size: 36px; font-weight: 400; text-align: center; margin-bottom: 40px; color: #2a2a2a;">Frequently Asked Questions</h2>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How much does wedding photography cost at Doubletree Biscayne Bay Miami?
+      How much does wedding photography cost in South Florida?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Wedding photography at Doubletree Biscayne Bay Miami typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.
-       <a href="/photography">
-        View our complete pricing
-       </a>
-       .
+       Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What's the best time for a ceremony at Doubletree Biscayne Bay Miami?
+      What is included in your wedding photography packages?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. Doubletree Biscayne Bay Miami's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits.
+       All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Doubletree Biscayne Bay Miami allow drone photography?
+      How many photos will we receive from our wedding?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Doubletree Biscayne Bay Miami permits drone photography with advance notice and proper licensing. The hotel's urban Doubletree Biscayne Bay Miami location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images.
+       You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How many guests can Doubletree Biscayne Bay Miami accommodate?
+      Do you travel for destination weddings?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Doubletree Biscayne Bay Miami can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity.
+       Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What are the best photo locations at Doubletree Biscayne Bay Miami?
+      What is your photography style?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options.
+       Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Is there a getting ready space at Doubletree Biscayne Bay Miami?
+      How far in advance should we book our wedding photographer?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Doubletree Biscayne Bay Miami offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen.
+       We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How long should I book photography for a Doubletree Biscayne Bay Miami wedding?
+      Do you provide a second photographer?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       We recommend 8-10 hours of coverage for Doubletree Biscayne Bay Miami weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing.
+       Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Doubletree Biscayne Bay Miami have indoor backup for rain?
+      What happens if you're sick or unable to photograph our wedding?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Absolutely. Doubletree Biscayne Bay Miami is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine.
+       We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What time should I schedule first look at Doubletree Biscayne Bay Miami?
+      When will we receive our wedding photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM.
+       You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How far in advance should I book Doubletree Biscayne Bay Miami?
+      Do you offer albums and prints?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Doubletree Biscayne Bay Miami typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available.
+       Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs.
       </p>
 </div>
 </div>
-</div><div class="author-bio"><div class="author-headshots">
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio">
+<div class="author-headshots">
 <img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
 <img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
-</div><div class="author-content">
-<h3 style="color: #ffffff;">About Acromatico Photography</h3>
-<p style="color: #ffffff;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
+</div>
+<div class="author-content">
+<h3 style="color: #ffffff; font-size: 32px; margin-bottom: 25px;">About Acromatico Photography</h3>
+<p style="color: #ffffff; margin-bottom: 25px;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
 <p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
-</div></div><div class="related-posts">
-<h2>
-     Related Sessions
-    </h2>
+</div>
+</div>
+
+<!-- Related Posts -->
+<div class="related-posts">
+<h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/chloe-newborn-session.html">
-<img alt="Chloe | Newborn Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/03/Newborn-Photography-001.jpg"/>
-<h3>Chloe | Newborn Session</h3>
+<a href="/static/blog/adriana-francisco-bill-baggs-state-park-after-wedding-session.html">
+<img alt="Adriana + Francisco | Bill Baggs State Park After Wedding Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/02/Bill-Baggs-State-Park-After-Wedding-Session-001.jpg"/>
+<h3>Adriana + Francisco | Bill Baggs State Park After Wedding Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/christy-manny-south-florida-bridal-party.html">
-<img alt="Christy + Manny | South Florida Bridal Party" loading="lazy" src="https://via.placeholder.com/400x300/1a1a1a/ffffff?text=Blog+Post"/>
-<h3>Christy + Manny | South Florida Bridal Party</h3>
+<a href="/static/blog/alyssa-don-the-mayfair-hotel-wedding.html">
+<img alt="Alyssa + Don | The Mayfair Hotel Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/11/Mayfair-Hotel-Coral-Gables-Wedding-001.jpg"/>
+<h3>Alyssa + Don | The Mayfair Hotel Wedding</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/tiffany-brendan-delray-beach-club-wedding.html">
-<img alt="tiffany + brendan | delray beach club wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/delray-beach-wedding-1.jpg"/>
-<h3>tiffany + brendan | delray beach club wedding</h3>
+<a href="/static/blog/amanda-laurent-key-biscayne-wedding.html">
+<img alt="Amanda + Laurent | Key Biscayne Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/Amanda-Laurent-W-1.jpg"/>
+<h3>Amanda + Laurent | Key Biscayne Wedding</h3>
 </a>
 </article>
 </div>
-</div></div>
+</div>
+</div>
+
 <!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
 <div id="footer-container"></div>
 
@@ -1368,6 +1469,21 @@
     })
     .catch(error => console.error('Footer load error:', error));
 })();
+</script>
+
+<!-- GLightbox JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    // Initialize GLightbox for gallery
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true,
+        closeButton: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        slideEffect: 'slide'
+    });
 </script>
 </body>
 </html>

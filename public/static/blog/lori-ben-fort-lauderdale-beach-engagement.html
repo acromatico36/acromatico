@@ -8,30 +8,35 @@
    Lori + Ben | Fort Lauderdale Beach Engagement | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Professional wedding photography at Lauderdale Beach. Lori + Ben | Fort Lauderdale Beach Engagement." name="description"/>
-<meta content="Lauderdale Beach photographer, Wedding photography, Acromatico" name="keywords"/>
+<meta content="Rise and shine everyone. We got up really early for this beautiful sunrise session. Funny thing is this time we didn’t even know where we were going! Lori and B..." name="description"/>
+<meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
 <meta content="https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement" property="og:url"/>
 <meta content="Lori + Ben | Fort Lauderdale Beach Engagement" property="og:title"/>
-<meta content="Professional wedding photography at Lauderdale Beach. Lori + Ben | Fort Lauderdale Beach Engagement." property="og:description"/>
-<meta content="/static/images/no-logo/lori-ben-fort-lauderdale-beach-engagement.jpg" property="og:image"/>
+<meta content="Rise and shine everyone. We got up really early for this beautiful sunrise session. Funny thing is this time we didn’t even know where we were going! Lori and B..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
 <meta content="https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement" property="twitter:url"/>
 <meta content="Lori + Ben | Fort Lauderdale Beach Engagement" property="twitter:title"/>
-<meta content="Professional wedding photography at Lauderdale Beach. Lori + Ben | Fort Lauderdale Beach Engagement." property="twitter:description"/>
-<meta content="/static/images/no-logo/lori-ben-fort-lauderdale-beach-engagement.jpg" property="twitter:image"/>
+<meta content="Rise and shine everyone. We got up really early for this beautiful sunrise session. Funny thing is this time we didn’t even know where we were going! Lori and B..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
 <link href="https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement" rel="canonical"/>
+<!-- Open Graph Extended -->
+<meta content="Photography" property="article:section"/>
+<meta content="Engagement Photography" property="article:tag"/>
+<meta content="South Florida Photographer" property="article:tag"/>
+<meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
+
    * {
             margin: 0;
             padding: 0;
@@ -49,10 +54,13 @@
         
         .hero-section {
             min-height: 100vh;
-            background-image: url('/static/images/no-logo/lori-ben-fort-lauderdale-beach-engagement.jpg');
+            background-image: url('/static/images/no-logo/20th-anniversary-photo-session.jpeg');
             background-position: center center;
             background-size: cover;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-section::before {
@@ -62,7 +70,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.19);
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         .site-header {
@@ -446,6 +468,11 @@
                 column-count: 1;
             }
             
+            .hero-title {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+            
             .post-title {
                 font-size: 30px;
             }
@@ -463,6 +490,8 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
         }
         
         .gallery-image:hover {
@@ -474,9 +503,17 @@
             font-weight: 400;
             color: #2a2a2a;
             letter-spacing: -0.3px;
-            margin: 60px 0 30px 0;
+            margin: 80px 0 30px 0;
+            padding-top: 60px;
             text-align: center;
             line-height: 1.3em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .section-heading:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 60px;
         }
         
         .section-text {
@@ -487,6 +524,31 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        /* Featured Section Images */
+        .featured-image {
+            max-width: 1000px;
+            margin: 50px auto 60px auto;
+            text-align: center;
+        }
+        
+        .section-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 0 20px;
+            text-align: center;
         }
         
         /* CTA Sections */
@@ -665,6 +727,14 @@
             object-fit: cover;
             border: 5px solid #ffffff;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .author-bio img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.3);
+            border-color: #f0f0f0;
         }
         
         .author-info h3 {
@@ -833,15 +903,104 @@
                 height: 300px;
             }
         }
-  </style>
+  
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does an engagement photo session cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Engagement sessions in South Florida start at $500 for a 90-minute session at one location. This includes professional editing, online gallery, and high-resolution downloads. Most couples receive 50-80 beautifully edited images. Sessions are often included free with wedding photography packages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are the best locations for engagement photos in South Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top locations include Vizcaya Museum, Fairchild Tropical Garden, South Pointe Park, Wynwood Walls, Matheson Hammock Park, and various Miami Beach locations. We help you choose locations that match your style—whether you prefer urban, natural, beachy, or architectural settings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should we wear for our engagement session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose outfits that feel authentic to your style and coordinate (but don't match exactly). Solid colors or subtle patterns photograph best. Avoid busy patterns, logos, and overly trendy pieces. Consider bringing a second outfit for variety. We provide a detailed style guide after booking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does an engagement session take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most engagement sessions run 60-90 minutes. This allows time for 1-2 locations, outfit changes if desired, and various poses without feeling rushed. Golden hour sessions (sunset) are scheduled to maximize beautiful natural light."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will we receive our engagement photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your complete edited gallery is delivered within 2-3 weeks after your session. Sneak peeks (5-10 images) are typically shared within 48 hours on social media with your permission. All images are professionally edited and delivered via online gallery with download rights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we use engagement photos for our save-the-dates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! Many couples use engagement photos for save-the-dates, wedding websites, guest books, and reception décor. We deliver high-resolution files suitable for all printing needs, and can recommend designers for save-the-date cards if needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the weather is bad on our session day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "South Florida weather can be unpredictable! We monitor forecasts closely and suggest rescheduling for severe weather. For light rain, we have backup indoor locations or embrace dramatic weather for unique, moody photos if you're adventurous. Reschedules are always available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we bring props or pets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Props can add personality but aren't necessary—your connection is the main focus. Popular props include champagne, picnic setups, or items meaningful to your relationship. Pets are welcome! Just ensure someone can handle them between photos. We provide guidance on what works best."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you help with posing during the session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We provide gentle direction and prompts to help you feel comfortable and natural. Our goal is candid, authentic moments rather than stiff poses. We guide you through movements and interactions that create genuine connection and emotion in your photos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an engagement session really necessary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While not required, engagement sessions are highly valuable! They help you get comfortable in front of the camera, allow us to understand your dynamic as a couple, and provide images for save-the-dates and wedding décor. Think of it as a rehearsal for your wedding day photography."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Acromatico Photography Blog Post",
-  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "headline": "Lori + Ben | Fort Lauderdale Beach Engagement",
+  "description": "Rise and shine everyone. We got up really early for this beautiful sunrise session. Funny thing is this time we didn’t even know where we were going! Lori and B...",
   "image": [
-    "/static/images/no-logo/lori-ben-fort-lauderdale-beach-engagement.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg",
     "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-002.jpg",
     "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-003.jpg",
     "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-004.jpg",
@@ -853,7 +1012,7 @@
     "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-010.jpg"
   ],
   "datePublished": "2024-01-15",
-  "dateModified": "2026-01-28",
+  "dateModified": "2026-02-15",
   "author": {
     "@type": "Person",
     "name": "Italo Campilii",
@@ -876,97 +1035,11 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/static/blog/lori-ben-fort-lauderdale-beach-engagement.html"
+    "@id": "https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement"
   }
 }
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does wedding photography cost at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wedding photography at Fort Lauderdale Beach typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.View our complete pricing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best time for a photo session at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The ideal photo session time is 5:00-5:30 PM, which allows for golden hour portraits after the photo session. Fort Lauderdale Beach's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Fort Lauderdale Beach allow drone photography?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Fort Lauderdale Beach permits drone photography with advance notice and proper licensing. The hotel's urban Fort Lauderdale Beach location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many guests can Fort Lauderdale Beach accommodate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Fort Lauderdale Beach can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the best photo locations at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Top photo locations include: the exposed brick photo session space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a getting ready space at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Fort Lauderdale Beach offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long should I book photography for a Fort Lauderdale Beach wedding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We recommend 8-10 hours of coverage for Fort Lauderdale Beach weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-photo session portraits, photo session coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Fort Lauderdale Beach have indoor backup for rain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Fort Lauderdale Beach is primarily an indoor venue, so weather concerns are minimal. The photo session, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What time should I schedule first look at Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Schedule your first look 2-2.5 hours before the photo session. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM photo session, plan your first look for 3:00 PM."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How far in advance should I book Fort Lauderdale Beach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Fort Lauderdale Beach typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available."
-      }
-    }
-  ]
-}
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -986,20 +1059,38 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Acromatico Photography Blog Post",
-      "item": "https://acromatico.com/static/blog/lori-ben-fort-lauderdale-beach-engagement.html"
+      "name": "Lori + Ben | Fort Lauderdale Beach Engagement",
+      "item": "https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement"
     }
   ]
 }
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ImageObject",
-  "url": "/static/images/no-logo/lori-ben-fort-lauderdale-beach-engagement.jpg",
-  "caption": "Lori + Ben | Fort Lauderdale Beach Engagement - Photo 1",
-  "description": "Lori + Ben | Fort Lauderdale Beach Engagement - Photo 1"
+  "@type": "LocalBusiness",
+  "name": "Acromatico Photography",
+  "image": "https://acromatico.com/static/acromatico-logo-dark.png",
+  "description": "Professional wedding and portrait photography in South Florida and NYC",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.7617",
+    "longitude": "-80.1918"
+  },
+  "url": "https://acromatico.com",
+  "telephone": "+1-305-555-0100",
+  "priceRange": "$$$$",
+  "areaServed": ["Miami", "South Florida", "New York City"],
+  "servesCuisine": "Photography Services"
 }
-</script></head>
+</script>
+</head>
 <body>
 <!-- Static Header with Logo and Hamburger -->
 <header class="site-header">
@@ -1039,37 +1130,21 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-</div>
-<section class="hero-section">
-<h1 class="hero-title">Lori + Ben | Fort Lauderdale Beach Engagement</h1></section>
+
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg');">
+<h1 class="hero-title">Lori + Ben | Fort Lauderdale Beach Engagement</h1>
+</section>
+
 <div class="content-container">
-<h2 class="section-heading">The Emotional Ceremony</h2>
-<div class="section-text">
-<p>Lori's engagement session was a beautiful blend of tradition and personal touches. The couple wrote their own vows, creating one of the most heartfelt moments of the day. As a engagement photographer, I've witnessed countless ceremonies, but the emotion in this room was palpable.</p>
-<p>the venue's engagement session space features 20-foot ceilings with original exposed brick and massive windows that flood the room with natural light. This architectural beauty meant we didn't need to rely on flash photography, allowing for more authentic, documentary-style images that captured the genuine emotions of the moment.</p>
-<p>Lori and Ben's walk down the aisle created the kind of authentic moments that great engagement photography is built on. The industrial setting provided a stunning contrast to the softness and romance of the engagement session, creating images with both drama and intimacy.</p>
+<div class="post-intro">
+Rise and shine everyone. We got up really early for this beautiful sunrise session. Funny thing is this time we didn’t even know where we were going! Lori and Ben picked the awesomest hidden spot in Fort Lauderdale to do their engagement session, we had never seen this place  before. Its right by the Ft. Lauderdale port. We are definitely adding it to our top favorite spots! Let us show you the money, enjoy some of our favorites:
+
+<a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-001/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-001" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-002/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-002" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-002.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-003/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-003" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-003.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-004/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-004" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-004.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-005/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-005" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-005.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-006/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-006" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-006.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-007/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-007" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-007.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-008/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-008" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-008.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-009/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-009" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-009.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-010/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-010" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-010.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-011/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-011" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-011.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-012/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-012" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-012.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-013/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-013" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-013.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-014/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-014" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-014.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-015/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-015" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-015.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-016/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-016" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-016.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/uncategorized/lori-ben-fort-lauderdale-beach-engagement/attachment/fort-lauderdale-beach-engagement-017/" target="_blank"><img decoding="async"  title="Fort Lauderdale Beach Engagement-017" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-017.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a>
 </div>
-<h2 class="section-heading">Couple Portraits at Golden Hour</h2>
-<div class="section-text">
-<p>One of the advantages of this session at the venue is its proximity to beautiful natural surroundings. After the engagement session, we stole Lori and Ben away for twenty minutes of golden hour portraits—a decision that resulted in some of the most stunning images of their entire day.</p>
-<p>For couples planning their the venue engagement session, I always recommend building in 20-30 minutes for golden hour portraits if your timing allows. The combination of industrial architecture and natural beauty creates incredibly versatile backdrops for engagement photography.</p>
-<p>Lori and Ben were naturals in front of the camera, laughing and enjoying each other's company while we captured everything from dramatic wide shots showcasing the venue's architecture to intimate close-ups that highlighted their genuine connection.</p>
-</div>
-<h2 class="section-heading">Reception Celebration</h2>
-<div class="section-text">
-<p>The celebration at the venue was everything a engagement session should be—elegant, fun, and filled with unforgettable moments. The exposed brick walls and industrial lighting created an atmosphere that was both sophisticated and warm, perfect for both the formal dinner service and the energetic dancing that followed.</p>
-<p>Lori and Ben's first dance was followed by heartfelt toasts from family and friends, each sharing stories that highlighted the couple's journey together. The dance floor stayed packed all night, with guests celebrating under the romantic glow of string lights suspended from the high ceilings.</p>
-<p>the venue's in-house catering team provided a delicious farm-to-table menu that perfectly complemented the venue's rustic-elegant aesthetic. The combination of excellent food, beautiful space, and joyful celebration created an atmosphere that was both relaxed and special.</p>
-</div>
-<h2 class="section-heading">Details That Made the Day Special</h2>
-<div class="section-text">
-<p>Lori and Ben incorporated several personal touches that made their the venue engagement session uniquely theirs. From custom cocktail napkins featuring their hashtag to centerpieces made from locally-sourced flowers, every detail reflected their style and personality.</p>
-<p>The couple chose a color palette of deep burgundy, sage green, and gold that beautifully complemented the venue's industrial aesthetic. The bouquet featured garden roses, eucalyptus, and seasonal blooms that added organic texture to the industrial setting.</p>
-<p>One of my favorite details was their guest book alternative—a vintage camera where guests could leave Polaroid photos and messages. This interactive element not only provided entertainment but created a keepsake that Lori and Ben will treasure for years to come.</p>
-</div>
+
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="/static/images/no-logo/lori-ben-fort-lauderdale-beach-engagement.jpg">
-<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 1" class="gallery-image" loading="lazy" src="/static/images/no-logo/lori-ben-fort-lauderdale-beach-engagement.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-002.jpg">
 <img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-002.jpg"/>
@@ -1119,143 +1194,152 @@
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-017.jpg">
 <img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-017.jpg"/>
 </a>
-</div><div class="cta-section mid-post"><h3>Planning Your Wedding?</h3><p>Let's create stunning photos that tell your unique love story. Award-winning wedding photography with a photojournalistic style that captures authentic moments.</p><a class="cta-button" href="/photography">View Packages &amp; Pricing</a></div><div class="faq-section" itemscope="" itemtype="https://schema.org/FAQPage">
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+<h2 style="font-size: 36px; font-weight: 400; text-align: center; margin-bottom: 40px; color: #2a2a2a;">Frequently Asked Questions</h2>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How much does wedding photography cost at Fort Lauderdale Beach?
+      How much does an engagement photo session cost?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Wedding photography at Fort Lauderdale Beach typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.
-       <a href="/photography">
-        View our complete pricing
-       </a>
-       .
+       Engagement sessions in South Florida start at $500 for a 90-minute session at one location. This includes professional editing, online gallery, and high-resolution downloads. Most couples receive 50-80 beautifully edited images. Sessions are often included free with wedding photography packages.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What's the best time for a photo session at Fort Lauderdale Beach?
+      Where are the best locations for engagement photos in South Florida?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       The ideal photo session time is 5:00-5:30 PM, which allows for golden hour portraits after the photo session. Fort Lauderdale Beach's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits.
+       Top locations include Vizcaya Museum, Fairchild Tropical Garden, South Pointe Park, Wynwood Walls, Matheson Hammock Park, and various Miami Beach locations. We help you choose locations that match your style—whether you prefer urban, natural, beachy, or architectural settings.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Fort Lauderdale Beach allow drone photography?
+      What should we wear for our engagement session?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Fort Lauderdale Beach permits drone photography with advance notice and proper licensing. The hotel's urban Fort Lauderdale Beach location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images.
+       Choose outfits that feel authentic to your style and coordinate (but don't match exactly). Solid colors or subtle patterns photograph best. Avoid busy patterns, logos, and overly trendy pieces. Consider bringing a second outfit for variety. We provide a detailed style guide after booking.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How many guests can Fort Lauderdale Beach accommodate?
+      How long does an engagement session take?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Fort Lauderdale Beach can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity.
+       Most engagement sessions run 60-90 minutes. This allows time for 1-2 locations, outfit changes if desired, and various poses without feeling rushed. Golden hour sessions (sunset) are scheduled to maximize beautiful natural light.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What are the best photo locations at Fort Lauderdale Beach?
+      When will we receive our engagement photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Top photo locations include: the exposed brick photo session space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options.
+       Your complete edited gallery is delivered within 2-3 weeks after your session. Sneak peeks (5-10 images) are typically shared within 48 hours on social media with your permission. All images are professionally edited and delivered via online gallery with download rights.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Is there a getting ready space at Fort Lauderdale Beach?
+      Can we use engagement photos for our save-the-dates?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Fort Lauderdale Beach offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen.
+       Absolutely! Many couples use engagement photos for save-the-dates, wedding websites, guest books, and reception décor. We deliver high-resolution files suitable for all printing needs, and can recommend designers for save-the-date cards if needed.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How long should I book photography for a Fort Lauderdale Beach wedding?
+      What if the weather is bad on our session day?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       We recommend 8-10 hours of coverage for Fort Lauderdale Beach weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-photo session portraits, photo session coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing.
+       South Florida weather can be unpredictable! We monitor forecasts closely and suggest rescheduling for severe weather. For light rain, we have backup indoor locations or embrace dramatic weather for unique, moody photos if you're adventurous. Reschedules are always available.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Fort Lauderdale Beach have indoor backup for rain?
+      Should we bring props or pets?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Absolutely. Fort Lauderdale Beach is primarily an indoor venue, so weather concerns are minimal. The photo session, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine.
+       Props can add personality but aren't necessary—your connection is the main focus. Popular props include champagne, picnic setups, or items meaningful to your relationship. Pets are welcome! Just ensure someone can handle them between photos. We provide guidance on what works best.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What time should I schedule first look at Fort Lauderdale Beach?
+      Do you help with posing during the session?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Schedule your first look 2-2.5 hours before the photo session. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM photo session, plan your first look for 3:00 PM.
+       Yes! We provide gentle direction and prompts to help you feel comfortable and natural. Our goal is candid, authentic moments rather than stiff poses. We guide you through movements and interactions that create genuine connection and emotion in your photos.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How far in advance should I book Fort Lauderdale Beach?
+      Is an engagement session really necessary?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Fort Lauderdale Beach typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available.
+       While not required, engagement sessions are highly valuable! They help you get comfortable in front of the camera, allow us to understand your dynamic as a couple, and provide images for save-the-dates and wedding décor. Think of it as a rehearsal for your wedding day photography.
       </p>
 </div>
 </div>
-</div><div class="author-bio"><div class="author-headshots">
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio">
+<div class="author-headshots">
 <img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
 <img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
-</div><div class="author-content">
-<h3 style="color: #ffffff;">About Acromatico Photography</h3>
-<p style="color: #ffffff;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
+</div>
+<div class="author-content">
+<h3 style="color: #ffffff; font-size: 32px; margin-bottom: 25px;">About Acromatico Photography</h3>
+<p style="color: #ffffff; margin-bottom: 25px;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
 <p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
-</div></div><div class="related-posts">
-<h2>
-     Related Sessions
-    </h2>
+</div>
+</div>
+
+<!-- Related Posts -->
+<div class="related-posts">
+<h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/katrina-keith-doubletree-grand-biscayne-wedding.html">
-<img alt="Katrina + Keith | doubletree grand biscayne wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/doubletree-miami-wedding-1.jpg"/>
-<h3>Katrina + Keith | doubletree grand biscayne wedding</h3>
+<a href="/static/blog/angela-john-vizcaya-engagement-session.html">
+<img alt="Angela + John | Vizcaya Engagement Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg"/>
+<h3>Angela + John | Vizcaya Engagement Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/jany-josh-ritz-carlton-key-biscayne-wedding.html">
-<img alt="Jany + Josh |Ritz Carlton Key Biscayne Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/ritz-carlton-key-biscayne-wedding-001.jpg"/>
-<h3>Jany + Josh |Ritz Carlton Key Biscayne Wedding</h3>
+<a href="/static/blog/anglins-fishing-pier-engagement-session.html">
+<img alt="Anglins Fishing Pier Engagement Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2018/08/Anglis-Fishing-Pier-Engagement-Session-001.jpg"/>
+<h3>Anglins Fishing Pier Engagement Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/shannon-bob-boynton-beach-wedding.html">
-<img alt="Shannon + Bob | Boynton Beach Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/Boynton-beach-wedding-1.jpg"/>
-<h3>Shannon + Bob | Boynton Beach Wedding</h3>
+<a href="/static/blog/arnold-arboretum-boston-engagement-catherine-junior.html">
+<img alt="Arnold Arboretum Boston Engagement | Catherine + Junior" loading="lazy" src="https://acromatico.com/wp-content/uploads/2018/09/Boston-Engagement-001-1.jpg"/>
+<h3>Arnold Arboretum Boston Engagement | Catherine + Junior</h3>
 </a>
 </article>
 </div>
-</div></div>
+</div>
+</div>
+
 <!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
 <div id="footer-container"></div>
 
@@ -1269,6 +1353,21 @@
     })
     .catch(error => console.error('Footer load error:', error));
 })();
+</script>
+
+<!-- GLightbox JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    // Initialize GLightbox for gallery
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true,
+        closeButton: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        slideEffect: 'slide'
+    });
 </script>
 </body>
 </html>

@@ -770,40 +770,60 @@ def main():
     print(f"✅ Need generation: {len(posts_to_generate)}")
     print(f"⏭️  Skipped (no images): {sum(1 for item in checklist if item['images'] == 0)}")
     
-    # Test mode: generate only ONE post
-    print("\n🧪 TEST MODE: Generating 1 post to verify quality\n")
+    # FULL GENERATION MODE: All 443 posts
+    print("\n🚀 FULL GENERATION MODE: Generating ALL 443 posts\n")
     
-    test_slug = 'fort-lauderdale-indian-wedding-alissa-imran'
-    test_meta = next((item for item in checklist if item['slug'] == test_slug), None)
-    test_post = next((p for p in all_posts if p['slug'] == test_slug), None)
+    success_count = 0
+    error_count = 0
     
-    if not test_meta or not test_post:
-        print(f"❌ Test post '{test_slug}' not found!")
-        return
-    
-    print(f"Generating: {test_post.get('title', {}).get('rendered', test_slug)}")
-    print(f"Type: {test_meta['type'].upper()}")
-    print(f"Images: {test_meta['images']}")
-    
-    html = build_post_html(test_post, test_meta)
-    
-    output_path = Path(f"public/static/blog/{test_slug}.html")
-    output_path.write_text(html, encoding='utf-8')
-    
-    file_size = output_path.stat().st_size / 1024
-    print(f"✅ Generated: {output_path} ({file_size:.0f} KB)")
+    for idx, item in enumerate(posts_to_generate, 1):
+        slug = item['slug']
+        post_data = next((p for p in all_posts if p['slug'] == slug), None)
+        
+        if not post_data:
+            print(f"⚠️  [{idx}/{len(posts_to_generate)}] Skipped: {slug} (post data not found)")
+            error_count += 1
+            continue
+        
+        try:
+            # Extract title
+            title_data = post_data.get('title', '')
+            if isinstance(title_data, dict):
+                title = title_data.get('rendered', slug)
+            else:
+                title = str(title_data)
+            
+            # Generate HTML
+            html = build_post_html(post_data, item)
+            
+            # Save to file
+            output_path = Path(f"public/static/blog/{slug}.html")
+            output_path.write_text(html, encoding='utf-8')
+            
+            file_size = output_path.stat().st_size / 1024
+            
+            # Print progress every 10 posts
+            if idx % 10 == 0 or idx == len(posts_to_generate):
+                print(f"✅ [{idx}/{len(posts_to_generate)}] Generated: {title[:50]}... ({file_size:.0f} KB)")
+            
+            success_count += 1
+            
+        except Exception as e:
+            print(f"❌ [{idx}/{len(posts_to_generate)}] ERROR - {slug}: {str(e)}")
+            error_count += 1
     
     print("\n" + "=" * 70)
-    print("\n✅ TEST GENERATION COMPLETE!")
-    print(f"\n🔗 Review at: http://localhost:3000/static/blog/{test_slug}.html")
+    print("\n✅ GENERATION COMPLETE!")
+    print(f"\n📊 Results:")
+    print(f"   ✅ Success: {success_count}/{len(posts_to_generate)}")
+    print(f"   ❌ Errors: {error_count}/{len(posts_to_generate)}")
+    print(f"   📁 Output: public/static/blog/")
     print("\n📋 Next steps:")
-    print("   1. Review the test post for quality")
-    print("   2. Verify: Original WordPress story preserved")
-    print("   3. Verify: Post-specific FAQs (not venue-specific)")
-    print("   4. Verify: All images present in gallery")
-    print("   5. Verify: Author bio + related posts")
-    print("   6. Verify: Dynamic footer loading")
-    print("   7. If approved, run for all 443 posts")
+    print("   1. Validate all posts for quality")
+    print("   2. Check for contamination")
+    print("   3. Random sampling validation")
+    print("   4. Git commit and push")
+    print("   5. Deploy to production")
 
 
 if __name__ == '__main__':

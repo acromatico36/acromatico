@@ -8,30 +8,35 @@
    New York Indian Wedding | Geeta + Vir | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Professional wedding photography at York Indian. New York Indian Wedding | Geeta + Vir." name="description"/>
-<meta content="York Indian photographer, Wedding photography, Acromatico" name="keywords"/>
+<meta content="I don’t even know where to start with this amazing Indian Wedding we got to shoot in Glen Cove, Long Island. Everyone was just full of life, celebration and col..." name="description"/>
+<meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
 <meta content="https://acromatico.com/blog/new-york-indian-wedding-geeta-vir" property="og:url"/>
 <meta content="New York Indian Wedding | Geeta + Vir" property="og:title"/>
-<meta content="Professional wedding photography at York Indian. New York Indian Wedding | Geeta + Vir." property="og:description"/>
-<meta content="/static/images/no-logo/new-york-indian-wedding-geeta-vir.jpg" property="og:image"/>
+<meta content="I don’t even know where to start with this amazing Indian Wedding we got to shoot in Glen Cove, Long Island. Everyone was just full of life, celebration and col..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-001-1024x683.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
 <meta content="https://acromatico.com/blog/new-york-indian-wedding-geeta-vir" property="twitter:url"/>
 <meta content="New York Indian Wedding | Geeta + Vir" property="twitter:title"/>
-<meta content="Professional wedding photography at York Indian. New York Indian Wedding | Geeta + Vir." property="twitter:description"/>
-<meta content="/static/images/no-logo/new-york-indian-wedding-geeta-vir.jpg" property="twitter:image"/>
+<meta content="I don’t even know where to start with this amazing Indian Wedding we got to shoot in Glen Cove, Long Island. Everyone was just full of life, celebration and col..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-001-1024x683.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
 <link href="https://acromatico.com/blog/new-york-indian-wedding-geeta-vir" rel="canonical"/>
+<!-- Open Graph Extended -->
+<meta content="Photography" property="article:section"/>
+<meta content="Wedding Photography" property="article:tag"/>
+<meta content="South Florida Photographer" property="article:tag"/>
+<meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
+
    * {
             margin: 0;
             padding: 0;
@@ -49,10 +54,13 @@
         
         .hero-section {
             min-height: 100vh;
-            background-image: url('/static/images/no-logo/new-york-indian-wedding-geeta-vir.jpg');
+            background-image: url('/static/images/no-logo/20th-anniversary-photo-session.jpeg');
             background-position: center center;
             background-size: cover;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-section::before {
@@ -62,7 +70,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.19);
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         .site-header {
@@ -446,6 +468,11 @@
                 column-count: 1;
             }
             
+            .hero-title {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+            
             .post-title {
                 font-size: 30px;
             }
@@ -463,6 +490,8 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
         }
         
         .gallery-image:hover {
@@ -474,9 +503,17 @@
             font-weight: 400;
             color: #2a2a2a;
             letter-spacing: -0.3px;
-            margin: 60px 0 30px 0;
+            margin: 80px 0 30px 0;
+            padding-top: 60px;
             text-align: center;
             line-height: 1.3em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .section-heading:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 60px;
         }
         
         .section-text {
@@ -487,6 +524,31 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        /* Featured Section Images */
+        .featured-image {
+            max-width: 1000px;
+            margin: 50px auto 60px auto;
+            text-align: center;
+        }
+        
+        .section-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 0 20px;
+            text-align: center;
         }
         
         /* CTA Sections */
@@ -665,6 +727,14 @@
             object-fit: cover;
             border: 5px solid #ffffff;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .author-bio img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.3);
+            border-color: #f0f0f0;
         }
         
         .author-info h3 {
@@ -833,27 +903,116 @@
                 height: 300px;
             }
         }
-  </style>
+  
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does wedding photography cost in South Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is included in your wedding photography packages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many photos will we receive from our wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you travel for destination weddings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your photography style?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far in advance should we book our wedding photographer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide a second photographer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if you're sick or unable to photograph our wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will we receive our wedding photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer albums and prints?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Acromatico Photography Blog Post",
-  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "headline": "New York Indian Wedding | Geeta + Vir",
+  "description": "I don’t even know where to start with this amazing Indian Wedding we got to shoot in Glen Cove, Long Island. Everyone was just full of life, celebration and col...",
   "image": [
-    "/static/images/no-logo/new-york-indian-wedding-geeta-vir.jpg",
+    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-001-1024x683.jpg",
+    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-001.jpg",
     "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-002-1024x683.jpg",
+    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-002.jpg",
     "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-003-1024x683.jpg",
+    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-003.jpg",
     "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-004-1024x683.jpg",
+    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-004.jpg",
     "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-005-1024x683.jpg",
-    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-006-1024x682.jpg",
-    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-007-1024x683.jpg",
-    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-008-1024x683.jpg",
-    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-009-1024x683.jpg",
-    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-010-1024x683.jpg"
+    "https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-005.jpg"
   ],
   "datePublished": "2024-01-15",
-  "dateModified": "2026-01-28",
+  "dateModified": "2026-02-15",
   "author": {
     "@type": "Person",
     "name": "Italo Campilii",
@@ -876,97 +1035,11 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/static/blog/new-york-indian-wedding-geeta-vir.html"
+    "@id": "https://acromatico.com/blog/new-york-indian-wedding-geeta-vir"
   }
 }
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does wedding photography cost at New York Indian?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wedding photography at New York Indian typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.View our complete pricing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best time for a ceremony at New York Indian?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. New York Indian's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does New York Indian allow drone photography?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, New York Indian permits drone photography with advance notice and proper licensing. The hotel's urban New York Indian location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many guests can New York Indian accommodate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "New York Indian can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the best photo locations at New York Indian?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a getting ready space at New York Indian?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, New York Indian offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long should I book photography for a New York Indian wedding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We recommend 8-10 hours of coverage for New York Indian weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does New York Indian have indoor backup for rain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. New York Indian is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What time should I schedule first look at New York Indian?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How far in advance should I book New York Indian?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "New York Indian typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available."
-      }
-    }
-  ]
-}
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -986,20 +1059,38 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Acromatico Photography Blog Post",
-      "item": "https://acromatico.com/static/blog/new-york-indian-wedding-geeta-vir.html"
+      "name": "New York Indian Wedding | Geeta + Vir",
+      "item": "https://acromatico.com/blog/new-york-indian-wedding-geeta-vir"
     }
   ]
 }
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ImageObject",
-  "url": "/static/images/no-logo/new-york-indian-wedding-geeta-vir.jpg",
-  "caption": "New York Indian Wedding | Geeta + Vir - Photo 1",
-  "description": "New York Indian Wedding | Geeta + Vir - Photo 1"
+  "@type": "LocalBusiness",
+  "name": "Acromatico Photography",
+  "image": "https://acromatico.com/static/acromatico-logo-dark.png",
+  "description": "Professional wedding and portrait photography in South Florida and NYC",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.7617",
+    "longitude": "-80.1918"
+  },
+  "url": "https://acromatico.com",
+  "telephone": "+1-305-555-0100",
+  "priceRange": "$$$$",
+  "areaServed": ["Miami", "South Florida", "New York City"],
+  "servesCuisine": "Photography Services"
 }
-</script></head>
+</script>
+</head>
 <body>
 <!-- Static Header with Logo and Hamburger -->
 <header class="site-header">
@@ -1039,322 +1130,1067 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-</div>
-<section class="hero-section">
-<h1 class="hero-title">New York Indian Wedding | Geeta + Vir</h1></section>
+
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-001-1024x683.jpg');">
+<h1 class="hero-title">New York Indian Wedding | Geeta + Vir</h1>
+</section>
+
 <div class="content-container">
-<h2 class="section-heading">The Emotional Ceremony</h2>
-<div class="section-text">
-<p>New's wedding was a beautiful blend of tradition and personal touches. The couple wrote their own vows, creating one of the most heartfelt moments of the day. As a wedding photographer, I've witnessed countless ceremonies, but the emotion in this room was palpable.</p>
-<p>New York's wedding space features 20-foot ceilings with original exposed brick and massive windows that flood the room with natural light. This architectural beauty meant we didn't need to rely on flash photography, allowing for more authentic, documentary-style images that captured the genuine emotions of the moment.</p>
-<p>Geeta and Vir's walk down the aisle created the kind of authentic moments that great wedding photography is built on. The industrial setting provided a stunning contrast to the softness and romance of the wedding, creating images with both drama and intimacy.</p>
+<div class="post-intro">
+I don’t even know where to start with this amazing Indian Wedding we got to shoot in Glen Cove, Long Island. Everyone was just full of life, celebration and color explosions (literally!)
+
+This wedding was so unique on its own and it’s definitely one I will never forget. Right in the middle of the pandemic, Geeta and Vir had their very close family members join them in their forever union as husband and wife. This Sikh-Punjab wedding was very memorable as Geeta was breaking traditions and boundaries. She rode her own horse during her very own Baraat. Needless to say, it was extremely epic. Smoke bombs going everywhere and this rad bride just rode her horse in style: as epic as can be!
+
+One thing I’ve learned about Geeta is she’s not afraid to be who she is, she’s very true to herself and fearless. Combined with Vir, there won’t ever be any limits for these two.
+
+It was such a pleasure shooting this amazing wedding with Heather. After being covered up, masked up, tripping up the stairs (yes, my camera survived) this for sure will be a wedding I won’t forget.
+
+I also can’t forget to give some shot outs to some of the most amazing poeple we got to work with for this wedding:
+
+<ul class="wp-block-list"><li>Amee and her team at <a href="https://www.karmaeventsny.com/" target="_blank">Karma Events</a> (best wedding planner EVER!)</li><li>Williamson and his awesome team for killing the cinematography with <a href="https://www.parkstreetweddings.com/" target="_blank">Park Street Weddings</a> </li><li>Hair and makeup for thee most beautiful bride: <a href="https://khadijamua.wixsite.com/makeupbykhadija" target="_blank">Khadija</a></li><li>The amazing caterers at <a href="https://www.moghulcatering.com/" target="_blank">Moghul Express</a></li></ul>I know this was no Mexico as you guys had planned but we sure are glad we got to shoot your wedding here in New York! Here are some of our favorites:
 </div>
-<h2 class="section-heading">Couple Portraits at Golden Hour</h2>
-<div class="section-text">
-<p>One of the advantages of this session at New York is its proximity to beautiful natural surroundings. After the wedding, we stole Geeta and Vir away for twenty minutes of golden hour portraits—a decision that resulted in some of the most stunning images of their entire day.</p>
-<p>For couples planning their New York wedding, I always recommend building in 20-30 minutes for golden hour portraits if your timing allows. The combination of industrial architecture and natural beauty creates incredibly versatile backdrops for wedding photography.</p>
-<p>Geeta and Vir were naturals in front of the camera, laughing and enjoying each other's company while we captured everything from dramatic wide shots showcasing the venue's architecture to intimate close-ups that highlighted their genuine connection.</p>
-</div>
-<h2 class="section-heading">Reception Celebration</h2>
-<div class="section-text">
-<p>The celebration at New York was everything a wedding should be—elegant, fun, and filled with unforgettable moments. The exposed brick walls and industrial lighting created an atmosphere that was both sophisticated and warm, perfect for both the formal dinner service and the energetic dancing that followed.</p>
-<p>Geeta and Vir's first dance was followed by heartfelt toasts from family and friends, each sharing stories that highlighted the couple's journey together. The dance floor stayed packed all night, with guests celebrating under the romantic glow of string lights suspended from the high ceilings.</p>
-<p>New York's in-house catering team provided a delicious farm-to-table menu that perfectly complemented the venue's rustic-elegant aesthetic. The combination of excellent food, beautiful space, and joyful celebration created an atmosphere that was both relaxed and special.</p>
-</div>
-<h2 class="section-heading">Details That Made the Day Special</h2>
-<div class="section-text">
-<p>Geeta and Vir incorporated several personal touches that made their New York wedding uniquely theirs. From custom cocktail napkins featuring their hashtag to centerpieces made from locally-sourced flowers, every detail reflected their style and personality.</p>
-<p>The couple chose a color palette of deep burgundy, sage green, and gold that beautifully complemented New York's industrial aesthetic. The bouquet featured garden roses, eucalyptus, and seasonal blooms that added organic texture to the industrial setting.</p>
-<p>One of my favorite details was their guest book alternative—a vintage camera where guests could leave Polaroid photos and messages. This interactive element not only provided entertainment but created a keepsake that Geeta and Vir will treasure for years to come.</p>
-</div>
+
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="/static/images/no-logo/new-york-indian-wedding-geeta-vir.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 1" class="gallery-image" loading="lazy" src="/static/images/no-logo/new-york-indian-wedding-geeta-vir.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-001-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-001-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-001.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-001.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-002-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-002-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-002-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-002.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-002.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-003-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-003-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-003-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-003.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-003.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-004-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-004-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-004-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-004.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-004.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-005-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-005-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-005-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-005.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-005.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-006-1024x682.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-006-1024x682.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-006-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-006.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-006.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-007-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-007-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-007-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-007.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-007.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-008-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-008-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-008-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-008.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-008.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-009-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-009-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-009-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-009.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-009.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-010-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-010-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-010-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-010.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-010.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-011-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-011-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-011-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-011.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-011.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-013-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-013-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-013-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-013.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-013.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-014-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-014-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-014-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-014.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-014.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-015-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-015-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-015-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-015.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-015.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-016-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-016-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-016-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-016.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-016.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-017-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-017-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-017-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-017.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-017.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-018-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-018-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-018-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-018.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-018.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-019-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-019-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-019-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-019.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-019.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-020-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-020-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-020-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-020.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-020.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-022-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-022-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-022-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-022.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-022.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-023-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-023-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-023-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-023.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-023.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-024-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-024-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-024-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-024.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-024.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-025-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-025-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-025-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-025.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-025.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-026-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-026-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-026-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-026.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-026.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-027-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-027-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-027-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-027.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-027.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-028-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-028-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-028-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-028.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-028.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-029-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-029-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-029-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-029.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-029.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-030-1024x762.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-030-1024x762.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-030-1024x762.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-030.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-030.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-031-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-031-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 57" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-031-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-031.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 58" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-031.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-032-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-032-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 59" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-032-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-032.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 60" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-032.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-033-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-033-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 61" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-033-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-033.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 62" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-033.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-034-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-034-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 63" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-034-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-034.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 64" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-034.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-035-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-035-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 65" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-035-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-035.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 66" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-035.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-036-1024x684.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-036-1024x684.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 67" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-036-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-036.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 68" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-036.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-037-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-037-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 69" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-037-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-037.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 70" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-037.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-038-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-038-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 71" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-038-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-038.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 72" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-038.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-039-1024x682.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-039-1024x682.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 73" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-039-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-039.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 74" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-039.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-040-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-040-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 75" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-040-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-040.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 76" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-040.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-041-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-041-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 77" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-041-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-041.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 78" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-041.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-042-1024x762.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-042-1024x762.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 79" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-042-1024x762.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-042.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 80" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-042.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-043-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-043-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 81" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-043-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-043.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 82" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-043.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-044-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-044-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 83" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-044-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-044.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 84" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-044.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-045-1024x682.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-045-1024x682.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 85" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-045-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-045.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 86" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-045.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-047-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-047-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 87" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-047-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-047.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 88" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-047.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-048-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-048-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 89" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-048-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-048.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 90" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-048.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-049-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-049-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 91" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-049-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-049.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 92" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-049.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-050-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-050-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 93" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-050-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-050.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 94" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-050.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-051-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-051-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 95" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-051-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-051.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 96" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-051.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-052-1024x682.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-052-1024x682.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 97" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-052-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-052.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 98" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-052.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-053-1024x683.jpg">
-<img alt="New York Indian Wedding | Geeta + Vir - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-053-1024x683.jpg"/>
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 99" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-053-1024x683.jpg"/>
 </a>
-</div><div class="cta-section mid-post"><h3>Planning Your Wedding?</h3><p>Let's create stunning photos that tell your unique love story. Award-winning wedding photography with a photojournalistic style that captures authentic moments.</p><a class="cta-button" href="/photography">View Packages &amp; Pricing</a></div><div class="faq-section" itemscope="" itemtype="https://schema.org/FAQPage">
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-053.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 100" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-053.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-054-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 101" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-054-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-054.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 102" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-054.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-055-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 103" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-055-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-055.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 104" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-055.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-056-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 105" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-056-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-056.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 106" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-056.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-057-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 107" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-057-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-057.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 108" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-057.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-058-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 109" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-058-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-058.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 110" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-058.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-059-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 111" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-059-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-059.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 112" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-059.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-060-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 113" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-060-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-060.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 114" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-060.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-061-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 115" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-061-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-061.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 116" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-061.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-062-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 117" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-062-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-062.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 118" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-062.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-064-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 119" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-064-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-064.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 120" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-064.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-065-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 121" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-065-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-065.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 122" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-065.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-066-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 123" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-066-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-066.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 124" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-066.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-067-1024x339.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 125" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-067-1024x339.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-067.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 126" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-067.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-068-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 127" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-068-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-068.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 128" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-068.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-069-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 129" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-069-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-069.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 130" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-069.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-070-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 131" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-070-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-070.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 132" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-070.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-071-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 133" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-071-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-071.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 134" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-071.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-072-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 135" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-072-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-072.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 136" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-072.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-073-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 137" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-073-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-073.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 138" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-073.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-074-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 139" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-074-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-074.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 140" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-074.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-075-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 141" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-075-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-075.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 142" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-075.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-076-1024x225.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 143" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-076-1024x225.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-076.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 144" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-076.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-077-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 145" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-077-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-077.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 146" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-077.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-078-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 147" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-078-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-078.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 148" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-078.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-079-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 149" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-079-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-079.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 150" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-079.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-080-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 151" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-080-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-080.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 152" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-080.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-081-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 153" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-081-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-081.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 154" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-081.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-082-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 155" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-082-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-082.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 156" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-082.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-083-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 157" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-083-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-083.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 158" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-083.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-084-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 159" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-084-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-084.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 160" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-084.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-085-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 161" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-085-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-085.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 162" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-085.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-086-1024x339.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 163" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-086-1024x339.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-086.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 164" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-086.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-087-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 165" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-087-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-087.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 166" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-087.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-089-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 167" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-089-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-089.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 168" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-089.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-090-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 169" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-090-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-090.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 170" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-090.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-091-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 171" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-091-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-091.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 172" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-091.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-092-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 173" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-092-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-092.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 174" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-092.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-093-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 175" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-093-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-093.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 176" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-093.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-094-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 177" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-094-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-094.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 178" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-094.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-095-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 179" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-095-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-095.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 180" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-095.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-096-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 181" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-096-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-096.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 182" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-096.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-097-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 183" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-097-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-097.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 184" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-097.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-098-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 185" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-098-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-098.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 186" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-098.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-099-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 187" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-099-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-099.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 188" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-099.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-100-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 189" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-100-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-100.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 190" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-100.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-101-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 191" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-101-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-101.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 192" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-101.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-102-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 193" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-102-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-102.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 194" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-102.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-103-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 195" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-103-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-103.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 196" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-103.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-104-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 197" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-104-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-104.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 198" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-104.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-105-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 199" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-105-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-105.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 200" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-105.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-107-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 201" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-107-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-107.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 202" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-107.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-108-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 203" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-108-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-108.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 204" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-108.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-110-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 205" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-110-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-110.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 206" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-110.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-111-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 207" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-111-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-111.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 208" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-111.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-112-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 209" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-112-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-112.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 210" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-112.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-113-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 211" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-113-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-113.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 212" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-113.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-114-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 213" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-114-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-114.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 214" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-114.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-115-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 215" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-115-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-115.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 216" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-115.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-116-1024x339.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 217" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-116-1024x339.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-116.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 218" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-116.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-117-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 219" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-117-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-117.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 220" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-117.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-118-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 221" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-118-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-118.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 222" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-118.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-120-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 223" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-120-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-120.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 224" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-120.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-121-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 225" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-121-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-121.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 226" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-121.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-122-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 227" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-122-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-122.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 228" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-122.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-123-1024x762.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 229" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-123-1024x762.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-123.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 230" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-123.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-124-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 231" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-124-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-124.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 232" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-124.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-125-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 233" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-125-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-125.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 234" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-125.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-126-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 235" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-126-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-126.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 236" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-126.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-127-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 237" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-127-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-127.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 238" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-127.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-128-1024x762.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 239" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-128-1024x762.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-128.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 240" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-128.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-129-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 241" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-129-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-129.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 242" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-129.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-130-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 243" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-130-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-130.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 244" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-130.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-131-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 245" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-131-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-131.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 246" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-131.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-132-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 247" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-132-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-132.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 248" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-132.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-133-1024x762.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 249" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-133-1024x762.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-133.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 250" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-133.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-138-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 251" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-138-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-138.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 252" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-138.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-139-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 253" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-139-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-139.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 254" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-139.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-140-1024x684.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 255" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-140-1024x684.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-140.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 256" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-140.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-141-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 257" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-141-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-141.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 258" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-141.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-142-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 259" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-142-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-142.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 260" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-142.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-143-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 261" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-143-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-143.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 262" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-143.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-144-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 263" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-144-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-144.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 264" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-144.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-145-1024x339.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 265" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-145-1024x339.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-145.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 266" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-145.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-146-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 267" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-146-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-146.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 268" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-146.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-147-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 269" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-147-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-147.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 270" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-147.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-148-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 271" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-148-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-148.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 272" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-148.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-149-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 273" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-149-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-149.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 274" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-149.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-150-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 275" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-150-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-150.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 276" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-150.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-151-1024x224.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 277" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-151-1024x224.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-151.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 278" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-151.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-152-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 279" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-152-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-152.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 280" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-152.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-154-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 281" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-154-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-154.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 282" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-154.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-155-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 283" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-155-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-155.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 284" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-155.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-156-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 285" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-156-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-156.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 286" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-156.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-157-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 287" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-157-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-157.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 288" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-157.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-158-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 289" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-158-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-158.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 290" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-158.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-159-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 291" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-159-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-159.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 292" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-159.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-160-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 293" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-160-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-160.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 294" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-160.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-161-1024x683.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 295" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-161-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-161.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 296" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-161.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-162-1024x682.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 297" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-162-1024x682.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-162.jpg">
+<img alt="New York Indian Wedding | Geeta + Vir - Photo 298" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Indian-Wedding-NY-162.jpg"/>
+</a>
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+<h2 style="font-size: 36px; font-weight: 400; text-align: center; margin-bottom: 40px; color: #2a2a2a;">Frequently Asked Questions</h2>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How much does wedding photography cost at New York Indian?
+      How much does wedding photography cost in South Florida?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Wedding photography at New York Indian typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.
-       <a href="/photography">
-        View our complete pricing
-       </a>
-       .
+       Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What's the best time for a ceremony at New York Indian?
+      What is included in your wedding photography packages?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. New York Indian's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits.
+       All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does New York Indian allow drone photography?
+      How many photos will we receive from our wedding?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, New York Indian permits drone photography with advance notice and proper licensing. The hotel's urban New York Indian location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images.
+       You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How many guests can New York Indian accommodate?
+      Do you travel for destination weddings?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       New York Indian can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity.
+       Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What are the best photo locations at New York Indian?
+      What is your photography style?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options.
+       Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Is there a getting ready space at New York Indian?
+      How far in advance should we book our wedding photographer?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, New York Indian offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen.
+       We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How long should I book photography for a New York Indian wedding?
+      Do you provide a second photographer?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       We recommend 8-10 hours of coverage for New York Indian weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing.
+       Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does New York Indian have indoor backup for rain?
+      What happens if you're sick or unable to photograph our wedding?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Absolutely. New York Indian is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine.
+       We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What time should I schedule first look at New York Indian?
+      When will we receive our wedding photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM.
+       You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How far in advance should I book New York Indian?
+      Do you offer albums and prints?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       New York Indian typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available.
+       Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs.
       </p>
 </div>
 </div>
-</div><div class="author-bio"><div class="author-headshots">
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio">
+<div class="author-headshots">
 <img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
 <img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
-</div><div class="author-content">
-<h3 style="color: #ffffff;">About Acromatico Photography</h3>
-<p style="color: #ffffff;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
+</div>
+<div class="author-content">
+<h3 style="color: #ffffff; font-size: 32px; margin-bottom: 25px;">About Acromatico Photography</h3>
+<p style="color: #ffffff; margin-bottom: 25px;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
 <p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
-</div></div><div class="related-posts">
-<h2>
-     Related Sessions
-    </h2>
+</div>
+</div>
+
+<!-- Related Posts -->
+<div class="related-posts">
+<h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/sunflower-maze-proposal-connecticut-si-marcos.html">
-<img alt="Sunflower Maze Proposal, Connecticut | Si + Marcos" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/08/Sunflower-Maze-Proposal-001-1024x683.jpg"/>
-<h3>Sunflower Maze Proposal, Connecticut | Si + Marcos</h3>
+<a href="/static/blog/adriana-francisco-bill-baggs-state-park-after-wedding-session.html">
+<img alt="Adriana + Francisco | Bill Baggs State Park After Wedding Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/02/Bill-Baggs-State-Park-After-Wedding-Session-001.jpg"/>
+<h3>Adriana + Francisco | Bill Baggs State Park After Wedding Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/baby-photo-session-olivia-roze.html">
-<img alt="Baby Photo Session | Olivia Roze" loading="lazy" src="https://acromatico.com/wp-content/uploads/2020/07/Baby-Photo-Session-001-1024x767.jpg"/>
-<h3>Baby Photo Session | Olivia Roze</h3>
+<a href="/static/blog/alyssa-don-the-mayfair-hotel-wedding.html">
+<img alt="Alyssa + Don | The Mayfair Hotel Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/11/Mayfair-Hotel-Coral-Gables-Wedding-001.jpg"/>
+<h3>Alyssa + Don | The Mayfair Hotel Wedding</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/fort-lauderdale-indian-wedding-alissa-imran.html">
-<img alt="Fort Lauderdale Indian Wedding | Alissa + Imran" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Indian-Wedding-001-1-1024x683.jpg"/>
-<h3>Fort Lauderdale Indian Wedding | Alissa + Imran</h3>
+<a href="/static/blog/amanda-laurent-key-biscayne-wedding.html">
+<img alt="Amanda + Laurent | Key Biscayne Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/Amanda-Laurent-W-1.jpg"/>
+<h3>Amanda + Laurent | Key Biscayne Wedding</h3>
 </a>
 </article>
 </div>
-</div></div>
+</div>
+</div>
+
 <!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
 <div id="footer-container"></div>
 
@@ -1368,6 +2204,21 @@
     })
     .catch(error => console.error('Footer load error:', error));
 })();
+</script>
+
+<!-- GLightbox JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    // Initialize GLightbox for gallery
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true,
+        closeButton: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        slideEffect: 'slide'
+    });
 </script>
 </body>
 </html>

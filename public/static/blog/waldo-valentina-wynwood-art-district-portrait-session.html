@@ -8,7 +8,7 @@
    Waldo + Valentina | Wynwood Art District Portrait Session | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Professional wedding photography at our location. Waldo + Valentina | Wynwood Art District Portrait Session." name="description"/>
+<meta content="Winter-in-New-York, graffiti walls? Nope, just another session at the Wynwood Art District! This time no engagement, no wedding coming up, not really a special ..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
@@ -16,22 +16,27 @@
 <meta content="article" property="og:type"/>
 <meta content="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session" property="og:url"/>
 <meta content="Waldo + Valentina | Wynwood Art District Portrait Session" property="og:title"/>
-<meta content="Professional wedding photography at our location. Waldo + Valentina | Wynwood Art District Portrait Session." property="og:description"/>
-<meta content="/static/images/no-logo/waldo-valentina-wynwood-art-district-portrait-session.jpg" property="og:image"/>
+<meta content="Winter-in-New-York, graffiti walls? Nope, just another session at the Wynwood Art District! This time no engagement, no wedding coming up, not really a special ..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
 <meta content="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session" property="twitter:url"/>
 <meta content="Waldo + Valentina | Wynwood Art District Portrait Session" property="twitter:title"/>
-<meta content="Professional wedding photography at our location. Waldo + Valentina | Wynwood Art District Portrait Session." property="twitter:description"/>
-<meta content="/static/images/no-logo/waldo-valentina-wynwood-art-district-portrait-session.jpg" property="twitter:image"/>
+<meta content="Winter-in-New-York, graffiti walls? Nope, just another session at the Wynwood Art District! This time no engagement, no wedding coming up, not really a special ..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
 <link href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session" rel="canonical"/>
+<!-- Open Graph Extended -->
+<meta content="Photography" property="article:section"/>
+<meta content="Family Photography" property="article:tag"/>
+<meta content="South Florida Photographer" property="article:tag"/>
+<meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
+
    * {
             margin: 0;
             padding: 0;
@@ -49,10 +54,13 @@
         
         .hero-section {
             min-height: 100vh;
-            background-image: url('/static/images/no-logo/waldo-valentina-wynwood-art-district-portrait-session.jpg');
+            background-image: url('/static/images/no-logo/20th-anniversary-photo-session.jpeg');
             background-position: center center;
             background-size: cover;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-section::before {
@@ -62,7 +70,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.19);
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         .site-header {
@@ -446,6 +468,11 @@
                 column-count: 1;
             }
             
+            .hero-title {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+            
             .post-title {
                 font-size: 30px;
             }
@@ -463,6 +490,8 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
         }
         
         .gallery-image:hover {
@@ -474,9 +503,17 @@
             font-weight: 400;
             color: #2a2a2a;
             letter-spacing: -0.3px;
-            margin: 60px 0 30px 0;
+            margin: 80px 0 30px 0;
+            padding-top: 60px;
             text-align: center;
             line-height: 1.3em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .section-heading:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 60px;
         }
         
         .section-text {
@@ -487,6 +524,31 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        /* Featured Section Images */
+        .featured-image {
+            max-width: 1000px;
+            margin: 50px auto 60px auto;
+            text-align: center;
+        }
+        
+        .section-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 0 20px;
+            text-align: center;
         }
         
         /* CTA Sections */
@@ -665,6 +727,14 @@
             object-fit: cover;
             border: 5px solid #ffffff;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .author-bio img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.3);
+            border-color: #f0f0f0;
         }
         
         .author-info h3 {
@@ -833,15 +903,104 @@
                 height: 300px;
             }
         }
-  </style>
+  
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does family photography cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Family sessions start at $500 for 90 minutes at one location. This includes professional editing, online gallery, and high-resolution downloads. Most families receive 50-80 beautifully edited images. Extended family sessions or multiple locations may require additional time and pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best locations for family photos in South Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top family-friendly locations include Matheson Hammock Park, Crandon Park, South Pointe Park, Fairchild Tropical Garden, and various beach locations. We help you choose based on your family's vibe—whether you prefer beach, park, urban, or in-home lifestyle sessions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should we wear for family photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coordinate (don't match!) with a cohesive color palette. Choose 2-3 complementary colors and vary textures and patterns. Avoid logos, neon colors, and overly trendy pieces. Outfits should feel authentic to your family's style. We provide a detailed style guide with examples after booking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my kids don't cooperate or won't smile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We're experts at working with kids! We use games, silly prompts, and patience to capture genuine smiles and personality. We don't force stiff poses—authentic interaction and real laughter create the best images. Even "chaos" photos often become family favorites because they're real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a family photo session take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most family sessions run 60-90 minutes. This allows time for various groupings (whole family, just parents, siblings together, individual kids) without kids getting tired or cranky. We work efficiently and keep things fun and engaging for children."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What ages are best for family photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any age! We photograph families with newborns through grandparents. Each age brings unique joys—baby smiles, toddler energy, teenager personalities, adult children, multi-generational portraits. The best time for family photos is NOW, documenting your family exactly as you are today."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we include extended family or just our immediate family?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your choice! Many families start with immediate family portraits, then add grandparents, aunts, uncles, and cousins for extended family groupings. If including extended family, plan for 90-120 minutes to capture all desired combinations without rushing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will we receive our family photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your complete edited gallery is delivered within 3-4 weeks after your session. Sneak peeks (10-15 images) are typically shared within 48-72 hours. All images are professionally edited and delivered via online gallery with download and print rights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What time of day is best for family photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Golden hour (the hour before sunset) provides the most flattering natural light. In South Florida, that's typically 6:00-7:30 PM in summer, 4:30-6:00 PM in winter. Morning light (7:00-9:00 AM) also works beautifully and may be better for families with young children who tire by evening."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should we update family photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend annual family photos to document how your children grow and your family evolves. Many families make it a tradition (same location, same time of year). Others update photos every 2-3 years or when major changes occur (new baby, teenager graduation). There's no wrong frequency!"
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Acromatico Photography Blog Post",
-  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "headline": "Waldo + Valentina | Wynwood Art District Portrait Session",
+  "description": "Winter-in-New-York, graffiti walls? Nope, just another session at the Wynwood Art District! This time no engagement, no wedding coming up, not really a special ...",
   "image": [
-    "/static/images/no-logo/waldo-valentina-wynwood-art-district-portrait-session.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-001.jpg",
     "https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-002.jpg",
     "https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-003.jpg",
     "https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-004.jpg",
@@ -853,7 +1012,7 @@
     "https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-010.jpg"
   ],
   "datePublished": "2024-01-15",
-  "dateModified": "2026-01-28",
+  "dateModified": "2026-02-15",
   "author": {
     "@type": "Person",
     "name": "Italo Campilii",
@@ -876,97 +1035,11 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/static/blog/waldo-valentina-wynwood-art-district-portrait-session.html"
+    "@id": "https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session"
   }
 }
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does wedding photography cost at Wynwood Art District Portrait?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wedding photography at Wynwood Art District Portrait typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.View our complete pricing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best time for a ceremony at Wynwood Art District Portrait?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. Wynwood Art District Portrait's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Wynwood Art District Portrait allow drone photography?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Wynwood Art District Portrait permits drone photography with advance notice and proper licensing. The hotel's urban Wynwood Art District Portrait location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many guests can Wynwood Art District Portrait accommodate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wynwood Art District Portrait can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the best photo locations at Wynwood Art District Portrait?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a getting ready space at Wynwood Art District Portrait?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Wynwood Art District Portrait offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long should I book photography for a Wynwood Art District Portrait wedding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We recommend 8-10 hours of coverage for Wynwood Art District Portrait weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Wynwood Art District Portrait have indoor backup for rain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Wynwood Art District Portrait is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What time should I schedule first look at Wynwood Art District Portrait?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How far in advance should I book Wynwood Art District Portrait?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wynwood Art District Portrait typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available."
-      }
-    }
-  ]
-}
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -986,20 +1059,38 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Acromatico Photography Blog Post",
-      "item": "https://acromatico.com/static/blog/waldo-valentina-wynwood-art-district-portrait-session.html"
+      "name": "Waldo + Valentina | Wynwood Art District Portrait Session",
+      "item": "https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session"
     }
   ]
 }
-</script><script type="application/ld+json">
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ImageObject",
-  "url": "/static/images/no-logo/waldo-valentina-wynwood-art-district-portrait-session.jpg",
-  "caption": "Waldo + Valentina | Wynwood Art District Portrait Session - Photo 1",
-  "description": "Waldo + Valentina | Wynwood Art District Portrait Session - Photo 1"
+  "@type": "LocalBusiness",
+  "name": "Acromatico Photography",
+  "image": "https://acromatico.com/static/acromatico-logo-dark.png",
+  "description": "Professional wedding and portrait photography in South Florida and NYC",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.7617",
+    "longitude": "-80.1918"
+  },
+  "url": "https://acromatico.com",
+  "telephone": "+1-305-555-0100",
+  "priceRange": "$$$$",
+  "areaServed": ["Miami", "South Florida", "New York City"],
+  "servesCuisine": "Photography Services"
 }
-</script></head>
+</script>
+</head>
 <body>
 <!-- Static Header with Logo and Hamburger -->
 <header class="site-header">
@@ -1039,37 +1130,23 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-</div>
-<section class="hero-section">
-<h1 class="hero-title">Waldo + Valentina | Wynwood Art District Portrait Session</h1></section>
+
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-001.jpg');">
+<h1 class="hero-title">Waldo + Valentina | Wynwood Art District Portrait Session</h1>
+</section>
+
 <div class="content-container">
-<h2 class="section-heading">The Emotional Ceremony</h2>
-<div class="section-text">
-<p>Waldo's photo session was a beautiful blend of tradition and personal touches. The couple wrote their own vows, creating one of the most heartfelt moments of the day. As a photo session photographer, I've witnessed countless ceremonies, but the emotion in this room was palpable.</p>
-<p>the venue's photo session space features 20-foot ceilings with original exposed brick and massive windows that flood the room with natural light. This architectural beauty meant we didn't need to rely on flash photography, allowing for more authentic, documentary-style images that captured the genuine emotions of the moment.</p>
-<p>Waldo and Valentina's walk down the aisle created the kind of authentic moments that great photo session photography is built on. The industrial setting provided a stunning contrast to the softness and romance of the photo session, creating images with both drama and intimacy.</p>
+<div class="post-intro">
+Winter-in-New-York, graffiti walls? Nope, just another session at the Wynwood Art District! This time no engagement, no wedding coming up, not really a special occasion…it was a just-for-fun, brother/sister (and mom) portrait session. They couldn’t have picked a better place for an International DJ and soon-to-be Forever 21 model, lol! Being our cousins we felt right at home with them and we all ended up having a blast. Enjoy some of the coolest shots of the day featuring dubstep, <a href="https://www.facebook.com/walstep.elevate?fref=ts" target="_blank">DJ Waldo</a>, straight from Venezuela:
+
+ 
+
+<a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-001/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-001" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-001.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-002/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-002" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-002.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-003/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-003" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-003.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-004/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-004" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-004.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-005/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-005" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-005.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-006/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-006" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-006.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-007/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-007" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-007.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-008/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-008" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-008.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-009/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-009" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-009.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-010/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-010" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-010.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-011/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-011" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-011.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-012/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-012" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-012.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-013/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-013" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-013.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-014/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-014" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-014.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-015/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-015" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-015.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-016/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-016" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-016.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-017/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-017" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-017.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-018/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-018" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-018.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-019/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-019" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-019.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-020/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-020" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-020.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-021/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-021" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-021.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-022/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-022" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-022.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-023/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-023" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-023.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-024/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-024" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-024.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-025/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-025" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-025.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-026/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-026" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-026.jpg" alt="" width="910" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-027/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-027" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-027.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-028/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-028" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-028.jpg" alt="" width="910" height="450" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/450;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-029/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-029" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-029.jpg" alt="" width="910" height="1365" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1365;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-030/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-030" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-030.jpg" alt="" width="910" height="450" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/450;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-031/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-031" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-031.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-032/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-032" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-032.jpg" alt="" width="910" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-033/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-033" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-033.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a> <a href="https://acromatico.com/blog/waldo-valentina-wynwood-art-district-portrait-session/attachment/dj-photo-session-wynwood-art-district-034/" target="_blank"><img decoding="async"  title="DJ Photo Session Wynwood Art District-034" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-034.jpg" alt="" width="910" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" /></a>
 </div>
-<h2 class="section-heading">Couple Portraits at Golden Hour</h2>
-<div class="section-text">
-<p>One of the advantages of this session at the venue is its proximity to beautiful natural surroundings. After the photo session, we stole Waldo and Valentina away for twenty minutes of golden hour portraits—a decision that resulted in some of the most stunning images of their entire day.</p>
-<p>For couples planning their the venue photo session, I always recommend building in 20-30 minutes for golden hour portraits if your timing allows. The combination of industrial architecture and natural beauty creates incredibly versatile backdrops for photo session photography.</p>
-<p>Waldo and Valentina were naturals in front of the camera, laughing and enjoying each other's company while we captured everything from dramatic wide shots showcasing the venue's architecture to intimate close-ups that highlighted their genuine connection.</p>
-</div>
-<h2 class="section-heading">Reception Celebration</h2>
-<div class="section-text">
-<p>The celebration at the venue was everything a photo session should be—elegant, fun, and filled with unforgettable moments. The exposed brick walls and industrial lighting created an atmosphere that was both sophisticated and warm, perfect for both the formal dinner service and the energetic dancing that followed.</p>
-<p>Waldo and Valentina's first dance was followed by heartfelt toasts from family and friends, each sharing stories that highlighted the couple's journey together. The dance floor stayed packed all night, with guests celebrating under the romantic glow of string lights suspended from the high ceilings.</p>
-<p>the venue's in-house catering team provided a delicious farm-to-table menu that perfectly complemented the venue's rustic-elegant aesthetic. The combination of excellent food, beautiful space, and joyful celebration created an atmosphere that was both relaxed and special.</p>
-</div>
-<h2 class="section-heading">Details That Made the Day Special</h2>
-<div class="section-text">
-<p>Waldo and Valentina incorporated several personal touches that made their the venue photo session uniquely theirs. From custom cocktail napkins featuring their hashtag to centerpieces made from locally-sourced flowers, every detail reflected their style and personality.</p>
-<p>The couple chose a color palette of deep burgundy, sage green, and gold that beautifully complemented the venue's industrial aesthetic. The bouquet featured garden roses, eucalyptus, and seasonal blooms that added organic texture to the industrial setting.</p>
-<p>One of my favorite details was their guest book alternative—a vintage camera where guests could leave Polaroid photos and messages. This interactive element not only provided entertainment but created a keepsake that Waldo and Valentina will treasure for years to come.</p>
-</div>
+
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="/static/images/no-logo/waldo-valentina-wynwood-art-district-portrait-session.jpg">
-<img alt="Waldo + Valentina | Wynwood Art District Portrait Session - Photo 1" class="gallery-image" loading="lazy" src="/static/images/no-logo/waldo-valentina-wynwood-art-district-portrait-session.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-001.jpg">
+<img alt="Waldo + Valentina | Wynwood Art District Portrait Session - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-001.jpg"/>
 </a>
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-002.jpg">
 <img alt="Waldo + Valentina | Wynwood Art District Portrait Session - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-002.jpg"/>
@@ -1170,143 +1247,152 @@
 <a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-034.jpg">
 <img alt="Waldo + Valentina | Wynwood Art District Portrait Session - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/DJ-Photo-Session-Wynwood-Art-District-034.jpg"/>
 </a>
-</div><div class="cta-section mid-post"><h3>Planning Your Wedding?</h3><p>Let's create stunning photos that tell your unique love story. Award-winning wedding photography with a photojournalistic style that captures authentic moments.</p><a class="cta-button" href="/photography">View Packages &amp; Pricing</a></div><div class="faq-section" itemscope="" itemtype="https://schema.org/FAQPage">
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+<h2 style="font-size: 36px; font-weight: 400; text-align: center; margin-bottom: 40px; color: #2a2a2a;">Frequently Asked Questions</h2>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How much does wedding photography cost at Wynwood Art District Portrait?
+      How much does family photography cost?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Wedding photography at Wynwood Art District Portrait typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.
-       <a href="/photography">
-        View our complete pricing
-       </a>
-       .
+       Family sessions start at $500 for 90 minutes at one location. This includes professional editing, online gallery, and high-resolution downloads. Most families receive 50-80 beautifully edited images. Extended family sessions or multiple locations may require additional time and pricing.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What's the best time for a ceremony at Wynwood Art District Portrait?
+      What are the best locations for family photos in South Florida?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. Wynwood Art District Portrait's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits.
+       Top family-friendly locations include Matheson Hammock Park, Crandon Park, South Pointe Park, Fairchild Tropical Garden, and various beach locations. We help you choose based on your family's vibe—whether you prefer beach, park, urban, or in-home lifestyle sessions.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Wynwood Art District Portrait allow drone photography?
+      What should we wear for family photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Wynwood Art District Portrait permits drone photography with advance notice and proper licensing. The hotel's urban Wynwood Art District Portrait location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images.
+       Coordinate (don't match!) with a cohesive color palette. Choose 2-3 complementary colors and vary textures and patterns. Avoid logos, neon colors, and overly trendy pieces. Outfits should feel authentic to your family's style. We provide a detailed style guide with examples after booking.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How many guests can Wynwood Art District Portrait accommodate?
+      What if my kids don't cooperate or won't smile?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Wynwood Art District Portrait can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity.
+       We're experts at working with kids! We use games, silly prompts, and patience to capture genuine smiles and personality. We don't force stiff poses—authentic interaction and real laughter create the best images. Even "chaos" photos often become family favorites because they're real.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What are the best photo locations at Wynwood Art District Portrait?
+      How long does a family photo session take?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options.
+       Most family sessions run 60-90 minutes. This allows time for various groupings (whole family, just parents, siblings together, individual kids) without kids getting tired or cranky. We work efficiently and keep things fun and engaging for children.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Is there a getting ready space at Wynwood Art District Portrait?
+      What ages are best for family photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes, Wynwood Art District Portrait offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen.
+       Any age! We photograph families with newborns through grandparents. Each age brings unique joys—baby smiles, toddler energy, teenager personalities, adult children, multi-generational portraits. The best time for family photos is NOW, documenting your family exactly as you are today.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How long should I book photography for a Wynwood Art District Portrait wedding?
+      Should we include extended family or just our immediate family?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       We recommend 8-10 hours of coverage for Wynwood Art District Portrait weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing.
+       Your choice! Many families start with immediate family portraits, then add grandparents, aunts, uncles, and cousins for extended family groupings. If including extended family, plan for 90-120 minutes to capture all desired combinations without rushing.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Does Wynwood Art District Portrait have indoor backup for rain?
+      When will we receive our family photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Absolutely. Wynwood Art District Portrait is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine.
+       Your complete edited gallery is delivered within 3-4 weeks after your session. Sneak peeks (10-15 images) are typically shared within 48-72 hours. All images are professionally edited and delivered via online gallery with download and print rights.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What time should I schedule first look at Wynwood Art District Portrait?
+      What time of day is best for family photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM.
+       Golden hour (the hour before sunset) provides the most flattering natural light. In South Florida, that's typically 6:00-7:30 PM in summer, 4:30-6:00 PM in winter. Morning light (7:00-9:00 AM) also works beautifully and may be better for families with young children who tire by evening.
       </p>
 </div>
 </div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How far in advance should I book Wynwood Art District Portrait?
+      How often should we update family photos?
      </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Wynwood Art District Portrait typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available.
+       We recommend annual family photos to document how your children grow and your family evolves. Many families make it a tradition (same location, same time of year). Others update photos every 2-3 years or when major changes occur (new baby, teenager graduation). There's no wrong frequency!
       </p>
 </div>
 </div>
-</div><div class="author-bio"><div class="author-headshots">
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio">
+<div class="author-headshots">
 <img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
 <img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
-</div><div class="author-content">
-<h3 style="color: #ffffff;">About Acromatico Photography</h3>
-<p style="color: #ffffff;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
+</div>
+<div class="author-content">
+<h3 style="color: #ffffff; font-size: 32px; margin-bottom: 25px;">About Acromatico Photography</h3>
+<p style="color: #ffffff; margin-bottom: 25px;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
 <p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
-</div></div><div class="related-posts">
-<h2>
-     Related Sessions
-    </h2>
+</div>
+</div>
+
+<!-- Related Posts -->
+<div class="related-posts">
+<h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/sarah-alex-flagler-museum-engagement.html">
-<img alt="Sarah + Alex | Flagler Museum Engagement" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/05/Flagler-Museum-Engagement-001.jpg"/>
-<h3>Sarah + Alex | Flagler Museum Engagement</h3>
+<a href="/static/blog/20th-anniversary-photo-session.html">
+<img alt="20th Anniversary Photo Session | Mares Family" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/05/20th-Anniversary-Photo-Session-1.jpeg"/>
+<h3>20th Anniversary Photo Session | Mares Family</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/odalys-david-south-florida-engagement-session.html">
-<img alt="Odalys + David | South Florida Engagement Session" loading="lazy" src="https://via.placeholder.com/400x300/1a1a1a/ffffff?text=Blog+Post"/>
-<h3>Odalys + David | South Florida Engagement Session</h3>
+<a href="/static/blog/albaladejo-family-matheson-hammock-park-family-session.html">
+<img alt="Albaladejo Family | Matheson Hammock Park Family Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2016/05/Matheson-Hammock-Park-Family-Session-001.jpg"/>
+<h3>Albaladejo Family | Matheson Hammock Park Family Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/katrina-keith-wynwood-art-district-engagement-session.html">
-<img alt="katrina + keith | wynwood art district engagement session" loading="lazy" src="https://acromatico.com/wp-content/uploads/wynwood-art-district-graffiti-engagement-miami-1.jpg"/>
-<h3>katrina + keith | wynwood art district engagement session</h3>
+<a href="/static/blog/ale-italo-matteo-family-portrait.html">
+<img alt="Ale + Italo + Matteo | Family Portrait" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Bal-Harbour-Family-Portrait-001.jpg"/>
+<h3>Ale + Italo + Matteo | Family Portrait</h3>
 </a>
 </article>
 </div>
-</div></div>
+</div>
+</div>
+
 <!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
 <div id="footer-container"></div>
 
@@ -1320,6 +1406,21 @@
     })
     .catch(error => console.error('Footer load error:', error));
 })();
+</script>
+
+<!-- GLightbox JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    // Initialize GLightbox for gallery
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true,
+        closeButton: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        slideEffect: 'slide'
+    });
 </script>
 </body>
 </html>
