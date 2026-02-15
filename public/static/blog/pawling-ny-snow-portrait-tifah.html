@@ -5,29 +5,35 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Pawling, NY – Snow Portrait | Tifah | Acromatico Photography
+   Pawling, NY &#8211; Snow Portrait | Tifah | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Professional wedding photography at Pawling, NY. Pawling, NY – Snow Portrait | Tifah." name="description"/>
-<meta content="Pawling, NY photographer, Wedding photography, Acromatico" name="keywords"/>
+<meta content="What do Sunday&#8217;s and snow days have in common? My camera.Woke up to a text. 2 hours later we met up. Where to? Wherever. Headed to Pawling Park. Nothing w..." name="description"/>
+<meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
 <meta content="https://acromatico.com/blog/pawling-ny-snow-portrait-tifah" property="og:url"/>
-<meta content="Pawling, NY – Snow Portrait | Tifah" property="og:title"/>
-<meta content="Professional wedding photography at Pawling, NY. Pawling, NY – Snow Portrait | Tifah." property="og:description"/>
-<meta content="/static/images/no-logo/pawling-ny-snow-portrait-tifah.jpg" property="og:image"/>
+<meta content="Pawling, NY &#8211; Snow Portrait | Tifah" property="og:title"/>
+<meta content="What do Sunday&#8217;s and snow days have in common? My camera.Woke up to a text. 2 hours later we met up. Where to? Wherever. Headed to Pawling Park. Nothing w..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-001-4.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
 <meta content="https://acromatico.com/blog/pawling-ny-snow-portrait-tifah" property="twitter:url"/>
-<meta content="Pawling, NY – Snow Portrait | Tifah" property="twitter:title"/>
-<meta content="Professional wedding photography at Pawling, NY. Pawling, NY – Snow Portrait | Tifah." property="twitter:description"/>
-<meta content="/static/images/no-logo/pawling-ny-snow-portrait-tifah.jpg" property="twitter:image"/>
+<meta content="Pawling, NY &#8211; Snow Portrait | Tifah" property="twitter:title"/>
+<meta content="What do Sunday&#8217;s and snow days have in common? My camera.Woke up to a text. 2 hours later we met up. Where to? Wherever. Headed to Pawling Park. Nothing w..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-001-4.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
 <link href="https://acromatico.com/blog/pawling-ny-snow-portrait-tifah" rel="canonical"/>
+<!-- Open Graph Extended -->
+<meta content="Photography" property="article:section"/>
+<meta content="Anniversary Photography" property="article:tag"/>
+<meta content="Couples Photography" property="article:tag"/>
+<meta content="South Florida Photographer" property="article:tag"/>
+<meta content="Family Photography" property="article:tag"/>
+<meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -49,10 +55,13 @@
         
         .hero-section {
             min-height: 100vh;
-            background-image: url('/static/images/no-logo/pawling-ny-snow-portrait-tifah.jpg');
+            background-image: url('https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-001-4.jpg');
             background-position: center center;
             background-size: cover;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-section::before {
@@ -62,7 +71,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.19);
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         .site-header {
@@ -446,6 +469,11 @@
                 column-count: 1;
             }
             
+            .hero-title {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+            
             .post-title {
                 font-size: 30px;
             }
@@ -463,6 +491,8 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
         }
         
         .gallery-image:hover {
@@ -474,9 +504,17 @@
             font-weight: 400;
             color: #2a2a2a;
             letter-spacing: -0.3px;
-            margin: 60px 0 30px 0;
+            margin: 80px 0 30px 0;
+            padding-top: 60px;
             text-align: center;
             line-height: 1.3em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .section-heading:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 60px;
         }
         
         .section-text {
@@ -487,6 +525,31 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        /* Featured Section Images */
+        .featured-image {
+            max-width: 1000px;
+            margin: 50px auto 60px auto;
+            text-align: center;
+        }
+        
+        .section-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 0 20px;
+            text-align: center;
         }
         
         /* CTA Sections */
@@ -665,6 +728,14 @@
             object-fit: cover;
             border: 5px solid #ffffff;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .author-bio img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.3);
+            border-color: #f0f0f0;
         }
         
         .author-info h3 {
@@ -834,14 +905,429 @@
             }
         }
   </style>
+</head></head>
+<body>
+<div class="site-header">
+<div class="zentangle-container">
+<div class="zentangle-layer layer-1"></div>
+<div class="zentangle-layer layer-2"></div>
+<div class="zentangle-layer layer-3"></div>
+</div>
+<div class="hamburger-menu" id="hamburger-menu">
+<div class="hamburger-icon">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav class="nav-menu" id="nav-menu">
+<a href="/">HOME</a>
+<a href="/static/photography.html">PHOTOGRAPHY</a>
+<a href="/static/blog-index.html">BLOG</a>
+<a href="/static/our-story.html">OUR STORY</a>
+<a href="#contact">CONTACT</a>
+</nav>
+</div>
+
+<div class="hero-section">
+<h1 class="hero-title">Pawling, NY &#8211; Snow Portrait | Tifah</h1>
+</div>
+
+<div class="content-container">
+<div class="section-text">
+<p>What do Sunday&#8217;s and snow days have in common? My camera.Woke up to a text. 2 hours later we met up. Where to? Wherever. Headed to Pawling Park. Nothing was planned. The colors were perfect. Tifah absolutely rocked this by just being herself. A true winter wonderland: playground version.Free spirited, happy and go with the flow. Loved her energy during this shoot. It was absolutely one I will never forget. Not only did we get to shoot in a fun playground in the middle of a snow fall but we shot right on a frozen lake. Yes. I totally overcame my childhood fear of falling inside a frozen lake. Also, if you know me, I&#8217;m not really scared of much except everything and nothing. T e r r i f i e d of bees (but overcame that too). Honestly, these Disney movies get you (thanks Balto!). I knew the only way I&#8217;d be on a frozen lake was if it was absolutely worth it. Give me a camera and I&#8217;ll probably go sky diving (jk) but you get the point.Oh. There was also a big fat warning sign that said THIN ICE. We fell a few times, laughed so hard I fell again. I had as much fun shooting as I did watching this girl just be her. I also think that&#8217;s super important. Just be you. It&#8217;ll show. Photos don&#8217;t lie. Sometimes, you just need these kind of days. Where you go wherever they take you and sometimes they just take you where you&#8217;ve never been.  Just fun. Enjoy some of my faves from this snow photo shoot right in Pawling, NY:</p>
+</div>
+
+<div class="featured-image">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 2" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-002-4.jpg"/>
+<p class="image-caption">Pawling, NY &#8211; Snow Portrait | Tifah</p>
+</div>
+
+<h2 class="section-heading">Family Sessions:<br/>Capturing Connection</h2>
+
+<div class="section-text">
+<p>Family photography is about more than posed group shots. It's about capturing relationships – the way kids look at their parents, sibling connections, grandparent love. We blend formal portraits with candid moments.</p>
+</div>
+
+<div class="featured-image">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 3" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-003-4.jpg"/>
+<p class="image-caption">Pawling, NY &#8211; Snow Portrait | Tifah</p>
+</div>
+
+<h2 class="section-heading">Session Experience:<br/>Relaxed & Fun</h2>
+
+<div class="section-text">
+<p>We keep family sessions fun and low-pressure. Kids especially do best when sessions feel like playtime, not a chore. We bring energy, prompts, and patience, allowing personalities to shine through naturally.</p>
+</div>
+
+<div class="featured-image">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 4" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-004-3.jpg"/>
+<p class="image-caption">Pawling, NY &#8211; Snow Portrait | Tifah</p>
+</div>
+
+<h2 class="section-heading">Location & Timing:<br/>Setting Up for Success</h2>
+
+<div class="section-text">
+<p>Location and timing matter! We choose spots with visual variety and natural light. For families with young kids, scheduling during their best time of day makes a huge difference in smiles and cooperation.</p>
+</div>
+
+<div class="featured-image">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 5" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-005-3.jpg"/>
+<p class="image-caption">Pawling, NY &#8211; Snow Portrait | Tifah</p>
+</div>
+
+<h2 class="section-heading">What to Expect:<br/>From Planning to Gallery</h2>
+
+<div class="section-text">
+<p>From our initial consultation through your final gallery delivery, we guide you every step. Wardrobe suggestions, location scouting, session day coaching, and professional editing ensure beautiful images.</p>
+</div>
+
+<div class="gallery-container">
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-001-4.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-001-4.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-002-4.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-002-4.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-003-4.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-003-4.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-004-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-004-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-005-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-005-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-006-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-006-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-007-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-007-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-008-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-008-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-009-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-009-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-010-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-010-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-011-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-011-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-012-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-012-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-013-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-013-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-014-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-014-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-015-3.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-015-3.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-016-2.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-016-2.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-017-2.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-017-2.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-018-2.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-018-2.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-019-2.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-019-2.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-020-1.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-020-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-021-1.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-021-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-022-1.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-022-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-023-1.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-023-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-024-1.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-024-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-025-1.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-025-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-026.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-026.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-027.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-027.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-028.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-028.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-029.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-029.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-030.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-030.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-031.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-031.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-032.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-032.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-033.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-033.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-034.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-034.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-035.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-035.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-036.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-036.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-038.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-038.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-039.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-039.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-040.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-040.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-041.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-041.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-042.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-042.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-043.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-043.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-044.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-044.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-045.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-045.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-046.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-046.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-047.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-047.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-048.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-048.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-049.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-049.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-050.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-050.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-051.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-051.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-052.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-052.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-053.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-053.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-054.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-054.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-055.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-055.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-056.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-056.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-057.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-057.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-058.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 57" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-058.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-059.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 58" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-059.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-060.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 59" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-060.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-061.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 60" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-061.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-062.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 61" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-062.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-063.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 62" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-063.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-064.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 63" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-064.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-065.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 64" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-065.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-066.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 65" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-066.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-067.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 66" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-067.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-068.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 67" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-068.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-069.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 68" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-069.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-070.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 69" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-070.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-071.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 70" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-071.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-072.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 71" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-072.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-073.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 72" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-073.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-074.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 73" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-074.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-075.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 74" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-075.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-076.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 75" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-076.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-077.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 76" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-077.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-078.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 77" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-078.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-079.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 78" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-079.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-080.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 79" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-080.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-081.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 80" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-081.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-082.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 81" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-082.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-083.jpg">
+<img alt="Pawling, NY &#8211; Snow Portrait | Tifah - Photo 82" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-083.jpg"/>
+</a>
+</div>
+
+</div>
+
+<div class="cta-section mid-post"><h3>Planning Your Wedding?</h3><p>Let's create stunning photos that tell your unique love story.</p><p>Award-winning wedding photography with a photojournalistic style that captures authentic moments.</p><a class="cta-button" href="/photography">View Packages & Pricing</a></div>
+
+<div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      How much does family photography cost?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Family photography sessions start at $450 for a 45-60 minute session at one location. This includes professional editing, online gallery with high-resolution downloads, and typically 40-60 final images.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      What should we wear for family photos?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Coordinate colors but avoid overly matching outfits—think complementary tones rather than identical looks. Solid colors and simple patterns work best. For South Florida, light neutrals, soft blues, and earth tones photograph beautifully.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      How do you work with young children?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       We keep family sessions fun and playful! Kids do best when sessions feel like playtime, not a formal photoshoot. We use games, prompts, and silly jokes to get genuine smiles.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      What are the best locations for family photos?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Popular family session locations include parks with natural shade, beaches at sunrise or sunset, and urban areas with colorful walls or architecture. We consider your family's energy level and kids' ages when recommending locations.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      When will we receive our family photos?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       You'll receive a sneak peek of 5-10 images within 48 hours. Your complete edited gallery is delivered within 2-3 weeks.
+      </p>
+</div>
+</div>
+</div>
+
+<div class="author-bio"><div class="author-headshots">
+<img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
+<img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
+</div><div class="author-content">
+<h3 style="color: #ffffff; font-size: 32px; margin-bottom: 25px;">About Acromatico Photography</h3>
+<p style="color: #ffffff; margin-bottom: 25px;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
+<p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
+</div></div><div class="related-posts">
+<h2>Related Sessions</h2>
+<div class="related-posts-grid">
+<article class="related-post">
+<a href="/static/blog/20th-anniversary-photo-session.html">
+<img alt="20th Anniversary Photo Session | Mares Family" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/05/20th-Anniversary-Photo-Session-1.jpeg"/>
+<h3>20th Anniversary Photo Session | Mares Family</h3>
+</a>
+</article>
+<article class="related-post">
+<a href="/static/blog/albaladejo-family-matheson-hammock-park-family-session.html">
+<img alt="Albaladejo Family | Matheson Hammock Park Family Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2016/05/Matheson-Hammock-Park-Family-Session-001.jpg"/>
+<h3>Albaladejo Family | Matheson Hammock Park Family Session</h3>
+</a>
+</article>
+<article class="related-post">
+<a href="/static/blog/ale-italo-matteo-family-portrait.html">
+<img alt="Ale + Italo + Matteo | Family Portrait" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Bal-Harbour-Family-Portrait-001.jpg"/>
+<h3>Ale + Italo + Matteo | Family Portrait</h3>
+</a>
+</article>
+</div>
+</div>
+<div id="footer-placeholder"></div>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Acromatico Photography Blog Post",
-  "description": "Professional wedding and portrait photography by Acromatico Photography in South Florida.",
+  "headline": "Pawling, NY &#8211; Snow Portrait | Tifah",
+  "description": "What do Sunday&#8217;s and snow days have in common? My camera.Woke up to a text. 2 hours later we met up. Where to? Wherever. Headed to Pawling Park. Nothing w...",
   "image": [
-    "/static/images/no-logo/pawling-ny-snow-portrait-tifah.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-001-4.jpg",
     "https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-002-4.jpg",
     "https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-003-4.jpg",
     "https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-004-3.jpg",
@@ -853,7 +1339,7 @@
     "https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-010-3.jpg"
   ],
   "datePublished": "2024-01-15",
-  "dateModified": "2026-01-28",
+  "dateModified": "2026-02-15",
   "author": {
     "@type": "Person",
     "name": "Italo Campilii",
@@ -876,498 +1362,31 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/static/blog/pawling-ny-snow-portrait-tifah.html"
+    "@id": "https://acromatico.com/blog/pawling-ny-snow-portrait-tifah"
   }
 }
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does wedding photography cost at this beautiful location?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wedding photography at this beautiful location typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.View our complete pricing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best time for a ceremony at this beautiful location?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. this beautiful location's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does this beautiful location allow drone photography?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, this beautiful location permits drone photography with advance notice and proper licensing. The hotel's urban this beautiful location location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many guests can this beautiful location accommodate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "this beautiful location can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the best photo locations at this beautiful location?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a getting ready space at this beautiful location?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, this beautiful location offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long should I book photography for a this beautiful location wedding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We recommend 8-10 hours of coverage for this beautiful location weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does this beautiful location have indoor backup for rain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. this beautiful location is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What time should I schedule first look at this beautiful location?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How far in advance should I book this beautiful location?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "this beautiful location typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available."
-      }
-    }
-  ]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://acromatico.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "https://acromatico.com/blog"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Acromatico Photography Blog Post",
-      "item": "https://acromatico.com/static/blog/pawling-ny-snow-portrait-tifah.html"
-    }
-  ]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ImageObject",
-  "url": "/static/images/no-logo/pawling-ny-snow-portrait-tifah.jpg",
-  "caption": "Pawling, NY – Snow Portrait | Tifah - Photo 1",
-  "description": "Pawling, NY – Snow Portrait | Tifah - Photo 1"
-}
-</script></head>
-<body>
-<!-- Static Header with Logo and Hamburger -->
-<header class="site-header">
-  <a href="/">
-    <img src="/static/acromatico-logo-transparent.png" alt="Acromatico Photography" class="site-logo" />
-  </a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</header>
-
-<!-- DYNAMIC MOBILE MENU - Loaded from /api/mobile-menu API -->
-<div id="mobile-menu-container"></div>
-
-<script>
-// Load mobile menu dynamically from server
-(function() {
-  fetch('/api/mobile-menu')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('mobile-menu-container').innerHTML = html;
-      
-      // Execute any scripts in the loaded HTML
-      const scripts = document.getElementById('mobile-menu-container').querySelectorAll('script');
-      scripts.forEach(script => {
-        const newScript = document.createElement('script');
-        if (script.src) {
-          newScript.src = script.src;
-        } else {
-          newScript.textContent = script.textContent;
-        }
-        document.body.appendChild(newScript);
-      });
-    })
-    .catch(error => console.error('Mobile menu load error:', error));
-})();
 </script>
-</div>
-<section class="hero-section">
-<h1 class="hero-title">Pawling, NY – Snow Portrait | Tifah</h1></section>
-<div class="content-container">
-<h2 class="section-heading">The Emotional Ceremony</h2>
-<div class="section-text">
-<p>Pawling,'s photo session was a beautiful blend of tradition and personal touches. The couple wrote their own vows, creating one of the most heartfelt moments of the day. As a photo session photographer, I've witnessed countless ceremonies, but the emotion in this room was palpable.</p>
-<p>the venue's photo session space features 20-foot ceilings with original exposed brick and massive windows that flood the room with natural light. This architectural beauty meant we didn't need to rely on flash photography, allowing for more authentic, documentary-style images that captured the genuine emotions of the moment.</p>
-<p>Tifah's walk down the aisle created the kind of authentic moments that great photo session photography is built on. The industrial setting provided a stunning contrast to the softness and romance of the photo session, creating images with both drama and intimacy.</p>
-</div>
-<h2 class="section-heading">Couple Portraits at Golden Hour</h2>
-<div class="section-text">
-<p>One of the advantages of this session at the venue is its proximity to beautiful natural surroundings. After the photo session, we stole Tifah away for twenty minutes of golden hour portraits—a decision that resulted in some of the most stunning images of their entire day.</p>
-<p>For couples planning their the venue photo session, I always recommend building in 20-30 minutes for golden hour portraits if your timing allows. The combination of industrial architecture and natural beauty creates incredibly versatile backdrops for photo session photography.</p>
-<p>Tifah were naturals in front of the camera, laughing and enjoying each other's company while we captured everything from dramatic wide shots showcasing the venue's architecture to intimate close-ups that highlighted their genuine connection.</p>
-</div>
-<h2 class="section-heading">Reception Celebration</h2>
-<div class="section-text">
-<p>The celebration at the venue was everything a photo session should be—elegant, fun, and filled with unforgettable moments. The exposed brick walls and industrial lighting created an atmosphere that was both sophisticated and warm, perfect for both the formal dinner service and the energetic dancing that followed.</p>
-<p>Tifah's first dance was followed by heartfelt toasts from family and friends, each sharing stories that highlighted the couple's journey together. The dance floor stayed packed all night, with guests celebrating under the romantic glow of string lights suspended from the high ceilings.</p>
-<p>the venue's in-house catering team provided a delicious farm-to-table menu that perfectly complemented the venue's rustic-elegant aesthetic. The combination of excellent food, beautiful space, and joyful celebration created an atmosphere that was both relaxed and special.</p>
-</div>
-<h2 class="section-heading">Details That Made the Day Special</h2>
-<div class="section-text">
-<p>Tifah incorporated several personal touches that made their the venue photo session uniquely theirs. From custom cocktail napkins featuring their hashtag to centerpieces made from locally-sourced flowers, every detail reflected their style and personality.</p>
-<p>The couple chose a color palette of deep burgundy, sage green, and gold that beautifully complemented the venue's industrial aesthetic. The bouquet featured garden roses, eucalyptus, and seasonal blooms that added organic texture to the industrial setting.</p>
-<p>One of my favorite details was their guest book alternative—a vintage camera where guests could leave Polaroid photos and messages. This interactive element not only provided entertainment but created a keepsake that Tifah will treasure for years to come.</p>
-</div>
-<div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="/static/images/no-logo/pawling-ny-snow-portrait-tifah.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 1" class="gallery-image" loading="lazy" src="/static/images/no-logo/pawling-ny-snow-portrait-tifah.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-002-4.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-002-4.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-003-4.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-003-4.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-004-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-004-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-005-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-005-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-006-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-006-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-007-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-007-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-008-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-008-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-009-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-009-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-010-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-010-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-011-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-011-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-012-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-012-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-013-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-013-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-014-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-014-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-015-3.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-015-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-016-2.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-016-2.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-017-2.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-017-2.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-018-2.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-018-2.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-019-2.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-019-2.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-020-1.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-020-1.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-021-1.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-021-1.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-022-1.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-022-1.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-023-1.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-023-1.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-024-1.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-024-1.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-025-1.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-025-1.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-026.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-026.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-027.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-027.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-028.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-028.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-029.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-029.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-030.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-030.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-031.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-031.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-032.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-032.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-033.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-033.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-034.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-034.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-035.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-035.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-036.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-036.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-038.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-038.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-039.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-039.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-040.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-040.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-041.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-041.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-042.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-042.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-043.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-043.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-044.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-044.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-045.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-045.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-046.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-046.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-047.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-047.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-048.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-048.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-049.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-049.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-050.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-050.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-051.jpg">
-<img alt="Pawling, NY – Snow Portrait | Tifah - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/02/Snow-Photoshoot-051.jpg"/>
-</a>
-</div><div class="cta-section mid-post"><h3>Planning Your Wedding?</h3><p>Let's create stunning photos that tell your unique love story. Award-winning wedding photography with a photojournalistic style that captures authentic moments.</p><a class="cta-button" href="/photography">View Packages &amp; Pricing</a></div><div class="faq-section" itemscope="" itemtype="https://schema.org/FAQPage">
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      How much does wedding photography cost at this beautiful location?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       Wedding photography at this beautiful location typically starts at $3,500 for 8-hour coverage. Our packages include engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage.
-       <a href="/photography">
-        View our complete pricing
-       </a>
-       .
-      </p>
-</div>
-</div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      What's the best time for a ceremony at this beautiful location?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       The ideal ceremony time is 5:00-5:30 PM, which allows for golden hour portraits after the ceremony. this beautiful location's large windows provide beautiful natural light throughout the day, so earlier ceremonies (3:00-4:00 PM) also photograph wonderfully. Avoid ceremonies after 6:30 PM if you want outdoor sunset portraits.
-      </p>
-</div>
-</div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      Does this beautiful location allow drone photography?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       Yes, this beautiful location permits drone photography with advance notice and proper licensing. The hotel's urban this beautiful location location provides stunning aerial perspectives of the historic building and surrounding waterfront. We recommend scheduling drone shots during golden hour for the most dramatic images.
-      </p>
-</div>
-</div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      How many guests can this beautiful location accommodate?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       this beautiful location can accommodate up to 200 guests for seated receptions. The venue's flexible layout works beautifully for both intimate gatherings of 50-75 guests and larger celebrations. The high ceilings and open floor plan prevent the space from feeling crowded even at capacity.
-      </p>
-</div>
-</div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      What are the best photo locations at this beautiful location?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       Top photo locations include: the exposed brick ceremony space with dramatic lighting, the intimate courtyard for first looks, the industrial-chic bar area for cocktail hour shots, the riverside walkway for sunset portraits, and the hotel's historic staircase for formal portraits. Each location offers unique aesthetic options.
-      </p>
-</div>
-</div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      Is there a getting ready space at this beautiful location?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       Yes, this beautiful location offers spacious suites for getting ready, included with your venue rental. The suites feature large windows with beautiful natural light—perfect for getting ready photos. We recommend booking two separate suites if you want privacy between the wedding party and groomsmen.
-      </p>
-</div>
-</div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      How long should I book photography for a this beautiful location wedding?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       We recommend 8-10 hours of coverage for this beautiful location weddings. This typically includes 2 hours for getting ready, 1 hour for first look and pre-ceremony portraits, ceremony coverage, 30 minutes for golden hour couple shots, and 4-5 hours of reception coverage through dinner and dancing.
-      </p>
-</div>
-</div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      Does this beautiful location have indoor backup for rain?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       Absolutely. this beautiful location is primarily an indoor venue, so weather concerns are minimal. The ceremony, cocktail hour, and reception all take place indoors. While outdoor photos are available nearby, the hotel's industrial-chic interior spaces photograph beautifully rain or shine.
-      </p>
-</div>
-</div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      What time should I schedule first look at this beautiful location?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       Schedule your first look 2-2.5 hours before the ceremony. This timing allows for private moments, couple portraits in multiple locations, and wedding party photos—all before guests arrive. For a 5:30 PM ceremony, plan your first look for 3:00 PM.
-      </p>
-</div>
-</div>
-<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
-<h3 class="faq-question" itemprop="name">
-      How far in advance should I book this beautiful location?
-     </h3>
-<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
-<p itemprop="text">
-       this beautiful location typically books 12-18 months in advance for peak wedding season (May-October). For off-season dates (November-April), you may find availability 6-9 months out. As for photography, we recommend booking as soon as you secure your venue to ensure your preferred photographer is available.
-      </p>
-</div>
-</div>
-</div><div class="author-bio"><div class="author-headshots">
-<img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
-<img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
-</div><div class="author-content">
-<h3 style="color: #ffffff;">About Acromatico Photography</h3>
-<p style="color: #ffffff;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
-<p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
-</div></div><div class="related-posts">
-<h2>
-     Related Sessions
-    </h2>
-<div class="related-posts-grid">
-<article class="related-post">
-<a href="/static/blog/esther-adam-ernest-hemingway-house-key-west-wedding.html">
-<img alt="Esther + Adam | Ernest Hemingway House Key West Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/2016/06/Key-West-Wedding-001.jpg"/>
-<h3>Esther + Adam | Ernest Hemingway House Key West Wedding</h3>
-</a>
-</article>
-<article class="related-post">
-<a href="/static/blog/newborn-photography-broward-olivia.html">
-<img alt="Newborn Photography Broward | Olivia" loading="lazy" src="https://acromatico.com/wp-content/uploads/2019/12/newborn-photography-broward-001-1-1024x682.jpg"/>
-<h3>Newborn Photography Broward | Olivia</h3>
-</a>
-</article>
-<article class="related-post">
-<a href="/static/blog/ale-italo-matteo-lorenzo-bal-harbour-maternity-session.html">
-<img alt="Ale, Italo, Matteo &amp; Lorenzo | Bal Harbour Maternity Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2016/09/Bal-Harbour-Maternity-Session-001.jpg"/>
-<h3>Ale, Italo, Matteo &amp; Lorenzo | Bal Harbour Maternity Session</h3>
-</a>
-</article>
-</div>
-</div></div>
-<!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
-<div id="footer-container"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script>
-// Load footer dynamically from server
-(function() {
-  fetch('/api/footer')
+const lightbox = GLightbox({
+    touchNavigation: true,
+    loop: true,
+    autoplayVideos: true
+});
+
+// Hamburger menu
+document.getElementById('hamburger-menu').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.getElementById('nav-menu').classList.toggle('active');
+});
+
+// Load footer
+fetch('/api/footer')
     .then(response => response.text())
     .then(html => {
-      document.getElementById('footer-container').innerHTML = html;
-    })
-    .catch(error => console.error('Footer load error:', error));
-})();
+        document.getElementById('footer-placeholder').innerHTML = html;
+    });
 </script>
 </body>
 </html>
