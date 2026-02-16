@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Davie FL Wedding Photography | Alicia + Claudio | Acromatico Photography
+  </title>
+<!-- SEO Meta Tags -->
+<meta content="&lt;div data-elementor-type='wp-post' data-elementor-id='34382' class='elementor elementor-34382' data-elementor-post-type='post'&gt; 						&lt;section class='elementor-..." name="description"/>
+<meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
+<meta content="Italo Campilii" name="author"/>
+<meta content="index, follow" name="robots"/>
+<!-- Open Graph / Facebook -->
+<meta content="article" property="og:type"/>
+<meta content="https://acromatico.com/blog/davie-fl-wedding-photography" property="og:url"/>
+<meta content="Davie FL Wedding Photography | Alicia + Claudio" property="og:title"/>
+<meta content="&lt;div data-elementor-type='wp-post' data-elementor-id='34382' class='elementor elementor-34382' data-elementor-post-type='post'&gt; 						&lt;section class='elementor-..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-1.jpeg" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://acromatico.com/blog/davie-fl-wedding-photography" property="twitter:url"/>
+<meta content="Davie FL Wedding Photography | Alicia + Claudio" property="twitter:title"/>
+<meta content="&lt;div data-elementor-type='wp-post' data-elementor-id='34382' class='elementor elementor-34382' data-elementor-post-type='post'&gt; 						&lt;section class='elementor-..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-1.jpeg" property="twitter:image"/>
+<!-- Canonical URL -->
+<link href="https://acromatico.com/blog/davie-fl-wedding-photography" rel="canonical"/>
+<!-- Open Graph Extended -->
+<meta content="Photography" property="article:section"/>
+<meta content="Wedding Photography" property="article:tag"/>
+<meta content="South Florida Photographer" property="article:tag"/>
+<meta content="Italo Campilii" property="article:author"/>
+<!-- Schema.org Markup -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #2a2a2a;
+            background: #ffffff;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            background-image: url('/static/images/no-logo/20th-anniversary-photo-session.jpeg');
+            background-position: center center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+        
+        .site-logo {
+            max-width: 200px;
+            height: auto;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            z-index: 10000;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .menu-toggle:hover span {
+            background: #4794A6;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        @media (max-width: 768px) {
+            .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+            
+            .site-logo {
+                max-width: 150px;
+            }
+        }
+        
+        .ast-mobile-popup-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 420px;
+            height: 100%;
+            background: #f8f8f8;
+            z-index: 9998;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+        }
+        
+        .ast-mobile-popup-drawer.active {
+            right: 0;
+        }
+        
+        .ast-mobile-popup-inner {
+            padding: 60px 50px 40px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+        
+        .mobile-menu-logo {
+            max-width: 180px;
+            margin: 0 auto 30px auto;
+            filter: none;
+            text-align: center;
+        }
+        
+        .mobile-menu-logo img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .mobile-menu-search {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .mobile-menu-search input {
+            width: 100%;
+            padding: 15px 45px 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: #4a4a4a;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-search input:focus {
+            outline: none;
+            border-color: #4794A6;
+            box-shadow: 0 0 0 3px rgba(114, 128, 18, 0.1);
+        }
+        
+        .mobile-menu-search input::placeholder {
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+        }
+        
+        .mobile-menu-search button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu-search button:hover {
+            color: #4794A6;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            margin-top: 10px;
+        }
+        
+        .search-results.active {
+            display: block;
+        }
+        
+        .search-result-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-result-item:hover {
+            background: #f8f8f8;
+        }
+        
+        .search-result-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 5px;
+        }
+        
+        .search-result-category {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .search-no-results {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .mobile-menu-nav {
+            flex: 1;
+        }
+        
+        .mobile-menu-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .mobile-menu-nav li {
+            margin-bottom: 8px;
+        }
+        
+        .mobile-menu-nav a {
+            display: inline-block;
+            padding: 18px 0;
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .mobile-menu-nav a:hover,
+        .mobile-menu-nav a.active {
+            color: #4794A6;
+        }
+        
+        .mobile-menu-footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        .mobile-menu-tagline {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 20px;
+        }
+        
+        .mobile-menu-social {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .mobile-menu-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4a4a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-social a:hover {
+            background: #4794A6;
+            transform: translateY(-3px);
+        }
+        
+        .mobile-menu-logo {
+            margin-bottom: 40px;
+        }
+        
+        .mobile-menu-logo img {
+            max-width: 200px;
+            height: auto;
+        }
+        
+        .main-header-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .main-header-menu .menu-item {
+            margin-bottom: 25px;
+        }
+        
+        .main-header-menu .menu-link {
+            text-decoration: none;
+            color: #3a3a3a;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: block;
+        }
+        
+        .main-header-menu .menu-link:hover {
+            color: #4794A6;
+        }
+        
+        .ast-mobile-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9997;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .ast-mobile-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .content-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .post-title {
+            font-size: 44px;
+            font-weight: 400;
+            color: #2a2a2a;
+            letter-spacing: -0.5px;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.4em;
+        }
+        
+        .post-intro {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a3a3a;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .gallery-container {
+            column-count: 2;
+            column-gap: 10px;
+            margin-bottom: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                column-count: 1;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+            
+            .post-title {
+                font-size: 30px;
+            }
+        }
+        
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .gallery-image:hover {
+            opacity: 0.9;
+        }
+        
+        .section-heading {
+            font-size: 32px;
+            font-weight: 400;
+            color: #2a2a2a;
+            letter-spacing: -0.3px;
+            margin: 80px 0 30px 0;
+            padding-top: 60px;
+            text-align: center;
+            line-height: 1.3em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .section-heading:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 60px;
+        }
+        
+        .section-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a3a3a;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Featured Section Images */
+        .featured-image {
+            max-width: 1000px;
+            margin: 50px auto 60px auto;
+            text-align: center;
+        }
+        
+        .section-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        /* CTA Sections */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 60px 0;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .cta-section h2, .cta-section h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 34px;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #ffffff;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 0 8px;
+            border: 2px solid #ffffff;
+            position: relative;
+            overflow: hidden;
+            min-width: auto;
+            max-width: fit-content;
+            white-space: nowrap;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background: #f0f0f0;
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #ffffff;
+            color: #1a1a1a;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.3);
+        }
+        
+        /* Vendor Credits */
+        .vendor-credits {
+            background: #f8f8f8;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .vendor-credits ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .vendor-credits li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 15px;
+        }
+        
+        .vendor-credits li:last-child {
+            border-bottom: none;
+        }
+        
+        .vendor-credits a {
+            color: #4794A6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .vendor-credits a:hover {
+            color: #5a6609;
+            text-decoration: underline;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0;
+        }
+        
+        .faq-item {
+            background: #f9f9f9;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4794A6;
+        }
+        
+        .faq-question {
+            font-size: 20px;
+            font-weight: 500;
+            color: #2a2a2a;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555;
+            margin: 0;
+        }
+        
+        /* Author Bio */
+        /* Author Bio */
+        .author-bio {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 50px;
+            border-radius: 12px;
+            margin: 60px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .author-headshots {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+        
+        .author-bio img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .author-bio img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.3);
+            border-color: #f0f0f0;
+        }
+        
+        .author-info h3 {
+            font-size: 26px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: -0.2px;
+        }
+        
+        .author-info p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+        
+        .author-info a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            transition: border-color 0.3s ease;
+        }
+        
+        .author-info a:hover {
+            border-bottom-color: #ffffff;
+        }
+        
+        .author-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Related Posts */
+        .related-posts {
+            margin: 60px 0;
+        }
+        
+        .related-posts h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #3a3a3a;
+        }
+        
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Force 3 columns on desktop */
+        @media (min-width: 769px) {
+            .related-posts-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+        
+        .related-post {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .related-post:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+        
+        .related-post img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .related-post:hover img {
+            transform: scale(1.08);
+        }
+        
+        .related-post h3 {
+            padding: 20px;
+            font-size: 18px;
+            background: #ffffff;
+        }
+        
+        .related-post a {
+            text-decoration: none;
+            color: #3a3a3a;
+        }
+        
+        .related-post a:hover {
+            color: #4794A6;
+        }
+        
+        /* Footer */
+        .post-footer {
+            background: #2a2a2a;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        
+        .footer-nav {
+            margin-top: 20px;
+        }
+        
+        .footer-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            color: #4794A6;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-headshots {
+                align-items: center;
+            }
+            
+            .author-bio img {
+                width: 120px;
+                height: 120px;
+            }
+                padding: 30px 20px;
+            }
+            
+            .cta-section {
+                padding: 40px 20px;
+            }
+            
+            .cta-section h2, .cta-section h3 {
+                font-size: 24px;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .related-post img {
+                height: 300px;
+            }
+        }
+  
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does wedding photography cost in South Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is included in your wedding photography packages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many photos will we receive from our wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you travel for destination weddings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your photography style?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far in advance should we book our wedding photographer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide a second photographer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if you're sick or unable to photograph our wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will we receive our wedding photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer albums and prints?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Davie FL Wedding Photography | Alicia + Claudio",
+  "description": "<div data-elementor-type='wp-post' data-elementor-id='34382' class='elementor elementor-34382' data-elementor-post-type='post'> 						<section class='elementor-...",
+  "image": [
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-1.jpeg",
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-2.jpeg",
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-3.jpeg",
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-4.jpeg",
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-5.jpeg",
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-6.jpeg",
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-7.jpeg",
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-8.jpeg",
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-9.jpeg",
+    "https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-10.jpeg"
+  ],
+  "datePublished": "2024-01-15",
+  "dateModified": "2026-02-15",
+  "author": {
+    "@type": "Person",
+    "name": "Italo Campilii",
+    "url": "https://acromatico.com/our-story",
+    "image": "https://acromatico.com/wp-content/uploads/2018/09/italo-campilii-acromatico-photography.jpg",
+    "jobTitle": "Professional Photographer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Acromatico Photography"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Acromatico Photography",
+    "url": "https://acromatico.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://acromatico.com/static/acromatico-logo-dark.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://acromatico.com/blog/davie-fl-wedding-photography"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://acromatico.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://acromatico.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Davie FL Wedding Photography | Alicia + Claudio",
+      "item": "https://acromatico.com/blog/davie-fl-wedding-photography"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Acromatico Photography",
+  "image": "https://acromatico.com/static/acromatico-logo-dark.png",
+  "description": "Professional wedding and portrait photography in South Florida and NYC",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.7617",
+    "longitude": "-80.1918"
+  },
+  "url": "https://acromatico.com",
+  "telephone": "+1-305-555-0100",
+  "priceRange": "$$$$",
+  "areaServed": ["Miami", "South Florida", "New York City"],
+  "servesCuisine": "Photography Services"
+}
+</script>
+</head>
+<body>
+<!-- Static Header with Logo and Hamburger -->
+<header class="site-header">
+<a href="/">
+<img alt="Acromatico Photography" class="site-logo" src="/static/acromatico-logo-transparent.png"/>
+</a>
+<button aria-label="Menu" class="menu-toggle" id="menuToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</header>
+<!-- DYNAMIC MOBILE MENU - Loaded from /api/mobile-menu API -->
+<div id="mobile-menu-container"></div>
+<script>
+// Load mobile menu dynamically from server
+(function() {
+  fetch('/api/mobile-menu')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('mobile-menu-container').innerHTML = html;
+      
+      // Execute any scripts in the loaded HTML
+      const scripts = document.getElementById('mobile-menu-container').querySelectorAll('script');
+      scripts.forEach(script => {
+        const newScript = document.createElement('script');
+        if (script.src) {
+          newScript.src = script.src;
+        } else {
+          newScript.textContent = script.textContent;
+        }
+        document.body.appendChild(newScript);
+      });
+    })
+    .catch(error => console.error('Mobile menu load error:', error));
+})();
+</script>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-1.jpeg');">
+<h1 class="hero-title">Davie FL Wedding Photography | Alicia + Claudio</h1>
+</section>
+<div class="content-container">
+<div class="post-intro">
+<div class="elementor elementor-34382" data-elementor-id="34382" data-elementor-post-type="post" data-elementor-type="wp-post">
+<section class="elementor-section elementor-top-section elementor-element elementor-element-41a0aab elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="41a0aab">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3a67efa" data-element_type="column" data-id="3a67efa">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-995d1e0 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="995d1e0" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default">Alicia and Claudio’s Love Story
+</h2> </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-5d8f887 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="5d8f887">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7f3f54b" data-element_type="column" data-id="7f3f54b">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-d952347 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="d952347" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+									Alicia and Claudio’s wedding day was a celebration of love, laughter, and joy. Our photographer worked her beautiful artistic touch to capture their genuine moments. From heartfelt glances to bursts of laughter, every frame told their unique love story.  P.S. If you or your friend are getting married, you will find more tips below the photos on this blog that talk more in-depth about tips for brides and future brides, you won’t want to miss them!
+
+ 
+
+ 
+
+								</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-ea1b67b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="ea1b67b">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e55ac41" data-element_type="column" data-id="e55ac41">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-b9705e2 elementor-widget elementor-widget-image-gallery" data-element_type="widget" data-id="b9705e2" data-widget_type="image-gallery.default">
+<div class="elementor-widget-container">
+<div class="elementor-image-gallery">
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzODgsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMS5qcGVnIiwic2xpZGVzaG93IjoiYjk3MDVlMiJ9" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-1" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-1.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 1" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzODksInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMi5qcGVnIiwic2xpZGVzaG93IjoiYjk3MDVlMiJ9" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-2" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-2.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 2" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTAsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMy5qcGVnIiwic2xpZGVzaG93IjoiYjk3MDVlMiJ9" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-3" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-3.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 3" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTEsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNC5qcGVnIiwic2xpZGVzaG93IjoiYjk3MDVlMiJ9" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-4" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-4.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 4" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTIsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNS5qcGVnIiwic2xpZGVzaG93IjoiYjk3MDVlMiJ9" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-5" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-5.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 5" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTMsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNi5qcGVnIiwic2xpZGVzaG93IjoiYjk3MDVlMiJ9" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-6" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-6.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 6" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTQsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNy5qcGVnIiwic2xpZGVzaG93IjoiYjk3MDVlMiJ9" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-7" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-7.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 7" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTUsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctOC5qcGVnIiwic2xpZGVzaG93IjoiYjk3MDVlMiJ9" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-8" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-8.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 8" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTYsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctOS5qcGVnIiwic2xpZGVzaG93IjoiYjk3MDVlMiJ9" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-9" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-9.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 9" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTcsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTAuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-10" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-10.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 10" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTgsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTEuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-11" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-11.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 11" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQzOTksInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTIuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-12" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-12.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 12" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDAsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTMuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-13" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-13.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 13" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDEsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTQuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-14" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-14.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 14" decoding="async" height="2400" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1600px; --smush-placeholder-aspect-ratio: 1600/2400;" width="1600"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDIsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTUuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-15" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-15.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 15" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDMsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTYuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-16" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-16.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 16" decoding="async" height="2400" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1600px; --smush-placeholder-aspect-ratio: 1600/2400;" width="1600"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDQsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTcuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-17" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-17.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 17" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDUsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTguanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-18" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-18.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 18" decoding="async" height="2400" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1600px; --smush-placeholder-aspect-ratio: 1600/2400;" width="1600"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDYsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMTkuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-19" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-19.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 19" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDcsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjAuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-20" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-20.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 20" decoding="async" height="2400" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1600px; --smush-placeholder-aspect-ratio: 1600/2400;" width="1600"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDgsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjEuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-21" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-21.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 21" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MDksInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjIuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-22" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-22.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 22" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTAsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjMuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-23" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-23.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 23" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTEsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjQuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-24" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-24.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 24" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTIsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjUuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-25" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-25.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 25" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTMsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjYuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-26" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-26.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 26" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTQsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjcuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-27" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-27.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 27" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTUsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjguanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-28" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-28.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 28" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTYsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMjkuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-29" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-29.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 29" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTcsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzAuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-30" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-30.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 30" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTgsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzEuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-31" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-31.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 31" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MTksInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzIuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-32" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-32.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 32" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjAsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzMuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-33" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-33.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 33" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjEsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzQuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-34" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-34.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 34" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjIsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzUuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-35" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-35.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 35" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjMsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzYuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-36" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-36.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 36" decoding="async" height="2400" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1600px; --smush-placeholder-aspect-ratio: 1600/2400;" width="1600"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjQsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzcuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-37" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-37.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 37" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjUsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzguanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-38" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-38.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 38" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjYsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctMzkuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-39" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-39.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 39" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjcsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDAuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-40" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-40.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 40" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjgsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDEuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-41" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-41.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 41" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MjksInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDIuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-42" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-42.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 42" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzAsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDMuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-43" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-43.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 43" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzEsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDQuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-44" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-44.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 44" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzIsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDUuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-45" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-45.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 45" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzMsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDYuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-46" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-46.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 46" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzQsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDcuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-47" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-47.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 47" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzUsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDguanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-48" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-48.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 48" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzYsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNDkuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-49" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-49.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 49" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzcsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTAuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-50" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-50.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 50" decoding="async" height="2400" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1600px; --smush-placeholder-aspect-ratio: 1600/2400;" width="1600"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzgsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTEuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-51" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-51.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 51" decoding="async" height="2400" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1600px; --smush-placeholder-aspect-ratio: 1600/2400;" width="1600"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0MzksInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTIuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-52" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-52.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 52" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDAsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTMuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-53" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-53.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 53" decoding="async" height="2400" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1600px; --smush-placeholder-aspect-ratio: 1600/2400;" width="1600"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDEsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTQuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-54" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-54.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 54" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDIsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTUuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-55" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-55.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 55" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDMsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTYuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-56" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-56.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 56" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDQsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTcuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-57" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-57.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 57" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDUsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTguanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-58" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-58.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 58" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDYsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNTkuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-59" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-59.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 59" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDcsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjAuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-60" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-60.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 60" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDgsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjEuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-61" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-61.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 61" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NDksInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjIuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-62" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-62.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 62" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTAsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjMuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-63" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-63.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 63" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTEsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjQuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-64" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-64.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 64" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTIsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjUuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-65" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-65.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 65" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTMsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjYuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-66" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-66.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 66" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTQsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjcuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-67" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-67.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 67" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTUsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjguanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-68" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-68.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 68" decoding="async" height="1920" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1280px; --smush-placeholder-aspect-ratio: 1280/1920;" width="1280"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTYsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNjkuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-69" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-69.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 69" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTcsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzAuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-70" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-70.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 70" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTgsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzEuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-71" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-71.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 71" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NTksInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzIuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-72" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-72.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 72" decoding="async" height="2400" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1600px; --smush-placeholder-aspect-ratio: 1600/2400;" width="1600"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjAsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzMuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-73" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-73.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 73" decoding="async" height="1600" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2400px; --smush-placeholder-aspect-ratio: 2400/1600;" width="2400"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjEsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzQuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-74" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-74.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 74" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjIsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzUuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-75" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-75.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 75" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjMsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzYuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-76" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-76.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 76" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjQsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzcuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-77" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-77.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 77" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjUsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzguanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-78" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-78.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 78" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjYsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctNzkuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-79" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-79.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 79" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjcsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctODAuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-80" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-80.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 80" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjgsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctODEuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-81" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-81.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 81" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NjksInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctODIuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-82" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-82.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 82" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NzAsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctODMuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-83" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-83.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 83" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+<a data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ0NzEsInVybCI6Imh0dHBzOlwvXC9hY3JvbWF0aWNvLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMTBcL0RhdmllLUZMLVdlZGRpbmctODQuanBlZyIsInNsaWRlc2hvdyI6ImI5NzA1ZTIifQ%3D%3D" data-elementor-lightbox-slideshow="b9705e2" data-elementor-lightbox-title="Davie FL Wedding-84" data-elementor-open-lightbox="yes" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-84.jpeg"><img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 84" decoding="async" height="1280" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/1280;" width="1920"/></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-9a31bd9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="9a31bd9">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-484537b" data-element_type="column" data-id="484537b">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-881e510 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="881e510" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default">Tips for Brides and Future Brides:</h2> </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-2c7e936 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="2c7e936">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9da65a5" data-element_type="column" data-id="9da65a5">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-5a05f05 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="5a05f05" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<ol><li><strong>Trust Your Photographer:</strong>
+<ul><li>Like Alicia, trust your photographer’s expertise. They know how to bring out your best features and capture authentic emotions.</li><li>Communicate openly with your photographer about any concerns or preferences.</li></ul></li><li><strong>Be Natural:</strong>
+<ul><li>Forget about posing perfectly. Genuine smiles, laughter, and candid moments create the most beautiful photos.</li><li>Relax and enjoy the day; let your love shine through.</li></ul></li><li><strong>Location Matters:</strong>
+<ul><li>Choose a wedding venue or outdoor setting that resonates with your personalities.</li><li>Davie, Florida offers picturesque landscapes – from lush gardens to rustic barns – perfect for romantic shots.</li></ul></li><li><strong>Embrace Laughter:</strong>
+<ul><li>Weddings are joyful occasions! Don’t be afraid to laugh, dance, and celebrate.</li><li>Candid shots during funny moments capture the essence of your day.</li></ul></li></ol><strong>Remember, your wedding photos are timeless memories. Trust your photographer, be yourself, and let love be the focus of every frame! 💕📸</strong>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="section-text">
+<p>									Alicia and Claudio’s wedding day was a celebration of love, laughter, and joy. Our photographer worked her beautiful artistic touch to capture their genuine moments. From heartfelt glances to bursts of laughter, every frame told their unique love story.  P.S. If you or your friend are getting married, you will find more tips below the photos on this blog that talk more in-depth about tips for brides and future brides, you won’t want to miss them!
+
+Working with Alicia + Claudio to document these moments was incredibly rewarding. Every detail—from the the venue to the smallest personal touches—came together to create something truly memorable.
+
+Trust Your Photographer:
+Like Alicia, trust your photographer’s expertise. They know how to bring out your best features and capture authentic emotions.Communicate openly with your photographer about any concerns or preferences.Be Natural:
+Forget about posing perfectly. Genuine smiles, laughter, and candid moments create the most beautiful photos.Relax and enjoy the day; let your love shine through.Location Matters:
+Choose a wedding venue or outdoor setting that resonates with your personalities.Davie, Florida offers picturesque landscapes – from lush gardens to rustic barns – perfect for romantic shots.Embrace Laughter:
+Weddings are joyful occasions! Don’t be afraid to laugh, dance, and celebrate.Candid shots during funny moments capture the essence of your day.Remember, your wedding photos are timeless memories. Trust your photographer, be yourself, and let love be the focus of every frame! 💕📸
+
+As a Davie photographer, I approach each the venue with a blend of documentary observation and artistic direction. The goal is always to capture authentic moments while creating images that will be treasured for generations.</p>
+</div><div class="featured-image"><img alt="Alicia + Claudio - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-1.jpeg"/><p class="image-caption">Alicia + Claudio - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="section-text">
+<p>									Alicia and Claudio’s wedding day was a celebration of love, laughter, and joy. Our photographer worked her beautiful artistic touch to capture their genuine moments. From heartfelt glances to bursts of laughter, every frame told their unique love story.  P.S. If you or your friend are getting married, you will find more tips below the photos on this blog that talk more in-depth about tips for brides and future brides, you won’t want to miss them!
+
+Working with Alicia + Claudio to document these moments was incredibly rewarding. Every detail—from the the ceremony to the smallest personal touches—came together to create something truly memorable.
+
+Trust Your Photographer:
+Like Alicia, trust your photographer’s expertise. They know how to bring out your best features and capture authentic emotions.Communicate openly with your photographer about any concerns or preferences.Be Natural:
+Forget about posing perfectly. Genuine smiles, laughter, and candid moments create the most beautiful photos.Relax and enjoy the day; let your love shine through.Location Matters:
+Choose a wedding venue or outdoor setting that resonates with your personalities.Davie, Florida offers picturesque landscapes – from lush gardens to rustic barns – perfect for romantic shots.Embrace Laughter:
+Weddings are joyful occasions! Don’t be afraid to laugh, dance, and celebrate.Candid shots during funny moments capture the essence of your day.Remember, your wedding photos are timeless memories. Trust your photographer, be yourself, and let love be the focus of every frame! 💕📸
+
+As a Davie photographer, I approach each the ceremony with a blend of documentary observation and artistic direction. The goal is always to capture authentic moments while creating images that will be treasured for generations.</p>
+</div><div class="featured-image"><img alt="Alicia + Claudio - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-17.jpeg"/><p class="image-caption">Alicia + Claudio - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>Alicia's Natural Chemistry</h2><div class="section-text">
+<p>									Alicia and Claudio’s wedding day was a celebration of love, laughter, and joy. Our photographer worked her beautiful artistic touch to capture their genuine moments. From heartfelt glances to bursts of laughter, every frame told their unique love story.  P.S. If you or your friend are getting married, you will find more tips below the photos on this blog that talk more in-depth about tips for brides and future brides, you won’t want to miss them!
+
+Working with Alicia + Claudio to document these moments was incredibly rewarding. Every detail—from the couple portraits to the smallest personal touches—came together to create something truly memorable.
+
+Trust Your Photographer:
+Like Alicia, trust your photographer’s expertise. They know how to bring out your best features and capture authentic emotions.Communicate openly with your photographer about any concerns or preferences.Be Natural:
+Forget about posing perfectly. Genuine smiles, laughter, and candid moments create the most beautiful photos.Relax and enjoy the day; let your love shine through.Location Matters:
+Choose a wedding venue or outdoor setting that resonates with your personalities.Davie, Florida offers picturesque landscapes – from lush gardens to rustic barns – perfect for romantic shots.Embrace Laughter:
+Weddings are joyful occasions! Don’t be afraid to laugh, dance, and celebrate.Candid shots during funny moments capture the essence of your day.Remember, your wedding photos are timeless memories. Trust your photographer, be yourself, and let love be the focus of every frame! 💕📸
+
+As a Davie photographer, I approach each couple portraits with a blend of documentary observation and artistic direction. The goal is always to capture authentic moments while creating images that will be treasured for generations.</p>
+</div><div class="featured-image"><img alt="Alicia + Claudio - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-33.jpeg"/><p class="image-caption">Alicia + Claudio - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="section-text">
+<p>									Alicia and Claudio’s wedding day was a celebration of love, laughter, and joy. Our photographer worked her beautiful artistic touch to capture their genuine moments. From heartfelt glances to bursts of laughter, every frame told their unique love story.  P.S. If you or your friend are getting married, you will find more tips below the photos on this blog that talk more in-depth about tips for brides and future brides, you won’t want to miss them!
+
+Working with Alicia + Claudio to document these moments was incredibly rewarding. Every detail—from the the reception to the smallest personal touches—came together to create something truly memorable.
+
+Trust Your Photographer:
+Like Alicia, trust your photographer’s expertise. They know how to bring out your best features and capture authentic emotions.Communicate openly with your photographer about any concerns or preferences.Be Natural:
+Forget about posing perfectly. Genuine smiles, laughter, and candid moments create the most beautiful photos.Relax and enjoy the day; let your love shine through.Location Matters:
+Choose a wedding venue or outdoor setting that resonates with your personalities.Davie, Florida offers picturesque landscapes – from lush gardens to rustic barns – perfect for romantic shots.Embrace Laughter:
+Weddings are joyful occasions! Don’t be afraid to laugh, dance, and celebrate.Candid shots during funny moments capture the essence of your day.Remember, your wedding photos are timeless memories. Trust your photographer, be yourself, and let love be the focus of every frame! 💕📸
+
+As a Davie photographer, I approach each the reception with a blend of documentary observation and artistic direction. The goal is always to capture authentic moments while creating images that will be treasured for generations.</p>
+</div><div class="featured-image"><img alt="Alicia + Claudio - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-49.jpeg"/><p class="image-caption">Alicia + Claudio - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="section-text">
+<p>									Alicia and Claudio’s wedding day was a celebration of love, laughter, and joy. Our photographer worked her beautiful artistic touch to capture their genuine moments. From heartfelt glances to bursts of laughter, every frame told their unique love story.  P.S. If you or your friend are getting married, you will find more tips below the photos on this blog that talk more in-depth about tips for brides and future brides, you won’t want to miss them!
+
+Working with Alicia + Claudio to document these moments was incredibly rewarding. Every detail—from the photography approach to the smallest personal touches—came together to create something truly memorable.
+
+Trust Your Photographer:
+Like Alicia, trust your photographer’s expertise. They know how to bring out your best features and capture authentic emotions.Communicate openly with your photographer about any concerns or preferences.Be Natural:
+Forget about posing perfectly. Genuine smiles, laughter, and candid moments create the most beautiful photos.Relax and enjoy the day; let your love shine through.Location Matters:
+Choose a wedding venue or outdoor setting that resonates with your personalities.Davie, Florida offers picturesque landscapes – from lush gardens to rustic barns – perfect for romantic shots.Embrace Laughter:
+Weddings are joyful occasions! Don’t be afraid to laugh, dance, and celebrate.Candid shots during funny moments capture the essence of your day.Remember, your wedding photos are timeless memories. Trust your photographer, be yourself, and let love be the focus of every frame! 💕📸
+
+As a Davie photographer, I approach each photography approach with a blend of documentary observation and artistic direction. The goal is always to capture authentic moments while creating images that will be treasured for generations.</p>
+</div><div class="featured-image"><img alt="Alicia + Claudio - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-65.jpeg"/><p class="image-caption">Alicia + Claudio - Photography Approach moment 5</p></div></div>
+<div class="gallery-container">
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-1.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-1.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-2.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-2.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-3.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-3.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-4.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-4.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-5.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-5.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-6.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-6.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-7.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-7.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-8.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-8.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-9.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-9.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-10.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-10.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-11.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-11.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-12.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-12.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-13.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-13.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-14.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-14.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-15.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-15.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-16.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-16.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-17.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-17.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-18.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-18.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-19.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-19.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-20.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-20.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-21.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-21.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-22.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-22.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-23.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-23.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-24.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-24.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-25.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-25.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-26.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-26.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-27.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-27.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-28.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-28.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-29.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-29.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-30.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-30.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-31.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-31.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-32.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-32.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-33.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-33.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-34.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-34.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-35.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-35.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-36.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-36.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-37.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-37.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-38.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-38.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-39.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-39.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-40.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-40.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-41.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-41.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-42.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-42.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-43.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-43.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-44.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-44.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-45.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-45.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-46.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-46.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-47.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-47.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-48.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-48.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-49.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-49.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-50.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-50.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-51.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-51.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-52.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-52.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-53.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-53.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-54.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-54.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-55.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-55.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-56.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-56.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-57.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 57" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-57.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-58.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 58" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-58.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-59.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 59" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-59.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-60.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 60" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-60.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-61.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 61" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-61.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-62.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 62" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-62.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-63.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 63" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-63.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-64.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 64" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-64.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-65.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 65" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-65.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-66.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 66" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-66.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-67.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 67" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-67.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-68.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 68" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-68.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-69.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 69" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-69.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-70.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 70" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-70.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-71.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 71" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-71.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-72.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 72" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-72.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-73.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 73" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-73.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-74.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 74" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-74.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-75.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 75" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-75.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-76.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 76" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-76.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-77.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 77" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-77.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-78.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 78" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-78.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-79.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 79" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-79.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-80.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 80" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-80.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-81.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 81" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-81.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-82.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 82" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-82.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-83.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 83" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-83.jpeg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-84.jpeg">
+<img alt="Davie FL Wedding Photography | Alicia + Claudio - Photo 84" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/10/Davie-FL-Wedding-84.jpeg"/>
+</a>
+</div>
+<!-- FAQ Section -->
+<div class="faq-section" itemscope="" itemtype="https://schema.org/FAQPage">
+<h2 style="font-size: 36px; font-weight: 400; text-align: center; margin-bottom: 40px; color: #2a2a2a;">Frequently Asked Questions</h2>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      How much does wedding photography cost in South Florida?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      What is included in your wedding photography packages?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      How many photos will we receive from our wedding?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      Do you travel for destination weddings?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      What is your photography style?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      How far in advance should we book our wedding photographer?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      Do you provide a second photographer?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      What happens if you're sick or unable to photograph our wedding?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      When will we receive our wedding photos?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      Do you offer albums and prints?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs.
+      </p>
+</div>
+</div>
+</div>
+<!-- Author Bio -->
+<div class="author-bio">
+<div class="author-headshots">
+<img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
+<img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
+</div>
+<div class="author-content">
+<h3 style="color: #ffffff; font-size: 32px; margin-bottom: 25px;">About Acromatico Photography</h3>
+<p style="color: #ffffff; margin-bottom: 25px;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
+<p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
+</div>
+</div>
+<!-- Related Posts -->
+<div class="related-posts">
+<h2>Related Sessions</h2>
+<div class="related-posts-grid">
+<article class="related-post">
+<a href="/static/blog/adriana-francisco-bill-baggs-state-park-after-wedding-session.html">
+<img alt="Adriana + Francisco | Bill Baggs State Park After Wedding Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/02/Bill-Baggs-State-Park-After-Wedding-Session-001.jpg"/>
+<h3>Adriana + Francisco | Bill Baggs State Park After Wedding Session</h3>
+</a>
+</article>
+<article class="related-post">
+<a href="/static/blog/alyssa-don-the-mayfair-hotel-wedding.html">
+<img alt="Alyssa + Don | The Mayfair Hotel Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/11/Mayfair-Hotel-Coral-Gables-Wedding-001.jpg"/>
+<h3>Alyssa + Don | The Mayfair Hotel Wedding</h3>
+</a>
+</article>
+<article class="related-post">
+<a href="/static/blog/amanda-laurent-key-biscayne-wedding.html">
+<img alt="Amanda + Laurent | Key Biscayne Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/Amanda-Laurent-W-1.jpg"/>
+<h3>Amanda + Laurent | Key Biscayne Wedding</h3>
+</a>
+</article>
+</div>
+</div>
+</div>
+<!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
+<div id="footer-container"></div>
+<script>
+// Load footer dynamically from server
+(function() {
+  fetch('/api/footer')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    })
+    .catch(error => console.error('Footer load error:', error));
+})();
+</script>
+<!-- GLightbox JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    // Initialize GLightbox for gallery
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true,
+        closeButton: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        slideEffect: 'slide'
+    });
+</script>
+</body>
+</html>

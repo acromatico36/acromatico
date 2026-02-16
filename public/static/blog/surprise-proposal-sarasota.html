@@ -27,7 +27,6 @@
 <!-- Canonical URL -->
 <link href="https://acromatico.com/blog/surprise-proposal-sarasota" rel="canonical"/>
 <!-- Schema.org Markup -->
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -1003,19 +1002,17 @@
 <body>
 <!-- Static Header with Logo and Hamburger -->
 <header class="site-header">
-  <a href="/">
-    <img src="/static/acromatico-logo-transparent.png" alt="Acromatico Photography" class="site-logo" />
-  </a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+<a href="/">
+<img alt="Acromatico Photography" class="site-logo" src="/static/acromatico-logo-transparent.png"/>
+</a>
+<button aria-label="Menu" class="menu-toggle" id="menuToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
 </header>
-
 <!-- DYNAMIC MOBILE MENU - Loaded from /api/mobile-menu API -->
 <div id="mobile-menu-container"></div>
-
 <script>
 // Load mobile menu dynamically from server
 (function() {
@@ -1039,7 +1036,7 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-</div>
+
 <section class="hero-section">
 <h1 class="hero-title">Surprise Proposal Sarasota | A Romantic Moment to Remember</h1></section>
 <div class="content-container">
@@ -1318,7 +1315,6 @@
 </div></div>
 <!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
 <div id="footer-container"></div>
-
 <script>
 // Load footer dynamically from server
 (function() {
