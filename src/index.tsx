@@ -392,16 +392,16 @@ app.get('/', (c) => {
           
           {/* Single Unified Profile */}
           <div class="max-w-4xl mx-auto mb-20">
-            {/* Adventure Photo */}
+            {/* Enhanced Adventure Photo */}
             <div class="mb-12">
               <img 
-                src="/static/images/educators-team-patagonia.jpg" 
-                alt="Italo & Ale - Educators and Adventure Photographers" 
+                src="/static/images/educators-team-enhanced.jpg" 
+                alt="Italo & Ale at Torres del Paine, Chile" 
                 class="w-full rounded-3xl shadow-2xl"
               />
             </div>
             
-            {/* Unified Story */}
+            {/* Mission-Driven Story */}
             <div class="text-center mb-12">
               <h2 class="text-5xl md:text-6xl font-black mb-6">
                 We're Italo & Ale
@@ -409,13 +409,11 @@ app.get('/', (c) => {
               <p class="text-2xl text-white/90 font-light mb-8">
                 Parents. Photographers. Adventurers.
               </p>
-              <p class="text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
-                We've spent 20+ years capturing life's most beautiful moments—from wedding days to mountain summits. 
-                Now we're teaching the next generation to see the world through their own lens. 
-                <br/><br/>
-                <strong class="text-white">Why we created this:</strong> We want our kids—and yours—to grow up seeing beauty, 
-                telling stories, and exploring the world with cameras in hand. This isn't just photography education. 
-                It's about raising confident creators who notice the extraordinary in everyday life.
+              <p class="text-2xl text-white leading-relaxed max-w-2xl mx-auto">
+                We teach kids to see the world differently—with a camera in hand and confidence in their vision.
+              </p>
+              <p class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto mt-6">
+                20+ years • 500+ weddings • 30k-person events • Now teaching the next generation
               </p>
             </div>
             
@@ -423,15 +421,15 @@ app.get('/', (c) => {
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
                 <div class="text-4xl font-light mb-2">20+</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Years Experience</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Years Pro</div>
               </div>
               <div>
-                <div class="text-4xl font-light mb-2">500+</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Weddings Shot</div>
+                <div class="text-4xl font-light mb-2">30k</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Event Experience</div>
               </div>
               <div>
                 <div class="text-4xl font-light mb-2">3</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Countries Taught</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Countries</div>
               </div>
               <div>
                 <div class="text-4xl font-light mb-2">2</div>
