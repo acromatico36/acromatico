@@ -161,16 +161,14 @@ blog.get('/', async (c) => {
             font-weight: 300;
             text-align: center;
             text-shadow: 0 1px 8px rgba(0,0,0,0.3);
-            margin-bottom: 3rem;
         }
         
-        /* Hero Search Bar */
+        /* Hero Search Bar (in controls section) */
         .hero-search-wrapper {
             position: relative;
-            z-index: 10;
             width: 100%;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 1.5rem;
         }
         
         .hero-search {
@@ -179,17 +177,16 @@ blog.get('/', async (c) => {
             font-size: 1.1rem;
             border: none;
             border-radius: 50px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            background: #FAFAFA;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             transition: all 0.3s;
             color: #1D1D1F;
         }
         
         .hero-search:focus {
             outline: none;
-            background: rgba(255, 255, 255, 1);
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+            background: #ffffff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
             transform: translateY(-2px);
         }
         
@@ -411,7 +408,6 @@ blog.get('/', async (c) => {
             
             .hero-subtitle {
                 font-size: 1.1rem;
-                margin-bottom: 2rem;
             }
             
             .site-logo {
@@ -454,21 +450,21 @@ blog.get('/', async (c) => {
     <section class="hero-section">
         <h1 class="hero-title">Love Stories</h1>
         <p class="hero-subtitle"><span id="total-count">501</span> Real Weddings, Engagements & Moments</p>
-        
-        <div class="hero-search-wrapper">
-            <input 
-                type="search" 
-                class="hero-search" 
-                id="heroSearch" 
-                placeholder="Search by couple names, location, or session type..."
-                autocomplete="off"
-            >
-            <div class="autocomplete-dropdown" id="autocompleteDropdown"></div>
-        </div>
     </section>
     
     <section class="controls">
         <div class="controls-wrapper">
+            <div class="hero-search-wrapper">
+                <input 
+                    type="search" 
+                    class="hero-search" 
+                    id="heroSearch" 
+                    placeholder="Search by couple names, location, or session type..."
+                    autocomplete="off"
+                >
+                <div class="autocomplete-dropdown" id="autocompleteDropdown"></div>
+            </div>
+            
             <div class="filters">
                 <button class="filter-btn active" data-filter="all">All Stories</button>
                 <button class="filter-btn" data-filter="wedding">Weddings</button>
