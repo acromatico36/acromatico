@@ -5,30 +5,30 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   latoya + anthony | jacaranda country club wedding | Acromatico Photography
+   new york trip | brooklyn bridge and the city | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="This year flew seriously fast! It was some time ago that we took Latoya and Anthony’s &lt;a href='https://acromatico.com/engagement/latoya-anthony-bill-baggs-engag..." name="description"/>
+<meta content="New York, New York! Literally the city that never sleeps! It was a short and sweet trip. So much fun! We took some pretty cool night pictures. We printed the la..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/latoya-anthony-jacaranda-country-club-wedding" property="og:url"/>
-<meta content="latoya + anthony | jacaranda country club wedding" property="og:title"/>
-<meta content="This year flew seriously fast! It was some time ago that we took Latoya and Anthony’s &lt;a href='https://acromatico.com/engagement/latoya-anthony-bill-baggs-engag..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-1.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/new-york-trip-brooklyn-bridge-and-the-city" property="og:url"/>
+<meta content="new york trip | brooklyn bridge and the city" property="og:title"/>
+<meta content="New York, New York! Literally the city that never sleeps! It was a short and sweet trip. So much fun! We took some pretty cool night pictures. We printed the la..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/new-york-photography-1.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/latoya-anthony-jacaranda-country-club-wedding" property="twitter:url"/>
-<meta content="latoya + anthony | jacaranda country club wedding" property="twitter:title"/>
-<meta content="This year flew seriously fast! It was some time ago that we took Latoya and Anthony’s &lt;a href='https://acromatico.com/engagement/latoya-anthony-bill-baggs-engag..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-1.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/new-york-trip-brooklyn-bridge-and-the-city" property="twitter:url"/>
+<meta content="new york trip | brooklyn bridge and the city" property="twitter:title"/>
+<meta content="New York, New York! Literally the city that never sleeps! It was a short and sweet trip. So much fun! We took some pretty cool night pictures. We printed the la..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/new-york-photography-1.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/latoya-anthony-jacaranda-country-club-wedding" rel="canonical"/>
+<link href="https://acromatico.com/blog/new-york-trip-brooklyn-bridge-and-the-city" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
-<meta content="Wedding Photography" property="article:tag"/>
+<meta content="Unknown Photography" property="article:tag"/>
 <meta content="South Florida Photographer" property="article:tag"/>
 <meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "latoya + anthony | jacaranda country club wedding",
-  "description": "This year flew seriously fast! It was some time ago that we took Latoya and Anthony’s <a href='https://acromatico.com/engagement/latoya-anthony-bill-baggs-engag...",
+  "headline": "new york trip | brooklyn bridge and the city",
+  "description": "New York, New York! Literally the city that never sleeps! It was a short and sweet trip. So much fun! We took some pretty cool night pictures. We printed the la...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-1.jpg",
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-2.jpg",
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-3.jpg",
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-4.jpg",
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-5.jpg",
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-6.jpg",
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-7.jpg",
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-8.jpg",
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-9.jpg",
-    "https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-10.jpg"
+    "https://acromatico.com/wp-content/uploads/new-york-photography-1.jpg",
+    "https://acromatico.com/wp-content/uploads/new-york-photography-2.jpg",
+    "https://acromatico.com/wp-content/uploads/new-york-photography-3.jpg",
+    "https://acromatico.com/wp-content/uploads/new-york-photography-4.jpg",
+    "https://acromatico.com/wp-content/uploads/new-york-photography-5.jpg",
+    "https://acromatico.com/wp-content/uploads/new-york-photography-6.jpg",
+    "https://acromatico.com/wp-content/uploads/new-york-photography-7.jpg",
+    "https://acromatico.com/wp-content/uploads/new-york-photography-8.jpg",
+    "https://acromatico.com/wp-content/uploads/new-york-photography-9.jpg",
+    "https://acromatico.com/wp-content/uploads/new-york-photography-10.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/latoya-anthony-jacaranda-country-club-wedding"
+    "@id": "https://acromatico.com/blog/new-york-trip-brooklyn-bridge-and-the-city"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "latoya + anthony | jacaranda country club wedding",
-      "item": "https://acromatico.com/blog/latoya-anthony-jacaranda-country-club-wedding"
+      "name": "new york trip | brooklyn bridge and the city",
+      "item": "https://acromatico.com/blog/new-york-trip-brooklyn-bridge-and-the-city"
     }
   ]
 }
@@ -1128,221 +1128,45 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-1.jpg');">
-<h1 class="hero-title">latoya + anthony | jacaranda country club wedding</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/new-york-photography-1.jpg');">
+<h1 class="hero-title">new york trip | brooklyn bridge and the city</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="jacaranda country club wedding - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-1.jpg"/><p class="image-caption">jacaranda country club wedding - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="jacaranda country club wedding - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-15.jpg"/><p class="image-caption">jacaranda country club wedding - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>jacaranda's Natural Chemistry</h2><div class="featured-image"><img alt="jacaranda country club wedding - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-29.jpg"/><p class="image-caption">jacaranda country club wedding - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="jacaranda country club wedding - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-43.jpg"/><p class="image-caption">jacaranda country club wedding - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="jacaranda country club wedding - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-57.jpg"/><p class="image-caption">jacaranda country club wedding - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+New York, New York! Literally the city that never sleeps! It was a short and sweet trip. So much fun! We took some pretty cool night pictures. We printed the last image and it looks so cool!! Here are some of our favorites…
+
+<img alt="new york trip | brooklyn bridge and the city - Photo 1" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="new york photography-1" width="910"/><img alt="new york trip | brooklyn bridge and the city - Photo 2" decoding="async" height="678" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/678;" title="new york photography-2" width="910"/><img alt="new york trip | brooklyn bridge and the city - Photo 3" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="new york photography-3" width="910"/><img alt="new york trip | brooklyn bridge and the city - Photo 4" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="new york photography-4" width="910"/><img alt="new york trip | brooklyn bridge and the city - Photo 5" decoding="async" height="678" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/678;" title="new york photography-5" width="910"/><img alt="new york trip | brooklyn bridge and the city - Photo 6" decoding="async" height="677" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/677;" title="new york photography-6" width="910"/><img alt="new york trip | brooklyn bridge and the city - Photo 7" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="new york photography-7" width="910"/><img alt="new york trip | brooklyn bridge and the city - Photo 8" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="new york photography-8" width="910"/><img alt="new york trip | brooklyn bridge and the city - Photo 9" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="new york photography-9" width="910"/><img alt="new york trip | brooklyn bridge and the city - Photo 10" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="new york photography-10" width="910"/>
+</div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="brooklyn bridge and the city - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-1.jpg"/><p class="image-caption">brooklyn bridge and the city - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="brooklyn bridge and the city - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-3.jpg"/><p class="image-caption">brooklyn bridge and the city - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>brooklyn's Natural Chemistry</h2><div class="featured-image"><img alt="brooklyn bridge and the city - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-5.jpg"/><p class="image-caption">brooklyn bridge and the city - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="brooklyn bridge and the city - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-7.jpg"/><p class="image-caption">brooklyn bridge and the city - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="brooklyn bridge and the city - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-9.jpg"/><p class="image-caption">brooklyn bridge and the city - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-1.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-1.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-1.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-2.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-2.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-2.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-2.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-3.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-3.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-3.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-3.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-4.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-4.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-4.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-4.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-5.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-5.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-5.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-5.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-6.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-6.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-6.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-6.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-7.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-7.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-7.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-7.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-8.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-8.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-8.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-8.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-9.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-9.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-9.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-9.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-10.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-10.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-11.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-11.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-12.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-12.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-13.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-13.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-14.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-14.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-15.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-15.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-16.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-16.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-17.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-17.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-18.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-18.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-19.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-19.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-20.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-20.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-21.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-21.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-22.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-22.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-23.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-23.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-24.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-24.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-25.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-25.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-26.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-26.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-27.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-27.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-28.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-28.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-29.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-29.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-30.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-30.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-31.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-31.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-32.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-32.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-33.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-33.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-34.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-34.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-35.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-35.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-36.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-36.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-37.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-37.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-38.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-38.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-39.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-39.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-40.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-40.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-41.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-41.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-42.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-42.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-43.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-43.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-44.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-44.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-45.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-45.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-46.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-46.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-47.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-47.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-48.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-48.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-49.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-49.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-50.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-50.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-51.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-51.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-52.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-52.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-53.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-53.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-54.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-54.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-55.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-55.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-56.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-56.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-57.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 57" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-57.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-58.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 58" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-58.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-59.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 59" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-59.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-60.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 60" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-60.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-61.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 61" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-61.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-62.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 62" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-62.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-63.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 63" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-63.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-64.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 64" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-64.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-65.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 65" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-65.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-66.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 66" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-66.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-67.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 67" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-67.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-68.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 68" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-68.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-69.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 69" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-69.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-70.jpg">
-<img alt="latoya + anthony | jacaranda country club wedding - Photo 70" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Jacaranda-country-club-wedding-70.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/new-york-photography-10.jpg">
+<img alt="new york trip | brooklyn bridge and the city - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/new-york-photography-10.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
@@ -1466,21 +1290,21 @@
 <h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/adriana-francisco-bill-baggs-state-park-after-wedding-session.html">
-<img alt="Adriana + Francisco | Bill Baggs State Park After Wedding Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/02/Bill-Baggs-State-Park-After-Wedding-Session-001.jpg"/>
-<h3>Adriana + Francisco | Bill Baggs State Park After Wedding Session</h3>
+<a href="/static/blog/acromatico-team-2012-in-pictures.html">
+<img alt="Acromatico Team | 2012 In Pictures" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0011.jpg"/>
+<h3>Acromatico Team | 2012 In Pictures</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/alyssa-don-the-mayfair-hotel-wedding.html">
-<img alt="Alyssa + Don | The Mayfair Hotel Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/11/Mayfair-Hotel-Coral-Gables-Wedding-001.jpg"/>
-<h3>Alyssa + Don | The Mayfair Hotel Wedding</h3>
+<a href="/static/blog/alexia-deerfield-beach-senior-session.html">
+<img alt="Alexia | Deerfield Beach Senior Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Senior-Beach-Session-001.jpg"/>
+<h3>Alexia | Deerfield Beach Senior Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/amanda-laurent-key-biscayne-wedding.html">
-<img alt="Amanda + Laurent | Key Biscayne Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/Amanda-Laurent-W-1.jpg"/>
-<h3>Amanda + Laurent | Key Biscayne Wedding</h3>
+<a href="/static/blog/bessy-justin-charles-deering-estate-day-after-session.html">
+<img alt="Bessy + Justin | Charles Deering Estate Day After Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Charles-Deering-Estate-Wedding-001.jpg"/>
+<h3>Bessy + Justin | Charles Deering Estate Day After Session</h3>
 </a>
 </article>
 </div>
