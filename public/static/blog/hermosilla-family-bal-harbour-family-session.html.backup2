@@ -5,30 +5,30 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Estephania + Lief | Floridian Ballroom Wedding | Acromatico Photography
+   Hermosilla Family | Bal Harbour Family Session | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="We shoot many weddings, but it’s not every day we get to shoot our dear friend’s wedding. We were thrilled when Estephania and Lief asked us to be a part of the..." name="description"/>
+<meta content="We’ve been friends of Cony and Alvaro for a long time and we absolutely LOVED shooting this family session for them! They  flew all the way from Arizona to enjo..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/estephania-lief-floridian-ballroom-wedding" property="og:url"/>
-<meta content="Estephania + Lief | Floridian Ballroom Wedding" property="og:title"/>
-<meta content="We shoot many weddings, but it’s not every day we get to shoot our dear friend’s wedding. We were thrilled when Estephania and Lief asked us to be a part of the..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-001.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/hermosilla-family-bal-harbour-family-session" property="og:url"/>
+<meta content="Hermosilla Family | Bal Harbour Family Session" property="og:title"/>
+<meta content="We’ve been friends of Cony and Alvaro for a long time and we absolutely LOVED shooting this family session for them! They  flew all the way from Arizona to enjo..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/estephania-lief-floridian-ballroom-wedding" property="twitter:url"/>
-<meta content="Estephania + Lief | Floridian Ballroom Wedding" property="twitter:title"/>
-<meta content="We shoot many weddings, but it’s not every day we get to shoot our dear friend’s wedding. We were thrilled when Estephania and Lief asked us to be a part of the..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-001.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/hermosilla-family-bal-harbour-family-session" property="twitter:url"/>
+<meta content="Hermosilla Family | Bal Harbour Family Session" property="twitter:title"/>
+<meta content="We’ve been friends of Cony and Alvaro for a long time and we absolutely LOVED shooting this family session for them! They  flew all the way from Arizona to enjo..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/estephania-lief-floridian-ballroom-wedding" rel="canonical"/>
+<link href="https://acromatico.com/blog/hermosilla-family-bal-harbour-family-session" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
-<meta content="Wedding Photography" property="article:tag"/>
+<meta content="Family Photography" property="article:tag"/>
 <meta content="South Florida Photographer" property="article:tag"/>
 <meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
@@ -912,82 +912,82 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How much does wedding photography cost in South Florida?",
+      "name": "How much does family photography cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>."
+        "text": "Family sessions start at $500 for 90 minutes at one location. This includes professional editing, online gallery, and high-resolution downloads. Most families receive 50-80 beautifully edited images. Extended family sessions or multiple locations may require additional time and pricing."
       }
     },
     {
       "@type": "Question",
-      "name": "What is included in your wedding photography packages?",
+      "name": "What are the best locations for family photos in South Florida?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages."
+        "text": "Top family-friendly locations include Matheson Hammock Park, Crandon Park, South Pointe Park, Fairchild Tropical Garden, and various beach locations. We help you choose based on your family's vibe—whether you prefer beach, park, urban, or in-home lifestyle sessions."
       }
     },
     {
       "@type": "Question",
-      "name": "How many photos will we receive from our wedding?",
+      "name": "What should we wear for family photos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours."
+        "text": "Coordinate (don't match!) with a cohesive color palette. Choose 2-3 complementary colors and vary textures and patterns. Avoid logos, neon colors, and overly trendy pieces. Outfits should feel authentic to your family's style. We provide a detailed style guide with examples after booking."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you travel for destination weddings?",
+      "name": "What if my kids don't cooperate or won't smile?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide."
+        "text": "We're experts at working with kids! We use games, silly prompts, and patience to capture genuine smiles and personality. We don't force stiff poses—authentic interaction and real laughter create the best images. Even "chaos" photos often become family favorites because they're real."
       }
     },
     {
       "@type": "Question",
-      "name": "What is your photography style?",
+      "name": "How long does a family photo session take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing."
+        "text": "Most family sessions run 60-90 minutes. This allows time for various groupings (whole family, just parents, siblings together, individual kids) without kids getting tired or cranky. We work efficiently and keep things fun and engaging for children."
       }
     },
     {
       "@type": "Question",
-      "name": "How far in advance should we book our wedding photographer?",
+      "name": "What ages are best for family photos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability."
+        "text": "Any age! We photograph families with newborns through grandparents. Each age brings unique joys—baby smiles, toddler energy, teenager personalities, adult children, multi-generational portraits. The best time for family photos is NOW, documenting your family exactly as you are today."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you provide a second photographer?",
+      "name": "Should we include extended family or just our immediate family?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception."
+        "text": "Your choice! Many families start with immediate family portraits, then add grandparents, aunts, uncles, and cousins for extended family groupings. If including extended family, plan for 90-120 minutes to capture all desired combinations without rushing."
       }
     },
     {
       "@type": "Question",
-      "name": "What happens if you're sick or unable to photograph our wedding?",
+      "name": "When will we receive our family photos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind."
+        "text": "Your complete edited gallery is delivered within 3-4 weeks after your session. Sneak peeks (10-15 images) are typically shared within 48-72 hours. All images are professionally edited and delivered via online gallery with download and print rights."
       }
     },
     {
       "@type": "Question",
-      "name": "When will we receive our wedding photos?",
+      "name": "What time of day is best for family photos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights."
+        "text": "Golden hour (the hour before sunset) provides the most flattering natural light. In South Florida, that's typically 6:00-7:30 PM in summer, 4:30-6:00 PM in winter. Morning light (7:00-9:00 AM) also works beautifully and may be better for families with young children who tire by evening."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you offer albums and prints?",
+      "name": "How often should we update family photos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs."
+        "text": "We recommend annual family photos to document how your children grow and your family evolves. Many families make it a tradition (same location, same time of year). Others update photos every 2-3 years or when major changes occur (new baby, teenager graduation). There's no wrong frequency!"
       }
     }
   ]
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Estephania + Lief | Floridian Ballroom Wedding",
-  "description": "We shoot many weddings, but it’s not every day we get to shoot our dear friend’s wedding. We were thrilled when Estephania and Lief asked us to be a part of the...",
+  "headline": "Hermosilla Family | Bal Harbour Family Session",
+  "description": "We’ve been friends of Cony and Alvaro for a long time and we absolutely LOVED shooting this family session for them! They  flew all the way from Arizona to enjo...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-001.jpg",
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-002.jpg",
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-003.jpg",
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-004.jpg",
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-005.jpg",
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-006.jpg",
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-007.jpg",
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-008.jpg",
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-009.jpg",
-    "https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-010.jpg"
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-001.jpg",
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-002.jpg",
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-003.jpg",
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-004.jpg",
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-005.jpg",
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-006.jpg",
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-007.jpg",
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-008.jpg",
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-009.jpg",
+    "https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-010.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/estephania-lief-floridian-ballroom-wedding"
+    "@id": "https://acromatico.com/blog/hermosilla-family-bal-harbour-family-session"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Estephania + Lief | Floridian Ballroom Wedding",
-      "item": "https://acromatico.com/blog/estephania-lief-floridian-ballroom-wedding"
+      "name": "Hermosilla Family | Bal Harbour Family Session",
+      "item": "https://acromatico.com/blog/hermosilla-family-bal-harbour-family-session"
     }
   ]
 }
@@ -1128,149 +1128,93 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-001.jpg');">
-<h1 class="hero-title">Estephania + Lief | Floridian Ballroom Wedding</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-001.jpg');">
+<h1 class="hero-title">Hermosilla Family | Bal Harbour Family Session</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="Floridian Ballroom Wedding - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-001.jpg"/><p class="image-caption">Floridian Ballroom Wedding - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="Floridian Ballroom Wedding - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-010.jpg"/><p class="image-caption">Floridian Ballroom Wedding - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>Floridian's Natural Chemistry</h2><div class="featured-image"><img alt="Floridian Ballroom Wedding - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-019.jpg"/><p class="image-caption">Floridian Ballroom Wedding - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="Floridian Ballroom Wedding - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-028.jpg"/><p class="image-caption">Floridian Ballroom Wedding - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="Floridian Ballroom Wedding - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-037.jpg"/><p class="image-caption">Floridian Ballroom Wedding - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+We’ve been friends of Cony and Alvaro for a long time and we absolutely LOVED shooting this family session for them! They  flew all the way from Arizona to enjoy the beautiful white sandy beaches of South Florida.. You guys have the most adorable family! We love you all!
+
+<a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-001/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 1" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-002/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 2" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-003/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 3" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-004/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 4" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-005/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 5" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-006/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 6" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-007/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 7" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-008/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 8" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-009/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 9" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-010/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 10" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-011/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 11" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-012/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 12" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-013/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 13" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-014/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 14" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-015/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 15" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-016/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 16" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-017/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 17" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-018/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 18" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-019/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 19" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-020/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 20" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-021/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 21" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-022/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 22" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-023/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 23" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-024/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 24" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-025/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 25" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/hermosilla-family-bal-harbour-family-session/miami-family-session-026/" target="_blank"><img alt="Hermosilla Family | Bal Harbour Family Session - Photo 26" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a>
+</div><div class="storytelling-sections"><h2 class="section-heading">The Session Setting:<br/>Hermosilla's Perfect Backdrop</h2><div class="featured-image"><img alt="Bal Harbour Family Session - The Session Setting" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-001.jpg"/><p class="image-caption">Bal Harbour Family Session - The Session Setting moment 1</p></div><h2 class="section-heading">Family Dynamics:<br/>Capturing Authentic Connections</h2><div class="featured-image"><img alt="Bal Harbour Family Session - Family Dynamics" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-006.jpg"/><p class="image-caption">Bal Harbour Family Session - Family Dynamics moment 2</p></div><h2 class="section-heading">Children's Moments:<br/>Natural Interaction &amp; Play</h2><div class="featured-image"><img alt="Bal Harbour Family Session - Children's Moments" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-011.jpg"/><p class="image-caption">Bal Harbour Family Session - Children's Moments moment 3</p></div><h2 class="section-heading">Wardrobe &amp; Styling:<br/>Coordinated Yet Comfortable</h2><div class="featured-image"><img alt="Bal Harbour Family Session - Wardrobe &amp; Styling" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-016.jpg"/><p class="image-caption">Bal Harbour Family Session - Wardrobe &amp; Styling moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Documentary Family Coverage</h2><div class="featured-image"><img alt="Bal Harbour Family Session - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-021.jpg"/><p class="image-caption">Bal Harbour Family Session - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-001.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-001.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-001.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-001.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-002.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-002.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-002.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-002.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-003.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-003.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-003.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-003.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-004.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-004.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-004.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-004.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-005.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-005.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-005.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-005.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-006.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-006.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-006.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-006.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-007.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-007.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-007.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-007.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-008.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-008.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-008.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-008.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-009.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-009.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-009.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-009.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-010.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-010.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-010.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-010.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-011.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-011.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-011.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-011.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-012.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-012.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-012.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-012.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-013.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-013.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-013.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-013.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-014.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-014.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-014.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-014.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-015.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-015.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-015.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-015.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-016.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-016.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-016.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-016.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-017.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-017.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-017.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-017.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-018.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-018.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-018.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-018.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-019.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-019.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-019.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-019.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-020.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-020.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-020.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-020.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-021.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-021.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-021.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-021.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-022.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-022.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-022.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-022.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-023.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-023.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-023.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-023.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-024.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-024.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-024.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-024.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-025.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-025.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-025.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-025.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-026.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-026.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-027.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-027.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-028.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-028.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-029.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-029.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-030.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-030.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-031.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-031.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-032.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-032.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-033.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-033.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-034.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-034.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-035.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-035.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-036.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-036.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-037.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-037.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-038.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-038.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-039.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-039.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-040.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-040.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-041.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-041.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-042.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-042.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-043.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-043.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-044.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-044.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-045.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-045.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-046.jpg">
-<img alt="Estephania + Lief | Floridian Ballroom Wedding - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/01/floridian-ballroom-wedding-046.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-026.jpg">
+<img alt="Hermosilla Family | Bal Harbour Family Session - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2014/03/miami-family-session-026.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
@@ -1278,101 +1222,101 @@
 <h2 style="font-size: 36px; font-weight: 400; text-align: center; margin-bottom: 40px; color: #2a2a2a;">Frequently Asked Questions</h2>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How much does wedding photography cost in South Florida?
+      How much does family photography cost?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Wedding photography in South Florida typically starts at $3,500 for 8-hour coverage. Our packages include an engagement session, full-day coverage, online gallery, and high-resolution downloads. Custom packages are available for intimate weddings or extended coverage. <a href="/photography">View our complete pricing</a>.
+       Family sessions start at $500 for 90 minutes at one location. This includes professional editing, online gallery, and high-resolution downloads. Most families receive 50-80 beautifully edited images. Extended family sessions or multiple locations may require additional time and pricing.
       </p>
 </div>
 </div>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What is included in your wedding photography packages?
+      What are the best locations for family photos in South Florida?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       All wedding packages include pre-wedding consultation, engagement session, full wedding day coverage (ceremony, portraits, reception), professionally edited high-resolution images, online gallery for sharing, and print rights. We also provide backup equipment and a second photographer for most packages.
+       Top family-friendly locations include Matheson Hammock Park, Crandon Park, South Pointe Park, Fairchild Tropical Garden, and various beach locations. We help you choose based on your family's vibe—whether you prefer beach, park, urban, or in-home lifestyle sessions.
       </p>
 </div>
 </div>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How many photos will we receive from our wedding?
+      What should we wear for family photos?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       You'll typically receive 500-800 professionally edited images from an 8-hour wedding, delivered within 6-8 weeks. All images are culled for quality, professionally color-corrected, and delivered in high resolution. We deliver sneak peeks (20-30 images) within 48-72 hours.
+       Coordinate (don't match!) with a cohesive color palette. Choose 2-3 complementary colors and vary textures and patterns. Avoid logos, neon colors, and overly trendy pieces. Outfits should feel authentic to your family's style. We provide a detailed style guide with examples after booking.
       </p>
 </div>
 </div>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Do you travel for destination weddings?
+      What if my kids don't cooperate or won't smile?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Absolutely! We love destination weddings and have photographed celebrations across Florida, the Caribbean, and beyond. Travel fees vary by location but typically include transportation, accommodation, and travel time. We're based in South Florida but available worldwide.
+       We're experts at working with kids! We use games, silly prompts, and patience to capture genuine smiles and personality. We don't force stiff poses—authentic interaction and real laughter create the best images. Even "chaos" photos often become family favorites because they're real.
       </p>
 </div>
 </div>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What is your photography style?
+      How long does a family photo session take?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Our style combines photojournalistic storytelling with fine art aesthetics. We capture 70% candid moments and 30% directed portraits, ensuring your day is documented authentically while still creating stunning artistic images. We prioritize natural light, genuine emotion, and timeless editing.
+       Most family sessions run 60-90 minutes. This allows time for various groupings (whole family, just parents, siblings together, individual kids) without kids getting tired or cranky. We work efficiently and keep things fun and engaging for children.
       </p>
 </div>
 </div>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      How far in advance should we book our wedding photographer?
+      What ages are best for family photos?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       We recommend booking 12-18 months in advance for peak wedding season (November-May in South Florida). Popular dates like Saturdays in winter months book even earlier. However, we sometimes have availability for last-minute bookings—contact us to check current availability.
+       Any age! We photograph families with newborns through grandparents. Each age brings unique joys—baby smiles, toddler energy, teenager personalities, adult children, multi-generational portraits. The best time for family photos is NOW, documenting your family exactly as you are today.
       </p>
 </div>
 </div>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Do you provide a second photographer?
+      Should we include extended family or just our immediate family?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes! A second photographer is included in most full-day wedding packages. Having two photographers ensures we capture simultaneous moments (like both partners getting ready), provides multiple angles during the ceremony, and allows for more comprehensive coverage during the reception.
+       Your choice! Many families start with immediate family portraits, then add grandparents, aunts, uncles, and cousins for extended family groupings. If including extended family, plan for 90-120 minutes to capture all desired combinations without rushing.
       </p>
 </div>
 </div>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      What happens if you're sick or unable to photograph our wedding?
+      When will we receive our family photos?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       We have a network of trusted professional photographers who can step in if an emergency arises. This has never happened in our years of business, but we maintain backup plans and carry liability insurance for complete peace of mind.
+       Your complete edited gallery is delivered within 3-4 weeks after your session. Sneak peeks (10-15 images) are typically shared within 48-72 hours. All images are professionally edited and delivered via online gallery with download and print rights.
       </p>
 </div>
 </div>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      When will we receive our wedding photos?
+      What time of day is best for family photos?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       You'll receive a sneak peek gallery of 20-30 images within 48-72 hours after your wedding. Your complete edited gallery is delivered within 6-8 weeks. Rush delivery (4 weeks) is available for an additional fee. All images are delivered via online gallery with download and print rights.
+       Golden hour (the hour before sunset) provides the most flattering natural light. In South Florida, that's typically 6:00-7:30 PM in summer, 4:30-6:00 PM in winter. Morning light (7:00-9:00 AM) also works beautifully and may be better for families with young children who tire by evening.
       </p>
 </div>
 </div>
 <div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
 <h3 class="faq-question" itemprop="name">
-      Do you offer albums and prints?
+      How often should we update family photos?
      </h3>
 <div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
 <p itemprop="text">
-       Yes! We offer custom-designed wedding albums, parent albums, canvas prints, and framed prints. Albums are professionally designed and bound with archival-quality materials. We handle all design work and coordinate printing with professional labs.
+       We recommend annual family photos to document how your children grow and your family evolves. Many families make it a tradition (same location, same time of year). Others update photos every 2-3 years or when major changes occur (new baby, teenager graduation). There's no wrong frequency!
       </p>
 </div>
 </div>
@@ -1394,21 +1338,21 @@
 <h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/adriana-francisco-bill-baggs-state-park-after-wedding-session.html">
-<img alt="Adriana + Francisco | Bill Baggs State Park After Wedding Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/02/Bill-Baggs-State-Park-After-Wedding-Session-001.jpg"/>
-<h3>Adriana + Francisco | Bill Baggs State Park After Wedding Session</h3>
+<a href="/static/blog/20th-anniversary-photo-session.html">
+<img alt="20th Anniversary Photo Session | Mares Family" loading="lazy" src="https://acromatico.com/wp-content/uploads/2023/05/20th-Anniversary-Photo-Session-1.jpeg"/>
+<h3>20th Anniversary Photo Session | Mares Family</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/alyssa-don-the-mayfair-hotel-wedding.html">
-<img alt="Alyssa + Don | The Mayfair Hotel Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/11/Mayfair-Hotel-Coral-Gables-Wedding-001.jpg"/>
-<h3>Alyssa + Don | The Mayfair Hotel Wedding</h3>
+<a href="/static/blog/albaladejo-family-matheson-hammock-park-family-session.html">
+<img alt="Albaladejo Family | Matheson Hammock Park Family Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2016/05/Matheson-Hammock-Park-Family-Session-001.jpg"/>
+<h3>Albaladejo Family | Matheson Hammock Park Family Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/amanda-laurent-key-biscayne-wedding.html">
-<img alt="Amanda + Laurent | Key Biscayne Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/Amanda-Laurent-W-1.jpg"/>
-<h3>Amanda + Laurent | Key Biscayne Wedding</h3>
+<a href="/static/blog/ale-italo-matteo-family-portrait.html">
+<img alt="Ale + Italo + Matteo | Family Portrait" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Bal-Harbour-Family-Portrait-001.jpg"/>
+<h3>Ale + Italo + Matteo | Family Portrait</h3>
 </a>
 </article>
 </div>
