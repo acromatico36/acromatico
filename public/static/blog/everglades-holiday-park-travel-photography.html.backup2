@@ -5,30 +5,30 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Nadine + Ariel | The Spanish Monastery Wedding | Acromatico Photography
+   everglades holiday park | travel photography | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="We had a wonderful chance to photograph Nadine &amp; Ariel’s wedding at the Spanish Monastery in North Miami Beach.  We’ve had beautiful weather in South Florida an..." name="description"/>
+<meta content="Some friends from Italy came to Florida, so we decided to take them to the Everglades, since we’ve heard so many wonderful things about this place. It was truly..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/nadine-ariel-the-spanish-monastery-wedding" property="og:url"/>
-<meta content="Nadine + Ariel | The Spanish Monastery Wedding" property="og:title"/>
-<meta content="We had a wonderful chance to photograph Nadine &amp; Ariel’s wedding at the Spanish Monastery in North Miami Beach.  We’ve had beautiful weather in South Florida an..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-1.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/everglades-holiday-park-travel-photography" property="og:url"/>
+<meta content="everglades holiday park | travel photography" property="og:title"/>
+<meta content="Some friends from Italy came to Florida, so we decided to take them to the Everglades, since we’ve heard so many wonderful things about this place. It was truly..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/everglades-holiday-park-1.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/nadine-ariel-the-spanish-monastery-wedding" property="twitter:url"/>
-<meta content="Nadine + Ariel | The Spanish Monastery Wedding" property="twitter:title"/>
-<meta content="We had a wonderful chance to photograph Nadine &amp; Ariel’s wedding at the Spanish Monastery in North Miami Beach.  We’ve had beautiful weather in South Florida an..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-1.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/everglades-holiday-park-travel-photography" property="twitter:url"/>
+<meta content="everglades holiday park | travel photography" property="twitter:title"/>
+<meta content="Some friends from Italy came to Florida, so we decided to take them to the Everglades, since we’ve heard so many wonderful things about this place. It was truly..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/everglades-holiday-park-1.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/nadine-ariel-the-spanish-monastery-wedding" rel="canonical"/>
+<link href="https://acromatico.com/blog/everglades-holiday-park-travel-photography" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
-<meta content="Wedding Photography" property="article:tag"/>
+<meta content="Unknown Photography" property="article:tag"/>
 <meta content="South Florida Photographer" property="article:tag"/>
 <meta content="Italo Campilii" property="article:author"/>
 <!-- Schema.org Markup -->
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Nadine + Ariel | The Spanish Monastery Wedding",
-  "description": "We had a wonderful chance to photograph Nadine & Ariel’s wedding at the Spanish Monastery in North Miami Beach.  We’ve had beautiful weather in South Florida an...",
+  "headline": "everglades holiday park | travel photography",
+  "description": "Some friends from Italy came to Florida, so we decided to take them to the Everglades, since we’ve heard so many wonderful things about this place. It was truly...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-1.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-2.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-3.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-4.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-5.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-6.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-7.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-8.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-9.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-10.jpg"
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-1.jpg",
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-2.jpg",
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-3.jpg",
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-4.jpg",
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-5.jpg",
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-6.jpg",
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-7.jpg",
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-8.jpg",
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-9.jpg",
+    "https://acromatico.com/wp-content/uploads/everglades-holiday-park-10.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/nadine-ariel-the-spanish-monastery-wedding"
+    "@id": "https://acromatico.com/blog/everglades-holiday-park-travel-photography"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Nadine + Ariel | The Spanish Monastery Wedding",
-      "item": "https://acromatico.com/blog/nadine-ariel-the-spanish-monastery-wedding"
+      "name": "everglades holiday park | travel photography",
+      "item": "https://acromatico.com/blog/everglades-holiday-park-travel-photography"
     }
   ]
 }
@@ -1128,218 +1128,81 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-1.jpg');">
-<h1 class="hero-title">Nadine + Ariel | The Spanish Monastery Wedding</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/everglades-holiday-park-1.jpg');">
+<h1 class="hero-title">everglades holiday park | travel photography</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="The Spanish Monastery Wedding - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-1.jpg"/><p class="image-caption">The Spanish Monastery Wedding - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="The Spanish Monastery Wedding - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-14.jpg"/><p class="image-caption">The Spanish Monastery Wedding - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>The's Natural Chemistry</h2><div class="featured-image"><img alt="The Spanish Monastery Wedding - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-27.jpg"/><p class="image-caption">The Spanish Monastery Wedding - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="The Spanish Monastery Wedding - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-40.jpg"/><p class="image-caption">The Spanish Monastery Wedding - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="The Spanish Monastery Wedding - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-53.jpg"/><p class="image-caption">The Spanish Monastery Wedding - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+Some friends from Italy came to Florida, so we decided to take them to the Everglades, since we’ve heard so many wonderful things about this place. It was truly amazing! We’ve lived here for so long and never experienced anything like this. We got to see some huge alligators and beautiful wild birds and we even touch a mini alligator! If you ever come to Florida, beside to go to the beautiful beaches this is definitely a MUST see! Enjoy!
+
+<img alt="everglades holiday park | travel photography - Photo 1" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-1" width="910"/><img alt="everglades holiday park | travel photography - Photo 2" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-2" width="910"/><img alt="everglades holiday park | travel photography - Photo 3" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-3" width="910"/><img alt="everglades holiday park | travel photography - Photo 4" decoding="async" height="303" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" title="everglades holiday park-4" width="910"/><img alt="everglades holiday park | travel photography - Photo 5" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-5" width="910"/><img alt="everglades holiday park | travel photography - Photo 6" decoding="async" height="303" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" title="everglades holiday park-6" width="910"/><img alt="everglades holiday park | travel photography - Photo 7" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-7" width="910"/><img alt="everglades holiday park | travel photography - Photo 8" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-8" width="910"/><img alt="everglades holiday park | travel photography - Photo 9" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-9" width="910"/><img alt="everglades holiday park | travel photography - Photo 10" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-10" width="910"/><img alt="everglades holiday park | travel photography - Photo 11" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-11" width="910"/><img alt="everglades holiday park | travel photography - Photo 12" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-12" width="910"/><img alt="everglades holiday park | travel photography - Photo 13" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-13" width="910"/><img alt="everglades holiday park | travel photography - Photo 14" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-14" width="910"/><img alt="everglades holiday park | travel photography - Photo 15" decoding="async" height="303" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" title="everglades holiday park-15" width="910"/><img alt="everglades holiday park | travel photography - Photo 16" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-16" width="910"/><img alt="everglades holiday park | travel photography - Photo 17" decoding="async" height="303" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" title="everglades holiday park-17" width="910"/><img alt="everglades holiday park | travel photography - Photo 18" decoding="async" height="303" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" title="everglades holiday park-18" width="910"/><img alt="everglades holiday park | travel photography - Photo 19" decoding="async" height="303" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" title="everglades holiday park-19" width="910"/><img alt="everglades holiday park | travel photography - Photo 20" decoding="async" height="303" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/303;" title="everglades holiday park-20" width="910"/><img alt="everglades holiday park | travel photography - Photo 21" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-21" width="910"/><img alt="everglades holiday park | travel photography - Photo 22" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="everglades holiday park-22" width="910"/>
+</div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="travel photography - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-1.jpg"/><p class="image-caption">travel photography - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="travel photography - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-5.jpg"/><p class="image-caption">travel photography - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>travel's Natural Chemistry</h2><div class="featured-image"><img alt="travel photography - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-9.jpg"/><p class="image-caption">travel photography - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="travel photography - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-13.jpg"/><p class="image-caption">travel photography - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="travel photography - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-17.jpg"/><p class="image-caption">travel photography - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-1.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-1.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-1.jpg">
+<img alt="everglades holiday park | travel photography - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-2.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-2.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-2.jpg">
+<img alt="everglades holiday park | travel photography - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-2.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-3.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-3.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-3.jpg">
+<img alt="everglades holiday park | travel photography - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-3.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-4.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-4.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-4.jpg">
+<img alt="everglades holiday park | travel photography - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-4.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-5.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-5.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-5.jpg">
+<img alt="everglades holiday park | travel photography - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-5.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-6.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-6.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-6.jpg">
+<img alt="everglades holiday park | travel photography - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-6.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-7.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-7.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-7.jpg">
+<img alt="everglades holiday park | travel photography - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-7.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-8.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-8.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-8.jpg">
+<img alt="everglades holiday park | travel photography - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-8.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-9.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-9.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-9.jpg">
+<img alt="everglades holiday park | travel photography - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-9.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-10.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-10.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-10.jpg">
+<img alt="everglades holiday park | travel photography - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-10.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-11.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-11.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-11.jpg">
+<img alt="everglades holiday park | travel photography - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-11.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-12.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-12.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-12.jpg">
+<img alt="everglades holiday park | travel photography - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-12.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-13.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-13.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-13.jpg">
+<img alt="everglades holiday park | travel photography - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-13.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-14.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-14.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-14.jpg">
+<img alt="everglades holiday park | travel photography - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-14.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-15.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-15.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-15.jpg">
+<img alt="everglades holiday park | travel photography - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-15.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-16.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-16.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-16.jpg">
+<img alt="everglades holiday park | travel photography - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-16.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-17.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-17.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-17.jpg">
+<img alt="everglades holiday park | travel photography - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-17.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-18.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-18.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-18.jpg">
+<img alt="everglades holiday park | travel photography - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-18.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-19.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-19.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-19.jpg">
+<img alt="everglades holiday park | travel photography - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-19.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-20.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-20.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-20.jpg">
+<img alt="everglades holiday park | travel photography - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-20.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-21.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-21.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-21.jpg">
+<img alt="everglades holiday park | travel photography - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-21.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-22.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-22.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-23.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-23.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-24.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-24.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-25.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-25.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-26.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-26.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-27.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-27.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-28.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-28.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-29.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-29.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-30.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-30.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-31.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-31.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-32.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-32.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-33.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-33.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-34.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-34.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-35.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-35.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-36.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-36.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-37.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-37.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-38.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-38.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-39.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-39.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-40.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-40.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-41.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-41.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-42.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-42.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-43.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-43.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-44.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-44.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-45.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-45.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-46.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-46.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-47.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-47.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-48.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-48.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-49.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-49.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-50.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-50.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-51.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-51.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-52.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-52.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-53.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-53.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-54.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-54.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-55.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-55.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-56.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-56.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-57.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 57" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-57.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-58.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 58" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-58.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-59.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 59" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-59.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-60.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 60" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-60.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-61.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 61" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-61.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-62.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 62" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-62.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-Photography-1.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 63" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-Photography-1.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-63.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 64" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-63.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-64.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 65" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-64.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-65.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 66" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-65.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-66.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 67" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-66.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-67.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 68" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-67.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-68.jpg">
-<img alt="Nadine + Ariel | The Spanish Monastery Wedding - Photo 69" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Spanish-Monastery-Wedding-68.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/everglades-holiday-park-22.jpg">
+<img alt="everglades holiday park | travel photography - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/everglades-holiday-park-22.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
@@ -1463,21 +1326,21 @@
 <h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/adriana-francisco-bill-baggs-state-park-after-wedding-session.html">
-<img alt="Adriana + Francisco | Bill Baggs State Park After Wedding Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/02/Bill-Baggs-State-Park-After-Wedding-Session-001.jpg"/>
-<h3>Adriana + Francisco | Bill Baggs State Park After Wedding Session</h3>
+<a href="/static/blog/acromatico-team-2012-in-pictures.html">
+<img alt="Acromatico Team | 2012 In Pictures" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/12/untitled-0011.jpg"/>
+<h3>Acromatico Team | 2012 In Pictures</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/alyssa-don-the-mayfair-hotel-wedding.html">
-<img alt="Alyssa + Don | The Mayfair Hotel Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/11/Mayfair-Hotel-Coral-Gables-Wedding-001.jpg"/>
-<h3>Alyssa + Don | The Mayfair Hotel Wedding</h3>
+<a href="/static/blog/alexia-deerfield-beach-senior-session.html">
+<img alt="Alexia | Deerfield Beach Senior Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Senior-Beach-Session-001.jpg"/>
+<h3>Alexia | Deerfield Beach Senior Session</h3>
 </a>
 </article>
 <article class="related-post">
-<a href="/static/blog/amanda-laurent-key-biscayne-wedding.html">
-<img alt="Amanda + Laurent | Key Biscayne Wedding" loading="lazy" src="https://acromatico.com/wp-content/uploads/Amanda-Laurent-W-1.jpg"/>
-<h3>Amanda + Laurent | Key Biscayne Wedding</h3>
+<a href="/static/blog/bessy-justin-charles-deering-estate-day-after-session.html">
+<img alt="Bessy + Justin | Charles Deering Estate Day After Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Charles-Deering-Estate-Wedding-001.jpg"/>
+<h3>Bessy + Justin | Charles Deering Estate Day After Session</h3>
 </a>
 </article>
 </div>
