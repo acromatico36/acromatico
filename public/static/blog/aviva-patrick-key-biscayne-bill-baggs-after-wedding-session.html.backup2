@@ -5,27 +5,27 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Aviva + Patrick | The Rusty Pelican Wedding | Acromatico Photography
+   Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Rain rain go away…This should be the title for this last Sunday’s wedding. Despite the rainstorm that was coming our way at the beautiful Rusty Pelican in Key B..." name="description"/>
+<meta content="So we recently posted this wonderful couple’s &lt;em&gt;&lt;a href='https://acromatico.com/wedding/aviva-patrick-the-rusty-pelican-wedding/' target='_blank'&gt;wedding &lt;/a&gt;..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/aviva-patrick-the-rusty-pelican-wedding" property="og:url"/>
-<meta content="Aviva + Patrick | The Rusty Pelican Wedding" property="og:title"/>
-<meta content="Rain rain go away…This should be the title for this last Sunday’s wedding. Despite the rainstorm that was coming our way at the beautiful Rusty Pelican in Key B..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-1.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/aviva-patrick-key-biscayne-bill-baggs-after-wedding-session" property="og:url"/>
+<meta content="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session" property="og:title"/>
+<meta content="So we recently posted this wonderful couple’s &lt;em&gt;&lt;a href='https://acromatico.com/wedding/aviva-patrick-the-rusty-pelican-wedding/' target='_blank'&gt;wedding &lt;/a&gt;..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-2.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/aviva-patrick-the-rusty-pelican-wedding" property="twitter:url"/>
-<meta content="Aviva + Patrick | The Rusty Pelican Wedding" property="twitter:title"/>
-<meta content="Rain rain go away…This should be the title for this last Sunday’s wedding. Despite the rainstorm that was coming our way at the beautiful Rusty Pelican in Key B..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-1.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/aviva-patrick-key-biscayne-bill-baggs-after-wedding-session" property="twitter:url"/>
+<meta content="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session" property="twitter:title"/>
+<meta content="So we recently posted this wonderful couple’s &lt;em&gt;&lt;a href='https://acromatico.com/wedding/aviva-patrick-the-rusty-pelican-wedding/' target='_blank'&gt;wedding &lt;/a&gt;..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-2.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/aviva-patrick-the-rusty-pelican-wedding" rel="canonical"/>
+<link href="https://acromatico.com/blog/aviva-patrick-key-biscayne-bill-baggs-after-wedding-session" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
 <meta content="Wedding Photography" property="article:tag"/>
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Aviva + Patrick | The Rusty Pelican Wedding",
-  "description": "Rain rain go away…This should be the title for this last Sunday’s wedding. Despite the rainstorm that was coming our way at the beautiful Rusty Pelican in Key B...",
+  "headline": "Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session",
+  "description": "So we recently posted this wonderful couple’s <em><a href='https://acromatico.com/wedding/aviva-patrick-the-rusty-pelican-wedding/' target='_blank'>wedding </a>...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-1.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-2.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-4.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-5.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-6.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-7.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-8.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-9.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-10.jpg",
-    "https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-11.jpg"
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-2.jpg",
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-1.jpg",
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-3.jpg",
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-4.jpg",
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-5.jpg",
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-6.jpg",
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-7.jpg",
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-8.jpg",
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-9.jpg",
+    "https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-10.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/aviva-patrick-the-rusty-pelican-wedding"
+    "@id": "https://acromatico.com/blog/aviva-patrick-key-biscayne-bill-baggs-after-wedding-session"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Aviva + Patrick | The Rusty Pelican Wedding",
-      "item": "https://acromatico.com/blog/aviva-patrick-the-rusty-pelican-wedding"
+      "name": "Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session",
+      "item": "https://acromatico.com/blog/aviva-patrick-key-biscayne-bill-baggs-after-wedding-session"
     }
   ]
 }
@@ -1128,179 +1128,96 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-1.jpg');">
-<h1 class="hero-title">Aviva + Patrick | The Rusty Pelican Wedding</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-2.jpg');">
+<h1 class="hero-title">Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="The Rusty Pelican Wedding - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-1.jpg"/><p class="image-caption">The Rusty Pelican Wedding - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="The Rusty Pelican Wedding - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-13.jpg"/><p class="image-caption">The Rusty Pelican Wedding - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>The's Natural Chemistry</h2><div class="featured-image"><img alt="The Rusty Pelican Wedding - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-24.jpg"/><p class="image-caption">The Rusty Pelican Wedding - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="The Rusty Pelican Wedding - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-35.jpg"/><p class="image-caption">The Rusty Pelican Wedding - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="The Rusty Pelican Wedding - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-46.jpg"/><p class="image-caption">The Rusty Pelican Wedding - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+So we recently posted this wonderful couple’s <em><a href="https://acromatico.com/wedding/aviva-patrick-the-rusty-pelican-wedding/" target="_blank">wedding </a> </em>that took place at the Rusty Pelican. But those pictures just weren’t enough for Aviva and Patrick, they wanted more and more…so we got to go again to one of our client’s favorite places here in sunny south Florida, nothing more and nothing less than the <a href="http://www.floridastateparks.org/capeflorida/" target="_blank">Bill Baggs State Park</a>. At their after wedding session, Aviva rocked her dress once again one last time, and Patrick just couldn’t get enough of staring at his lovely bride. Congratulations one more time to you guys! Enjoy some of our favorites:
+
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 1" decoding="async" height="553" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/553;" title="Bill Baggs Key Biscayne Wedding-2" width="910"/>
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 2" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-1" width="910"/>
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 3" decoding="async" height="573" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/573;" title="Bill Baggs Key Biscayne Wedding-3" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 4" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-4" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 5" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-5" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 6" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-6" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 7" decoding="async" height="680" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" title="Bill Baggs Key Biscayne Wedding-7" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 8" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-8" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 9" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-9" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 10" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-10" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 11" decoding="async" height="680" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" title="Bill Baggs Key Biscayne Wedding-11" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 12" decoding="async" height="1365" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1365;" title="Bill Baggs Key Biscayne Wedding-12" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 13" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-13" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 14" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-14" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 15" decoding="async" height="1296" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1296;" title="Bill Baggs Key Biscayne Wedding-15" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 16" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-16" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 17" decoding="async" height="680" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" title="Bill Baggs Key Biscayne Wedding-17" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 18" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-18" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 19" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-19" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 20" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-20" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 21" decoding="async" height="585" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/585;" title="Bill Baggs Key Biscayne Wedding-21" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 22" decoding="async" height="680" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" title="Bill Baggs Key Biscayne Wedding-22" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 23" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-23" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 24" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-24" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 25" decoding="async" height="680" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" title="Bill Baggs Key Biscayne Wedding-25" width="910"/><img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 26" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Bill Baggs Key Biscayne Wedding-26" width="910"/>
+<div></div>
+</div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="Key Biscayne Bill Baggs After Wedding Session - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-2.jpg"/><p class="image-caption">Key Biscayne Bill Baggs After Wedding Session - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="Key Biscayne Bill Baggs After Wedding Session - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-6.jpg"/><p class="image-caption">Key Biscayne Bill Baggs After Wedding Session - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>Key's Natural Chemistry</h2><div class="featured-image"><img alt="Key Biscayne Bill Baggs After Wedding Session - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-11.jpg"/><p class="image-caption">Key Biscayne Bill Baggs After Wedding Session - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="Key Biscayne Bill Baggs After Wedding Session - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-16.jpg"/><p class="image-caption">Key Biscayne Bill Baggs After Wedding Session - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="Key Biscayne Bill Baggs After Wedding Session - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-21.jpg"/><p class="image-caption">Key Biscayne Bill Baggs After Wedding Session - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-1.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-1.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-2.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-2.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-2.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-2.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-1.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-4.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-4.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-3.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-3.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-5.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-5.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-4.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-4.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-6.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-6.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-5.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-5.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-7.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-7.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-6.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-6.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-8.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-8.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-7.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-7.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-9.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-9.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-8.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-8.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-10.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-10.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-9.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-9.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-11.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-11.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-10.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-10.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-12.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-12.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-11.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-11.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-13.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-13.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-12.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-12.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-14.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-14.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-13.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-13.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-15.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-15.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-14.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-14.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-16.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-16.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-15.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-15.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-17.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-17.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-16.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-16.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-18.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-18.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-17.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-17.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-19.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-19.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-18.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-18.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-20.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-20.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-19.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-19.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-21.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-21.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-20.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-20.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-22.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-22.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-21.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-21.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-23.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-23.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-22.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-22.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-24.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-24.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-23.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-23.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-25.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-25.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-24.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-24.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-26.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-26.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-25.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-25.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-27.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-27.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-28.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-28.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-29.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-29.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-30.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-30.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-31.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-31.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-32.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-32.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-33.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-33.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-34.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-34.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-35.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-35.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-36.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-36.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-37.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-37.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-38.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-38.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-39.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-39.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-40.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-40.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-41.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-41.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-42.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-42.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-43.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-43.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-44.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-44.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-45.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-45.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-46.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-46.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-47.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-47.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-48.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-48.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-49.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-49.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-50.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-50.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-51.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-51.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-52.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-52.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-53.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-53.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-54.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-54.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-55.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-55.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-56.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-56.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-57.jpg">
-<img alt="Aviva + Patrick | The Rusty Pelican Wedding - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/The-Rusty-Pelican-Key-Biscayne-Wedding-57.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-26.jpg">
+<img alt="Aviva + Patrick | Key Biscayne Bill Baggs After Wedding Session - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Bill-Baggs-Key-Biscayne-Wedding-26.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
