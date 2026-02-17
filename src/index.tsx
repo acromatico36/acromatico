@@ -345,7 +345,7 @@ app.get('/', (c) => {
       <Header />
 
       {/* Hero Section - Apple-Style Full-Screen Impact */}
-      <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <section class="relative h-screen flex items-start justify-end overflow-hidden">
         {/* Hero Image - Freedom on High Hill */}
         <div class="absolute inset-0">
           <img 
@@ -357,21 +357,22 @@ app.get('/', (c) => {
           <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
         </div>
         
-        <div class="relative z-20 max-w-7xl mx-auto px-6 text-center">
+        {/* Text Positioned in Upper Right - Clear Sky Area */}
+        <div class="relative z-20 max-w-2xl mr-8 md:mr-24 mt-32 md:mt-40 px-6 text-left">
           {/* Apple-Style Typography */}
-          <h1 class="text-8xl md:text-9xl font-semibold tracking-tight mb-8" style="letter-spacing: -0.05em; line-height: 0.95;">
-            See differently.
+          <h1 class="text-7xl md:text-8xl font-semibold tracking-tight mb-6" style="letter-spacing: -0.05em; line-height: 0.95;">
+            See<br/>differently.
           </h1>
           
-          <p class="text-3xl md:text-4xl font-light mb-16 text-white/90" style="letter-spacing: -0.02em;">
-            Photography for young creators 7–14.
+          <p class="text-2xl md:text-3xl font-light mb-12 text-white/90" style="letter-spacing: -0.02em;">
+            Photography for young<br/>creators 7–14.
           </p>
           
-          <div class="flex flex-col sm:flex-row justify-center gap-6">
-            <a href="/checkout" class="bg-white text-black px-10 py-5 rounded-full text-xl font-semibold hover:bg-white/90 transition inline-block">
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/checkout" class="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/90 transition inline-block text-center">
               Start learning
             </a>
-            <a href="#curriculum" class="border-2 border-white px-10 py-5 rounded-full text-xl font-semibold hover:bg-white/10 transition inline-block">
+            <a href="#curriculum" class="border-2 border-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition inline-block text-center">
               Explore curriculum
             </a>
           </div>
