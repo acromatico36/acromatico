@@ -271,22 +271,6 @@ blog.get('/', async (c) => {
             margin: 0 auto;
         }
         
-        .search-bar {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 1.5rem;
-            padding: 0.875rem 1.25rem;
-            border: 1px solid #E5E5E7;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-        
-        .search-bar:focus {
-            outline: none;
-            border-color: #000;
-        }
-        
         .filters {
             text-align: center;
             display: flex;
@@ -485,13 +469,6 @@ blog.get('/', async (c) => {
     
     <section class="controls">
         <div class="controls-wrapper">
-            <input 
-                type="search" 
-                class="search-bar" 
-                id="search" 
-                placeholder="Search stories by name, location, or keyword..."
-            >
-            
             <div class="filters">
                 <button class="filter-btn active" data-filter="all">All Stories</button>
                 <button class="filter-btn" data-filter="wedding">Weddings</button>
@@ -622,7 +599,6 @@ blog.get('/', async (c) => {
         }
         
         const filterBtns = document.querySelectorAll('.filter-btn');
-        const searchBar = document.getElementById('search');
         
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -632,12 +608,6 @@ blog.get('/', async (c) => {
                 displayedPosts = 0;
                 renderPosts();
             });
-        });
-        
-        searchBar.addEventListener('input', (e) => {
-            currentSearch = e.target.value.toLowerCase();
-            displayedPosts = 0;
-            renderPosts();
         });
         
         loadAllPosts();
