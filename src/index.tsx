@@ -386,63 +386,56 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Meet Your Educators Section */}
+      {/* Meet Your Educators Section - Unified Team Profile */}
       <section class="py-32 bg-gradient-to-b from-black to-gray-900">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
-          <div class="text-center mb-20">
-            <h2 class="text-5xl md:text-6xl font-black mb-6">
-              Meet Your Educators
-            </h2>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-              Learn from award-winning photographers & filmmakers with 20+ years of professional experience
-            </p>
-          </div>
           
-          {/* Educators Grid */}
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-            {/* Italo */}
-            <div class="feature-card p-10 rounded-3xl text-center">
-              <div class="relative inline-block mb-6">
-                <div class="absolute inset-0 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full blur-xl opacity-50"></div>
-                <img 
-                  src="/static/italo-headshot.jpg" 
-                  alt="Italo Campilii" 
-                  class="relative w-48 h-48 rounded-full object-cover border-4 border-white/10 mx-auto"
-                />
-              </div>
-              <h3 class="text-3xl font-bold mb-2">Italo Campilii</h3>
-              <div class="text-teal-500 font-semibold mb-4">Co-Founder & Lead Educator</div>
-              <p class="text-gray-400 leading-relaxed mb-4">
-                Award-winning photographer and filmmaker with 20+ years of experience. 
-                Specializes in visual storytelling, documentary filmmaking, and portrait photography.
-              </p>
-              <div class="flex justify-center gap-4 text-sm text-gray-500">
-                <span>📸 Photography</span>
-                <span>🎬 Filmmaking</span>
-                <span>✨ Composition</span>
-              </div>
+          {/* Single Unified Profile */}
+          <div class="max-w-4xl mx-auto mb-20">
+            {/* Adventure Photo */}
+            <div class="mb-12">
+              <img 
+                src="/static/images/educators-team-patagonia.jpg" 
+                alt="Italo & Ale - Educators and Adventure Photographers" 
+                class="w-full rounded-3xl shadow-2xl"
+              />
             </div>
             
-            {/* Ale */}
-            <div class="feature-card p-10 rounded-3xl text-center">
-              <div class="relative inline-block mb-6">
-                <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-xl opacity-50"></div>
-                <img 
-                  src="/static/ale-headshot.jpg" 
-                  alt="Ale" 
-                  class="relative w-48 h-48 rounded-full object-cover border-4 border-white/10 mx-auto"
-                />
-              </div>
-              <h3 class="text-3xl font-bold mb-2">Ale</h3>
-              <div class="text-purple-500 font-semibold mb-4">Co-Founder & Creative Director</div>
-              <p class="text-gray-400 leading-relaxed mb-4">
-                Professional photographer and visual artist with expertise in portrait photography, 
-                lighting techniques, and creative direction. Passionate about developing young talent.
+            {/* Unified Story */}
+            <div class="text-center mb-12">
+              <h2 class="text-5xl md:text-6xl font-black mb-6">
+                We're Italo & Ale
+              </h2>
+              <p class="text-2xl text-white/90 font-light mb-8">
+                Parents. Photographers. Adventurers.
               </p>
-              <div class="flex justify-center gap-4 text-sm text-gray-500">
-                <span>💡 Lighting</span>
-                <span>👤 Portraits</span>
-                <span>🎨 Direction</span>
+              <p class="text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+                We've spent 20+ years capturing life's most beautiful moments—from wedding days to mountain summits. 
+                Now we're teaching the next generation to see the world through their own lens. 
+                <br/><br/>
+                <strong class="text-white">Why we created this:</strong> We want our kids—and yours—to grow up seeing beauty, 
+                telling stories, and exploring the world with cameras in hand. This isn't just photography education. 
+                It's about raising confident creators who notice the extraordinary in everyday life.
+              </p>
+            </div>
+            
+            {/* Credentials - Clean & Simple */}
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div class="text-4xl font-light mb-2">20+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Years Experience</div>
+              </div>
+              <div>
+                <div class="text-4xl font-light mb-2">500+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Weddings Shot</div>
+              </div>
+              <div>
+                <div class="text-4xl font-light mb-2">3</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Countries Taught</div>
+              </div>
+              <div>
+                <div class="text-4xl font-light mb-2">2</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Kids of Our Own</div>
               </div>
             </div>
           </div>
