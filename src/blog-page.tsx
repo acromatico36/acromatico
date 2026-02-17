@@ -161,6 +161,102 @@ blog.get('/', async (c) => {
             font-weight: 300;
             text-align: center;
             text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+            margin-bottom: 3rem;
+        }
+        
+        /* Hero Search Bar */
+        .hero-search-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .hero-search {
+            width: 100%;
+            padding: 1.25rem 1.75rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            color: #1D1D1F;
+        }
+        
+        .hero-search:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .hero-search::placeholder {
+            color: #86868B;
+        }
+        
+        /* Autocomplete Dropdown */
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 0.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .autocomplete-dropdown.active {
+            display: block;
+        }
+        
+        .autocomplete-item {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 1px solid #F5F5F7;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+        
+        .autocomplete-item:hover {
+            background: #F5F5F7;
+        }
+        
+        .autocomplete-item-category {
+            background: #E5E5E7;
+            color: #000;
+            padding: 0.25rem 0.625rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .autocomplete-item-title {
+            flex: 1;
+            font-size: 0.95rem;
+            color: #1D1D1F;
+        }
+        
+        .autocomplete-item-title mark {
+            background: #FFEB3B;
+            color: #000;
+            padding: 0 2px;
+            border-radius: 2px;
         }
         
         /* Search & Filters */
@@ -331,10 +427,20 @@ blog.get('/', async (c) => {
             
             .hero-subtitle {
                 font-size: 1.1rem;
+                margin-bottom: 2rem;
             }
             
             .site-logo {
                 max-width: 150px;
+            }
+            
+            .hero-search {
+                font-size: 1rem;
+                padding: 1rem 1.5rem;
+            }
+            
+            .hero-search-wrapper {
+                max-width: 90%;
             }
         }
     </style>
@@ -364,6 +470,17 @@ blog.get('/', async (c) => {
     <section class="hero-section">
         <h1 class="hero-title">Love Stories</h1>
         <p class="hero-subtitle"><span id="total-count">501</span> Real Weddings, Engagements & Moments</p>
+        
+        <div class="hero-search-wrapper">
+            <input 
+                type="search" 
+                class="hero-search" 
+                id="heroSearch" 
+                placeholder="Search by couple names, location, or session type..."
+                autocomplete="off"
+            >
+            <div class="autocomplete-dropdown" id="autocompleteDropdown"></div>
+        </div>
     </section>
     
     <section class="controls">
@@ -536,6 +653,71 @@ blog.get('/', async (c) => {
         overlayMenu.addEventListener('click', (e) => {
             if (e.target === overlayMenu) {
                 overlayMenu.classList.remove('active');
+            }
+        });
+        
+        // Hero Search with Autocomplete
+        const heroSearch = document.getElementById('heroSearch');
+        const autocompleteDropdown = document.getElementById('autocompleteDropdown');
+        let autocompleteTimeout;
+        
+        heroSearch.addEventListener('input', (e) => {
+            clearTimeout(autocompleteTimeout);
+            const query = e.target.value.toLowerCase().trim();
+            
+            if (query.length < 2) {
+                autocompleteDropdown.classList.remove('active');
+                return;
+            }
+            
+            autocompleteTimeout = setTimeout(() => {
+                const matches = allPosts.filter(post => {
+                    const title = cleanTitle(post.title.rendered).toLowerCase();
+                    return title.includes(query);
+                }).slice(0, 8);
+                
+                if (matches.length === 0) {
+                    autocompleteDropdown.classList.remove('active');
+                    return;
+                }
+                
+                autocompleteDropdown.innerHTML = matches.map(post => {
+                    const title = cleanTitle(post.title.rendered);
+                    const category = getCategory(title);
+                    const regex = new RegExp('(' + query + ')', 'gi');
+                    const highlightedTitle = title.replace(regex, '<mark>$1</mark>');
+                    
+                    return \`
+                        <a href="/blog/\${post.slug}" class="autocomplete-item">
+                            <span class="autocomplete-item-category">\${category}</span>
+                            <span class="autocomplete-item-title">\${highlightedTitle}</span>
+                        </a>
+                    \`;
+                }).join('');
+                
+                autocompleteDropdown.classList.add('active');
+            }, 300);
+        });
+        
+        // Close autocomplete when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!heroSearch.contains(e.target) && !autocompleteDropdown.contains(e.target)) {
+                autocompleteDropdown.classList.remove('active');
+            }
+        });
+        
+        // Handle Enter key
+        heroSearch.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const query = heroSearch.value.toLowerCase().trim();
+                if (query.length > 0) {
+                    // Scroll to blog grid and apply search
+                    currentSearch = query;
+                    displayedPosts = 0;
+                    renderPosts();
+                    autocompleteDropdown.classList.remove('active');
+                    document.querySelector('.grid-wrapper').scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     </script>
