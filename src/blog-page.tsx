@@ -71,9 +71,18 @@ blog.get('/', async (c) => {
         
         /* Hero */
         .hero {
-            padding: 10rem 5% 4rem;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            background: white;
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://acromatico.com/wp-content/uploads/2022/03/Lifestyle-Newborn-Session-001-1024x682.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 12rem 5% 6rem;
         }
         
         h1 {
@@ -81,12 +90,18 @@ blog.get('/', async (c) => {
             font-weight: 700;
             margin-bottom: 1rem;
             letter-spacing: -0.03em;
-            color: #000;
+            color: white;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
         }
         
         .subtitle {
             font-size: 1.25rem;
-            color: #666;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
         }
         
         /* Search & Filters */
@@ -251,11 +266,16 @@ blog.get('/', async (c) => {
             }
             
             .hero {
-                padding: 7rem 5% 3rem;
+                padding: 8rem 5% 4rem;
+                min-height: 60vh;
             }
             
             h1 {
                 font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
             }
         }
     </style>
