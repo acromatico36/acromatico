@@ -346,15 +346,15 @@ app.get('/', (c) => {
 
       {/* Hero Section - Apple-Style Full-Screen Impact */}
       <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Hero Image */}
+        {/* Hero Image - Freedom on High Hill */}
         <div class="absolute inset-0">
           <img 
-            src="/static/images/hero-apple-style.jpg" 
-            alt="Young photographer" 
+            src="/static/images/hero-freedom-hill.jpg" 
+            alt="Young photographer on hilltop" 
             class="w-full h-full object-cover"
-            style="filter: brightness(0.85) saturate(1.1);"
+            style="filter: brightness(0.9) saturate(1.3);"
           />
-          <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
         </div>
         
         <div class="relative z-20 max-w-7xl mx-auto px-6 text-center">
