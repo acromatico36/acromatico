@@ -344,68 +344,44 @@ app.get('/', (c) => {
       {/* Navigation */}
       <Header />
 
-      {/* Hero Section - Full-Bleed Adventure Photography */}
-      <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Bold Adventure Photo Background */}
+      {/* Hero Section - Apple-Style Full-Screen Impact */}
+      <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Hero Image */}
         <div class="absolute inset-0">
           <img 
-            src="/static/images/hero-child-photographer-safe.jpg" 
-            alt="Young photographer safely exploring and photographing mountain landscapes" 
+            src="/static/images/hero-apple-style.jpg" 
+            alt="Young photographer" 
             class="w-full h-full object-cover"
-            style="filter: brightness(0.7) saturate(1.2);"
+            style="filter: brightness(0.85) saturate(1.1);"
           />
-          <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60"></div>
         </div>
         
-
-        
-        <div class="relative z-20 max-w-5xl mx-auto px-6 lg:px-8">
-          {/* Movement Badge */}
-          <div class="mb-8">
-            <span class="text-xs font-bold tracking-widest uppercase text-white/80">
-              Join the Movement
-            </span>
-          </div>
-          
-          {/* Bold Minimalist Headline */}
-          <h1 class="text-7xl md:text-9xl font-black tracking-tight mb-12 leading-none" style="letter-spacing: -0.04em;">
-            See.<br />
-            Create.<br />
-            <span class="text-white/60">Explore.</span>
+        <div class="relative z-20 max-w-7xl mx-auto px-6 text-center">
+          {/* Apple-Style Typography */}
+          <h1 class="text-8xl md:text-9xl font-semibold tracking-tight mb-8" style="letter-spacing: -0.05em; line-height: 0.95;">
+            See differently.
           </h1>
           
-          {/* Minimal Subtext */}
-          <p class="text-2xl md:text-3xl font-light mb-16 max-w-2xl" style="line-height: 1.4;">
-            Photography education for young adventurers ages 7–14.
+          <p class="text-3xl md:text-4xl font-light mb-16 text-white/90" style="letter-spacing: -0.02em;">
+            Photography for young creators 7–14.
           </p>
           
-          {/* Strong CTA */}
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/checkout" class="btn-primary px-12 py-6 rounded-full text-xl font-bold inline-block" style="background: #000; color: #fff;">
-              Start Now →
+          <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <a href="/checkout" class="bg-white text-black px-10 py-5 rounded-full text-xl font-semibold hover:bg-white/90 transition inline-block">
+              Start learning
+            </a>
+            <a href="#curriculum" class="border-2 border-white px-10 py-5 rounded-full text-xl font-semibold hover:bg-white/10 transition inline-block">
+              Explore curriculum
             </a>
           </div>
-          
-          {/* Simple Stats */}
-          <div class="grid grid-cols-3 gap-12 mt-32 max-w-3xl">
-            <div>
-              <div class="text-6xl font-light mb-2">20+</div>
-              <div class="text-sm text-white/60 uppercase tracking-wider">Years</div>
-            </div>
-            <div>
-              <div class="text-6xl font-light mb-2">8</div>
-              <div class="text-sm text-white/60 uppercase tracking-wider">Classes/Mo</div>
-            </div>
-            <div>
-              <div class="text-6xl font-light mb-2">7-14</div>
-              <div class="text-sm text-white/60 uppercase tracking-wider">Ages</div>
-              <div class="text-gray-400 text-sm">AM Mon & Thu</div>
-            </div>
-            <div class="feature-card p-6 rounded-2xl">
-              <div class="text-5xl font-black stat-number mb-2">7-14</div>
-              <div class="text-gray-400 text-sm">Age Range</div>
-            </div>
-          </div>
+        </div>
+        
+        {/* Scroll Indicator */}
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+          <svg class="w-6 h-10 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
         </div>
       </section>
 
