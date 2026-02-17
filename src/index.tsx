@@ -349,8 +349,8 @@ app.get('/', (c) => {
         {/* Bold Adventure Photo Background */}
         <div class="absolute inset-0">
           <img 
-            src="/static/images/curriculum/march-mountain-photographer.jpg" 
-            alt="Young photographer exploring mountains" 
+            src="/static/images/hero-child-photographer-safe.jpg" 
+            alt="Young photographer safely exploring and photographing mountain landscapes" 
             class="w-full h-full object-cover"
             style="filter: brightness(0.7) saturate(1.2);"
           />
