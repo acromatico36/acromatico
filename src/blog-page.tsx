@@ -28,80 +28,140 @@ blog.get('/', async (c) => {
             line-height: 1.6;
         }
         
-        /* Navigation */
-        nav {
+        /* Header */
+        .site-header {
             position: fixed;
             top: 0;
-            width: 100%;
-            background: white;
-            z-index: 1000;
-            padding: 1.25rem 5%;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        }
-        
-        .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 20px 40px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            background: transparent;
         }
         
-        .logo-img {
-            height: 32px;
-            width: auto;
+        .site-logo {
+            max-width: 200px;
+            height: auto;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: #1D1D1F;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        
-        .nav-links a:hover {
-            opacity: 0.6;
-        }
-        
-        /* Hero */
-        .hero {
-            min-height: 70vh;
+        .menu-toggle {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            z-index: 10000;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 6px;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .menu-toggle:hover span {
+            background: rgba(255,255,255,0.7);
+        }
+        
+        /* Overlay Menu */
+        .overlay-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 9998;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .overlay-menu.active {
+            display: flex;
+        }
+        
+        .menu-content {
             text-align: center;
-            position: relative;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://acromatico.com/wp-content/uploads/2022/03/Lifestyle-Newborn-Session-001-1024x682.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 12rem 5% 6rem;
         }
         
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
+        .menu-content a {
+            display: block;
             color: white;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-            position: relative;
-            z-index: 1;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: 300;
+            margin: 1.5rem 0;
+            transition: opacity 0.3s;
         }
         
-        .subtitle {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+        .menu-content a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background-image: url('https://acromatico.com/wp-content/uploads/2022/03/Lifestyle-Newborn-Session-001-1024x682.jpg');
+            background-position: center center;
+            background-size: cover;
             position: relative;
-            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            position: relative;
+            z-index: 10;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-align: center;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.3);
         }
         
         /* Search & Filters */
@@ -265,39 +325,47 @@ blog.get('/', async (c) => {
                 display: none;
             }
             
-            .hero {
-                padding: 8rem 5% 4rem;
-                min-height: 60vh;
-            }
-            
-            h1 {
+            .hero-title {
                 font-size: 2.5rem;
+                padding: 0 20px;
             }
             
-            .subtitle {
+            .hero-subtitle {
                 font-size: 1.1rem;
+            }
+            
+            .site-logo {
+                max-width: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <a href="/">
-                <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="logo-img">
-            </a>
-            <div class="nav-links">
-                <a href="/static/our-story-v2.html">Our Story</a>
-                <a href="/blog">Blog</a>
-                <a href="https://acromatico.com/galleries">Portfolio</a>
-                <a href="https://acromatico.com/contact">Contact</a>
-            </div>
-        </div>
-    </nav>
+    <header class="site-header">
+        <a href="/">
+            <img src="/static/acromatico-logo-white.png" alt="ACROMATICO" class="site-logo">
+        </a>
+    </header>
     
-    <section class="hero">
-        <h1>Love Stories</h1>
-        <p class="subtitle"><span id="total-count">501</span> Real Weddings, Engagements & Moments</p>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <div class="overlay-menu" id="overlayMenu">
+        <div class="menu-content">
+            <a href="/">Home</a>
+            <a href="/static/our-story-v2.html">Our Story</a>
+            <a href="/blog">Blog</a>
+            <a href="https://acromatico.com/galleries">Portfolio</a>
+            <a href="https://acromatico.com/contact">Contact</a>
+        </div>
+    </div>
+    
+    <section class="hero-section">
+        <h1 class="hero-title">Love Stories</h1>
+        <p class="hero-subtitle"><span id="total-count">501</span> Real Weddings, Engagements & Moments</p>
     </section>
     
     <section class="controls">
@@ -458,6 +526,20 @@ blog.get('/', async (c) => {
         });
         
         loadAllPosts();
+        
+        // Menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const overlayMenu = document.getElementById('overlayMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            overlayMenu.classList.toggle('active');
+        });
+        
+        overlayMenu.addEventListener('click', (e) => {
+            if (e.target === overlayMenu) {
+                overlayMenu.classList.remove('active');
+            }
+        });
     </script>
     
     <!-- Footer -->
