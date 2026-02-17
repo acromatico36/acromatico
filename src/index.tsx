@@ -395,7 +395,7 @@ app.get('/', (c) => {
             {/* Enhanced Adventure Photo */}
             <div class="mb-12">
               <img 
-                src="/static/images/educators-team-natural.jpg" 
+                src="/static/images/educators-team-real.jpg" 
                 alt="Italo & Ale at Torres del Paine, Chile" 
                 class="w-full rounded-3xl shadow-2xl"
               />
