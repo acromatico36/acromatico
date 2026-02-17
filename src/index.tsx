@@ -344,128 +344,61 @@ app.get('/', (c) => {
       {/* Navigation */}
       <Header />
 
-      {/* Hero Section - Full Screen with Animated Starfield Background */}
+      {/* Hero Section - Full-Bleed Adventure Photography */}
       <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Animated Starfield Background */}
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-900">
-          {/* Stars Layer 1 - Small */}
-          <div class="stars-small"></div>
-          {/* Stars Layer 2 - Medium */}
-          <div class="stars-medium"></div>
-          {/* Stars Layer 3 - Large */}
-          <div class="stars-large"></div>
-          {/* Child Silhouette */}
-          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-1/3 opacity-20">
-            <svg viewBox="0 0 800 400" class="w-full h-full">
-              {/* Child with camera looking up */}
-              <ellipse cx="400" cy="380" rx="200" ry="30" fill="rgba(20,184,166,0.3)"/>
-              <path d="M 350 300 Q 350 250 370 230 L 370 280 Q 380 290 400 285 L 410 240 Q 420 230 430 250 Q 430 280 430 300 L 420 380 L 380 380 Z" fill="rgba(20,184,166,0.4)"/>
-              <circle cx="390" cy="235" r="25" fill="rgba(20,184,166,0.5)"/>
-              <rect x="395" y="245" width="30" height="20" rx="5" fill="rgba(20,184,166,0.6)"/>
-            </svg>
-          </div>
+        {/* Bold Adventure Photo Background */}
+        <div class="absolute inset-0">
+          <img 
+            src="/static/images/curriculum/march-mountain-photographer.jpg" 
+            alt="Young photographer exploring mountains" 
+            class="w-full h-full object-cover"
+            style="filter: brightness(0.7) saturate(1.2);"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
         </div>
         
-        <style dangerouslySetInnerHTML={{__html: `
-          @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-          }
-          
-          @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-          }
-          
-          .stars-small, .stars-medium, .stars-large {
-            position: absolute;
-            inset: 0;
-          }
-          
-          .stars-small::before,
-          .stars-medium::before,
-          .stars-large::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-size: 200px 200px;
-            animation: twinkle 3s infinite;
-          }
-          
-          .stars-small::before {
-            background-image: 
-              radial-gradient(1px 1px at 20px 30px, rgba(20,184,166,0.8), transparent),
-              radial-gradient(1px 1px at 60px 70px, rgba(59,130,246,0.8), transparent),
-              radial-gradient(1px 1px at 140px 120px, rgba(147,51,234,0.8), transparent),
-              radial-gradient(1px 1px at 180px 50px, rgba(20,184,166,0.6), transparent),
-              radial-gradient(1px 1px at 90px 160px, rgba(59,130,246,0.6), transparent),
-              radial-gradient(1px 1px at 30px 180px, rgba(147,51,234,0.6), transparent),
-              radial-gradient(1px 1px at 150px 10px, rgba(20,184,166,0.7), transparent),
-              radial-gradient(1px 1px at 110px 90px, rgba(59,130,246,0.7), transparent);
-            animation-duration: 2s;
-          }
-          
-          .stars-medium::before {
-            background-image: 
-              radial-gradient(2px 2px at 40px 60px, rgba(20,184,166,0.9), transparent),
-              radial-gradient(2px 2px at 120px 140px, rgba(59,130,246,0.9), transparent),
-              radial-gradient(2px 2px at 180px 100px, rgba(147,51,234,0.9), transparent),
-              radial-gradient(2px 2px at 80px 30px, rgba(20,184,166,0.7), transparent),
-              radial-gradient(2px 2px at 160px 180px, rgba(59,130,246,0.7), transparent);
-            animation-duration: 4s;
-            animation-delay: 0.5s;
-          }
-          
-          .stars-large::before {
-            background-image: 
-              radial-gradient(3px 3px at 100px 120px, rgba(20,184,166,1), transparent),
-              radial-gradient(3px 3px at 50px 150px, rgba(59,130,246,1), transparent),
-              radial-gradient(3px 3px at 170px 80px, rgba(147,51,234,1), transparent);
-            animation-duration: 5s;
-            animation-delay: 1s;
-          }
-        `}} />
+
         
-        {/* Dark Overlay */}
-        <div class="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
-        {/* Gradient Overlay */}
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70 z-10 pointer-events-none"></div>
-        
-        <div class="relative z-20 max-w-6xl mx-auto px-6 lg:px-8 text-center">
-          <div class="mb-6 inline-block">
-            <span class="px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-sm font-medium">
-              Built for Creators, by Creators
+        <div class="relative z-20 max-w-5xl mx-auto px-6 lg:px-8">
+          {/* Movement Badge */}
+          <div class="mb-8">
+            <span class="text-xs font-bold tracking-widest uppercase text-white/80">
+              Join the Movement
             </span>
           </div>
-          <h1 class="text-6xl md:text-8xl font-black tracking-tight mb-8 leading-tight">
-            Learn to See<br />
-            <span class="stat-number">The World Differently</span>
+          
+          {/* Bold Minimalist Headline */}
+          <h1 class="text-7xl md:text-9xl font-black tracking-tight mb-12 leading-none" style="letter-spacing: -0.04em;">
+            See.<br />
+            Create.<br />
+            <span class="text-white/60">Explore.</span>
           </h1>
-          <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
-            Live photography & filmmaking education for young creators ages 7-14.
-            <br />Learn from educators with 20+ years of real-world experience.
+          
+          {/* Minimal Subtext */}
+          <p class="text-2xl md:text-3xl font-light mb-16 max-w-2xl" style="line-height: 1.4;">
+            Photography education for young adventurers ages 7–14.
           </p>
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/checkout" class="btn-primary px-10 py-5 rounded-full text-lg font-bold inline-block">
-              Start Creating Today
-            </a>
-            <a href="#curriculum" class="px-10 py-5 rounded-full text-lg font-bold border-2 border-white/20 hover:border-teal-500/50 transition inline-block">
-              View Curriculum
+          
+          {/* Strong CTA */}
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/checkout" class="btn-primary px-12 py-6 text-xl font-bold inline-block" style="background: #000; color: #fff; border-radius: 0;">
+              Start Now →
             </a>
           </div>
           
-          {/* Stats - Floating Cards */}
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20">
-            <div class="feature-card p-6 rounded-2xl">
-              <div class="text-5xl font-black stat-number mb-2">20+</div>
-              <div class="text-gray-400 text-sm">Years Experience</div>
+          {/* Simple Stats */}
+          <div class="grid grid-cols-3 gap-12 mt-32 max-w-3xl">
+            <div>
+              <div class="text-6xl font-light mb-2">20+</div>
+              <div class="text-sm text-white/60 uppercase tracking-wider">Years</div>
             </div>
-            <div class="feature-card p-6 rounded-2xl">
-              <div class="text-5xl font-black stat-number mb-2">8</div>
-              <div class="text-gray-400 text-sm">Classes/Month</div>
+            <div>
+              <div class="text-6xl font-light mb-2">8</div>
+              <div class="text-sm text-white/60 uppercase tracking-wider">Classes/Mo</div>
             </div>
-            <div class="feature-card p-6 rounded-2xl">
-              <div class="text-5xl font-black stat-number mb-2">11:30</div>
+            <div>
+              <div class="text-6xl font-light mb-2">7-14</div>
+              <div class="text-sm text-white/60 uppercase tracking-wider">Ages</div>
               <div class="text-gray-400 text-sm">AM Mon & Thu</div>
             </div>
             <div class="feature-card p-6 rounded-2xl">
