@@ -5,27 +5,27 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Katia + Matteo | Engagement session in Italy | Acromatico Photography
+   Angela + John | Vizcaya Engagement Session | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="We’ve been wanting to post this one for so long! It’s finally here! Let us introduce to you to Katia and Matteo. Last year they hired us to do their wedding in ..." name="description"/>
+<meta content="This E session was almost a live proposal! Let us tell you the story: John and Angela flew all the way from New York to celebrate their engagement. He was plann..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/katia-matteo-engagement-session-in-italy" property="og:url"/>
-<meta content="Katia + Matteo | Engagement session in Italy" property="og:title"/>
-<meta content="We’ve been wanting to post this one for so long! It’s finally here! Let us introduce to you to Katia and Matteo. Last year they hired us to do their wedding in ..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/Italy-engagement-session-1.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/angela-john-vizcaya-engagement-session" property="og:url"/>
+<meta content="Angela + John | Vizcaya Engagement Session" property="og:title"/>
+<meta content="This E session was almost a live proposal! Let us tell you the story: John and Angela flew all the way from New York to celebrate their engagement. He was plann..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/katia-matteo-engagement-session-in-italy" property="twitter:url"/>
-<meta content="Katia + Matteo | Engagement session in Italy" property="twitter:title"/>
-<meta content="We’ve been wanting to post this one for so long! It’s finally here! Let us introduce to you to Katia and Matteo. Last year they hired us to do their wedding in ..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/Italy-engagement-session-1.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/angela-john-vizcaya-engagement-session" property="twitter:url"/>
+<meta content="Angela + John | Vizcaya Engagement Session" property="twitter:title"/>
+<meta content="This E session was almost a live proposal! Let us tell you the story: John and Angela flew all the way from New York to celebrate their engagement. He was plann..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/katia-matteo-engagement-session-in-italy" rel="canonical"/>
+<link href="https://acromatico.com/blog/angela-john-vizcaya-engagement-session" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
 <meta content="Engagement Photography" property="article:tag"/>
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Katia + Matteo | Engagement session in Italy",
-  "description": "We’ve been wanting to post this one for so long! It’s finally here! Let us introduce to you to Katia and Matteo. Last year they hired us to do their wedding in ...",
+  "headline": "Angela + John | Vizcaya Engagement Session",
+  "description": "This E session was almost a live proposal! Let us tell you the story: John and Angela flew all the way from New York to celebrate their engagement. He was plann...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-1.jpg",
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-1.jpg",
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-2.jpg",
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-3.jpg",
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-4.jpg",
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-6.jpg",
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-7.jpg",
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-8.jpg",
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-9.jpg",
-    "https://acromatico.com/wp-content/uploads/Italy-engagement-session-10.jpg"
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg",
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-2.jpg",
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-3.jpg",
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-4.jpg",
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-5.jpg",
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-6.jpg",
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-7.jpg",
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-8.jpg",
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-9.jpg",
+    "https://acromatico.com/wp-content/uploads/vizcaya-engagement-10.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/katia-matteo-engagement-session-in-italy"
+    "@id": "https://acromatico.com/blog/angela-john-vizcaya-engagement-session"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Katia + Matteo | Engagement session in Italy",
-      "item": "https://acromatico.com/blog/katia-matteo-engagement-session-in-italy"
+      "name": "Angela + John | Vizcaya Engagement Session",
+      "item": "https://acromatico.com/blog/angela-john-vizcaya-engagement-session"
     }
   ]
 }
@@ -1128,161 +1128,115 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/Italy-engagement-session-1.jpg');">
-<h1 class="hero-title">Katia + Matteo | Engagement session in Italy</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg');">
+<h1 class="hero-title">Angela + John | Vizcaya Engagement Session</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Location:<br/>Katia's Romantic Setting</h2><div class="featured-image"><img alt="Engagement session in Italy - The Location" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-1.jpg"/><p class="image-caption">Engagement session in Italy - The Location moment 1</p></div><h2 class="section-heading">Their Connection:<br/>Engagement's Authentic Chemistry</h2><div class="featured-image"><img alt="Engagement session in Italy - Their Connection" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-11.jpg"/><p class="image-caption">Engagement session in Italy - Their Connection moment 2</p></div><h2 class="section-heading">Styled Elements:<br/>Personal Touches &amp; Details</h2><div class="featured-image"><img alt="Engagement session in Italy - Styled Elements" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-20.jpg"/><p class="image-caption">Engagement session in Italy - Styled Elements moment 3</p></div><h2 class="section-heading">Golden Hour Magic:<br/>Perfect Light for Romance</h2><div class="featured-image"><img alt="Engagement session in Italy - Golden Hour Magic" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-30.jpg"/><p class="image-caption">Engagement session in Italy - Golden Hour Magic moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Natural &amp; Candid Coverage</h2><div class="featured-image"><img alt="Engagement session in Italy - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-40.jpg"/><p class="image-caption">Engagement session in Italy - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+This E session was almost a live proposal! Let us tell you the story: John and Angela flew all the way from New York to celebrate their engagement. He was planning on proposing during the trip! Too bad Angela figured something was up and John had to jump to plan B, proposing back home. The good thing is she said yes! They are such a wonderful, dynamic and fun couple to work with! The day was gorgeous, but Florida doesn’t give out sunny days for free. John had to suffer in his long sleeve shirt and tight jeans, but he didn’t mind. Angela, on the other hand, had it easy: she rocked her summer dress and awesome shoes like a true fashionista! It was literally a walk in the park for her. Enjoy their mini adventure in Vizcaya, here are some of our favorites!
+
+Photography by: Alessandro (our awesome associate photographer)
+
+ 
+
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 1" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="vizcaya engagement-1" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 2" decoding="async" height="1368" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1368;" title="vizcaya engagement-2" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 3" decoding="async" height="682" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/682;" title="vizcaya engagement-3" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 4" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-4" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 5" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-5" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 6" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-6" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 7" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="vizcaya engagement-7" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 8" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="vizcaya engagement-8" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 9" decoding="async" height="1138" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1138;" title="vizcaya engagement-9" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 10" decoding="async" height="1368" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1368;" title="vizcaya engagement-10" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 11" decoding="async" height="682" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/682;" title="vizcaya engagement-11" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 12" decoding="async" height="682" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/682;" title="vizcaya engagement-12" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 13" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-13" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 14" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="vizcaya engagement-14" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 15" decoding="async" height="682" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/682;" title="vizcaya engagement-15" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 16" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-16" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 17" decoding="async" height="1367" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1367;" title="vizcaya engagement-17" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 18" decoding="async" height="1367" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1367;" title="vizcaya engagement-18" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 19" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-19" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 20" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="vizcaya engagement-20" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 21" decoding="async" height="1367" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1367;" title="vizcaya engagement-21" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 22" decoding="async" height="1368" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1368;" title="vizcaya engagement-23" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 23" decoding="async" height="605" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/605;" title="vizcaya engagement-24" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 24" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-25" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 25" decoding="async" height="1368" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1368;" title="vizcaya engagement-26" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 26" decoding="async" height="1367" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1367;" title="vizcaya engagement-27" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 27" decoding="async" height="1368" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1368;" title="vizcaya engagement-28" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 28" decoding="async" height="1137" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1137;" title="vizcaya engagement-29" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 29" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-30" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 30" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-31" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 31" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" title="vizcaya engagement-32" width="910"/><img alt="Angela + John | Vizcaya Engagement Session - Photo 32" decoding="async" height="455" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/455;" title="vizcaya engagement-33" width="910"/>
+</div><div class="storytelling-sections"><h2 class="section-heading">The Location:<br/>Angela's Romantic Setting</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - The Location" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg"/><p class="image-caption">Vizcaya Engagement Session - The Location moment 1</p></div><h2 class="section-heading">Their Connection:<br/>Vizcaya's Authentic Chemistry</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - Their Connection" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-7.jpg"/><p class="image-caption">Vizcaya Engagement Session - Their Connection moment 2</p></div><h2 class="section-heading">Styled Elements:<br/>Personal Touches &amp; Details</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - Styled Elements" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-13.jpg"/><p class="image-caption">Vizcaya Engagement Session - Styled Elements moment 3</p></div><h2 class="section-heading">Golden Hour Magic:<br/>Perfect Light for Romance</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - Golden Hour Magic" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-19.jpg"/><p class="image-caption">Vizcaya Engagement Session - Golden Hour Magic moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Natural &amp; Candid Coverage</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-26.jpg"/><p class="image-caption">Vizcaya Engagement Session - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-1.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-1.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-1.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-1.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-2.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-2.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-2.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-2.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-3.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-3.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-3.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-3.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-4.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-4.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-4.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-4.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-5.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-5.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-6.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-6.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-6.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-6.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-7.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-7.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-7.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-7.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-8.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-8.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-8.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-8.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-9.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-9.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-9.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-9.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-10.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-10.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-10.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-10.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-11.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-11.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-11.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-11.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-12.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-12.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-12.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-12.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-13.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-13.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-13.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-13.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-14.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-14.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-14.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-14.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-15.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-15.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-15.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-15.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-16.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-16.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-16.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-16.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-17.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-17.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-17.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-17.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-18.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-18.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-18.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-18.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-2.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-2.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-19.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-19.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-19.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-19.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-20.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-20.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-20.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-20.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-21.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-21.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-21.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-21.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-23.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-23.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-22.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-22.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-24.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-24.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-23.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-23.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-25.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-25.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-24.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-24.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-26.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-26.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-25.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-25.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-27.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-27.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-26.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-26.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-28.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-28.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-27.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-27.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-29.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-29.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-28.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-28.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-30.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-30.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-29.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-29.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-31.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-31.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-30.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-30.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-32.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-32.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-31.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-31.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-32.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-32.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-33.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-33.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-34.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-34.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-35.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-35.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-3.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-3.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-36.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-36.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-37.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-37.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-38.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-38.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-40.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-40.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-4.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-4.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-41.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-41.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-42.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-42.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-43.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-43.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-5.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-photography-5.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-44.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-44.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-45.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-45.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-46.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-46.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/Italy-engagement-session-47.jpg">
-<img alt="Katia + Matteo | Engagement session in Italy - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/Italy-engagement-session-47.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/vizcaya-engagement-33.jpg">
+<img alt="Angela + John | Vizcaya Engagement Session - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-33.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
@@ -1406,12 +1360,6 @@
 <h2>Related Sessions</h2>
 <div class="related-posts-grid">
 <article class="related-post">
-<a href="/static/blog/angela-john-vizcaya-engagement-session.html">
-<img alt="Angela + John | Vizcaya Engagement Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg"/>
-<h3>Angela + John | Vizcaya Engagement Session</h3>
-</a>
-</article>
-<article class="related-post">
 <a href="/static/blog/anglins-fishing-pier-engagement-session.html">
 <img alt="Anglins Fishing Pier Engagement Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2018/08/Anglis-Fishing-Pier-Engagement-Session-001.jpg"/>
 <h3>Anglins Fishing Pier Engagement Session</h3>
@@ -1421,6 +1369,12 @@
 <a href="/static/blog/arnold-arboretum-boston-engagement-catherine-junior.html">
 <img alt="Arnold Arboretum Boston Engagement | Catherine + Junior" loading="lazy" src="https://acromatico.com/wp-content/uploads/2018/09/Boston-Engagement-001-1.jpg"/>
 <h3>Arnold Arboretum Boston Engagement | Catherine + Junior</h3>
+</a>
+</article>
+<article class="related-post">
+<a href="/static/blog/awosting-falls-engagement-nessa-torry.html">
+<img alt="Awosting Falls Engagement | Nessa + Torry" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/12/awosting-falls-engagement-001.jpg"/>
+<h3>Awosting Falls Engagement | Nessa + Torry</h3>
 </a>
 </article>
 </div>
