@@ -5,27 +5,27 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Weston Baby Shower | Atticus | Acromatico Photography
+   Newborn Photography | Emilia | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Katrina and Billy are very special to us. They are dear friends of ours and we’ve been working together with them for a long time. We feel blessed to be called ..." name="description"/>
+<meta content="Lately, I’ve had the honor to work with brand new clients. By brand new, I mean new to the world! This little one is just six days old in these photos. Her name..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/weston-baby-shower-atticus" property="og:url"/>
-<meta content="Weston Baby Shower | Atticus" property="og:title"/>
-<meta content="Katrina and Billy are very special to us. They are dear friends of ours and we’ve been working together with them for a long time. We feel blessed to be called ..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-1.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/newborn-photography-emilia" property="og:url"/>
+<meta content="Newborn Photography | Emilia" property="og:title"/>
+<meta content="Lately, I’ve had the honor to work with brand new clients. By brand new, I mean new to the world! This little one is just six days old in these photos. Her name..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/weston-baby-shower-atticus" property="twitter:url"/>
-<meta content="Weston Baby Shower | Atticus" property="twitter:title"/>
-<meta content="Katrina and Billy are very special to us. They are dear friends of ours and we’ve been working together with them for a long time. We feel blessed to be called ..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-1.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/newborn-photography-emilia" property="twitter:url"/>
+<meta content="Newborn Photography | Emilia" property="twitter:title"/>
+<meta content="Lately, I’ve had the honor to work with brand new clients. By brand new, I mean new to the world! This little one is just six days old in these photos. Her name..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/weston-baby-shower-atticus" rel="canonical"/>
+<link href="https://acromatico.com/blog/newborn-photography-emilia" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
 <meta content="Newborn Photography" property="article:tag"/>
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Weston Baby Shower | Atticus",
-  "description": "Katrina and Billy are very special to us. They are dear friends of ours and we’ve been working together with them for a long time. We feel blessed to be called ...",
+  "headline": "Newborn Photography | Emilia",
+  "description": "Lately, I’ve had the honor to work with brand new clients. By brand new, I mean new to the world! This little one is just six days old in these photos. Her name...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-1.jpg",
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-2.jpg",
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-3.jpg",
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-4-1.jpg",
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-5.jpg",
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-6.jpg",
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-7.jpg",
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-8.jpg",
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-9.jpg",
-    "https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-10.jpg"
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-001.jpg",
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-003.jpg",
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-002.jpg",
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-004.jpg",
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-005.jpg",
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-008.jpg",
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-007.jpg",
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-011.jpg",
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-010.jpg",
+    "https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-009.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/weston-baby-shower-atticus"
+    "@id": "https://acromatico.com/blog/newborn-photography-emilia"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Weston Baby Shower | Atticus",
-      "item": "https://acromatico.com/blog/weston-baby-shower-atticus"
+      "name": "Newborn Photography | Emilia",
+      "item": "https://acromatico.com/blog/newborn-photography-emilia"
     }
   ]
 }
@@ -1128,83 +1128,71 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-1.jpg');">
-<h1 class="hero-title">Weston Baby Shower | Atticus</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-001.jpg');">
+<h1 class="hero-title">Newborn Photography | Emilia</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="Atticus - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-1.jpg"/><p class="image-caption">Atticus - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="Atticus - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-5.jpg"/><p class="image-caption">Atticus - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>Atticus's Natural Chemistry</h2><div class="featured-image"><img alt="Atticus - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-9.jpg"/><p class="image-caption">Atticus - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="Atticus - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-13.jpg"/><p class="image-caption">Atticus - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="Atticus - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-17.jpg"/><p class="image-caption">Atticus - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+Lately, I’ve had the honor to work with brand new clients. By brand new, I mean new to the world! This little one is just six days old in these photos. Her name is Emilia and she was absolutely fantastic to work with!
+
+Just a few weeks ago, I got to shoot her while she was still baking in the oven! Can’t believe she’s out in this world now, loved so much by her parents and everyone around her!
+
+Check out her very first glamour shots, how do you think she did?
+</div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="Emilia - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-001.jpg"/><p class="image-caption">Emilia - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="Emilia - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-004.jpg"/><p class="image-caption">Emilia - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>Emilia's Natural Chemistry</h2><div class="featured-image"><img alt="Emilia - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-007.jpg"/><p class="image-caption">Emilia - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="Emilia - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-009.jpg"/><p class="image-caption">Emilia - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="Emilia - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-014.jpg"/><p class="image-caption">Emilia - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-1.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-1.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-001.jpg">
+<img alt="Newborn Photography | Emilia - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-001.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-2.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-2.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-003.jpg">
+<img alt="Newborn Photography | Emilia - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-003.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-3.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-3.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-002.jpg">
+<img alt="Newborn Photography | Emilia - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-002.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-4-1.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-4-1.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-004.jpg">
+<img alt="Newborn Photography | Emilia - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-004.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-5.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-5.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-005.jpg">
+<img alt="Newborn Photography | Emilia - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-005.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-6.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-6.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-008.jpg">
+<img alt="Newborn Photography | Emilia - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-008.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-7.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-7.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-007.jpg">
+<img alt="Newborn Photography | Emilia - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-007.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-8.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-8.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-011.jpg">
+<img alt="Newborn Photography | Emilia - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-011.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-9.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-9.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-010.jpg">
+<img alt="Newborn Photography | Emilia - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-010.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-10.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-10.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-009.jpg">
+<img alt="Newborn Photography | Emilia - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-009.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-11.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-11.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-006.jpg">
+<img alt="Newborn Photography | Emilia - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-006.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-12.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-12.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-013.jpg">
+<img alt="Newborn Photography | Emilia - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-013.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-13.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-13.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-014.jpg">
+<img alt="Newborn Photography | Emilia - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-014.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-14.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-14.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-016.jpg">
+<img alt="Newborn Photography | Emilia - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-016.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-15.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-15.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-019.jpg">
+<img alt="Newborn Photography | Emilia - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-019.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-16.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-16.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-017.jpg">
+<img alt="Newborn Photography | Emilia - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-017.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-17.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-17.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-018.jpg">
+<img alt="Newborn Photography | Emilia - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-018.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-18.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-18.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-19.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-19.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-20.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-20.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-21.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-21.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-22.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-22.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-23.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-23.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-24.jpg">
-<img alt="Weston Baby Shower | Atticus - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/06/weston-baby-shower-24.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-015.jpg">
+<img alt="Newborn Photography | Emilia - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2022/04/newborn-photoshoot-015.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
