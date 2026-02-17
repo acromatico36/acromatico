@@ -5,27 +5,27 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Linares Family | Family Portrait | Acromatico Photography
+   Cristy + Jason | Family Portrait Session | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="We have known Dinorah for a while now, and it’s always a pleasure to work with her. She is such a beautiful person inside and out. We now got to work with her e..." name="description"/>
+<meta content="We had such an amazing time shooting this family’s awesome session. We had just been in this location not too long ago, photographing their aunt and uncle’s fam..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/linares-family-family-portrait" property="og:url"/>
-<meta content="Linares Family | Family Portrait" property="og:title"/>
-<meta content="We have known Dinorah for a while now, and it’s always a pleasure to work with her. She is such a beautiful person inside and out. We now got to work with her e..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-001.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/cristy-jason-family-portrait-session" property="og:url"/>
+<meta content="Cristy + Jason | Family Portrait Session" property="og:title"/>
+<meta content="We had such an amazing time shooting this family’s awesome session. We had just been in this location not too long ago, photographing their aunt and uncle’s fam..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/linares-family-family-portrait" property="twitter:url"/>
-<meta content="Linares Family | Family Portrait" property="twitter:title"/>
-<meta content="We have known Dinorah for a while now, and it’s always a pleasure to work with her. She is such a beautiful person inside and out. We now got to work with her e..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-001.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/cristy-jason-family-portrait-session" property="twitter:url"/>
+<meta content="Cristy + Jason | Family Portrait Session" property="twitter:title"/>
+<meta content="We had such an amazing time shooting this family’s awesome session. We had just been in this location not too long ago, photographing their aunt and uncle’s fam..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/linares-family-family-portrait" rel="canonical"/>
+<link href="https://acromatico.com/blog/cristy-jason-family-portrait-session" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
 <meta content="Family Photography" property="article:tag"/>
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Linares Family | Family Portrait",
-  "description": "We have known Dinorah for a while now, and it’s always a pleasure to work with her. She is such a beautiful person inside and out. We now got to work with her e...",
+  "headline": "Cristy + Jason | Family Portrait Session",
+  "description": "We had such an amazing time shooting this family’s awesome session. We had just been in this location not too long ago, photographing their aunt and uncle’s fam...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-001.jpg",
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-002.jpg",
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-003.jpg",
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-004.jpg",
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-005.jpg",
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-006.jpg",
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-007.jpg",
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-008.jpg",
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-009.jpg",
-    "https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-010.jpg"
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-001.jpg",
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-002.jpg",
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-003.jpg",
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-004.jpg",
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-005.jpg",
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-006.jpg",
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-007.jpg",
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-008.jpg",
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-009.jpg",
+    "https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-010.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/linares-family-family-portrait"
+    "@id": "https://acromatico.com/blog/cristy-jason-family-portrait-session"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Linares Family | Family Portrait",
-      "item": "https://acromatico.com/blog/linares-family-family-portrait"
+      "name": "Cristy + Jason | Family Portrait Session",
+      "item": "https://acromatico.com/blog/cristy-jason-family-portrait-session"
     }
   ]
 }
@@ -1128,101 +1128,117 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-001.jpg');">
-<h1 class="hero-title">Linares Family | Family Portrait</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-001.jpg');">
+<h1 class="hero-title">Cristy + Jason | Family Portrait Session</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Session Setting:<br/>Linares's Perfect Backdrop</h2><div class="featured-image"><img alt="Family Portrait - The Session Setting" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-001.jpg"/><p class="image-caption">Family Portrait - The Session Setting moment 1</p></div><h2 class="section-heading">Family Dynamics:<br/>Capturing Authentic Connections</h2><div class="featured-image"><img alt="Family Portrait - Family Dynamics" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-007.jpg"/><p class="image-caption">Family Portrait - Family Dynamics moment 2</p></div><h2 class="section-heading">Children's Moments:<br/>Natural Interaction &amp; Play</h2><div class="featured-image"><img alt="Family Portrait - Children's Moments" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-013.jpg"/><p class="image-caption">Family Portrait - Children's Moments moment 3</p></div><h2 class="section-heading">Wardrobe &amp; Styling:<br/>Coordinated Yet Comfortable</h2><div class="featured-image"><img alt="Family Portrait - Wardrobe &amp; Styling" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-019.jpg"/><p class="image-caption">Family Portrait - Wardrobe &amp; Styling moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Documentary Family Coverage</h2><div class="featured-image"><img alt="Family Portrait - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-025.jpg"/><p class="image-caption">Family Portrait - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+We had such an amazing time shooting this family’s awesome session. We had just been in this location not too long ago, photographing their aunt and uncle’s family session. This place is just beautiful! Cristy and Jason along with baby Olivia are waiting on another little one. So this was technically a family session of four 😉 Enjoy some of our favorite shots from this beautiful family. Congrats again guys on your baby!
+
+<img alt="Family Portrait Session-001" decoding="async" height="681" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" width="910"/> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-002.jpg" target="_blank"><img alt="Family Portrait Session-002" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-003.jpg" target="_blank"><img alt="Family Portrait Session-003" decoding="async" height="681" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-004.jpg" target="_blank"><img alt="Family Portrait Session-004" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-005.jpg" target="_blank"><img alt="Family Portrait Session-005" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-006.jpg" target="_blank"><img alt="Family Portrait Session-006" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-007.jpg" target="_blank"><img alt="Family Portrait Session-007" decoding="async" height="681" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-008.jpg" target="_blank"><img alt="Family Portrait Session-008" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-009.jpg" target="_blank"><img alt="Family Portrait Session-009" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-010.jpg" target="_blank"><img alt="Family Portrait Session-010" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-011.jpg" target="_blank"><img alt="Family Portrait Session-011" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-012.jpg" target="_blank"><img alt="Family Portrait Session-012" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-013.jpg" target="_blank"><img alt="Family Portrait Session-013" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-014.jpg" target="_blank"><img alt="Family Portrait Session-014" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-015.jpg" target="_blank"><img alt="Family Portrait Session-015" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-016.jpg" target="_blank"><img alt="Family Portrait Session-016" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-017.jpg" target="_blank"><img alt="Family Portrait Session-017" decoding="async" height="681" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-018.jpg" target="_blank"><img alt="Family Portrait Session-018" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-019.jpg" target="_blank"><img alt="Family Portrait Session-019" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-020.jpg" target="_blank"><img alt="Family Portrait Session-020" decoding="async" height="681" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-021.jpg" target="_blank"><img alt="Family Portrait Session-021" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-022.jpg" target="_blank"><img alt="Family Portrait Session-022" decoding="async" height="681" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-023.jpg" target="_blank"><img alt="Family Portrait Session-023" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-024.jpg" target="_blank"><img alt="Family Portrait Session-024" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-025.jpg" target="_blank"><img alt="Family Portrait Session-025" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-026.jpg" target="_blank"><img alt="Family Portrait Session-026" decoding="async" height="681" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-027.jpg" target="_blank"><img alt="Family Portrait Session-027" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-028.jpg" target="_blank"><img alt="Family Portrait Session-028" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-029.jpg" target="_blank"><img alt="Family Portrait Session-029" decoding="async" height="681" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-030.jpg" target="_blank"><img alt="Family Portrait Session-030" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-031.jpg" target="_blank"><img alt="Family Portrait Session-031" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-032.jpg" target="_blank"><img alt="Family Portrait Session-032" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-033.jpg" target="_blank"><img alt="Family Portrait Session-033" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-034.jpg" target="_blank"><img alt="Family Portrait Session-034" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a>
+</div><div class="storytelling-sections"><h2 class="section-heading">The Session Setting:<br/>Cristy's Perfect Backdrop</h2><div class="featured-image"><img alt="Family Portrait Session - The Session Setting" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-001.jpg"/><p class="image-caption">Family Portrait Session - The Session Setting moment 1</p></div><h2 class="section-heading">Family Dynamics:<br/>Capturing Authentic Connections</h2><div class="featured-image"><img alt="Family Portrait Session - Family Dynamics" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-007.jpg"/><p class="image-caption">Family Portrait Session - Family Dynamics moment 2</p></div><h2 class="section-heading">Children's Moments:<br/>Natural Interaction &amp; Play</h2><div class="featured-image"><img alt="Family Portrait Session - Children's Moments" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-013.jpg"/><p class="image-caption">Family Portrait Session - Children's Moments moment 3</p></div><h2 class="section-heading">Wardrobe &amp; Styling:<br/>Coordinated Yet Comfortable</h2><div class="featured-image"><img alt="Family Portrait Session - Wardrobe &amp; Styling" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-019.jpg"/><p class="image-caption">Family Portrait Session - Wardrobe &amp; Styling moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Documentary Family Coverage</h2><div class="featured-image"><img alt="Family Portrait Session - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-025.jpg"/><p class="image-caption">Family Portrait Session - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-001.jpg">
-<img alt="Linares Family | Family Portrait - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-001.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-001.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-001.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-002.jpg">
-<img alt="Linares Family | Family Portrait - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-002.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-002.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-002.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-003.jpg">
-<img alt="Linares Family | Family Portrait - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-003.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-003.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-003.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-004.jpg">
-<img alt="Linares Family | Family Portrait - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-004.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-004.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-004.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-005.jpg">
-<img alt="Linares Family | Family Portrait - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-005.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-005.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-005.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-006.jpg">
-<img alt="Linares Family | Family Portrait - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-006.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-006.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-006.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-007.jpg">
-<img alt="Linares Family | Family Portrait - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-007.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-007.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-007.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-008.jpg">
-<img alt="Linares Family | Family Portrait - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-008.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-008.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-008.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-009.jpg">
-<img alt="Linares Family | Family Portrait - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-009.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-009.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-009.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-010.jpg">
-<img alt="Linares Family | Family Portrait - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-010.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-010.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-010.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-011.jpg">
-<img alt="Linares Family | Family Portrait - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-011.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-011.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-011.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-012.jpg">
-<img alt="Linares Family | Family Portrait - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-012.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-012.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-012.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-013.jpg">
-<img alt="Linares Family | Family Portrait - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-013.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-013.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-013.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-014.jpg">
-<img alt="Linares Family | Family Portrait - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-014.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-014.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-014.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-015.jpg">
-<img alt="Linares Family | Family Portrait - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-015.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-015.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-015.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-016.jpg">
-<img alt="Linares Family | Family Portrait - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-016.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-016.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-016.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-017.jpg">
-<img alt="Linares Family | Family Portrait - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-017.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-017.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-017.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-018.jpg">
-<img alt="Linares Family | Family Portrait - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-018.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-018.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-018.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-019.jpg">
-<img alt="Linares Family | Family Portrait - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-019.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-019.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-019.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-020.jpg">
-<img alt="Linares Family | Family Portrait - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-020.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-020.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-020.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-021.jpg">
-<img alt="Linares Family | Family Portrait - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-021.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-021.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-021.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-022.jpg">
-<img alt="Linares Family | Family Portrait - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-022.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-022.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-022.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-023.jpg">
-<img alt="Linares Family | Family Portrait - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-023.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-023.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-023.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-024.jpg">
-<img alt="Linares Family | Family Portrait - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-024.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-024.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-024.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-025.jpg">
-<img alt="Linares Family | Family Portrait - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-025.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-025.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-025.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-026.jpg">
-<img alt="Linares Family | Family Portrait - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-026.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-026.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-026.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-027.jpg">
-<img alt="Linares Family | Family Portrait - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-027.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-027.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-027.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-028.jpg">
-<img alt="Linares Family | Family Portrait - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-028.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-028.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-028.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-029.jpg">
-<img alt="Linares Family | Family Portrait - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-029.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-029.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-029.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-030.jpg">
-<img alt="Linares Family | Family Portrait - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/05/Family-Portrait-030.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-030.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-030.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-031.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-031.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-032.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-032.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-033.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-033.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-034.jpg">
+<img alt="Cristy + Jason | Family Portrait Session - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2015/06/Family-Portrait-Session-034.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
