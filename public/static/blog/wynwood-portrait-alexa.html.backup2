@@ -5,27 +5,27 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Robbins Preserve Family Session | Seedman Family | Acromatico Photography
+   Wynwood Portrait | Alexa | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="It was an absolute pleasure being able to be a part of the Seedman’s Family session for this year!   This little family was celebrating life, milestones and hap..." name="description"/>
+<meta content="Had the pleasure of working with Alexa for this amazing Wynwood portrait featuring some of the amazing boho accessories from &lt;a href='https://www.instagram.com/..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/robbins-preserve-family-session-seedman-family" property="og:url"/>
-<meta content="Robbins Preserve Family Session | Seedman Family" property="og:title"/>
-<meta content="It was an absolute pleasure being able to be a part of the Seedman’s Family session for this year!   This little family was celebrating life, milestones and hap..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001-1024x682.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/wynwood-portrait-alexa" property="og:url"/>
+<meta content="Wynwood Portrait | Alexa" property="og:title"/>
+<meta content="Had the pleasure of working with Alexa for this amazing Wynwood portrait featuring some of the amazing boho accessories from &lt;a href='https://www.instagram.com/..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1-1024x683.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/robbins-preserve-family-session-seedman-family" property="twitter:url"/>
-<meta content="Robbins Preserve Family Session | Seedman Family" property="twitter:title"/>
-<meta content="It was an absolute pleasure being able to be a part of the Seedman’s Family session for this year!   This little family was celebrating life, milestones and hap..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001-1024x682.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/wynwood-portrait-alexa" property="twitter:url"/>
+<meta content="Wynwood Portrait | Alexa" property="twitter:title"/>
+<meta content="Had the pleasure of working with Alexa for this amazing Wynwood portrait featuring some of the amazing boho accessories from &lt;a href='https://www.instagram.com/..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1-1024x683.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/robbins-preserve-family-session-seedman-family" rel="canonical"/>
+<link href="https://acromatico.com/blog/wynwood-portrait-alexa" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
 <meta content="Family Photography" property="article:tag"/>
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Robbins Preserve Family Session | Seedman Family",
-  "description": "It was an absolute pleasure being able to be a part of the Seedman’s Family session for this year!   This little family was celebrating life, milestones and hap...",
+  "headline": "Wynwood Portrait | Alexa",
+  "description": "Had the pleasure of working with Alexa for this amazing Wynwood portrait featuring some of the amazing boho accessories from <a href='https://www.instagram.com/...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001-1024x682.jpg",
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001.jpg",
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-002-1024x683.jpg",
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-002.jpg",
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-003-1024x683.jpg",
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-003.jpg",
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-004-1024x683.jpg",
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-004.jpg",
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-005-1024x767.jpg",
-    "https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-005.jpg"
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1-1024x683.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-002-1-1024x683.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-002-1.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-003-1-1024x683.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-003-1.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-004-1-1024x683.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-004-1.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-005-1-1024x683.jpg",
+    "https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-005-1.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/robbins-preserve-family-session-seedman-family"
+    "@id": "https://acromatico.com/blog/wynwood-portrait-alexa"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Robbins Preserve Family Session | Seedman Family",
-      "item": "https://acromatico.com/blog/robbins-preserve-family-session-seedman-family"
+      "name": "Wynwood Portrait | Alexa",
+      "item": "https://acromatico.com/blog/wynwood-portrait-alexa"
     }
   ]
 }
@@ -1128,209 +1128,313 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001-1024x682.jpg');">
-<h1 class="hero-title">Robbins Preserve Family Session | Seedman Family</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1-1024x683.jpg');">
+<h1 class="hero-title">Wynwood Portrait | Alexa</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Session Setting:<br/>Robbins's Perfect Backdrop</h2><div class="featured-image"><img alt="Seedman Family - The Session Setting" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001-1024x682.jpg"/><p class="image-caption">Seedman Family - The Session Setting moment 1</p></div><h2 class="section-heading">Family Dynamics:<br/>Capturing Authentic Connections</h2><div class="featured-image"><img alt="Seedman Family - Family Dynamics" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-007.jpg"/><p class="image-caption">Seedman Family - Family Dynamics moment 2</p></div><h2 class="section-heading">Children's Moments:<br/>Natural Interaction &amp; Play</h2><div class="featured-image"><img alt="Seedman Family - Children's Moments" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-014-1024x683.jpg"/><p class="image-caption">Seedman Family - Children's Moments moment 3</p></div><h2 class="section-heading">Wardrobe &amp; Styling:<br/>Coordinated Yet Comfortable</h2><div class="featured-image"><img alt="Seedman Family - Wardrobe &amp; Styling" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-021.jpg"/><p class="image-caption">Seedman Family - Wardrobe &amp; Styling moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Documentary Family Coverage</h2><div class="featured-image"><img alt="Seedman Family - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-028-1024x683.jpg"/><p class="image-caption">Seedman Family - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+Had the pleasure of working with Alexa for this amazing Wynwood portrait featuring some of the amazing boho accessories from <a href="https://www.instagram.com/kashiidesigns/" target="_blank">Kashii Designs</a>!
+
+Everyone knows Wynwood screams color and these amazing colors brought to life these beautiful crafted pieces made by wayuu artisans right from Colombia.
+
+We got to shoot some of these pieces to be featured on their website and ig to prove that these amazing accessories are not just for boho beachwear but you can also have fun, feel beautiful and wear as a casual going out piece all at the same time. Such versatile wear and we can’t wait to get our hands on them!
+
+Check out some of our favorites from this Wynwood portrait right in our backyards:
+</div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="Alexa - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1-1024x683.jpg"/><p class="image-caption">Alexa - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="Alexa - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-011-1.jpg"/><p class="image-caption">Alexa - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>Alexa's Natural Chemistry</h2><div class="featured-image"><img alt="Alexa - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-021-1-1024x767.jpg"/><p class="image-caption">Alexa - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="Alexa - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-030.jpg"/><p class="image-caption">Alexa - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="Alexa - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-040-1-1024x683.jpg"/><p class="image-caption">Alexa - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001-1024x682.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001-1024x682.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-001.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-001-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-002-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-002-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-002-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-002-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-002.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-002.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-002-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-002-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-003-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-003-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-003-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-003-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-003.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-003.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-003-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-003-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-004-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-004-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-004-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-004-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-004.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-004.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-004-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-004-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-005-1024x767.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-005-1024x767.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-005-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-005-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-005.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-005.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-005-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-005-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-006-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-006-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-007-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-007-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-006.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-006.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-007-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-007-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-007-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-007-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-008-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-008-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-007.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-007.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-008-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-008-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-008-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-008-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-009-1-1024x767.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-009-1-1024x767.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-008.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-008.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-009-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-009-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-009-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-009-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-010-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-010-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-009.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-009.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-010-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-010-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-010-1024x682.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-010-1024x682.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-011-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-011-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-010.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-010.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-011-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-011-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-011-1024x682.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-011-1024x682.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-012-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-012-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-011.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-011.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-012-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-012-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-012-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-012-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-013-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-013-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-012.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-012.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-013-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-013-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-013-1024x767.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-013-1024x767.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-014-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-014-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-013.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-013.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-014-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-014-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-014-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-014-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-015-1-1024x472.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-015-1-1024x472.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-014.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-014.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-015-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-015-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-015-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-015-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-016-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-016-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-015.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-015.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-016-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-016-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-016-1024x767.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-016-1024x767.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-017-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-017-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-016.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-016.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-017-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-017-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-018-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-018-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-018-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-018-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-018.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-018.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-018-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-018-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-019-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-019-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-019-1-1024x767.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-019-1-1024x767.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-019.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-019.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-019-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-019-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-020-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-020-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-020-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-020-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-020.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-020.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-020-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-020-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-021-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-021-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-021-1-1024x767.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-021-1-1024x767.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-021.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-021.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-021-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-021-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-022-1024x767.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-022-1024x767.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-022-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-022-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-022.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-022.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-022-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-022-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-023-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-023-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-023-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-023-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-023.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-023.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-023-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-023-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-024-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-024-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-024-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-024-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-024.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-024.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-024-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-024-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-025-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-025-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-025-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-025-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-025.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-025.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-025-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-025-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-026-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-026-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-026-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-026-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-026.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-026.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-026.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-026.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-027-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-027-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-027-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-027-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-027.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-027.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-027.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-027.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-028-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-028-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-028-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-028-1-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-028.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-028.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-028-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-028-1.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-029-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-029-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-029-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-029-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-029.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-029.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-029.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-029.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-030-1024x472.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 57" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-030-1024x472.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-030-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 57" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-030-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-030.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 58" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-030.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-030.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 58" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-030.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-031-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 59" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-031-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-031-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 59" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-031-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-031.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 60" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-031.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-031.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 60" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-031.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-032-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 61" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-032-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-032-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 61" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-032-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-032.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 62" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-032.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-032.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 62" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-032.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-033-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 63" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-033-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-033-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 63" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-033-1024x683.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-033.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 64" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-033.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-033.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 64" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-033.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-034-1024x683.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 65" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-034-1024x683.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-034-1024x767.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 65" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-034-1024x767.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-034.jpg">
-<img alt="Robbins Preserve Family Session | Seedman Family - Photo 66" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Robbins-Preserve-Family-Session-034.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-034.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 66" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-034.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-035-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 67" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-035-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-035.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 68" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-035.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-036-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 69" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-036-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-036.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 70" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-036.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-037-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 71" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-037-1-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-037-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 72" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-037-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-038-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 73" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-038-1-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-038-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 74" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-038-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-039-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 75" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-039-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-039.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 76" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-039.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-040-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 77" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-040-1-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-040-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 78" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-040-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-041-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 79" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-041-1-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-041-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 80" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-041-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-042-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 81" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-042-1-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-042-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 82" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-042-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-043-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 83" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-043-1-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-043-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 84" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-043-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-044-1-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 85" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-044-1-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-044-1.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 86" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-044-1.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-045-1024x767.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 87" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-045-1024x767.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-045.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 88" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-045.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-046-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 89" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-046-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-046.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 90" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-046.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-047-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 91" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-047-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-047.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 92" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-047.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-048-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 93" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-048-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-048.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 94" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-048.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-050-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 95" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-050-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-050.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 96" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-050.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-051-1024x683.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 97" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-051-1024x683.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-051.jpg">
+<img alt="Wynwood Portrait | Alexa - Photo 98" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2021/11/Wynwood-Portrait-051.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
