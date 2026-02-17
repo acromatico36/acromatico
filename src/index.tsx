@@ -395,7 +395,7 @@ app.get('/', (c) => {
             {/* Enhanced Adventure Photo */}
             <div class="mb-12">
               <img 
-                src="/static/images/educators-team-enhanced.jpg" 
+                src="/static/images/educators-team-natural.jpg" 
                 alt="Italo & Ale at Torres del Paine, Chile" 
                 class="w-full rounded-3xl shadow-2xl"
               />
@@ -413,7 +413,7 @@ app.get('/', (c) => {
                 We teach kids to see the world differently—with a camera in hand and confidence in their vision.
               </p>
               <p class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto mt-6">
-                20+ years • 500+ weddings • 30k-person events • Now teaching the next generation
+                20+ years • 1,000+ events • 1M+ images • Now teaching the next generation
               </p>
             </div>
             
@@ -424,16 +424,16 @@ app.get('/', (c) => {
                 <div class="text-sm text-gray-500 uppercase tracking-wider">Years Pro</div>
               </div>
               <div>
-                <div class="text-4xl font-light mb-2">30k</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Event Experience</div>
+                <div class="text-4xl font-light mb-2">1,000+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Events Shot</div>
               </div>
               <div>
                 <div class="text-4xl font-light mb-2">3</div>
                 <div class="text-sm text-gray-500 uppercase tracking-wider">Countries</div>
               </div>
               <div>
-                <div class="text-4xl font-light mb-2">2</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Kids of Our Own</div>
+                <div class="text-4xl font-light mb-2">1M+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Images Taken</div>
               </div>
             </div>
           </div>
