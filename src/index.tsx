@@ -381,7 +381,7 @@ app.get('/', (c) => {
           
           {/* Strong CTA */}
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/checkout" class="btn-primary px-12 py-6 text-xl font-bold inline-block" style="background: #000; color: #fff; border-radius: 0;">
+            <a href="/checkout" class="btn-primary px-12 py-6 rounded-full text-xl font-bold inline-block" style="background: #000; color: #fff;">
               Start Now →
             </a>
           </div>
@@ -496,9 +496,9 @@ app.get('/', (c) => {
               <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mb-4 flex items-center justify-center">
                 <i class="fas fa-users text-2xl"></i>
               </div>
-              <h3 class="text-xl font-bold mb-3">Family-Focused</h3>
+              <h3 class="text-xl font-bold mb-3">Multi-Child Discounts</h3>
               <p class="text-gray-400 text-sm leading-relaxed">
-                Multi-child discounts. 4+ students at just $79/month each.
+                4+ students at just $9.88 per class (each).
               </p>
             </div>
           </div>
@@ -587,9 +587,70 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section class="py-32 bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600 relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/30"></div>
+      {/* CTA Section with Starfield */}
+      <section class="py-32 relative overflow-hidden">
+        {/* Animated Starfield Background */}
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-900">
+          <div class="stars-small"></div>
+          <div class="stars-medium"></div>
+          <div class="stars-large"></div>
+        </div>
+        
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+          }
+          
+          .stars-small, .stars-medium, .stars-large {
+            position: absolute;
+            inset: 0;
+          }
+          
+          .stars-small::before,
+          .stars-medium::before,
+          .stars-large::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: 200px 200px;
+            animation: twinkle 3s infinite;
+          }
+          
+          .stars-small::before {
+            background-image: 
+              radial-gradient(1px 1px at 20px 30px, rgba(20,184,166,0.8), transparent),
+              radial-gradient(1px 1px at 60px 70px, rgba(59,130,246,0.8), transparent),
+              radial-gradient(1px 1px at 140px 120px, rgba(147,51,234,0.8), transparent),
+              radial-gradient(1px 1px at 180px 50px, rgba(20,184,166,0.6), transparent),
+              radial-gradient(1px 1px at 90px 160px, rgba(59,130,246,0.6), transparent),
+              radial-gradient(1px 1px at 30px 180px, rgba(147,51,234,0.6), transparent),
+              radial-gradient(1px 1px at 150px 10px, rgba(20,184,166,0.7), transparent),
+              radial-gradient(1px 1px at 110px 90px, rgba(59,130,246,0.7), transparent);
+            animation-duration: 2s;
+          }
+          
+          .stars-medium::before {
+            background-image: 
+              radial-gradient(2px 2px at 40px 60px, rgba(20,184,166,0.9), transparent),
+              radial-gradient(2px 2px at 120px 140px, rgba(59,130,246,0.9), transparent),
+              radial-gradient(2px 2px at 180px 100px, rgba(147,51,234,0.9), transparent),
+              radial-gradient(2px 2px at 80px 30px, rgba(20,184,166,0.7), transparent),
+              radial-gradient(2px 2px at 160px 180px, rgba(59,130,246,0.7), transparent);
+            animation-duration: 4s;
+            animation-delay: 0.5s;
+          }
+          
+          .stars-large::before {
+            background-image: 
+              radial-gradient(3px 3px at 100px 120px, rgba(20,184,166,1), transparent),
+              radial-gradient(3px 3px at 50px 150px, rgba(59,130,246,1), transparent),
+              radial-gradient(3px 3px at 170px 80px, rgba(147,51,234,1), transparent);
+            animation-duration: 5s;
+            animation-delay: 1s;
+          }
+        `}} />
+        
         <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 class="text-5xl md:text-6xl font-black mb-8">
             Ready to Create?
