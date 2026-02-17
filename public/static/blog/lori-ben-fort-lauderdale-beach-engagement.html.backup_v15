@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Lori + Ben | Fort Lauderdale Beach Engagement | Acromatico Photography
+  </title>
+<!-- SEO Meta Tags -->
+<meta content="Rise and shine everyone. We got up really early for this beautiful sunrise session. Funny thing is this time we didn’t even know where we were going! Lori and B..." name="description"/>
+<meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
+<meta content="Italo Campilii" name="author"/>
+<meta content="index, follow" name="robots"/>
+<!-- Open Graph / Facebook -->
+<meta content="article" property="og:type"/>
+<meta content="https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement" property="og:url"/>
+<meta content="Lori + Ben | Fort Lauderdale Beach Engagement" property="og:title"/>
+<meta content="Rise and shine everyone. We got up really early for this beautiful sunrise session. Funny thing is this time we didn’t even know where we were going! Lori and B..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement" property="twitter:url"/>
+<meta content="Lori + Ben | Fort Lauderdale Beach Engagement" property="twitter:title"/>
+<meta content="Rise and shine everyone. We got up really early for this beautiful sunrise session. Funny thing is this time we didn’t even know where we were going! Lori and B..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg" property="twitter:image"/>
+<!-- Canonical URL -->
+<link href="https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement" rel="canonical"/>
+<!-- Open Graph Extended -->
+<meta content="Photography" property="article:section"/>
+<meta content="Engagement Photography" property="article:tag"/>
+<meta content="South Florida Photographer" property="article:tag"/>
+<meta content="Italo Campilii" property="article:author"/>
+<!-- Schema.org Markup -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #2a2a2a;
+            background: #ffffff;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            background-image: url('/static/images/no-logo/20th-anniversary-photo-session.jpeg');
+            background-position: center center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: -0.5px;
+            line-height: 1.3em;
+            max-width: 900px;
+            padding: 0 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+        
+        .site-logo {
+            max-width: 200px;
+            height: auto;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            z-index: 10000;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .menu-toggle:hover span {
+            background: #4794A6;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        @media (max-width: 768px) {
+            .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+            
+            .site-logo {
+                max-width: 150px;
+            }
+        }
+        
+        .ast-mobile-popup-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 420px;
+            height: 100%;
+            background: #f8f8f8;
+            z-index: 9998;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+        }
+        
+        .ast-mobile-popup-drawer.active {
+            right: 0;
+        }
+        
+        .ast-mobile-popup-inner {
+            padding: 60px 50px 40px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+        
+        .mobile-menu-logo {
+            max-width: 180px;
+            margin: 0 auto 30px auto;
+            filter: none;
+            text-align: center;
+        }
+        
+        .mobile-menu-logo img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .mobile-menu-search {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .mobile-menu-search input {
+            width: 100%;
+            padding: 15px 45px 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: #4a4a4a;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-search input:focus {
+            outline: none;
+            border-color: #4794A6;
+            box-shadow: 0 0 0 3px rgba(114, 128, 18, 0.1);
+        }
+        
+        .mobile-menu-search input::placeholder {
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+        }
+        
+        .mobile-menu-search button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu-search button:hover {
+            color: #4794A6;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            margin-top: 10px;
+        }
+        
+        .search-results.active {
+            display: block;
+        }
+        
+        .search-result-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-result-item:hover {
+            background: #f8f8f8;
+        }
+        
+        .search-result-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 5px;
+        }
+        
+        .search-result-category {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .search-no-results {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .mobile-menu-nav {
+            flex: 1;
+        }
+        
+        .mobile-menu-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .mobile-menu-nav li {
+            margin-bottom: 8px;
+        }
+        
+        .mobile-menu-nav a {
+            display: inline-block;
+            padding: 18px 0;
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .mobile-menu-nav a:hover,
+        .mobile-menu-nav a.active {
+            color: #4794A6;
+        }
+        
+        .mobile-menu-footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        .mobile-menu-tagline {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 20px;
+        }
+        
+        .mobile-menu-social {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .mobile-menu-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4a4a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-social a:hover {
+            background: #4794A6;
+            transform: translateY(-3px);
+        }
+        
+        .mobile-menu-logo {
+            margin-bottom: 40px;
+        }
+        
+        .mobile-menu-logo img {
+            max-width: 200px;
+            height: auto;
+        }
+        
+        .main-header-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .main-header-menu .menu-item {
+            margin-bottom: 25px;
+        }
+        
+        .main-header-menu .menu-link {
+            text-decoration: none;
+            color: #3a3a3a;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: block;
+        }
+        
+        .main-header-menu .menu-link:hover {
+            color: #4794A6;
+        }
+        
+        .ast-mobile-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9997;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .ast-mobile-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .content-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .post-title {
+            font-size: 44px;
+            font-weight: 400;
+            color: #2a2a2a;
+            letter-spacing: -0.5px;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.4em;
+        }
+        
+        .post-intro {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a3a3a;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .gallery-container {
+            column-count: 2;
+            column-gap: 10px;
+            margin-bottom: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                column-count: 1;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+            
+            .post-title {
+                font-size: 30px;
+            }
+        }
+        
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .gallery-image:hover {
+            opacity: 0.9;
+        }
+        
+        .section-heading {
+            font-size: 32px;
+            font-weight: 400;
+            color: #2a2a2a;
+            letter-spacing: -0.3px;
+            margin: 80px 0 30px 0;
+            padding-top: 60px;
+            text-align: center;
+            line-height: 1.3em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .section-heading:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 60px;
+        }
+        
+        .section-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a3a3a;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Featured Section Images */
+        .featured-image {
+            max-width: 1000px;
+            margin: 50px auto 60px auto;
+            text-align: center;
+        }
+        
+        .section-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        /* CTA Sections */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 60px 0;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .cta-section h2, .cta-section h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 34px;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #ffffff;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 0 8px;
+            border: 2px solid #ffffff;
+            position: relative;
+            overflow: hidden;
+            min-width: auto;
+            max-width: fit-content;
+            white-space: nowrap;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background: #f0f0f0;
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #ffffff;
+            color: #1a1a1a;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.3);
+        }
+        
+        /* Vendor Credits */
+        .vendor-credits {
+            background: #f8f8f8;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .vendor-credits ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .vendor-credits li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 15px;
+        }
+        
+        .vendor-credits li:last-child {
+            border-bottom: none;
+        }
+        
+        .vendor-credits a {
+            color: #4794A6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .vendor-credits a:hover {
+            color: #5a6609;
+            text-decoration: underline;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0;
+        }
+        
+        .faq-item {
+            background: #f9f9f9;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4794A6;
+        }
+        
+        .faq-question {
+            font-size: 20px;
+            font-weight: 500;
+            color: #2a2a2a;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555;
+            margin: 0;
+        }
+        
+        /* Author Bio */
+        /* Author Bio */
+        .author-bio {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 50px;
+            border-radius: 12px;
+            margin: 60px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .author-headshots {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+        
+        .author-bio img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .author-bio img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.3);
+            border-color: #f0f0f0;
+        }
+        
+        .author-info h3 {
+            font-size: 26px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: -0.2px;
+        }
+        
+        .author-info p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+        
+        .author-info a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            transition: border-color 0.3s ease;
+        }
+        
+        .author-info a:hover {
+            border-bottom-color: #ffffff;
+        }
+        
+        .author-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Related Posts */
+        .related-posts {
+            margin: 60px 0;
+        }
+        
+        .related-posts h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #3a3a3a;
+        }
+        
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Force 3 columns on desktop */
+        @media (min-width: 769px) {
+            .related-posts-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+        
+        .related-post {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .related-post:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+        
+        .related-post img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .related-post:hover img {
+            transform: scale(1.08);
+        }
+        
+        .related-post h3 {
+            padding: 20px;
+            font-size: 18px;
+            background: #ffffff;
+        }
+        
+        .related-post a {
+            text-decoration: none;
+            color: #3a3a3a;
+        }
+        
+        .related-post a:hover {
+            color: #4794A6;
+        }
+        
+        /* Footer */
+        .post-footer {
+            background: #2a2a2a;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        
+        .footer-nav {
+            margin-top: 20px;
+        }
+        
+        .footer-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            color: #4794A6;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-headshots {
+                align-items: center;
+            }
+            
+            .author-bio img {
+                width: 120px;
+                height: 120px;
+            }
+                padding: 30px 20px;
+            }
+            
+            .cta-section {
+                padding: 40px 20px;
+            }
+            
+            .cta-section h2, .cta-section h3 {
+                font-size: 24px;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .related-post img {
+                height: 300px;
+            }
+        }
+  
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does an engagement photo session cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Engagement sessions in South Florida start at $500 for a 90-minute session at one location. This includes professional editing, online gallery, and high-resolution downloads. Most couples receive 50-80 beautifully edited images. Sessions are often included free with wedding photography packages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are the best locations for engagement photos in South Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top locations include Vizcaya Museum, Fairchild Tropical Garden, South Pointe Park, Wynwood Walls, Matheson Hammock Park, and various Miami Beach locations. We help you choose locations that match your style—whether you prefer urban, natural, beachy, or architectural settings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should we wear for our engagement session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose outfits that feel authentic to your style and coordinate (but don't match exactly). Solid colors or subtle patterns photograph best. Avoid busy patterns, logos, and overly trendy pieces. Consider bringing a second outfit for variety. We provide a detailed style guide after booking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does an engagement session take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most engagement sessions run 60-90 minutes. This allows time for 1-2 locations, outfit changes if desired, and various poses without feeling rushed. Golden hour sessions (sunset) are scheduled to maximize beautiful natural light."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will we receive our engagement photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your complete edited gallery is delivered within 2-3 weeks after your session. Sneak peeks (5-10 images) are typically shared within 48 hours on social media with your permission. All images are professionally edited and delivered via online gallery with download rights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we use engagement photos for our save-the-dates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! Many couples use engagement photos for save-the-dates, wedding websites, guest books, and reception décor. We deliver high-resolution files suitable for all printing needs, and can recommend designers for save-the-date cards if needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the weather is bad on our session day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "South Florida weather can be unpredictable! We monitor forecasts closely and suggest rescheduling for severe weather. For light rain, we have backup indoor locations or embrace dramatic weather for unique, moody photos if you're adventurous. Reschedules are always available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we bring props or pets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Props can add personality but aren't necessary—your connection is the main focus. Popular props include champagne, picnic setups, or items meaningful to your relationship. Pets are welcome! Just ensure someone can handle them between photos. We provide guidance on what works best."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you help with posing during the session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We provide gentle direction and prompts to help you feel comfortable and natural. Our goal is candid, authentic moments rather than stiff poses. We guide you through movements and interactions that create genuine connection and emotion in your photos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an engagement session really necessary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While not required, engagement sessions are highly valuable! They help you get comfortable in front of the camera, allow us to understand your dynamic as a couple, and provide images for save-the-dates and wedding décor. Think of it as a rehearsal for your wedding day photography."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Lori + Ben | Fort Lauderdale Beach Engagement",
+  "description": "Rise and shine everyone. We got up really early for this beautiful sunrise session. Funny thing is this time we didn’t even know where we were going! Lori and B...",
+  "image": [
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-002.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-003.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-004.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-005.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-006.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-007.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-008.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-009.jpg",
+    "https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-010.jpg"
+  ],
+  "datePublished": "2024-01-15",
+  "dateModified": "2026-02-15",
+  "author": {
+    "@type": "Person",
+    "name": "Italo Campilii",
+    "url": "https://acromatico.com/our-story",
+    "image": "https://acromatico.com/wp-content/uploads/2018/09/italo-campilii-acromatico-photography.jpg",
+    "jobTitle": "Professional Photographer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Acromatico Photography"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Acromatico Photography",
+    "url": "https://acromatico.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://acromatico.com/static/acromatico-logo-dark.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://acromatico.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://acromatico.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lori + Ben | Fort Lauderdale Beach Engagement",
+      "item": "https://acromatico.com/blog/lori-ben-fort-lauderdale-beach-engagement"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Acromatico Photography",
+  "image": "https://acromatico.com/static/acromatico-logo-dark.png",
+  "description": "Professional wedding and portrait photography in South Florida and NYC",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.7617",
+    "longitude": "-80.1918"
+  },
+  "url": "https://acromatico.com",
+  "telephone": "+1-305-555-0100",
+  "priceRange": "$$$$",
+  "areaServed": ["Miami", "South Florida", "New York City"],
+  "servesCuisine": "Photography Services"
+}
+</script>
+</head>
+<body>
+<!-- Static Header with Logo and Hamburger -->
+<header class="site-header">
+<a href="/">
+<img alt="Acromatico Photography" class="site-logo" src="/static/acromatico-logo-transparent.png"/>
+</a>
+<button aria-label="Menu" class="menu-toggle" id="menuToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</header>
+<!-- DYNAMIC MOBILE MENU - Loaded from /api/mobile-menu API -->
+<div id="mobile-menu-container"></div>
+<script>
+// Load mobile menu dynamically from server
+(function() {
+  fetch('/api/mobile-menu')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('mobile-menu-container').innerHTML = html;
+      
+      // Execute any scripts in the loaded HTML
+      const scripts = document.getElementById('mobile-menu-container').querySelectorAll('script');
+      scripts.forEach(script => {
+        const newScript = document.createElement('script');
+        if (script.src) {
+          newScript.src = script.src;
+        } else {
+          newScript.textContent = script.textContent;
+        }
+        document.body.appendChild(newScript);
+      });
+    })
+    .catch(error => console.error('Mobile menu load error:', error));
+})();
+</script>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg');">
+<h1 class="hero-title">Lori + Ben | Fort Lauderdale Beach Engagement</h1>
+</section>
+<div class="content-container">
+<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Location:<br/>Lori's Romantic Setting</h2><div class="featured-image"><img alt="Fort Lauderdale Beach Engagement - The Location" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg"/><p class="image-caption">Fort Lauderdale Beach Engagement - The Location moment 1</p></div><h2 class="section-heading">Their Connection:<br/>Fort's Authentic Chemistry</h2><div class="featured-image"><img alt="Fort Lauderdale Beach Engagement - Their Connection" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-004.jpg"/><p class="image-caption">Fort Lauderdale Beach Engagement - Their Connection moment 2</p></div><h2 class="section-heading">Styled Elements:<br/>Personal Touches &amp; Details</h2><div class="featured-image"><img alt="Fort Lauderdale Beach Engagement - Styled Elements" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-007.jpg"/><p class="image-caption">Fort Lauderdale Beach Engagement - Styled Elements moment 3</p></div><h2 class="section-heading">Golden Hour Magic:<br/>Perfect Light for Romance</h2><div class="featured-image"><img alt="Fort Lauderdale Beach Engagement - Golden Hour Magic" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-010.jpg"/><p class="image-caption">Fort Lauderdale Beach Engagement - Golden Hour Magic moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Natural &amp; Candid Coverage</h2><div class="featured-image"><img alt="Fort Lauderdale Beach Engagement - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-013.jpg"/><p class="image-caption">Fort Lauderdale Beach Engagement - Photography Approach moment 5</p></div></div>
+<div class="gallery-container">
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-001.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-002.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-002.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-003.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-003.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-004.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-004.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-005.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-005.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-006.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-006.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-007.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-007.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-008.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-008.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-009.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-009.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-010.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-010.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-011.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-011.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-012.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-012.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-013.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-013.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-014.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-014.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-015.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-015.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-016.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-016.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-017.jpg">
+<img alt="Lori + Ben | Fort Lauderdale Beach Engagement - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2012/10/Fort-Lauderdale-Beach-Engagement-017.jpg"/>
+</a>
+</div>
+<!-- FAQ Section -->
+<div class="faq-section" itemscope="" itemtype="https://schema.org/FAQPage">
+<h2 style="font-size: 36px; font-weight: 400; text-align: center; margin-bottom: 40px; color: #2a2a2a;">Frequently Asked Questions</h2>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      How much does an engagement photo session cost?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Engagement sessions in South Florida start at $500 for a 90-minute session at one location. This includes professional editing, online gallery, and high-resolution downloads. Most couples receive 50-80 beautifully edited images. Sessions are often included free with wedding photography packages.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      Where are the best locations for engagement photos in South Florida?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Top locations include Vizcaya Museum, Fairchild Tropical Garden, South Pointe Park, Wynwood Walls, Matheson Hammock Park, and various Miami Beach locations. We help you choose locations that match your style—whether you prefer urban, natural, beachy, or architectural settings.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      What should we wear for our engagement session?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Choose outfits that feel authentic to your style and coordinate (but don't match exactly). Solid colors or subtle patterns photograph best. Avoid busy patterns, logos, and overly trendy pieces. Consider bringing a second outfit for variety. We provide a detailed style guide after booking.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      How long does an engagement session take?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Most engagement sessions run 60-90 minutes. This allows time for 1-2 locations, outfit changes if desired, and various poses without feeling rushed. Golden hour sessions (sunset) are scheduled to maximize beautiful natural light.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      When will we receive our engagement photos?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Your complete edited gallery is delivered within 2-3 weeks after your session. Sneak peeks (5-10 images) are typically shared within 48 hours on social media with your permission. All images are professionally edited and delivered via online gallery with download rights.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      Can we use engagement photos for our save-the-dates?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Absolutely! Many couples use engagement photos for save-the-dates, wedding websites, guest books, and reception décor. We deliver high-resolution files suitable for all printing needs, and can recommend designers for save-the-date cards if needed.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      What if the weather is bad on our session day?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       South Florida weather can be unpredictable! We monitor forecasts closely and suggest rescheduling for severe weather. For light rain, we have backup indoor locations or embrace dramatic weather for unique, moody photos if you're adventurous. Reschedules are always available.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      Should we bring props or pets?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Props can add personality but aren't necessary—your connection is the main focus. Popular props include champagne, picnic setups, or items meaningful to your relationship. Pets are welcome! Just ensure someone can handle them between photos. We provide guidance on what works best.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      Do you help with posing during the session?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       Yes! We provide gentle direction and prompts to help you feel comfortable and natural. Our goal is candid, authentic moments rather than stiff poses. We guide you through movements and interactions that create genuine connection and emotion in your photos.
+      </p>
+</div>
+</div>
+<div class="faq-item" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<h3 class="faq-question" itemprop="name">
+      Is an engagement session really necessary?
+     </h3>
+<div class="faq-answer" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text">
+       While not required, engagement sessions are highly valuable! They help you get comfortable in front of the camera, allow us to understand your dynamic as a couple, and provide images for save-the-dates and wedding décor. Think of it as a rehearsal for your wedding day photography.
+      </p>
+</div>
+</div>
+</div>
+<!-- Author Bio -->
+<div class="author-bio">
+<div class="author-headshots">
+<img alt="Italo Campilii" onerror="this.style.display='none'" src="/static/italo-headshot.jpg"/>
+<img alt="Ale Campilii" onerror="this.style.display='none'" src="/static/ale-headshot.jpg"/>
+</div>
+<div class="author-content">
+<h3 style="color: #ffffff; font-size: 32px; margin-bottom: 25px;">About Acromatico Photography</h3>
+<p style="color: #ffffff; margin-bottom: 25px;">Founded by Italo and Ale, Acromatico Photography specializes in capturing authentic moments with artistic vision. Based in South Florida, we travel worldwide to document love stories, families, and life's most meaningful celebrations.</p>
+<p style="color: #ffffff;">Our approach combines photojournalistic storytelling with fine art aesthetics, creating timeless images that reflect the genuine emotion and beauty of each unique moment.</p>
+</div>
+</div>
+<!-- Related Posts -->
+<div class="related-posts">
+<h2>Related Sessions</h2>
+<div class="related-posts-grid">
+<article class="related-post">
+<a href="/static/blog/angela-john-vizcaya-engagement-session.html">
+<img alt="Angela + John | Vizcaya Engagement Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/vizcaya-engagement-1.jpg"/>
+<h3>Angela + John | Vizcaya Engagement Session</h3>
+</a>
+</article>
+<article class="related-post">
+<a href="/static/blog/anglins-fishing-pier-engagement-session.html">
+<img alt="Anglins Fishing Pier Engagement Session" loading="lazy" src="https://acromatico.com/wp-content/uploads/2018/08/Anglis-Fishing-Pier-Engagement-Session-001.jpg"/>
+<h3>Anglins Fishing Pier Engagement Session</h3>
+</a>
+</article>
+<article class="related-post">
+<a href="/static/blog/arnold-arboretum-boston-engagement-catherine-junior.html">
+<img alt="Arnold Arboretum Boston Engagement | Catherine + Junior" loading="lazy" src="https://acromatico.com/wp-content/uploads/2018/09/Boston-Engagement-001-1.jpg"/>
+<h3>Arnold Arboretum Boston Engagement | Catherine + Junior</h3>
+</a>
+</article>
+</div>
+</div>
+</div>
+<!-- DYNAMIC FOOTER - Loaded from /api/footer API -->
+<div id="footer-container"></div>
+<script>
+// Load footer dynamically from server
+(function() {
+  fetch('/api/footer')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    })
+    .catch(error => console.error('Footer load error:', error));
+})();
+</script>
+<!-- GLightbox JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    // Initialize GLightbox for gallery
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true,
+        closeButton: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        slideEffect: 'slide'
+    });
+</script>
+</body>
+</html>
