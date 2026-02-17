@@ -5,27 +5,27 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Jessica + Beau | Tree Tops Park Engagement Session | Acromatico Photography
+   Jany + Josh | Vizcaya Engagement Session | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="Nothing says salsa like this wonderful couple that we got to shoot this past weekend. Jessica and Beau first met during salsa lessons, fair enough, Beau was her..." name="description"/>
+<meta content="Post number four from this busy busy shooting week! This time, we have a professor and an accountant in the house. Jany and Josh did their beautiful engagement ..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/jessica-beau-tree-tops-park-engagement-session" property="og:url"/>
-<meta content="Jessica + Beau | Tree Tops Park Engagement Session" property="og:title"/>
-<meta content="Nothing says salsa like this wonderful couple that we got to shoot this past weekend. Jessica and Beau first met during salsa lessons, fair enough, Beau was her..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-001.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session" property="og:url"/>
+<meta content="Jany + Josh | Vizcaya Engagement Session" property="og:title"/>
+<meta content="Post number four from this busy busy shooting week! This time, we have a professor and an accountant in the house. Jany and Josh did their beautiful engagement ..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/jessica-beau-tree-tops-park-engagement-session" property="twitter:url"/>
-<meta content="Jessica + Beau | Tree Tops Park Engagement Session" property="twitter:title"/>
-<meta content="Nothing says salsa like this wonderful couple that we got to shoot this past weekend. Jessica and Beau first met during salsa lessons, fair enough, Beau was her..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-001.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session" property="twitter:url"/>
+<meta content="Jany + Josh | Vizcaya Engagement Session" property="twitter:title"/>
+<meta content="Post number four from this busy busy shooting week! This time, we have a professor and an accountant in the house. Jany and Josh did their beautiful engagement ..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/jessica-beau-tree-tops-park-engagement-session" rel="canonical"/>
+<link href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
 <meta content="Engagement Photography" property="article:tag"/>
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Jessica + Beau | Tree Tops Park Engagement Session",
-  "description": "Nothing says salsa like this wonderful couple that we got to shoot this past weekend. Jessica and Beau first met during salsa lessons, fair enough, Beau was her...",
+  "headline": "Jany + Josh | Vizcaya Engagement Session",
+  "description": "Post number four from this busy busy shooting week! This time, we have a professor and an accountant in the house. Jany and Josh did their beautiful engagement ...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-001.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-002.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-003.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-004.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-005.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-006.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-007.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-008.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-009.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-010.jpg"
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-001.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-002.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-003.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-004.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-005.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-006.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-007.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-008.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-009.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-010.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/jessica-beau-tree-tops-park-engagement-session"
+    "@id": "https://acromatico.com/blog/jany-josh-vizcaya-engagement-session"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Jessica + Beau | Tree Tops Park Engagement Session",
-      "item": "https://acromatico.com/blog/jessica-beau-tree-tops-park-engagement-session"
+      "name": "Jany + Josh | Vizcaya Engagement Session",
+      "item": "https://acromatico.com/blog/jany-josh-vizcaya-engagement-session"
     }
   ]
 }
@@ -1128,68 +1128,81 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-001.jpg');">
-<h1 class="hero-title">Jessica + Beau | Tree Tops Park Engagement Session</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-001.jpg');">
+<h1 class="hero-title">Jany + Josh | Vizcaya Engagement Session</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Location:<br/>Jessica's Romantic Setting</h2><div class="featured-image"><img alt="Tree Tops Park Engagement Session - The Location" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-001.jpg"/><p class="image-caption">Tree Tops Park Engagement Session - The Location moment 1</p></div><h2 class="section-heading">Their Connection:<br/>Tree's Authentic Chemistry</h2><div class="featured-image"><img alt="Tree Tops Park Engagement Session - Their Connection" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-004.jpg"/><p class="image-caption">Tree Tops Park Engagement Session - Their Connection moment 2</p></div><h2 class="section-heading">Styled Elements:<br/>Personal Touches &amp; Details</h2><div class="featured-image"><img alt="Tree Tops Park Engagement Session - Styled Elements" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-007.jpg"/><p class="image-caption">Tree Tops Park Engagement Session - Styled Elements moment 3</p></div><h2 class="section-heading">Golden Hour Magic:<br/>Perfect Light for Romance</h2><div class="featured-image"><img alt="Tree Tops Park Engagement Session - Golden Hour Magic" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-010.jpg"/><p class="image-caption">Tree Tops Park Engagement Session - Golden Hour Magic moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Natural &amp; Candid Coverage</h2><div class="featured-image"><img alt="Tree Tops Park Engagement Session - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-013.jpg"/><p class="image-caption">Tree Tops Park Engagement Session - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+Post number four from this busy busy shooting week! This time, we have a professor and an accountant in the house. Jany and Josh did their beautiful engagement session at the Vizcaya gardens in Miami. You all must be very familiar with it by now since our latest posts have been very very Vizcaya! We had a great time shooting these two and we can’t wait for their wedding! They will have a beautiful ceremony and reception at the Ritz Carlton in Key Biscayne, can’t wait!  Take a look at some of the cool shots we did for Jany and Josh. Enjoy!
+
+<a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-001-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 1" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-002-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 2" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-003-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 3" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-004-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 4" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-005-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 5" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-006-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 6" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-007-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 7" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-008-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 8" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-009-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 9" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-010-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 10" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-011-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 11" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-012-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 12" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-013-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 13" decoding="async" height="606" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/606;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-014-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 14" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-015-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 15" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-016-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 16" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-017-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 17" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-018-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 18" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-019-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 19" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-020-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 20" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-021-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 21" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/jany-josh-vizcaya-engagement-session/attachment/vizcaya-wedding-022-4/" target="_blank"><img alt="Jany + Josh | Vizcaya Engagement Session - Photo 22" decoding="async" height="1365" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1365;" width="910"/></a>
+</div><div class="storytelling-sections"><h2 class="section-heading">The Location:<br/>Jany's Romantic Setting</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - The Location" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-001.jpg"/><p class="image-caption">Vizcaya Engagement Session - The Location moment 1</p></div><h2 class="section-heading">Their Connection:<br/>Vizcaya's Authentic Chemistry</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - Their Connection" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-005.jpg"/><p class="image-caption">Vizcaya Engagement Session - Their Connection moment 2</p></div><h2 class="section-heading">Styled Elements:<br/>Personal Touches &amp; Details</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - Styled Elements" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-009.jpg"/><p class="image-caption">Vizcaya Engagement Session - Styled Elements moment 3</p></div><h2 class="section-heading">Golden Hour Magic:<br/>Perfect Light for Romance</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - Golden Hour Magic" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-013.jpg"/><p class="image-caption">Vizcaya Engagement Session - Golden Hour Magic moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Natural &amp; Candid Coverage</h2><div class="featured-image"><img alt="Vizcaya Engagement Session - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-017.jpg"/><p class="image-caption">Vizcaya Engagement Session - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-001.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-001.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-001.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-001.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-002.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-002.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-002.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-002.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-003.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-003.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-003.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-003.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-004.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-004.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-004.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-004.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-005.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-005.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-005.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-005.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-006.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-006.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-006.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-006.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-007.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-007.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-007.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-007.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-008.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-008.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-008.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-008.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-009.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-009.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-009.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-009.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-010.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-010.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-010.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-010.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-011.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-011.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-011.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-011.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-012.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-012.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-012.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-012.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-013.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-013.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-013.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-013.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-014.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-014.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-014.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-014.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-015.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-015.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-015.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-015.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-016.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-016.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-016.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-016.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-017.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-017.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-017.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-017.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-018.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-018.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-018.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-018.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-019.jpg">
-<img alt="Jessica + Beau | Tree Tops Park Engagement Session - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Tree-Tops-Park-Engagement-Session-019.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-019.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-019.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-020.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-020.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-021.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-021.jpg"/>
+</a>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-022.jpg">
+<img alt="Jany + Josh | Vizcaya Engagement Session - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Vizcaya-Wedding-022.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->

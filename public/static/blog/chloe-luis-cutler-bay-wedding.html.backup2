@@ -5,27 +5,27 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Ciara + Jordan | Signature Grand Wedding | Acromatico Photography
+   Chloe + Luis | Cutler Bay Wedding | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="This wasn’t just any wedding, it was one of our dearest family member with her new hubby. Ciara and Jordan mean the world to us and when we found out we were sh..." name="description"/>
+<meta content="Nothing sweeter than a young couple in love tying the knot. We had the chance to shoot this beautiful couple some time ago and now their awesome  wedding. It’s ..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/ciara-jordan-signature-grand-wedding" property="og:url"/>
-<meta content="Ciara + Jordan | Signature Grand Wedding" property="og:title"/>
-<meta content="This wasn’t just any wedding, it was one of our dearest family member with her new hubby. Ciara and Jordan mean the world to us and when we found out we were sh..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-001.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding" property="og:url"/>
+<meta content="Chloe + Luis | Cutler Bay Wedding" property="og:title"/>
+<meta content="Nothing sweeter than a young couple in love tying the knot. We had the chance to shoot this beautiful couple some time ago and now their awesome  wedding. It’s ..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0011.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/ciara-jordan-signature-grand-wedding" property="twitter:url"/>
-<meta content="Ciara + Jordan | Signature Grand Wedding" property="twitter:title"/>
-<meta content="This wasn’t just any wedding, it was one of our dearest family member with her new hubby. Ciara and Jordan mean the world to us and when we found out we were sh..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-001.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding" property="twitter:url"/>
+<meta content="Chloe + Luis | Cutler Bay Wedding" property="twitter:title"/>
+<meta content="Nothing sweeter than a young couple in love tying the knot. We had the chance to shoot this beautiful couple some time ago and now their awesome  wedding. It’s ..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0011.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/ciara-jordan-signature-grand-wedding" rel="canonical"/>
+<link href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
 <meta content="Wedding Photography" property="article:tag"/>
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Ciara + Jordan | Signature Grand Wedding",
-  "description": "This wasn’t just any wedding, it was one of our dearest family member with her new hubby. Ciara and Jordan mean the world to us and when we found out we were sh...",
+  "headline": "Chloe + Luis | Cutler Bay Wedding",
+  "description": "Nothing sweeter than a young couple in love tying the knot. We had the chance to shoot this beautiful couple some time ago and now their awesome  wedding. It’s ...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-001.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-002.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-003.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-004.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-005.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-006.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-007.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-008.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-009.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-010.jpg"
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0011.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0021.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0031.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0041.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0051.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0061.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0071.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0081.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0091.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0101.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/ciara-jordan-signature-grand-wedding"
+    "@id": "https://acromatico.com/blog/chloe-luis-cutler-bay-wedding"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Ciara + Jordan | Signature Grand Wedding",
-      "item": "https://acromatico.com/blog/ciara-jordan-signature-grand-wedding"
+      "name": "Chloe + Luis | Cutler Bay Wedding",
+      "item": "https://acromatico.com/blog/chloe-luis-cutler-bay-wedding"
     }
   ]
 }
@@ -1128,191 +1128,154 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-001.jpg');">
-<h1 class="hero-title">Ciara + Jordan | Signature Grand Wedding</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0011.jpg');">
+<h1 class="hero-title">Chloe + Luis | Cutler Bay Wedding</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="Signature Grand Wedding - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-001.jpg"/><p class="image-caption">Signature Grand Wedding - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="Signature Grand Wedding - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-013.jpg"/><p class="image-caption">Signature Grand Wedding - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>Signature's Natural Chemistry</h2><div class="featured-image"><img alt="Signature Grand Wedding - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-025.jpg"/><p class="image-caption">Signature Grand Wedding - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="Signature Grand Wedding - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-037.jpg"/><p class="image-caption">Signature Grand Wedding - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="Signature Grand Wedding - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-049.jpg"/><p class="image-caption">Signature Grand Wedding - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+Nothing sweeter than a young couple in love tying the knot. We had the chance to shoot this beautiful couple some time ago and now their awesome  wedding. It’s not every day that you see the bride’s dad marry his daughter. Chloe and Luis had a sweet and beautiful reception in Cutler Bay and we got to do some cool sunset photos. Congrats you guys! Enjoy some of our favorites from their wedding…
+
+<a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-001-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 1" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-002-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 2" decoding="async" height="418" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-003-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 3" decoding="async" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-004-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 4" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-005-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 5" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-006-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 6" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-007-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 7" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-008-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 8" decoding="async" height="418" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-009-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 9" decoding="async" height="418" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-010-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 10" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-011-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 11" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-012-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 12" decoding="async" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-013-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 13" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-014-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 14" decoding="async" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-015-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 15" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-016-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 16" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-017-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 17" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-018-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 18" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-019-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 19" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-020-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 20" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-021-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 21" decoding="async" height="605" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/605;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-022-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 22" decoding="async" height="605" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/605;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-023-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 23" decoding="async" height="681" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/681;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-024-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 24" decoding="async" height="1369" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1369;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-025-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 25" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-026-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 26" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-027-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 27" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-028-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 28" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-029-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 29" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-030-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 30" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-031-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 31" decoding="async" height="478" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/478;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-032-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 32" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-033-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 33" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-034-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 34" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-035-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 35" decoding="async" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-036-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 36" decoding="async" height="502" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/502;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-037-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 37" decoding="async" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-038-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 38" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-039-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 39" decoding="async" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-040-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 40" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-041-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 41" decoding="async" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-042-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 42" decoding="async" height="680" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/680;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-043-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 43" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a><a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-045-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 44" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a> <a href="https://acromatico.com/blog/chloe-luis-cutler-bay-wedding/attachment/miami-wedding-photography-046-2/" target="_blank"><img alt="Chloe + Luis | Cutler Bay Wedding - Photo 45" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" width="910"/></a>Cutler bay wedding
+
+miami wedding
+
+miami
+</div><div class="storytelling-sections"><h2 class="section-heading">The Venue:<br/>this's Romantic Charm</h2><div class="featured-image"><img alt="Cutler Bay Wedding - The Venue" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0011.jpg"/><p class="image-caption">Cutler Bay Wedding - The Venue moment 1</p></div><h2 class="section-heading">The Ceremony:<br/>A Heartfelt Intimate Exchange</h2><div class="featured-image"><img alt="Cutler Bay Wedding - The Ceremony" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0101.jpg"/><p class="image-caption">Cutler Bay Wedding - The Ceremony moment 2</p></div><h2 class="section-heading">Couple Portraits:<br/>Cutler's Natural Chemistry</h2><div class="featured-image"><img alt="Cutler Bay Wedding - Couple Portraits" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0191.jpg"/><p class="image-caption">Cutler Bay Wedding - Couple Portraits moment 3</p></div><h2 class="section-heading">The Reception:<br/>Stunning Celebration &amp; Joyful Moments</h2><div class="featured-image"><img alt="Cutler Bay Wedding - The Reception" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0281.jpg"/><p class="image-caption">Cutler Bay Wedding - The Reception moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Authentic Moments in Natural Light</h2><div class="featured-image"><img alt="Cutler Bay Wedding - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0371.jpg"/><p class="image-caption">Cutler Bay Wedding - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-001.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-001.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0011.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0011.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-002.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-002.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0021.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0021.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-003.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-003.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0031.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0031.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-004.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-004.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0041.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0041.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-005.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-005.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0051.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0051.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-006.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-006.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0061.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0061.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-007.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-007.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0071.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0071.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-008.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-008.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0081.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0081.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-009.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-009.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0091.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0091.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-010.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-010.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0101.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0101.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-011.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-011.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0111.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0111.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-012.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-012.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0121.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0121.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-013.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-013.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0131.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0131.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-014.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-014.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0141.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0141.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-015.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-015.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0151.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0151.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-016.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-016.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0161.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0161.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-017.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-017.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0171.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0171.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-018.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-018.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0181.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0181.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-019.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-019.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0191.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0191.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-020.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-020.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0201.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0201.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-021.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-021.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0211.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0211.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-022.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-022.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0221.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0221.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-023.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-023.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0231.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0231.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-024.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-024.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0241.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0241.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-025.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-025.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0251.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0251.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-026.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-026.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0261.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0261.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-027.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-027.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0271.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0271.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-028.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-028.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0281.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0281.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-029.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-029.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0291.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0291.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-030.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-030.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0301.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0301.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-031.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-031.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0311.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0311.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-032.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-032.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0321.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0321.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-033.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-033.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0331.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0331.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-034.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-034.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0341.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0341.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-035.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-035.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0351.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0351.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-036.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-036.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0361.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0361.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-037.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-037.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0371.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0371.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-038.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-038.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0381.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0381.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-039.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-039.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0391.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0391.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-040.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-040.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0401.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 40" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0401.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-041.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-041.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0411.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 41" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0411.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-042.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-042.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0421.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 42" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0421.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-043.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-043.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0431.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 43" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0431.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-044.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-044.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0451.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 44" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0451.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-045.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-045.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-046.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 46" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-046.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-047.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 47" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-047.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-048.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 48" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-048.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-049.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 49" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-049.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-050.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 50" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-050.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-051.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 51" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-051.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-052.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 52" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-052.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-053.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 53" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-053.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-054.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 54" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-054.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-055.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 55" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-055.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-056.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 56" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-056.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-057.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 57" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-057.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-058.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 58" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-058.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-059.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 59" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-059.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-060.jpg">
-<img alt="Ciara + Jordan | Signature Grand Wedding - Photo 60" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Signature-Grand-Wedding-060.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0461.jpg">
+<img alt="Chloe + Luis | Cutler Bay Wedding - Photo 45" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/03/Miami-Wedding-Photography-0461.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
