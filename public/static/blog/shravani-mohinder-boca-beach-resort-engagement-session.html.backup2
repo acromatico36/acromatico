@@ -5,27 +5,27 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Melissa + Alex | Southwest Ranches Engagement | Acromatico Photography
+   Shravani + Mohinder | Boca Beach Resort Engagement Session | Acromatico Photography
   </title>
 <!-- SEO Meta Tags -->
-<meta content="If you love horses like we do, you’re definitely going to love this session! Melissa and Alex chose the footloose, country-cowboy theme for their engagement ses..." name="description"/>
+<meta content="This e-session was one of a kind, Mohinder decided to come visit Shravani before the year was over all the way across from Kansas to do their session. They pick..." name="description"/>
 <meta content="our location photographer, Wedding photography, Acromatico" name="keywords"/>
 <meta content="Italo Campilii" name="author"/>
 <meta content="index, follow" name="robots"/>
 <!-- Open Graph / Facebook -->
 <meta content="article" property="og:type"/>
-<meta content="https://acromatico.com/blog/melissa-alex-southwest-ranches-engagement" property="og:url"/>
-<meta content="Melissa + Alex | Southwest Ranches Engagement" property="og:title"/>
-<meta content="If you love horses like we do, you’re definitely going to love this session! Melissa and Alex chose the footloose, country-cowboy theme for their engagement ses..." property="og:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-001.jpg" property="og:image"/>
+<meta content="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session" property="og:url"/>
+<meta content="Shravani + Mohinder | Boca Beach Resort Engagement Session" property="og:title"/>
+<meta content="This e-session was one of a kind, Mohinder decided to come visit Shravani before the year was over all the way across from Kansas to do their session. They pick..." property="og:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-001.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://acromatico.com/blog/melissa-alex-southwest-ranches-engagement" property="twitter:url"/>
-<meta content="Melissa + Alex | Southwest Ranches Engagement" property="twitter:title"/>
-<meta content="If you love horses like we do, you’re definitely going to love this session! Melissa and Alex chose the footloose, country-cowboy theme for their engagement ses..." property="twitter:description"/>
-<meta content="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-001.jpg" property="twitter:image"/>
+<meta content="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session" property="twitter:url"/>
+<meta content="Shravani + Mohinder | Boca Beach Resort Engagement Session" property="twitter:title"/>
+<meta content="This e-session was one of a kind, Mohinder decided to come visit Shravani before the year was over all the way across from Kansas to do their session. They pick..." property="twitter:description"/>
+<meta content="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-001.jpg" property="twitter:image"/>
 <!-- Canonical URL -->
-<link href="https://acromatico.com/blog/melissa-alex-southwest-ranches-engagement" rel="canonical"/>
+<link href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session" rel="canonical"/>
 <!-- Open Graph Extended -->
 <meta content="Photography" property="article:section"/>
 <meta content="Engagement Photography" property="article:tag"/>
@@ -997,19 +997,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Melissa + Alex | Southwest Ranches Engagement",
-  "description": "If you love horses like we do, you’re definitely going to love this session! Melissa and Alex chose the footloose, country-cowboy theme for their engagement ses...",
+  "headline": "Shravani + Mohinder | Boca Beach Resort Engagement Session",
+  "description": "This e-session was one of a kind, Mohinder decided to come visit Shravani before the year was over all the way across from Kansas to do their session. They pick...",
   "image": [
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-001.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-002.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-003.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-004.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-005.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-006.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-007.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-008.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-009.jpg",
-    "https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-010.jpg"
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-001.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-002.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-003.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-004.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-005.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-006.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-007.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-008.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-009.jpg",
+    "https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-010.jpg"
   ],
   "datePublished": "2024-01-15",
   "dateModified": "2026-02-15",
@@ -1035,7 +1035,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://acromatico.com/blog/melissa-alex-southwest-ranches-engagement"
+    "@id": "https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session"
   }
 }
 </script>
@@ -1059,8 +1059,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Melissa + Alex | Southwest Ranches Engagement",
-      "item": "https://acromatico.com/blog/melissa-alex-southwest-ranches-engagement"
+      "name": "Shravani + Mohinder | Boca Beach Resort Engagement Session",
+      "item": "https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session"
     }
   ]
 }
@@ -1128,128 +1128,95 @@
     .catch(error => console.error('Mobile menu load error:', error));
 })();
 </script>
-<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-001.jpg');">
-<h1 class="hero-title">Melissa + Alex | Southwest Ranches Engagement</h1>
+<section class="hero-section" style="background-image: url('https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-001.jpg');">
+<h1 class="hero-title">Shravani + Mohinder | Boca Beach Resort Engagement Session</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">The Location:<br/>Melissa's Romantic Setting</h2><div class="featured-image"><img alt="Southwest Ranches Engagement - The Location" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-001.jpg"/><p class="image-caption">Southwest Ranches Engagement - The Location moment 1</p></div><h2 class="section-heading">Their Connection:<br/>Southwest's Authentic Chemistry</h2><div class="featured-image"><img alt="Southwest Ranches Engagement - Their Connection" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-008.jpg"/><p class="image-caption">Southwest Ranches Engagement - Their Connection moment 2</p></div><h2 class="section-heading">Styled Elements:<br/>Personal Touches &amp; Details</h2><div class="featured-image"><img alt="Southwest Ranches Engagement - Styled Elements" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-015.jpg"/><p class="image-caption">Southwest Ranches Engagement - Styled Elements moment 3</p></div><h2 class="section-heading">Golden Hour Magic:<br/>Perfect Light for Romance</h2><div class="featured-image"><img alt="Southwest Ranches Engagement - Golden Hour Magic" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-022.jpg"/><p class="image-caption">Southwest Ranches Engagement - Golden Hour Magic moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Natural &amp; Candid Coverage</h2><div class="featured-image"><img alt="Southwest Ranches Engagement - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-029.jpg"/><p class="image-caption">Southwest Ranches Engagement - Photography Approach moment 5</p></div></div>
+<div class="post-intro">
+This e-session was one of a kind, Mohinder decided to come visit Shravani before the year was over all the way across from Kansas to do their session. They picked the beautiful Boca Beach Resort to take these beautiful pictures. They will be tying the knot on February 14th all the way in India! So romantic..Even though we won’t get to travel to their wedding, our pictures will. Enjoy some of our favorites from this beautiful couple:
+
+ 
+
+<a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-001/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 1" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -001" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-002/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 2" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" title="Indian Engagement Boca Resort -002" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-003/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 3" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -003" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-004/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 4" decoding="async" height="637" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/637;" title="Indian Engagement Boca Resort -004" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-005/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 5" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -005" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-006/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 6" decoding="async" height="418" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" title="Indian Engagement Boca Resort -006" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-007/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 7" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" title="Indian Engagement Boca Resort -007" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-008/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 8" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -008" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-009/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 9" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -009" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-010/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 10" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -010" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-011/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 11" decoding="async" height="418" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/418;" title="Indian Engagement Boca Resort -011" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-012/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 12" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" title="Indian Engagement Boca Resort -012" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-013/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 13" decoding="async" height="679" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/679;" title="Indian Engagement Boca Resort -013" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-014/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 14" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -014" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-015/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 15" decoding="async" height="450" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/450;" title="Indian Engagement Boca Resort -015" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-016/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 16" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -016" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-017/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 17" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -017" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-018/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 18" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -018" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-019/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 19" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -019" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-021/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 20" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -021" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-022/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 21" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -022" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-023/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 22" decoding="async" height="302" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/302;" title="Indian Engagement Boca Resort -023" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-024/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 23" decoding="async" height="1365" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/1365;" title="Indian Engagement Boca Resort -024" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-025/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 24" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -025" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-026/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 25" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -026" width="910"/></a> <a href="https://acromatico.com/blog/shravani-mohinder-boca-beach-resort-engagement-session/attachment/indian-engagement-boca-resort-028/" target="_blank"><img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 26" decoding="async" height="607" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 910px; --smush-placeholder-aspect-ratio: 910/607;" title="Indian Engagement Boca Resort -028" width="910"/></a>
+</div><div class="storytelling-sections"><h2 class="section-heading">The Location:<br/>Shravani's Romantic Setting</h2><div class="featured-image"><img alt="Boca Beach Resort Engagement Session - The Location" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-001.jpg"/><p class="image-caption">Boca Beach Resort Engagement Session - The Location moment 1</p></div><h2 class="section-heading">Their Connection:<br/>Boca's Authentic Chemistry</h2><div class="featured-image"><img alt="Boca Beach Resort Engagement Session - Their Connection" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-006.jpg"/><p class="image-caption">Boca Beach Resort Engagement Session - Their Connection moment 2</p></div><h2 class="section-heading">Styled Elements:<br/>Personal Touches &amp; Details</h2><div class="featured-image"><img alt="Boca Beach Resort Engagement Session - Styled Elements" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-011.jpg"/><p class="image-caption">Boca Beach Resort Engagement Session - Styled Elements moment 3</p></div><h2 class="section-heading">Golden Hour Magic:<br/>Perfect Light for Romance</h2><div class="featured-image"><img alt="Boca Beach Resort Engagement Session - Golden Hour Magic" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-016.jpg"/><p class="image-caption">Boca Beach Resort Engagement Session - Golden Hour Magic moment 4</p></div><h2 class="section-heading">Photography Approach:<br/>Natural &amp; Candid Coverage</h2><div class="featured-image"><img alt="Boca Beach Resort Engagement Session - Photography Approach" class="section-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-022.jpg"/><p class="image-caption">Boca Beach Resort Engagement Session - Photography Approach moment 5</p></div></div>
 <div class="gallery-container">
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-001.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-001.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-001.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 1" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-001.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-002.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-002.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-002.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 2" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-002.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-003.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-003.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-003.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 3" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-003.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-004.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-004.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-004.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 4" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-004.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-005.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-005.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-005.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 5" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-005.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-006.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-006.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-006.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 6" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-006.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-007.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-007.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-007.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 7" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-007.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-008.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-008.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-008.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 8" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-008.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-009.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-009.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-009.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 9" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-009.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-010.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-010.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-010.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 10" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-010.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-011.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-011.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-011.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 11" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-011.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-012.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-012.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-012.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 12" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-012.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-013.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-013.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-013.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 13" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-013.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-014.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-014.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-014.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 14" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-014.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-015.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-015.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-015.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 15" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-015.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-016.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-016.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-016.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 16" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-016.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-017.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-017.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-017.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 17" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-017.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-018.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-018.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-018.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 18" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-018.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-019.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-019.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-019.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 19" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-019.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-020.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-020.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-021.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 20" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-021.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-021.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-021.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-022.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 21" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-022.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-022.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-022.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-023.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 22" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-023.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-023.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-023.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-024.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 23" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-024.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-024.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-024.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-025.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 24" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-025.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-025.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-025.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-026.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 25" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-026.jpg"/>
 </a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-026.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-026.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-027.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 27" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-027.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-028.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 28" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-028.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-029.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 29" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-029.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-030.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 30" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-030.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-031.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 31" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-031.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-032.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 32" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-032.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-033.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 33" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-033.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-034.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 34" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-034.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-035.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 35" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-035.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-036.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 36" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-036.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-037.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 37" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-037.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-038.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 38" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-038.jpg"/>
-</a>
-<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-039.jpg">
-<img alt="Melissa + Alex | Southwest Ranches Engagement - Photo 39" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/02/Western-Engagement-Session-039.jpg"/>
+<a class="gallery-item glightbox" data-gallery="wedding-gallery" href="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-028.jpg">
+<img alt="Shravani + Mohinder | Boca Beach Resort Engagement Session - Photo 26" class="gallery-image" loading="lazy" src="https://acromatico.com/wp-content/uploads/2013/01/Indian-Engagement-Boca-Resort-028.jpg"/>
 </a>
 </div>
 <!-- FAQ Section -->
