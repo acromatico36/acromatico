@@ -45,7 +45,6 @@ blog.get('/', async (c) => {
         .site-logo {
             max-width: 200px;
             height: auto;
-            filter: brightness(0) invert(1);
             transition: all 0.3s;
         }
         
@@ -343,15 +342,14 @@ blog.get('/', async (c) => {
 <body>
     <header class="site-header">
         <a href="/">
-            <img src="/static/acromatico-logo-white.png" alt="ACROMATICO" class="site-logo">
+            <img src="/static/acromatico-logo-transparent.png" alt="Acromatico Photography" class="site-logo">
         </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
-    
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
     
     <div class="overlay-menu" id="overlayMenu">
         <div class="menu-content">
