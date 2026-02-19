@@ -412,9 +412,6 @@ app.get('/', (c) => {
               <p class="text-2xl text-white leading-relaxed max-w-2xl mx-auto">
                 We teach kids to see the world differently—with a camera in hand and confidence in their vision.
               </p>
-              <p class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto mt-6">
-                20+ years • 1,000+ events • 1M+ images • Now teaching the next generation
-              </p>
             </div>
             
             {/* Credentials - Clean & Simple */}
