@@ -440,8 +440,8 @@ app.get('/', (c) => {
           
           {/* Philosophy Cards */}
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="feature-card p-8 rounded-2xl">
-              <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-500 rounded-xl mb-4 flex items-center justify-center">
+            <div class="feature-card p-8 rounded-2xl text-center">
+              <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
                 <i class="fas fa-camera text-2xl"></i>
               </div>
               <h3 class="text-xl font-bold mb-3">Creator-First</h3>
@@ -450,8 +450,8 @@ app.get('/', (c) => {
               </p>
             </div>
             
-            <div class="feature-card p-8 rounded-2xl">
-              <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-4 flex items-center justify-center">
+            <div class="feature-card p-8 rounded-2xl text-center">
+              <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
                 <i class="fas fa-calendar-day text-2xl"></i>
               </div>
               <h3 class="text-xl font-bold mb-3">Flexible</h3>
@@ -460,8 +460,8 @@ app.get('/', (c) => {
               </p>
             </div>
             
-            <div class="feature-card p-8 rounded-2xl">
-              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mb-4 flex items-center justify-center">
+            <div class="feature-card p-8 rounded-2xl text-center">
+              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
                 <i class="fas fa-users text-2xl"></i>
               </div>
               <h3 class="text-xl font-bold mb-3">Multi-Child Discounts</h3>
