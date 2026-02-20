@@ -2181,17 +2181,21 @@ app.get('/studio', (c) =>
         <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Brand work" />
         <h1>IMPOSSIBLE<br/>TO IGNORE</h1>
         <div class="tagline">
-          We don't build brands. We build movements.<br/>
-          And we only work with 6 clients per year.
+          Brand identity. E-commerce systems. Automated fulfillment. 500+ photos.<br/>
+          We build complete ecosystems, not just logos. Only 6 clients per year.
         </div>
         <div class="hero-stats">
           <div class="stat">
+            <span class="stat-number">$0→7-Fig</span>
+            <span class="stat-label">Client Results</span>
+          </div>
+          <div class="stat">
             <span class="stat-number">20+</span>
-            <span class="stat-label">Years Building Brands</span>
+            <span class="stat-label">Years in Business</span>
           </div>
           <div class="stat">
             <span class="stat-number">1M+</span>
-            <span class="stat-label">Images Captured</span>
+            <span class="stat-label">Photos Captured</span>
           </div>
           <div class="stat">
             <span class="stat-number">6</span>
@@ -2256,29 +2260,33 @@ app.get('/studio', (c) =>
           </div>
           <div class="case-content">
             <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="case-logo" />
-            <h2>From $0 to Six Figures in 8 Months</h2>
+            <h2>Fully Automated E-Commerce Empire</h2>
             
             <div class="case-challenge">
               <strong>The Challenge</strong>
-              Wellness startup with zero brand presence. Needed complete visual identity, product photography, and content system to launch and compete.
+              Non-toxic cleaning brand needed everything—brand identity, e-commerce system, product photography, warehouse automation, content strategy. Zero to launch.
             </div>
             
             <div class="case-solution">
-              Built their entire brand from scratch—visual identity, shot all product photography, created 12-month content system. Positioned them to stand out in a crowded market.
+              Built complete e-commerce ecosystem from scratch on Shopify. Automated warehouse systems, integrated fulfillment, shot 500+ product photos, created entire visual identity and 12-month content system. Full stack brand + tech solution.
             </div>
             
             <div class="case-results">
               <div class="result-item">
-                <span class="result-number">$0→6-Fig</span>
-                <span class="result-label">Revenue Growth</span>
+                <span class="result-number">100%</span>
+                <span class="result-label">Automated</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Shopify</span>
+                <span class="result-label">Custom Build</span>
               </div>
               <div class="result-item">
                 <span class="result-number">500+</span>
-                <span class="result-label">Brand Assets</span>
+                <span class="result-label">Product Photos</span>
               </div>
               <div class="result-item">
-                <span class="result-number">8 Mo</span>
-                <span class="result-label">Market Ready</span>
+                <span class="result-number">0→Launch</span>
+                <span class="result-label">Full Stack</span>
               </div>
             </div>
           </div>
@@ -2293,25 +2301,33 @@ app.get('/studio', (c) =>
           </div>
           <div class="case-content">
             <img src="/static/images/clients/lia.png" alt="LIA" class="case-logo" />
-            <h2>Luxury Beauty Brand Identity</h2>
+            <h2>$0 to 7-Figures in Months</h2>
             
             <div class="case-challenge">
               <strong>The Challenge</strong>
-              Celebrity-backed beauty line needed high-end brand positioning and product photography that matched luxury retail standards.
+              Celebrity beauty brand by Jomari Goyso needed luxury positioning, custom e-commerce infrastructure, complete automation, and enterprise-level product photography—all while launching at speed.
             </div>
             
             <div class="case-solution">
-              Created elegant visual identity and shot all product photography. Captured sophistication and quality that resonates with premium beauty consumers.
+              Built fully automated BigCommerce platform from scratch. Complete brand identity, shot 400+ luxury product photos, integrated automated fulfillment systems, created content strategy. Enterprise-level execution at startup speed.
             </div>
             
             <div class="case-results">
               <div class="result-item">
-                <span class="result-number">400+</span>
-                <span class="result-label">Product Photos</span>
+                <span class="result-number">$0→7-Fig</span>
+                <span class="result-label">In Months</span>
               </div>
               <div class="result-item">
-                <span class="result-number">Luxury</span>
-                <span class="result-label">Positioning</span>
+                <span class="result-number">100%</span>
+                <span class="result-label">Automated</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">BigCommerce</span>
+                <span class="result-label">Custom Build</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">400+</span>
+                <span class="result-label">Product Photos</span>
               </div>
             </div>
           </div>
