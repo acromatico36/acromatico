@@ -1967,6 +1967,28 @@ app.get('/studio', (c) =>
         </div>
       </div>
 
+      {/* Clients */}
+      <section class="py-32 px-6" style="background: #0a0a0a; border-top: 1px solid #222;">
+        <div class="max-w-6xl mx-auto text-center">
+          <h2 style="font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: 64px; color: #888;">
+            Trusted by leading brands
+          </h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 48px; align-items: center;">
+            <img src="/static/images/clients/lia.png" alt="LIA by Jomari Goyso" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/republic.png" alt="Republic Commercial Fund" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/midpay.png" alt="MidPay" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/midbank.png" alt="MidBank" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/one-investment.png" alt="One Investment Group" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/travel-drd.png" alt="Travel DRD" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/circulo.png" alt="Círculo" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/medworks.png" alt="MedWorks" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/hollywood-restoration.png" alt="Hollywood Restoration" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+            <img src="/static/images/clients/abc-cleaning.png" alt="ABC Cleaning" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <div class="final-cta">
         <h2>Ready to build something powerful?</h2>
