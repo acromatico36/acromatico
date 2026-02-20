@@ -9,8 +9,7 @@ export const footerHTML = `
       <div>
         <h4 class="font-bold mb-4" style="color: white;">Academy</h4>
         <ul class="space-y-2 text-gray-400 text-sm">
-          <li><a href="/education" class="hover:text-white transition">Meet Your Educators</a></li>
-          <li><a href="/academy" class="hover:text-white transition">Curriculum</a></li>
+          <li><a href="/education" class="hover:text-white transition">Academy</a></li>
           <li><a href="/pricing" class="hover:text-white transition">Pricing</a></li>
           <li><a href="/faq" class="hover:text-white transition">FAQ</a></li>
         </ul>
@@ -18,7 +17,7 @@ export const footerHTML = `
       <div>
         <h4 class="font-bold mb-4" style="color: white;">Services</h4>
         <ul class="space-y-2 text-gray-400 text-sm">
-          <li><a href="/studio" class="hover:text-white transition">Studio</a></li>
+          <li><a href="/studio" class="hover:text-white transition">Brand Building</a></li>
           <li><a href="/prints" class="hover:text-white transition">Art Prints</a></li>
           <li><a href="/photography" class="hover:text-white transition">Photography</a></li>
         </ul>
