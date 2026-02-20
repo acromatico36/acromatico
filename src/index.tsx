@@ -2256,7 +2256,7 @@ app.get('/studio', (c) =>
       <section class="case-hero">
         <div class="case-content-wrap">
           <div class="case-visual">
-            <img src="/static/images/brand-showcase/access-cgi-web.jpg" alt="Access by CGI fintech platform" />
+            <img src="/static/images/brand-showcase/access-cgi-fintech.jpg" alt="Access by CGI fintech platform" />
           </div>
           <div class="case-content">
             <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" class="case-logo" />
@@ -2293,7 +2293,7 @@ app.get('/studio', (c) =>
       <section class="case-hero">
         <div class="case-content-wrap">
           <div class="case-visual">
-            <img src="/static/images/brand-showcase/lia-products.jpg" alt="LIA by Jomari Goyso luxury beauty products" />
+            <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA by Jomari Goyso luxury beauty products" />
           </div>
           <div class="case-content">
             <img src="/static/images/clients/lia.png" alt="LIA" class="case-logo" />
@@ -2334,7 +2334,7 @@ app.get('/studio', (c) =>
       <section class="case-hero">
         <div class="case-content-wrap">
           <div class="case-visual">
-            <img src="/static/images/brand-showcase/ecolosophy-products.jpg" alt="Ecolosophy non-toxic cleaning products" />
+            <img src="/static/images/brand-showcase/ecolosophy-homepage.jpg" alt="Ecolosophy non-toxic cleaning products" />
           </div>
           <div class="case-content">
             <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="case-logo" />
@@ -2375,7 +2375,7 @@ app.get('/studio', (c) =>
       <section class="case-hero">
         <div class="case-content-wrap">
           <div class="case-visual">
-            <img src="/static/images/brand-showcase/republic.jpg" alt="Republic Commercial Fund real estate investment" />
+            <img src="/static/images/brand-showcase/republic-realestate.jpg" alt="Republic Commercial Fund real estate investment" />
           </div>
           <div class="case-content">
             <img src="/static/images/clients/republic.png" alt="Republic" class="case-logo" />
