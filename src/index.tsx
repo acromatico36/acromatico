@@ -401,7 +401,7 @@ app.get('/education', (c) => {
             {/* Enhanced Adventure Photo */}
             <div class="mb-12">
               <img 
-                src="/static/images/educators-team-enhanced.jpg" 
+                src="/static/images/educators-team-real.jpg" 
                 alt="Italo & Ale at Torres del Paine, Chile" 
                 class="w-full rounded-3xl shadow-2xl"
               />
@@ -418,9 +418,6 @@ app.get('/education', (c) => {
               <p class="text-2xl text-white leading-relaxed max-w-2xl mx-auto">
                 We teach kids to see the world differently—with a camera in hand and confidence in their vision.
               </p>
-              <p class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto mt-6">
-                20+ years • 500+ weddings • 30k-person events • Now teaching the next generation
-              </p>
             </div>
             
             {/* Credentials - Clean & Simple */}
@@ -430,24 +427,24 @@ app.get('/education', (c) => {
                 <div class="text-sm text-gray-500 uppercase tracking-wider">Years Pro</div>
               </div>
               <div>
-                <div class="text-4xl font-light mb-2">30k</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Event Experience</div>
+                <div class="text-4xl font-light mb-2">1,000+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Events Shot</div>
               </div>
               <div>
                 <div class="text-4xl font-light mb-2">3</div>
                 <div class="text-sm text-gray-500 uppercase tracking-wider">Countries</div>
               </div>
               <div>
-                <div class="text-4xl font-light mb-2">2</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Kids of Our Own</div>
+                <div class="text-4xl font-light mb-2">1M+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Images Taken</div>
               </div>
             </div>
           </div>
           
           {/* Philosophy Cards */}
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="feature-card p-8 rounded-2xl">
-              <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-500 rounded-xl mb-4 flex items-center justify-center">
+            <div class="feature-card p-8 rounded-2xl text-center">
+              <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
                 <i class="fas fa-camera text-2xl"></i>
               </div>
               <h3 class="text-xl font-bold mb-3">Creator-First</h3>
@@ -456,8 +453,8 @@ app.get('/education', (c) => {
               </p>
             </div>
             
-            <div class="feature-card p-8 rounded-2xl">
-              <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-4 flex items-center justify-center">
+            <div class="feature-card p-8 rounded-2xl text-center">
+              <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
                 <i class="fas fa-calendar-day text-2xl"></i>
               </div>
               <h3 class="text-xl font-bold mb-3">Flexible</h3>
@@ -466,8 +463,8 @@ app.get('/education', (c) => {
               </p>
             </div>
             
-            <div class="feature-card p-8 rounded-2xl">
-              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mb-4 flex items-center justify-center">
+            <div class="feature-card p-8 rounded-2xl text-center">
+              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
                 <i class="fas fa-users text-2xl"></i>
               </div>
               <h3 class="text-xl font-bold mb-3">Multi-Child Discounts</h3>
