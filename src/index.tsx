@@ -1769,48 +1769,229 @@ app.get('/studio', (c) =>
     <div class="min-h-screen bg-white text-black">
       <Header />
 
-      {/* Hero - Full Width Image with Text Overlay */}
-      <section class="relative h-screen">
+      <style>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+          -webkit-font-smoothing: antialiased;
+          overflow-x: hidden;
+        }
+        
+        .hero-section {
+          height: 100vh;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #000;
+        }
+        
+        .hero-image {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.85;
+        }
+        
+        .hero-content {
+          position: relative;
+          z-index: 10;
+          text-align: center;
+          padding: 0 24px;
+          max-width: 1000px;
+        }
+        
+        .hero-title {
+          font-size: clamp(48px, 8vw, 96px);
+          font-weight: 200;
+          letter-spacing: -0.04em;
+          color: white;
+          margin-bottom: 24px;
+          line-height: 1.05;
+        }
+        
+        .hero-subtitle {
+          font-size: clamp(18px, 2vw, 24px);
+          font-weight: 300;
+          color: rgba(255,255,255,0.9);
+          letter-spacing: 0.01em;
+        }
+        
+        .section-padding {
+          padding: 160px 24px;
+        }
+        
+        .max-width {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 80px;
+        }
+        
+        .service-item h3 {
+          font-size: 32px;
+          font-weight: 300;
+          letter-spacing: -0.02em;
+          margin-bottom: 16px;
+          color: #000;
+        }
+        
+        .service-item p {
+          font-size: 18px;
+          line-height: 1.6;
+          color: #666;
+          font-weight: 300;
+        }
+        
+        .work-section {
+          position: relative;
+          height: 100vh;
+          overflow: hidden;
+        }
+        
+        .work-image {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        
+        .work-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+          padding: 80px 48px;
+        }
+        
+        .work-content {
+          max-width: 800px;
+        }
+        
+        .work-title {
+          font-size: clamp(36px, 5vw, 56px);
+          font-weight: 300;
+          color: white;
+          margin-bottom: 12px;
+          letter-spacing: -0.02em;
+        }
+        
+        .work-subtitle {
+          font-size: 20px;
+          color: rgba(255,255,255,0.9);
+          margin-bottom: 8px;
+          font-weight: 300;
+        }
+        
+        .work-description {
+          font-size: 16px;
+          color: rgba(255,255,255,0.7);
+          line-height: 1.6;
+          font-weight: 300;
+        }
+        
+        .cta-section {
+          padding: 200px 24px;
+          text-align: center;
+          background: #000;
+        }
+        
+        .cta-title {
+          font-size: clamp(40px, 6vw, 72px);
+          font-weight: 200;
+          letter-spacing: -0.03em;
+          color: white;
+          margin-bottom: 48px;
+          line-height: 1.1;
+        }
+        
+        .cta-button {
+          display: inline-block;
+          padding: 20px 60px;
+          background: white;
+          color: black;
+          font-size: 18px;
+          font-weight: 400;
+          border-radius: 40px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+          transform: scale(1.05);
+          box-shadow: 0 20px 60px rgba(255,255,255,0.3);
+        }
+        
+        @media (max-width: 768px) {
+          .section-padding {
+            padding: 80px 24px;
+          }
+          
+          .services-grid {
+            gap: 60px;
+          }
+          
+          .work-overlay {
+            padding: 40px 24px;
+          }
+          
+          .cta-section {
+            padding: 120px 24px;
+          }
+        }
+      `}</style>
+
+      {/* Hero */}
+      <section class="hero-section">
         <img 
           src="/static/images/hero-brand-epic.jpg" 
           alt="Brand Building"
-          class="absolute inset-0 w-full h-full object-cover"
-          style="object-position: 50% 40%;"
+          class="hero-image"
         />
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
-          <div>
-            <h1 class="text-6xl md:text-8xl font-light text-white mb-6" style="letter-spacing: -0.04em;">
-              Build brands<br/>people remember
-            </h1>
-            <p class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-light">
-              Strategy. Identity. Content.
-            </p>
-          </div>
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Build brands<br/>people remember
+          </h1>
+          <p class="hero-subtitle">
+            Strategy. Identity. Content.
+          </p>
         </div>
       </section>
 
-      {/* What We Do - Minimal */}
-      <section class="py-40 px-6">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid md:grid-cols-3 gap-20">
-            <div>
-              <h3 class="text-3xl font-light mb-6" style="letter-spacing: -0.02em;">Strategy</h3>
-              <p class="text-lg text-gray-600 leading-relaxed font-light">
+      {/* Services */}
+      <section class="section-padding">
+        <div class="max-width">
+          <div class="services-grid">
+            <div class="service-item">
+              <h3>Strategy</h3>
+              <p>
                 We help you see what makes you different—and own it.
               </p>
             </div>
             
-            <div>
-              <h3 class="text-3xl font-light mb-6" style="letter-spacing: -0.02em;">Identity</h3>
-              <p class="text-lg text-gray-600 leading-relaxed font-light">
+            <div class="service-item">
+              <h3>Identity</h3>
+              <p>
                 Visual systems that tell your story without saying a word.
               </p>
             </div>
             
-            <div>
-              <h3 class="text-3xl font-light mb-6" style="letter-spacing: -0.02em;">Content</h3>
-              <p class="text-lg text-gray-600 leading-relaxed font-light">
+            <div class="service-item">
+              <h3>Content</h3>
+              <p>
                 Photography and video that captures what you're really about.
               </p>
             </div>
@@ -1818,63 +1999,50 @@ app.get('/studio', (c) =>
         </div>
       </section>
 
-      {/* Featured Work - Full Width Image */}
-      <section>
-        <div class="relative h-screen">
-          <img 
-            src="/static/images/brand-seaside-boca-shoot.jpg" 
-            alt="Seaside Boca Brand Shoot"
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-12 md:p-20">
-            <div class="max-w-4xl">
-              <h3 class="text-4xl md:text-5xl font-light text-white mb-4">Ecolosophy</h3>
-              <p class="text-xl text-white/90 font-light mb-2">
-                Non-toxic cleaning revolution
-              </p>
-              <p class="text-lg text-white/70 font-light max-w-2xl">
-                Complete brand identity, product photography, and storytelling for a mission-driven wellness company
-              </p>
-            </div>
+      {/* Work: Ecolosophy */}
+      <section class="work-section">
+        <img 
+          src="/static/images/brand-seaside-boca-shoot.jpg" 
+          alt="Ecolosophy Brand"
+          class="work-image"
+        />
+        <div class="work-overlay">
+          <div class="work-content">
+            <h2 class="work-title">Ecolosophy</h2>
+            <p class="work-subtitle">Non-toxic cleaning revolution</p>
+            <p class="work-description">
+              Complete brand identity, product photography, and storytelling for a mission-driven wellness company
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Wedding Photography Example */}
-      <section>
-        <div class="relative h-screen">
-          <img 
-            src="/static/images/hero-photography-wedding.jpg" 
-            alt="Wedding Photography"
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-12 md:p-20">
-            <div class="max-w-4xl">
-              <h3 class="text-4xl md:text-5xl font-light text-white mb-4">Moments That Matter</h3>
-              <p class="text-xl text-white/90 font-light mb-2">
-                Wedding photography & storytelling
-              </p>
-              <p class="text-lg text-white/70 font-light max-w-2xl">
-                Authentic moments captured with intention—not poses, just people being real
-              </p>
-            </div>
+      {/* Work: Wedding */}
+      <section class="work-section">
+        <img 
+          src="/static/images/hero-photography-wedding.jpg" 
+          alt="Wedding Photography"
+          class="work-image"
+        />
+        <div class="work-overlay">
+          <div class="work-content">
+            <h2 class="work-title">Moments That Matter</h2>
+            <p class="work-subtitle">Wedding photography & storytelling</p>
+            <p class="work-description">
+              Authentic moments captured with intention—not poses, just people being real
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Simple CTA */}
-      <section class="py-40 px-6 text-center">
-        <div class="max-w-3xl mx-auto">
-          <h2 class="text-5xl md:text-6xl font-light mb-12" style="letter-spacing: -0.03em;">
-            Let's create<br/>something real
-          </h2>
-          <a 
-            href="/contact" 
-            class="inline-block bg-black text-white px-16 py-6 text-xl font-light hover:bg-gray-800 transition rounded-full"
-          >
-            Start a conversation
-          </a>
-        </div>
+      {/* CTA */}
+      <section class="cta-section">
+        <h2 class="cta-title">
+          Let's create<br/>something real
+        </h2>
+        <a href="/contact" class="cta-button">
+          Start a conversation
+        </a>
       </section>
 
       <div dangerouslySetInnerHTML={{__html: footerHTML}} />
