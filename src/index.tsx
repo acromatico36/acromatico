@@ -2252,37 +2252,115 @@ app.get('/studio', (c) =>
         </div>
       </section>
 
-      {/* ECOLOSOPHY CASE STUDY */}
+      {/* ACCESS BY CGI CASE STUDY */}
       <section class="case-hero">
         <div class="case-content-wrap">
           <div class="case-visual">
-            <img src="/static/images/brand-previews/ecolosophy-preview.jpg" alt="Ecolosophy brand transformation" />
+            <img src="/static/images/brand-showcase/access-cgi-web.jpg" alt="Access by CGI fintech platform" />
           </div>
           <div class="case-content">
-            <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="case-logo" />
-            <h2>Fully Automated E-Commerce Empire</h2>
+            <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" class="case-logo" />
+            <h2>Enterprise Fintech Brand That Commands Trust</h2>
             
             <div class="case-challenge">
               <strong>The Challenge</strong>
-              Non-toxic cleaning brand needed everything—brand identity, e-commerce system, product photography, warehouse automation, content strategy. Zero to launch.
+              Financial services technology company needed a brand that communicated both cutting-edge innovation and enterprise-level security. Had to appeal to Fortune 500 clients while standing out in crowded fintech space.
             </div>
             
             <div class="case-solution">
-              Built complete e-commerce ecosystem from scratch on Shopify. Automated warehouse systems, integrated fulfillment, shot 500+ product photos, created entire visual identity and 12-month content system. Full stack brand + tech solution.
+              Created clean, authoritative visual identity system. Shot custom brand photography showing real team and technology. Built visual language that speaks credibility to C-suite decision makers. Designed brand guidelines for consistent execution across all touchpoints.
             </div>
             
             <div class="case-results">
               <div class="result-item">
-                <span class="result-number">100%</span>
-                <span class="result-label">Automated</span>
+                <span class="result-number">Enterprise</span>
+                <span class="result-label">Positioning</span>
               </div>
               <div class="result-item">
+                <span class="result-number">Fortune 500</span>
+                <span class="result-label">Client Trust</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Complete</span>
+                <span class="result-label">Brand System</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LIA BY JOMARI GOYSO CASE STUDY */}
+      <section class="case-hero">
+        <div class="case-content-wrap">
+          <div class="case-visual">
+            <img src="/static/images/brand-showcase/lia-products.jpg" alt="LIA by Jomari Goyso luxury beauty products" />
+          </div>
+          <div class="case-content">
+            <img src="/static/images/clients/lia.png" alt="LIA" class="case-logo" />
+            <h2>$0 to 7-Figures in Months</h2>
+            
+            <div class="case-challenge">
+              <strong>The Challenge</strong>
+              Celebrity beauty brand by Jomari Goyso launching luxury hair care and skincare line. Needed complete e-commerce infrastructure, automated fulfillment, enterprise-level product photography, and brand positioning that justified premium pricing—all at startup speed.
+            </div>
+            
+            <div class="case-solution">
+              Built fully automated BigCommerce platform from ground zero. Designed complete brand identity with luxury aesthetic. Shot 400+ professional product photos with gold/rose premium positioning. Integrated automated warehouse and fulfillment systems. Created content strategy and brand guidelines for consistent luxury execution.
+            </div>
+            
+            <div class="case-results">
+              <div class="result-item">
+                <span class="result-number">$0→7-Fig</span>
+                <span class="result-label">In Months</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">BigCommerce</span>
+                <span class="result-label">Full Automation</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">400+</span>
+                <span class="result-label">Product Photos</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Luxury</span>
+                <span class="result-label">Positioning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ECOLOSOPHY CASE STUDY */}
+      <section class="case-hero">
+        <div class="case-content-wrap">
+          <div class="case-visual">
+            <img src="/static/images/brand-showcase/ecolosophy-products.jpg" alt="Ecolosophy non-toxic cleaning products" />
+          </div>
+          <div class="case-content">
+            <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="case-logo" />
+            <h2>Complete E-Commerce Ecosystem from Zero</h2>
+            
+            <div class="case-challenge">
+              <strong>The Challenge</strong>
+              Non-toxic cleaning brand entering crowded market. Needed everything built from scratch—brand identity, custom Shopify e-commerce platform, automated warehouse integration, 500+ product photos, and complete content marketing system. Zero to market-ready.
+            </div>
+            
+            <div class="case-solution">
+              Built entire e-commerce empire on Shopify. Designed brand identity with beach/wellness aesthetic. Integrated automated warehouse and Shipmonk fulfillment systems. Shot 500+ product and lifestyle photos. Created 12-month content calendar and brand guidelines. Full-stack solution: brand + technology + content.
+            </div>
+            
+            <div class="case-results">
+              <div class="result-item">
                 <span class="result-number">Shopify</span>
-                <span class="result-label">Custom Build</span>
+                <span class="result-label">Full Automation</span>
               </div>
               <div class="result-item">
                 <span class="result-number">500+</span>
-                <span class="result-label">Product Photos</span>
+                <span class="result-label">Photos Shot</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Warehouse</span>
+                <span class="result-label">Integration</span>
               </div>
               <div class="result-item">
                 <span class="result-number">0→Launch</span>
@@ -2293,78 +2371,37 @@ app.get('/studio', (c) =>
         </div>
       </section>
 
-      {/* LIA CASE STUDY */}
+      {/* REPUBLIC COMMERCIAL FUND CASE STUDY */}
       <section class="case-hero">
         <div class="case-content-wrap">
           <div class="case-visual">
-            <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="LIA by Jomari Goyso" />
+            <img src="/static/images/brand-showcase/republic.jpg" alt="Republic Commercial Fund real estate investment" />
           </div>
           <div class="case-content">
-            <img src="/static/images/clients/lia.png" alt="LIA" class="case-logo" />
-            <h2>$0 to 7-Figures in Months</h2>
+            <img src="/static/images/clients/republic.png" alt="Republic" class="case-logo" />
+            <h2>Authority Brand for Commercial Real Estate</h2>
             
             <div class="case-challenge">
               <strong>The Challenge</strong>
-              Celebrity beauty brand by Jomari Goyso needed luxury positioning, custom e-commerce infrastructure, complete automation, and enterprise-level product photography—all while launching at speed.
+              Commercial real estate investment fund needed brand identity that commanded trust with high-net-worth investors and institutional partners. Had to convey strength, stability, and sophisticated market knowledge in highly competitive space.
             </div>
             
             <div class="case-solution">
-              Built fully automated BigCommerce platform from scratch. Complete brand identity, shot 400+ luxury product photos, integrated automated fulfillment systems, created content strategy. Enterprise-level execution at startup speed.
+              Created bold, authoritative visual identity with eagle symbolism. Shot professional brand photography showcasing leadership team and properties. Developed visual system that works across investor decks, marketing materials, and digital presence. Built brand that speaks confidence to serious money.
             </div>
             
             <div class="case-results">
               <div class="result-item">
-                <span class="result-number">$0→7-Fig</span>
-                <span class="result-label">In Months</span>
+                <span class="result-number">HNW</span>
+                <span class="result-label">Investor Trust</span>
               </div>
               <div class="result-item">
-                <span class="result-number">100%</span>
-                <span class="result-label">Automated</span>
+                <span class="result-number">Authority</span>
+                <span class="result-label">Positioning</span>
               </div>
               <div class="result-item">
-                <span class="result-number">BigCommerce</span>
-                <span class="result-label">Custom Build</span>
-              </div>
-              <div class="result-item">
-                <span class="result-number">400+</span>
-                <span class="result-label">Product Photos</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FINTECH CASE STUDY */}
-      <section class="case-hero">
-        <div class="case-content-wrap">
-          <div class="case-visual">
-            <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Fintech brands" />
-          </div>
-          <div class="case-content">
-            <div style="display: flex; gap: 30px; margin-bottom: 40px;">
-              <img src="/static/images/clients/midpay.png" alt="MidPay" class="case-logo" style="width: 100px; margin: 0;" />
-              <img src="/static/images/clients/midbank.png" alt="MidBank" class="case-logo" style="width: 100px; margin: 0;" />
-              <img src="/static/images/clients/access-cgi.png" alt="Access" class="case-logo" style="width: 100px; margin: 0;" />
-            </div>
-            <h2>Fintech Trust & Innovation</h2>
-            
-            <div class="case-challenge">
-              <strong>The Challenge</strong>
-              Financial services companies needed modern, trustworthy brand identities that communicate innovation without sacrificing credibility.
-            </div>
-            
-            <div class="case-solution">
-              Created clean, tech-forward visual systems with dynamic brand photography. Built visual languages that speak to both enterprise clients and modern consumers.
-            </div>
-            
-            <div class="case-results">
-              <div class="result-item">
-                <span class="result-number">3</span>
-                <span class="result-label">Fintech Brands</span>
-              </div>
-              <div class="result-item">
-                <span class="result-number">Enterprise</span>
-                <span class="result-label">Level Trust</span>
+                <span class="result-number">Complete</span>
+                <span class="result-label">Brand System</span>
               </div>
             </div>
           </div>
@@ -2375,7 +2412,8 @@ app.get('/studio', (c) =>
       <section class="social-proof">
         <h3>Also Trusted By</h3>
         <div class="client-logos-minimal">
-          <img src="/static/images/clients/republic.png" alt="Republic" />
+          <img src="/static/images/clients/midpay.png" alt="MidPay" />
+          <img src="/static/images/clients/midbank.png" alt="MidBank" />
           <img src="/static/images/clients/one-investment.png" alt="One Investment" />
           <img src="/static/images/clients/travel-drd.png" alt="Travel DRD" />
           <img src="/static/images/clients/circulo.png" alt="Círculo" />
