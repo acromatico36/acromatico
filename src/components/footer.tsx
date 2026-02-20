@@ -9,6 +9,7 @@ export const footerHTML = `
       <div>
         <h4 class="font-bold mb-4" style="color: white;">Academy</h4>
         <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="/education" class="hover:text-white transition">Meet Your Educators</a></li>
           <li><a href="/academy" class="hover:text-white transition">Curriculum</a></li>
           <li><a href="/pricing" class="hover:text-white transition">Pricing</a></li>
           <li><a href="/faq" class="hover:text-white transition">FAQ</a></li>
