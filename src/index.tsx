@@ -285,85 +285,813 @@ app.get('/', (c) => {
 })
 
 // EDUCATION LANDING PAGE - Educators Profile
-app.get('/education', (c) => 
-  c.render(
-    <div class="min-h-screen bg-white text-black">
+app.get('/education', (c) => {
+  return c.render(
+    <div class="min-h-screen bg-black text-white">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        html {
+          scroll-behavior: smooth;
+        }
+        
+        video {
+          filter: brightness(0.8) saturate(1.1);
+        }
+        
+        .video-zoom {
+          transform: scale(1.2);
+          object-fit: cover;
+        }
+        
+        .glass-nav {
+          background: rgba(10, 10, 10, 0.8);
+          backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-primary {
+          background: #4794A6;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 20px rgba(71, 148, 166, 0.3);
+        }
+        
+        .btn-primary:hover {
+          background: #5aa5b8;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(71, 148, 166, 0.5);
+        }
+        
+        .feature-card {
+          background: rgba(20, 20, 30, 0.3);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+          transform: translateY(-5px);
+          border-color: rgba(71, 148, 166, 0.5);
+          box-shadow: 0 10px 40px rgba(71, 148, 166, 0.2);
+        }
+        
+        .stat-number {
+          background: linear-gradient(135deg, #4794A6 0%, #ED70C4 50%, #AF40F6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+      `}</style>
+
+      {/* Navigation */}
       <Header />
 
-      {/* Hero - Patagonia Photo Full Bleed */}
-      <section class="relative h-screen">
-        <img 
-          src="/static/images/educators-team-real.jpg" 
-          alt="Italo & Ale" 
-          class="w-full h-full object-cover"
-          style="object-position: 25% 25%;"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      {/* Hero Section - Apple-Style Full-Screen Impact */}
+      <section class="relative h-screen flex items-start justify-end overflow-hidden">
+        {/* Hero Image - Freedom on High Hill */}
+        <div class="absolute inset-0">
+          <img 
+            src="/static/images/hero-freedom-hill.jpg" 
+            alt="Young photographer on hilltop" 
+            class="w-full h-full object-cover"
+            style="filter: brightness(0.9) saturate(1.3);"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
+        </div>
         
-        <div class="absolute bottom-20 left-0 right-0 text-center text-white px-6">
-          <h1 class="text-6xl md:text-8xl font-light mb-4" style="letter-spacing: -0.03em;">
-            Acromatico
+        {/* Text Positioned in Upper Right - Clear Sky Area */}
+        <div class="relative z-20 max-w-2xl mr-8 md:mr-24 mt-32 md:mt-40 px-6 text-left">
+          {/* Apple-Style Typography */}
+          <h1 class="text-7xl md:text-8xl font-semibold tracking-tight mb-6" style="letter-spacing: -0.05em; line-height: 0.95;">
+            See<br/>differently.
           </h1>
-          <p class="text-2xl md:text-3xl font-light opacity-90">
-            Photography education for young creators
+          
+          <p class="text-2xl md:text-3xl font-light mb-12 text-white/90" style="letter-spacing: -0.02em;">
+            Photography for young<br/>creators 7–14.
           </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/checkout" class="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/90 transition inline-block text-center">
+              Start learning
+            </a>
+            <a href="#curriculum" class="border-2 border-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition inline-block text-center">
+              Explore curriculum
+            </a>
+          </div>
+        </div>
+        
+        {/* Scroll Indicator */}
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+          <svg class="w-6 h-10 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
         </div>
       </section>
 
-      {/* Mission */}
-      <section class="py-32 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-5xl md:text-7xl font-light mb-12" style="letter-spacing: -0.02em;">
-            We're Italo & Ale
+      {/* Meet Your Educators Section - Unified Team Profile */}
+      <section class="py-32 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          
+          {/* Single Unified Profile */}
+          <div class="max-w-4xl mx-auto mb-20">
+            {/* Enhanced Adventure Photo */}
+            <div class="mb-12">
+              <img 
+                src="/static/images/educators-team-real.jpg" 
+                alt="Italo & Ale at Torres del Paine, Chile" 
+                class="w-full rounded-3xl shadow-2xl"
+              />
+            </div>
+            
+            {/* Mission-Driven Story */}
+            <div class="text-center mb-12">
+              <h2 class="text-5xl md:text-6xl font-black mb-6">
+                We're Italo & Ale
+              </h2>
+              <p class="text-2xl text-white/90 font-light mb-8">
+                Parents. Photographers. Adventurers.
+              </p>
+              <p class="text-2xl text-white leading-relaxed max-w-2xl mx-auto">
+                We teach kids to see the world differently—with a camera in hand and confidence in their vision.
+              </p>
+            </div>
+            
+            {/* Credentials - Clean & Simple */}
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div class="text-4xl font-light mb-2">20+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Years Pro</div>
+              </div>
+              <div>
+                <div class="text-4xl font-light mb-2">1,000+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Events Shot</div>
+              </div>
+              <div>
+                <div class="text-4xl font-light mb-2">3</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Countries</div>
+              </div>
+              <div>
+                <div class="text-4xl font-light mb-2">1M+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Images Taken</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Philosophy Cards */}
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="feature-card p-8 rounded-2xl text-center">
+              <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
+                <i class="fas fa-camera text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Creator-First</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Every lesson focuses on hands-on creation, not theory. Learn by doing.
+              </p>
+            </div>
+            
+            <div class="feature-card p-8 rounded-2xl text-center">
+              <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
+                <i class="fas fa-calendar-day text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Flexible</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Daily proration. No contracts. Pay only for what you use.
+              </p>
+            </div>
+            
+            <div class="feature-card p-8 rounded-2xl text-center">
+              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
+                <i class="fas fa-users text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Multi-Child Discounts</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                4+ students at just $9.88 per class (each).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Curriculum Preview - 12-Month Journey with Video Background */}
+      <section id="curriculum" class="py-32 bg-black relative overflow-hidden">
+        {/* YouTube Video Background */}
+        <iframe 
+          src="https://www.youtube.com/embed/ekPhZnuaR0E?autoplay=1&mute=1&loop=1&playlist=ekPhZnuaR0E&controls=0&showinfo=0&modestbranding=1&playsinline=1&enablejsapi=1&rel=0&vq=hd1080"
+          class="absolute inset-0 w-full h-full pointer-events-none"
+          style="transform: scale(1.3); filter: brightness(1.1) saturate(1.2);"
+          allow="autoplay; encrypted-media"
+          frameborder="0"
+        ></iframe>
+        
+        {/* Light Overlay for text readability */}
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+        
+        {/* Subtle Gradient Overlay */}
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 z-10"></div>
+        
+        <div class="relative z-20 max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-20">
+            <h2 class="text-5xl md:text-6xl font-black mb-6">
+              12-Month Journey
+            </h2>
+            <p class="text-xl text-gray-400">
+              From finding your eye to storytelling through the lens
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-teal-500 font-bold mb-2">JANUARY</div>
+              <h4 class="text-xl font-bold mb-3">Finding Your Eye</h4>
+              <p class="text-gray-400 text-sm">Master composition, rule of thirds, leading lines</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-blue-500 font-bold mb-2">FEBRUARY</div>
+              <h4 class="text-xl font-bold mb-3">Light & Shadow</h4>
+              <p class="text-gray-400 text-sm">Understanding natural light, golden hour, exposure</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-purple-500 font-bold mb-2">MARCH</div>
+              <h4 class="text-xl font-bold mb-3">Manual Mode Mastery</h4>
+              <p class="text-gray-400 text-sm">Exposure triangle: aperture, shutter speed, ISO control</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-teal-500 font-bold mb-2">APRIL</div>
+              <h4 class="text-xl font-bold mb-3">Portrait Photography</h4>
+              <p class="text-gray-400 text-sm">Capturing emotion, connection, and personality</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-blue-500 font-bold mb-2">MAY</div>
+              <h4 class="text-xl font-bold mb-3">Street Photography</h4>
+              <p class="text-gray-400 text-sm">Candid moments, urban composition, storytelling</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-purple-500 font-bold mb-2">JUNE</div>
+              <h4 class="text-xl font-bold mb-3">Photo Essay Project</h4>
+              <p class="text-gray-400 text-sm">Complete your first photo essay—10-15 curated images that tell a story</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-teal-500 font-bold mb-2">SEPTEMBER</div>
+              <h4 class="text-xl font-bold mb-3">Advanced Composition</h4>
+              <p class="text-gray-400 text-sm">Breaking rules, creative framing, visual poetry</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-blue-500 font-bold mb-2">OCTOBER</div>
+              <h4 class="text-xl font-bold mb-3">Photo Editing Mastery</h4>
+              <p class="text-gray-400 text-sm">Lightroom basics, turning good photos into great ones</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-purple-500 font-bold mb-2">NOVEMBER</div>
+              <h4 class="text-xl font-bold mb-3">Portfolio Building</h4>
+              <p class="text-gray-400 text-sm">Curating work, presenting your unique vision</p>
+            </div>
+            <div class="feature-card p-8 rounded-2xl">
+              <div class="text-teal-500 font-bold mb-2">DECEMBER</div>
+              <h4 class="text-xl font-bold mb-3">Year-End Showcase</h4>
+              <p class="text-gray-400 text-sm">Present your best work to family and community</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Starfield */}
+      <section class="py-32 relative overflow-hidden">
+        {/* Animated Starfield Background */}
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-900">
+          <div class="stars-small"></div>
+          <div class="stars-medium"></div>
+          <div class="stars-large"></div>
+        </div>
+        
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+          }
+          
+          .stars-small, .stars-medium, .stars-large {
+            position: absolute;
+            inset: 0;
+          }
+          
+          .stars-small::before,
+          .stars-medium::before,
+          .stars-large::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: 200px 200px;
+            animation: twinkle 3s infinite;
+          }
+          
+          .stars-small::before {
+            background-image: 
+              radial-gradient(1px 1px at 20px 30px, rgba(20,184,166,0.8), transparent),
+              radial-gradient(1px 1px at 60px 70px, rgba(59,130,246,0.8), transparent),
+              radial-gradient(1px 1px at 140px 120px, rgba(147,51,234,0.8), transparent),
+              radial-gradient(1px 1px at 180px 50px, rgba(20,184,166,0.6), transparent),
+              radial-gradient(1px 1px at 90px 160px, rgba(59,130,246,0.6), transparent),
+              radial-gradient(1px 1px at 30px 180px, rgba(147,51,234,0.6), transparent),
+              radial-gradient(1px 1px at 150px 10px, rgba(20,184,166,0.7), transparent),
+              radial-gradient(1px 1px at 110px 90px, rgba(59,130,246,0.7), transparent);
+            animation-duration: 2s;
+          }
+          
+          .stars-medium::before {
+            background-image: 
+              radial-gradient(2px 2px at 40px 60px, rgba(20,184,166,0.9), transparent),
+              radial-gradient(2px 2px at 120px 140px, rgba(59,130,246,0.9), transparent),
+              radial-gradient(2px 2px at 180px 100px, rgba(147,51,234,0.9), transparent),
+              radial-gradient(2px 2px at 80px 30px, rgba(20,184,166,0.7), transparent),
+              radial-gradient(2px 2px at 160px 180px, rgba(59,130,246,0.7), transparent);
+            animation-duration: 4s;
+            animation-delay: 0.5s;
+          }
+          
+          .stars-large::before {
+            background-image: 
+              radial-gradient(3px 3px at 100px 120px, rgba(20,184,166,1), transparent),
+              radial-gradient(3px 3px at 50px 150px, rgba(59,130,246,1), transparent),
+              radial-gradient(3px 3px at 170px 80px, rgba(147,51,234,1), transparent);
+            animation-duration: 5s;
+            animation-delay: 1s;
+          }
+        `}} />
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 class="text-5xl md:text-6xl font-black mb-8">
+            Ready to Create?
           </h2>
-          <p class="text-2xl md:text-3xl font-light text-gray-700 leading-relaxed mb-16">
-            Parents. Photographers. Adventurers.
+          <p class="text-2xl mb-12 opacity-90">
+            Learn from educators with 20+ years of professional experience
           </p>
-          <p class="text-xl md:text-2xl font-light text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            We teach kids to see the world differently—with a camera in hand and confidence in their vision.
-          </p>
-        </div>
-      </section>
-
-      {/* Stats - Minimalist */}
-      <section class="py-20 px-6 bg-gray-50">
-        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-          <div>
-            <div class="text-5xl font-light mb-2">20+</div>
-            <div class="text-sm text-gray-500 uppercase tracking-widest">Years</div>
-          </div>
-          <div>
-            <div class="text-5xl font-light mb-2">1,000+</div>
-            <div class="text-sm text-gray-500 uppercase tracking-widest">Events</div>
-          </div>
-          <div>
-            <div class="text-5xl font-light mb-2">3</div>
-            <div class="text-sm text-gray-500 uppercase tracking-widest">Countries</div>
-          </div>
-          <div>
-            <div class="text-5xl font-light mb-2">1M+</div>
-            <div class="text-sm text-gray-500 uppercase tracking-widest">Images</div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section class="py-32 px-6">
-        <div class="max-w-2xl mx-auto text-center">
-          <a 
-            href="/pricing" 
-            class="inline-block bg-black text-white px-12 py-5 text-xl font-light hover:bg-gray-800 transition"
-          >
-            Start learning
+          <a href="/checkout" class="btn-primary px-12 py-6 rounded-full text-xl font-bold text-white inline-block shadow-2xl">
+            Enroll Now
           </a>
         </div>
       </section>
 
-      {footerHTML}
+      {/* Footer */}
+      <footer class="bg-black border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+            <div>
+              <h4 class="font-bold mb-4">Academy</h4>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li><a href="/academy" class="hover:text-white transition">Curriculum</a></li>
+                <li><a href="/pricing" class="hover:text-white transition">Pricing</a></li>
+                <li><a href="/faq" class="hover:text-white transition">FAQ</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold mb-4">Services</h4>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li><a href="/studio" class="hover:text-white transition">Studio</a></li>
+                <li><a href="/prints" class="hover:text-white transition">Art Prints</a></li>
+                <li><a href="/photography" class="hover:text-white transition">Photography</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold mb-4">Company</h4>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li><a href="/about" class="hover:text-white transition">About</a></li>
+                <li><a href="/blog" class="hover:text-white transition">Blog</a></li>
+                <li><a href="/contact" class="hover:text-white transition">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold mb-4">Legal</h4>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li><a href="/privacy" class="hover:text-white transition">Privacy</a></li>
+                <li><a href="/terms" class="hover:text-white transition">Terms</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="pt-8 border-t border-white/10 text-center text-gray-400 text-sm">
+            <p>&copy; 2026 Acromatico. Built for creators, by creators.</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* TYPEFORM-STYLE ENROLLMENT MODAL */}
+      <div id="enrollment-modal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
+        <div class="max-w-2xl w-full">
+          {/* Progress Bar */}
+          <div class="mb-8">
+            <div class="flex justify-between mb-2 text-sm text-gray-400">
+              <span id="step-label">Step 1 of 3</span>
+              <span id="step-percentage">33%</span>
+            </div>
+            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+              <div id="progress-bar" class="h-full bg-gradient-to-r from-teal-500 to-blue-500 transition-all duration-500" style="width: 33%"></div>
+            </div>
+          </div>
+
+          {/* STEP 1: Create Account */}
+          <div id="step-1" class="step-content">
+            <h2 class="text-5xl font-black mb-4">Create Your Free Account</h2>
+            <p class="text-xl text-gray-400 mb-8">Get started in seconds - no credit card required</p>
+            <div class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium mb-2">Parent Email</label>
+                <input 
+                  type="email" 
+                  id="parent-email" 
+                  placeholder="your@email.com"
+                  class="w-full px-6 py-4 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-teal-500 focus:outline-none text-lg"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Create Password</label>
+                <input 
+                  type="password" 
+                  id="parent-password" 
+                  placeholder="Min 8 characters"
+                  class="w-full px-6 py-4 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-teal-500 focus:outline-none text-lg"
+                />
+                <p class="text-xs text-gray-500 mt-2">
+                  Minimum 8 characters (letters, numbers, or symbols)
+                </p>
+              </div>
+              <button onclick="goToStep(2)" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
+                Continue →
+              </button>
+            </div>
+            
+            {/* Security Badge */}
+            <div class="mt-8 pt-8 border-t border-white/10">
+              <div class="flex items-center justify-center gap-3 text-sm text-gray-400">
+                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium">256-bit SSL Encryption</span>
+                <span class="text-gray-600">•</span>
+                <span>Your data is secure</span>
+              </div>
+              <p class="text-center text-xs text-gray-500 mt-2">
+                We use industry-standard encryption (AES-256) and secure password hashing (bcrypt) to protect your information.
+              </p>
+            </div>
+          </div>
+
+          {/* STEP 2: Select Package */}
+          <div id="step-2" class="step-content hidden">
+            <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-4 flex items-center gap-2">
+              ← Back
+            </button>
+            <h2 class="text-5xl font-black mb-4">How Many Students?</h2>
+            <p class="text-xl text-gray-400 mb-6">Select the package that fits your family</p>
+            
+            {/* Monthly/Annual Toggle */}
+            <div class="flex items-center justify-center gap-4 mb-8 bg-gray-900 p-3 rounded-full inline-flex mx-auto">
+              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-6 py-3 rounded-full font-semibold transition bg-teal-500 text-white">
+                Monthly
+              </button>
+              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-6 py-3 rounded-full font-semibold transition text-gray-400">
+                Annual <span class="text-teal-500 text-sm ml-1">Save 20%</span>
+              </button>
+            </div>
+            <p class="text-center text-sm text-gray-400 mb-6">
+              <span class="annual-note hidden">Annual billing covers 10 months (Sept-June school year). No classes in July & August. December includes 2 special 1-hour workshops!</span>
+              <span class="monthly-note">Billed monthly. Cancel anytime with daily proration.</span>
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
+                <div class="text-4xl font-black mb-2">1</div>
+                <div class="text-gray-400 text-sm mb-3">Student</div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$116</span>
+                  <span class="annual-price hidden">$93</span>
+                  <span class="text-sm text-gray-500">/mo</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $230 (school year)</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$14.50 per class</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$11.63 per class</div>
+              </div>
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 px-3 py-1 rounded-full text-xs font-bold">Most Popular</div>
+                <div class="text-4xl font-black mb-2">2</div>
+                <div class="text-gray-400 text-sm mb-3">Students</div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$99</span>
+                  <span class="annual-price hidden">$79</span>
+                  <span class="text-sm text-gray-500">/mo each</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $400 (school year)</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$12.38 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$9.88 per class (each)</div>
+              </div>
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
+                <div class="text-4xl font-black mb-2">3</div>
+                <div class="text-gray-400 text-sm mb-3">Students</div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$89</span>
+                  <span class="annual-price hidden">$71</span>
+                  <span class="text-sm text-gray-500">/mo each</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $540 (school year)</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$11.13 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$8.88 per class (each)</div>
+              </div>
+              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
+                <div class="text-4xl font-black mb-2">4+</div>
+                <div class="text-gray-400 text-sm mb-3">Students</div>
+                <div class="text-2xl font-bold">
+                  <span class="monthly-price">$79</span>
+                  <span class="annual-price hidden">$63</span>
+                  <span class="text-sm text-gray-500">/mo each</span>
+                </div>
+                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $640 (school year)</div>
+                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$9.88 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$7.88 per class (each)</div>
+              </div>
+            </div>
+            
+            {/* What's Included */}
+            <div class="feature-card p-6 rounded-2xl mt-6">
+              <h3 class="text-lg font-bold mb-4 text-center">Everything Included</h3>
+              <div class="grid grid-cols-1 gap-3 text-sm">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">30-Minute Micro-Learning Sessions</div>
+                    <div class="text-gray-400 text-xs">Perfect for young creators' attention spans - 8 live classes/month (Mon & Thu 11:30 AM ET)</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">Lifetime Instruction Library</div>
+                    <div class="text-gray-400 text-xs">Can't make it live? Catch up on expert-led teachings anytime.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">December Bonus Workshops</div>
+                    <div class="text-gray-400 text-xs">First 2 weeks of December: Special 1-hour fun workshops to celebrate the year!</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-white">Portfolio Building</div>
+                    <div class="text-gray-400 text-xs">Showcase your child's work and track their creative journey</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* STEP 3: Payment */}
+          <div id="step-3" class="step-content hidden">
+            <button onclick="goToStep(2)" class="text-gray-400 hover:text-white mb-4 flex items-center gap-2">
+              ← Back
+            </button>
+            <h2 class="text-5xl font-black mb-4">Complete Enrollment</h2>
+            <p class="text-xl text-gray-400 mb-8">You selected <span id="selected-package" class="text-teal-500"></span></p>
+            
+            {/* Order Summary */}
+            <div class="feature-card p-6 rounded-2xl mb-6">
+              <div class="flex justify-between mb-4">
+                <span class="text-gray-400">Students</span>
+                <span id="summary-students" class="font-bold"></span>
+              </div>
+              <div class="flex justify-between mb-4">
+                <span class="text-gray-400">Price per student</span>
+                <span id="summary-price" class="font-bold"></span>
+              </div>
+              <div class="flex justify-between pt-4 border-t border-white/10">
+                <span id="summary-label" class="text-xl font-bold">Total Today (Prorated)</span>
+                <span id="summary-total" class="text-xl font-bold text-teal-500"></span>
+              </div>
+              <div id="savings-display" class="flex justify-between mt-2 hidden">
+                <span class="text-sm text-gray-400">Annual Savings</span>
+                <span id="summary-savings" class="text-sm font-bold text-green-500"></span>
+              </div>
+              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
+            </div>
+
+            {/* Payment Form */}
+            <div class="space-y-4 mb-6">
+              <div class="bg-gray-900 border-2 border-gray-800 rounded-xl p-6">
+                <p class="text-sm text-gray-400">Stripe payment form will appear here</p>
+              </div>
+            </div>
+
+            <button onclick="completeEnrollment()" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
+              Complete Enrollment 🎉
+            </button>
+          </div>
+
+          {/* Close Button */}
+          <button onclick="closeEnrollment()" class="absolute top-8 right-8 text-gray-400 hover:text-white text-4xl">×</button>
+        </div>
+      </div>
+
+      {/* Enrollment Modal JavaScript */}
+      <script dangerouslySetInnerHTML={{__html: `
+        let currentStep = 1;
+        let selectedStudents = 0;
+        let selectedPrice = 0;
+        let isAnnual = false;
+        
+        const pricingData = {
+          monthly: { 1: 116, 2: 99, 3: 89, 4: 79 },
+          annual: { 1: 93, 2: 79, 3: 71, 4: 63 }
+        };
+
+        function openEnrollment() {
+          document.getElementById('enrollment-modal').classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          goToStep(1);
+        }
+
+        function closeEnrollment() {
+          document.getElementById('enrollment-modal').classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+
+        function goToStep(step) {
+          // Validate Step 1 before proceeding to Step 2
+          if (currentStep === 1 && step === 2) {
+            const email = document.getElementById('parent-email').value.trim();
+            const password = document.getElementById('parent-password').value;
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+              alert('Please enter a valid email address');
+              document.getElementById('parent-email').focus();
+              return;
+            }
+            
+            // Password validation (min 8 chars only - keep it simple)
+            if (!password || password.length < 8) {
+              alert('Password must be at least 8 characters long');
+              document.getElementById('parent-password').focus();
+              return;
+            }
+          }
+          
+          // Hide all steps
+          document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+          
+          // Show target step
+          document.getElementById('step-' + step).classList.remove('hidden');
+          
+          // Update progress
+          currentStep = step;
+          const percentage = (step / 3) * 100;
+          document.getElementById('progress-bar').style.width = percentage + '%';
+          document.getElementById('step-label').textContent = 'Step ' + step + ' of 3';
+          document.getElementById('step-percentage').textContent = Math.round(percentage) + '%';
+        }
+
+        function toggleBilling(type) {
+          isAnnual = (type === 'annual');
+          
+          // Update toggle buttons
+          const monthlyBtn = document.getElementById('monthly-toggle-btn');
+          const annualBtn = document.getElementById('annual-toggle-btn');
+          
+          if (isAnnual) {
+            monthlyBtn.classList.remove('bg-teal-500', 'text-white');
+            monthlyBtn.classList.add('text-gray-400');
+            annualBtn.classList.add('bg-teal-500', 'text-white');
+            annualBtn.classList.remove('text-gray-400');
+          } else {
+            monthlyBtn.classList.add('bg-teal-500', 'text-white');
+            monthlyBtn.classList.remove('text-gray-400');
+            annualBtn.classList.remove('bg-teal-500', 'text-white');
+            annualBtn.classList.add('text-gray-400');
+          }
+          
+          // Toggle prices
+          document.querySelectorAll('.monthly-price').forEach(el => {
+            el.classList.toggle('hidden', isAnnual);
+          });
+          document.querySelectorAll('.annual-price').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+          document.querySelectorAll('.annual-savings').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+          
+          // Toggle per-class pricing
+          document.querySelectorAll('.monthly-per-class').forEach(el => {
+            el.classList.toggle('hidden', isAnnual);
+          });
+          document.querySelectorAll('.annual-per-class').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+          
+          // Toggle billing notes
+          document.querySelectorAll('.monthly-note').forEach(el => {
+            el.classList.toggle('hidden', isAnnual);
+          });
+          document.querySelectorAll('.annual-note').forEach(el => {
+            el.classList.toggle('hidden', !isAnnual);
+          });
+        }
+
+        function selectPackage(students) {
+          selectedStudents = students;
+          selectedPrice = isAnnual ? pricingData.annual[students] : pricingData.monthly[students];
+          
+          // Calculate totals
+          const pricePerStudent = selectedPrice;
+          const monthlyTotal = pricePerStudent * students;
+          
+          let totalCharge, chargeLabel;
+          
+          if (isAnnual) {
+            // Annual: 10 months prepaid (school year, no summer)
+            totalCharge = monthlyTotal * 10;
+            chargeLabel = 'Total (10 months prepaid)';
+          } else {
+            // Monthly: prorated for first month
+            const today = new Date();
+            const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+            const daysRemaining = daysInMonth - today.getDate() + 1;
+            totalCharge = (monthlyTotal / daysInMonth) * daysRemaining;
+            chargeLabel = 'Total Today (Prorated)';
+          }
+          
+          // Calculate savings for display (Annual vs Monthly)
+          const yearlySavings = isAnnual ? 
+            ((pricingData.monthly[students] * students * 10) - (pricePerStudent * students * 10)) : 0;
+          
+          // Update summary
+          const billingText = isAnnual ? ' (Annual - 10 months)' : ' (Monthly)';
+          document.getElementById('selected-package').textContent = 
+            students + (students >= 4 ? '+' : '') + ' student' + (students > 1 ? 's' : '') + billingText;
+          document.getElementById('summary-students').textContent = students + (students >= 4 ? '+' : '');
+          document.getElementById('summary-price').textContent = '$' + pricePerStudent + '/mo per student' + (isAnnual ? ' (20% off)' : '');
+          document.getElementById('summary-total').textContent = '$' + totalCharge.toFixed(2);
+          
+          // Update the label and savings display
+          document.getElementById('summary-label').textContent = chargeLabel;
+          
+          if (isAnnual) {
+            document.getElementById('savings-display').classList.remove('hidden');
+            document.getElementById('summary-savings').textContent = '-$' + yearlySavings.toFixed(2);
+            document.getElementById('proration-note').classList.add('hidden');
+          } else {
+            document.getElementById('savings-display').classList.add('hidden');
+            document.getElementById('proration-note').classList.remove('hidden');
+          }
+          
+          // Go to next step
+          setTimeout(() => goToStep(3), 300);
+        }
+
+        function completeEnrollment() {
+          const email = document.getElementById('parent-email').value;
+          const password = document.getElementById('parent-password').value;
+          
+          if (!email || !password) {
+            alert('Please fill in all fields');
+            return;
+          }
+          
+          const billingType = isAnnual ? 'Annual (10 months prepaid - school year)' : 'Monthly';
+          const pricePerStudent = selectedPrice;
+          const monthlyTotal = pricePerStudent * selectedStudents;
+          const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
+          
+          alert('🎉 Enrollment Complete!\\n\\nEmail: ' + email + '\\nPackage: ' + selectedStudents + ' students at $' + pricePerStudent + '/mo each\\nBilling: ' + billingType + '\\nTotal: $' + totalCharge.toFixed(2) + '\\n\\nStripe integration will be added next!');
+          closeEnrollment();
+        }
+
+        // Update all "Enroll Now" and "Start Creating Today" buttons
+        document.addEventListener('DOMContentLoaded', function() {
+          const enrollButtons = document.querySelectorAll('a[href="/pricing"], a[href="/checkout"]');
+          enrollButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+              e.preventDefault();
+              openEnrollment();
+            });
+          });
+        });
+      `}} />
     </div>,
-    { title: 'Academy - Acromatico' }
+    { title: 'Acromatico - Learn to See The World Differently' }
   )
-)
+})
 app.get('/api/health', (c) => {
   return c.json({ 
     status: 'healthy', 
