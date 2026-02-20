@@ -635,47 +635,7 @@ app.get('/education', (c) => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer class="bg-black border-t border-white/10 py-16">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <h4 class="font-bold mb-4">Academy</h4>
-              <ul class="space-y-2 text-gray-400 text-sm">
-                <li><a href="/academy" class="hover:text-white transition">Curriculum</a></li>
-                <li><a href="/pricing" class="hover:text-white transition">Pricing</a></li>
-                <li><a href="/faq" class="hover:text-white transition">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold mb-4">Services</h4>
-              <ul class="space-y-2 text-gray-400 text-sm">
-                <li><a href="/studio" class="hover:text-white transition">Studio</a></li>
-                <li><a href="/prints" class="hover:text-white transition">Art Prints</a></li>
-                <li><a href="/photography" class="hover:text-white transition">Photography</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold mb-4">Company</h4>
-              <ul class="space-y-2 text-gray-400 text-sm">
-                <li><a href="/about" class="hover:text-white transition">About</a></li>
-                <li><a href="/blog" class="hover:text-white transition">Blog</a></li>
-                <li><a href="/contact" class="hover:text-white transition">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold mb-4">Legal</h4>
-              <ul class="space-y-2 text-gray-400 text-sm">
-                <li><a href="/privacy" class="hover:text-white transition">Privacy</a></li>
-                <li><a href="/terms" class="hover:text-white transition">Terms</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="pt-8 border-t border-white/10 text-center text-gray-400 text-sm">
-            <p>&copy; 2026 Acromatico. Built for creators, by creators.</p>
-          </div>
-        </div>
-      </footer>
+      {footerHTML}
 
       {/* TYPEFORM-STYLE ENROLLMENT MODAL */}
       <div id="enrollment-modal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
@@ -1804,7 +1764,144 @@ app.get('/academy', (c) =>
     { title: 'Curriculum - Acromatico Academy' }
   )
 )
-app.get('/studio', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Studio - Coming Soon</h1></div>))
+app.get('/studio', (c) => 
+  c.render(
+    <div class="min-h-screen bg-white text-black">
+      <Header />
+
+      {/* Hero */}
+      <section class="relative h-screen flex items-center justify-center">
+        <div class="text-center px-6">
+          <h1 class="text-7xl md:text-9xl font-light mb-8" style="letter-spacing: -0.04em;">
+            Brand<br/>Building
+          </h1>
+          <p class="text-2xl md:text-3xl font-light text-gray-600 max-w-3xl mx-auto">
+            Strategy. Identity. Storytelling.
+          </p>
+        </div>
+      </section>
+
+      {/* What We Do */}
+      <section class="py-32 px-6 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-5xl md:text-6xl font-light mb-20 text-center" style="letter-spacing: -0.02em;">
+            We build brands people remember
+          </h2>
+          
+          <div class="grid md:grid-cols-3 gap-16">
+            <div class="text-center">
+              <h3 class="text-2xl font-light mb-4">Strategy</h3>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                Clear positioning that sets you apart from everyone else
+              </p>
+            </div>
+            
+            <div class="text-center">
+              <h3 class="text-2xl font-light mb-4">Identity</h3>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                Visual systems that tell your story without words
+              </p>
+            </div>
+            
+            <div class="text-center">
+              <h3 class="text-2xl font-light mb-4">Content</h3>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                Photography and video that captures what makes you unique
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Work */}
+      <section class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-4xl md:text-5xl font-light mb-16 text-center" style="letter-spacing: -0.02em;">
+            Selected work
+          </h2>
+          
+          <div class="space-y-32">
+            {/* Ecolosophy */}
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <img 
+                  src="/static/images/brand-seaside-boca-shoot.jpg" 
+                  alt="Ecolosophy Brand"
+                  class="w-full"
+                />
+              </div>
+              <div class="md:pl-12">
+                <h3 class="text-3xl md:text-4xl font-light mb-4">Ecolosophy</h3>
+                <p class="text-xl text-gray-600 mb-6 leading-relaxed">
+                  Non-toxic cleaning revolution
+                </p>
+                <p class="text-lg text-gray-500 leading-relaxed">
+                  Complete brand identity, product photography, and content strategy for a mission-driven wellness company
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section class="py-32 px-6 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl md:text-5xl font-light mb-12" style="letter-spacing: -0.02em;">
+            How we work
+          </h2>
+          <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-16">
+            We don't follow templates. We start with your story, your vision, your why—and build everything from there.
+          </p>
+          
+          <div class="grid md:grid-cols-3 gap-12 text-left mt-20">
+            <div>
+              <div class="text-5xl font-light text-gray-300 mb-4">01</div>
+              <h3 class="text-xl font-medium mb-3">Discovery</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Deep dive into your business, audience, and goals
+              </p>
+            </div>
+            
+            <div>
+              <div class="text-5xl font-light text-gray-300 mb-4">02</div>
+              <h3 class="text-xl font-medium mb-3">Strategy</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Positioning, messaging, and visual direction
+              </p>
+            </div>
+            
+            <div>
+              <div class="text-5xl font-light text-gray-300 mb-4">03</div>
+              <h3 class="text-xl font-medium mb-3">Creation</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Bring it all to life with design, photo, and video
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section class="py-32 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-4xl md:text-5xl font-light mb-8" style="letter-spacing: -0.02em;">
+            Let's build something unforgettable
+          </h2>
+          <a 
+            href="/contact" 
+            class="inline-block bg-black text-white px-12 py-5 text-xl font-light hover:bg-gray-800 transition"
+          >
+            Start a project
+          </a>
+        </div>
+      </section>
+
+      {footerHTML}
+    </div>,
+    { title: 'Brand Building - Acromatico' }
+  )
+)
 // APPLE-STYLE PRINTS PAGE - CLEAN, MINIMAL, INSTANT CHECKOUT
 
 // LUXURY COASTAL PRINTS PAGE - WARM MINIMALISM
@@ -4173,47 +4270,7 @@ app.get('/faq', (c) =>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer class="bg-black border-t border-white/10 py-16">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <h4 class="font-bold mb-4">Academy</h4>
-              <ul class="space-y-2 text-gray-400 text-sm">
-                <li><a href="/academy" class="hover:text-white transition">Curriculum</a></li>
-                <li><a href="/pricing" class="hover:text-white transition">Pricing</a></li>
-                <li><a href="/faq" class="hover:text-white transition">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold mb-4">Services</h4>
-              <ul class="space-y-2 text-gray-400 text-sm">
-                <li><a href="/studio" class="hover:text-white transition">Studio</a></li>
-                <li><a href="/prints" class="hover:text-white transition">Art Prints</a></li>
-                <li><a href="/photography" class="hover:text-white transition">Photography</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold mb-4">Company</h4>
-              <ul class="space-y-2 text-gray-400 text-sm">
-                <li><a href="/about" class="hover:text-white transition">About</a></li>
-                <li><a href="/blog" class="hover:text-white transition">Blog</a></li>
-                <li><a href="/contact" class="hover:text-white transition">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold mb-4">Legal</h4>
-              <ul class="space-y-2 text-gray-400 text-sm">
-                <li><a href="/privacy" class="hover:text-white transition">Privacy</a></li>
-                <li><a href="/terms" class="hover:text-white transition">Terms</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="pt-8 border-t border-white/10 text-center text-gray-400 text-sm">
-            <p>&copy; 2026 Acromatico. Built for creators, by creators.</p>
-          </div>
-        </div>
-      </footer>
+      {footerHTML}
 
       {/* Enrollment Modal */}
       <div id="enrollment-modal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
