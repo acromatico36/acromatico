@@ -1766,261 +1766,211 @@ app.get('/academy', (c) =>
 )
 app.get('/studio', (c) => 
   c.render(
-    <div class="min-h-screen bg-white">
+    <div class="min-h-screen bg-black text-white">
       <Header />
 
       <style>{`
         body {
-          font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
-          -webkit-font-smoothing: antialiased;
+          background: #000;
+          color: #fff;
         }
         
-        .brand-container {
-          max-width: 980px;
-          margin: 0 auto;
-          padding: 0 22px;
+        .hero-full {
+          height: 100vh;
+          position: relative;
+          display: flex;
+          align-items: flex-end;
+          padding: 60px;
         }
         
-        .brand-hero {
-          padding: 120px 0 80px;
-          text-align: center;
+        .hero-full img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 0;
         }
         
-        .brand-hero h1 {
-          font-size: 56px;
-          font-weight: 600;
-          letter-spacing: -0.005em;
-          line-height: 1.07143;
-          margin-bottom: 12px;
-          color: #1d1d1f;
-        }
-        
-        .brand-hero p {
-          font-size: 28px;
-          line-height: 1.14286;
-          font-weight: 400;
-          letter-spacing: .004em;
-          color: #6e6e73;
-          margin-top: 8px;
-        }
-        
-        .brand-services {
-          padding: 80px 0;
-          border-bottom: 1px solid #d2d2d7;
-        }
-        
-        .brand-services h2 {
-          font-size: 40px;
+        .hero-full h1 {
+          position: relative;
+          z-index: 1;
+          font-size: clamp(32px, 6vw, 64px);
+          font-weight: 700;
           line-height: 1.1;
-          font-weight: 600;
-          letter-spacing: 0em;
-          color: #1d1d1f;
-          margin-bottom: 48px;
+          max-width: 800px;
+          text-shadow: 0 2px 40px rgba(0,0,0,0.8);
         }
         
-        .services-list {
+        .case-study {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          padding: 120px 60px;
+          border-bottom: 1px solid #222;
+        }
+        
+        .case-study:nth-child(even) {
+          background: #0a0a0a;
+        }
+        
+        .case-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 40px;
-        }
-        
-        .service-item h3 {
-          font-size: 21px;
-          line-height: 1.19048;
-          font-weight: 600;
-          letter-spacing: .011em;
-          color: #1d1d1f;
-          margin-bottom: 8px;
-        }
-        
-        .service-item p {
-          font-size: 17px;
-          line-height: 1.47059;
-          font-weight: 400;
-          letter-spacing: -.022em;
-          color: #6e6e73;
-        }
-        
-        .brand-work {
-          padding: 100px 0;
-        }
-        
-        .brand-work h2 {
-          font-size: 40px;
-          line-height: 1.1;
-          font-weight: 600;
-          letter-spacing: 0em;
-          color: #1d1d1f;
-          margin-bottom: 60px;
-          text-align: center;
-        }
-        
-        .work-grid {
-          display: grid;
+          grid-template-columns: 1fr 1fr;
           gap: 80px;
+          max-width: 1600px;
+          margin: 0 auto;
+          align-items: center;
         }
         
-        .work-item img {
+        .case-study:nth-child(even) .case-grid {
+          direction: rtl;
+        }
+        
+        .case-study:nth-child(even) .case-grid > * {
+          direction: ltr;
+        }
+        
+        .case-image {
           width: 100%;
           height: auto;
-          border-radius: 12px;
-          margin-bottom: 20px;
         }
         
-        .work-item h3 {
-          font-size: 28px;
-          line-height: 1.14286;
-          font-weight: 600;
-          letter-spacing: .007em;
-          color: #1d1d1f;
-          margin-bottom: 8px;
-        }
-        
-        .work-item .subtitle {
-          font-size: 17px;
-          line-height: 1.47059;
-          font-weight: 400;
-          letter-spacing: -.022em;
-          color: #6e6e73;
-          margin-bottom: 12px;
-        }
-        
-        .work-item .description {
-          font-size: 17px;
-          line-height: 1.47059;
-          font-weight: 400;
-          letter-spacing: -.022em;
-          color: #86868b;
-        }
-        
-        .brand-cta {
-          padding: 100px 0 120px;
-          text-align: center;
-        }
-        
-        .brand-cta h2 {
-          font-size: 40px;
+        .case-content h2 {
+          font-size: clamp(32px, 4vw, 56px);
+          font-weight: 700;
+          margin-bottom: 16px;
           line-height: 1.1;
-          font-weight: 600;
-          letter-spacing: 0em;
-          color: #1d1d1f;
+        }
+        
+        .case-content .label {
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          color: #888;
+          margin-bottom: 24px;
+        }
+        
+        .case-content p {
+          font-size: 20px;
+          line-height: 1.6;
+          color: #ccc;
           margin-bottom: 32px;
         }
         
-        .brand-cta a {
+        .case-content .result {
+          font-size: 18px;
+          color: #0ea5e9;
+          font-weight: 600;
+        }
+        
+        .final-cta {
+          min-height: 60vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 120px 60px;
+        }
+        
+        .final-cta h2 {
+          font-size: clamp(40px, 6vw, 80px);
+          font-weight: 700;
+          margin-bottom: 48px;
+          line-height: 1.1;
+        }
+        
+        .final-cta a {
           display: inline-block;
-          font-size: 17px;
-          line-height: 1.17648;
-          font-weight: 400;
-          letter-spacing: -.022em;
-          min-width: 28px;
-          padding: 12px 24px;
-          background: #0071e3;
-          border-radius: 980px;
-          color: #fff;
+          padding: 20px 48px;
+          background: #fff;
+          color: #000;
+          font-size: 18px;
+          font-weight: 700;
           text-decoration: none;
-          transition: background .2s;
+          border-radius: 4px;
+          transition: transform 0.2s;
         }
         
-        .brand-cta a:hover {
-          background: #0077ed;
+        .final-cta a:hover {
+          transform: translateY(-2px);
         }
         
-        @media (max-width: 734px) {
-          .brand-hero h1 {
-            font-size: 40px;
-            line-height: 1.1;
-            letter-spacing: 0em;
-          }
-          
-          .brand-hero p {
-            font-size: 21px;
-            line-height: 1.19048;
-            letter-spacing: .011em;
-          }
-          
-          .services-list {
+        @media (max-width: 1024px) {
+          .case-grid {
             grid-template-columns: 1fr;
             gap: 40px;
           }
           
-          .brand-work h2,
-          .brand-services h2,
-          .brand-cta h2 {
-            font-size: 32px;
-            line-height: 1.125;
-            letter-spacing: .004em;
+          .case-study:nth-child(even) .case-grid {
+            direction: ltr;
+          }
+          
+          .hero-full,
+          .case-study,
+          .final-cta {
+            padding: 60px 24px;
           }
         }
       `}</style>
 
       {/* Hero */}
-      <div class="brand-container">
-        <div class="brand-hero">
-          <h1>Brand Building</h1>
-          <p>Strategy. Identity. Content.</p>
-        </div>
+      <div class="hero-full">
+        <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Brand work" />
+        <h1>We build brands you can't ignore.</h1>
       </div>
 
-      {/* Services */}
-      <div class="brand-container">
-        <div class="brand-services">
-          <h2>What we do</h2>
-          <div class="services-list">
-            <div class="service-item">
-              <h3>Strategy</h3>
-              <p>We help you see what makes you different — and own it.</p>
-            </div>
-            <div class="service-item">
-              <h3>Identity</h3>
-              <p>Visual systems that tell your story.</p>
-            </div>
-            <div class="service-item">
-              <h3>Content</h3>
-              <p>Photography and video that captures what you're about.</p>
-            </div>
+      {/* Ecolosophy */}
+      <div class="case-study">
+        <div class="case-grid">
+          <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Ecolosophy" class="case-image" />
+          <div class="case-content">
+            <div class="label">Brand Building</div>
+            <h2>Ecolosophy</h2>
+            <p>
+              A wellness startup with zero brand presence. We built their entire visual identity, shot all their product photography, and created a content system that helped them stand out in a crowded market.
+            </p>
+            <div class="result">Complete brand transformation from zero to market-ready</div>
           </div>
         </div>
       </div>
 
-      {/* Work */}
-      <div class="brand-container">
-        <div class="brand-work">
-          <h2>Selected work</h2>
-          <div class="work-grid">
-            <div class="work-item">
-              <img 
-                src="/static/images/brand-seaside-boca-shoot.jpg" 
-                alt="Ecolosophy"
-              />
-              <h3>Ecolosophy</h3>
-              <p class="subtitle">Non-toxic cleaning revolution</p>
-              <p class="description">
-                Brand identity, product photography, and storytelling for a mission-driven wellness company.
-              </p>
-            </div>
-            
-            <div class="work-item">
-              <img 
-                src="/static/images/hero-photography-wedding.jpg" 
-                alt="Wedding Photography"
-              />
-              <h3>Moments That Matter</h3>
-              <p class="subtitle">Wedding photography</p>
-              <p class="description">
-                Authentic moments captured with intention. Not poses, just real people.
-              </p>
-            </div>
+      {/* Wedding Photography */}
+      <div class="case-study">
+        <div class="case-grid">
+          <img src="/static/images/hero-photography-wedding.jpg" alt="Wedding photography" class="case-image" />
+          <div class="case-content">
+            <div class="label">Photography</div>
+            <h2>500+ Weddings</h2>
+            <p>
+              Over 20 years, we've captured moments that matter for hundreds of couples. Not poses. Not perfection. Real emotion. Real people. Real memories.
+            </p>
+            <div class="result">1M+ images. Countless unforgettable moments.</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Education */}
+      <div class="case-study">
+        <div class="case-grid">
+          <img src="/static/images/hero-child-photographer-safe.jpg" alt="Photography education" class="case-image" />
+          <div class="case-content">
+            <div class="label">Education</div>
+            <h2>Teaching the Next Generation</h2>
+            <p>
+              We teach kids ages 7-14 how to see the world through a lens. Not just technical skills—creative vision. Confidence. The ability to tell their own stories.
+            </p>
+            <div class="result">Empowering young creators for 20+ years</div>
           </div>
         </div>
       </div>
 
       {/* CTA */}
-      <div class="brand-container">
-        <div class="brand-cta">
-          <h2>Let's work together</h2>
-          <a href="/contact">Get in touch</a>
-        </div>
+      <div class="final-cta">
+        <h2>Ready to build something powerful?</h2>
+        <a href="/contact">Let's talk</a>
       </div>
 
       <div dangerouslySetInnerHTML={{__html: footerHTML}} />
