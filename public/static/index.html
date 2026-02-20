@@ -3,28 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACROMATICO | Authentic Stories. Unfiltered Moments.</title>
-    <meta name="description" content="Award-winning photography, education, art prints, and branding services. South Florida + NYC. Shut up and take my money level quality.">
+    
+    <!-- Primary Meta Tags -->
+    <title>ACROMATICO | Where Art Meets Adventure - Photography, Education & Creative Studio</title>
+    <meta name="title" content="ACROMATICO | Where Art Meets Adventure - Photography, Education & Creative Studio">
+    <meta name="description" content="Join the movement. Award-winning photography capturing life's raw moments, inspiring education for young creators, museum-quality art prints, and bold creative studio services. South Florida + NYC.">
+    <meta name="keywords" content="acromatico photography, wedding photographer south florida, photography education kids, fine art prints, creative studio, visual storytelling, adventure photography, patagonia style branding">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acromatico.com/">
+    <meta property="og:title" content="ACROMATICO | Where Art Meets Adventure">
+    <meta property="og:description" content="Join the movement. Photography, education, art prints & creative studio that transforms how we see the world.">
+    <meta property="og:image" content="/static/images/hero-photography-wow.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acromatico.com/">
+    <meta property="twitter:title" content="ACROMATICO | Where Art Meets Adventure">
+    <meta property="twitter:description" content="Join the movement. Photography, education, art prints & creative studio that transforms how we see the world.">
+    <meta property="twitter:image" content="/static/images/hero-photography-wow.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://acromatico.com/">
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Acromatico",
+      "description": "Photography, Education, Art Prints & Creative Studio",
+      "url": "https://acromatico.com",
+      "logo": "https://acromatico.com/static/acromatico-logo-transparent.png",
+      "sameAs": [
+        "https://instagram.com/acromatico",
+        "https://facebook.com/acromatico"
+      ],
+      "foundingDate": "2003",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Italo Campilii"
+        },
+        {
+          "@type": "Person",
+          "name": "Ale"
+        }
+      ],
+      "areaServed": ["South Florida", "New York City", "United States"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Acromatico Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Professional Photography",
+              "description": "Wedding, portrait, and commercial photography services"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "EducationalOrganization",
+              "name": "Photography Education Academy",
+              "description": "Photography courses and workshops for young creators ages 7-14"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Fine Art Prints",
+              "description": "Museum-quality limited edition photography prints"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Creative Studio Services",
+              "description": "Video production, content creation, and brand strategy"
+            }
+          }
+        ]
+      }
+    }
+    </script>
     
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
         
         :root {
             --primary: #000;
-            --bg-white: #fff;
-            --accent: #007aff;
-            --text-primary: #1d1d1f;
-            --text-secondary: #6e6e73;
+            --accent-teal: #14b8a6;
+            --accent-gold: #f59e0b;
+            --accent-purple: #a855f7;
+            --accent-blue: #3b82f6;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
             overflow-x: hidden;
             background: #000;
             color: white;
         }
         
-        /* HERO SECTION */
+        /* HERO SECTION - MOVEMENT STATEMENT */
         .hero {
             height: 100vh;
             position: relative;
@@ -32,25 +125,60 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
         }
         
         .hero-content h1 {
-            font-size: 96px;
-            font-weight: 700;
-            letter-spacing: -3px;
-            margin-bottom: 24px;
-            animation: fadeInUp 1s ease;
+            font-size: clamp(64px, 12vw, 128px);
+            font-weight: 900;
+            letter-spacing: -4px;
+            margin-bottom: 32px;
+            background: linear-gradient(135deg, #fff 0%, #14b8a6 50%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .hero-content p {
-            font-size: 28px;
+        .hero-content .tagline {
+            font-size: clamp(24px, 4vw, 42px);
             font-weight: 300;
-            margin-bottom: 48px;
-            animation: fadeInUp 1s ease 0.2s both;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
         }
         
-        /* SERVICE PORTALS */
+        .hero-content .movement {
+            font-size: clamp(18px, 3vw, 28px);
+            font-weight: 500;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+        }
+        
+        /* SERVICE PORTALS - IMMERSIVE GRID */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -61,69 +189,98 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 50vh;
         }
         
         .service-portal:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
             z-index: 10;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
         
         .service-portal:hover .service-overlay {
-            opacity: 0.95;
+            opacity: 0.92;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 100%);
         }
         
         .service-bg {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: brightness(0.8) saturate(1.3) contrast(1.1);
         }
         
         .service-portal:hover .service-bg {
-            transform: scale(1.1);
+            transform: scale(1.15);
+            filter: brightness(0.9) saturate(1.5) contrast(1.2);
         }
         
         .service-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            opacity: 0.85;
-            transition: opacity 0.4s ease;
+            opacity: 0.88;
+            transition: all 0.6s ease;
+            padding: 40px;
         }
         
         .service-icon {
-            font-size: 64px;
-            margin-bottom: 24px;
+            font-size: 80px;
+            margin-bottom: 32px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
         
         .service-title {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
         
         .service-desc {
-            font-size: 17px;
+            font-size: clamp(16px, 2vw, 21px);
             font-weight: 400;
-            opacity: 0.8;
-            max-width: 300px;
+            opacity: 0.9;
+            max-width: 400px;
             text-align: center;
+            line-height: 1.6;
+        }
+        
+        /* ACCENT COLORS PER SERVICE */
+        .service-portal:nth-child(1) .service-title {
+            color: var(--accent-teal);
+        }
+        
+        .service-portal:nth-child(2) .service-title {
+            color: var(--accent-gold);
+        }
+        
+        .service-portal:nth-child(3) .service-title {
+            color: var(--accent-purple);
+        }
+        
+        .service-portal:nth-child(4) .service-title {
+            color: var(--accent-blue);
         }
         
         /* ANIMATIONS */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(60px);
             }
             to {
                 opacity: 1;
@@ -131,19 +288,36 @@
             }
         }
         
-        /* MOBILE */
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 56px;
+            .hero {
+                height: 80vh;
             }
-            .hero-content p {
-                font-size: 21px;
-            }
+            
             .services-grid {
                 grid-template-columns: 1fr;
             }
-            .service-title {
-                font-size: 36px;
+            
+            .service-portal {
+                min-height: 60vh;
+            }
+            
+            .service-icon {
+                font-size: 56px;
+                margin-bottom: 20px;
+            }
+            
+            .service-portal:hover {
+                transform: scale(1.02);
+            }
+        }
+        
+        /* ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -152,50 +326,51 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
+            <p class="movement">Join the Movement</p>
             <h1>ACROMATICO</h1>
-            <p>Authentic Stories. Unfiltered Moments.</p>
+            <p class="tagline">Where Art Meets Adventure</p>
         </div>
     </section>
     
     <!-- SERVICES GRID -->
     <div class="services-grid">
         <!-- PHOTOGRAPHY -->
-        <a href="/static/photography-apple-ux.html" class="service-portal">
-            <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" alt="Photography" class="service-bg">
+        <a href="/photography" class="service-portal" aria-label="Explore our Photography services">
+            <img src="/static/images/hero-photography-wow.jpg" alt="Epic adventure photography - photographer on cliff capturing dramatic landscape" class="service-bg">
             <div class="service-overlay">
-                <div class="service-icon">📸</div>
+                <div class="service-icon" aria-hidden="true">📸</div>
                 <h2 class="service-title">Photography</h2>
-                <p class="service-desc">Weddings, Portraits, Commercial</p>
+                <p class="service-desc">Capturing life's unfiltered moments. Weddings, portraits, and commercial work that tells your authentic story.</p>
             </div>
         </a>
         
         <!-- EDUCATION -->
-        <a href="#education" class="service-portal">
-            <img src="https://acromatico.com/wp-content/uploads/2018/09/Ann20and20David20ES-333.jpg" alt="Education" class="service-bg">
+        <a href="/academy" class="service-portal" aria-label="Explore our Education programs">
+            <img src="/static/images/hero-education-wow.jpg" alt="Young creators learning photography in magical outdoor setting" class="service-bg">
             <div class="service-overlay">
-                <div class="service-icon">🎓</div>
+                <div class="service-icon" aria-hidden="true">🎓</div>
                 <h2 class="service-title">Education</h2>
-                <p class="service-desc">Workshops, Courses, Mentorship</p>
+                <p class="service-desc">Inspiring young creators ages 7-14. Learn to see the world differently through the lens.</p>
             </div>
         </a>
         
         <!-- ART PRINTS -->
-        <a href="#art-prints" class="service-portal">
-            <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-324.jpg" alt="Art Prints" class="service-bg">
+        <a href="/prints" class="service-portal" aria-label="Shop our Art Prints collection">
+            <img src="/static/images/hero-prints-wow.jpg" alt="Museum-quality fine art photography prints in surreal gallery setting" class="service-bg">
             <div class="service-overlay">
-                <div class="service-icon">🖼️</div>
+                <div class="service-icon" aria-hidden="true">🖼️</div>
                 <h2 class="service-title">Art Prints</h2>
-                <p class="service-desc">Limited Editions, Gallery-Quality</p>
+                <p class="service-desc">Museum-quality fine art prints. Limited editions that transform your space into a gallery.</p>
             </div>
         </a>
         
-        <!-- BRANDING -->
-        <a href="#branding" class="service-portal">
-            <img src="https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-339.jpg" alt="Branding" class="service-bg">
+        <!-- STUDIO -->
+        <a href="/studio" class="service-portal" aria-label="Explore our Studio services">
+            <img src="/static/images/hero-studio-wow.jpg" alt="Creative studio with professional equipment in artistic mountain setting" class="service-bg">
             <div class="service-overlay">
-                <div class="service-icon">🎬</div>
-                <h2 class="service-title">Branding</h2>
-                <p class="service-desc">Video, Content, Strategy</p>
+                <div class="service-icon" aria-hidden="true">🎬</div>
+                <h2 class="service-title">Studio</h2>
+                <p class="service-desc">Bold creative production. Video, content, and brand strategy that makes you unforgettable.</p>
             </div>
         </a>
     </div>
