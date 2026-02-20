@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Acromatico — Photography, Education, Prints & Studio</title>
+    <title>Acromatico — Photography, Education, Prints & Brand Building</title>
     <meta name="description" content="Award-winning photography and visual education. South Florida + NYC. We help people see differently.">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://acromatico.com/">
     <meta property="og:title" content="Acromatico">
     <meta property="og:description" content="We help people see differently.">
-    <meta property="og:image" content="/static/images/hero-photography-real.jpg">
+    <meta property="og:image" content="/static/images/hero-photography-wedding.jpg">
     
     <link rel="canonical" href="https://acromatico.com/">
     
@@ -24,23 +24,23 @@
         
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background: #0a0a0a;
+            background: #000;
             color: #fff;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
         
-        /* LOADING FADE IN */
+        /* SMOOTH PAGE LOAD */
         body {
             opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
+            animation: fadeIn 1s ease forwards;
         }
         
         @keyframes fadeIn {
             to { opacity: 1; }
         }
         
-        /* HERO - CRAFTED INTRODUCTION */
+        /* HERO WITH LOGO */
         .hero {
             height: 100vh;
             display: flex;
@@ -48,7 +48,14 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+            background: #000;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.02) 0%, transparent 50%);
         }
         
         .hero::after {
@@ -58,33 +65,44 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
         }
         
-        .hero h1 {
-            font-size: clamp(56px, 10vw, 120px);
-            font-weight: 200;
-            letter-spacing: -3px;
-            color: #fff;
-            margin-bottom: 32px;
+        .logo {
+            max-width: 400px;
+            width: 80%;
+            height: auto;
+            margin-bottom: 48px;
             opacity: 0;
-            animation: slideUp 1s ease 0.3s forwards;
+            filter: brightness(0) invert(1);
+            animation: logoAppear 1.2s ease 0.4s forwards;
+        }
+        
+        @keyframes logoAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
         
         .hero p {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 300;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.4);
             opacity: 0;
-            animation: slideUp 1s ease 0.6s forwards;
+            animation: slideUp 1s ease 0.8s forwards;
         }
         
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -92,30 +110,44 @@
             }
         }
         
-        /* SCROLL INDICATOR */
+        /* SCROLL HINT */
         .scroll-hint {
             position: absolute;
-            bottom: 60px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
+            width: 24px;
+            height: 40px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
             opacity: 0;
-            animation: fadeInScroll 1s ease 1.2s forwards, float 2s ease-in-out 2s infinite;
+            animation: fadeInScroll 1s ease 1.5s forwards;
+        }
+        
+        .scroll-hint::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            animation: scroll 2s ease-in-out infinite 2s;
         }
         
         @keyframes fadeInScroll {
             to { opacity: 1; }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translate(-50%, 0); }
-            50% { transform: translate(-50%, 10px); }
+        @keyframes scroll {
+            0% { transform: translate(-50%, 0); opacity: 1; }
+            50% { transform: translate(-50%, 12px); opacity: 0.3; }
+            100% { transform: translate(-50%, 0); opacity: 1; }
         }
         
-        /* GRID - PURPOSEFUL LAYOUT */
+        /* GRID - STAGGERED REVEAL */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -126,19 +158,16 @@
             height: 100vh;
             overflow: hidden;
             opacity: 0;
-            animation: portalFadeIn 0.8s ease forwards;
+            transform: scale(0.96);
+            animation: portalReveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
         }
         
-        .portal:nth-child(1) { animation-delay: 0.2s; }
-        .portal:nth-child(2) { animation-delay: 0.4s; }
-        .portal:nth-child(3) { animation-delay: 0.6s; }
-        .portal:nth-child(4) { animation-delay: 0.8s; }
+        .portal:nth-child(1) { animation-delay: 0.1s; }
+        .portal:nth-child(2) { animation-delay: 0.25s; }
+        .portal:nth-child(3) { animation-delay: 0.4s; }
+        .portal:nth-child(4) { animation-delay: 0.55s; }
         
-        @keyframes portalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
+        @keyframes portalReveal {
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -154,106 +183,132 @@
             color: inherit;
         }
         
+        /* IMAGE - SLOW ZOOM + PARALLAX EFFECT */
         .portal img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
-                        filter 1s ease;
-            filter: grayscale(0.2) brightness(0.75);
+            transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+            filter: grayscale(0.15) brightness(0.7) contrast(1.05);
+            will-change: transform;
         }
         
         .portal:hover img {
-            transform: scale(1.08);
-            filter: grayscale(0) brightness(0.85);
+            transform: scale(1.12);
+            filter: grayscale(0) brightness(0.8) contrast(1.1);
         }
         
-        /* OVERLAY - THOUGHTFUL POSITIONING */
+        /* OVERLAY - SOPHISTICATED GRADIENT */
         .overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(180deg, 
-                        transparent 0%, 
-                        transparent 40%,
-                        rgba(0,0,0,0.3) 70%,
-                        rgba(0,0,0,0.85) 100%);
+                        rgba(0,0,0,0) 0%, 
+                        rgba(0,0,0,0) 35%,
+                        rgba(0,0,0,0.4) 65%,
+                        rgba(0,0,0,0.92) 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 60px;
-            transition: background 0.8s ease;
+            padding: 70px 60px;
+            transition: background 1s cubic-bezier(0.19, 1, 0.22, 1);
         }
         
         .portal:hover .overlay {
             background: linear-gradient(180deg, 
-                        transparent 0%, 
-                        transparent 50%,
-                        rgba(0,0,0,0.2) 75%,
-                        rgba(0,0,0,0.7) 100%);
+                        rgba(0,0,0,0) 0%, 
+                        rgba(0,0,0,0) 45%,
+                        rgba(0,0,0,0.25) 70%,
+                        rgba(0,0,0,0.8) 100%);
         }
         
+        /* TEXT - REVEAL WITH STAGGER */
         .overlay h2 {
-            font-size: clamp(36px, 5vw, 64px);
-            font-weight: 300;
-            letter-spacing: -1.5px;
-            margin-bottom: 16px;
+            font-size: clamp(40px, 5.5vw, 72px);
+            font-weight: 200;
+            letter-spacing: -2px;
+            margin-bottom: 18px;
             transform: translateY(0);
-            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
         
         .portal:hover .overlay h2 {
-            transform: translateY(-8px);
+            transform: translateY(-12px);
         }
         
         .overlay p {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 300;
-            line-height: 1.6;
-            letter-spacing: 0.3px;
-            opacity: 0.85;
-            max-width: 420px;
-            transform: translateY(20px);
+            line-height: 1.7;
+            letter-spacing: 0.2px;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 460px;
+            transform: translateY(30px);
             opacity: 0;
-            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.15s;
         }
         
         .portal:hover .overlay p {
             transform: translateY(0);
-            opacity: 0.9;
+            opacity: 1;
         }
         
         /* SUBTLE BORDER DETAIL */
-        .portal::before {
+        .portal::after {
             content: '';
             position: absolute;
             inset: 0;
             border: 1px solid rgba(255, 255, 255, 0);
-            transition: border-color 0.6s ease;
+            transition: border-color 0.8s ease;
             pointer-events: none;
             z-index: 10;
         }
         
-        .portal:hover::before {
-            border-color: rgba(255, 255, 255, 0.1);
+        .portal:hover::after {
+            border-color: rgba(255, 255, 255, 0.12);
         }
         
-        /* MOBILE RESPONSIVE */
+        /* CORNER ACCENT */
+        .portal::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+            transition: width 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+            z-index: 11;
+        }
+        
+        .portal:hover::before {
+            width: 80px;
+        }
+        
+        /* MOBILE */
         @media (max-width: 768px) {
+            .logo {
+                max-width: 280px;
+                margin-bottom: 32px;
+            }
+            
             .grid {
                 grid-template-columns: 1fr;
             }
             
             .portal {
-                height: 80vh;
+                height: 85vh;
             }
             
             .overlay {
-                padding: 40px 30px;
+                padding: 50px 35px;
             }
             
             .overlay p {
-                opacity: 0.9;
+                opacity: 1;
                 transform: translateY(0);
+                font-size: 16px;
             }
             
             .scroll-hint {
@@ -272,57 +327,56 @@
             }
         }
         
-        /* FOCUS STATES */
         .portal-link:focus {
-            outline: 2px solid rgba(255, 255, 255, 0.5);
-            outline-offset: -2px;
+            outline: 2px solid rgba(255, 255, 255, 0.6);
+            outline-offset: -4px;
         }
     </style>
 </head>
 <body>
     <section class="hero">
-        <h1>Acromatico</h1>
+        <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" class="logo">
         <p>South Florida + NYC</p>
-        <div class="scroll-hint">Scroll</div>
+        <div class="scroll-hint"></div>
     </section>
     
     <div class="grid">
         <div class="portal">
-            <a href="/photography" class="portal-link" aria-label="Explore Photography">
-                <img src="/static/images/hero-photography-real.jpg" alt="Couple at golden hour">
+            <a href="/photography" class="portal-link" aria-label="Photography Services">
+                <img src="/static/images/hero-photography-wedding.jpg" alt="Wedding first dance">
                 <div class="overlay">
                     <h2>Photography</h2>
-                    <p>We capture the moments that matter. Weddings, portraits, and stories worth telling.</p>
+                    <p>We capture the moments that define your story. Weddings, portraits, and life's most important chapters.</p>
                 </div>
             </a>
         </div>
         
         <div class="portal">
-            <a href="/academy" class="portal-link" aria-label="Explore Education">
-                <img src="/static/images/hero-education-real.jpg" alt="Young creator with camera">
+            <a href="/academy" class="portal-link" aria-label="Education Programs">
+                <img src="/static/images/educators-team-real.jpg" alt="Italo and Ale teaching photography">
                 <div class="overlay">
                     <h2>Education</h2>
-                    <p>Teaching the next generation to see differently. Ages 7-14.</p>
+                    <p>Teaching young creators to see the world differently. Ages 7-14.</p>
                 </div>
             </a>
         </div>
         
         <div class="portal">
-            <a href="/prints" class="portal-link" aria-label="Shop Art Prints">
+            <a href="/prints" class="portal-link" aria-label="Fine Art Prints">
                 <img src="/static/images/hero-prints-real.jpg" alt="Mountain landscape">
                 <div class="overlay">
                     <h2>Art Prints</h2>
-                    <p>Limited edition prints for collectors. Museum-quality, made to last.</p>
+                    <p>Limited editions for collectors. Museum-quality prints that transform spaces.</p>
                 </div>
             </a>
         </div>
         
         <div class="portal">
-            <a href="/studio" class="portal-link" aria-label="Explore Studio Services">
-                <img src="/static/images/hero-studio-real.jpg" alt="Production in progress">
+            <a href="#branding" class="portal-link" aria-label="Brand Building">
+                <img src="/static/images/hero-branding.jpg" alt="Brand strategy workspace">
                 <div class="overlay">
-                    <h2>Studio</h2>
-                    <p>Content that connects. Video, strategy, and creative production.</p>
+                    <h2>Brand Building</h2>
+                    <p>Strategy, identity, and storytelling that sets you apart. We build brands people remember.</p>
                 </div>
             </a>
         </div>
