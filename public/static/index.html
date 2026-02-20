@@ -6,38 +6,14 @@
     
     <title>Acromatico — Photography, Education, Prints & Studio</title>
     <meta name="description" content="Award-winning photography and visual education. South Florida + NYC. We help people see differently.">
-    <meta name="keywords" content="acromatico, photography, education, fine art prints, creative studio, south florida photographer">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://acromatico.com/">
-    <meta property="og:title" content="Acromatico — Photography, Education, Prints & Studio">
+    <meta property="og:title" content="Acromatico">
     <meta property="og:description" content="We help people see differently.">
-    <meta property="og:image" content="/static/images/hero-photography-wow.jpg">
-    
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://acromatico.com/">
-    <meta property="twitter:title" content="Acromatico">
-    <meta property="twitter:description" content="We help people see differently.">
-    <meta property="twitter:image" content="/static/images/hero-photography-wow.jpg">
+    <meta property="og:image" content="/static/images/hero-photography-real.jpg">
     
     <link rel="canonical" href="https://acromatico.com/">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Acromatico",
-      "description": "Photography, Education, Art Prints & Creative Studio",
-      "url": "https://acromatico.com",
-      "logo": "https://acromatico.com/static/acromatico-logo-transparent.png",
-      "foundingDate": "2003",
-      "founders": [
-        {"@type": "Person", "name": "Italo Campilii"},
-        {"@type": "Person", "name": "Ale"}
-      ],
-      "areaServed": ["South Florida", "New York City", "United States"]
-    }
-    </script>
     
     <style>
         * { 
@@ -47,30 +23,99 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-            background: #000;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #0a0a0a;
             color: #fff;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
         
-        /* MINIMAL HERO */
+        /* LOADING FADE IN */
+        body {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        /* HERO - CRAFTED INTRODUCTION */
         .hero {
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
-            background: #000;
+            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
         }
         
         .hero h1 {
-            font-size: clamp(48px, 8vw, 96px);
-            font-weight: 300;
-            letter-spacing: -2px;
+            font-size: clamp(56px, 10vw, 120px);
+            font-weight: 200;
+            letter-spacing: -3px;
             color: #fff;
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: slideUp 1s ease 0.3s forwards;
         }
         
-        /* GRID */
+        .hero p {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            animation: slideUp 1s ease 0.6s forwards;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* SCROLL INDICATOR */
+        .scroll-hint {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            animation: fadeInScroll 1s ease 1.2s forwards, float 2s ease-in-out 2s infinite;
+        }
+        
+        @keyframes fadeInScroll {
+            to { opacity: 1; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 10px); }
+        }
+        
+        /* GRID - PURPOSEFUL LAYOUT */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -80,111 +125,207 @@
             position: relative;
             height: 100vh;
             overflow: hidden;
-            cursor: pointer;
+            opacity: 0;
+            animation: portalFadeIn 0.8s ease forwards;
+        }
+        
+        .portal:nth-child(1) { animation-delay: 0.2s; }
+        .portal:nth-child(2) { animation-delay: 0.4s; }
+        .portal:nth-child(3) { animation-delay: 0.6s; }
+        .portal:nth-child(4) { animation-delay: 0.8s; }
+        
+        @keyframes portalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .portal-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
         }
         
         .portal img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+                        filter 1s ease;
+            filter: grayscale(0.2) brightness(0.75);
         }
         
         .portal:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
+            filter: grayscale(0) brightness(0.85);
         }
         
+        /* OVERLAY - THOUGHTFUL POSITIONING */
         .overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: linear-gradient(180deg, 
+                        transparent 0%, 
+                        transparent 40%,
+                        rgba(0,0,0,0.3) 70%,
+                        rgba(0,0,0,0.85) 100%);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
             justify-content: flex-end;
             padding: 60px;
-            transition: background 0.6s ease;
+            transition: background 0.8s ease;
         }
         
         .portal:hover .overlay {
-            background: rgba(0, 0, 0, 0.2);
+            background: linear-gradient(180deg, 
+                        transparent 0%, 
+                        transparent 50%,
+                        rgba(0,0,0,0.2) 75%,
+                        rgba(0,0,0,0.7) 100%);
         }
         
         .overlay h2 {
-            font-size: clamp(32px, 4vw, 56px);
-            font-weight: 500;
-            letter-spacing: -1px;
-            margin-bottom: 12px;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 300;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+            transform: translateY(0);
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .portal:hover .overlay h2 {
+            transform: translateY(-8px);
         }
         
         .overlay p {
             font-size: 16px;
             font-weight: 300;
-            opacity: 0.9;
-            max-width: 400px;
-            line-height: 1.5;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+            opacity: 0.85;
+            max-width: 420px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
         }
         
-        /* MOBILE */
+        .portal:hover .overlay p {
+            transform: translateY(0);
+            opacity: 0.9;
+        }
+        
+        /* SUBTLE BORDER DETAIL */
+        .portal::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0);
+            transition: border-color 0.6s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .portal:hover::before {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: 1fr;
             }
             
             .portal {
-                height: 70vh;
+                height: 80vh;
             }
             
             .overlay {
                 padding: 40px 30px;
             }
+            
+            .overlay p {
+                opacity: 0.9;
+                transform: translateY(0);
+            }
+            
+            .scroll-hint {
+                display: none;
+            }
         }
         
+        /* ACCESSIBILITY */
         @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
+        }
+        
+        /* FOCUS STATES */
+        .portal-link:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+            outline-offset: -2px;
         }
     </style>
 </head>
 <body>
     <section class="hero">
         <h1>Acromatico</h1>
+        <p>South Florida + NYC</p>
+        <div class="scroll-hint">Scroll</div>
     </section>
     
     <div class="grid">
-        <a href="/photography" class="portal">
-            <img src="/static/images/hero-photography-wow.jpg" alt="Photography">
-            <div class="overlay">
-                <h2>Photography</h2>
-                <p>We capture the moments that matter.</p>
-            </div>
-        </a>
+        <div class="portal">
+            <a href="/photography" class="portal-link" aria-label="Explore Photography">
+                <img src="/static/images/hero-photography-real.jpg" alt="Couple at golden hour">
+                <div class="overlay">
+                    <h2>Photography</h2>
+                    <p>We capture the moments that matter. Weddings, portraits, and stories worth telling.</p>
+                </div>
+            </a>
+        </div>
         
-        <a href="/academy" class="portal">
-            <img src="/static/images/hero-education-wow.jpg" alt="Education">
-            <div class="overlay">
-                <h2>Education</h2>
-                <p>Teaching young creators to see differently.</p>
-            </div>
-        </a>
+        <div class="portal">
+            <a href="/academy" class="portal-link" aria-label="Explore Education">
+                <img src="/static/images/hero-education-real.jpg" alt="Young creator with camera">
+                <div class="overlay">
+                    <h2>Education</h2>
+                    <p>Teaching the next generation to see differently. Ages 7-14.</p>
+                </div>
+            </a>
+        </div>
         
-        <a href="/prints" class="portal">
-            <img src="/static/images/hero-prints-wow.jpg" alt="Art Prints">
-            <div class="overlay">
-                <h2>Art Prints</h2>
-                <p>Limited editions for your walls.</p>
-            </div>
-        </a>
+        <div class="portal">
+            <a href="/prints" class="portal-link" aria-label="Shop Art Prints">
+                <img src="/static/images/hero-prints-real.jpg" alt="Mountain landscape">
+                <div class="overlay">
+                    <h2>Art Prints</h2>
+                    <p>Limited edition prints for collectors. Museum-quality, made to last.</p>
+                </div>
+            </a>
+        </div>
         
-        <a href="/studio" class="portal">
-            <img src="/static/images/hero-studio-wow.jpg" alt="Studio">
-            <div class="overlay">
-                <h2>Studio</h2>
-                <p>Content that tells your story.</p>
-            </div>
-        </a>
+        <div class="portal">
+            <a href="/studio" class="portal-link" aria-label="Explore Studio Services">
+                <img src="/static/images/hero-studio-real.jpg" alt="Production in progress">
+                <div class="overlay">
+                    <h2>Studio</h2>
+                    <p>Content that connects. Video, strategy, and creative production.</p>
+                </div>
+            </a>
+        </div>
     </div>
 </body>
 </html>
