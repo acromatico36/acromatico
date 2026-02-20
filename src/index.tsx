@@ -1766,284 +1766,262 @@ app.get('/academy', (c) =>
 )
 app.get('/studio', (c) => 
   c.render(
-    <div class="min-h-screen bg-white text-black">
+    <div class="min-h-screen bg-white">
       <Header />
 
       <style>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-        
         body {
-          font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
           -webkit-font-smoothing: antialiased;
-          overflow-x: hidden;
         }
         
-        .hero-section {
-          height: 100vh;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: #000;
-        }
-        
-        .hero-image {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: 0.85;
-        }
-        
-        .hero-content {
-          position: relative;
-          z-index: 10;
-          text-align: center;
-          padding: 0 24px;
-          max-width: 1000px;
-        }
-        
-        .hero-title {
-          font-size: clamp(48px, 8vw, 96px);
-          font-weight: 200;
-          letter-spacing: -0.04em;
-          color: white;
-          margin-bottom: 24px;
-          line-height: 1.05;
-        }
-        
-        .hero-subtitle {
-          font-size: clamp(18px, 2vw, 24px);
-          font-weight: 300;
-          color: rgba(255,255,255,0.9);
-          letter-spacing: 0.01em;
-        }
-        
-        .section-padding {
-          padding: 160px 24px;
-        }
-        
-        .max-width {
-          max-width: 1200px;
+        .brand-container {
+          max-width: 980px;
           margin: 0 auto;
+          padding: 0 22px;
         }
         
-        .services-grid {
+        .brand-hero {
+          padding: 120px 0 80px;
+          text-align: center;
+        }
+        
+        .brand-hero h1 {
+          font-size: 56px;
+          font-weight: 600;
+          letter-spacing: -0.005em;
+          line-height: 1.07143;
+          margin-bottom: 12px;
+          color: #1d1d1f;
+        }
+        
+        .brand-hero p {
+          font-size: 28px;
+          line-height: 1.14286;
+          font-weight: 400;
+          letter-spacing: .004em;
+          color: #6e6e73;
+          margin-top: 8px;
+        }
+        
+        .brand-services {
+          padding: 80px 0;
+          border-bottom: 1px solid #d2d2d7;
+        }
+        
+        .brand-services h2 {
+          font-size: 40px;
+          line-height: 1.1;
+          font-weight: 600;
+          letter-spacing: 0em;
+          color: #1d1d1f;
+          margin-bottom: 48px;
+        }
+        
+        .services-list {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 80px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 40px;
         }
         
         .service-item h3 {
-          font-size: 32px;
-          font-weight: 300;
-          letter-spacing: -0.02em;
-          margin-bottom: 16px;
-          color: #000;
+          font-size: 21px;
+          line-height: 1.19048;
+          font-weight: 600;
+          letter-spacing: .011em;
+          color: #1d1d1f;
+          margin-bottom: 8px;
         }
         
         .service-item p {
-          font-size: 18px;
-          line-height: 1.6;
-          color: #666;
-          font-weight: 300;
-        }
-        
-        .work-section {
-          position: relative;
-          height: 100vh;
-          overflow: hidden;
-        }
-        
-        .work-image {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        
-        .work-overlay {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
-          padding: 80px 48px;
-        }
-        
-        .work-content {
-          max-width: 800px;
-        }
-        
-        .work-title {
-          font-size: clamp(36px, 5vw, 56px);
-          font-weight: 300;
-          color: white;
-          margin-bottom: 12px;
-          letter-spacing: -0.02em;
-        }
-        
-        .work-subtitle {
-          font-size: 20px;
-          color: rgba(255,255,255,0.9);
-          margin-bottom: 8px;
-          font-weight: 300;
-        }
-        
-        .work-description {
-          font-size: 16px;
-          color: rgba(255,255,255,0.7);
-          line-height: 1.6;
-          font-weight: 300;
-        }
-        
-        .cta-section {
-          padding: 200px 24px;
-          text-align: center;
-          background: #000;
-        }
-        
-        .cta-title {
-          font-size: clamp(40px, 6vw, 72px);
-          font-weight: 200;
-          letter-spacing: -0.03em;
-          color: white;
-          margin-bottom: 48px;
-          line-height: 1.1;
-        }
-        
-        .cta-button {
-          display: inline-block;
-          padding: 20px 60px;
-          background: white;
-          color: black;
-          font-size: 18px;
+          font-size: 17px;
+          line-height: 1.47059;
           font-weight: 400;
-          border-radius: 40px;
+          letter-spacing: -.022em;
+          color: #6e6e73;
+        }
+        
+        .brand-work {
+          padding: 100px 0;
+        }
+        
+        .brand-work h2 {
+          font-size: 40px;
+          line-height: 1.1;
+          font-weight: 600;
+          letter-spacing: 0em;
+          color: #1d1d1f;
+          margin-bottom: 60px;
+          text-align: center;
+        }
+        
+        .work-grid {
+          display: grid;
+          gap: 80px;
+        }
+        
+        .work-item img {
+          width: 100%;
+          height: auto;
+          border-radius: 12px;
+          margin-bottom: 20px;
+        }
+        
+        .work-item h3 {
+          font-size: 28px;
+          line-height: 1.14286;
+          font-weight: 600;
+          letter-spacing: .007em;
+          color: #1d1d1f;
+          margin-bottom: 8px;
+        }
+        
+        .work-item .subtitle {
+          font-size: 17px;
+          line-height: 1.47059;
+          font-weight: 400;
+          letter-spacing: -.022em;
+          color: #6e6e73;
+          margin-bottom: 12px;
+        }
+        
+        .work-item .description {
+          font-size: 17px;
+          line-height: 1.47059;
+          font-weight: 400;
+          letter-spacing: -.022em;
+          color: #86868b;
+        }
+        
+        .brand-cta {
+          padding: 100px 0 120px;
+          text-align: center;
+        }
+        
+        .brand-cta h2 {
+          font-size: 40px;
+          line-height: 1.1;
+          font-weight: 600;
+          letter-spacing: 0em;
+          color: #1d1d1f;
+          margin-bottom: 32px;
+        }
+        
+        .brand-cta a {
+          display: inline-block;
+          font-size: 17px;
+          line-height: 1.17648;
+          font-weight: 400;
+          letter-spacing: -.022em;
+          min-width: 28px;
+          padding: 12px 24px;
+          background: #0071e3;
+          border-radius: 980px;
+          color: #fff;
           text-decoration: none;
-          transition: all 0.3s ease;
+          transition: background .2s;
         }
         
-        .cta-button:hover {
-          transform: scale(1.05);
-          box-shadow: 0 20px 60px rgba(255,255,255,0.3);
+        .brand-cta a:hover {
+          background: #0077ed;
         }
         
-        @media (max-width: 768px) {
-          .section-padding {
-            padding: 80px 24px;
+        @media (max-width: 734px) {
+          .brand-hero h1 {
+            font-size: 40px;
+            line-height: 1.1;
+            letter-spacing: 0em;
           }
           
-          .services-grid {
-            gap: 60px;
+          .brand-hero p {
+            font-size: 21px;
+            line-height: 1.19048;
+            letter-spacing: .011em;
           }
           
-          .work-overlay {
-            padding: 40px 24px;
+          .services-list {
+            grid-template-columns: 1fr;
+            gap: 40px;
           }
           
-          .cta-section {
-            padding: 120px 24px;
+          .brand-work h2,
+          .brand-services h2,
+          .brand-cta h2 {
+            font-size: 32px;
+            line-height: 1.125;
+            letter-spacing: .004em;
           }
         }
       `}</style>
 
       {/* Hero */}
-      <section class="hero-section">
-        <img 
-          src="/static/images/hero-brand-epic.jpg" 
-          alt="Brand Building"
-          class="hero-image"
-        />
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Build brands<br/>people remember
-          </h1>
-          <p class="hero-subtitle">
-            Strategy. Identity. Content.
-          </p>
+      <div class="brand-container">
+        <div class="brand-hero">
+          <h1>Brand Building</h1>
+          <p>Strategy. Identity. Content.</p>
         </div>
-      </section>
+      </div>
 
       {/* Services */}
-      <section class="section-padding">
-        <div class="max-width">
-          <div class="services-grid">
+      <div class="brand-container">
+        <div class="brand-services">
+          <h2>What we do</h2>
+          <div class="services-list">
             <div class="service-item">
               <h3>Strategy</h3>
-              <p>
-                We help you see what makes you different—and own it.
-              </p>
+              <p>We help you see what makes you different — and own it.</p>
             </div>
-            
             <div class="service-item">
               <h3>Identity</h3>
-              <p>
-                Visual systems that tell your story without saying a word.
+              <p>Visual systems that tell your story.</p>
+            </div>
+            <div class="service-item">
+              <h3>Content</h3>
+              <p>Photography and video that captures what you're about.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Work */}
+      <div class="brand-container">
+        <div class="brand-work">
+          <h2>Selected work</h2>
+          <div class="work-grid">
+            <div class="work-item">
+              <img 
+                src="/static/images/brand-seaside-boca-shoot.jpg" 
+                alt="Ecolosophy"
+              />
+              <h3>Ecolosophy</h3>
+              <p class="subtitle">Non-toxic cleaning revolution</p>
+              <p class="description">
+                Brand identity, product photography, and storytelling for a mission-driven wellness company.
               </p>
             </div>
             
-            <div class="service-item">
-              <h3>Content</h3>
-              <p>
-                Photography and video that captures what you're really about.
+            <div class="work-item">
+              <img 
+                src="/static/images/hero-photography-wedding.jpg" 
+                alt="Wedding Photography"
+              />
+              <h3>Moments That Matter</h3>
+              <p class="subtitle">Wedding photography</p>
+              <p class="description">
+                Authentic moments captured with intention. Not poses, just real people.
               </p>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Work: Ecolosophy */}
-      <section class="work-section">
-        <img 
-          src="/static/images/brand-seaside-boca-shoot.jpg" 
-          alt="Ecolosophy Brand"
-          class="work-image"
-        />
-        <div class="work-overlay">
-          <div class="work-content">
-            <h2 class="work-title">Ecolosophy</h2>
-            <p class="work-subtitle">Non-toxic cleaning revolution</p>
-            <p class="work-description">
-              Complete brand identity, product photography, and storytelling for a mission-driven wellness company
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Work: Wedding */}
-      <section class="work-section">
-        <img 
-          src="/static/images/hero-photography-wedding.jpg" 
-          alt="Wedding Photography"
-          class="work-image"
-        />
-        <div class="work-overlay">
-          <div class="work-content">
-            <h2 class="work-title">Moments That Matter</h2>
-            <p class="work-subtitle">Wedding photography & storytelling</p>
-            <p class="work-description">
-              Authentic moments captured with intention—not poses, just people being real
-            </p>
-          </div>
-        </div>
-      </section>
+      </div>
 
       {/* CTA */}
-      <section class="cta-section">
-        <h2 class="cta-title">
-          Let's create<br/>something real
-        </h2>
-        <a href="/contact" class="cta-button">
-          Start a conversation
-        </a>
-      </section>
+      <div class="brand-container">
+        <div class="brand-cta">
+          <h2>Let's work together</h2>
+          <a href="/contact">Get in touch</a>
+        </div>
+      </div>
 
       <div dangerouslySetInnerHTML={{__html: footerHTML}} />
     </div>,
