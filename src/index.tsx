@@ -635,7 +635,7 @@ app.get('/education', (c) => {
         </div>
       </section>
 
-      {footerHTML}
+      <div dangerouslySetInnerHTML={{__html: footerHTML}} />
 
       {/* TYPEFORM-STYLE ENROLLMENT MODAL */}
       <div id="enrollment-modal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
@@ -1877,7 +1877,7 @@ app.get('/studio', (c) =>
         </div>
       </section>
 
-      {footerHTML}
+      <div dangerouslySetInnerHTML={{__html: footerHTML}} />
     </div>,
     { title: 'Brand Building - Acromatico' }
   )
@@ -4250,7 +4250,7 @@ app.get('/faq', (c) =>
         </div>
       </section>
 
-      {footerHTML}
+      <div dangerouslySetInnerHTML={{__html: footerHTML}} />
 
       {/* Enrollment Modal */}
       <div id="enrollment-modal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
