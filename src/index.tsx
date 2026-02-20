@@ -284,6 +284,78 @@ app.get('/', (c) => {
   return c.redirect('/static/index.html')
 })
 
+// EDUCATION LANDING PAGE - Educators Profile
+app.get('/education', (c) => 
+  c.render(
+    <div class="min-h-screen bg-black text-white">
+      <Header />
+      
+      {/* Educators Section */}
+      <section class="py-32">
+        <div class="max-w-7xl mx-auto px-6">
+          {/* Main Photo */}
+          <div class="mb-16">
+            <img 
+              src="/static/images/educators-team-real.jpg" 
+              alt="Italo & Ale - Educators and Adventure Photographers" 
+              class="w-full rounded-3xl shadow-2xl"
+              style="object-position: 25% 25%;"
+            />
+          </div>
+          
+          {/* Unified Story */}
+          <div class="text-center mb-12">
+            <h2 class="text-5xl md:text-6xl font-black mb-6">
+              We're Italo & Ale
+            </h2>
+            <p class="text-2xl text-white/90 font-light mb-8">
+              Parents. Photographers. Adventurers.
+            </p>
+            <p class="text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+              Raise a generation of confident creators who see beauty everywhere.
+              <br/><br/>
+              20+ years capturing life's most powerful moments—from intimate weddings to 30,000-person events. 
+              Now we're teaching your kids to do the same.
+              <br/><br/>
+              <strong class="text-white">Not just photography. Confidence. Creativity. Vision.</strong>
+            </p>
+          </div>
+          
+          {/* Credentials - Clean & Simple */}
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-16">
+            <div>
+              <div class="text-4xl font-light mb-2">20+</div>
+              <div class="text-sm text-gray-500 uppercase tracking-wider">Years Pro</div>
+            </div>
+            <div>
+              <div class="text-4xl font-light mb-2">1,000+</div>
+              <div class="text-sm text-gray-500 uppercase tracking-wider">Events Shot</div>
+            </div>
+            <div>
+              <div class="text-4xl font-light mb-2">3</div>
+              <div class="text-sm text-gray-500 uppercase tracking-wider">Countries</div>
+            </div>
+            <div>
+              <div class="text-4xl font-light mb-2">1M+</div>
+              <div class="text-sm text-gray-500 uppercase tracking-wider">Images Taken</div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div class="text-center">
+            <a href="/academy" class="inline-block px-10 py-4 rounded-full font-bold text-lg bg-teal-500 hover:bg-teal-600 transition">
+              See The 12-Month Curriculum →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {footerHTML}
+    </div>,
+    { title: 'Meet Your Educators - Acromatico' }
+  )
+)
+
 // ============================================
 // API ROUTES
 // ============================================
