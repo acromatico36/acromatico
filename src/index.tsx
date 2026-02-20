@@ -1779,7 +1779,8 @@ app.get('/studio', (c) =>
           height: 100vh;
           position: relative;
           display: flex;
-          align-items: flex-end;
+          align-items: center;
+          justify-content: center;
           padding: 60px;
         }
         
@@ -1791,127 +1792,167 @@ app.get('/studio', (c) =>
           height: 100%;
           object-fit: cover;
           z-index: 0;
+          opacity: 0.3;
         }
         
         .hero-full h1 {
           position: relative;
           z-index: 1;
-          font-size: clamp(32px, 6vw, 64px);
-          font-weight: 700;
+          font-size: clamp(48px, 8vw, 96px);
+          font-weight: 300;
+          letter-spacing: -0.04em;
           line-height: 1.1;
-          max-width: 800px;
-          text-shadow: 0 2px 40px rgba(0,0,0,0.8);
+          text-align: center;
+          max-width: 1000px;
         }
         
-        .case-study {
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          padding: 120px 60px;
-          border-bottom: 1px solid #222;
+        .brand-showcase {
+          padding: 80px 40px;
+          border-bottom: 1px solid #111;
         }
         
-        .case-study:nth-child(even) {
-          background: #0a0a0a;
-        }
-        
-        .case-grid {
+        .brand-grid {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 80px;
-          max-width: 1600px;
-          margin: 0 auto;
-          align-items: center;
+          grid-template-columns: 200px 1fr;
+          gap: 60px;
+          max-width: 1400px;
+          margin: 0 auto 100px;
+          align-items: start;
         }
         
-        .case-study:nth-child(even) .case-grid {
-          direction: rtl;
+        .brand-logo-wrap {
+          position: sticky;
+          top: 120px;
         }
         
-        .case-study:nth-child(even) .case-grid > * {
-          direction: ltr;
+        .brand-logo {
+          width: 100%;
+          max-width: 180px;
+          height: auto;
+          opacity: 0.6;
+          filter: brightness(0) invert(1);
+          transition: all 0.3s;
         }
         
-        .case-image {
+        .brand-logo:hover {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        
+        .brand-preview {
           width: 100%;
           height: auto;
+          border-radius: 8px;
+          border: 1px solid #222;
+          transition: transform 0.3s;
         }
         
-        .case-content h2 {
-          font-size: clamp(32px, 4vw, 56px);
-          font-weight: 700;
-          margin-bottom: 16px;
-          line-height: 1.1;
+        .brand-preview:hover {
+          transform: scale(1.02);
+          border-color: #444;
         }
         
-        .case-content .label {
-          font-size: 14px;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          color: #888;
-          margin-bottom: 24px;
-        }
-        
-        .case-content p {
-          font-size: 20px;
-          line-height: 1.6;
-          color: #ccc;
-          margin-bottom: 32px;
-        }
-        
-        .case-content .result {
-          font-size: 18px;
-          color: #0ea5e9;
+        .brand-info h3 {
+          font-size: 28px;
           font-weight: 600;
+          margin: 24px 0 12px;
+          letter-spacing: -0.02em;
+        }
+        
+        .brand-info p {
+          font-size: 16px;
+          line-height: 1.6;
+          color: #999;
+          max-width: 700px;
+        }
+        
+        .clients-minimal {
+          padding: 120px 40px;
+          background: #000;
+          text-align: center;
+        }
+        
+        .clients-minimal h2 {
+          font-size: clamp(20px, 3vw, 24px);
+          font-weight: 400;
+          margin-bottom: 80px;
+          color: #666;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+        
+        .logo-grid-minimal {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 140px));
+          gap: 60px 80px;
+          max-width: 1200px;
+          margin: 0 auto;
+          justify-content: center;
+        }
+        
+        .logo-grid-minimal img {
+          width: 100%;
+          max-width: 120px;
+          height: auto;
+          margin: 0 auto;
+          opacity: 0.4;
+          filter: brightness(0) invert(1);
+          transition: opacity 0.3s;
+        }
+        
+        .logo-grid-minimal img:hover {
+          opacity: 0.7;
         }
         
         .final-cta {
-          min-height: 60vh;
+          min-height: 50vh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           text-align: center;
-          padding: 120px 60px;
+          padding: 100px 40px;
+          background: #000;
         }
         
         .final-cta h2 {
-          font-size: clamp(40px, 6vw, 80px);
-          font-weight: 700;
-          margin-bottom: 48px;
-          line-height: 1.1;
+          font-size: clamp(32px, 5vw, 56px);
+          font-weight: 300;
+          margin-bottom: 40px;
+          letter-spacing: -0.02em;
         }
         
         .final-cta a {
           display: inline-block;
-          padding: 20px 48px;
+          padding: 18px 44px;
           background: #fff;
           color: #000;
-          font-size: 18px;
-          font-weight: 700;
+          font-size: 16px;
+          font-weight: 500;
           text-decoration: none;
-          border-radius: 4px;
-          transition: transform 0.2s;
+          border-radius: 6px;
+          transition: all 0.2s;
         }
         
         .final-cta a:hover {
+          background: #f0f0f0;
           transform: translateY(-2px);
         }
         
         @media (max-width: 1024px) {
-          .case-grid {
+          .brand-grid {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 30px;
           }
           
-          .case-study:nth-child(even) .case-grid {
-            direction: ltr;
+          .brand-logo-wrap {
+            position: relative;
+            top: 0;
           }
           
-          .hero-full,
-          .case-study,
-          .final-cta {
-            padding: 60px 24px;
+          .logo-grid-minimal {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 40px 60px;
           }
         }
       `}</style>
@@ -1919,80 +1960,102 @@ app.get('/studio', (c) =>
       {/* Hero */}
       <div class="hero-full">
         <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Brand work" />
-        <h1>We build brands you can't ignore.</h1>
+        <h1>Brands that stand out.<br/>Built from scratch.</h1>
       </div>
 
-      {/* Ecolosophy */}
-      <div class="case-study">
-        <div class="case-grid">
-          <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Ecolosophy" class="case-image" />
-          <div class="case-content">
-            <div class="label">Brand Building</div>
-            <h2>Ecolosophy</h2>
-            <p>
-              A wellness startup with zero brand presence. We built their entire visual identity, shot all their product photography, and created a content system that helped them stand out in a crowded market.
-            </p>
-            <div class="result">Complete brand transformation from zero to market-ready</div>
+      {/* Brand Showcases with Homepage Previews */}
+      <section class="brand-showcase">
+        
+        {/* Ecolosophy */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="brand-logo" />
+          </div>
+          <div>
+            <img src="https://www.ecolosophy.com/cdn/shop/files/homepage-hero.jpg" alt="Ecolosophy homepage" class="brand-preview" onerror="this.src='/static/images/brand-seaside-boca-shoot.jpg'" />
+            <div class="brand-info">
+              <h3>Ecolosophy</h3>
+              <p>Complete brand transformation. Non-toxic cleaning brand built from zero—visual identity, product photography, content strategy. Now market-ready and scaling.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Wedding Photography */}
-      <div class="case-study">
-        <div class="case-grid">
-          <img src="/static/images/hero-photography-wedding.jpg" alt="Wedding photography" class="case-image" />
-          <div class="case-content">
-            <div class="label">Photography</div>
-            <h2>500+ Weddings</h2>
-            <p>
-              Over 20 years, we've captured moments that matter for hundreds of couples. Not poses. Not perfection. Real emotion. Real people. Real memories.
-            </p>
-            <div class="result">1M+ images. Countless unforgettable moments.</div>
+        {/* LIA */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/lia.png" alt="LIA by Jomari Goyso" class="brand-logo" />
+          </div>
+          <div>
+            <img src="https://via.placeholder.com/1200x800/000000/FFFFFF?text=LIA+by+Jomari+Goyso" alt="LIA homepage" class="brand-preview" />
+            <div class="brand-info">
+              <h3>LIA by Jomari Goyso</h3>
+              <p>Luxury beauty brand identity and product photography. Capturing elegance and sophistication for a celebrity-backed beauty line.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Education */}
-      <div class="case-study">
-        <div class="case-grid">
-          <img src="/static/images/hero-child-photographer-safe.jpg" alt="Photography education" class="case-image" />
-          <div class="case-content">
-            <div class="label">Education</div>
-            <h2>Teaching the Next Generation</h2>
-            <p>
-              We teach kids ages 7-14 how to see the world through a lens. Not just technical skills—creative vision. Confidence. The ability to tell their own stories.
-            </p>
-            <div class="result">Empowering young creators for 20+ years</div>
+        {/* Access by CGI */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" class="brand-logo" />
+          </div>
+          <div>
+            <img src="https://via.placeholder.com/1200x800/1a1a1a/FFFFFF?text=Access+by+CGI" alt="Access homepage" class="brand-preview" />
+            <div class="brand-info">
+              <h3>Access by CGI</h3>
+              <p>Enterprise fintech branding. Clean, modern visual system that communicates trust and innovation in financial services.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Clients */}
-      <section class="py-32 px-6" style="background: #0a0a0a; border-top: 1px solid #222;">
-        <div class="max-w-6xl mx-auto text-center">
-          <h2 style="font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: 64px; color: #888;">
-            Trusted by leading brands
-          </h2>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 48px; align-items: center;">
-            <img src="/static/images/clients/lia.png" alt="LIA by Jomari Goyso" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/republic.png" alt="Republic Commercial Fund" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/midpay.png" alt="MidPay" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/midbank.png" alt="MidBank" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/one-investment.png" alt="One Investment Group" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/travel-drd.png" alt="Travel DRD" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/circulo.png" alt="Círculo" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/medworks.png" alt="MedWorks" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/hollywood-restoration.png" alt="Hollywood Restoration" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-            <img src="/static/images/clients/abc-cleaning.png" alt="ABC Cleaning" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; opacity: 0.8; filter: brightness(0) invert(1); transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+        {/* Republic */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/republic.png" alt="Republic Commercial Fund" class="brand-logo" />
           </div>
+          <div>
+            <img src="https://via.placeholder.com/1200x800/0f0f0f/FFFFFF?text=Republic+Commercial+Fund" alt="Republic homepage" class="brand-preview" />
+            <div class="brand-info">
+              <h3>Republic Commercial Fund</h3>
+              <p>Commercial real estate investment brand. Bold, authoritative design that conveys strength and reliability.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* MidPay */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/midpay.png" alt="MidPay" class="brand-logo" />
+          </div>
+          <div>
+            <img src="https://via.placeholder.com/1200x800/0a0a0a/9ACD32?text=MidPay" alt="MidPay homepage" class="brand-preview" />
+            <div class="brand-info">
+              <h3>MidPay</h3>
+              <p>Fintech payment processing brand. Modern, tech-forward identity with dynamic visual language.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      {/* Clients Section - Minimal */}
+      <section class="clients-minimal">
+        <h2>Other brands we've worked with</h2>
+        <div class="logo-grid-minimal">
+          <img src="/static/images/clients/midbank.png" alt="MidBank" />
+          <img src="/static/images/clients/one-investment.png" alt="One Investment Group" />
+          <img src="/static/images/clients/travel-drd.png" alt="Travel DRD" />
+          <img src="/static/images/clients/circulo.png" alt="Círculo" />
+          <img src="/static/images/clients/medworks.png" alt="MedWorks" />
+          <img src="/static/images/clients/hollywood-restoration.png" alt="Hollywood Restoration" />
+          <img src="/static/images/clients/abc-cleaning.png" alt="ABC Cleaning" />
         </div>
       </section>
 
       {/* CTA */}
       <div class="final-cta">
-        <h2>Ready to build something powerful?</h2>
-        <a href="/contact">Let's talk</a>
+        <h2>Let's build something unforgettable.</h2>
+        <a href="/contact">Start a project</a>
       </div>
 
       <div dangerouslySetInnerHTML={{__html: footerHTML}} />
