@@ -1770,10 +1770,13 @@ app.get('/studio', (c) =>
       <Header />
 
       <style>{`
-        body { background: #000; color: #fff; }
+        body {
+          background: #000;
+          color: #fff;
+        }
         
-        /* HERO - INSTANT IMPACT */
-        .hero-impact {
+        /* HERO - Make it hit HARD */
+        .hero-full {
           height: 100vh;
           position: relative;
           display: flex;
@@ -1782,10 +1785,9 @@ app.get('/studio', (c) =>
           justify-content: center;
           padding: 60px 40px;
           text-align: center;
-          background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
         }
         
-        .hero-impact img {
+        .hero-full img {
           position: absolute;
           top: 0;
           left: 0;
@@ -1793,42 +1795,37 @@ app.get('/studio', (c) =>
           height: 100%;
           object-fit: cover;
           z-index: 0;
-          opacity: 0.08;
+          opacity: 0.15;
         }
         
-        .hero-impact h1 {
+        .hero-full h1 {
           position: relative;
           z-index: 1;
-          font-size: clamp(64px, 12vw, 140px);
-          font-weight: 800;
-          letter-spacing: -0.06em;
-          line-height: 0.9;
-          margin-bottom: 40px;
-          background: linear-gradient(180deg, #fff 0%, #888 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          font-size: clamp(56px, 10vw, 120px);
+          font-weight: 700;
+          letter-spacing: -0.05em;
+          line-height: 0.95;
+          margin-bottom: 32px;
         }
         
-        .hero-impact .tagline {
+        .hero-full .subtext {
           position: relative;
           z-index: 1;
-          font-size: clamp(24px, 3vw, 36px);
+          font-size: clamp(20px, 2.5vw, 28px);
           font-weight: 300;
-          letter-spacing: -0.02em;
-          color: #aaa;
-          max-width: 800px;
-          margin: 0 auto 60px;
+          letter-spacing: -0.01em;
+          color: #999;
+          max-width: 700px;
+          margin-bottom: 48px;
         }
         
         .hero-stats {
           position: relative;
           z-index: 1;
           display: flex;
-          gap: 80px;
+          gap: 60px;
           justify-content: center;
           flex-wrap: wrap;
-          padding: 60px 0 0;
-          border-top: 1px solid #222;
         }
         
         .stat {
@@ -1836,531 +1833,258 @@ app.get('/studio', (c) =>
         }
         
         .stat-number {
-          font-size: clamp(48px, 6vw, 72px);
-          font-weight: 800;
-          color: #fff;
-          display: block;
-          margin-bottom: 12px;
-          letter-spacing: -0.03em;
-        }
-        
-        .stat-label {
-          font-size: 15px;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          color: #555;
-          font-weight: 500;
-        }
-        
-        /* THE DIFFERENCE SECTION */
-        .difference-section {
-          padding: 140px 40px;
-          background: #000;
-          text-align: center;
-        }
-        
-        .difference-section h2 {
-          font-size: clamp(40px, 7vw, 80px);
+          font-size: clamp(36px, 5vw, 56px);
           font-weight: 700;
-          letter-spacing: -0.04em;
-          margin-bottom: 80px;
-          line-height: 1;
-        }
-        
-        .difference-section h2 span {
-          color: #555;
-        }
-        
-        .pillars-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 60px;
-          max-width: 1400px;
-          margin: 0 auto;
-          text-align: left;
-        }
-        
-        .pillar {
-          padding: 50px 40px;
-          background: #0a0a0a;
-          border: 1px solid #181818;
-          border-radius: 8px;
-          transition: all 0.3s;
-        }
-        
-        .pillar:hover {
-          border-color: #333;
-          transform: translateY(-8px);
-        }
-        
-        .pillar-number {
-          font-size: 72px;
-          font-weight: 800;
-          color: #1a1a1a;
-          line-height: 1;
-          margin-bottom: 20px;
-        }
-        
-        .pillar h3 {
-          font-size: 28px;
-          font-weight: 700;
-          margin-bottom: 20px;
-          letter-spacing: -0.02em;
-        }
-        
-        .pillar p {
-          font-size: 17px;
-          line-height: 1.7;
-          color: #999;
-          margin-bottom: 20px;
-        }
-        
-        .pillar ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-        
-        .pillar li {
-          font-size: 15px;
-          color: #777;
-          padding-left: 20px;
-          position: relative;
-          margin-bottom: 10px;
-        }
-        
-        .pillar li:before {
-          content: "→";
-          position: absolute;
-          left: 0;
-          color: #444;
-        }
-        
-        .pillar-result {
-          margin-top: 24px;
-          padding-top: 24px;
-          border-top: 1px solid #1a1a1a;
-          font-size: 16px;
-          font-weight: 600;
           color: #fff;
-        }
-        
-        /* CASE STUDIES - BIG IMPACT */
-        .case-hero {
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          padding: 100px 60px;
-          position: relative;
-          border-bottom: 1px solid #0a0a0a;
-        }
-        
-        .case-hero:nth-child(even) {
-          background: #050505;
-        }
-        
-        .case-content-wrap {
-          max-width: 1600px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 100px;
-          align-items: center;
-        }
-        
-        .case-hero:nth-child(even) .case-content-wrap {
-          direction: rtl;
-        }
-        
-        .case-hero:nth-child(even) .case-content-wrap > * {
-          direction: ltr;
-        }
-        
-        .case-visual {
-          position: relative;
-        }
-        
-        .case-visual img {
-          width: 100%;
-          height: auto;
-          border-radius: 12px;
-          box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-        }
-        
-        .case-logo {
-          width: 140px;
-          height: auto;
-          opacity: 0.5;
-          filter: brightness(0) invert(1);
-          margin-bottom: 40px;
-        }
-        
-        .case-content h2 {
-          font-size: clamp(40px, 6vw, 72px);
-          font-weight: 800;
-          letter-spacing: -0.04em;
-          line-height: 1;
-          margin-bottom: 32px;
-        }
-        
-        .case-challenge {
-          font-size: 18px;
-          color: #666;
-          margin-bottom: 32px;
-          padding: 28px;
-          background: #0a0a0a;
-          border-left: 3px solid #222;
-        }
-        
-        .case-challenge strong {
-          color: #999;
-          display: block;
-          margin-bottom: 12px;
-          text-transform: uppercase;
-          font-size: 13px;
-          letter-spacing: 0.1em;
-        }
-        
-        .case-solution {
-          font-size: 19px;
-          line-height: 1.7;
-          color: #aaa;
-          margin-bottom: 40px;
-        }
-        
-        .case-results {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-          gap: 32px;
-        }
-        
-        .result-item {
-          padding: 24px;
-          background: #0a0a0a;
-          border-radius: 8px;
-        }
-        
-        .result-number {
-          font-size: 36px;
-          font-weight: 800;
-          color: #0ea5e9;
           display: block;
           margin-bottom: 8px;
         }
         
-        .result-label {
-          font-size: 13px;
-          color: #666;
+        .stat-label {
+          font-size: 14px;
           text-transform: uppercase;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.1em;
+          color: #666;
         }
         
-        /* SOCIAL PROOF MINIMAL */
-        .social-proof {
+        .brand-showcase {
+          padding: 80px 40px;
+          border-bottom: 1px solid #111;
+        }
+        
+        .brand-grid {
+          display: grid;
+          grid-template-columns: 200px 1fr;
+          gap: 60px;
+          max-width: 1400px;
+          margin: 0 auto 100px;
+          align-items: start;
+        }
+        
+        .brand-logo-wrap {
+          position: sticky;
+          top: 120px;
+        }
+        
+        .brand-logo {
+          width: 100%;
+          max-width: 180px;
+          height: auto;
+          opacity: 0.6;
+          filter: brightness(0) invert(1);
+          transition: all 0.3s;
+        }
+        
+        .brand-logo:hover {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        
+        .brand-preview {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+          border: 1px solid #222;
+          transition: transform 0.3s;
+        }
+        
+        .brand-preview:hover {
+          transform: scale(1.02);
+          border-color: #444;
+        }
+        
+        .brand-info h3 {
+          font-size: 28px;
+          font-weight: 600;
+          margin: 24px 0 12px;
+          letter-spacing: -0.02em;
+        }
+        
+        .brand-info p {
+          font-size: 16px;
+          line-height: 1.6;
+          color: #999;
+          max-width: 700px;
+        }
+        
+        .clients-minimal {
           padding: 120px 40px;
           background: #000;
           text-align: center;
-          border-top: 1px solid #0a0a0a;
         }
         
-        .social-proof h3 {
-          font-size: 18px;
-          text-transform: uppercase;
-          letter-spacing: 0.2em;
-          color: #444;
+        .clients-minimal h2 {
+          font-size: clamp(20px, 3vw, 24px);
+          font-weight: 400;
           margin-bottom: 80px;
-          font-weight: 500;
+          color: #666;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
         }
         
-        .client-logos-minimal {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 80px;
-          justify-content: center;
-          align-items: center;
+        .logo-grid-minimal {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 140px));
+          gap: 60px 80px;
           max-width: 1200px;
           margin: 0 auto;
+          justify-content: center;
         }
         
-        .client-logos-minimal img {
-          width: 100px;
+        .logo-grid-minimal img {
+          width: 100%;
+          max-width: 120px;
           height: auto;
-          opacity: 0.3;
+          margin: 0 auto;
+          opacity: 0.4;
           filter: brightness(0) invert(1);
           transition: opacity 0.3s;
         }
         
-        .client-logos-minimal img:hover {
-          opacity: 0.6;
+        .logo-grid-minimal img:hover {
+          opacity: 0.7;
         }
         
-        /* EXCLUSIVE CTA */
-        .exclusive-cta {
-          min-height: 80vh;
+        .final-cta {
+          min-height: 50vh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           text-align: center;
-          padding: 120px 40px;
-          background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
-          border-top: 1px solid #111;
+          padding: 100px 40px;
+          background: #000;
         }
         
-        .exclusive-badge {
+        .final-cta h2 {
+          font-size: clamp(32px, 5vw, 56px);
+          font-weight: 300;
+          margin-bottom: 40px;
+          letter-spacing: -0.02em;
+        }
+        
+        .final-cta a {
           display: inline-block;
-          padding: 12px 32px;
-          background: #0a0a0a;
-          border: 1px solid #222;
-          border-radius: 100px;
-          font-size: 13px;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          color: #666;
-          margin-bottom: 48px;
-        }
-        
-        .exclusive-cta h2 {
-          font-size: clamp(48px, 8vw, 96px);
-          font-weight: 700;
-          letter-spacing: -0.04em;
-          line-height: 1;
-          margin-bottom: 32px;
-        }
-        
-        .exclusive-cta p {
-          font-size: 22px;
-          color: #777;
-          max-width: 600px;
-          margin: 0 auto 56px;
-          line-height: 1.6;
-        }
-        
-        .cta-button {
-          display: inline-block;
-          padding: 24px 56px;
+          padding: 18px 44px;
           background: #fff;
           color: #000;
-          font-size: 18px;
-          font-weight: 700;
+          font-size: 16px;
+          font-weight: 500;
           text-decoration: none;
-          border-radius: 8px;
-          transition: all 0.3s;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
+          border-radius: 6px;
+          transition: all 0.2s;
         }
         
-        .cta-button:hover {
+        .final-cta a:hover {
           background: #f0f0f0;
-          transform: translateY(-4px);
-          box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+          transform: translateY(-2px);
         }
         
         @media (max-width: 1024px) {
-          .case-content-wrap {
+          .brand-grid {
             grid-template-columns: 1fr;
-            gap: 60px;
+            gap: 30px;
           }
           
-          .case-hero:nth-child(even) .case-content-wrap {
-            direction: ltr;
+          .brand-logo-wrap {
+            position: relative;
+            top: 0;
           }
           
-          .hero-stats {
-            gap: 40px;
-          }
-          
-          .pillars-grid {
-            grid-template-columns: 1fr;
+          .logo-grid-minimal {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 40px 60px;
           }
         }
       `}</style>
 
-      {/* HERO - INSTANT WOW */}
-      <section class="hero-impact">
+      {/* Hero */}
+      <div class="hero-full">
         <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Brand work" />
-        <h1>IMPOSSIBLE<br/>TO IGNORE</h1>
-        <div class="tagline">
-          We don't build brands. We build movements.<br/>
-          And we only work with 6 clients per year.
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number">20+</span>
-            <span class="stat-label">Years Building Brands</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">1M+</span>
-            <span class="stat-label">Images Captured</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">6</span>
-            <span class="stat-label">Clients Per Year</span>
-          </div>
-        </div>
-      </section>
+        <h1>Brands that stand out.<br/>Built from scratch.</h1>
+      </div>
 
-      {/* THE DIFFERENCE */}
-      <section class="difference-section">
-        <h2>
-          Most agencies give you a logo.<br/>
-          <span>We give you a system.</span>
-        </h2>
+      {/* Brand Showcases with Homepage Previews */}
+      <section class="brand-showcase">
         
-        <div class="pillars-grid">
-          <div class="pillar">
-            <div class="pillar-number">01</div>
-            <h3>Visual DNA System</h3>
-            <p>Not just a logo. A complete visual language that works across every touchpoint.</p>
-            <ul>
-              <li>Every color has psychological intent</li>
-              <li>Every font choice drives emotion</li>
-              <li>Every image follows strict visual hierarchy</li>
-            </ul>
-            <div class="pillar-result">→ Your brand becomes instantly recognizable</div>
+        {/* Ecolosophy */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="brand-logo" />
           </div>
-
-          <div class="pillar">
-            <div class="pillar-number">02</div>
-            <h3>Photography as Strategy</h3>
-            <p>We're photographers FIRST. That changes everything.</p>
-            <ul>
-              <li>We don't hire out product shoots</li>
-              <li>We don't use stock images</li>
-              <li>Every image is custom-crafted to YOUR story</li>
-              <li>We shoot 500+ photos PER brand to build your library</li>
-            </ul>
-            <div class="pillar-result">→ Your brand looks like nothing else in your industry</div>
-          </div>
-
-          <div class="pillar">
-            <div class="pillar-number">03</div>
-            <h3>Content Systems, Not One-Offs</h3>
-            <p>We don't deliver files and disappear. We build infrastructure.</p>
-            <ul>
-              <li>12-month content calendars</li>
-              <li>Reusable template systems</li>
-              <li>Brand guidelines your team can actually use</li>
-              <li>Training on maintaining consistency</li>
-            </ul>
-            <div class="pillar-result">→ Your brand stays cohesive as you scale</div>
-          </div>
-        </div>
-      </section>
-
-      {/* ECOLOSOPHY CASE STUDY */}
-      <section class="case-hero">
-        <div class="case-content-wrap">
-          <div class="case-visual">
-            <img src="/static/images/brand-previews/ecolosophy-preview.jpg" alt="Ecolosophy brand transformation" />
-          </div>
-          <div class="case-content">
-            <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="case-logo" />
-            <h2>From $0 to Six Figures in 8 Months</h2>
-            
-            <div class="case-challenge">
-              <strong>The Challenge</strong>
-              Wellness startup with zero brand presence. Needed complete visual identity, product photography, and content system to launch and compete.
-            </div>
-            
-            <div class="case-solution">
-              Built their entire brand from scratch—visual identity, shot all product photography, created 12-month content system. Positioned them to stand out in a crowded market.
-            </div>
-            
-            <div class="case-results">
-              <div class="result-item">
-                <span class="result-number">$0→6-Fig</span>
-                <span class="result-label">Revenue Growth</span>
-              </div>
-              <div class="result-item">
-                <span class="result-number">500+</span>
-                <span class="result-label">Brand Assets</span>
-              </div>
-              <div class="result-item">
-                <span class="result-number">8 Mo</span>
-                <span class="result-label">Market Ready</span>
-              </div>
+          <div>
+            <img src="https://www.ecolosophy.com/cdn/shop/files/homepage-hero.jpg" alt="Ecolosophy homepage" class="brand-preview" onerror="this.src='/static/images/brand-seaside-boca-shoot.jpg'" />
+            <div class="brand-info">
+              <h3>Ecolosophy</h3>
+              <p>Complete brand transformation. Non-toxic cleaning brand built from zero—visual identity, product photography, content strategy. Now market-ready and scaling.</p>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* LIA CASE STUDY */}
-      <section class="case-hero">
-        <div class="case-content-wrap">
-          <div class="case-visual">
-            <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="LIA by Jomari Goyso" />
+        {/* LIA */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/lia.png" alt="LIA by Jomari Goyso" class="brand-logo" />
           </div>
-          <div class="case-content">
-            <img src="/static/images/clients/lia.png" alt="LIA" class="case-logo" />
-            <h2>Luxury Beauty Brand Identity</h2>
-            
-            <div class="case-challenge">
-              <strong>The Challenge</strong>
-              Celebrity-backed beauty line needed high-end brand positioning and product photography that matched luxury retail standards.
-            </div>
-            
-            <div class="case-solution">
-              Created elegant visual identity and shot all product photography. Captured sophistication and quality that resonates with premium beauty consumers.
-            </div>
-            
-            <div class="case-results">
-              <div class="result-item">
-                <span class="result-number">400+</span>
-                <span class="result-label">Product Photos</span>
-              </div>
-              <div class="result-item">
-                <span class="result-number">Luxury</span>
-                <span class="result-label">Positioning</span>
-              </div>
+          <div>
+            <img src="https://via.placeholder.com/1200x800/000000/FFFFFF?text=LIA+by+Jomari+Goyso" alt="LIA homepage" class="brand-preview" />
+            <div class="brand-info">
+              <h3>LIA by Jomari Goyso</h3>
+              <p>Luxury beauty brand identity and product photography. Capturing elegance and sophistication for a celebrity-backed beauty line.</p>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* FINTECH CASE STUDY */}
-      <section class="case-hero">
-        <div class="case-content-wrap">
-          <div class="case-visual">
-            <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Fintech brands" />
+        {/* Access by CGI */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" class="brand-logo" />
           </div>
-          <div class="case-content">
-            <div style="display: flex; gap: 30px; margin-bottom: 40px;">
-              <img src="/static/images/clients/midpay.png" alt="MidPay" class="case-logo" style="width: 100px; margin: 0;" />
-              <img src="/static/images/clients/midbank.png" alt="MidBank" class="case-logo" style="width: 100px; margin: 0;" />
-              <img src="/static/images/clients/access-cgi.png" alt="Access" class="case-logo" style="width: 100px; margin: 0;" />
-            </div>
-            <h2>Fintech Trust & Innovation</h2>
-            
-            <div class="case-challenge">
-              <strong>The Challenge</strong>
-              Financial services companies needed modern, trustworthy brand identities that communicate innovation without sacrificing credibility.
-            </div>
-            
-            <div class="case-solution">
-              Created clean, tech-forward visual systems with dynamic brand photography. Built visual languages that speak to both enterprise clients and modern consumers.
-            </div>
-            
-            <div class="case-results">
-              <div class="result-item">
-                <span class="result-number">3</span>
-                <span class="result-label">Fintech Brands</span>
-              </div>
-              <div class="result-item">
-                <span class="result-number">Enterprise</span>
-                <span class="result-label">Level Trust</span>
-              </div>
+          <div>
+            <img src="https://via.placeholder.com/1200x800/1a1a1a/FFFFFF?text=Access+by+CGI" alt="Access homepage" class="brand-preview" />
+            <div class="brand-info">
+              <h3>Access by CGI</h3>
+              <p>Enterprise fintech branding. Clean, modern visual system that communicates trust and innovation in financial services.</p>
             </div>
           </div>
         </div>
+
+        {/* Republic */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/republic.png" alt="Republic Commercial Fund" class="brand-logo" />
+          </div>
+          <div>
+            <img src="https://via.placeholder.com/1200x800/0f0f0f/FFFFFF?text=Republic+Commercial+Fund" alt="Republic homepage" class="brand-preview" />
+            <div class="brand-info">
+              <h3>Republic Commercial Fund</h3>
+              <p>Commercial real estate investment brand. Bold, authoritative design that conveys strength and reliability.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* MidPay */}
+        <div class="brand-grid">
+          <div class="brand-logo-wrap">
+            <img src="/static/images/clients/midpay.png" alt="MidPay" class="brand-logo" />
+          </div>
+          <div>
+            <img src="https://via.placeholder.com/1200x800/0a0a0a/9ACD32?text=MidPay" alt="MidPay homepage" class="brand-preview" />
+            <div class="brand-info">
+              <h3>MidPay</h3>
+              <p>Fintech payment processing brand. Modern, tech-forward identity with dynamic visual language.</p>
+            </div>
+          </div>
+        </div>
+
       </section>
 
-      {/* SOCIAL PROOF - MINIMAL */}
-      <section class="social-proof">
-        <h3>Also Trusted By</h3>
-        <div class="client-logos-minimal">
-          <img src="/static/images/clients/republic.png" alt="Republic" />
-          <img src="/static/images/clients/one-investment.png" alt="One Investment" />
+      {/* Clients Section - Minimal */}
+      <section class="clients-minimal">
+        <h2>Other brands we've worked with</h2>
+        <div class="logo-grid-minimal">
+          <img src="/static/images/clients/midbank.png" alt="MidBank" />
+          <img src="/static/images/clients/one-investment.png" alt="One Investment Group" />
           <img src="/static/images/clients/travel-drd.png" alt="Travel DRD" />
           <img src="/static/images/clients/circulo.png" alt="Círculo" />
           <img src="/static/images/clients/medworks.png" alt="MedWorks" />
@@ -2369,21 +2093,21 @@ app.get('/studio', (c) =>
         </div>
       </section>
 
-      {/* EXCLUSIVE CTA */}
-      <section class="exclusive-cta">
-        <div class="exclusive-badge">Limited to 6 clients per year</div>
-        <h2>Ready to dominate<br/>your industry?</h2>
-        <p>
-          We're selective about who we work with. If you're serious about building a brand that stands out, let's talk.
-        </p>
-        <a href="/contact" class="cta-button">Apply Now</a>
-      </section>
+      {/* CTA */}
+      <div class="final-cta">
+        <h2>Let's build something unforgettable.</h2>
+        <a href="/contact">Start a project</a>
+      </div>
 
       <div dangerouslySetInnerHTML={{__html: footerHTML}} />
     </div>,
-    { title: 'Brand Building - Acromatico | We Build Movements, Not Logos' }
+    { title: 'Brand Building - Acromatico' }
   )
 )
+// APPLE-STYLE PRINTS PAGE - CLEAN, MINIMAL, INSTANT CHECKOUT
+
+// LUXURY COASTAL PRINTS PAGE - WARM MINIMALISM
+
 app.get('/prints', (c) => 
   c.render(
     <div class="min-h-screen" style="background: #F5F3F0;">
