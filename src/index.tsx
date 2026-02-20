@@ -1769,130 +1769,110 @@ app.get('/studio', (c) =>
     <div class="min-h-screen bg-white text-black">
       <Header />
 
-      {/* Hero */}
-      <section class="relative h-screen flex items-center justify-center">
-        <div class="text-center px-6">
-          <h1 class="text-7xl md:text-9xl font-light mb-8" style="letter-spacing: -0.04em;">
-            Brand<br/>Building
-          </h1>
-          <p class="text-2xl md:text-3xl font-light text-gray-600 max-w-3xl mx-auto">
-            Strategy. Identity. Storytelling.
-          </p>
+      {/* Hero - Full Width Image with Text Overlay */}
+      <section class="relative h-screen">
+        <img 
+          src="/static/images/hero-brand-epic.jpg" 
+          alt="Brand Building"
+          class="absolute inset-0 w-full h-full object-cover"
+          style="object-position: 50% 40%;"
+        />
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
+          <div>
+            <h1 class="text-6xl md:text-8xl font-light text-white mb-6" style="letter-spacing: -0.04em;">
+              Build brands<br/>people remember
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-light">
+              Strategy. Identity. Content.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* What We Do */}
-      <section class="py-32 px-6 bg-gray-50">
-        <div class="max-w-5xl mx-auto">
-          <h2 class="text-5xl md:text-6xl font-light mb-20 text-center" style="letter-spacing: -0.02em;">
-            We build brands people remember
-          </h2>
-          
-          <div class="grid md:grid-cols-3 gap-16">
-            <div class="text-center">
-              <h3 class="text-2xl font-light mb-4">Strategy</h3>
-              <p class="text-lg text-gray-600 leading-relaxed">
-                Clear positioning that sets you apart from everyone else
+      {/* What We Do - Minimal */}
+      <section class="py-40 px-6">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-3 gap-20">
+            <div>
+              <h3 class="text-3xl font-light mb-6" style="letter-spacing: -0.02em;">Strategy</h3>
+              <p class="text-lg text-gray-600 leading-relaxed font-light">
+                We help you see what makes you different—and own it.
               </p>
             </div>
             
-            <div class="text-center">
-              <h3 class="text-2xl font-light mb-4">Identity</h3>
-              <p class="text-lg text-gray-600 leading-relaxed">
-                Visual systems that tell your story without words
+            <div>
+              <h3 class="text-3xl font-light mb-6" style="letter-spacing: -0.02em;">Identity</h3>
+              <p class="text-lg text-gray-600 leading-relaxed font-light">
+                Visual systems that tell your story without saying a word.
               </p>
             </div>
             
-            <div class="text-center">
-              <h3 class="text-2xl font-light mb-4">Content</h3>
-              <p class="text-lg text-gray-600 leading-relaxed">
-                Photography and video that captures what makes you unique
+            <div>
+              <h3 class="text-3xl font-light mb-6" style="letter-spacing: -0.02em;">Content</h3>
+              <p class="text-lg text-gray-600 leading-relaxed font-light">
+                Photography and video that captures what you're really about.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Work */}
-      <section class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-          <h2 class="text-4xl md:text-5xl font-light mb-16 text-center" style="letter-spacing: -0.02em;">
-            Selected work
-          </h2>
-          
-          <div class="space-y-32">
-            {/* Ecolosophy */}
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <img 
-                  src="/static/images/brand-seaside-boca-shoot.jpg" 
-                  alt="Ecolosophy Brand"
-                  class="w-full"
-                />
-              </div>
-              <div class="md:pl-12">
-                <h3 class="text-3xl md:text-4xl font-light mb-4">Ecolosophy</h3>
-                <p class="text-xl text-gray-600 mb-6 leading-relaxed">
-                  Non-toxic cleaning revolution
-                </p>
-                <p class="text-lg text-gray-500 leading-relaxed">
-                  Complete brand identity, product photography, and content strategy for a mission-driven wellness company
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section class="py-32 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-4xl md:text-5xl font-light mb-12" style="letter-spacing: -0.02em;">
-            How we work
-          </h2>
-          <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-16">
-            We don't follow templates. We start with your story, your vision, your why—and build everything from there.
-          </p>
-          
-          <div class="grid md:grid-cols-3 gap-12 text-left mt-20">
-            <div>
-              <div class="text-5xl font-light text-gray-300 mb-4">01</div>
-              <h3 class="text-xl font-medium mb-3">Discovery</h3>
-              <p class="text-gray-600 leading-relaxed">
-                Deep dive into your business, audience, and goals
+      {/* Featured Work - Full Width Image */}
+      <section>
+        <div class="relative h-screen">
+          <img 
+            src="/static/images/brand-seaside-boca-shoot.jpg" 
+            alt="Seaside Boca Brand Shoot"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-12 md:p-20">
+            <div class="max-w-4xl">
+              <h3 class="text-4xl md:text-5xl font-light text-white mb-4">Ecolosophy</h3>
+              <p class="text-xl text-white/90 font-light mb-2">
+                Non-toxic cleaning revolution
               </p>
-            </div>
-            
-            <div>
-              <div class="text-5xl font-light text-gray-300 mb-4">02</div>
-              <h3 class="text-xl font-medium mb-3">Strategy</h3>
-              <p class="text-gray-600 leading-relaxed">
-                Positioning, messaging, and visual direction
-              </p>
-            </div>
-            
-            <div>
-              <div class="text-5xl font-light text-gray-300 mb-4">03</div>
-              <h3 class="text-xl font-medium mb-3">Creation</h3>
-              <p class="text-gray-600 leading-relaxed">
-                Bring it all to life with design, photo, and video
+              <p class="text-lg text-white/70 font-light max-w-2xl">
+                Complete brand identity, product photography, and storytelling for a mission-driven wellness company
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section class="py-32 px-6">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-4xl md:text-5xl font-light mb-8" style="letter-spacing: -0.02em;">
-            Let's build something unforgettable
+      {/* Wedding Photography Example */}
+      <section>
+        <div class="relative h-screen">
+          <img 
+            src="/static/images/hero-photography-wedding.jpg" 
+            alt="Wedding Photography"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-12 md:p-20">
+            <div class="max-w-4xl">
+              <h3 class="text-4xl md:text-5xl font-light text-white mb-4">Moments That Matter</h3>
+              <p class="text-xl text-white/90 font-light mb-2">
+                Wedding photography & storytelling
+              </p>
+              <p class="text-lg text-white/70 font-light max-w-2xl">
+                Authentic moments captured with intention—not poses, just people being real
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Simple CTA */}
+      <section class="py-40 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-5xl md:text-6xl font-light mb-12" style="letter-spacing: -0.03em;">
+            Let's create<br/>something real
           </h2>
           <a 
             href="/contact" 
-            class="inline-block bg-black text-white px-12 py-5 text-xl font-light hover:bg-gray-800 transition"
+            class="inline-block bg-black text-white px-16 py-6 text-xl font-light hover:bg-gray-800 transition rounded-full"
           >
-            Start a project
+            Start a conversation
           </a>
         </div>
       </section>
