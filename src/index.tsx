@@ -2130,15 +2130,16 @@ app.get('/studio', (c) =>
           max-height: 80px;
           width: auto;
           height: auto;
-          opacity: 0.6;
-          filter: brightness(0) invert(1);
+          opacity: 0.8;
           transition: all 0.3s;
           object-fit: contain;
+          filter: grayscale(100%) brightness(2) contrast(1.2);
         }
         
         .client-logos-minimal img:hover {
           opacity: 1;
           transform: scale(1.05);
+          filter: grayscale(0%) brightness(1.1) contrast(1.1);
         }
         
         /* EXCLUSIVE CTA */
