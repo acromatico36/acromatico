@@ -2256,7 +2256,7 @@ app.get('/studio', (c) =>
       <section class="case-hero">
         <div class="case-content-wrap">
           <div class="case-visual">
-            <img src="/static/images/brand-showcase/access-cgi-fintech.jpg" alt="Access by CGI fintech platform" />
+            <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI fintech platform" />
           </div>
           <div class="case-content">
             <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" class="case-logo" />
