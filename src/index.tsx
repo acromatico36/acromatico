@@ -2012,6 +2012,27 @@ app.get('/studio', (c) =>
           border-left: 3px solid #222;
         }
         
+        .case-story {
+          font-size: 19px;
+          color: #ddd;
+          margin-bottom: 32px;
+          padding: 32px;
+          background: linear-gradient(135deg, #0ea5e9 0%, #9333ea 100%);
+          border-radius: 12px;
+          line-height: 1.8;
+          font-style: italic;
+        }
+        
+        .case-story strong {
+          color: #fff;
+          display: block;
+          margin-bottom: 16px;
+          text-transform: uppercase;
+          font-size: 14px;
+          letter-spacing: 0.15em;
+          font-style: normal;
+        }
+        
         .case-challenge strong {
           color: #999;
           display: block;
@@ -2026,6 +2047,15 @@ app.get('/studio', (c) =>
           line-height: 1.7;
           color: #aaa;
           margin-bottom: 40px;
+        }
+        
+        .case-solution strong {
+          color: #999;
+          display: block;
+          margin-bottom: 12px;
+          text-transform: uppercase;
+          font-size: 13px;
+          letter-spacing: 0.1em;
         }
         
         .case-results {
@@ -2083,15 +2113,19 @@ app.get('/studio', (c) =>
         }
         
         .client-logos-minimal img {
-          width: 100px;
+          max-width: 140px;
+          max-height: 80px;
+          width: auto;
           height: auto;
-          opacity: 0.3;
+          opacity: 0.6;
           filter: brightness(0) invert(1);
-          transition: opacity 0.3s;
+          transition: all 0.3s;
+          object-fit: contain;
         }
         
         .client-logos-minimal img:hover {
-          opacity: 0.6;
+          opacity: 1;
+          transform: scale(1.05);
         }
         
         /* EXCLUSIVE CTA */
@@ -2262,13 +2296,19 @@ app.get('/studio', (c) =>
             <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" class="case-logo" />
             <h2>Enterprise Fintech Brand That Commands Trust</h2>
             
+            <div class="case-story">
+              <strong>The Story</strong>
+              Access by CGI came to us when they were positioning themselves as a global fintech leader serving Fortune 500 companies in Dubai and beyond. They needed a brand that could command the same trust as traditional financial institutions while showcasing cutting-edge innovation.
+            </div>
+            
             <div class="case-challenge">
               <strong>The Challenge</strong>
               Financial services technology company needed a brand that communicated both cutting-edge innovation and enterprise-level security. Had to appeal to Fortune 500 clients while standing out in crowded fintech space.
             </div>
             
             <div class="case-solution">
-              Created clean, authoritative visual identity system. Shot custom brand photography showing real team and technology. Built visual language that speaks credibility to C-suite decision makers. Designed brand guidelines for consistent execution across all touchpoints.
+              <strong>Our Solution</strong>
+              Created clean, authoritative visual identity system with Dubai skyline hero imagery. Shot custom brand photography showing real team and technology. Built visual language that speaks credibility to C-suite decision makers. Designed comprehensive brand guidelines for consistent execution across all touchpoints.
             </div>
             
             <div class="case-results">
@@ -2298,6 +2338,11 @@ app.get('/studio', (c) =>
           <div class="case-content">
             <img src="/static/images/clients/lia.png" alt="LIA" class="case-logo" />
             <h2>$0 to 7-Figures in Months</h2>
+            
+            <div class="case-story">
+              <strong>The Story</strong>
+              Emmy award-winning celebrity stylist Jomari Goyso trusted us to launch his luxury beauty brand LIA. From zero to market-ready in record time, we built not just a brand—we built an empire. Every detail crafted to reflect the luxury positioning his celebrity clientele expected.
+            </div>
             
             <div class="case-challenge">
               <strong>The Challenge</strong>
@@ -2340,13 +2385,19 @@ app.get('/studio', (c) =>
             <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="case-logo" />
             <h2>Complete E-Commerce Ecosystem from Zero</h2>
             
+            <div class="case-story">
+              <strong>The Story</strong>
+              Ecolosophy's founder came to us after battling health issues from toxic cleaning products. His mission: protect families from hidden toxins while saving the planet. We didn't just build a brand—we built a movement. The beach aesthetic isn't decoration; it represents the ocean they're protecting with every refillable bottle.
+            </div>
+            
             <div class="case-challenge">
               <strong>The Challenge</strong>
               Non-toxic cleaning brand entering crowded market. Needed everything built from scratch—brand identity, custom Shopify e-commerce platform, automated warehouse integration, 500+ product photos, and complete content marketing system. Zero to market-ready.
             </div>
             
             <div class="case-solution">
-              Built entire e-commerce empire on Shopify. Designed brand identity with beach/wellness aesthetic. Integrated automated warehouse and Shipmonk fulfillment systems. Shot 500+ product and lifestyle photos. Created 12-month content calendar and brand guidelines. Full-stack solution: brand + technology + content.
+              <strong>Our Solution</strong>
+              Built entire e-commerce empire on Shopify with beach/wellness aesthetic. Integrated automated warehouse and Shipmonk fulfillment systems. Shot 500+ product and lifestyle photos showcasing the "one bottle, 100 refills" story. Created 12-month content calendar and brand guidelines. Full-stack solution: brand + technology + content.
             </div>
             
             <div class="case-results">
@@ -2381,13 +2432,19 @@ app.get('/studio', (c) =>
             <img src="/static/images/clients/republic.png" alt="Republic" class="case-logo" />
             <h2>Authority Brand for Commercial Real Estate</h2>
             
+            <div class="case-story">
+              <strong>The Story</strong>
+              Republic Commercial Fund's founder wanted to break into the high-net-worth investor space with a brand that said "legacy building," not "quick flip." They needed to compete with established funds that had decades of credibility. The eagle wasn't just a logo—it symbolized the vision to soar above the competition.
+            </div>
+            
             <div class="case-challenge">
               <strong>The Challenge</strong>
               Commercial real estate investment fund needed brand identity that commanded trust with high-net-worth investors and institutional partners. Had to convey strength, stability, and sophisticated market knowledge in highly competitive space.
             </div>
             
             <div class="case-solution">
-              Created bold, authoritative visual identity with eagle symbolism. Shot professional brand photography showcasing leadership team and properties. Developed visual system that works across investor decks, marketing materials, and digital presence. Built brand that speaks confidence to serious money.
+              <strong>Our Solution</strong>
+              Created bold, authoritative visual identity with eagle symbolism and skyscraper imagery. Shot professional brand photography showcasing leadership team and properties. Developed visual system that works across investor decks, marketing materials, and digital presence. Built brand that speaks confidence to serious money.
             </div>
             
             <div class="case-results">
