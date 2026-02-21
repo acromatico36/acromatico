@@ -2375,7 +2375,7 @@ app.get('/studio', (c) =>
       <section class="case-hero">
         <div class="case-content-wrap">
           <div class="case-visual">
-            <img src="/static/images/brand-showcase/republic-realestate.jpg" alt="Republic Commercial Fund real estate investment" />
+            <img src="/static/images/brand-showcase/republic-real.jpg" alt="Republic Commercial Fund real estate investment" />
           </div>
           <div class="case-content">
             <img src="/static/images/clients/republic.png" alt="Republic" class="case-logo" />
