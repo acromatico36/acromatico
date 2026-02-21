@@ -1988,11 +1988,14 @@ app.get('/studio', (c) =>
         }
         
         .case-logo {
-          width: 140px;
+          max-width: 180px;
+          max-height: 80px;
+          width: auto;
           height: auto;
-          opacity: 0.5;
-          filter: brightness(0) invert(1);
+          opacity: 0.9;
           margin-bottom: 40px;
+          object-fit: contain;
+          filter: brightness(1.1) contrast(1.1);
         }
         
         .case-content h2 {
