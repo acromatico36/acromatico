@@ -1770,6 +1770,15 @@ app.get('/studio', (c) =>
       <Header />
 
       <style>{`
+        * {
+          box-sizing: border-box;
+        }
+        
+        html, body {
+          overflow-x: hidden;
+          max-width: 100%;
+        }
+        
         body { background: #000; color: #fff; }
         
         /* HERO - INSTANT IMPACT */
@@ -1961,6 +1970,7 @@ app.get('/studio', (c) =>
         
         .case-content-wrap {
           max-width: 1600px;
+          width: 100%;
           margin: 0 auto;
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -2197,6 +2207,12 @@ app.get('/studio', (c) =>
           .case-content-wrap {
             grid-template-columns: 1fr;
             gap: 60px;
+            padding: 0 20px;
+          }
+          
+          .case-hero {
+            padding: 80px 20px;
+            min-height: auto;
           }
           
           .case-hero:nth-child(even) .case-content-wrap {
@@ -2205,10 +2221,41 @@ app.get('/studio', (c) =>
           
           .hero-stats {
             gap: 40px;
+            padding: 40px 20px 0;
           }
           
           .pillars-grid {
             grid-template-columns: 1fr;
+          }
+          
+          .hero-impact {
+            padding: 40px 20px;
+          }
+          
+          .difference-section {
+            padding: 80px 20px;
+          }
+          
+          .case-visual img {
+            border-radius: 8px;
+          }
+          
+          .case-logo {
+            max-width: 140px;
+            max-height: 60px;
+            margin-bottom: 24px;
+          }
+          
+          .social-proof {
+            padding: 80px 20px;
+          }
+          
+          .client-logos-minimal {
+            gap: 40px;
+          }
+          
+          .exclusive-cta {
+            padding: 80px 20px;
           }
         }
       `}</style>
