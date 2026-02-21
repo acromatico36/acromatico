@@ -2334,7 +2334,7 @@ app.get('/studio', (c) =>
       <section class="case-hero">
         <div class="case-content-wrap">
           <div class="case-visual">
-            <img src="/static/images/brand-showcase/ecolosophy-homepage.jpg" alt="Ecolosophy non-toxic cleaning products" />
+            <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy non-toxic cleaning products" />
           </div>
           <div class="case-content">
             <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="case-logo" />
