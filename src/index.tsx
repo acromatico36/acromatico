@@ -2207,29 +2207,285 @@ app.get('\/studio', (c) =>
     <div class="case-studies">
       
       <!-- ACCESS BY CGI -->
-      <div class="case">
-        <div class="case-image">
-          <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI">
-        </div>
-        <div class="case-content">
+      <style>
+        .case-featured {
+          position: relative;
+          min-height: 800px;
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+          padding: 80px 40px;
+          overflow: hidden;
+        }
+        
+        .device-showcase {
+          position: relative;
+          max-width: 1400px;
+          margin: 0 auto;
+          height: 700px;
+        }
+        
+        /* Desktop Frame */
+        .desktop-frame {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 70%;
+          background: #1a1a1a;
+          border-radius: 12px;
+          padding: 8px;
+          box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+          z-index: 1;
+        }
+        
+        .desktop-screen {
+          width: 100%;
+          border-radius: 8px;
+          overflow: hidden;
+          background: #000;
+        }
+        
+        .desktop-screen img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+        
+        .desktop-notch {
+          height: 20px;
+          background: #1a1a1a;
+          border-radius: 0 0 8px 8px;
+        }
+        
+        /* Mobile Frame */
+        .mobile-frame {
+          position: absolute;
+          right: 5%;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 280px;
+          background: #1a1a1a;
+          border-radius: 32px;
+          padding: 12px;
+          box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+          z-index: 2;
+        }
+        
+        .mobile-screen {
+          width: 100%;
+          border-radius: 24px;
+          overflow: hidden;
+          background: #000;
+        }
+        
+        .mobile-screen img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+        
+        /* Portfolio Dashboard */
+        .portfolio-dashboard {
+          position: absolute;
+          right: 0;
+          bottom: 40px;
+          width: 400px;
+          background: rgba(10, 10, 10, 0.95);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 16px;
+          padding: 32px;
+          backdrop-filter: blur(20px);
+          z-index: 3;
+        }
+        
+        .portfolio-header {
+          font-size: 14px;
+          color: #666;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          margin-bottom: 8px;
+        }
+        
+        .portfolio-aum {
+          font-size: 48px;
+          font-weight: 700;
+          color: #fff;
+          margin-bottom: 4px;
+        }
+        
+        .portfolio-label {
+          font-size: 14px;
+          color: #888;
+          margin-bottom: 24px;
+        }
+        
+        .growth-chart {
+          width: 100%;
+          height: 120px;
+          position: relative;
+          margin-bottom: 24px;
+        }
+        
+        .chart-bars {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          height: 100%;
+          gap: 12px;
+        }
+        
+        .chart-bar {
+          flex: 1;
+          background: linear-gradient(180deg, #00d4ff 0%, #0066ff 100%);
+          border-radius: 4px 4px 0 0;
+          position: relative;
+          transition: transform 0.3s ease;
+        }
+        
+        .chart-bar:hover {
+          transform: translateY(-4px);
+        }
+        
+        .chart-bar.bar-1 { height: 50%; }
+        .chart-bar.bar-2 { height: 70%; }
+        .chart-bar.bar-3 { height: 60%; }
+        .chart-bar.bar-4 { height: 85%; }
+        .chart-bar.bar-5 { height: 100%; }
+        
+        .chart-years {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 8px;
+        }
+        
+        .chart-year {
+          font-size: 11px;
+          color: #666;
+        }
+        
+        .portfolio-metrics {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        
+        .metric {
+          text-align: center;
+        }
+        
+        .metric-value {
+          font-size: 24px;
+          font-weight: 700;
+          color: #00d4ff;
+          margin-bottom: 4px;
+        }
+        
+        .metric-label {
+          font-size: 12px;
+          color: #666;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+        
+        .case-info {
+          max-width: 600px;
+          margin: 0 auto 60px;
+          text-align: center;
+        }
+        
+        @media (max-width: 1024px) {
+          .device-showcase {
+            height: auto;
+            min-height: 600px;
+          }
+          
+          .desktop-frame {
+            position: relative;
+            width: 100%;
+            margin-bottom: 40px;
+            transform: none;
+            top: auto;
+            left: auto;
+          }
+          
+          .mobile-frame {
+            position: relative;
+            width: 240px;
+            margin: 0 auto 40px;
+            transform: none;
+            top: auto;
+            right: auto;
+          }
+          
+          .portfolio-dashboard {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            right: auto;
+            bottom: auto;
+          }
+        }
+      </style>
+      
+      <div class="case case-featured">
+        <div class="case-info">
           <div class="case-label">Enterprise Fintech Platform</div>
           <div class="case-title">Access by CGI</div>
-          <div class="case-metric">Fortune 500</div>
+          <div class="case-metric">$1B+ Family Fund</div>
           <div class="case-description">
-            Enterprise fintech needed to convey innovation and security to the world's biggest banks. We created a visual system that commands trust at the highest level.
+            Ultra-high-net-worth family office needed a platform that commands trust at the institutional level. We created a complete visual system and portfolio dashboard that speaks to serious capital.
           </div>
-          <div class="case-stats">
-            <div class="stat">
-              <div class="stat-number">500+</div>
-              <div class="stat-label">Enterprise Clients</div>
+        </div>
+        
+        <div class="device-showcase">
+          <!-- Desktop Frame -->
+          <div class="desktop-frame">
+            <div class="desktop-screen">
+              <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI Desktop">
             </div>
-            <div class="stat">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Brand Authority</div>
+            <div class="desktop-notch"></div>
+          </div>
+          
+          <!-- Mobile Frame -->
+          <div class="mobile-frame">
+            <div class="mobile-screen">
+              <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI Mobile">
             </div>
-            <div class="stat">
-              <div class="stat-number">Global</div>
-              <div class="stat-label">Recognition</div>
+          </div>
+          
+          <!-- Portfolio Dashboard -->
+          <div class="portfolio-dashboard">
+            <div class="portfolio-header">Assets Under Management</div>
+            <div class="portfolio-aum">$1.2B</div>
+            <div class="portfolio-label">Family Office Fund</div>
+            
+            <div class="growth-chart">
+              <div class="chart-bars">
+                <div class="chart-bar bar-1"></div>
+                <div class="chart-bar bar-2"></div>
+                <div class="chart-bar bar-3"></div>
+                <div class="chart-bar bar-4"></div>
+                <div class="chart-bar bar-5"></div>
+              </div>
+            </div>
+            
+            <div class="chart-years">
+              <span class="chart-year">2020</span>
+              <span class="chart-year">2021</span>
+              <span class="chart-year">2022</span>
+              <span class="chart-year">2023</span>
+              <span class="chart-year">2024</span>
+            </div>
+            
+            <div class="portfolio-metrics">
+              <div class="metric">
+                <div class="metric-value">500+</div>
+                <div class="metric-label">Enterprise Clients</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">24/7</div>
+                <div class="metric-label">Global Access</div>
+              </div>
             </div>
           </div>
         </div>
