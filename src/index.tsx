@@ -50,9 +50,10 @@ const Header = () => (
     `}</style>
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex justify-between h-20 items-center">
-        <div class="flex items-center space-x-4 opacity-0">
-          {/* Left spacer for balance */}
-          <span>Spacer</span>
+        <div class="flex items-center space-x-8">
+          <a href="/studio" class="text-white hover:text-gray-300 transition font-medium">Brand Building</a>
+          <a href="/prints" class="text-white hover:text-gray-300 transition font-medium">Prints</a>
+          <a href="/photography" class="text-white hover:text-gray-300 transition font-medium">Photography</a>
         </div>
         <div class="flex-1 flex justify-center">
           <a href="/">
