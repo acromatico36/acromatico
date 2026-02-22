@@ -1772,10 +1772,7 @@ app.get('/studio', (c) =>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Building - Acromatico | We Build Movements</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Brand Building — Acromatico</title>
   <style>
     * {
       margin: 0;
@@ -1783,345 +1780,133 @@ app.get('/studio', (c) =>
       box-sizing: border-box;
     }
     
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+    
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       background: #000;
       color: #fff;
       overflow-x: hidden;
     }
     
-    /* SECTION 1: HERO - ONE IMAGE, ONE LINE */
-    .hero-statement {
+    section {
       height: 100vh;
-      position: relative;
+      scroll-snap-align: start;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      position: relative;
     }
     
-    .hero-statement img {
+    /* FULL SCREEN IMAGE */
+    .visual {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.4);
     }
     
-    .hero-statement h1 {
+    /* TEXT OVERLAY */
+    .text {
       position: relative;
       z-index: 2;
-      font-size: clamp(56px, 10vw, 140px);
-      font-weight: 600;
-      letter-spacing: -0.05em;
-      line-height: 0.95;
-      text-align: center;
-      padding: 0 40px;
-    }
-    
-    /* SECTION 2: SOCIAL PROOF - BIG LOGOS */
-    .trust-section {
-      background: #000;
-      padding: 160px 40px;
-      text-align: center;
-      border-top: 1px solid #1a1a1a;
-    }
-    
-    .trust-section p {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #666;
-      margin-bottom: 80px;
-      font-weight: 500;
-    }
-    
-    .logo-showcase {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-      align-items: center;
-    }
-    
-    .logo-showcase img {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
-      margin: 0 auto;
-      opacity: 1;
-      filter: brightness(0) invert(1);
-    }
-    
-    /* SECTION 3: TRANSFORMATION - BEFORE/AFTER */
-    .transformation {
-      background: #fff;
-      color: #000;
-      padding: 200px 40px;
-    }
-    
-    .transformation-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    
-    .transformation h2 {
-      font-size: clamp(40px, 7vw, 80px);
-      font-weight: 600;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin-bottom: 120px;
-      text-align: center;
-    }
-    
-    .case-block {
-      margin-bottom: 240px;
-    }
-    
-    .case-block:last-child {
-      margin-bottom: 0;
-    }
-    
-    .case-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      margin-bottom: 60px;
-    }
-    
-    .case-image-large {
-      width: 100%;
-      height: 600px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    
-    .case-details h3 {
-      font-size: 48px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-    }
-    
-    .case-metric {
-      font-size: 20px;
-      color: #666;
-      line-height: 1.7;
-      margin-bottom: 40px;
-    }
-    
-    .result-big {
-      font-size: 72px;
+      font-size: clamp(40px, 8vw, 120px);
       font-weight: 700;
       letter-spacing: -0.04em;
-      color: #4794A6;
-      margin-bottom: 16px;
-    }
-    
-    .result-label-big {
-      font-size: 16px;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    
-    /* SECTION 4: THE SYSTEM */
-    .system-section {
-      background: #000;
-      color: #fff;
-      padding: 200px 40px;
-      text-align: center;
-    }
-    
-    .system-section h2 {
-      font-size: clamp(48px, 8vw, 96px);
-      font-weight: 600;
-      letter-spacing: -0.04em;
       line-height: 1.1;
-      margin-bottom: 80px;
+      text-align: center;
+      padding: 0 40px;
+      max-width: 1200px;
     }
     
-    .system-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 60px;
-      max-width: 1400px;
-      margin: 0 auto;
-      text-align: left;
+    /* DARK OVERLAY FOR READABILITY */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
     }
     
-    .system-item h3 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    
-    .system-item p {
-      font-size: 17px;
-      line-height: 1.7;
-      color: #999;
-    }
-    
-    /* SECTION 5: FINAL CTA */
-    .final-statement {
+    /* FINAL CTA */
+    .cta {
+      display: inline-block;
       background: #fff;
       color: #000;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 40px;
-      text-align: center;
-    }
-    
-    .final-statement h2 {
-      font-size: clamp(56px, 10vw, 120px);
-      font-weight: 600;
-      letter-spacing: -0.05em;
-      line-height: 1;
-      margin-bottom: 80px;
-    }
-    
-    .cta-button-large {
-      display: inline-block;
-      background: #000;
-      color: #fff;
-      padding: 24px 80px;
-      font-size: 20px;
-      font-weight: 600;
+      padding: 28px 100px;
+      font-size: 24px;
+      font-weight: 700;
       text-decoration: none;
-      border-radius: 40px;
-      transition: all 0.3s;
+      border-radius: 50px;
+      margin-top: 60px;
+      transition: transform 0.2s;
     }
     
-    .cta-button-large:hover {
-      background: #1a1a1a;
-      transform: scale(1.02);
-    }
-    
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .logo-showcase {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 60px;
-      }
-      
-      .case-grid {
-        grid-template-columns: 1fr;
-        gap: 60px;
-      }
-      
-      .case-image-large {
-        height: 400px;
-      }
-      
-      .system-grid {
-        grid-template-columns: 1fr;
-        gap: 60px;
-      }
+    .cta:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
-  <!-- SECTION 1: HERO STATEMENT -->
-  <section class="hero-statement">
-    <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Brand transformation">
-    <h1>This changed<br/>everything.</h1>
+  <!-- SLIDE 1: PURE VISUAL -->
+  <section>
+    <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="" class="visual">
   </section>
 
-  <!-- SECTION 2: TRUST -->
-  <section class="trust-section">
-    <p>Trusted by</p>
-    <div class="logo-showcase">
-      <img src="/static/images/clients/access-cgi.png" alt="Access by CGI">
-      <img src="/static/images/clients/lia.png" alt="LIA by Jomari Goyso">
-      <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy">
-      <img src="/static/images/clients/republic.png" alt="Republic">
+  <!-- SLIDE 2: ECOLOSOPHY RESULT -->
+  <section>
+    <div class="overlay"></div>
+    <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="" class="visual">
+    <div class="text">Ecolosophy.<br/>$0 to 6-figures<br/>in 8 months.</div>
+  </section>
+
+  <!-- SLIDE 3: LIA VISUAL -->
+  <section>
+    <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="" class="visual">
+  </section>
+
+  <!-- SLIDE 4: LIA RESULT -->
+  <section>
+    <div class="overlay"></div>
+    <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="" class="visual">
+    <div class="text">LIA by Jomari Goyso.<br/>$7.2M revenue<br/>in 9 months.</div>
+  </section>
+
+  <!-- SLIDE 5: ACCESS VISUAL -->
+  <section>
+    <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="" class="visual">
+  </section>
+
+  <!-- SLIDE 6: ACCESS RESULT -->
+  <section>
+    <div class="overlay"></div>
+    <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="" class="visual">
+    <div class="text">Access by CGI.<br/>Enterprise fintech<br/>for Fortune 500.</div>
+  </section>
+
+  <!-- SLIDE 7: SCARCITY -->
+  <section style="background: #000;">
+    <div class="text">We only take<br/>6 clients per year.</div>
+  </section>
+
+  <!-- SLIDE 8: CTA -->
+  <section style="background: #fff; color: #000;">
+    <div style="text-align: center;">
+      <div class="text" style="color: #000; margin-bottom: 60px;">Ready?</div>
+      <a href="/contact" class="cta">Apply Now</a>
     </div>
-  </section>
-
-  <!-- SECTION 3: TRANSFORMATION -->
-  <section class="transformation">
-    <div class="transformation-inner">
-      <h2>We don't build logos.<br/>We build empires.</h2>
-      
-      <!-- CASE: LIA -->
-      <div class="case-block">
-        <div class="case-grid">
-          <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA by Jomari Goyso" class="case-image-large">
-          <div class="case-details">
-            <h3>LIA by Jomari Goyso</h3>
-            <p class="case-metric">Emmy-winning celebrity stylist launching luxury beauty line.</p>
-            <div class="result-big">$7.2M</div>
-            <div class="result-label-big">Revenue in 9 months</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE: ECOLOSOPHY -->
-      <div class="case-block">
-        <div class="case-grid" style="direction: rtl;">
-          <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy" class="case-image-large">
-          <div class="case-details" style="direction: ltr;">
-            <h3>Ecolosophy</h3>
-            <p class="case-metric">Non-toxic cleaning brand built from zero.</p>
-            <div class="result-big">6-Figures</div>
-            <div class="result-label-big">In first 8 months</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE: ACCESS BY CGI -->
-      <div class="case-block">
-        <div class="case-grid">
-          <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI" class="case-image-large">
-          <div class="case-details">
-            <h3>Access by CGI</h3>
-            <p class="case-metric">Global fintech serving Fortune 500 companies.</p>
-            <div class="result-big">Enterprise</div>
-            <div class="result-label-big">Positioning achieved</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 4: THE SYSTEM -->
-  <section class="system-section">
-    <h2>It's a system.<br/>Not a project.</h2>
-    <div class="system-grid">
-      <div class="system-item">
-        <h3>Visual Identity</h3>
-        <p>Logo, colors, fonts, photography direction. Everything cohesive.</p>
-      </div>
-      <div class="system-item">
-        <h3>E-Commerce Platform</h3>
-        <p>Custom Shopify or BigCommerce. Automated fulfillment. Built to scale.</p>
-      </div>
-      <div class="system-item">
-        <h3>Content System</h3>
-        <p>500+ photos shot. 12-month calendar. Templates. Guidelines. Training.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 5: FINAL CTA -->
-  <section class="final-statement">
-    <h2>Your brand<br/>is your future.</h2>
-    <a href="/contact" class="cta-button-large">Let's build it</a>
   </section>
 
 </body>
 </html>
   `)
 )
+
 app.get('/prints', (c) => 
   c.render(
     <div class="min-h-screen" style="background: #F5F3F0;">
