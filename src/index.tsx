@@ -2206,30 +2206,30 @@ app.get('\/studio', (c) =>
     
     <div class="case-studies">
       
-      <!-- ECOLOSOPHY -->
+      <!-- ACCESS BY CGI -->
       <div class="case">
         <div class="case-image">
-          <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy">
+          <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI">
         </div>
         <div class="case-content">
-          <div class="case-label">Non-Toxic Cleaning Brand</div>
-          <div class="case-title">Ecolosophy</div>
-          <div class="case-metric">$0 → 6-figures</div>
+          <div class="case-label">Enterprise Fintech Platform</div>
+          <div class="case-title">Access by CGI</div>
+          <div class="case-metric">Fortune 500</div>
           <div class="case-description">
-            Started with nothing. Built complete Shopify store, shot 500+ product photos, created 12-month content system, integrated warehouse fulfillment. Launched in 8 months.
+            Enterprise fintech needed to convey innovation and security to the world's biggest banks. We created a visual system that commands trust at the highest level.
           </div>
           <div class="case-stats">
             <div class="stat">
               <div class="stat-number">500+</div>
-              <div class="stat-label">Custom Photos</div>
+              <div class="stat-label">Enterprise Clients</div>
             </div>
             <div class="stat">
-              <div class="stat-number">12</div>
-              <div class="stat-label">Month Content Plan</div>
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Brand Authority</div>
             </div>
             <div class="stat">
-              <div class="stat-number">0</div>
-              <div class="stat-label">Stock Images</div>
+              <div class="stat-number">Global</div>
+              <div class="stat-label">Recognition</div>
             </div>
           </div>
         </div>
@@ -2264,30 +2264,30 @@ app.get('\/studio', (c) =>
         </div>
       </div>
       
-      <!-- ACCESS BY CGI -->
+      <!-- ECOLOSOPHY -->
       <div class="case">
         <div class="case-image">
-          <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI">
+          <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy">
         </div>
         <div class="case-content">
-          <div class="case-label">Enterprise Fintech Platform</div>
-          <div class="case-title">Access by CGI</div>
-          <div class="case-metric">Fortune 500</div>
+          <div class="case-label">Non-Toxic Cleaning Brand</div>
+          <div class="case-title">Ecolosophy</div>
+          <div class="case-metric">$0 → 6-figures</div>
           <div class="case-description">
-            Enterprise fintech needed to convey innovation and security to the world's biggest banks. We created a visual system that commands trust at the highest level.
+            Started with nothing. Built complete Shopify store, shot 500+ product photos, created 12-month content system, integrated warehouse fulfillment. Launched in 8 months.
           </div>
           <div class="case-stats">
             <div class="stat">
               <div class="stat-number">500+</div>
-              <div class="stat-label">Enterprise Clients</div>
+              <div class="stat-label">Custom Photos</div>
             </div>
             <div class="stat">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Brand Authority</div>
+              <div class="stat-number">12</div>
+              <div class="stat-label">Month Content Plan</div>
             </div>
             <div class="stat">
-              <div class="stat-number">Global</div>
-              <div class="stat-label">Recognition</div>
+              <div class="stat-number">0</div>
+              <div class="stat-label">Stock Images</div>
             </div>
           </div>
         </div>
