@@ -1773,6 +1773,9 @@ app.get('/studio', (c) =>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brand Building — Acromatico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -1781,25 +1784,74 @@ app.get('/studio', (c) =>
     }
     
     html {
-      scroll-snap-type: y mandatory;
+      scroll-snap-type: y proximity;
       scroll-behavior: smooth;
     }
     
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       background: #000;
       color: #fff;
       overflow-x: hidden;
     }
     
+    /* MINIMAL HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 48px;
+    }
+    
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a:hover {
+      color: #fff;
+    }
+    
+    /* SECTIONS */
     section {
-      height: 100vh;
+      min-height: 100vh;
       scroll-snap-align: start;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      padding: 120px 40px 80px;
     }
     
     /* FULL SCREEN IMAGE */
@@ -1809,96 +1861,320 @@ app.get('/studio', (c) =>
       width: 100%;
       height: 100%;
       object-fit: cover;
+      z-index: 0;
     }
     
-    /* TEXT OVERLAY */
-    .text {
-      position: relative;
-      z-index: 2;
-      font-size: clamp(40px, 8vw, 120px);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      text-align: center;
-      padding: 0 40px;
-      max-width: 1200px;
-    }
-    
-    /* DARK OVERLAY FOR READABILITY */
+    /* DARK OVERLAY */
     .overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.65);
       z-index: 1;
     }
     
-    /* FINAL CTA */
+    /* CONTENT WRAPPER */
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1200px;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* TYPOGRAPHY */
+    .headline {
+      font-size: clamp(48px, 8vw, 140px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 24px;
+      color: #fff;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    }
+    
+    .subhead {
+      font-size: clamp(28px, 4vw, 56px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 48px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+    }
+    
+    .metric {
+      font-size: clamp(72px, 12vw, 180px);
+      font-weight: 800;
+      color: #4794A6;
+      line-height: 1;
+      margin-bottom: 24px;
+      text-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
+    }
+    
+    .context {
+      font-size: clamp(24px, 4vw, 48px);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.3;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+    }
+    
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 16px;
+    }
+    
+    /* PROCESS GRID */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 80px;
+      text-align: left;
+    }
+    
+    .process-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 48px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .process-number {
+      font-size: 72px;
+      font-weight: 800;
+      color: #4794A6;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    
+    .process-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .process-desc {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    /* CTA BUTTON */
     .cta {
       display: inline-block;
       background: #fff;
       color: #000;
-      padding: 28px 100px;
-      font-size: 24px;
+      padding: 24px 80px;
+      font-size: 20px;
       font-weight: 700;
       text-decoration: none;
       border-radius: 50px;
-      margin-top: 60px;
-      transition: transform 0.2s;
+      margin-top: 48px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
     }
     
     .cta:hover {
-      transform: scale(1.05);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
+    }
+    
+    /* BACKGROUND VARIANTS */
+    .bg-black {
+      background: #000;
+    }
+    
+    .bg-white {
+      background: #fff;
+      color: #000;
+    }
+    
+    .bg-white .headline,
+    .bg-white .context,
+    .bg-white .subhead {
+      color: #000;
+      text-shadow: none;
+    }
+    
+    .bg-white .cta {
+      background: #000;
+      color: #fff;
+    }
+    
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 24px;
+      }
+      
+      .nav-links {
+        gap: 24px;
+        font-size: 14px;
+      }
+      
+      section {
+        padding: 100px 24px 60px;
+      }
+      
+      .headline {
+        font-size: 48px;
+        margin-bottom: 16px;
+      }
+      
+      .subhead {
+        font-size: 24px;
+        margin-bottom: 32px;
+      }
+      
+      .metric {
+        font-size: 64px;
+        margin-bottom: 16px;
+      }
+      
+      .context {
+        font-size: 20px;
+      }
+      
+      .process-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 48px;
+      }
+      
+      .process-item {
+        padding: 32px;
+      }
+      
+      .process-number {
+        font-size: 48px;
+      }
+      
+      .process-title {
+        font-size: 20px;
+      }
+      
+      .cta {
+        padding: 20px 50px;
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- SLIDE 1: PURE VISUAL -->
-  <section>
-    <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="" class="visual">
-  </section>
+  <!-- FIXED HEADER -->
+  <header>
+    <nav>
+      <a href="/" class="logo">ACROMATICO</a>
+      <div class="nav-links">
+        <a href="/studio">Studio</a>
+        <a href="/prints">Prints</a>
+        <a href="/photography">Photography</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-  <!-- SLIDE 2: ECOLOSOPHY RESULT -->
+  <!-- SLIDE 1: AUTHORITY — Luxury Visual -->
   <section>
+    <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI Dubai Marina" class="visual">
     <div class="overlay"></div>
-    <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="" class="visual">
-    <div class="text">Ecolosophy.<br/>$0 to 6-figures<br/>in 8 months.</div>
+    <div class="content">
+      <div class="headline">We build brands<br/>that command attention.</div>
+    </div>
   </section>
 
-  <!-- SLIDE 3: LIA VISUAL -->
-  <section>
-    <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="" class="visual">
+  <!-- SLIDE 2: PROBLEM -->
+  <section class="bg-black">
+    <div class="content">
+      <div class="subhead">Most brands look the same.</div>
+      <div class="headline">Generic stock photos.<br/>Templated websites.<br/>Forgettable content.</div>
+    </div>
   </section>
 
-  <!-- SLIDE 4: LIA RESULT -->
+  <!-- SLIDE 3: SOLUTION — How We Do It -->
+  <section class="bg-black">
+    <div class="content">
+      <div class="label">Our Process</div>
+      <div class="headline" style="font-size: clamp(36px, 6vw, 72px); margin-bottom: 80px;">We shoot 500+ photos.<br/>Build 12-month systems.<br/>No stock. Ever.</div>
+      
+      <div class="process-grid">
+        <div class="process-item">
+          <div class="process-number">01</div>
+          <div class="process-title">Visual DNA</div>
+          <div class="process-desc">Custom photography. 500+ images per brand. Your own visual language.</div>
+        </div>
+        
+        <div class="process-item">
+          <div class="process-number">02</div>
+          <div class="process-title">E-Commerce</div>
+          <div class="process-desc">Full Shopify builds. Automated fulfillment. Conversion-optimized design.</div>
+        </div>
+        
+        <div class="process-item">
+          <div class="process-number">03</div>
+          <div class="process-title">Content System</div>
+          <div class="process-desc">12-month calendars. Reusable templates. Your brand stays consistent as it scales.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: ECOLOSOPHY RESULT -->
   <section>
+    <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy" class="visual">
     <div class="overlay"></div>
-    <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="" class="visual">
-    <div class="text">LIA by Jomari Goyso.<br/>$7.2M revenue<br/>in 9 months.</div>
+    <div class="content">
+      <div class="label">Case Study — Ecolosophy</div>
+      <div class="metric">$0 → 6-figures</div>
+      <div class="context">in 8 months</div>
+    </div>
   </section>
 
-  <!-- SLIDE 5: ACCESS VISUAL -->
+  <!-- SLIDE 5: LIA RESULT -->
   <section>
-    <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="" class="visual">
+    <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA by Jomari Goyso" class="visual">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="label">Case Study — LIA by Jomari Goyso</div>
+      <div class="metric">$7.2M</div>
+      <div class="context">revenue in 9 months</div>
+    </div>
   </section>
 
   <!-- SLIDE 6: ACCESS RESULT -->
   <section>
+    <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI" class="visual">
     <div class="overlay"></div>
-    <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="" class="visual">
-    <div class="text">Access by CGI.<br/>Enterprise fintech<br/>for Fortune 500.</div>
+    <div class="content">
+      <div class="label">Case Study — Access by CGI</div>
+      <div class="headline" style="font-size: clamp(36px, 6vw, 80px);">Enterprise fintech</div>
+      <div class="context">trusted by Fortune 500</div>
+    </div>
   </section>
 
   <!-- SLIDE 7: SCARCITY -->
-  <section style="background: #000;">
-    <div class="text">We only take<br/>6 clients per year.</div>
+  <section class="bg-black">
+    <div class="content">
+      <div class="headline">We only take<br/>6 clients per year.</div>
+      <div class="subhead">Every brand gets our full attention.<br/>No exceptions.</div>
+    </div>
   </section>
 
-  <!-- SLIDE 8: CTA -->
-  <section style="background: #fff; color: #000;">
-    <div style="text-align: center;">
-      <div class="text" style="color: #000; margin-bottom: 60px;">Ready?</div>
-      <a href="/contact" class="cta">Apply Now</a>
+  <!-- SLIDE 8: FINAL CTA -->
+  <section class="bg-white">
+    <div class="content">
+      <div class="headline">Ready to dominate<br/>your industry?</div>
+      <a href="/contact" class="cta">Book Discovery Call</a>
     </div>
   </section>
 
@@ -1906,933 +2182,6 @@ app.get('/studio', (c) =>
 </html>
   `)
 )
-
-app.get('/prints', (c) => 
-  c.render(
-    <div class="min-h-screen" style="background: #F5F3F0;">
-      {/* Navigation with Cart */}
-      <PrintsHeader />
-
-      <style>{`
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-          font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; 
-          -webkit-font-smoothing: antialiased;
-          background: #F5F3F0;
-          color: #3D3935;
-        }
-        
-        .hero-section {
-          padding: 120px 24px 80px;
-          text-align: center;
-          background: linear-gradient(180deg, #FDFDFB 0%, #F5F3F0 100%);
-        }
-        
-        .hero-title {
-          font-size: 72px;
-          font-weight: 300;
-          letter-spacing: -1px;
-          color: #3D3935;
-          margin-bottom: 16px;
-        }
-        
-        .hero-subtitle {
-          font-size: 20px;
-          color: #8B7E6A;
-          font-weight: 300;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-        }
-        
-        .staging-showcase {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 80px 24px;
-        }
-        
-        .staging-image {
-          width: 100%;
-          border-radius: 8px;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-          margin-bottom: 80px;
-          transition: transform 0.6s ease;
-        }
-        
-        .staging-image:hover {
-          transform: translateY(-4px);
-        }
-        
-        .print-description {
-          text-align: center;
-          max-width: 600px;
-          margin: -60px auto 100px;
-          padding: 0 24px;
-        }
-        
-        .print-title {
-          font-size: 36px;
-          font-weight: 400;
-          color: #3D3935;
-          margin-bottom: 12px;
-        }
-        
-        .print-details {
-          font-size: 16px;
-          color: #8B7E6A;
-          line-height: 1.6;
-        }
-        
-        .cta-section {
-          text-align: center;
-          padding: 100px 24px;
-          background: #FDFDFB;
-        }
-        
-        .cta-button {
-          display: inline-block;
-          padding: 20px 48px;
-          background: #3D3935;
-          color: #FDFDFB;
-          text-decoration: none;
-          border-radius: 4px;
-          font-size: 18px;
-          letter-spacing: 1px;
-          transition: all 0.3s ease;
-          border: none;
-          cursor: pointer;
-        }
-        
-        .cta-button:hover {
-          background: #8B7E6A;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        }
-        
-        .modal {
-          display: none;
-          position: fixed;
-          inset: 0;
-          background: rgba(61, 57, 53, 0.85);
-          z-index: 9999;
-          align-items: center;
-          justify-content: center;
-          backdrop-filter: blur(12px);
-        }
-        
-        .modal.active {
-          display: flex;
-        }
-        
-        .modal-content {
-          background: #FDFDFB;
-          border-radius: 8px;
-          max-width: 600px;
-          width: 90%;
-          max-height: 90vh;
-          overflow-y: auto;
-          box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
-        }
-        
-        .modal-header {
-          padding: 40px;
-          border-bottom: 1px solid #E8E5E0;
-        }
-        
-        .modal-body {
-          padding: 40px;
-        }
-        
-        .size-option, .frame-option {
-          border: 2px solid #E8E5E0;
-          border-radius: 4px;
-          padding: 24px;
-          margin-bottom: 16px;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          background: white;
-        }
-        
-        .size-option:hover, .frame-option:hover {
-          border-color: #8B7E6A;
-          background: #FDFDFB;
-        }
-        
-        .size-option.selected, .frame-option.selected {
-          border-color: #3D3935;
-          background: #F5F3F0;
-        }
-        
-        .option-title {
-          font-size: 20px;
-          font-weight: 500;
-          color: #3D3935;
-          margin-bottom: 4px;
-        }
-        
-        .option-details {
-          font-size: 16px;
-          color: #8B7E6A;
-        }
-        
-        .checkout-summary {
-          background: #F5F3F0;
-          border-radius: 4px;
-          padding: 32px;
-          margin-bottom: 24px;
-        }
-        
-        .summary-row {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 12px;
-          font-size: 16px;
-        }
-        
-        .summary-total {
-          border-top: 2px solid #3D3935;
-          padding-top: 16px;
-          margin-top: 16px;
-          font-size: 24px;
-          font-weight: 500;
-        }
-        
-        .back-button {
-          color: #8B7E6A;
-          background: none;
-          border: none;
-          cursor: pointer;
-          font-size: 16px;
-          margin-bottom: 24px;
-          padding: 8px 0;
-        }
-        
-        .back-button:hover {
-          color: #3D3935;
-        }
-        
-        .close-button {
-          position: absolute;
-          top: 24px;
-          right: 24px;
-          background: none;
-          border: none;
-          font-size: 32px;
-          color: #8B7E6A;
-          cursor: pointer;
-          line-height: 1;
-        }
-        
-        .close-button:hover {
-          color: #3D3935;
-        }
-      `}</style>
-
-      {/* Hero Section */}
-      <section class="hero-section">
-        <h1 class="hero-title">Fine Art Prints</h1>
-        <p class="hero-subtitle">Museum Quality • Limited Edition</p>
-      </section>
-
-      {/* Staging Showcase */}
-      <section class="staging-showcase">
-        
-        {/* Print 1: Where Morning Feels Like Forever */}
-        <div>
-          <img 
-            src="/static/prints/staging-aruba-living-room.jpg" 
-            alt="Where Morning Feels Like Forever - Aruba Baby Beach Fine Art Print" 
-            class="staging-image"
-          />
-          <div class="print-description">
-            <h3 class="print-title">Where Morning Feels Like Forever</h3>
-            <p class="print-details" style="margin-bottom: 24px;">
-              Baby Beach, Aruba. The moment before the world wakes up. A solitary palapa stands where turquoise waters meet endless sky—the kind of blue that makes you want to pause everything and just breathe. This is the feeling you chase on vacation, bottled into a single frame.
-            </p>
-            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="openPrintModal('Where Morning Feels Like Forever', '/static/prints/staging-aruba-living-room.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
-                Select Options
-              </button>
-            </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
-          </div>
-        </div>
-
-        {/* Print 2: The Village That Time Forgot */}
-        <div>
-          <img 
-            src="/static/prints/staging-mediterranean-villa.jpg" 
-            alt="The Village That Time Forgot - Cinque Terre Fine Art Print" 
-            class="staging-image"
-          />
-          <div class="print-description">
-            <h3 class="print-title">The Village That Time Forgot</h3>
-            <p class="print-details" style="margin-bottom: 24px;">
-              Cinque Terre, Italy • Golden Hour. Colorful houses cling to cliffs like they've been there forever—because they have. Captured at the exact moment when the sun turns stone into honey and the Mediterranean becomes liquid sapphire. This is what 'escape' looks like.
-            </p>
-            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="openPrintModal('The Village That Time Forgot', '/static/prints/staging-mediterranean-villa.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
-                Select Options
-              </button>
-            </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
-          </div>
-        </div>
-
-        {/* Print 3: The View That Changed Everything */}
-        <div>
-          <img 
-            src="/static/prints/staging-coastal-terrace.jpg" 
-            alt="The View That Changed Everything - Ixtapa Fine Art Print" 
-            class="staging-image"
-          />
-          <div class="print-description">
-            <h3 class="print-title">The View That Changed Everything</h3>
-            <p class="print-details" style="margin-bottom: 24px;">
-              Ixtapa, Mexico • Late Afternoon. Standing on this terrace, the Pacific stretches into forever. This is the view that makes you rethink your entire life—the one that reminds you why you work so hard. Where ocean meets sky, and everything else just... fades away.
-            </p>
-            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="openPrintModal('The View That Changed Everything', '/static/prints/staging-coastal-terrace.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
-                Select Options
-              </button>
-            </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
-          </div>
-        </div>
-
-        {/* Print 4: Nature's Compass */}
-        <div>
-          <img 
-            src="/static/prints/staging-aruba-divi-tree.jpg" 
-            alt="Nature's Compass - Aruba Divi-Divi Fine Art Print" 
-            class="staging-image"
-          />
-          <div class="print-description">
-            <h3 class="print-title">Nature's Compass</h3>
-            <p class="print-details" style="margin-bottom: 24px;">
-              Aruba • First Light. The divi-divi tree—bent by trade winds for decades, pointing southwest like it's been waiting to show you the way home. Roots dig deep into white sand, tide pools reflect the morning sky. This tree has witnessed a thousand sunrises. You're looking at just one.
-            </p>
-            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="openPrintModal('Nature\\'s Compass', '/static/prints/staging-aruba-divi-tree.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
-                Select Options
-              </button>
-            </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
-          </div>
-        </div>
-
-        {/* Print 5: Where Silence Lives */}
-        <div>
-          <img 
-            src="/static/prints/staging-alpine-lodge.jpg" 
-            alt="Where Silence Lives - Dolomites Mountain Lodge Fine Art Print" 
-            class="staging-image"
-          />
-          <div class="print-description">
-            <h3 class="print-title">Where Silence Lives</h3>
-            <p class="print-details" style="margin-bottom: 24px;">
-              Dolomites, Italy • Late Afternoon. A stone lodge perched between earth and sky, where jagged peaks pierce clouds and firelight flickers against ancient walls. This is where you go to remember what quiet feels like—the kind of place that makes city noise feel like a distant memory.
-            </p>
-            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="openPrintModal('Where Silence Lives', '/static/prints/staging-alpine-lodge.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
-                Select Options
-              </button>
-            </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
-          </div>
-        </div>
-
-        {/* Print 6: The Room Where Dreams Live */}
-        <div>
-          <img 
-            src="/static/prints/staging-cinque-terre-villa.jpg" 
-            alt="The Room Where Dreams Live - Cinque Terre Villa Fine Art Print" 
-            class="staging-image"
-          />
-          <div class="print-description">
-            <h3 class="print-title">The Room Where Dreams Live</h3>
-            <p class="print-details" style="margin-bottom: 24px;">
-              Cinque Terre, Italy • Mid-Morning. A villa perched on cliffs, where whitewashed walls frame the deepest blue you've ever seen. This is the room where every dream vacation starts—the one you pin to your vision board and think about during long meetings. Where luxury meets simplicity, and the view does all the talking.
-            </p>
-            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
-              <button onclick="openPrintModal('The Room Where Dreams Live', '/static/prints/staging-cinque-terre-villa.jpg')" class="cta-button" style="padding: 12px 32px; font-size: 15px; background: #3D3935;">
-                Select Options
-              </button>
-            </div>
-            <p style="font-size: 13px; color: #8B7E6A; text-align: center;">Edition 1/100 • Signed by Italo & Ale • Artisan Made • Built to Order • Ships in 4-6 Weeks</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Artist Story Section */}
-      <section style="background: #3D3935; padding: 100px 24px; color: #F5F3F0;">
-        <div style="max-width: 900px; margin: 0 auto;">
-          <h2 style="font-size: 48px; font-weight: 300; letter-spacing: -1px; margin-bottom: 32px; text-align: center; color: #F5F3F0;">
-            Moments We'll Never Forget
-          </h2>
-          
-          <div style="font-size: 20px; line-height: 1.8; color: #E8E5E0; margin-bottom: 48px;">
-            <p style="margin-bottom: 24px;">
-              We don't chase perfect light or viral destinations. We chase <strong style="color: #F5F3F0;">the moments that stop time</strong>—the kind of beauty that makes you forget your phone exists and just breathe.
-            </p>
-            
-            <p style="margin-bottom: 24px;">
-              These prints capture the places that changed us. Baby Beach at dawn. Cinque Terre's golden hour. The terraces of Ixtapa where the world felt infinite.
-            </p>
-            
-            <p style="margin-bottom: 24px;">
-              We've spent years chasing light across coastlines and villages most people scroll past. Not for content. <strong style="color: #F5F3F0;">For connection.</strong>
-            </p>
-            
-            <p style="margin-bottom: 48px;">
-              Each print is a moment we'll never get back—frozen in archival quality, framed in natural oak, signed by hand. <strong style="color: #F5F3F0;">Only 100 exist. When they're gone, they're gone.</strong>
-            </p>
-            
-            <p style="margin-bottom: 0px; font-size: 18px; font-style: italic; color: #F5F3F0;">
-              This isn't art for everyone. It's for the people who understand that the best things in life can't be mass-produced.
-            </p>
-          </div>
-          
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 48px; text-align: center;">
-            <div>
-              <div style="font-size: 48px; font-weight: 300; color: #F5F3F0; margin-bottom: 8px;">1/100</div>
-              <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Limited Edition</div>
-            </div>
-            <div>
-              <div style="font-size: 48px; font-weight: 300; color: #F5F3F0; margin-bottom: 8px;">✍️</div>
-              <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Hand-Signed</div>
-            </div>
-            <div>
-              <div style="font-size: 48px; font-weight: 300; color: #F5F3F0; margin-bottom: 8px;">4-6</div>
-              <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Weeks to Ship</div>
-            </div>
-            <div>
-              <div style="font-size: 48px; font-weight: 300; color: #F5F3F0; margin-bottom: 8px;">100%</div>
-              <div style="font-size: 14px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 2px;">Artisan-Made</div>
-            </div>
-          </div>
-          
-          <div style="text-align: center;">
-            <p style="font-size: 16px; color: #8B7E6A; text-transform: uppercase; letter-spacing: 3px;">
-              Italo Campilii & Ale
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section class="cta-section">
-        <h2 style="font-size: 48px; font-weight: 300; margin-bottom: 24px; color: #3D3935;">
-          Transform Your Space
-        </h2>
-        <p style="font-size: 18px; color: #8B7E6A; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-          Each print is crafted with archival materials and natural oak framing.
-          <br/>Limited editions signed by the artists.
-        </p>
-      </section>
-
-      {/* Purchase Modal */}
-      <div id="purchaseModal" class="modal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-          <button onclick="closeModal()" class="close-button">×</button>
-          
-          <div class="modal-header">
-            <h2 id="modalTitle" style="font-size: 36px; font-weight: 400; color: #3D3935; margin-bottom: 8px;">Print Title</h2>
-            <p style="font-size: 16px; color: #8B7E6A;">Limited Edition • Signed by Artists</p>
-          </div>
-
-          <div class="modal-body">
-            {/* Step 1: Size Selection */}
-            <div id="sizeStep">
-              <h3 style="font-size: 24px; font-weight: 400; margin-bottom: 24px; color: #3D3935;">Select Size</h3>
-              <div class="size-option" onclick="selectSize('40x60', 1595)">
-                <div class="option-title">40" × 60"</div>
-                <div class="option-details">Perfect for living spaces • $1,595</div>
-              </div>
-              <div class="size-option" onclick="selectSize('50x75', 2195)">
-                <div class="option-title">50" × 75"</div>
-                <div class="option-details">Statement piece • $2,195</div>
-              </div>
-              <div class="size-option" onclick="selectSize('60x90', 2995)">
-                <div class="option-title">60" × 90"</div>
-                <div class="option-details">Gallery size • $2,995</div>
-              </div>
-            </div>
-
-            {/* Step 2: Frame Selection */}
-            <div id="frameStep" style="display: none;">
-              <button onclick="backToSize()" class="back-button">← Back to Size</button>
-              <h3 style="font-size: 24px; font-weight: 400; margin-bottom: 24px; color: #3D3935;">Select Frame</h3>
-              <div class="frame-option" onclick="selectFrame('Natural Oak', 0)">
-                <div class="option-title">Natural Oak Frame</div>
-                <div class="option-details">Premium solid oak • Included</div>
-              </div>
-              <div class="frame-option" onclick="selectFrame('Walnut', 300)">
-                <div class="option-title">Walnut Frame</div>
-                <div class="option-details">Rich dark wood • +$300</div>
-              </div>
-              <div class="frame-option" onclick="selectFrame('White Oak', 300)">
-                <div class="option-title">White Oak Frame</div>
-                <div class="option-details">Light coastal finish • +$300</div>
-              </div>
-            </div>
-
-            {/* Step 3: Checkout */}
-            <div id="checkoutStep" style="display: none;">
-              <button onclick="backToFrame()" class="back-button">← Back to Frame</button>
-              <h3 style="font-size: 24px; font-weight: 400; margin-bottom: 24px; color: #3D3935;">Order Summary</h3>
-              
-              <div class="checkout-summary">
-                <div class="summary-row">
-                  <span style="color: #8B7E6A;">Print</span>
-                  <span id="summaryPrint" style="color: #3D3935; font-weight: 500;">—</span>
-                </div>
-                <div class="summary-row">
-                  <span style="color: #8B7E6A;">Size</span>
-                  <span id="summarySize" style="color: #3D3935; font-weight: 500;">—</span>
-                </div>
-                <div class="summary-row">
-                  <span style="color: #8B7E6A;">Frame</span>
-                  <span id="summaryFrame" style="color: #3D3935; font-weight: 500;">—</span>
-                </div>
-                <div class="summary-row summary-total">
-                  <span style="color: #3D3935;">Total</span>
-                  <span id="summaryTotal" style="color: #3D3935;">$0</span>
-                </div>
-              </div>
-
-              <button onclick="checkout()" class="cta-button" style="width: 100%;">
-                Complete Purchase
-              </button>
-              <p style="text-align: center; font-size: 14px; color: #8B7E6A; margin-top: 16px;">
-                Secure checkout with Apple Pay or Credit Card
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <script dangerouslySetInnerHTML={{__html: `
-        // Cart system
-        let cart = JSON.parse(localStorage.getItem('acromatico_cart') || '[]');
-        let currentPrint = { name: '', image: '' };
-        let selectedSize = { name: '', price: 0 };
-        let selectedFrame = { name: '', price: 0 };
-
-        // Update cart badge on load
-        updateCartBadge();
-
-        function openPrintModal(printName, imageUrl) {
-          currentPrint = { name: printName, image: imageUrl };
-          selectedSize = { name: '', price: 0 };
-          selectedFrame = { name: 'Natural Oak', price: 0 };
-          
-          // Create simplified modal - everything visible at once
-          const modalHTML = '<div id="optionsModal" class="modal active" onclick="closeOptionsModal(event)" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); display: flex; align-items: center; justify-content: center; z-index: 10000;">' +
-            '<div class="modal-content" onclick="event.stopPropagation()" style="background: white; border-radius: 12px; max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">' +
-            '<button onclick="closeOptionsModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 32px; color: #8B7E6A; cursor: pointer; line-height: 1; z-index: 1;">×</button>' +
-            '<div style="padding: 40px;">' +
-            '<h2 style="font-size: 28px; font-weight: 400; color: #3D3935; margin-bottom: 8px;">' + printName + '</h2>' +
-            '<p style="font-size: 14px; color: #8B7E6A; margin-bottom: 32px;">Limited Edition 1/100 • Signed by Artists</p>' +
-            
-            '<h3 style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 16px;">Select Size</h3>' +
-            '<div class="size-options" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px;">' +
-            '<div class="size-option" data-size="24×36" data-price="795" onclick="selectOption(this, \\'size\\', \\'24×36\\', 795)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
-            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">24×36"</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">$795</div>' +
-            '</div>' +
-            '<div class="size-option" data-size="30×40" data-price="995" onclick="selectOption(this, \\'size\\', \\'30×40\\', 995)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
-            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">30×40"</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">$995</div>' +
-            '</div>' +
-            '<div class="size-option" data-size="48×60" data-price="1595" onclick="selectOption(this, \\'size\\', \\'48×60\\', 1595)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
-            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">48×60"</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">$1,595</div>' +
-            '</div>' +
-            '</div>' +
-            
-            '<h3 style="font-size: 18px; font-weight: 500; color: #3D3935; margin-bottom: 16px;">Select Frame</h3>' +
-            '<div class="frame-options" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px;">' +
-            '<div class="frame-option selected" data-frame="Natural Oak" data-price="0" onclick="selectOption(this, \\'frame\\', \\'Natural Oak\\', 0)" style="border: 2px solid #3D3935; background: #F5F3F0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
-            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">Natural Oak</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">Included</div>' +
-            '</div>' +
-            '<div class="frame-option" data-frame="Walnut" data-price="300" onclick="selectOption(this, \\'frame\\', \\'Walnut\\', 300)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
-            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">Walnut</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">+$300</div>' +
-            '</div>' +
-            '<div class="frame-option" data-frame="White Oak" data-price="300" onclick="selectOption(this, \\'frame\\', \\'White Oak\\', 300)" style="border: 2px solid #E8E5E0; border-radius: 8px; padding: 16px; cursor: pointer; text-align: center; transition: all 0.3s;">' +
-            '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">White Oak</div>' +
-            '<div style="font-size: 14px; color: #8B7E6A;">+$300</div>' +
-            '</div>' +
-            '</div>' +
-            
-            '<div style="background: #F5F3F0; border-radius: 8px; padding: 20px; margin-bottom: 24px;">' +
-            '<div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span style="color: #8B7E6A;">Size</span><span id="summarySize" style="color: #3D3935; font-weight: 500;">Select size</span></div>' +
-            '<div style="display: flex; justify-content: space-between; margin-bottom: 16px;"><span style="color: #8B7E6A;">Frame</span><span id="summaryFrame" style="color: #3D3935; font-weight: 500;">Natural Oak (included)</span></div>' +
-            '<div style="display: flex; justify-content: space-between; border-top: 2px solid #3D3935; padding-top: 16px; font-size: 20px; font-weight: 500;"><span style="color: #3D3935;">Total</span><span id="summaryTotal" style="color: #3D3935;">$0</span></div>' +
-            '</div>' +
-            '<p style="font-size: 12px; color: #8B7E6A; margin-bottom: 20px; line-height: 1.6;">✨ Limited Edition 1/100<br/>🖋️ Hand-Signed by Artists<br/>🎨 Museum-Quality Archival Paper<br/>📦 Artisan-Made • Ships in 4-6 Weeks</p>' +
-            '<button onclick="addItemToCart()" style="width: 100%; background: white; color: #3D3935; border: 2px solid #3D3935; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; margin-bottom: 12px;">Add to Cart</button>' +
-            '<button onclick="buyNow()" style="width: 100%; background: #3D3935; color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer;">Buy Now</button>' +
-            '</div>' +
-            '</div>' +
-            '</div>';
-          
-          document.body.insertAdjacentHTML('beforeend', modalHTML);
-          
-          // Update summary immediately after modal is created
-          setTimeout(() => {
-            updateSummary();
-          }, 10);
-        }
-
-        function closeOptionsModal(event) {
-          if (!event || event.target.id === 'optionsModal') {
-            const modal = document.getElementById('optionsModal');
-            if (modal) modal.remove();
-          }
-        }
-
-        function selectOption(element, type, name, price) {
-          // Update selection
-          if (type === 'size') {
-            selectedSize = { name: name, price: price };
-            // Remove selected class from all size options
-            document.querySelectorAll('.size-option').forEach(el => {
-              el.style.borderColor = '#E8E5E0';
-              el.style.background = 'white';
-              el.classList.remove('selected');
-            });
-            // Add selected class to clicked option
-            element.style.borderColor = '#3D3935';
-            element.style.background = '#F5F3F0';
-            element.classList.add('selected');
-          } else if (type === 'frame') {
-            selectedFrame = { name: name, price: price };
-            // Remove selected class from all frame options
-            document.querySelectorAll('.frame-option').forEach(el => {
-              el.style.borderColor = '#E8E5E0';
-              el.style.background = 'white';
-              el.classList.remove('selected');
-            });
-            // Add selected class to clicked option
-            element.style.borderColor = '#3D3935';
-            element.style.background = '#F5F3F0';
-            element.classList.add('selected');
-          }
-          
-          // Update summary
-          updateSummary();
-        }
-        
-        function updateSummary() {
-          const sizeText = selectedSize.name ? selectedSize.name + '"' : 'Select size';
-          const frameText = selectedFrame.name + (selectedFrame.price > 0 ? ' (+$' + selectedFrame.price + ')' : ' (included)');
-          const total = selectedSize.price + selectedFrame.price;
-          
-          document.getElementById('summarySize').textContent = sizeText;
-          document.getElementById('summaryFrame').textContent = frameText;
-          document.getElementById('summaryTotal').textContent = total > 0 ? '$' + total.toLocaleString() : '$0';
-        }
-
-        function addItemToCart() {
-          if (!selectedSize.name) {
-            alert('Please select a size first!');
-            return;
-          }
-          
-          const item = {
-            printName: currentPrint.name,
-            imageUrl: window.location.origin + currentPrint.image,
-            size: selectedSize.name,
-            sizePrice: selectedSize.price,
-            frameName: selectedFrame.name,
-            framePrice: selectedFrame.price,
-            quantity: 1
-          };
-          
-          cart.push(item);
-          localStorage.setItem('acromatico_cart', JSON.stringify(cart));
-          updateCartBadge();
-          
-          closeOptionsModal();
-          
-          // Show better confirmation
-          const total = selectedSize.price + selectedFrame.price;
-          alert('✓ Added to cart!\\n\\n' + currentPrint.name + '\\n' + selectedSize.name + '" • ' + selectedFrame.name + '\\n$' + total.toLocaleString() + '\\n\\nTotal items in cart: ' + cart.length);
-        }
-
-        function buyNow() {
-          if (!selectedSize.name) {
-            alert('Please select a size first!');
-            return;
-          }
-          
-          const item = {
-            printName: currentPrint.name,
-            imageUrl: window.location.origin + currentPrint.image,
-            size: selectedSize.name,
-            sizePrice: selectedSize.price,
-            frameName: selectedFrame.name,
-            framePrice: selectedFrame.price,
-            quantity: 1
-          };
-          
-          closeOptionsModal();
-          processCheckout([item]);
-        }
-
-        function updateCartBadge() {
-          const badge = document.querySelector('.cart-badge');
-          if (badge && cart.length > 0) {
-            badge.textContent = cart.length;
-            badge.style.display = 'flex';
-          } else if (badge) {
-            badge.style.display = 'none';
-          }
-        }
-
-        function processCheckout(items) {
-          // Show loading
-          const modal = document.getElementById('optionsModal');
-          if (modal) {
-            modal.querySelector('.modal-content').innerHTML = '<div style="text-align: center; padding: 60px;"><p style="font-size: 20px; color: #3D3935; margin-bottom: 16px;">Processing...</p><p style="font-size: 14px; color: #8B7E6A;">Redirecting to secure checkout</p></div>';
-          }
-          
-          fetch('/api/create-checkout', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ items: items })
-          })
-          .then(res => res.json())
-          .then(data => {
-            if (data.url) {
-              window.location.href = data.url;
-            } else {
-              alert('Error creating checkout. Please try again.');
-              if (modal) modal.remove();
-            }
-          })
-          .catch(error => {
-            console.error('Checkout error:', error);
-            alert('Error processing payment. Please try again.');
-            if (modal) modal.remove();
-          });
-        }
-
-        // View cart function - show modal with cart items
-        function viewCart() {
-          const cart = JSON.parse(localStorage.getItem('acromatico_cart') || '[]');
-          
-          if (cart.length === 0) {
-            alert('Your cart is empty! Add some prints first.');
-            return;
-          }
-          
-          // Calculate total
-          const total = cart.reduce((sum, item) => sum + item.sizePrice + item.framePrice, 0);
-          
-          // Build cart items HTML
-          let cartItemsHTML = '';
-          cart.forEach((item, index) => {
-            const itemHTML = '<div style="border-bottom: 1px solid #E8E5E0; padding: 16px 0; display: flex; justify-content: space-between; align-items: center;">' +
-              '<div>' +
-                '<div style="font-size: 16px; font-weight: 500; color: #3D3935; margin-bottom: 4px;">' + item.printName + '</div>' +
-                '<div style="font-size: 14px; color: #8B7E6A;">' + item.size + ' • ' + item.frameName + '</div>' +
-              '</div>' +
-              '<div style="text-align: right;">' +
-                '<div style="font-size: 16px; font-weight: 500; color: #3D3935;">$' + (item.sizePrice + item.framePrice).toLocaleString() + '</div>' +
-                '<button onclick="removeFromCart(' + index + ')" style="font-size: 12px; color: #8B7E6A; text-decoration: underline; background: none; border: none; cursor: pointer; margin-top: 4px;">Remove</button>' +
-              '</div>' +
-            '</div>';
-            cartItemsHTML += itemHTML;
-          });
-          
-          // Create cart modal
-          const existingModal = document.getElementById('cartModal');
-          if (existingModal) existingModal.remove();
-          
-          const modal = document.createElement('div');
-          modal.id = 'cartModal';
-          modal.innerHTML = 
-            '<div style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 24px;" onclick="closeCartModal()">' +
-              '<div style="background: white; max-width: 600px; width: 100%; border-radius: 0; padding: 40px; max-height: 80vh; overflow-y: auto;" onclick="event.stopPropagation()">' +
-                '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">' +
-                  '<h2 style="font-size: 32px; font-weight: 300; color: #3D3935;">Your Cart</h2>' +
-                  '<button onclick="closeCartModal()" style="font-size: 32px; background: none; border: none; cursor: pointer; color: #8B7E6A; line-height: 1;">×</button>' +
-                '</div>' +
-                '<div style="margin-bottom: 24px;">' +
-                  cartItemsHTML +
-                '</div>' +
-                '<div style="border-top: 2px solid #3D3935; padding-top: 16px; margin-bottom: 32px;">' +
-                  '<div style="display: flex; justify-content: space-between; align-items: center;">' +
-                    '<span style="font-size: 20px; font-weight: 500; color: #3D3935;">Total</span>' +
-                    '<span style="font-size: 24px; font-weight: 500; color: #3D3935;">$' + total.toLocaleString() + '</span>' +
-                  '</div>' +
-                '</div>' +
-                '<button onclick="checkoutCart()" style="width: 100%; padding: 18px; background: #3D3935; color: white; border: none; font-size: 16px; font-weight: 500; cursor: pointer; letter-spacing: 1px; transition: all 0.3s; margin-bottom: 12px;">' +
-                  'CHECKOUT ALL' +
-                '</button>' +
-                '<button onclick="closeCartModal()" style="width: 100%; padding: 18px; background: transparent; color: #3D3935; border: 1px solid #3D3935; font-size: 16px; font-weight: 500; cursor: pointer; letter-spacing: 1px;">' +
-                  'CONTINUE SHOPPING' +
-                '</button>' +
-                '<p style="text-align: center; font-size: 12px; color: #8B7E6A; margin-top: 16px;">' +
-                  'Secure checkout powered by Stripe • Free US shipping' +
-                '</p>' +
-              '</div>' +
-            '</div>';
-          
-          document.body.appendChild(modal);
-        }
-        
-        function closeCartModal() {
-          const modal = document.getElementById('cartModal');
-          if (modal) modal.remove();
-        }
-        
-        function removeFromCart(index) {
-          let cart = JSON.parse(localStorage.getItem('acromatico_cart') || '[]');
-          cart.splice(index, 1);
-          localStorage.setItem('acromatico_cart', JSON.stringify(cart));
-          updateCartBadge();
-          closeCartModal();
-          if (cart.length > 0) {
-            viewCart(); // Reopen with updated cart
-          }
-        }
-        
-        async function checkoutCart() {
-          const cart = JSON.parse(localStorage.getItem('acromatico_cart') || '[]');
-          
-          if (cart.length === 0) {
-            alert('Your cart is empty!');
-            return;
-          }
-          
-          try {
-            // Show loading state
-            const modal = document.getElementById('cartModal');
-            if (modal) {
-              modal.querySelector('div[onclick*="stopPropagation"]').innerHTML = 
-                '<div style="text-align: center; padding: 60px 20px;">' +
-                  '<div style="font-size: 24px; color: #3D3935; margin-bottom: 16px;">Processing your order...</div>' +
-                  '<div style="font-size: 16px; color: #8B7E6A;">Redirecting to secure checkout</div>' +
-                '</div>';
-            }
-            
-            // Send cart to Stripe (rename to 'items' for backend)
-            const response = await fetch('/api/create-checkout', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ items: cart })
-            });
-            
-            const data = await response.json();
-            
-            if (data.url) {
-              window.location.href = data.url;
-            } else {
-              alert('Checkout failed. Please try again.');
-              closeCartModal();
-            }
-          } catch (error) {
-            console.error('Checkout error:', error);
-            alert('Something went wrong. Please try again.');
-            closeCartModal();
-          }
-        }
-      `}} />
-
-      <Footer />
-
-    </div>
-  )
-)
-// Photography Services Page - Apple/Tesla UX
-app.get('/photography', (c) => c.redirect('/static/photography-apple-ux.html'))
-
-// Photography Booking API
-app.post('/api/photography/book', async (c) => {
-  try {
-    const formData = await c.req.json()
-    
-    // Calculate payment schedule
-    const weddingDate = new Date(formData.weddingDate)
-    const today = new Date()
-    const payment1Date = today.toISOString().split('T')[0] // Today
-    const payment3Date = new Date(weddingDate)
-    payment3Date.setDate(payment3Date.getDate() - 14) // 14 days before wedding
-    
-    // Calculate midpoint for 2nd payment
-    const daysUntilWedding = Math.floor((weddingDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-    const midpointDays = Math.floor(daysUntilWedding / 2)
-    const payment2Date = new Date(today)
-    payment2Date.setDate(payment2Date.getDate() + midpointDays)
-    
-    const contract = {
-      contractNumber: `AC-${Date.now()}`,
-      brideName: formData.brideName,
-      groomName: formData.groomName,
-      email: formData.email,
-      phone: formData.phone,
-      mailingAddress: formData.mailingAddress,
-      weddingDate: formData.weddingDate,
-      ceremonyVenue: formData.ceremonyVenue,
-      receptionVenue: formData.receptionVenue,
-      package: formData.package,
-      totalAmount: formData.totalAmount,
-      paymentSchedule: {
-        payment1: {
-          amount: formData.payment1,
-          dueDate: payment1Date,
-          status: 'pending'
-        },
-        payment2: {
-          amount: formData.payment2,
-          dueDate: payment2Date.toISOString().split('T')[0],
-          status: 'pending'
-        },
-        payment3: {
-          amount: formData.payment3,
-          dueDate: payment3Date.toISOString().split('T')[0],
-          status: 'pending'
-        }
-      },
-      signature: formData.signature,
-      paymentMethod: formData.paymentMethod,
-      agreedToTerms: formData.agreeTerms,
-      createdAt: new Date().toISOString(),
-      status: 'pending_payment'
-    }
-    
-    console.log('📸 NEW PHOTOGRAPHY BOOKING:', {
-      contract: contract.contractNumber,
-      couple: `${formData.brideName} & ${formData.groomName}`,
-      package: formData.package,
-      amount: `$${formData.totalAmount}`,
-      wedding: formData.weddingDate,
-      payments: {
-        today: `$${formData.payment1}`,
-        midpoint: `$${formData.payment2} (${payment2Date.toISOString().split('T')[0]})`,
-        final: `$${formData.payment3} (${payment3Date.toISOString().split('T')[0]})`
-      }
-    })
-    
-    // TODO: Store in D1 database
-    // TODO: Send confirmation email with contract PDF
-    // TODO: Send payment link via Stripe
-    
-    return c.json({ 
-      success: true, 
-      contractNumber: contract.contractNumber,
-      message: 'Booking confirmed! Check your email for contract and payment details.',
-      paymentSchedule: contract.paymentSchedule
-    })
-  } catch (error) {
-    console.error('❌ Booking error:', error)
-    return c.json({ success: false, error: 'Processing failed. Please contact us directly.' }, 500)
-  }
-})
 
 // OLD: Full photography route (removed for performance)
 // Blog route is defined at the top with app.route('/blog', blog)
