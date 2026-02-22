@@ -1765,17 +1765,17 @@ app.get('/academy', (c) =>
   )
 )
 
-app.get('/studio', (c) => 
+app.get('\/studio', (c) =>
   c.html(`
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Building — Acromatico</title>
+  <title>We Build Movements — Acromatico</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -1784,12 +1784,11 @@ app.get('/studio', (c) =>
     }
     
     html {
-      scroll-snap-type: y proximity;
       scroll-behavior: smooth;
     }
     
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, sans-serif;
       -webkit-font-smoothing: antialiased;
       background: #000;
       color: #fff;
@@ -1803,38 +1802,37 @@ app.get('/studio', (c) =>
       left: 0;
       right: 0;
       z-index: 9999;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.95);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     
     nav {
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
-      padding: 20px 40px;
+      padding: 24px 48px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     
     .logo {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: #fff;
       text-decoration: none;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.2em;
     }
     
     .nav-links {
       display: flex;
-      gap: 48px;
+      gap: 40px;
     }
     
     .nav-links a {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.6);
       text-decoration: none;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
       transition: color 0.2s;
     }
@@ -1843,235 +1841,330 @@ app.get('/studio', (c) =>
       color: #fff;
     }
     
-    /* SECTIONS */
-    section {
+    /* HERO */
+    .hero {
       min-height: 100vh;
-      scroll-snap-align: start;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 140px 48px 80px;
+      text-align: center;
       position: relative;
-      padding: 120px 40px 80px;
+      background: #000;
     }
     
-    /* FULL SCREEN IMAGE */
-    .visual {
-      position: absolute;
-      inset: 0;
+    .hero-content {
+      max-width: 1200px;
+      z-index: 2;
+      position: relative;
+    }
+    
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 160px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 40px;
+      color: #fff;
+    }
+    
+    .hero h1 span {
+      color: #4794A6;
+    }
+    
+    .hero p {
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 300;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 900px;
+      margin: 0 auto 60px;
+    }
+    
+    .cta-primary {
+      display: inline-block;
+      background: #4794A6;
+      color: #fff;
+      padding: 24px 64px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .cta-primary:hover {
+      background: #3a7a8a;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(71, 148, 166, 0.4);
+    }
+    
+    /* TRUTH SECTION */
+    .truth {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 48px;
+      background: #0a0a0a;
+      text-align: center;
+    }
+    
+    .truth-content {
+      max-width: 1000px;
+    }
+    
+    .truth h2 {
+      font-size: clamp(40px, 7vw, 100px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 48px;
+      color: #fff;
+    }
+    
+    .truth p {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 32px;
+    }
+    
+    .truth .highlight {
+      color: #4794A6;
+      font-weight: 600;
+    }
+    
+    /* PROOF SECTION */
+    .proof {
+      padding: 120px 48px;
+      background: #000;
+    }
+    
+    .proof-header {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+    
+    .proof-header h2 {
+      font-size: clamp(36px, 6vw, 80px);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    
+    .proof-header p {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .case-studies {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    
+    .case {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .case:last-child {
+      border-bottom: none;
+    }
+    
+    .case-image {
+      position: relative;
+      overflow: hidden;
+      background: #111;
+    }
+    
+    .case-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 0;
+      transition: transform 0.6s ease;
     }
     
-    /* DARK OVERLAY */
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.65);
-      z-index: 1;
+    .case:hover .case-image img {
+      transform: scale(1.05);
     }
     
-    /* CONTENT WRAPPER */
-    .content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 1200px;
-      animation: fadeIn 1s ease-out;
+    .case-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+      background: #000;
     }
     
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* TYPOGRAPHY */
-    .headline {
-      font-size: clamp(48px, 8vw, 140px);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 24px;
-      color: #fff;
-      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-    }
-    
-    .subhead {
-      font-size: clamp(28px, 4vw, 56px);
-      font-weight: 400;
-      line-height: 1.2;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 48px;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
-    }
-    
-    .metric {
-      font-size: clamp(72px, 12vw, 180px);
-      font-weight: 800;
-      color: #4794A6;
-      line-height: 1;
-      margin-bottom: 24px;
-      text-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
-    }
-    
-    .context {
-      font-size: clamp(24px, 4vw, 48px);
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.3;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
-    }
-    
-    .label {
-      font-size: 14px;
-      font-weight: 600;
+    .case-label {
+      font-size: 12px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 16px;
-    }
-    
-    /* PROCESS GRID */
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-      margin-top: 80px;
-      text-align: left;
-    }
-    
-    .process-item {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 48px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .process-number {
-      font-size: 72px;
-      font-weight: 800;
-      color: #4794A6;
-      line-height: 1;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.4);
       margin-bottom: 24px;
     }
     
-    .process-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    
-    .process-desc {
-      font-size: 16px;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.7);
-    }
-    
-    /* CTA BUTTON */
-    .cta {
-      display: inline-block;
-      background: #fff;
-      color: #000;
-      padding: 24px 80px;
-      font-size: 20px;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 50px;
-      margin-top: 48px;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
-    }
-    
-    .cta:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
-    }
-    
-    /* BACKGROUND VARIANTS */
-    .bg-black {
-      background: #000;
-    }
-    
-    .bg-white {
-      background: #fff;
-      color: #000;
-    }
-    
-    .bg-white .headline,
-    .bg-white .context,
-    .bg-white .subhead {
-      color: #000;
-      text-shadow: none;
-    }
-    
-    .bg-white .cta {
-      background: #000;
+    .case-title {
+      font-size: clamp(32px, 5vw, 72px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 32px;
       color: #fff;
     }
     
-    /* MOBILE RESPONSIVE */
-    @media (max-width: 768px) {
+    .case-metric {
+      font-size: clamp(48px, 8vw, 120px);
+      font-weight: 900;
+      color: #4794A6;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    
+    .case-description {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 32px;
+    }
+    
+    .case-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 40px;
+    }
+    
+    .stat {
+      flex: 1;
+    }
+    
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: #4794A6;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* SCARCITY */
+    .scarcity {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 48px;
+      background: #0a0a0a;
+      text-align: center;
+    }
+    
+    .scarcity-content {
+      max-width: 1000px;
+    }
+    
+    .scarcity h2 {
+      font-size: clamp(48px, 8vw, 140px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 40px;
+      color: #fff;
+    }
+    
+    .scarcity h2 span {
+      color: #4794A6;
+    }
+    
+    .scarcity p {
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 300;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 60px;
+    }
+    
+    /* FINAL CTA */
+    .final-cta {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 48px;
+      background: #000;
+      text-align: center;
+    }
+    
+    .final-cta-content {
+      max-width: 1000px;
+    }
+    
+    .final-cta h2 {
+      font-size: clamp(48px, 8vw, 120px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 60px;
+      color: #fff;
+    }
+    
+    /* MOBILE */
+    @media (max-width: 1024px) {
       nav {
-        padding: 16px 24px;
+        padding: 20px 32px;
       }
       
       .nav-links {
         gap: 24px;
-        font-size: 14px;
       }
       
-      section {
-        padding: 100px 24px 60px;
+      .hero,
+      .truth,
+      .scarcity,
+      .final-cta {
+        padding: 100px 32px 80px;
       }
       
-      .headline {
-        font-size: 48px;
-        margin-bottom: 16px;
+      .proof {
+        padding: 80px 32px;
       }
       
-      .subhead {
-        font-size: 24px;
-        margin-bottom: 32px;
-      }
-      
-      .metric {
-        font-size: 64px;
-        margin-bottom: 16px;
-      }
-      
-      .context {
-        font-size: 20px;
-      }
-      
-      .process-grid {
+      .case {
         grid-template-columns: 1fr;
+      }
+      
+      .case-image {
+        min-height: 50vh;
+      }
+      
+      .case-content {
+        padding: 60px 32px;
+      }
+      
+      .case-stats {
+        flex-direction: column;
         gap: 32px;
-        margin-top: 48px;
       }
       
-      .process-item {
-        padding: 32px;
-      }
-      
-      .process-number {
-        font-size: 48px;
-      }
-      
-      .process-title {
-        font-size: 20px;
-      }
-      
-      .cta {
-        padding: 20px 50px;
-        font-size: 18px;
+      .cta-primary {
+        padding: 20px 48px;
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- FIXED HEADER -->
+  <!-- HEADER -->
   <header>
     <nav>
       <a href="/" class="logo">ACROMATICO</a>
@@ -2084,97 +2177,140 @@ app.get('/studio', (c) =>
     </nav>
   </header>
 
-  <!-- SLIDE 1: AUTHORITY — Luxury Visual -->
-  <section>
-    <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI Dubai Marina" class="visual">
-    <div class="overlay"></div>
-    <div class="content">
-      <div class="headline">We build brands<br/>that command attention.</div>
+  <!-- HERO: THE MOVEMENT -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>We don't build brands.<br/>We build <span>movements.</span></h1>
+      <p>Most agencies give you a logo and a website. We give you a visual system that makes your competitors irrelevant. 500+ custom photos. 12-month content machines. Zero stock images.</p>
+      <a href="/contact" class="cta-primary">Work With Us</a>
     </div>
   </section>
 
-  <!-- SLIDE 2: PROBLEM -->
-  <section class="bg-black">
-    <div class="content">
-      <div class="subhead">Most brands look the same.</div>
-      <div class="headline">Generic stock photos.<br/>Templated websites.<br/>Forgettable content.</div>
+  <!-- TRUTH: WHY WE'RE DIFFERENT -->
+  <section class="truth">
+    <div class="truth-content">
+      <h2>Your brand is either a commodity or a cult.</h2>
+      <p>If people can't recognize your brand in 0.3 seconds, you're invisible.</p>
+      <p>If your content looks like stock photos, you're forgettable.</p>
+      <p>If your message sounds like everyone else's, you're <span class="highlight">a commodity</span>.</p>
+      <p>We make you <span class="highlight">a cult</span>.</p>
     </div>
   </section>
 
-  <!-- SLIDE 3: SOLUTION — How We Do It -->
-  <section class="bg-black">
-    <div class="content">
-      <div class="label">Our Process</div>
-      <div class="headline" style="font-size: clamp(36px, 6vw, 72px); margin-bottom: 80px;">We shoot 500+ photos.<br/>Build 12-month systems.<br/>No stock. Ever.</div>
+  <!-- PROOF: THE RESULTS -->
+  <section class="proof">
+    <div class="proof-header">
+      <h2>The proof is in the growth.</h2>
+      <p>We only take 6 clients per year. Here's why.</p>
+    </div>
+    
+    <div class="case-studies">
       
-      <div class="process-grid">
-        <div class="process-item">
-          <div class="process-number">01</div>
-          <div class="process-title">Visual DNA</div>
-          <div class="process-desc">Custom photography. 500+ images per brand. Your own visual language.</div>
+      <!-- ECOLOSOPHY -->
+      <div class="case">
+        <div class="case-image">
+          <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy">
         </div>
-        
-        <div class="process-item">
-          <div class="process-number">02</div>
-          <div class="process-title">E-Commerce</div>
-          <div class="process-desc">Full Shopify builds. Automated fulfillment. Conversion-optimized design.</div>
-        </div>
-        
-        <div class="process-item">
-          <div class="process-number">03</div>
-          <div class="process-title">Content System</div>
-          <div class="process-desc">12-month calendars. Reusable templates. Your brand stays consistent as it scales.</div>
+        <div class="case-content">
+          <div class="case-label">Non-Toxic Cleaning Brand</div>
+          <div class="case-title">Ecolosophy</div>
+          <div class="case-metric">$0 → 6-figures</div>
+          <div class="case-description">
+            Started with nothing. Built complete Shopify store, shot 500+ product photos, created 12-month content system, integrated warehouse fulfillment. Launched in 8 months.
+          </div>
+          <div class="case-stats">
+            <div class="stat">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Custom Photos</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">12</div>
+              <div class="stat-label">Month Content Plan</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">0</div>
+              <div class="stat-label">Stock Images</div>
+            </div>
+          </div>
         </div>
       </div>
+      
+      <!-- LIA -->
+      <div class="case">
+        <div class="case-content">
+          <div class="case-label">Celebrity Beauty Brand</div>
+          <div class="case-title">LIA by Jomari Goyso</div>
+          <div class="case-metric">$7.2M</div>
+          <div class="case-description">
+            Celebrity stylist needed a brand that matched his vision. We built the complete visual identity, shot all product photography, and created a content system that scaled to 7-figures in 9 months.
+          </div>
+          <div class="case-stats">
+            <div class="stat">
+              <div class="stat-number">9</div>
+              <div class="stat-label">Months to $7.2M</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Custom Assets</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">∞</div>
+              <div class="stat-label">Brand Recognition</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-image">
+          <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA Beauty">
+        </div>
+      </div>
+      
+      <!-- ACCESS BY CGI -->
+      <div class="case">
+        <div class="case-image">
+          <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI">
+        </div>
+        <div class="case-content">
+          <div class="case-label">Enterprise Fintech Platform</div>
+          <div class="case-title">Access by CGI</div>
+          <div class="case-metric">Fortune 500</div>
+          <div class="case-description">
+            Enterprise fintech needed to convey innovation and security to the world's biggest banks. We created a visual system that commands trust at the highest level.
+          </div>
+          <div class="case-stats">
+            <div class="stat">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Enterprise Clients</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Brand Authority</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">Global</div>
+              <div class="stat-label">Recognition</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </section>
 
-  <!-- SLIDE 4: ECOLOSOPHY RESULT -->
-  <section>
-    <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy" class="visual">
-    <div class="overlay"></div>
-    <div class="content">
-      <div class="label">Case Study — Ecolosophy</div>
-      <div class="metric">$0 → 6-figures</div>
-      <div class="context">in 8 months</div>
+  <!-- SCARCITY -->
+  <section class="scarcity">
+    <div class="scarcity-content">
+      <h2>We only take<br/><span>6 clients</span><br/>per year.</h2>
+      <p>Every brand gets 500+ custom photos. 12-month content systems. Full Shopify builds. Complete visual identities.</p>
+      <p>That's not scalable. That's intentional.</p>
+      <a href="/contact" class="cta-primary">Apply for 2026</a>
     </div>
   </section>
 
-  <!-- SLIDE 5: LIA RESULT -->
-  <section>
-    <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA by Jomari Goyso" class="visual">
-    <div class="overlay"></div>
-    <div class="content">
-      <div class="label">Case Study — LIA by Jomari Goyso</div>
-      <div class="metric">$7.2M</div>
-      <div class="context">revenue in 9 months</div>
-    </div>
-  </section>
-
-  <!-- SLIDE 6: ACCESS RESULT -->
-  <section>
-    <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI" class="visual">
-    <div class="overlay"></div>
-    <div class="content">
-      <div class="label">Case Study — Access by CGI</div>
-      <div class="headline" style="font-size: clamp(36px, 6vw, 80px);">Enterprise fintech</div>
-      <div class="context">trusted by Fortune 500</div>
-    </div>
-  </section>
-
-  <!-- SLIDE 7: SCARCITY -->
-  <section class="bg-black">
-    <div class="content">
-      <div class="headline">We only take<br/>6 clients per year.</div>
-      <div class="subhead">Every brand gets our full attention.<br/>No exceptions.</div>
-    </div>
-  </section>
-
-  <!-- SLIDE 8: FINAL CTA -->
-  <section class="bg-white">
-    <div class="content">
-      <div class="headline">Ready to dominate<br/>your industry?</div>
-      <a href="/contact" class="cta">Book Discovery Call</a>
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-cta-content">
+      <h2>Ready to become<br/>a movement?</h2>
+      <a href="/contact" class="cta-primary">Let's Talk</a>
     </div>
   </section>
 
