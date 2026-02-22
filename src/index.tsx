@@ -2293,6 +2293,35 @@ app.get('\/studio', (c) =>
         </div>
       </div>
       
+      <!-- BLUE BUILDING -->
+      <div class="case">
+        <div class="case-content">
+          <div class="case-label">Smart Luxury Office Rentals</div>
+          <div class="case-title">Blue Building</div>
+          <div class="case-metric">24/7 Business</div>
+          <div class="case-description">
+            Modern office rental company needed a brand that positioned smart workspaces as the future. We created a visual identity that speaks to growing entrepreneurs who demand excellence.
+          </div>
+          <div class="case-stats">
+            <div class="stat">
+              <div class="stat-number">Smart</div>
+              <div class="stat-label">Positioning</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">Luxury</div>
+              <div class="stat-label">Experience</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Availability</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-image">
+          <img src="/static/images/brand-showcase/blue-building-real.jpg" alt="Blue Building">
+        </div>
+      </div>
+      
     </div>
   </section>
 
