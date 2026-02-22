@@ -1764,532 +1764,787 @@ app.get('/academy', (c) =>
     { title: 'Curriculum - Acromatico Academy' }
   )
 )
-
 app.get('/studio', (c) => 
-  c.html(`
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Building - Acromatico | We Build Movements</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background: #fff;
-      color: #000;
-    }
-    
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      padding: 20px 40px;
-    }
-    
-    header nav {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    header a {
-      color: #000;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 500;
-      transition: opacity 0.2s;
-    }
-    
-    header a:hover {
-      opacity: 0.6;
-    }
-    
-    .logo {
-      font-weight: 700;
-      font-size: 18px;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 40px;
-    }
-    
-    /* HERO */
-    .hero-minimal {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 40px 80px;
-      text-align: center;
-    }
-    
-    .hero-minimal h1 {
-      font-size: clamp(48px, 8vw, 96px);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin-bottom: 40px;
-      color: #000;
-    }
-    
-    .hero-minimal .subtitle {
-      font-size: clamp(20px, 3vw, 28px);
-      font-weight: 400;
-      color: #666;
-      max-width: 700px;
-      margin: 0 auto 80px;
-      line-height: 1.5;
-    }
-    
-    .cta-primary {
-      display: inline-block;
-      background: #4794A6;
-      color: #fff;
-      padding: 20px 60px;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-    
-    .cta-primary:hover {
-      background: #3a7a8a;
-      transform: translateY(-2px);
-    }
-    
-    .client-proof {
-      margin-top: 120px;
-      padding-top: 80px;
-      border-top: 1px solid #e5e5e5;
-    }
-    
-    .client-proof p {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #999;
-      margin-bottom: 40px;
-    }
-    
-    .client-logos-hero {
-      display: flex;
-      gap: 60px;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    
-    .client-logos-hero img {
-      height: 40px;
-      width: auto;
-      opacity: 0.4;
-      filter: grayscale(100%);
-      transition: all 0.2s;
-    }
-    
-    .client-logos-hero img:hover {
-      opacity: 0.8;
-    }
-    
-    /* CASE STUDIES */
-    .case-study {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-    }
-    
-    .case-study:nth-child(even) {
-      direction: rtl;
-    }
-    
-    .case-study:nth-child(even) > * {
-      direction: ltr;
-    }
-    
-    .case-image {
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-    
-    .case-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .case-content {
-      padding: 120px 80px;
-    }
-    
-    .case-logo {
-      height: 50px;
-      width: auto;
-      margin-bottom: 40px;
-      opacity: 0.8;
-    }
-    
-    .case-content h2 {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
-    
-    .case-description {
-      font-size: 18px;
-      line-height: 1.7;
-      color: #666;
-      margin-bottom: 40px;
-    }
-    
-    .case-results {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    
-    .result {
-      flex: 1;
-      min-width: 120px;
-    }
-    
-    .result-number {
-      font-size: 32px;
-      font-weight: 700;
-      color: #4794A6;
-      display: block;
-      margin-bottom: 8px;
-    }
-    
-    .result-label {
-      font-size: 14px;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    /* OTHER CLIENTS */
-    .other-clients {
-      padding: 160px 80px;
-      text-align: center;
-      background: #fafafa;
-    }
-    
-    .other-clients h3 {
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #999;
-      margin-bottom: 80px;
-      font-weight: 500;
-    }
-    
-    .client-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 60px;
-      max-width: 1200px;
-      margin: 0 auto;
-      align-items: center;
-    }
-    
-    .client-grid img {
-      height: 50px;
-      width: auto;
-      margin: 0 auto;
-      display: block;
-      opacity: 0.3;
-      filter: grayscale(100%);
-      transition: all 0.2s;
-    }
-    
-    .client-grid img:hover {
-      opacity: 0.7;
-    }
-    
-    /* FINAL CTA */
-    .final-cta {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 160px 40px;
-      text-align: center;
-      background: #000;
-      color: #fff;
-    }
-    
-    .final-cta .badge {
-      display: inline-block;
-      padding: 8px 20px;
-      background: rgba(71, 148, 166, 0.1);
-      border: 1px solid rgba(71, 148, 166, 0.3);
-      border-radius: 20px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #4794A6;
-      margin-bottom: 40px;
-    }
-    
-    .final-cta h2 {
-      font-size: clamp(40px, 7vw, 72px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      margin-bottom: 80px;
-    }
-    
-    .cta-secondary {
-      display: inline-block;
-      background: #fff;
-      color: #000;
-      padding: 20px 60px;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-    
-    .cta-secondary:hover {
-      background: #f0f0f0;
-      transform: translateY(-2px);
-    }
-    
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .case-study {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-      
-      .case-image {
-        height: 60vh;
-      }
-      
-      .case-content {
-        padding: 80px 40px;
-      }
-      
-      .client-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 40px;
-      }
-      
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <nav>
-      <a href="/" class="logo">ACROMATICO</a>
-      <div class="nav-links">
-        <a href="/studio">Studio</a>
-        <a href="/prints">Prints</a>
-        <a href="/photography">Photography</a>
-        <a href="/contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+  c.render(
+    <div class="min-h-screen bg-black text-white">
+      <Header />
 
-  <!-- HERO -->
-  <section class="hero-minimal">
-    <h1>We build brands<br/>that command attention.</h1>
-    <p class="subtitle">
-      Full-stack brand development for companies that refuse to blend in. 
-      From visual identity to automated e-commerce, we build systems that scale.
-    </p>
-    <a href="/contact" class="cta-primary">Book Discovery Call</a>
-    
-    <div class="client-proof">
-      <p>Trusted by</p>
-      <div class="client-logos-hero">
-        <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" />
-        <img src="/static/images/clients/lia.png" alt="LIA by Jomari Goyso" />
-        <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" />
-        <img src="/static/images/clients/republic.png" alt="Republic" />
-      </div>
-    </div>
-  </section>
+      <style>{`
+        * {
+          box-sizing: border-box;
+        }
+        
+        html, body {
+          overflow-x: hidden;
+          max-width: 100%;
+        }
+        
+        body { background: #000; color: #fff; }
+        
+        /* HERO - INSTANT IMPACT */
+        .hero-impact {
+          height: 100vh;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 60px 40px;
+          text-align: center;
+          background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+        }
+        
+        .hero-impact img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 0;
+          opacity: 0.08;
+        }
+        
+        .hero-impact h1 {
+          position: relative;
+          z-index: 1;
+          font-size: clamp(64px, 12vw, 140px);
+          font-weight: 800;
+          letter-spacing: -0.06em;
+          line-height: 0.9;
+          margin-bottom: 40px;
+          background: linear-gradient(180deg, #fff 0%, #888 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-impact .tagline {
+          position: relative;
+          z-index: 1;
+          font-size: clamp(24px, 3vw, 36px);
+          font-weight: 300;
+          letter-spacing: -0.02em;
+          color: #aaa;
+          max-width: 800px;
+          margin: 0 auto 60px;
+        }
+        
+        .hero-stats {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          gap: 80px;
+          justify-content: center;
+          flex-wrap: wrap;
+          padding: 60px 0 0;
+          border-top: 1px solid #222;
+        }
+        
+        .stat {
+          text-align: center;
+        }
+        
+        .stat-number {
+          font-size: clamp(48px, 6vw, 72px);
+          font-weight: 800;
+          color: #fff;
+          display: block;
+          margin-bottom: 12px;
+          letter-spacing: -0.03em;
+        }
+        
+        .stat-label {
+          font-size: 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          color: #555;
+          font-weight: 500;
+        }
+        
+        /* THE DIFFERENCE SECTION */
+        .difference-section {
+          padding: 140px 40px;
+          background: #000;
+          text-align: center;
+        }
+        
+        .difference-section h2 {
+          font-size: clamp(40px, 7vw, 80px);
+          font-weight: 700;
+          letter-spacing: -0.04em;
+          margin-bottom: 80px;
+          line-height: 1;
+        }
+        
+        .difference-section h2 span {
+          color: #555;
+        }
+        
+        .pillars-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 60px;
+          max-width: 1400px;
+          margin: 0 auto;
+          text-align: left;
+        }
+        
+        .pillar {
+          padding: 50px 40px;
+          background: #0a0a0a;
+          border: 1px solid #181818;
+          border-radius: 8px;
+          transition: all 0.3s;
+        }
+        
+        .pillar:hover {
+          border-color: #333;
+          transform: translateY(-8px);
+        }
+        
+        .pillar-number {
+          font-size: 72px;
+          font-weight: 800;
+          color: #1a1a1a;
+          line-height: 1;
+          margin-bottom: 20px;
+        }
+        
+        .pillar h3 {
+          font-size: 28px;
+          font-weight: 700;
+          margin-bottom: 20px;
+          letter-spacing: -0.02em;
+        }
+        
+        .pillar p {
+          font-size: 17px;
+          line-height: 1.7;
+          color: #999;
+          margin-bottom: 20px;
+        }
+        
+        .pillar ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .pillar li {
+          font-size: 15px;
+          color: #777;
+          padding-left: 20px;
+          position: relative;
+          margin-bottom: 10px;
+        }
+        
+        .pillar li:before {
+          content: "→";
+          position: absolute;
+          left: 0;
+          color: #444;
+        }
+        
+        .pillar-result {
+          margin-top: 24px;
+          padding-top: 24px;
+          border-top: 1px solid #1a1a1a;
+          font-size: 16px;
+          font-weight: 600;
+          color: #fff;
+        }
+        
+        /* CASE STUDIES - BIG IMPACT */
+        .case-hero {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          padding: 100px 60px;
+          position: relative;
+          border-bottom: 1px solid #0a0a0a;
+        }
+        
+        .case-hero:nth-child(even) {
+          background: #050505;
+        }
+        
+        .case-content-wrap {
+          max-width: 1600px;
+          width: 100%;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 100px;
+          align-items: center;
+        }
+        
+        .case-hero:nth-child(even) .case-content-wrap {
+          direction: rtl;
+        }
+        
+        .case-hero:nth-child(even) .case-content-wrap > * {
+          direction: ltr;
+        }
+        
+        .case-visual {
+          position: relative;
+        }
+        
+        .case-visual img {
+          width: 100%;
+          height: auto;
+          border-radius: 12px;
+          box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+        }
+        
+        .case-logo {
+          max-width: 180px;
+          max-height: 80px;
+          width: auto;
+          height: auto;
+          opacity: 0.9;
+          margin-bottom: 40px;
+          object-fit: contain;
+          filter: brightness(1.1) contrast(1.1);
+        }
+        
+        .case-content h2 {
+          font-size: clamp(40px, 6vw, 72px);
+          font-weight: 800;
+          letter-spacing: -0.04em;
+          line-height: 1;
+          margin-bottom: 32px;
+        }
+        
+        .case-challenge {
+          font-size: 18px;
+          color: #666;
+          margin-bottom: 32px;
+          padding: 28px;
+          background: #0a0a0a;
+          border-left: 3px solid #222;
+        }
+        
+        .case-story {
+          font-size: 19px;
+          color: #ddd;
+          margin-bottom: 32px;
+          padding: 32px;
+          background: linear-gradient(135deg, #0ea5e9 0%, #9333ea 100%);
+          border-radius: 12px;
+          line-height: 1.8;
+          font-style: italic;
+        }
+        
+        .case-story strong {
+          color: #fff;
+          display: block;
+          margin-bottom: 16px;
+          text-transform: uppercase;
+          font-size: 14px;
+          letter-spacing: 0.15em;
+          font-style: normal;
+        }
+        
+        .case-challenge strong {
+          color: #999;
+          display: block;
+          margin-bottom: 12px;
+          text-transform: uppercase;
+          font-size: 13px;
+          letter-spacing: 0.1em;
+        }
+        
+        .case-solution {
+          font-size: 19px;
+          line-height: 1.7;
+          color: #aaa;
+          margin-bottom: 40px;
+        }
+        
+        .case-solution strong {
+          color: #999;
+          display: block;
+          margin-bottom: 12px;
+          text-transform: uppercase;
+          font-size: 13px;
+          letter-spacing: 0.1em;
+        }
+        
+        .case-results {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          gap: 32px;
+        }
+        
+        .result-item {
+          padding: 24px;
+          background: #0a0a0a;
+          border-radius: 8px;
+        }
+        
+        .result-number {
+          font-size: 36px;
+          font-weight: 800;
+          color: #0ea5e9;
+          display: block;
+          margin-bottom: 8px;
+        }
+        
+        .result-label {
+          font-size: 13px;
+          color: #666;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+        
+        /* SOCIAL PROOF MINIMAL */
+        .social-proof {
+          padding: 120px 40px;
+          background: #000;
+          text-align: center;
+          border-top: 1px solid #0a0a0a;
+        }
+        
+        .social-proof h3 {
+          font-size: 18px;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          color: #444;
+          margin-bottom: 80px;
+          font-weight: 500;
+        }
+        
+        .client-logos-minimal {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 80px;
+          justify-content: center;
+          align-items: center;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .client-logos-minimal img {
+          max-width: 140px;
+          max-height: 80px;
+          width: auto;
+          height: auto;
+          opacity: 0.8;
+          transition: all 0.3s;
+          object-fit: contain;
+          filter: grayscale(100%) brightness(2) contrast(1.2);
+        }
+        
+        .client-logos-minimal img:hover {
+          opacity: 1;
+          transform: scale(1.05);
+          filter: grayscale(0%) brightness(1.1) contrast(1.1);
+        }
+        
+        /* EXCLUSIVE CTA */
+        .exclusive-cta {
+          min-height: 80vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 120px 40px;
+          background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+          border-top: 1px solid #111;
+        }
+        
+        .exclusive-badge {
+          display: inline-block;
+          padding: 12px 32px;
+          background: #0a0a0a;
+          border: 1px solid #222;
+          border-radius: 100px;
+          font-size: 13px;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          color: #666;
+          margin-bottom: 48px;
+        }
+        
+        .exclusive-cta h2 {
+          font-size: clamp(48px, 8vw, 96px);
+          font-weight: 700;
+          letter-spacing: -0.04em;
+          line-height: 1;
+          margin-bottom: 32px;
+        }
+        
+        .exclusive-cta p {
+          font-size: 22px;
+          color: #777;
+          max-width: 600px;
+          margin: 0 auto 56px;
+          line-height: 1.6;
+        }
+        
+        .cta-button {
+          display: inline-block;
+          padding: 24px 56px;
+          background: #fff;
+          color: #000;
+          font-size: 18px;
+          font-weight: 700;
+          text-decoration: none;
+          border-radius: 8px;
+          transition: all 0.3s;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+        
+        .cta-button:hover {
+          background: #f0f0f0;
+          transform: translateY(-4px);
+          box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 1024px) {
+          .case-content-wrap {
+            grid-template-columns: 1fr;
+            gap: 60px;
+            padding: 0 20px;
+          }
+          
+          .case-hero {
+            padding: 80px 20px;
+            min-height: auto;
+          }
+          
+          .case-hero:nth-child(even) .case-content-wrap {
+            direction: ltr;
+          }
+          
+          .hero-stats {
+            gap: 40px;
+            padding: 40px 20px 0;
+          }
+          
+          .pillars-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .hero-impact {
+            padding: 40px 20px;
+          }
+          
+          .difference-section {
+            padding: 80px 20px;
+          }
+          
+          .case-visual img {
+            border-radius: 8px;
+          }
+          
+          .case-logo {
+            max-width: 140px;
+            max-height: 60px;
+            margin-bottom: 24px;
+          }
+          
+          .social-proof {
+            padding: 80px 20px;
+          }
+          
+          .client-logos-minimal {
+            gap: 40px;
+          }
+          
+          .exclusive-cta {
+            padding: 80px 20px;
+          }
+        }
+      `}</style>
 
-  <!-- CASE: ACCESS BY CGI -->
-  <section class="case-study">
-    <div class="case-image">
-      <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI" />
-    </div>
-    <div class="case-content">
-      <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" class="case-logo" />
-      <h2>Global fintech brand for Fortune 500 clients</h2>
-      <p class="case-description">
-        Positioned Access by CGI as an enterprise-level financial technology leader. 
-        Created authoritative brand identity system with Dubai skyline hero imagery, 
-        custom photography, and comprehensive guidelines for C-suite credibility.
-      </p>
-      <div class="case-results">
-        <div class="result">
-          <span class="result-number">Enterprise</span>
-          <span class="result-label">Positioning</span>
+      {/* HERO - INSTANT WOW */}
+      <section class="hero-impact">
+        <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Brand work" />
+        <h1>IMPOSSIBLE<br/>TO IGNORE</h1>
+        <div class="tagline">
+          Brand identity. E-commerce systems. Automated fulfillment. 500+ photos.<br/>
+          We build complete ecosystems, not just logos. Only 6 clients per year.
         </div>
-        <div class="result">
-          <span class="result-number">Fortune 500</span>
-          <span class="result-label">Trust</span>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">$0→7-Fig</span>
+            <span class="stat-label">Client Results</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Years in Business</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">1M+</span>
+            <span class="stat-label">Photos Captured</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">6</span>
+            <span class="stat-label">Clients Per Year</span>
+          </div>
         </div>
-        <div class="result">
-          <span class="result-number">Complete</span>
-          <span class="result-label">System</span>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- CASE: LIA BY JOMARI GOYSO -->
-  <section class="case-study">
-    <div class="case-image">
-      <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA by Jomari Goyso" />
-    </div>
-    <div class="case-content">
-      <img src="/static/images/clients/lia.png" alt="LIA" class="case-logo" />
-      <h2>Celebrity beauty brand, $0 to 7-figures</h2>
-      <p class="case-description">
-        Launched Emmy-winning stylist Jomari Goyso's luxury beauty line. 
-        Built custom BigCommerce platform, automated fulfillment, and shot 400+ 
-        product photos. Premium positioning justified by flawless execution.
-      </p>
-      <div class="case-results">
-        <div class="result">
-          <span class="result-number">7-Figures</span>
-          <span class="result-label">Revenue</span>
-        </div>
-        <div class="result">
-          <span class="result-number">400+</span>
-          <span class="result-label">Photos</span>
-        </div>
-        <div class="result">
-          <span class="result-number">100%</span>
-          <span class="result-label">Automated</span>
-        </div>
-      </div>
-    </div>
-  </section>
+      {/* THE DIFFERENCE */}
+      <section class="difference-section">
+        <h2>
+          Most agencies give you a logo.<br/>
+          <span>We give you a system.</span>
+        </h2>
+        
+        <div class="pillars-grid">
+          <div class="pillar">
+            <div class="pillar-number">01</div>
+            <h3>Visual DNA System</h3>
+            <p>Not just a logo. A complete visual language that works across every touchpoint.</p>
+            <ul>
+              <li>Every color has psychological intent</li>
+              <li>Every font choice drives emotion</li>
+              <li>Every image follows strict visual hierarchy</li>
+            </ul>
+            <div class="pillar-result">→ Your brand becomes instantly recognizable</div>
+          </div>
 
-  <!-- CASE: ECOLOSOPHY -->
-  <section class="case-study">
-    <div class="case-image">
-      <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy" />
-    </div>
-    <div class="case-content">
-      <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="case-logo" />
-      <h2>Non-toxic cleaning, ocean-saving mission</h2>
-      <p class="case-description">
-        Built complete e-commerce ecosystem for wellness brand with environmental mission. 
-        Shopify platform, warehouse automation, 500+ photos, and 12-month content system. 
-        Beach aesthetic reflects the ocean they're protecting.
-      </p>
-      <div class="case-results">
-        <div class="result">
-          <span class="result-number">Shopify</span>
-          <span class="result-label">Automation</span>
-        </div>
-        <div class="result">
-          <span class="result-number">500+</span>
-          <span class="result-label">Assets</span>
-        </div>
-        <div class="result">
-          <span class="result-number">0→Launch</span>
-          <span class="result-label">Full Stack</span>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div class="pillar">
+            <div class="pillar-number">02</div>
+            <h3>Photography as Strategy</h3>
+            <p>We're photographers FIRST. That changes everything.</p>
+            <ul>
+              <li>We don't hire out product shoots</li>
+              <li>We don't use stock images</li>
+              <li>Every image is custom-crafted to YOUR story</li>
+              <li>We shoot 500+ photos PER brand to build your library</li>
+            </ul>
+            <div class="pillar-result">→ Your brand looks like nothing else in your industry</div>
+          </div>
 
-  <!-- CASE: REPUBLIC -->
-  <section class="case-study">
-    <div class="case-image">
-      <img src="/static/images/brand-showcase/republic-real.jpg" alt="Republic Commercial Fund" />
-    </div>
-    <div class="case-content">
-      <img src="/static/images/clients/republic.png" alt="Republic" class="case-logo" />
-      <h2>Legacy-focused real estate fund</h2>
-      <p class="case-description">
-        Positioned commercial real estate fund for high-net-worth investors. 
-        Bold eagle branding, skyscraper imagery, and authoritative visual system 
-        that speaks confidence to serious money.
-      </p>
-      <div class="case-results">
-        <div class="result">
-          <span class="result-number">HNW</span>
-          <span class="result-label">Investors</span>
+          <div class="pillar">
+            <div class="pillar-number">03</div>
+            <h3>Content Systems, Not One-Offs</h3>
+            <p>We don't deliver files and disappear. We build infrastructure.</p>
+            <ul>
+              <li>12-month content calendars</li>
+              <li>Reusable template systems</li>
+              <li>Brand guidelines your team can actually use</li>
+              <li>Training on maintaining consistency</li>
+            </ul>
+            <div class="pillar-result">→ Your brand stays cohesive as you scale</div>
+          </div>
         </div>
-        <div class="result">
-          <span class="result-number">Authority</span>
-          <span class="result-label">Position</span>
-        </div>
-        <div class="result">
-          <span class="result-number">Complete</span>
-          <span class="result-label">System</span>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- OTHER CLIENTS -->
-  <section class="other-clients">
-    <h3>Also trusted by</h3>
-    <div class="client-grid">
-      <img src="/static/images/clients/midpay.png" alt="MidPay" />
-      <img src="/static/images/clients/midbank.png" alt="MidBank" />
-      <img src="/static/images/clients/one-investment.png" alt="One Investment" />
-      <img src="/static/images/clients/travel-drd.png" alt="Travel DRD" />
-      <img src="/static/images/clients/circulo.png" alt="Círculo" />
-      <img src="/static/images/clients/medworks.png" alt="MedWorks" />
-      <img src="/static/images/clients/hollywood-restoration.png" alt="Hollywood Restoration" />
-      <img src="/static/images/clients/abc-cleaning.png" alt="ABC Cleaning" />
-    </div>
-  </section>
+      {/* ACCESS BY CGI CASE STUDY */}
+      <section class="case-hero">
+        <div class="case-content-wrap">
+          <div class="case-visual">
+            <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI fintech platform" />
+          </div>
+          <div class="case-content">
+            <img src="/static/images/clients/access-cgi.png" alt="Access by CGI" class="case-logo" />
+            <h2>Enterprise Fintech Brand That Commands Trust</h2>
+            
+            <div class="case-story">
+              <strong>The Story</strong>
+              Access by CGI came to us when they were positioning themselves as a global fintech leader serving Fortune 500 companies in Dubai and beyond. They needed a brand that could command the same trust as traditional financial institutions while showcasing cutting-edge innovation.
+            </div>
+            
+            <div class="case-challenge">
+              <strong>The Challenge</strong>
+              Financial services technology company needed a brand that communicated both cutting-edge innovation and enterprise-level security. Had to appeal to Fortune 500 clients while standing out in crowded fintech space.
+            </div>
+            
+            <div class="case-solution">
+              <strong>Our Solution</strong>
+              Created clean, authoritative visual identity system with Dubai skyline hero imagery. Shot custom brand photography showing real team and technology. Built visual language that speaks credibility to C-suite decision makers. Designed comprehensive brand guidelines for consistent execution across all touchpoints.
+            </div>
+            
+            <div class="case-results">
+              <div class="result-item">
+                <span class="result-number">Enterprise</span>
+                <span class="result-label">Positioning</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Fortune 500</span>
+                <span class="result-label">Client Trust</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Complete</span>
+                <span class="result-label">Brand System</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- FINAL CTA -->
-  <section class="final-cta">
-    <div class="badge">Limited to 6 clients per year</div>
-    <h2>Ready to build<br/>something exceptional?</h2>
-    <a href="/contact" class="cta-secondary">Start Your Project</a>
-  </section>
-</body>
-</html>
-  `)
+      {/* LIA BY JOMARI GOYSO CASE STUDY */}
+      <section class="case-hero">
+        <div class="case-content-wrap">
+          <div class="case-visual">
+            <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA by Jomari Goyso luxury beauty products" />
+          </div>
+          <div class="case-content">
+            <img src="/static/images/clients/lia.png" alt="LIA" class="case-logo" />
+            <h2>$0 to 7-Figures in Months</h2>
+            
+            <div class="case-story">
+              <strong>The Story</strong>
+              Emmy award-winning celebrity stylist Jomari Goyso trusted us to launch his luxury beauty brand LIA. From zero to market-ready in record time, we built not just a brand—we built an empire. Every detail crafted to reflect the luxury positioning his celebrity clientele expected.
+            </div>
+            
+            <div class="case-challenge">
+              <strong>The Challenge</strong>
+              Celebrity beauty brand by Jomari Goyso launching luxury hair care and skincare line. Needed complete e-commerce infrastructure, automated fulfillment, enterprise-level product photography, and brand positioning that justified premium pricing—all at startup speed.
+            </div>
+            
+            <div class="case-solution">
+              Built fully automated BigCommerce platform from ground zero. Designed complete brand identity with luxury aesthetic. Shot 400+ professional product photos with gold/rose premium positioning. Integrated automated warehouse and fulfillment systems. Created content strategy and brand guidelines for consistent luxury execution.
+            </div>
+            
+            <div class="case-results">
+              <div class="result-item">
+                <span class="result-number">$0→7-Fig</span>
+                <span class="result-label">In Months</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">BigCommerce</span>
+                <span class="result-label">Full Automation</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">400+</span>
+                <span class="result-label">Product Photos</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Luxury</span>
+                <span class="result-label">Positioning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ECOLOSOPHY CASE STUDY */}
+      <section class="case-hero">
+        <div class="case-content-wrap">
+          <div class="case-visual">
+            <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy non-toxic cleaning products" />
+          </div>
+          <div class="case-content">
+            <img src="/static/images/clients/ecolosophy.png" alt="Ecolosophy" class="case-logo" />
+            <h2>Complete E-Commerce Ecosystem from Zero</h2>
+            
+            <div class="case-story">
+              <strong>The Story</strong>
+              Ecolosophy's founder came to us after battling health issues from toxic cleaning products. His mission: protect families from hidden toxins while saving the planet. We didn't just build a brand—we built a movement. The beach aesthetic isn't decoration; it represents the ocean they're protecting with every refillable bottle.
+            </div>
+            
+            <div class="case-challenge">
+              <strong>The Challenge</strong>
+              Non-toxic cleaning brand entering crowded market. Needed everything built from scratch—brand identity, custom Shopify e-commerce platform, automated warehouse integration, 500+ product photos, and complete content marketing system. Zero to market-ready.
+            </div>
+            
+            <div class="case-solution">
+              <strong>Our Solution</strong>
+              Built entire e-commerce empire on Shopify with beach/wellness aesthetic. Integrated automated warehouse and Shipmonk fulfillment systems. Shot 500+ product and lifestyle photos showcasing the "one bottle, 100 refills" story. Created 12-month content calendar and brand guidelines. Full-stack solution: brand + technology + content.
+            </div>
+            
+            <div class="case-results">
+              <div class="result-item">
+                <span class="result-number">Shopify</span>
+                <span class="result-label">Full Automation</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">500+</span>
+                <span class="result-label">Photos Shot</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Warehouse</span>
+                <span class="result-label">Integration</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">0→Launch</span>
+                <span class="result-label">Full Stack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REPUBLIC COMMERCIAL FUND CASE STUDY */}
+      <section class="case-hero">
+        <div class="case-content-wrap">
+          <div class="case-visual">
+            <img src="/static/images/brand-showcase/republic-real.jpg" alt="Republic Commercial Fund real estate investment" />
+          </div>
+          <div class="case-content">
+            <img src="/static/images/clients/republic.png" alt="Republic" class="case-logo" />
+            <h2>Authority Brand for Commercial Real Estate</h2>
+            
+            <div class="case-story">
+              <strong>The Story</strong>
+              Republic Commercial Fund's founder wanted to break into the high-net-worth investor space with a brand that said "legacy building," not "quick flip." They needed to compete with established funds that had decades of credibility. The eagle wasn't just a logo—it symbolized the vision to soar above the competition.
+            </div>
+            
+            <div class="case-challenge">
+              <strong>The Challenge</strong>
+              Commercial real estate investment fund needed brand identity that commanded trust with high-net-worth investors and institutional partners. Had to convey strength, stability, and sophisticated market knowledge in highly competitive space.
+            </div>
+            
+            <div class="case-solution">
+              <strong>Our Solution</strong>
+              Created bold, authoritative visual identity with eagle symbolism and skyscraper imagery. Shot professional brand photography showcasing leadership team and properties. Developed visual system that works across investor decks, marketing materials, and digital presence. Built brand that speaks confidence to serious money.
+            </div>
+            
+            <div class="case-results">
+              <div class="result-item">
+                <span class="result-number">HNW</span>
+                <span class="result-label">Investor Trust</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Authority</span>
+                <span class="result-label">Positioning</span>
+              </div>
+              <div class="result-item">
+                <span class="result-number">Complete</span>
+                <span class="result-label">Brand System</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SOCIAL PROOF - MINIMAL */}
+      <section class="social-proof">
+        <h3>Also Trusted By</h3>
+        <div class="client-logos-minimal">
+          <img src="/static/images/clients/midpay.png" alt="MidPay" />
+          <img src="/static/images/clients/midbank.png" alt="MidBank" />
+          <img src="/static/images/clients/one-investment.png" alt="One Investment" />
+          <img src="/static/images/clients/travel-drd.png" alt="Travel DRD" />
+          <img src="/static/images/clients/circulo.png" alt="Círculo" />
+          <img src="/static/images/clients/medworks.png" alt="MedWorks" />
+          <img src="/static/images/clients/hollywood-restoration.png" alt="Hollywood Restoration" />
+          <img src="/static/images/clients/abc-cleaning.png" alt="ABC Cleaning" />
+        </div>
+      </section>
+
+      {/* EXCLUSIVE CTA */}
+      <section class="exclusive-cta">
+        <div class="exclusive-badge">Limited to 6 clients per year</div>
+        <h2>Ready to dominate<br/>your industry?</h2>
+        <p>
+          We're selective about who we work with. If you're serious about building a brand that stands out, let's talk.
+        </p>
+        <a href="/contact" class="cta-button">Apply Now</a>
+      </section>
+
+      <div dangerouslySetInnerHTML={{__html: footerHTML}} />
+    </div>,
+    { title: 'Brand Building - Acromatico | We Build Movements, Not Logos' }
+  )
 )
 app.get('/prints', (c) => 
   c.render(
