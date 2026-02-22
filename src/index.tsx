@@ -2339,16 +2339,27 @@ app.get('\/studio', (c) =>
           border-radius: 4px 4px 0 0;
           position: relative;
           transition: transform 0.3s ease;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          padding-top: 8px;
         }
         
         .chart-bar:hover {
           transform: translateY(-4px);
         }
         
-        .chart-bar.bar-1 { height: 50%; }
-        .chart-bar.bar-2 { height: 70%; }
+        .bar-value {
+          font-size: 11px;
+          font-weight: 700;
+          color: #fff;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .chart-bar.bar-1 { height: 20%; }
+        .chart-bar.bar-2 { height: 40%; }
         .chart-bar.bar-3 { height: 60%; }
-        .chart-bar.bar-4 { height: 85%; }
+        .chart-bar.bar-4 { height: 80%; }
         .chart-bar.bar-5 { height: 100%; }
         
         .chart-years {
@@ -2455,17 +2466,27 @@ app.get('\/studio', (c) =>
           
           <!-- Portfolio Dashboard -->
           <div class="portfolio-dashboard">
-            <div class="portfolio-header">Assets Under Management</div>
+            <div class="portfolio-header">Portfolio Growth</div>
             <div class="portfolio-aum">$1.2B</div>
-            <div class="portfolio-label">Family Office Fund</div>
+            <div class="portfolio-label">Current Assets Under Management</div>
             
             <div class="growth-chart">
               <div class="chart-bars">
-                <div class="chart-bar bar-1"></div>
-                <div class="chart-bar bar-2"></div>
-                <div class="chart-bar bar-3"></div>
-                <div class="chart-bar bar-4"></div>
-                <div class="chart-bar bar-5"></div>
+                <div class="chart-bar bar-1">
+                  <span class="bar-value">$200M</span>
+                </div>
+                <div class="chart-bar bar-2">
+                  <span class="bar-value">$450M</span>
+                </div>
+                <div class="chart-bar bar-3">
+                  <span class="bar-value">$680M</span>
+                </div>
+                <div class="chart-bar bar-4">
+                  <span class="bar-value">$950M</span>
+                </div>
+                <div class="chart-bar bar-5">
+                  <span class="bar-value">$1.2B</span>
+                </div>
               </div>
             </div>
             
@@ -2479,12 +2500,12 @@ app.get('\/studio', (c) =>
             
             <div class="portfolio-metrics">
               <div class="metric">
-                <div class="metric-value">500+</div>
-                <div class="metric-label">Enterprise Clients</div>
+                <div class="metric-value">+500%</div>
+                <div class="metric-label">Growth Rate</div>
               </div>
               <div class="metric">
-                <div class="metric-value">24/7</div>
-                <div class="metric-label">Global Access</div>
+                <div class="metric-value">$1B+</div>
+                <div class="metric-label">AUM Increase</div>
               </div>
             </div>
           </div>
