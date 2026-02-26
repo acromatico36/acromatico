@@ -2661,7 +2661,7 @@ app.get('/movement', (c) =>
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.3);
       backdrop-filter: blur(20px);
     }
     
@@ -2687,259 +2687,220 @@ app.get('/movement', (c) =>
       opacity: 0.7;
     }
     
-    .hero {
+    .fullscreen-hero {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .fullscreen-hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4);
+    }
+    
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 40px;
+    }
+    
+    .hero-text h1 {
+      font-size: clamp(48px, 10vw, 140px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 24px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    
+    .hero-text p {
+      font-size: clamp(18px, 2.5vw, 32px);
+      font-weight: 300;
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+    
+    .split-image {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .split-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .split-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 60px;
+      background: #000;
+    }
+    
+    .split-content-inner {
+      max-width: 500px;
+    }
+    
+    .split-content h2 {
+      font-size: clamp(36px, 5vw, 72px);
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    
+    .split-content p {
+      font-size: clamp(16px, 2vw, 24px);
+      line-height: 1.6;
+      color: #ccc;
+    }
+    
+    .triple-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    
+    .grid-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+    
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .grid-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .grid-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+    }
+    
+    .grid-overlay h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .grid-overlay p {
+      font-size: 16px;
+      color: #ccc;
+    }
+    
+    .manifesto-big {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 40px 80px;
-      background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    
-    .hero-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .hero h1 {
-      font-size: clamp(48px, 8vw, 120px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      margin-bottom: 32px;
-      line-height: 1;
-    }
-    
-    .hero h1 span {
-      display: block;
-      background: linear-gradient(135deg, #00d4ff 0%, #fff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
-    }
-    
-    .hero p {
-      font-size: clamp(20px, 2.5vw, 32px);
-      line-height: 1.5;
-      color: #999;
-      max-width: 900px;
-      margin: 0 auto 48px;
-      font-weight: 300;
-    }
-    
-    .hero-cta {
-      display: inline-block;
-      padding: 20px 48px;
-      background: #00d4ff;
-      color: #000;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 50px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .hero-cta:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
-    }
-    
-    .manifesto {
-      padding: 120px 40px;
-      background: #0a0a0a;
-      border-top: 1px solid #1a1a1a;
-    }
-    
-    .manifesto-content {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
-    .manifesto h2 {
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      margin-bottom: 48px;
-      text-align: center;
-    }
-    
-    .belief {
-      margin-bottom: 80px;
-    }
-    
-    .belief h3 {
-      font-size: clamp(24px, 3vw, 36px);
-      font-weight: 500;
-      margin-bottom: 24px;
-      color: #00d4ff;
-    }
-    
-    .belief p {
-      font-size: clamp(18px, 2vw, 24px);
-      line-height: 1.8;
-      color: #ccc;
-      margin-bottom: 24px;
-    }
-    
-    .culture {
-      padding: 120px 40px;
-      background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
-    }
-    
-    .culture-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      margin-top: 80px;
-    }
-    
-    .culture-item {
-      text-align: center;
-      padding: 40px;
-      background: rgba(0, 212, 255, 0.05);
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      border-radius: 16px;
-      transition: transform 0.3s, background 0.3s;
-    }
-    
-    .culture-item:hover {
-      transform: translateY(-8px);
-      background: rgba(0, 212, 255, 0.1);
-    }
-    
-    .culture-icon {
-      font-size: 48px;
-      margin-bottom: 24px;
-    }
-    
-    .culture-item h4 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: #00d4ff;
-    }
-    
-    .culture-item p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #999;
-    }
-    
-    .promise {
       padding: 120px 40px;
       background: #000;
-      text-align: center;
     }
     
-    .promise h2 {
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      margin-bottom: 48px;
-    }
-    
-    .promise-list {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    
-    .promise-item {
-      margin-bottom: 32px;
-      padding-left: 40px;
-      position: relative;
-    }
-    
-    .promise-item::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: #00d4ff;
-      font-size: 24px;
+    .manifesto-big h2 {
+      font-size: clamp(40px, 8vw, 120px);
       font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
-    .promise-item h4 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-    
-    .promise-item p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #999;
+    .manifesto-big span {
+      color: #00d4ff;
     }
     
     .final-cta {
-      padding: 120px 40px;
-      background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .final-cta img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3);
+    }
+    
+    .final-cta-content {
+      position: relative;
+      z-index: 2;
       text-align: center;
     }
     
     .final-cta h2 {
-      font-size: clamp(36px, 5vw, 72px);
+      font-size: clamp(48px, 8vw, 96px);
       font-weight: 700;
-      color: #000;
-      margin-bottom: 32px;
-      letter-spacing: -0.02em;
-    }
-    
-    .final-cta p {
-      font-size: clamp(18px, 2vw, 24px);
-      color: rgba(0,0,0,0.7);
       margin-bottom: 48px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
     
     .final-cta a {
       display: inline-block;
       padding: 24px 60px;
-      background: #000;
-      color: #fff;
+      background: #fff;
+      color: #000;
       text-decoration: none;
       font-size: 20px;
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 50px;
       transition: transform 0.3s, box-shadow 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
     
     .final-cta a:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      box-shadow: 0 20px 40px rgba(255,255,255,0.3);
     }
     
-    @media (max-width: 768px) {
-      .nav {
-        padding: 20px 24px;
+    @media (max-width: 1024px) {
+      .split-section {
+        grid-template-columns: 1fr;
       }
       
-      .nav-links {
-        gap: 20px;
+      .split-image {
+        min-height: 50vh;
       }
       
-      .culture-grid {
+      .triple-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -2959,149 +2920,94 @@ app.get('/movement', (c) =>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>
-        We Don't Build Brands.<br/>
-        <span>We Build Movements.</span>
-      </h1>
-      <p>
-        This is for the dreamers. The rebels. The ones who refuse to blend in. The entrepreneurs who know their vision deserves more than templates and stock photos.
-      </p>
-      <a href="#manifesto" class="hero-cta">Discover The Movement</a>
+  <!-- Hero: Full-screen image -->
+  <section class="fullscreen-hero">
+    <img src="/static/images/hero-freedom-hill.jpg" alt="Freedom">
+    <div class="hero-text">
+      <h1>FEEL ALIVE</h1>
+      <p>This is the movement.</p>
     </div>
   </section>
 
-  <!-- Manifesto -->
-  <section class="manifesto" id="manifesto">
-    <div class="manifesto-content">
-      <h2>What We Stand For</h2>
-      
-      <div class="belief">
-        <h3>Feel Different</h3>
-        <p>
-          We don't follow trends. We don't copy formulas. We don't build brands that look like everyone else's. When you work with Acromatico, you're creating something that's unmistakably YOURS—a visual identity that makes you stand out, not blend in.
-        </p>
-        <p>
-          Different isn't scary. Different is powerful. Different is what people remember.
-        </p>
+  <!-- Feel Different -->
+  <section class="split-section">
+    <div class="split-content">
+      <div class="split-content-inner">
+        <h2>Feel<br/>Different</h2>
+        <p>Stand out. Don't blend in. Your vision deserves more than templates.</p>
       </div>
+    </div>
+    <div class="split-image">
+      <img src="/static/images/hero-brand-epic.jpg" alt="Different">
+    </div>
+  </section>
 
-      <div class="belief">
-        <h3>Feel Empowered</h3>
-        <p>
-          You have a vision. You've seen it in your mind—the brand you want to build, the life you want to create, the adventures you want to capture. We don't just execute your vision. We amplify it. We give you the tools, the confidence, and the creative firepower to bring it to life at a level you never thought possible.
-        </p>
-        <p>
-          When you leave Acromatico, you're not just walking away with photos or a logo. You're walking away with POWER.
-        </p>
-      </div>
-
-      <div class="belief">
-        <h3>Feel Confident</h3>
-        <p>
-          There's a difference between having a brand and OWNING your brand. Confidence comes from knowing every image, every color, every word was intentionally crafted to tell YOUR story. No shortcuts. No templates. No "good enough."
-        </p>
-        <p>
-          We build brands that make you stand taller. That make you speak louder. That make you walk into rooms like you own them—because you do.
-        </p>
-      </div>
-
-      <div class="belief">
-        <h3>Feel Alive</h3>
-        <p>
-          This isn't about perfection. This is about ENERGY. About capturing the raw, real, electric moments that make you feel SOMETHING. Whether it's your brand launch, your wedding day, or your greatest adventure—we don't manufacture moments. We capture them as they happen, with all their messy, beautiful, unforgettable truth.
-        </p>
-        <p>
-          Life is happening right now. Let's make damn sure it's remembered.
-        </p>
+  <!-- Feel Empowered -->
+  <section class="split-section">
+    <div class="split-image">
+      <img src="/static/images/hero-studio-wow.jpg" alt="Empowered">
+    </div>
+    <div class="split-content">
+      <div class="split-content-inner">
+        <h2>Feel<br/>Empowered</h2>
+        <p>We amplify your vision. You walk away with power.</p>
       </div>
     </div>
   </section>
 
-  <!-- Culture -->
-  <section class="culture">
-    <div class="manifesto-content">
-      <h2>The Acromatico Culture</h2>
+  <!-- Feel Confident -->
+  <section class="split-section">
+    <div class="split-content">
+      <div class="split-content-inner">
+        <h2>Feel<br/>Confident</h2>
+        <p>Own your brand. Stand taller. Walk into rooms like you own them.</p>
+      </div>
     </div>
-    <div class="culture-grid">
-      <div class="culture-item">
-        <div class="culture-icon">🎯</div>
-        <h4>Intentionally Exclusive</h4>
-        <p>We only take 6 clients per year. Not because we're elitist—because you deserve 100% of our focus.</p>
+    <div class="split-image">
+      <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Confident">
+    </div>
+  </section>
+
+  <!-- The Culture Grid -->
+  <section class="triple-grid">
+    <div class="grid-item">
+      <img src="/static/images/hero-photography-wow.jpg" alt="Photography First">
+      <div class="grid-overlay">
+        <h3>Photography First</h3>
+        <p>500+ custom photos per brand</p>
       </div>
-      
-      <div class="culture-item">
-        <div class="culture-icon">📸</div>
-        <h4>Photography-First</h4>
-        <p>We shoot 500+ custom photos per brand. No stock. No templates. Every image tells YOUR story.</p>
+    </div>
+    <div class="grid-item">
+      <img src="/static/images/hero-education-wow.jpg" alt="20+ Years">
+      <div class="grid-overlay">
+        <h3>20+ Years</h3>
+        <p>Experience matters</p>
       </div>
-      
-      <div class="culture-item">
-        <div class="culture-icon">⚡</div>
-        <h4>20+ Years of Mastery</h4>
-        <p>We've been doing this since before Instagram existed. Experience matters.</p>
-      </div>
-      
-      <div class="culture-item">
-        <div class="culture-icon">🔥</div>
-        <h4>No Shortcuts</h4>
-        <p>We don't scale. We don't automate. We don't compromise. Excellence takes time.</p>
-      </div>
-      
-      <div class="culture-item">
-        <div class="culture-icon">🌍</div>
-        <h4>Global Community</h4>
-        <p>From Miami to Dubai to everywhere in between—our clients become family.</p>
-      </div>
-      
-      <div class="culture-item">
-        <div class="culture-icon">🎓</div>
-        <h4>Knowledge Sharing</h4>
-        <p>Through our Academy, we empower the next generation of visual storytellers.</p>
+    </div>
+    <div class="grid-item">
+      <img src="/static/images/hero-prints-wow.jpg" alt="Exclusive">
+      <div class="grid-overlay">
+        <h3>6 Clients Per Year</h3>
+        <p>Intentionally exclusive</p>
       </div>
     </div>
   </section>
 
-  <!-- Promise -->
-  <section class="promise">
-    <h2>What You Get</h2>
-    <div class="promise-list">
-      <div class="promise-item">
-        <h4>A Brand That Commands Attention</h4>
-        <p>Not a logo. Not a color palette. A complete visual system that makes people stop, look, and remember.</p>
-      </div>
-      
-      <div class="promise-item">
-        <h4>Photography That Tells Your Story</h4>
-        <p>500+ custom images that capture the soul of your brand. Every shot intentional. Every frame authentic.</p>
-      </div>
-      
-      <div class="promise-item">
-        <h4>Content Systems That Scale</h4>
-        <p>12-month content calendars, reusable templates, brand guidelines your team can actually use.</p>
-      </div>
-      
-      <div class="promise-item">
-        <h4>Access to the Academy</h4>
-        <p>Learn the strategies, tools, and frameworks we use to build movements—not just brands.</p>
-      </div>
-      
-      <div class="promise-item">
-        <h4>Lifelong Community</h4>
-        <p>Join a network of entrepreneurs, creators, and visionaries who refuse to settle for ordinary.</p>
-      </div>
-    </div>
+  <!-- Big Manifesto -->
+  <section class="manifesto-big">
+    <h2>
+      We don't build brands.<br/>
+      We build <span>movements.</span>
+    </h2>
   </section>
 
   <!-- Final CTA -->
   <section class="final-cta">
-    <h2>Ready to Feel Alive?</h2>
-    <p>
-      This is your moment. Your brand. Your movement. Let's build something impossible to ignore.
-    </p>
-    <a href="/contact">Join The Movement</a>
+    <img src="/static/images/hero-photography-real.jpg" alt="Join">
+    <div class="final-cta-content">
+      <h2>Ready?</h2>
+      <a href="/contact">Join The Movement</a>
+    </div>
   </section>
 
   ${footerHTML}
