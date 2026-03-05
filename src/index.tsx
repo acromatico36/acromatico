@@ -340,7 +340,7 @@ app.get('/education', (c) => {
         }
         
         .stat-number {
-          background: linear-gradient(135deg, #4794A6 0%, #ED70C4 50%, #AF40F6 100%);
+          background: linear-gradient(135deg, #4794A6 0%, #14b8a6 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -363,8 +363,8 @@ app.get('/education', (c) => {
           <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
         </div>
         
-        {/* Text Positioned in Upper Right - Clear Sky Area */}
-        <div class="relative z-20 max-w-2xl mr-8 md:mr-24 mt-32 md:mt-40 px-6 text-left">
+        {/* Text Positioned in Bottom - Safe Area */}
+        <div class="relative z-20 max-w-4xl w-full px-6 md:px-12 pb-20 md:pb-32 text-left self-end">
           {/* Apple-Style Typography */}
           <h1 class="text-7xl md:text-8xl font-semibold tracking-tight mb-6" style="letter-spacing: -0.05em; line-height: 0.95;">
             See<br/>differently.
@@ -404,6 +404,7 @@ app.get('/education', (c) => {
                 src="/static/images/educators-team-real.jpg" 
                 alt="Italo & Ale at Torres del Paine, Chile" 
                 class="w-full rounded-3xl shadow-2xl"
+                style="object-fit: cover; object-position: center 25%;"
               />
             </div>
             
@@ -444,7 +445,7 @@ app.get('/education', (c) => {
           {/* Philosophy Cards */}
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="feature-card p-8 rounded-2xl text-center">
-              <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
+              <div class="w-14 h-14 rounded-xl mb-4 flex items-center justify-center mx-auto" style="background: #4794A6;">
                 <i class="fas fa-camera text-2xl"></i>
               </div>
               <h3 class="text-xl font-bold mb-3">Creator-First</h3>
@@ -454,7 +455,7 @@ app.get('/education', (c) => {
             </div>
             
             <div class="feature-card p-8 rounded-2xl text-center">
-              <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
+              <div class="w-14 h-14 rounded-xl mb-4 flex items-center justify-center mx-auto" style="background: #4794A6;">
                 <i class="fas fa-calendar-day text-2xl"></i>
               </div>
               <h3 class="text-xl font-bold mb-3">Flexible</h3>
@@ -464,7 +465,7 @@ app.get('/education', (c) => {
             </div>
             
             <div class="feature-card p-8 rounded-2xl text-center">
-              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mb-4 flex items-center justify-center mx-auto">
+              <div class="w-14 h-14 rounded-xl mb-4 flex items-center justify-center mx-auto" style="background: #4794A6;">
                 <i class="fas fa-users text-2xl"></i>
               </div>
               <h3 class="text-xl font-bold mb-3">Multi-Child Discounts</h3>
@@ -510,12 +511,12 @@ app.get('/education', (c) => {
               <p class="text-gray-400 text-sm">Master composition, rule of thirds, leading lines</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
-              <div class="text-blue-500 font-bold mb-2">FEBRUARY</div>
+              <div class="text-teal-500 font-bold mb-2">FEBRUARY</div>
               <h4 class="text-xl font-bold mb-3">Light & Shadow</h4>
               <p class="text-gray-400 text-sm">Understanding natural light, golden hour, exposure</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
-              <div class="text-purple-500 font-bold mb-2">MARCH</div>
+              <div class="text-teal-500 font-bold mb-2">MARCH</div>
               <h4 class="text-xl font-bold mb-3">Manual Mode Mastery</h4>
               <p class="text-gray-400 text-sm">Exposure triangle: aperture, shutter speed, ISO control</p>
             </div>
@@ -525,12 +526,12 @@ app.get('/education', (c) => {
               <p class="text-gray-400 text-sm">Capturing emotion, connection, and personality</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
-              <div class="text-blue-500 font-bold mb-2">MAY</div>
+              <div class="text-teal-500 font-bold mb-2">MAY</div>
               <h4 class="text-xl font-bold mb-3">Street Photography</h4>
               <p class="text-gray-400 text-sm">Candid moments, urban composition, storytelling</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
-              <div class="text-purple-500 font-bold mb-2">JUNE</div>
+              <div class="text-teal-500 font-bold mb-2">JUNE</div>
               <h4 class="text-xl font-bold mb-3">Photo Essay Project</h4>
               <p class="text-gray-400 text-sm">Complete your first photo essay—10-15 curated images that tell a story</p>
             </div>
@@ -540,12 +541,12 @@ app.get('/education', (c) => {
               <p class="text-gray-400 text-sm">Breaking rules, creative framing, visual poetry</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
-              <div class="text-blue-500 font-bold mb-2">OCTOBER</div>
+              <div class="text-teal-500 font-bold mb-2">OCTOBER</div>
               <h4 class="text-xl font-bold mb-3">Photo Editing Mastery</h4>
               <p class="text-gray-400 text-sm">Lightroom basics, turning good photos into great ones</p>
             </div>
             <div class="feature-card p-8 rounded-2xl">
-              <div class="text-purple-500 font-bold mb-2">NOVEMBER</div>
+              <div class="text-teal-500 font-bold mb-2">NOVEMBER</div>
               <h4 class="text-xl font-bold mb-3">Portfolio Building</h4>
               <p class="text-gray-400 text-sm">Curating work, presenting your unique vision</p>
             </div>
@@ -591,23 +592,23 @@ app.get('/education', (c) => {
           .stars-small::before {
             background-image: 
               radial-gradient(1px 1px at 20px 30px, rgba(20,184,166,0.8), transparent),
-              radial-gradient(1px 1px at 60px 70px, rgba(59,130,246,0.8), transparent),
-              radial-gradient(1px 1px at 140px 120px, rgba(147,51,234,0.8), transparent),
-              radial-gradient(1px 1px at 180px 50px, rgba(20,184,166,0.6), transparent),
-              radial-gradient(1px 1px at 90px 160px, rgba(59,130,246,0.6), transparent),
-              radial-gradient(1px 1px at 30px 180px, rgba(147,51,234,0.6), transparent),
+              radial-gradient(1px 1px at 60px 70px, rgba(6,182,212,0.8), transparent),
+              radial-gradient(1px 1px at 140px 120px, rgba(20,184,166,0.8), transparent),
+              radial-gradient(1px 1px at 180px 50px, rgba(6,182,212,0.6), transparent),
+              radial-gradient(1px 1px at 90px 160px, rgba(20,184,166,0.6), transparent),
+              radial-gradient(1px 1px at 30px 180px, rgba(6,182,212,0.6), transparent),
               radial-gradient(1px 1px at 150px 10px, rgba(20,184,166,0.7), transparent),
-              radial-gradient(1px 1px at 110px 90px, rgba(59,130,246,0.7), transparent);
+              radial-gradient(1px 1px at 110px 90px, rgba(6,182,212,0.7), transparent);
             animation-duration: 2s;
           }
           
           .stars-medium::before {
             background-image: 
               radial-gradient(2px 2px at 40px 60px, rgba(20,184,166,0.9), transparent),
-              radial-gradient(2px 2px at 120px 140px, rgba(59,130,246,0.9), transparent),
-              radial-gradient(2px 2px at 180px 100px, rgba(147,51,234,0.9), transparent),
-              radial-gradient(2px 2px at 80px 30px, rgba(20,184,166,0.7), transparent),
-              radial-gradient(2px 2px at 160px 180px, rgba(59,130,246,0.7), transparent);
+              radial-gradient(2px 2px at 120px 140px, rgba(6,182,212,0.9), transparent),
+              radial-gradient(2px 2px at 180px 100px, rgba(20,184,166,0.9), transparent),
+              radial-gradient(2px 2px at 80px 30px, rgba(6,182,212,0.7), transparent),
+              radial-gradient(2px 2px at 160px 180px, rgba(20,184,166,0.7), transparent);
             animation-duration: 4s;
             animation-delay: 0.5s;
           }
@@ -615,8 +616,8 @@ app.get('/education', (c) => {
           .stars-large::before {
             background-image: 
               radial-gradient(3px 3px at 100px 120px, rgba(20,184,166,1), transparent),
-              radial-gradient(3px 3px at 50px 150px, rgba(59,130,246,1), transparent),
-              radial-gradient(3px 3px at 170px 80px, rgba(147,51,234,1), transparent);
+              radial-gradient(3px 3px at 50px 150px, rgba(6,182,212,1), transparent),
+              radial-gradient(3px 3px at 170px 80px, rgba(20,184,166,1), transparent);
             animation-duration: 5s;
             animation-delay: 1s;
           }
@@ -1221,19 +1222,41 @@ app.get('/academy', (c) =>
       </section>
 
       {/* JUNE - Photo Essay Project */}
-      <section class="py-20 bg-gradient-to-r from-purple-900 via-blue-900 to-teal-900">
+      <section class="py-20 bg-gradient-to-r from-teal-900 via-cyan-900 to-teal-900">
         <div class="max-w-4xl mx-auto px-6 text-center">
-          <div class="text-purple-400 font-bold text-sm mb-2">MONTH 6 • JUNE</div>
+          <div class="text-teal-400 font-bold text-sm mb-2">MONTH 6 • JUNE</div>
           <h2 class="text-5xl md:text-6xl font-black mb-8">Photo Essay Project</h2>
           <p class="text-2xl text-gray-200 mb-8">
             This is it. <strong class="text-white">The big reveal.</strong>
           </p>
           <p class="text-lg text-gray-300 mb-4">
-            Every student completes their <strong class="text-purple-400">first photo essay</strong> — a real, start-to-finish project that tells a story they care about.
+            Every student completes their <strong class="text-teal-400">first photo essay</strong> — a real, start-to-finish project that tells a story they care about.
           </p>
-          <p class="text-xl text-purple-300 font-bold mt-8">
+          <p class="text-xl text-teal-300 font-bold mt-8">
             They present it to family and friends. 📸
           </p>
+        </div>
+      </section>
+
+      {/* MID-YEAR CTA - Join Now */}
+      <section class="py-32 bg-black relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h2 class="text-5xl md:text-6xl font-black mb-6">Ready to Start<br/>This Journey?</h2>
+          <p class="text-xl text-gray-400 mb-8">Join thousands of young creators learning to see differently.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/checkout" class="bg-teal-500 text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-teal-400 transition inline-block text-center shadow-2xl hover:shadow-teal-500/50">
+              Enroll Now
+            </a>
+            <a href="#pricing" class="border-2 border-teal-500 text-teal-500 px-10 py-5 rounded-full text-xl font-bold hover:bg-teal-500/10 transition inline-block text-center">
+              View Pricing
+            </a>
+          </div>
+          <p class="text-sm text-gray-500 mt-8">Monthly from $79/student • Cancel anytime</p>
+        </div>
+        {/* Background decoration */}
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-20 left-10 w-72 h-72 bg-teal-500 rounded-full filter blur-3xl"></div>
+          <div class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl"></div>
         </div>
       </section>
 
@@ -1290,15 +1313,15 @@ app.get('/academy', (c) =>
         <div class="max-w-6xl mx-auto px-6">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div class="text-purple-500 font-bold text-sm mb-2">MONTH 9 • NOVEMBER</div>
+              <div class="text-teal-500 font-bold text-sm mb-2">MONTH 9 • NOVEMBER</div>
               <h2 class="text-4xl md:text-5xl font-black mb-6">Portfolio Building</h2>
               <p class="text-lg text-gray-300 mb-4">
                 <strong class="text-white">A year's worth of work deserves to be seen.</strong>
               </p>
               <p class="text-lg text-gray-300 mb-4">
-                In November, your child learns to <strong class="text-purple-400">curate like a gallery curator</strong> — selecting their strongest work.
+                In November, your child learns to <strong class="text-teal-400">curate like a gallery curator</strong> — selecting their strongest work.
               </p>
-              <p class="text-lg text-purple-400 font-semibold">
+              <p class="text-lg text-teal-400 font-semibold">
                 Your child will have a professional portfolio they can be proud of.
               </p>
             </div>
@@ -1310,7 +1333,7 @@ app.get('/academy', (c) =>
       </section>
 
       {/* DECEMBER - Year-End Showcase */}
-      <section class="py-20 bg-gradient-to-r from-teal-900 via-blue-900 to-purple-900">
+      <section class="py-20 bg-black">
         <div class="max-w-4xl mx-auto px-6 text-center">
           <div class="text-teal-400 font-bold text-sm mb-2">MONTH 10 • DECEMBER</div>
           <h2 class="text-5xl md:text-6xl font-black mb-8">Year-End Showcase</h2>
@@ -1333,7 +1356,7 @@ app.get('/academy', (c) =>
           <p class="text-2xl text-gray-300 mb-12">
             10 transformative months. 80 micro-learning sessions. 1 incredible creative journey.
           </p>
-          <a href="/pricing" class="inline-block px-12 py-6 rounded-full text-xl font-bold bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 transition shadow-2xl">
+          <a href="/pricing" class="inline-block px-12 py-6 rounded-full text-xl font-bold text-white transition shadow-2xl" style="background: #4794A6;">
             Enroll Now
           </a>
           <p class="mt-8 text-sm text-gray-400">
@@ -3307,6 +3330,23 @@ app.get('/pricing', (c) => {
               </div>
             </div>
 
+          </div>
+          
+          {/* CTA Button - Middle Section */}
+          <div class="mt-16 text-center">
+            <div class="max-w-2xl mx-auto mb-8">
+              <h3 class="text-3xl font-bold mb-4">Ready to Transform Your Child's Creative Journey?</h3>
+              <p class="text-xl text-gray-400 mb-8">
+                Join hundreds of families building confidence, creativity, and lifelong skills through photography.
+              </p>
+            </div>
+            <a 
+              href="/pricing#pricing-cards" 
+              class="inline-block px-12 py-5 rounded-full text-xl font-bold text-white transition shadow-2xl hover:shadow-teal-500/50" 
+              style="background: #4794A6;"
+            >
+              Start Your Journey Today
+            </a>
           </div>
           
           {/* Features Section */}
