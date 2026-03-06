@@ -412,11 +412,11 @@ app.get('/education', (c) => {
               </p>
             </div>
 
-            {/* Side-by-Side Photos */}
+            {/* Side-by-Side Photos - Cropped by User */}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div>
                 <img 
-                  src="/static/images/educators-ale-concrete.jpg" 
+                  src="/static/images/educators-ale-cropped.jpg" 
                   alt="Ale - Professional Photographer & Educator" 
                   class="w-full rounded-3xl shadow-2xl"
                   style="object-fit: cover; aspect-ratio: 3/4;"
@@ -424,7 +424,7 @@ app.get('/education', (c) => {
               </div>
               <div>
                 <img 
-                  src="/static/images/educators-italo-concrete.jpg" 
+                  src="/static/images/educators-italo-cropped.jpg" 
                   alt="Italo - Professional Photographer & Educator" 
                   class="w-full rounded-3xl shadow-2xl"
                   style="object-fit: cover; aspect-ratio: 3/4;"
