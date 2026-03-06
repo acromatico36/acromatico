@@ -42,105 +42,13 @@
             to { opacity: 1; }
         }
         
-        /* HERO WITH LOGO */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: #000;
-            z-index: 2;
-        }
-        
-
-        
-        .logo {
-            max-width: 400px;
-            width: 80%;
-            height: auto;
-            margin-bottom: 48px;
-            opacity: 0;
-            filter: brightness(0) invert(1);
-            animation: logoAppear 1.2s ease 0.4s forwards;
-        }
-        
-        @keyframes logoAppear {
-            from {
-                opacity: 0;
-                transform: translateY(20px) scale(0.96);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        
-        .hero p {
-            font-size: 14px;
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
-            opacity: 0;
-            animation: slideUp 1s ease 0.8s forwards;
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* SCROLL HINT */
-        .scroll-hint {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 40px;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            opacity: 0;
-            animation: fadeInScroll 1s ease 1.5s forwards;
-        }
-        
-        .scroll-hint::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 8px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 2px;
-            animation: scroll 2s ease-in-out infinite 2s;
-        }
-        
-        @keyframes fadeInScroll {
-            to { opacity: 1; }
-        }
-        
-        @keyframes scroll {
-            0% { transform: translate(-50%, 0); opacity: 1; }
-            50% { transform: translate(-50%, 12px); opacity: 0.3; }
-            100% { transform: translate(-50%, 0); opacity: 1; }
-        }
-        
-        /* GRID - STAGGERED REVEAL */
+        /* GRID - FULL HEIGHT, NO HERO */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             position: relative;
             z-index: 2;
+            min-height: 100vh;
         }
         
         .portal {
@@ -277,18 +185,13 @@
         }
         
         /* MOBILE */
-        @media (max-width: 768px) {
-            .logo {
-                max-width: 280px;
-                margin-bottom: 32px;
-            }
-            
+        @media (max-width: 768px) {            
             .grid {
                 grid-template-columns: 1fr;
             }
             
             .portal {
-                height: 85vh;
+                height: 80vh;
             }
             
             .overlay {
@@ -300,9 +203,28 @@
                 transform: translateY(0);
                 font-size: 16px;
             }
-            
-            .scroll-hint {
-                display: none;
+        }
+        
+        /* LOGO AT BOTTOM */
+        .bottom-logo {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 200px;
+            width: 60%;
+            height: auto;
+            opacity: 0.4;
+            filter: brightness(0) invert(1);
+            z-index: 100;
+            pointer-events: none;
+            animation: fadeIn 1s ease 1.5s forwards;
+        }
+        
+        @media (max-width: 768px) {
+            .bottom-logo {
+                max-width: 150px;
+                bottom: 20px;
             }
         }
         
@@ -324,12 +246,6 @@
     </style>
 </head>
 <body>
-    <section class="hero">
-        <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" class="logo">
-        <p>South Florida + NYC</p>
-        <div class="scroll-hint"></div>
-    </section>
-    
     <div class="grid">
         <div class="portal">
             <a href="/photography" class="portal-link" aria-label="Photography Services">
@@ -371,6 +287,9 @@
             </a>
         </div>
     </div>
+    
+    <!-- Logo at Bottom -->
+    <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" class="bottom-logo">
     
 </body>
 </html>
