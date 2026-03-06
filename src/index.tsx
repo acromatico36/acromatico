@@ -396,20 +396,11 @@ app.get('/education', (c) => {
       <section class="py-32 bg-gradient-to-b from-black to-gray-900">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
           
-          {/* Single Unified Profile */}
-          <div class="max-w-4xl mx-auto mb-20">
-            {/* Enhanced Adventure Photo */}
-            <div class="mb-12">
-              <img 
-                src="/static/images/educators-team-real.jpg" 
-                alt="Italo & Ale at Torres del Paine, Chile" 
-                class="w-full rounded-3xl shadow-2xl"
-                style="object-fit: cover; object-position: center 25%;"
-              />
-            </div>
+          {/* Side-by-Side Educator Profiles */}
+          <div class="max-w-6xl mx-auto mb-20">
             
-            {/* Mission-Driven Story */}
-            <div class="text-center mb-12">
+            {/* Mission-Driven Story - FIRST */}
+            <div class="text-center mb-16">
               <h2 class="text-5xl md:text-6xl font-black mb-6">
                 We're Italo & Ale
               </h2>
@@ -419,6 +410,26 @@ app.get('/education', (c) => {
               <p class="text-2xl text-white leading-relaxed max-w-2xl mx-auto">
                 We teach kids to see the world differently—with a camera in hand and confidence in their vision.
               </p>
+            </div>
+
+            {/* Side-by-Side Photos */}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div>
+                <img 
+                  src="/static/images/educators-ale-concrete.jpg" 
+                  alt="Ale - Professional Photographer & Educator" 
+                  class="w-full rounded-3xl shadow-2xl"
+                  style="object-fit: cover; aspect-ratio: 3/4;"
+                />
+              </div>
+              <div>
+                <img 
+                  src="/static/images/educators-italo-concrete.jpg" 
+                  alt="Italo - Professional Photographer & Educator" 
+                  class="w-full rounded-3xl shadow-2xl"
+                  style="object-fit: cover; aspect-ratio: 3/4;"
+                />
+              </div>
             </div>
             
             {/* Credentials - Clean & Simple */}
