@@ -2112,7 +2112,7 @@ app.get('/academy', (c) =>
 )
 
 app.get('/studio', (c) => c.redirect('/static/studio.html', 302))
-app.get('/prints', (c) => c.redirect('/static/prints/index.html', 302))
+app.get('/prints', (c) => c.redirect('/static/prints.html', 302))
 app.get('/photography', (c) => c.redirect('/static/photography-apple-ux.html', 302))
 
 app.get('/studio-old', (c) =>
