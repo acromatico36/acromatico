@@ -623,133 +623,75 @@
       return 'default';
     },
     
+    conversationHistory: [],
+    
+    async callAI(userMessage) {
+      // Add user message to history
+      this.conversationHistory.push({
+        role: 'user',
+        content: userMessage
+      });
+      
+      try {
+        const response = await fetch('/api/spark-ai', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: this.conversationHistory,
+            userData: this.userData
+          })
+        });
+        
+        const data = await response.json();
+        
+        // Add AI response to history
+        this.conversationHistory.push({
+          role: 'assistant',
+          content: data.message
+        });
+        
+        return data.message;
+      } catch (error) {
+        console.error('AI Error:', error);
+        return 'Sorry, I had a connection issue. Can you repeat that?';
+      }
+    },
+    
     async handleMessage(message) {
+      // Store user data as we go
       if (!this.conversationStarted) {
-        // Step 1: PAIN FIRST - What's the problem?
         this.conversationStarted = true;
         this.userData.problem = message;
-        
-        this.showTyping();
-        await new Promise(r => setTimeout(r, 1600));
-        this.hideTyping();
-        
-        // ADAPTIVE: Reference their exact problem
-        const painInsight = this.extractPainValidation(message);
-        this.addMessage(`"<em>${message}</em>"<br><br>${painInsight}<br><br><strong>What industry/space are you in?</strong> This helps me understand who you're competing against.`, 'spark');
-        this.currentStep = 'business';
-        
-      } else if (this.currentStep === 'business') {
-        // Step 2: Business description + industry extraction
+        this.currentStep = 'discovering';
+      } else if (!this.userData.business && message.length > 5) {
         this.userData.business = message;
         this.userData.industry = this.extractIndustry(message);
-        
-        const intel = StrategicIntelligence.competitiveLandscapes[this.userData.industry];
-        
-        this.showTyping();
-        await new Promise(r => setTimeout(r, 1800));
-        this.hideTyping();
-        
-        // ADAPTIVE: Reference their business + problem
-        if (intel) {
-          this.addMessage(`Got it. So you're in <strong>${this.userData.industry}</strong> and struggling with "<em>${this.userData.problem}</em>".<br><br>Here's what I see in your market:`, 'spark');
-          
-          await new Promise(r => setTimeout(r, 600));
-          
-          const competitiveInsight = `
-            <div class="spark-insight-card">
-              <h4>🎯 ${this.userData.industry.charAt(0).toUpperCase() + this.userData.industry.slice(1)} Market Intel</h4>
-              <p><strong>Market size:</strong> ${intel.marketSize}</p>
-              <p><strong>Key trends:</strong></p>
-              <ul>
-                ${intel.trends.slice(0, 3).map(t => `<li>${t}</li>`).join('')}
-              </ul>
-              <p><strong>Your opportunity:</strong> Most players aren't solving "${this.userData.problem}" effectively. That's your wedge.</p>
-            </div>
-          `;
-          this.addMessage(competitiveInsight, 'spark');
-        } else {
-          this.addMessage(`Okay, so you're dealing with "<em>${this.userData.problem}</em>" in your space.`, 'spark');
-        }
-        
-        await new Promise(r => setTimeout(r, 600));
-        // ADAPTIVE: Tie audience to their problem
-        this.addMessage(`Now here's the key: <strong>Who SPECIFICALLY feels the pain of "${this.userData.problem}"?</strong><br><br>Be hyper-specific. (e.g., "B2B SaaS founders $1M-10M ARR" not just "business owners")`, 'spark');
-        this.currentStep = 'audience';
-        
-      } else if (this.currentStep === 'audience') {
-        // Step 3: Audience definition
+      } else if (!this.userData.audience && message.length > 5) {
         this.userData.audience = message;
-        
-        this.showTyping();
-        await new Promise(r => setTimeout(r, 1400));
-        this.hideTyping();
-        
-        // ADAPTIVE: Reference problem + audience connection
-        this.addMessage(`Perfect. So <strong>${message}</strong> are the ones struggling with "${this.userData.problem}".<br><br>Let me frame this strategically:`, 'spark');
-        
-        await new Promise(r => setTimeout(r, 500));
-        
-        // ADAPTIVE: Jobs-to-be-Done with their exact problem
-        const jtbdInsight = `
-          <div class="spark-insight-card">
-            <h4>🧠 Strategic Framework</h4>
-            <p><strong>${message}</strong> aren't buying your solution—they're "hiring" it to do a job:</p>
-            <ul>
-              <li><strong>Functional job:</strong> Eliminate "${this.userData.problem}"</li>
-              <li><strong>Emotional job:</strong> Feel confident and in control</li>
-              <li><strong>Social job:</strong> Look smart to peers/colleagues</li>
-            </ul>
-            <p><em>Win by being the BEST tool for solving "${this.userData.problem}" for ${message}.</em></p>
-          </div>
-        `;
-        this.addMessage(jtbdInsight, 'spark');
-        
-        await new Promise(r => setTimeout(r, 600));
-        this.addMessage(`<strong>What revenue stage are you at?</strong><br><br>• Pre-revenue<br>• $0-5K MRR<br>• $5K-25K MRR<br>• $25K-100K MRR<br>• $100K+ MRR`, 'spark');
-        this.currentStep = 'stage';
-        
-      } else if (this.currentStep === 'stage') {
-        // Step 4: Revenue stage
+      } else if (!this.userData.stage && message.length > 2) {
         this.userData.stage = this.normalizeStage(message);
-        const playbook = StrategicIntelligence.stagePlaybooks[this.userData.stage];
-        
-        this.showTyping();
-        await new Promise(r => setTimeout(r, 1400));
-        this.hideTyping();
-        
-        // ADAPTIVE: Reference their stage + problem
-        this.addMessage(`Okay, at <strong>${this.userData.stage}</strong>, solving "${this.userData.problem}" for ${this.userData.audience} means your focus should be <strong>${playbook.focus}</strong>.<br><br><strong>Who are your main competitors?</strong> (Name 2-3 who also target ${this.userData.audience})`, 'spark');
-        this.currentStep = 'competitors';
-        
-      } else if (this.currentStep === 'competitors') {
-        // Step 5: Competitors
+      } else if (!this.userData.competitors && message.length > 2) {
         this.userData.competitors = message;
-        
-        this.showTyping();
-        await new Promise(r => setTimeout(r, 1200));
-        this.hideTyping();
-        
-        // ADAPTIVE: Reference their competitors + problem
-        this.addMessage(`So you're up against <strong>${message}</strong>.<br><br>Here's the million-dollar question: <strong>Why would ${this.userData.audience} choose YOU over ${message.split(',')[0] || message}?</strong><br><br>What do you do differently when it comes to solving "${this.userData.problem}"?`, 'spark');
-        this.currentStep = 'differentiator';
-        
-      } else if (this.currentStep === 'differentiator') {
-        // Step 6: Differentiator → Generate strategic brief
+      } else if (!this.userData.differentiator && message.length > 5) {
         this.userData.differentiator = message;
-        
+        this.currentStep = 'final';
+      }
+      
+      // Call REAL AI
+      this.showTyping();
+      const aiResponse = await this.callAI(message);
+      this.hideTyping();
+      
+      // Display AI response
+      this.addMessage(aiResponse, 'spark');
+      
+      // If we have all data, generate brief
+      if (this.currentStep === 'final' && this.userData.differentiator) {
+        await new Promise(r => setTimeout(r, 1000));
         this.showTyping();
-        await new Promise(r => setTimeout(r, 3000));
+        await new Promise(r => setTimeout(r, 2000));
         this.hideTyping();
-        
-        this.addMessage(`Alright. Let me synthesize everything… 🔥🧠`, 'spark');
-        
-        await new Promise(r => setTimeout(r, 2500));
-        this.showTyping();
-        await new Promise(r => setTimeout(r, 3000));
-        this.hideTyping();
-        
         this.generateStrategicBrief();
-        return;
       }
     },
     

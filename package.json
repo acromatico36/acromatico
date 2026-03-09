@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "hono": "^4.11.3",
+    "js-yaml": "^4.1.1",
+    "openai": "^6.27.0",
     "stripe": "^20.1.2"
   },
   "devDependencies": {

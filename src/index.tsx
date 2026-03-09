@@ -197,6 +197,72 @@ const app = new Hono<{ Bindings: Bindings }>()
 // Enable CORS for API routes
 app.use('/api/*', cors())
 
+// Spark AI - Real Conversational Intelligence
+app.post('/api/spark-ai', async (c) => {
+  try {
+    const { OpenAI } = await import('openai')
+    const fs = await import('fs')
+    const yaml = await import('js-yaml')
+    const os = await import('os')
+    const path = await import('path')
+    
+    // Load config
+    const configPath = path.join(os.homedir(), '.genspark_llm.yaml')
+    let config = null
+    if (fs.existsSync(configPath)) {
+      const fileContents = fs.readFileSync(configPath, 'utf8')
+      config = yaml.load(fileContents)
+    }
+    
+    const client = new OpenAI({
+      apiKey: config?.openai?.api_key || process.env.OPENAI_API_KEY || process.env.GENSPARK_TOKEN,
+      baseURL: config?.openai?.base_url || process.env.OPENAI_BASE_URL || 'https://www.genspark.ai/api/llm_proxy/v1',
+    })
+    
+    const { messages, userData } = await c.req.json()
+    
+    // Strategic AI system prompt
+    const systemPrompt = `You are Spark, an elite strategic intelligence AI for business strategy. You're direct, insightful, and ruthlessly focused on helping entrepreneurs solve real problems.
+
+Your conversation style:
+- Lead with PAIN - always acknowledge their specific problem
+- Reference their exact answers in every response
+- Ask follow-up questions that dig deeper based on what they said
+- Provide strategic insights from competitive intelligence
+- Use their industry, audience, and problem to guide questions
+- Be conversational but sharp - like a McKinsey consultant who actually gives a shit
+
+Current context:
+${userData.problem ? `Problem: "${userData.problem}"` : ''}
+${userData.business ? `Business: ${userData.business}` : ''}
+${userData.industry ? `Industry: ${userData.industry}` : ''}
+${userData.audience ? `Audience: ${userData.audience}` : ''}
+${userData.stage ? `Stage: ${userData.stage}` : ''}
+${userData.competitors ? `Competitors: ${userData.competitors}` : ''}
+
+Your goal: Gather strategic information through intelligent conversation, then deliver a comprehensive strategic brief.`
+    
+    const completion = await client.chat.completions.create({
+      model: 'gpt-5',
+      messages: [
+        { role: 'system', content: systemPrompt },
+        ...messages
+      ],
+      temperature: 0.8,
+      max_tokens: 500
+    })
+    
+    return c.json({
+      message: completion.choices[0].message.content,
+      userData: userData
+    })
+    
+  } catch (error) {
+    console.error('Spark AI Error:', error)
+    return c.json({ error: 'AI temporarily unavailable' }, 500)
+  }
+})
+
 // Mount blog routes
 app.route('/blog', blog)
 
