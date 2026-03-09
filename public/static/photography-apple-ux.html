@@ -2319,12 +2319,73 @@
                 </span>
               </label>
               <label class="builder-checkbox">
-                <input type="checkbox" value="album" onchange="calculateCustomPrice()">
+                <input type="checkbox" id="albumCheckbox" value="album" onchange="toggleAlbumBuilder()">
                 <span class="checkbox-card">
-                  <span class="checkbox-name">Premium Album (12x12, 30 pages)</span>
-                  <span class="checkbox-price">+$1,495</span>
+                  <span class="checkbox-name">Graphistudio Album</span>
+                  <span class="checkbox-price" id="albumPrice">Configure →</span>
                 </span>
               </label>
+              
+              <!-- ALBUM BUILDER (shows when checkbox is checked) -->
+              <div id="albumBuilderSection" style="display: none; margin-top: 16px; padding: 24px; background: #f5f5f7; border-radius: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                  <h4 style="font-size: 18px; font-weight: 600; margin: 0;">Design Your Album</h4>
+                  <span style="font-size: 21px; font-weight: 700; color: var(--accent);" id="albumTotalPrice">$2,400</span>
+                </div>
+                
+                <!-- SIZE SELECTION -->
+                <div style="margin-bottom: 20px;">
+                  <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 12px;">Album Size</label>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px;" id="albumSizes">
+                    <!-- Populated by JS -->
+                  </div>
+                </div>
+                
+                <!-- COVER TYPE -->
+                <div style="margin-bottom: 20px;">
+                  <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 12px;">Cover Type</label>
+                  <div style="display: grid; gap: 12px;" id="albumCovers">
+                    <!-- Populated by JS -->
+                  </div>
+                </div>
+                
+                <!-- MATERIAL -->
+                <div style="margin-bottom: 20px;" id="albumMaterialSection">
+                  <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 12px;">Material</label>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;" id="albumMaterials">
+                    <!-- Populated by JS -->
+                  </div>
+                </div>
+                
+                <!-- PAGE COUNT -->
+                <div style="margin-bottom: 20px;">
+                  <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 12px;">Pages</label>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px;" id="albumPages">
+                    <!-- Populated by JS -->
+                  </div>
+                </div>
+                
+                <!-- UPGRADE OPTIONS -->
+                <div style="margin-bottom: 20px;">
+                  <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 12px;">Upgrades</label>
+                  <div style="display: grid; gap: 8px;">
+                    <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #fff; border-radius: 10px; cursor: pointer;">
+                      <input type="checkbox" id="albumThick" onchange="updateAlbumPrice()" style="width: 20px; height: 20px;">
+                      <span style="flex: 1; font-size: 14px;">Thick Pages (+300gr)</span>
+                      <span style="font-size: 14px; font-weight: 600; color: var(--accent);">+$150</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #fff; border-radius: 10px; cursor: pointer;">
+                      <input type="checkbox" id="albumPresentationBox" onchange="updateAlbumPrice()" style="width: 20px; height: 20px;">
+                      <span style="flex: 1; font-size: 14px;">Presentation Box</span>
+                      <span style="font-size: 14px; font-weight: 600; color: var(--accent);">+$250</span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div style="padding: 16px; background: rgba(0,113,227,0.1); border-radius: 12px; font-size: 13px; color: #000;">
+                  <strong>Album Details:</strong> <span id="albumSummary">Select options above</span>
+                </div>
+              </div>
               <label class="builder-checkbox">
                 <input type="checkbox" value="canvas" onchange="calculateCustomPrice()">
                 <span class="checkbox-card">
@@ -3364,6 +3425,206 @@
     <a class="lightbox-prev">&#10094;</a>
     <a class="lightbox-next">&#10095;</a>
   </div>
+
+  <script src="/static/album-config.js" type="module"></script>
+  <script type="module">
+    import { ALBUM_CONFIG, PAGE_COUNTS, calculatePrice } from '/static/album-config.js';
+    
+    // ALBUM BUILDER LOGIC
+    let albumConfig = {
+      size: '12x12',
+      coverType: 'crystal-glance',
+      material: null,
+      spineType: 'rounded',
+      paperType: 'fuji-deep-matte',
+      pageThickness: 'thin',
+      lamination: 'none',
+      lining: 'black-board',
+      pageCount: 20,
+      addons: [],
+      shipping: 'standard'
+    };
+    
+    window.toggleAlbumBuilder = function() {
+      const checkbox = document.getElementById('albumCheckbox');
+      const section = document.getElementById('albumBuilderSection');
+      
+      if (checkbox.checked) {
+        section.style.display = 'block';
+        initializeAlbumBuilder();
+        updateAlbumPrice();
+      } else {
+        section.style.display = 'none';
+      }
+      
+      if (typeof calculateCustomPrice === 'function') {
+        calculateCustomPrice();
+      }
+    }
+    
+    function initializeAlbumBuilder() {
+      // Render sizes
+      const sizesHTML = ALBUM_CONFIG.sizes.map(size => `
+        <label style="cursor: pointer;" onclick="window.selectAlbumSize('${size.id}')">
+          <input type="radio" name="albumSize" value="${size.id}" ${size.id === '12x12' ? 'checked' : ''} style="display: none;">
+          <div class="album-option-card size-${size.id}" style="padding: 12px; border: 2px solid ${size.id === '12x12' ? 'var(--accent)' : '#e5e5e5'}; border-radius: 10px; text-align: center; transition: all 0.2s; background: ${size.id === '12x12' ? 'rgba(0,113,227,0.05)' : '#fff'};">
+            <div style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">${size.name}</div>
+            <div style="font-size: 12px; color: #666;">${size.dimensions}</div>
+            ${size.popular ? '<div style="font-size: 11px; color: var(--accent); font-weight: 600; margin-top: 4px;">POPULAR</div>' : ''}
+          </div>
+        </label>
+      `).join('');
+      document.getElementById('albumSizes').innerHTML = sizesHTML;
+      
+      // Render covers
+      const coversHTML = ALBUM_CONFIG.coverTypes.map(cover => `
+        <label style="cursor: pointer;" onclick="window.selectAlbumCover('${cover.id}')">
+          <input type="radio" name="albumCover" value="${cover.id}" ${cover.id === 'crystal-glance' ? 'checked' : ''} style="display: none;">
+          <div class="album-cover-card cover-${cover.id}" style="padding: 16px; border: 2px solid ${cover.id === 'crystal-glance' ? 'var(--accent)' : '#e5e5e5'}; border-radius: 12px; transition: all 0.2s; background: ${cover.id === 'crystal-glance' ? 'rgba(0,113,227,0.05)' : '#fff'};">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+              <div style="font-size: 15px; font-weight: 600;">${cover.name}</div>
+              <div style="font-size: 14px; font-weight: 600; color: var(--accent);">+$${cover.basePrice}</div>
+            </div>
+            <div style="font-size: 13px; color: #666; margin-bottom: 8px;">${cover.description}</div>
+            ${cover.popular ? '<div style="font-size: 11px; color: var(--accent); font-weight: 600;">MOST POPULAR</div>' : ''}
+          </div>
+        </label>
+      `).join('');
+      document.getElementById('albumCovers').innerHTML = coversHTML;
+      
+      // Render materials (initially hidden for crystal-glance)
+      renderMaterials('crystal-glance');
+      
+      // Render page counts
+      const pagesHTML = PAGE_COUNTS.map(page => `
+        <label style="cursor: pointer;" onclick="window.selectAlbumPages(${page.pages})">
+          <input type="radio" name="albumPages" value="${page.pages}" ${page.pages === 20 ? 'checked' : ''} style="display: none;">
+          <div class="album-page-card pages-${page.pages}" style="padding: 12px; border: 2px solid ${page.pages === 20 ? 'var(--accent)' : '#e5e5e5'}; border-radius: 10px; text-align: center; transition: all 0.2s; background: ${page.pages === 20 ? 'rgba(0,113,227,0.05)' : '#fff'};">
+            <div style="font-size: 15px; font-weight: 600;">${page.pages}</div>
+            <div style="font-size: 12px; color: #666;">pages</div>
+            ${page.price > 0 ? `<div style="font-size: 12px; color: var(--accent); font-weight: 600; margin-top: 4px;">+$${page.price}</div>` : ''}
+          </div>
+        </label>
+      `).join('');
+      document.getElementById('albumPages').innerHTML = pagesHTML;
+    }
+    
+    function renderMaterials(coverType) {
+      const materialSection = document.getElementById('albumMaterialSection');
+      
+      // Crystal Glance and Metal/Metal Paint don't need materials
+      if (['crystal-glance', 'metal', 'metal-paint'].includes(coverType)) {
+        materialSection.style.display = 'none';
+        albumConfig.material = null;
+        return;
+      }
+      
+      materialSection.style.display = 'block';
+      
+      // Show all materials for hardback
+      const allMaterials = [
+        ...ALBUM_CONFIG.materials.leathers,
+        ...ALBUM_CONFIG.materials.leatherettes,
+        ...ALBUM_CONFIG.materials.fabrics
+      ];
+      
+      const materialsHTML = allMaterials.map((material, index) => `
+        <label style="cursor: pointer;" onclick="window.selectAlbumMaterial('${material.id}')">
+          <input type="radio" name="albumMaterial" value="${material.id}" ${index === 0 ? 'checked' : ''} style="display: none;">
+          <div class="album-material-card material-${material.id}" style="padding: 12px; border: 2px solid ${index === 0 ? 'var(--accent)' : '#e5e5e5'}; border-radius: 10px; text-align: center; transition: all 0.2s; background: ${index === 0 ? 'rgba(0,113,227,0.05)' : '#fff'};">
+            <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">${material.name}</div>
+            <div style="font-size: 11px; color: #666;">${material.texture}</div>
+            <div style="font-size: 13px; color: var(--accent); font-weight: 600; margin-top: 4px;">+$${material.price}</div>
+          </div>
+        </label>
+      `).join('');
+      document.getElementById('albumMaterials').innerHTML = materialsHTML;
+      
+      // Select first material by default
+      if (allMaterials.length > 0) {
+        albumConfig.material = allMaterials[0].id;
+      }
+    }
+    
+    window.selectAlbumSize = function(id) {
+      albumConfig.size = id;
+      document.querySelectorAll('.album-option-card').forEach(card => {
+        card.style.borderColor = '#e5e5e5';
+        card.style.background = '#fff';
+      });
+      document.querySelector(`.size-${id}`).style.borderColor = 'var(--accent)';
+      document.querySelector(`.size-${id}`).style.background = 'rgba(0,113,227,0.05)';
+      updateAlbumPrice();
+    }
+    
+    window.selectAlbumCover = function(id) {
+      albumConfig.coverType = id;
+      document.querySelectorAll('.album-cover-card').forEach(card => {
+        card.style.borderColor = '#e5e5e5';
+        card.style.background = '#fff';
+      });
+      document.querySelector(`.cover-${id}`).style.borderColor = 'var(--accent)';
+      document.querySelector(`.cover-${id}`).style.background = 'rgba(0,113,227,0.05)';
+      renderMaterials(id);
+      updateAlbumPrice();
+    }
+    
+    window.selectAlbumMaterial = function(id) {
+      albumConfig.material = id;
+      document.querySelectorAll('.album-material-card').forEach(card => {
+        card.style.borderColor = '#e5e5e5';
+        card.style.background = '#fff';
+      });
+      document.querySelector(`.material-${id}`).style.borderColor = 'var(--accent)';
+      document.querySelector(`.material-${id}`).style.background = 'rgba(0,113,227,0.05)';
+      updateAlbumPrice();
+    }
+    
+    window.selectAlbumPages = function(pages) {
+      albumConfig.pageCount = pages;
+      document.querySelectorAll('.album-page-card').forEach(card => {
+        card.style.borderColor = '#e5e5e5';
+        card.style.background = '#fff';
+      });
+      document.querySelector(`.pages-${pages}`).style.borderColor = 'var(--accent)';
+      document.querySelector(`.pages-${pages}`).style.background = 'rgba(0,113,227,0.05)';
+      updateAlbumPrice();
+    }
+    
+    window.updateAlbumPrice = function() {
+      // Add upgrades to config
+      albumConfig.addons = [];
+      if (document.getElementById('albumThick')?.checked) {
+        albumConfig.pageThickness = 'thick';
+      } else {
+        albumConfig.pageThickness = 'thin';
+      }
+      
+      if (document.getElementById('albumPresentationBox')?.checked) {
+        albumConfig.addons.push('presentation-box');
+      }
+      
+      const totalPrice = calculatePrice(albumConfig);
+      
+      // Update display
+      document.getElementById('albumTotalPrice').textContent = `$${totalPrice.toLocaleString()}`;
+      document.getElementById('albumPrice').textContent = `+$${totalPrice.toLocaleString()}`;
+      
+      // Update summary
+      const size = ALBUM_CONFIG.sizes.find(s => s.id === albumConfig.size);
+      const cover = ALBUM_CONFIG.coverTypes.find(c => c.id === albumConfig.coverType);
+      const material = albumConfig.material ? 
+        Object.values(ALBUM_CONFIG.materials).flat().find(m => m.id === albumConfig.material) : null;
+      
+      const summary = `${size?.name} ${cover?.name}${material ? ` - ${material.name}` : ''}, ${albumConfig.pageCount} pages${albumConfig.pageThickness === 'thick' ? ' (Thick)' : ''}`;
+      document.getElementById('albumSummary').textContent = summary;
+      
+      // Trigger overall price calculation
+      if (typeof calculateCustomPrice === 'function') {
+        calculateCustomPrice();
+      }
+    }
+  </script>
 
   <script>
     // Lightbox functionality
