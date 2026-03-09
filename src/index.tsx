@@ -2605,71 +2605,185 @@ app.get('/studio-old', (c) =>
         }
       </style>
       
-      <div class="case case-featured">
-        <div class="case-info">
-          <div class="case-label">Custom SaaS Platform</div>
-          <div class="case-title">Access by CGI</div>
-          <div class="case-metric">$1B+ Under Management</div>
-          <div class="case-description">
-            Ultra-high-net-worth family office needed a platform that commands trust at the institutional level. We built a complete fintech SaaS platform with real-time portfolio analytics, secure authentication, and enterprise-grade infrastructure.
-          </div>
-        </div>
+      <!-- ACCESS BY CGI / CGI MERCHANT GROUP - UNIFIED ICONIC SHOWCASE -->
+      <div class="case case-featured" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); padding: 100px 60px; min-height: auto;">
         
-        <div class="device-showcase">
-          <!-- Desktop Frame - iMac Style -->
-          <div class="desktop-frame">
-            <div class="desktop-screen">
-              <img src="/static/images/brand-showcase/access-cgi-app-screen.jpg" alt="Access by CGI Dashboard">
+        <div style="max-width: 1400px; margin: 0 auto;">
+          <!-- Header -->
+          <div style="text-align: center; margin-bottom: 80px;">
+            <div class="case-label" style="margin-bottom: 24px;">Commercial Real Estate Investment Platform</div>
+            <h2 class="case-title" style="margin-bottom: 24px;">Access by CGI</h2>
+            <p style="font-size: 20px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 900px; margin: 0 auto 40px;">When CGI Merchant Group acquired the Trump International Hotel in Washington D.C. for <span style="color: #4794A6; font-weight: 700;">$375 million</span>, they needed a platform that could democratize institutional-grade real estate investments. We built the complete infrastructure—from portfolio analytics to investor portals—managing <span style="color: #4794A6; font-weight: 700;">$1.2B+ in assets</span> across iconic properties.</p>
+            
+            <!-- Key Stats -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; margin-top: 60px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">$1.2B+</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Assets Managed</div>
+              </div>
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">$375M</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Flagship Acquisition</div>
+              </div>
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">525</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Total Hotel Keys</div>
+              </div>
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">+500%</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Growth Rate</div>
+              </div>
             </div>
-            <div class="desktop-notch"></div>
-            <div class="desktop-stand"></div>
           </div>
           
-          <!-- Portfolio Dashboard -->
-          <div class="portfolio-dashboard">
-            <div class="portfolio-header">Portfolio Growth</div>
-            <div class="portfolio-aum">$1.2B</div>
-            <div class="portfolio-label">Assets Under Management During Our Relationship Period.</div>
-            
-            <div class="growth-chart">
-              <div class="chart-bars">
-                <div class="chart-bar bar-1">
-                  <span class="bar-value">$200M</span>
-                </div>
-                <div class="chart-bar bar-2">
-                  <span class="bar-value">$450M</span>
-                </div>
-                <div class="chart-bar bar-3">
-                  <span class="bar-value">$680M</span>
-                </div>
-                <div class="chart-bar bar-4">
-                  <span class="bar-value">$950M</span>
-                </div>
-                <div class="chart-bar bar-5">
-                  <span class="bar-value">$1.2B</span>
+          <!-- Platform UI Showcase -->
+          <div style="margin-bottom: 100px;">
+            <h3 style="font-size: 36px; font-weight: 900; text-align: center; margin-bottom: 60px; color: #fff;">Platform Interface</h3>
+            <div class="desktop-frame" style="max-width: 1200px; margin: 0 auto;">
+              <div class="desktop-screen">
+                <img src="/static/images/brand-showcase/access-cgi-app-screen.jpg" alt="Access by CGI Dashboard">
+              </div>
+              <div class="desktop-notch"></div>
+              <div class="desktop-stand"></div>
+            </div>
+          </div>
+          
+          <!-- Portfolio Growth Chart -->
+          <div style="margin-bottom: 100px;">
+            <div class="portfolio-dashboard" style="max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 60px;">
+              <div class="portfolio-header" style="text-align: center; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.5); margin-bottom: 20px;">Portfolio Growth</div>
+              <div class="portfolio-aum" style="text-align: center; font-size: 72px; font-weight: 900; color: #4794A6; margin-bottom: 12px;">$1.2B</div>
+              <div class="portfolio-label" style="text-align: center; font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 60px;">Assets Under Management During Our Relationship Period.</div>
+              
+              <div class="growth-chart">
+                <div class="chart-bars" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; height: 200px; margin-bottom: 20px;">
+                  <div class="chart-bar bar-1" style="flex: 1; background: linear-gradient(to top, #4794A6, #5aa5b8); border-radius: 8px 8px 0 0; position: relative; height: 20%; display: flex; align-items: flex-start; justify-content: center; transition: all 0.3s ease;">
+                    <span class="bar-value" style="position: absolute; top: -28px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8);">$200M</span>
+                  </div>
+                  <div class="chart-bar bar-2" style="flex: 1; background: linear-gradient(to top, #4794A6, #5aa5b8); border-radius: 8px 8px 0 0; position: relative; height: 45%; display: flex; align-items: flex-start; justify-content: center; transition: all 0.3s ease;">
+                    <span class="bar-value" style="position: absolute; top: -28px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8);">$450M</span>
+                  </div>
+                  <div class="chart-bar bar-3" style="flex: 1; background: linear-gradient(to top, #4794A6, #5aa5b8); border-radius: 8px 8px 0 0; position: relative; height: 68%; display: flex; align-items: flex-start; justify-content: center; transition: all 0.3s ease;">
+                    <span class="bar-value" style="position: absolute; top: -28px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8);">$680M</span>
+                  </div>
+                  <div class="chart-bar bar-4" style="flex: 1; background: linear-gradient(to top, #4794A6, #5aa5b8); border-radius: 8px 8px 0 0; position: relative; height: 90%; display: flex; align-items: flex-start; justify-content: center; transition: all 0.3s ease;">
+                    <span class="bar-value" style="position: absolute; top: -28px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8);">$950M</span>
+                  </div>
+                  <div class="chart-bar bar-5" style="flex: 1; background: linear-gradient(to top, #4794A6, #5aa5b8); border-radius: 8px 8px 0 0; position: relative; height: 100%; display: flex; align-items: flex-start; justify-content: center; transition: all 0.3s ease;">
+                    <span class="bar-value" style="position: absolute; top: -28px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8);">$1.2B</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div class="chart-years">
-              <span class="chart-year">2020</span>
-              <span class="chart-year">2021</span>
-              <span class="chart-year">2022</span>
-              <span class="chart-year">2023</span>
-              <span class="chart-year">2024</span>
-            </div>
-            
-            <div class="portfolio-metrics">
-              <div class="metric">
-                <div class="metric-value">+500%</div>
-                <div class="metric-label">Growth Rate</div>
+              
+              <div class="chart-years" style="display: flex; justify-content: space-between; gap: 24px; margin-bottom: 40px;">
+                <span class="chart-year" style="flex: 1; text-align: center; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);">2020</span>
+                <span class="chart-year" style="flex: 1; text-align: center; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);">2021</span>
+                <span class="chart-year" style="flex: 1; text-align: center; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);">2022</span>
+                <span class="chart-year" style="flex: 1; text-align: center; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);">2023</span>
+                <span class="chart-year" style="flex: 1; text-align: center; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);">2024</span>
               </div>
-              <div class="metric">
-                <div class="metric-value">$1B+</div>
-                <div class="metric-label">AUM Increase</div>
+              
+              <div class="portfolio-metrics" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <div class="metric" style="text-align: center;">
+                  <div class="metric-value" style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">+500%</div>
+                  <div class="metric-label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5);">Growth Rate</div>
+                </div>
+                <div class="metric" style="text-align: center;">
+                  <div class="metric-value" style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">$1B+</div>
+                  <div class="metric-label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5);">AUM Increase</div>
+                </div>
               </div>
             </div>
           </div>
+          
+          <!-- Iconic Properties Gallery -->
+          <div style="margin-bottom: 60px;">
+            <h3 style="font-size: 36px; font-weight: 900; text-align: center; margin-bottom: 60px; color: #fff;">Iconic Portfolio Properties</h3>
+            
+            <div style="display: flex; gap: 32px; overflow-x: auto; padding-bottom: 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+              
+              <!-- Waldorf Astoria DC -->
+              <div style="flex: 0 0 500px; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; overflow: hidden; scroll-snap-align: start; transition: all 0.3s ease;">
+                <img src="/static/images/brand-showcase/waldorf-astoria-dc.jpg" alt="Waldorf Astoria Washington DC" style="width: 100%; height: 320px; object-fit: cover;">
+                <div style="padding: 32px;">
+                  <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: #4794A6; margin-bottom: 12px;">ICONIC HOTEL</div>
+                  <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #fff;">Waldorf Astoria Washington D.C.</h4>
+                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px;">Historic Old Post Office building (1899) on Pennsylvania Avenue. Between the White House and U.S. Capitol. CGI's $375M acquisition transformed this landmark.</p>
+                  <div style="display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">263</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Keys</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">$375M</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Acquisition</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">1899</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Built</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- The Gabriel South Beach -->
+              <div style="flex: 0 0 500px; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; overflow: hidden; scroll-snap-align: start; transition: all 0.3s ease;">
+                <img src="/static/images/brand-showcase/gabriel-miami-south-beach.jpg" alt="The Gabriel Miami South Beach" style="width: 100%; height: 320px; object-fit: cover;">
+                <div style="padding: 32px;">
+                  <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: #4794A6; margin-bottom: 12px;">ART DECO ICON</div>
+                  <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #fff;">The Gabriel Miami South Beach</h4>
+                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px;">Blending mid-century modernism with Floridian style on Ocean Drive. Greatest linear footage on Miami Beach's most iconic street.</p>
+                  <div style="display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">132</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Keys</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">Ocean</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Drive</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">2 Pools</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Amenities</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- The Gabriel Downtown -->
+              <div style="flex: 0 0 500px; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; overflow: hidden; scroll-snap-align: start; transition: all 0.3s ease;">
+                <img src="/static/images/brand-showcase/gabriel-miami-downtown.jpg" alt="The Gabriel Miami Downtown" style="width: 100%; height: 320px; object-fit: cover;">
+                <div style="padding: 32px;">
+                  <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: #4794A6; margin-bottom: 12px;">MODERN LUXURY</div>
+                  <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #fff;">The Gabriel Miami Downtown</h4>
+                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px;">Located in the arts and cultural epicenter of Miami. High-rise tower with stunning Biscayne Bay views.</p>
+                  <div style="display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">130</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Keys</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">Bay</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Views</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">Arts</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">District</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <p style="text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 24px;">← Scroll to explore properties →</p>
+          </div>
+          
+          <!-- Platform Impact -->
+          <div style="background: rgba(71,148,166,0.05); border: 1px solid rgba(71,148,166,0.2); border-radius: 18px; padding: 60px; text-align: center; margin-top: 80px;">
+            <h3 style="font-size: 28px; font-weight: 900; margin-bottom: 24px; color: #fff;">Platform Impact</h3>
+            <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto;">We built a complete fintech SaaS that democratizes access to institutional-grade real estate investments. Secure deal flow management, investor portal with real-time analytics, automated document handling, and portfolio tracking. The platform enables both institutional and retail investors to access high-value commercial real estate opportunities.</p>
+          </div>
+          
         </div>
       </div>
       
@@ -2741,135 +2855,7 @@ app.get('/studio-old', (c) =>
           </div>
         </div>
       </div>
-      
-      <!-- CGI MERCHANT GROUP - ICONIC SHOWCASE -->
-      <div class="case case-featured" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); padding: 100px 60px; min-height: auto;">
-        
-        <!-- Platform Overview -->
-        <div style="max-width: 1400px; margin: 0 auto;">
-          <div style="text-align: center; margin-bottom: 80px;">
-            <div class="case-label" style="margin-bottom: 24px;">Commercial Real Estate Investment Platform</div>
-            <h2 class="case-title" style="margin-bottom: 24px;">CGI Merchant Group</h2>
-            <p style="font-size: 20px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 900px; margin: 0 auto 40px;">When CGI Merchant Group acquired the Trump International Hotel in Washington D.C. for <span style="color: #4794A6; font-weight: 700;">$375 million</span>, they needed a platform that could democratize institutional-grade real estate investments. We built the infrastructure.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-top: 60px; max-width: 1000px; margin-left: auto; margin-right: auto;">
-              <div>
-                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">$375M+</div>
-                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Assets Under Management</div>
-              </div>
-              <div>
-                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">525</div>
-                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Total Hotel Keys</div>
-              </div>
-              <div>
-                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">3</div>
-                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Iconic Properties</div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Platform UI Showcase -->
-          <div style="margin-bottom: 100px;">
-            <div class="desktop-frame" style="max-width: 1200px; margin: 0 auto;">
-              <div class="desktop-screen">
-                <img src="/static/images/brand-showcase/republic-platform-ui.jpg" alt="CGI Investment Platform">
-              </div>
-              <div class="desktop-notch"></div>
-              <div class="desktop-stand"></div>
-            </div>
-          </div>
-          
-          <!-- Iconic Properties Gallery (Horizontal Scroll) -->
-          <div style="margin-bottom: 60px;">
-            <h3 style="font-size: 36px; font-weight: 900; text-align: center; margin-bottom: 60px; color: #fff;">Portfolio Highlights</h3>
-            
-            <div style="display: flex; gap: 32px; overflow-x: auto; padding-bottom: 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
-              
-              <!-- Waldorf Astoria DC -->
-              <div style="flex: 0 0 500px; background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; scroll-snap-align: start;">
-                <img src="/static/images/brand-showcase/waldorf-astoria-dc.jpg" alt="Waldorf Astoria Washington DC" style="width: 100%; height: 320px; object-fit: cover;">
-                <div style="padding: 32px;">
-                  <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin-bottom: 12px;">ICONIC HOTEL</div>
-                  <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #fff;">Waldorf Astoria Washington D.C.</h4>
-                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px;">Historic Old Post Office building (1899) on Pennsylvania Avenue. Between the White House and U.S. Capitol. CGI's $375M acquisition transformed this landmark.</p>
-                  <div style="display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <div>
-                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">263</div>
-                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Keys</div>
-                    </div>
-                    <div>
-                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">$375M</div>
-                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Acquisition</div>
-                    </div>
-                    <div>
-                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">1899</div>
-                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Built</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- The Gabriel South Beach -->
-              <div style="flex: 0 0 500px; background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; scroll-snap-align: start;">
-                <img src="/static/images/brand-showcase/gabriel-miami-south-beach.jpg" alt="The Gabriel Miami South Beach" style="width: 100%; height: 320px; object-fit: cover;">
-                <div style="padding: 32px;">
-                  <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin-bottom: 12px;">ART DECO ICON</div>
-                  <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #fff;">The Gabriel Miami South Beach</h4>
-                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px;">Blending mid-century modernism with Floridian style on Ocean Drive. Greatest linear footage on Miami Beach's most iconic street.</p>
-                  <div style="display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <div>
-                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">132</div>
-                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Keys</div>
-                    </div>
-                    <div>
-                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">Ocean</div>
-                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Drive</div>
-                    </div>
-                    <div>
-                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">2 Pools</div>
-                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Amenities</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- The Gabriel Downtown -->
-              <div style="flex: 0 0 500px; background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; scroll-snap-align: start;">
-                <img src="/static/images/brand-showcase/gabriel-miami-downtown.jpg" alt="The Gabriel Miami Downtown" style="width: 100%; height: 320px; object-fit: cover;">
-                <div style="padding: 32px;">
-                  <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin-bottom: 12px;">MODERN LUXURY</div>
-                  <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #fff;">The Gabriel Miami Downtown</h4>
-                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px;">Located in the arts and cultural epicenter of Miami. High-rise tower with stunning Biscayne Bay views.</p>
-                  <div style="display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <div>
-                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">130</div>
-                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Keys</div>
-                    </div>
-                    <div>
-                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">Bay</div>
-                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Views</div>
-                    </div>
-                    <div>
-                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">Arts</div>
-                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">District</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-            <p style="text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 24px;">← Scroll to explore properties →</p>
-          </div>
-          
-          <!-- Platform Impact -->
-          <div style="background: rgba(71,148,166,0.05); border: 1px solid rgba(71,148,166,0.2); border-radius: 16px; padding: 60px; text-align: center; margin-top: 80px;">
-            <h3 style="font-size: 28px; font-weight: 900; margin-bottom: 24px; color: #fff;">Platform Impact</h3>
-            <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto;">We built a complete fintech SaaS that democratizes access to institutional-grade real estate investments. Secure deal flow management, investor portal with real-time analytics, automated document handling, and portfolio tracking. The platform enables both institutional and retail investors to access high-value commercial real estate opportunities.</p>
-          </div>
-          
-        </div>
-      </div>
-      
+
       <!-- BLUE BUILDING -->
       <div class="case case-featured">
         <div class="case-info">
