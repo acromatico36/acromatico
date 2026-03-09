@@ -2159,6 +2159,11 @@ app.get('\/studio', (c) =>
       
       .nav-links {
         gap: 24px;
+        font-size: 12px;
+      }
+      
+      .logo img {
+        width: 140px !important;
       }
       
       .hero,
@@ -2174,6 +2179,71 @@ app.get('\/studio', (c) =>
       
       .case {
         grid-template-columns: 1fr;
+      }
+      
+      /* CASE FEATURED - MOBILE */
+      .case-featured {
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+        padding: 60px 24px !important;
+        gap: 40px !important;
+      }
+      
+      .case-info {
+        max-width: 100% !important;
+        text-align: center;
+      }
+      
+      .case-label {
+        font-size: 11px !important;
+      }
+      
+      .case-title {
+        font-size: 36px !important;
+      }
+      
+      .case-metric {
+        font-size: 48px !important;
+      }
+      
+      .case-description {
+        font-size: 16px !important;
+      }
+      
+      /* DEVICE SHOWCASE - MOBILE */
+      .device-showcase {
+        height: auto !important;
+        width: 100% !important;
+      }
+      
+      .desktop-frame {
+        width: 100% !important;
+        margin-bottom: 0 !important;
+      }
+      
+      .desktop-screen {
+        padding: 6px !important;
+      }
+      
+      .desktop-notch {
+        height: 16px !important;
+      }
+      
+      .desktop-stand {
+        display: none !important;
+      }
+      
+      .mobile-frame {
+        display: none !important;
+      }
+      
+      .portfolio-dashboard {
+        position: relative !important;
+        bottom: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        margin-top: 32px !important;
+        padding: 24px !important;
       }
       
       .case-image {
@@ -2192,6 +2262,37 @@ app.get('\/studio', (c) =>
       .cta-primary {
         padding: 20px 48px;
         font-size: 16px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .logo img {
+        width: 120px !important;
+      }
+      
+      header nav {
+        padding: 16px 24px;
+        justify-content: center;
+      }
+      
+      .hero h1 {
+        font-size: 48px !important;
+      }
+      
+      .case-featured {
+        padding: 40px 20px !important;
+      }
+      
+      .case-title {
+        font-size: 28px !important;
+      }
+      
+      .case-metric {
+        font-size: 36px !important;
       }
     }
   </style>
@@ -2652,7 +2753,7 @@ app.get('\/studio', (c) =>
           <!-- Desktop Frame - iMac Style -->
           <div class="desktop-frame">
             <div class="desktop-screen">
-              <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy Platform">
+              <img src="/static/images/brand-showcase/ecolosophy-homepage.jpg" alt="Ecolosophy Platform">
             </div>
             <div class="desktop-notch"></div>
             <div class="desktop-stand"></div>
@@ -2661,7 +2762,7 @@ app.get('\/studio', (c) =>
           <!-- Mobile Frame -->
           <div class="mobile-frame">
             <div class="mobile-screen">
-              <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy Mobile">
+              <img src="/static/images/brand-showcase/ecolosophy-homepage.jpg" alt="Ecolosophy Mobile">
             </div>
           </div>
         </div>
@@ -2727,6 +2828,138 @@ app.get('\/studio', (c) =>
         </div>
       </div>
       
+    </div>
+  </section>
+
+  <!-- FRAMEWORK: HOW WE WORK -->
+  <section class="framework" style="background: #0a0a0a; padding: 120px 48px; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 80px;">
+        <h2 style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; line-height: 1; margin-bottom: 24px; color: #fff;">The Framework</h2>
+        <p style="font-size: 20px; color: rgba(255,255,255,0.6); max-width: 700px; margin: 0 auto;">Our battle-tested process for building world-class SaaS products. Every project. Every time.</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-bottom: 80px;">
+        <div style="background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; transition: transform 0.3s ease;">
+          <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 16px;">01</div>
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #fff;">Discovery</h3>
+          <p style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.6);">Deep-dive workshops. User research. Competitor analysis. Tech stack evaluation. We map every detail before writing a single line of code.</p>
+        </div>
+        
+        <div style="background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px;">
+          <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 16px;">02</div>
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #fff;">Design</h3>
+          <p style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.6);">Wireframes, prototypes, user flows. Every pixel intentional. Every interaction tested. We design for conversion, not just aesthetics.</p>
+        </div>
+        
+        <div style="background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px;">
+          <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 16px;">03</div>
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #fff;">Development</h3>
+          <p style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.6);">Modern tech stack. Clean architecture. Scalable infrastructure. We build platforms that handle millions of users without breaking.</p>
+        </div>
+        
+        <div style="background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px;">
+          <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 16px;">04</div>
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #fff;">Launch</h3>
+          <p style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.6);">Deployment. Monitoring. Performance optimization. We don't just launch and disappear. We ensure your platform dominates from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING PACKAGES -->
+  <section class="pricing" style="background: #000; padding: 120px 48px; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 80px;">
+        <h2 style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; line-height: 1; margin-bottom: 24px; color: #fff;">Ready-to-Purchase Packages</h2>
+        <p style="font-size: 20px; color: rgba(255,255,255,0.6); max-width: 700px; margin: 0 auto;">No sales calls. No negotiations. Just world-class SaaS development. Pick your package and let's build.</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px;">
+        
+        <!-- STARTER PACKAGE -->
+        <div style="background: linear-gradient(135deg, #111 0%, #0a0a0a 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 48px; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 24px; right: 24px; background: rgba(71,148,166,0.1); color: #4794A6; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Foundation</div>
+          
+          <h3 style="font-size: 32px; font-weight: 900; margin-bottom: 16px; color: #fff;">Starter</h3>
+          <div style="font-size: 64px; font-weight: 900; color: #4794A6; line-height: 1; margin-bottom: 8px;">$25K</div>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 32px;">4-6 week delivery</p>
+          
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; margin-bottom: 32px;">
+            <p style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 32px;">Perfect for MVPs and proof-of-concept platforms. Get your idea validated fast.</p>
+            
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Core platform (5-7 pages)</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ User authentication</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Database architecture</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Admin dashboard</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Mobile responsive</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Cloudflare deployment</li>
+              <li style="padding: 12px 0; color: rgba(255,255,255,0.8); font-size: 15px;">✓ 30-day support</li>
+            </ul>
+          </div>
+          
+          <a href="/contact?package=starter" style="display: block; width: 100%; padding: 20px; background: rgba(71,148,166,0.1); border: 2px solid #4794A6; color: #4794A6; text-align: center; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; transition: all 0.3s ease;">Get Started</a>
+        </div>
+        
+        <!-- GROWTH PACKAGE -->
+        <div style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); border: 2px solid #4794A6; border-radius: 24px; padding: 48px; position: relative; overflow: hidden; transform: scale(1.05); box-shadow: 0 20px 60px rgba(71,148,166,0.2);">
+          <div style="position: absolute; top: 24px; right: 24px; background: #4794A6; color: #000; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Most Popular</div>
+          
+          <h3 style="font-size: 32px; font-weight: 900; margin-bottom: 16px; color: #fff;">Growth</h3>
+          <div style="font-size: 64px; font-weight: 900; color: #4794A6; line-height: 1; margin-bottom: 8px;">$75K</div>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 32px;">8-12 week delivery</p>
+          
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; margin-bottom: 32px;">
+            <p style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 32px;">Full-featured SaaS ready for market. Built for scale from day one.</p>
+            
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 600;">✓ Everything in Starter, plus:</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Advanced platform (15-20 pages)</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Multi-user roles & permissions</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Payment integration (Stripe)</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Email automation</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Analytics dashboard</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ API development</li>
+              <li style="padding: 12px 0; color: rgba(255,255,255,0.8); font-size: 15px;">✓ 90-day support</li>
+            </ul>
+          </div>
+          
+          <a href="/contact?package=growth" style="display: block; width: 100%; padding: 20px; background: #4794A6; color: #000; text-align: center; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(71,148,166,0.3);">Get Started</a>
+        </div>
+        
+        <!-- ENTERPRISE PACKAGE -->
+        <div style="background: linear-gradient(135deg, #111 0%, #0a0a0a 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 48px; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 24px; right: 24px; background: rgba(71,148,166,0.1); color: #4794A6; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Premium</div>
+          
+          <h3 style="font-size: 32px; font-weight: 900; margin-bottom: 16px; color: #fff;">Enterprise</h3>
+          <div style="font-size: 64px; font-weight: 900; color: #4794A6; line-height: 1; margin-bottom: 8px;">$150K+</div>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 32px;">12-16 week delivery</p>
+          
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; margin-bottom: 32px;">
+            <p style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 32px;">Enterprise-grade platforms that handle millions. Built for institutional trust.</p>
+            
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 600;">✓ Everything in Growth, plus:</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Unlimited pages & features</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Custom integrations</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Advanced security & compliance</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Dedicated account manager</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ White-label options</li>
+              <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-size: 15px;">✓ Microservices architecture</li>
+              <li style="padding: 12px 0; color: rgba(255,255,255,0.8); font-size: 15px;">✓ 6-month support</li>
+            </ul>
+          </div>
+          
+          <a href="/contact?package=enterprise" style="display: block; width: 100%; padding: 20px; background: rgba(71,148,166,0.1); border: 2px solid #4794A6; color: #4794A6; text-align: center; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; transition: all 0.3s ease;">Get Started</a>
+        </div>
+        
+      </div>
+      
+      <div style="text-align: center; margin-top: 60px; padding-top: 60px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p style="font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 16px;">Need something custom? We build that too.</p>
+        <a href="/contact?package=custom" style="color: #4794A6; text-decoration: none; font-weight: 600; font-size: 16px; border-bottom: 2px solid #4794A6; padding-bottom: 4px; transition: all 0.3s ease;">Schedule a Call →</a>
+      </div>
     </div>
   </section>
 
