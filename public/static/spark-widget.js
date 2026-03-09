@@ -642,9 +642,13 @@
     input.disabled = true;
     sendBtn.disabled = true;
     
+    // Check if this is the final answer BEFORE processing
+    const isFinalAnswer = window.SparkWidget.currentStep === 'problem';
+    
     await window.SparkWidget.handleMessage(message);
     
-    if (window.SparkWidget.currentStep !== 'problem' || !window.SparkWidget.conversationStarted) {
+    // Don't re-enable input if we just submitted the final answer
+    if (!isFinalAnswer) {
       input.disabled = false;
       sendBtn.disabled = false;
       input.focus();
