@@ -311,6 +311,313 @@
     <a href="/contact" class="cta">Start Your Project</a>
   </section>
   
+  <!-- AI BRAND AUDIT TOOL -->
+  <section style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); padding: 120px 22px; border-top: 1px solid rgba(255,255,255,0.08);">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <div style="display: inline-block; background: rgba(0,113,227,0.1); border: 1px solid rgba(0,113,227,0.3); border-radius: 980px; padding: 8px 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #0071e3; margin-bottom: 24px;">
+        ✨ Free AI-Powered Analysis
+      </div>
+      <h2 style="font-size: clamp(36px, 6vw, 56px); font-weight: 900; line-height: 1.1; margin-bottom: 24px;">Get Your Free Brand Health Report</h2>
+      <p style="font-size: 21px; line-height: 1.5; color: rgba(255,255,255,0.6); max-width: 700px; margin: 0 auto 60px;">Answer 7 quick questions. Our AI analyzes your brand in real-time and generates a custom roadmap showing exactly what needs to be fixed—and how we can help.</p>
+      
+      <!-- AUDIT FORM -->
+      <div id="audit-form" style="background: rgba(255,255,255,0.03); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 60px; text-align: left;">
+        <div id="questions">
+          <!-- Question 1 -->
+          <div class="question" data-q="1" style="margin-bottom: 40px;">
+            <label style="display: block; font-size: 18px; font-weight: 600; margin-bottom: 16px; color: #f5f5f7;">1. What's your current monthly revenue?</label>
+            <select name="revenue" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #f5f5f7; font-size: 16px; font-family: inherit;">
+              <option value="">Select...</option>
+              <option value="0-10k">$0 - $10K/mo (Just starting)</option>
+              <option value="10k-50k">$10K - $50K/mo (Growing)</option>
+              <option value="50k-250k">$50K - $250K/mo (Scaling)</option>
+              <option value="250k+">$250K+/mo (Established)</option>
+            </select>
+          </div>
+          
+          <!-- Question 2 -->
+          <div class="question" data-q="2" style="margin-bottom: 40px;">
+            <label style="display: block; font-size: 18px; font-weight: 600; margin-bottom: 16px; color: #f5f5f7;">2. What's your biggest brand challenge right now?</label>
+            <select name="challenge" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #f5f5f7; font-size: 16px; font-family: inherit;">
+              <option value="">Select...</option>
+              <option value="no-brand">No brand identity or visual system</option>
+              <option value="low-conversions">Low conversion rates / poor UX</option>
+              <option value="no-content">No content system or photography</option>
+              <option value="tech-debt">Outdated tech stack / platform</option>
+              <option value="scaling">Can't scale operations efficiently</option>
+            </select>
+          </div>
+          
+          <!-- Question 3 -->
+          <div class="question" data-q="3" style="margin-bottom: 40px;">
+            <label style="display: block; font-size: 18px; font-weight: 600; margin-bottom: 16px; color: #f5f5f7;">3. What industry are you in?</label>
+            <select name="industry" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #f5f5f7; font-size: 16px; font-family: inherit;">
+              <option value="">Select...</option>
+              <option value="fintech">Fintech / Financial Services</option>
+              <option value="realestate">Real Estate / Property Management</option>
+              <option value="ecommerce">E-Commerce / DTC Brand</option>
+              <option value="saas">SaaS / Tech Platform</option>
+              <option value="hospitality">Hospitality / Travel</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <!-- Question 4 -->
+          <div class="question" data-q="4" style="margin-bottom: 40px;">
+            <label style="display: block; font-size: 18px; font-weight: 600; margin-bottom: 16px; color: #f5f5f7;">4. Do you have a website/platform?</label>
+            <select name="website" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #f5f5f7; font-size: 16px; font-family: inherit;">
+              <option value="">Select...</option>
+              <option value="none">No, need to build from scratch</option>
+              <option value="outdated">Yes, but it's outdated/slow</option>
+              <option value="basic">Yes, basic template site</option>
+              <option value="custom">Yes, custom built platform</option>
+            </select>
+          </div>
+          
+          <!-- Question 5 -->
+          <div class="question" data-q="5" style="margin-bottom: 40px;">
+            <label style="display: block; font-size: 18px; font-weight: 600; margin-bottom: 16px; color: #f5f5f7;">5. Do you have custom brand photography/assets?</label>
+            <select name="assets" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #f5f5f7; font-size: 16px; font-family: inherit;">
+              <option value="">Select...</option>
+              <option value="none">No, using stock images only</option>
+              <option value="some">Some custom, mostly stock</option>
+              <option value="most">Mostly custom, need more</option>
+              <option value="full">Full custom asset library</option>
+            </select>
+          </div>
+          
+          <!-- Question 6 -->
+          <div class="question" data-q="6" style="margin-bottom: 40px;">
+            <label style="display: block; font-size: 18px; font-weight: 600; margin-bottom: 16px; color: #f5f5f7;">6. What's your investment budget for brand transformation?</label>
+            <select name="budget" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #f5f5f7; font-size: 16px; font-family: inherit;">
+              <option value="">Select...</option>
+              <option value="under-25k">Under $25K (Starter/MVP)</option>
+              <option value="25k-75k">$25K - $75K (Growth Phase)</option>
+              <option value="75k-150k">$75K - $150K (Scale Phase)</option>
+              <option value="150k+">$150K+ (Enterprise)</option>
+            </select>
+          </div>
+          
+          <!-- Question 7 -->
+          <div class="question" data-q="7" style="margin-bottom: 40px;">
+            <label style="display: block; font-size: 18px; font-weight: 600; margin-bottom: 16px; color: #f5f5f7;">7. What's your timeline?</label>
+            <select name="timeline" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #f5f5f7; font-size: 16px; font-family: inherit;">
+              <option value="">Select...</option>
+              <option value="asap">ASAP (1-2 months)</option>
+              <option value="quarter">This quarter (3 months)</option>
+              <option value="6months">Next 6 months</option>
+              <option value="planning">Just planning / researching</option>
+            </select>
+          </div>
+        </div>
+        
+        <button id="analyze-btn" onclick="generateReport()" style="width: 100%; padding: 20px; background: #0071e3; color: #fff; border: none; border-radius: 980px; font-size: 17px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+          ✨ Generate My Free Brand Report
+        </button>
+      </div>
+      
+      <!-- REPORT RESULTS (Hidden initially) -->
+      <div id="report-results" style="display: none; background: rgba(255,255,255,0.03); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 60px; margin-top: 40px; text-align: left;">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h3 style="font-size: 36px; font-weight: 900; margin-bottom: 16px;">Your Brand Health Report</h3>
+          <p style="font-size: 18px; color: rgba(255,255,255,0.6);">Generated with AI • <span id="report-date"></span></p>
+        </div>
+        
+        <!-- BRAND HEALTH SCORE -->
+        <div style="background: linear-gradient(135deg, rgba(0,113,227,0.1) 0%, rgba(0,113,227,0.05) 100%); border: 1px solid rgba(0,113,227,0.2); border-radius: 18px; padding: 48px; margin-bottom: 60px; text-align: center;">
+          <div style="font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #0071e3; margin-bottom: 16px;">Overall Brand Health</div>
+          <div id="health-score" style="font-size: 96px; font-weight: 900; line-height: 1; color: #0071e3; margin-bottom: 16px;">--</div>
+          <div id="health-label" style="font-size: 18px; color: rgba(255,255,255,0.7);">--</div>
+        </div>
+        
+        <!-- CRITICAL ISSUES -->
+        <div style="margin-bottom: 60px;">
+          <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 24px;">🚨 Critical Issues Found</h4>
+          <div id="issues-list"></div>
+        </div>
+        
+        <!-- RECOMMENDED ROADMAP -->
+        <div style="margin-bottom: 60px;">
+          <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 24px;">🎯 Recommended Roadmap</h4>
+          <div id="roadmap-list"></div>
+        </div>
+        
+        <!-- ESTIMATED INVESTMENT -->
+        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 48px; margin-bottom: 40px;">
+          <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 24px;">💰 Estimated Investment</h4>
+          <div id="investment-range" style="font-size: 48px; font-weight: 900; color: #0071e3; margin-bottom: 16px;">--</div>
+          <p id="investment-note" style="font-size: 16px; color: rgba(255,255,255,0.6);">--</p>
+        </div>
+        
+        <!-- CTA -->
+        <div style="text-align: center;">
+          <a href="/contact" style="display: inline-block; padding: 20px 48px; background: #0071e3; color: #fff; text-decoration: none; border-radius: 980px; font-size: 17px; font-weight: 600; transition: all 0.3s ease; margin-right: 16px;">
+            📞 Book Strategy Call
+          </a>
+          <button onclick="downloadPDF()" style="display: inline-block; padding: 20px 48px; background: rgba(255,255,255,0.05); color: #f5f5f7; border: 1px solid rgba(255,255,255,0.1); border-radius: 980px; font-size: 17px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+            📥 Download PDF Report
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+  function generateReport() {
+    // Get form values
+    const revenue = document.querySelector('[name="revenue"]').value;
+    const challenge = document.querySelector('[name="challenge"]').value;
+    const industry = document.querySelector('[name="industry"]').value;
+    const website = document.querySelector('[name="website"]').value;
+    const assets = document.querySelector('[name="assets"]').value;
+    const budget = document.querySelector('[name="budget"]').value;
+    const timeline = document.querySelector('[name="timeline"]').value;
+    
+    // Validation
+    if (!revenue || !challenge || !industry || !website || !assets || !budget || !timeline) {
+      alert('Please answer all questions to generate your report.');
+      return;
+    }
+    
+    // Calculate brand health score (0-100)
+    let score = 50; // Base score
+    
+    // Revenue factor
+    if (revenue === '250k+') score += 15;
+    else if (revenue === '50k-250k') score += 10;
+    else if (revenue === '10k-50k') score += 5;
+    
+    // Challenge penalty
+    if (challenge === 'no-brand') score -= 20;
+    else if (challenge === 'low-conversions') score -= 15;
+    else if (challenge === 'tech-debt') score -= 10;
+    else if (challenge === 'scaling') score -= 5;
+    
+    // Website factor
+    if (website === 'custom') score += 15;
+    else if (website === 'basic') score += 5;
+    else if (website === 'outdated') score -= 10;
+    else if (website === 'none') score -= 20;
+    
+    // Assets factor
+    if (assets === 'full') score += 20;
+    else if (assets === 'most') score += 10;
+    else if (assets === 'some') score += 5;
+    else if (assets === 'none') score -= 15;
+    
+    // Generate issues
+    const issues = [];
+    if (challenge === 'no-brand') issues.push({title: 'Missing Brand Identity', desc: 'No cohesive visual system. Competitors look more professional.'});
+    if (challenge === 'low-conversions') issues.push({title: 'Poor User Experience', desc: 'Website isn\'t converting visitors into customers.'});
+    if (challenge === 'no-content') issues.push({title: 'Stock Image Syndrome', desc: 'Generic stock photos killing brand credibility.'});
+    if (challenge === 'tech-debt') issues.push({title: 'Outdated Technology', desc: 'Platform is slow, buggy, or hard to maintain.'});
+    if (website === 'none') issues.push({title: 'No Online Presence', desc: 'Missing a professional website/platform entirely.'});
+    if (assets === 'none') issues.push({title: 'Zero Custom Assets', desc: 'No photography, videos, or brand content.'});
+    
+    // Generate roadmap
+    const roadmap = [];
+    let timeline_months = 0;
+    
+    if (challenge === 'no-brand' || assets === 'none') {
+      roadmap.push({phase: 'Phase 1', title: 'Brand Foundation', duration: '2-4 weeks', items: ['Visual identity system', 'Logo & typography', 'Color palette', 'Brand guidelines']});
+      timeline_months += 1;
+    }
+    
+    if (challenge === 'no-content' || assets === 'none' || assets === 'some') {
+      roadmap.push({phase: 'Phase 2', title: 'Content Production', duration: '3-6 weeks', items: ['500+ product photos', 'Brand photography', '12-month content calendar', 'Video assets']});
+      timeline_months += 1.5;
+    }
+    
+    if (website === 'none' || website === 'outdated' || challenge === 'tech-debt') {
+      roadmap.push({phase: 'Phase 3', title: 'Platform Development', duration: '6-12 weeks', items: ['Custom SaaS platform', 'Mobile-responsive design', 'Admin dashboard', 'Payment integration', 'API development']});
+      timeline_months += 2.5;
+    }
+    
+    if (challenge === 'scaling') {
+      roadmap.push({phase: 'Phase 4', title: 'Scale Infrastructure', duration: '4-8 weeks', items: ['Automation systems', 'Analytics dashboard', 'Email workflows', 'Performance optimization']});
+      timeline_months += 1.5;
+    }
+    
+    // Investment range
+    let investment_min = 0;
+    let investment_max = 0;
+    
+    if (budget === 'under-25k') {
+      investment_min = 15000;
+      investment_max = 25000;
+    } else if (budget === '25k-75k') {
+      investment_min = 25000;
+      investment_max = 75000;
+    } else if (budget === '75k-150k') {
+      investment_min = 75000;
+      investment_max = 150000;
+    } else if (budget === '150k+') {
+      investment_min = 150000;
+      investment_max = 250000;
+    }
+    
+    // Show results
+    document.getElementById('audit-form').style.display = 'none';
+    document.getElementById('report-results').style.display = 'block';
+    
+    // Set date
+    document.getElementById('report-date').textContent = new Date().toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'});
+    
+    // Set score
+    document.getElementById('health-score').textContent = Math.max(0, Math.min(100, score));
+    
+    let scoreLabel = '';
+    if (score >= 80) scoreLabel = '🔥 Strong Foundation';
+    else if (score >= 60) scoreLabel = '⚡ Room for Growth';
+    else if (score >= 40) scoreLabel = '⚠️ Needs Attention';
+    else scoreLabel = '🚨 Critical Issues';
+    document.getElementById('health-label').textContent = scoreLabel;
+    
+    // Render issues
+    let issuesHTML = '';
+    issues.forEach(issue => {
+      issuesHTML += `
+        <div style="background: rgba(255,0,0,0.05); border-left: 4px solid #ff3b30; padding: 24px; margin-bottom: 16px; border-radius: 8px;">
+          <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">${issue.title}</div>
+          <div style="font-size: 14px; color: rgba(255,255,255,0.6);">${issue.desc}</div>
+        </div>
+      `;
+    });
+    document.getElementById('issues-list').innerHTML = issuesHTML || '<p style="color: rgba(255,255,255,0.5);">No critical issues found. Great job!</p>';
+    
+    // Render roadmap
+    let roadmapHTML = '';
+    roadmap.forEach((phase, idx) => {
+      roadmapHTML += `
+        <div style="background: rgba(0,113,227,0.05); border-left: 4px solid #0071e3; padding: 32px; margin-bottom: 24px; border-radius: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div>
+              <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #0071e3; margin-bottom: 8px;">${phase.phase}</div>
+              <div style="font-size: 20px; font-weight: 900;">${phase.title}</div>
+            </div>
+            <div style="font-size: 14px; color: rgba(255,255,255,0.6);">${phase.duration}</div>
+          </div>
+          <ul style="margin: 0; padding-left: 20px;">
+            ${phase.items.map(item => `<li style="font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 8px;">${item}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    });
+    document.getElementById('roadmap-list').innerHTML = roadmapHTML;
+    
+    // Set investment
+    document.getElementById('investment-range').textContent = `$${(investment_min/1000).toFixed(0)}K - $${(investment_max/1000).toFixed(0)}K`;
+    document.getElementById('investment-note').textContent = `Based on your needs, timeline: ${Math.ceil(timeline_months)} months. Includes platform development, brand identity, content production, and launch support.`;
+    
+    // Scroll to results
+    document.getElementById('report-results').scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+  
+  function downloadPDF() {
+    alert('PDF download feature coming soon! For now, screenshot this report or book a call to get a detailed PDF.');
+  }
+  </script>
+  
   <section>
     
     <!-- ACCESS BY CGI -->
