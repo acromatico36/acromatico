@@ -2189,27 +2189,44 @@
 
           <!-- OTHER ADD-ONS -->
           <div class="addon-group">
-            <h4 class="addon-group-title">Additional Services</h4>
+            <h4 class="addon-group-title">Wall Art & Additional Services</h4>
             <div class="addon-options">
+              <!-- WALL ART OPTIONS -->
+              <label class="addon-checkbox">
+                <input type="checkbox" value="canvas_pro_20x30" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Canvas Pro (20×30") - Premium cotton canvas</span>
+                  <span class="addon-price-label">+$650</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="metal_pro_20x30" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Metal Pro (20×30") - ChromaLuxe® aluminum</span>
+                  <span class="addon-price-label">+$650</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="acrylic_pro_20x30" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Acrylic Pro (20×30") - Ultra HD acrylic</span>
+                  <span class="addon-price-label">+$650</span>
+                </span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" value="canvas_pro_30x40" onchange="updateAddons()">
+                <span class="addon-card">
+                  <span class="addon-name">Canvas Pro (30×40") - Large premium canvas</span>
+                  <span class="addon-price-label">+$1,200</span>
+                </span>
+              </label>
+              
+              <!-- ADDITIONAL SERVICES -->
               <label class="addon-checkbox">
                 <input type="checkbox" value="video" onchange="updateAddons()">
                 <span class="addon-card">
                   <span class="addon-name">Cinematic Video (matches photo hours)</span>
                   <span class="addon-price-label" id="videoPriceLabel">+$2,400</span>
-                </span>
-              </label>
-              <label class="addon-checkbox">
-                <input type="checkbox" value="canvas" onchange="updateAddons()">
-                <span class="addon-card">
-                  <span class="addon-name">Canvas Art Print (20x30)</span>
-                  <span class="addon-price-label">+$450</span>
-                </span>
-              </label>
-              <label class="addon-checkbox">
-                <input type="checkbox" value="framed" onchange="updateAddons()">
-                <span class="addon-card">
-                  <span class="addon-name">Framed Art Print (30x40)</span>
-                  <span class="addon-price-label">+$850</span>
                 </span>
               </label>
               <label class="addon-checkbox">
@@ -2947,8 +2964,10 @@
       let addonsTotal = 0;
       const addons = {
         engagement: 695,
-        canvas: 450,
-        framed: 850,
+        canvas_pro_20x30: 650,
+        metal_pro_20x30: 650,
+        acrylic_pro_20x30: 650,
+        canvas_pro_30x40: 1200,
         video: photoPrice, // Video equals photo price
         travel: 1000
       };
@@ -3236,12 +3255,17 @@
         addonsTotal += videoPrice;
       }
       
-      // Other add-ons
-      const canvas = document.querySelector('input[value="canvas"]');
-      const framed = document.querySelector('input[value="framed"]');
+      // Wall Art & Other add-ons
+      const canvas_pro_20x30 = document.querySelector('input[value="canvas_pro_20x30"]');
+      const metal_pro_20x30 = document.querySelector('input[value="metal_pro_20x30"]');
+      const acrylic_pro_20x30 = document.querySelector('input[value="acrylic_pro_20x30"]');
+      const canvas_pro_30x40 = document.querySelector('input[value="canvas_pro_30x40"]');
       const travel = document.querySelector('input[value="travel"]');
-      if (canvas && canvas.checked) addonsTotal += 450;
-      if (framed && framed.checked) addonsTotal += 850;
+      
+      if (canvas_pro_20x30 && canvas_pro_20x30.checked) addonsTotal += 650;
+      if (metal_pro_20x30 && metal_pro_20x30.checked) addonsTotal += 650;
+      if (acrylic_pro_20x30 && acrylic_pro_20x30.checked) addonsTotal += 650;
+      if (canvas_pro_30x40 && canvas_pro_30x40.checked) addonsTotal += 1200;
       if (travel && travel.checked) addonsTotal += 1000;
       
       // Update summary
