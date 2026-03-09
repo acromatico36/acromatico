@@ -225,18 +225,9 @@
   
   <div class="container">
     <h1>Brand Intelligence Assessment</h1>
-    <p class="subtitle">Start typing to get instant insights about your brand positioning, market opportunity, and growth strategy. Powered by real data.</p>
+    <p class="subtitle">Just start typing below. Tell me about your brand and I'll give you a complete strategic analysis.</p>
     
-    <div id="chat-container">
-      <div class="message ai">
-        <div class="avatar">🎯</div>
-        <div class="message-content">
-          <strong>Hey! I'm your Brand Intelligence Analyst.</strong><br><br>
-          I'll help you understand your brand's market position, identify growth opportunities, and develop a winning strategy.<br><br>
-          <strong>Let's start simple:</strong> What industry or niche is your brand in? (e.g., "fitness apparel", "SaaS for real estate", "luxury skincare")
-        </div>
-      </div>
-    </div>
+    <div id="chat-container"></div>
   </div>
   
   <div class="input-container">
@@ -244,7 +235,7 @@
       <input 
         type="text" 
         id="user-input" 
-        placeholder="Type your answer and press Enter..." 
+        placeholder="Tell me about your brand... (e.g., 'I run a fitness apparel company targeting millennial women')" 
         autofocus
       />
       <button id="send-btn">
@@ -261,46 +252,15 @@
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
     
-    let questionIndex = 0;
+    let conversationStarted = false;
     let userData = {
-      industry: '',
-      stage: '',
-      revenue: '',
+      initial: '',
       audience: '',
-      challenge: ''
+      challenge: '',
+      revenue: ''
     };
     
-    const questions = [
-      {
-        key: 'industry',
-        follow: (answer) => `Got it—<strong>${answer}</strong>. That's a competitive space.<br><br>What stage is your brand at right now? (e.g., "idea phase", "launching soon", "already generating revenue", "scaling fast")`
-      },
-      {
-        key: 'stage',
-        follow: (answer) => {
-          if (answer.toLowerCase().includes('revenue') || answer.toLowerCase().includes('generating')) {
-            return `Nice! You're already making money.<br><br>What's your current monthly revenue range? (e.g., "$0-5K", "$5K-25K", "$25K-100K", "$100K+")`;
-          }
-          return `Understood. Every brand starts somewhere.<br><br>Who's your target audience? Be specific. (e.g., "women 25-40 interested in wellness", "startup founders in fintech")`;
-        }
-      },
-      {
-        key: 'revenue',
-        follow: (answer) => `Perfect. That tells me a lot about where you are.<br><br>Who's your ideal customer? Be as specific as possible. (e.g., "busy moms who prioritize organic products", "B2B SaaS companies with 10-50 employees")`
-      },
-      {
-        key: 'audience',
-        follow: (answer) => `Crystal clear. I can already see the positioning opportunities.<br><br>What's your BIGGEST challenge right now? (e.g., "getting traffic", "converting visitors", "standing out from competitors", "scaling profitably")`
-      },
-      {
-        key: 'challenge',
-        follow: async (answer) => {
-          userData[questions[questionIndex].key] = answer;
-          await generateReport();
-          return null;
-        }
-      }
-    ];
+    let currentQuestion = '';
     
     function addMessage(content, type = 'ai') {
       const message = document.createElement('div');
@@ -334,72 +294,144 @@
       if (typing) typing.remove();
     }
     
-    async function generateReport() {
-      showTyping();
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      hideTyping();
+    async function analyzeInitialMessage(message) {
+      // Parse industry/niche from initial message
+      const lowerMsg = message.toLowerCase();
+      let industry = 'your niche';
       
-      // Generate insights based on collected data
-      const report = `
-        <strong>🎯 Brand Intelligence Report Generated</strong><br><br>
-        Based on your answers, here's what I see:<br><br>
-        
-        <div class="insight-card">
-          <h3>📊 Market Position</h3>
-          <ul>
-            <li>You're in <strong>${userData.industry}</strong> at the <strong>${userData.stage}</strong> stage</li>
-            <li>Target audience: <strong>${userData.audience}</strong></li>
-            <li>Primary challenge: <strong>${userData.challenge}</strong></li>
-          </ul>
-        </div>
-        
-        <div class="insight-card">
-          <h3>🚀 Growth Opportunities</h3>
-          <ul>
-            <li><strong>Content Strategy:</strong> Build authority through storytelling that resonates with ${userData.audience}</li>
-            <li><strong>Positioning:</strong> Differentiate by solving ${userData.challenge} better than anyone else</li>
-            <li><strong>Channel Focus:</strong> Double down on channels where ${userData.audience} actually spend time</li>
-          </ul>
-        </div>
-        
-        <div class="insight-card">
-          <h3>💡 Immediate Next Steps</h3>
-          <ul>
-            <li>Define your unique positioning statement (What makes you different?)</li>
-            <li>Create a content system that educates and converts</li>
-            <li>Build a repeatable customer acquisition engine</li>
-            <li>Optimize for retention and lifetime value</li>
-          </ul>
-        </div>
-        
-        <br><strong>Want personalized help implementing this strategy?</strong><br>
-        <a href="/contact" style="color: #0071e3; text-decoration: underline;">Book a strategy call →</a>
-      `;
+      if (lowerMsg.includes('fitness') || lowerMsg.includes('gym') || lowerMsg.includes('workout')) {
+        industry = 'fitness';
+      } else if (lowerMsg.includes('saas') || lowerMsg.includes('software') || lowerMsg.includes('tech')) {
+        industry = 'SaaS/tech';
+      } else if (lowerMsg.includes('ecommerce') || lowerMsg.includes('e-commerce') || lowerMsg.includes('online store')) {
+        industry = 'e-commerce';
+      } else if (lowerMsg.includes('real estate') || lowerMsg.includes('property')) {
+        industry = 'real estate';
+      } else if (lowerMsg.includes('beauty') || lowerMsg.includes('skincare') || lowerMsg.includes('cosmetics')) {
+        industry = 'beauty/skincare';
+      }
       
-      addMessage(report);
-      userInput.disabled = true;
-      sendBtn.disabled = true;
-      userInput.placeholder = "Assessment complete! Check your insights above.";
-    }
-    
-    async function handleMessage() {
-      const message = userInput.value.trim();
-      if (!message || questionIndex >= questions.length) return;
-      
-      addMessage(message, 'user');
-      userData[questions[questionIndex].key] = message;
-      userInput.value = '';
-      userInput.disabled = true;
-      sendBtn.disabled = true;
+      userData.initial = message;
       
       showTyping();
       await new Promise(resolve => setTimeout(resolve, 1500));
       hideTyping();
       
-      const response = await questions[questionIndex].follow(message);
-      if (response) {
-        addMessage(response);
-        questionIndex++;
+      const response = `Got it! So you're in <strong>${industry}</strong>. That's a competitive space—which means there's huge opportunity if you position correctly.<br><br>Quick question: <strong>Who's your ideal customer?</strong> Be specific. (e.g., "busy moms 30-45 who prioritize organic products", "B2B SaaS founders with 10-50 employees")`;
+      
+      addMessage(response);
+      currentQuestion = 'audience';
+    }
+    
+    async function handleAudienceAnswer(message) {
+      userData.audience = message;
+      
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      hideTyping();
+      
+      const response = `Perfect. Crystal clear target.<br><br>Now tell me: <strong>What's your BIGGEST challenge right now?</strong> (e.g., "getting consistent traffic", "converting visitors to customers", "standing out from competitors", "scaling profitably")`;
+      
+      addMessage(response);
+      currentQuestion = 'challenge';
+    }
+    
+    async function handleChallengeAnswer(message) {
+      userData.challenge = message;
+      
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      hideTyping();
+      
+      const response = `I see. That's a common growth blocker—but totally solvable.<br><br>Last question: <strong>What's your current monthly revenue?</strong> (e.g., "pre-revenue", "$0-5K", "$5K-25K", "$25K-100K", "$100K+")`;
+      
+      addMessage(response);
+      currentQuestion = 'revenue';
+    }
+    
+    async function generateReport(message) {
+      userData.revenue = message;
+      
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 2500));
+      hideTyping();
+      
+      // Generate comprehensive report
+      const report = `
+        <strong>🎯 Brand Intelligence Report</strong><br><br>
+        Based on your answers, here's your complete strategic analysis:<br><br>
+        
+        <div class="insight-card">
+          <h3>📊 Current Position</h3>
+          <ul>
+            <li><strong>Brand context:</strong> ${userData.initial}</li>
+            <li><strong>Target customer:</strong> ${userData.audience}</li>
+            <li><strong>Primary challenge:</strong> ${userData.challenge}</li>
+            <li><strong>Revenue stage:</strong> ${userData.revenue}</li>
+          </ul>
+        </div>
+        
+        <div class="insight-card">
+          <h3>🚀 Strategic Positioning</h3>
+          <ul>
+            <li><strong>Differentiation angle:</strong> Position yourself as the ONLY solution that solves "${userData.challenge}" specifically for "${userData.audience}"</li>
+            <li><strong>Content focus:</strong> Create content that educates your audience on solving their version of "${userData.challenge}"</li>
+            <li><strong>Channel strategy:</strong> Go where ${userData.audience} actually spend time—not where YOU think they are</li>
+            <li><strong>Messaging hook:</strong> Lead with the problem (${userData.challenge}), not your product</li>
+          </ul>
+        </div>
+        
+        <div class="insight-card">
+          <h3>💡 Immediate Action Plan</h3>
+          <ul>
+            <li><strong>Week 1:</strong> Define your unique positioning statement in one sentence</li>
+            <li><strong>Week 2:</strong> Create 10 pieces of content addressing "${userData.challenge}" from different angles</li>
+            <li><strong>Week 3:</strong> Build a simple lead magnet that solves ONE micro-problem for ${userData.audience}</li>
+            <li><strong>Week 4:</strong> Launch a repeatable customer acquisition system</li>
+          </ul>
+        </div>
+        
+        <div class="insight-card">
+          <h3>🎯 Growth Multipliers</h3>
+          <ul>
+            <li>Focus on lifetime value, not just acquisition cost</li>
+            <li>Build a content system, not random posts</li>
+            <li>Optimize for retention before scaling acquisition</li>
+            <li>Track one metric that matters most at your stage</li>
+          </ul>
+        </div>
+        
+        <br><br>
+        <strong>Want help implementing this strategy?</strong><br>
+        We build complete systems—from positioning to platforms to content engines.<br>
+        <a href="/contact" style="color: #0071e3; text-decoration: underline; font-weight: 600;">Book a strategy call →</a>
+      `;
+      
+      addMessage(report);
+      userInput.disabled = true;
+      sendBtn.disabled = true;
+      userInput.placeholder = "Assessment complete! Your strategic report is above ↑";
+    }
+    
+    async function handleMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+      
+      addMessage(message, 'user');
+      userInput.value = '';
+      userInput.disabled = true;
+      sendBtn.disabled = true;
+      
+      if (!conversationStarted) {
+        conversationStarted = true;
+        await analyzeInitialMessage(message);
+      } else if (currentQuestion === 'audience') {
+        await handleAudienceAnswer(message);
+      } else if (currentQuestion === 'challenge') {
+        await handleChallengeAnswer(message);
+      } else if (currentQuestion === 'revenue') {
+        await generateReport(message);
+        return; // Don't re-enable input
       }
       
       userInput.disabled = false;
@@ -412,6 +444,9 @@
     });
     
     sendBtn.addEventListener('click', handleMessage);
+    
+    // Auto-focus on load
+    setTimeout(() => userInput.focus(), 100);
   </script>
 
 </body>
