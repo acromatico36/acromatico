@@ -2214,28 +2214,28 @@ app.get('\/studio', (c) =>
   <!-- HERO: THE MOVEMENT -->
   <section class="hero">
     <div class="hero-content">
-      <h1>We don't build brands.<br/>We build <span>movements.</span></h1>
-      <p>Most agencies give you a logo and a website. We give you a visual system that makes your competitors irrelevant. 500+ custom photos. 12-month content machines. Zero stock images.</p>
-      <a href="/contact" class="cta-primary">Work With Us</a>
+      <h1>You dream it.<br/>We <span>build</span> it.</h1>
+      <p>Custom SaaS applications, enterprise platforms, and scalable web solutions. From concept to deployment, we turn your vision into reality. Full-stack development. Cloud architecture. Real results.</p>
+      <a href="/contact" class="cta-primary">Start Your Project</a>
     </div>
   </section>
 
   <!-- TRUTH: WHY WE'RE DIFFERENT -->
   <section class="truth">
     <div class="truth-content">
-      <h2>Your brand is everything.</h2>
-      <p>If people can't recognize your brand in 0.3 seconds, you're invisible.</p>
-      <p>If your content looks like stock photos, you're forgettable.</p>
-      <p>If your message sounds like everyone else's, you're <span class="highlight">a commodity</span>.</p>
-      <p>We make you <span class="highlight">unforgettable</span>.</p>
+      <h2>Your idea deserves world-class execution.</h2>
+      <p>If your platform looks generic, you're invisible.</p>
+      <p>If your tech stack is outdated, you're forgettable.</p>
+      <p>If your user experience is clunky, you're <span class="highlight">just another app</span>.</p>
+      <p>We make you <span class="highlight">the standard</span>.</p>
     </div>
   </section>
 
   <!-- PROOF: THE RESULTS -->
   <section class="proof">
     <div class="proof-header">
-      <h2>The proof is in the growth.</h2>
-      <p>We only take 6 clients per year. Here's why.</p>
+      <h2>Built for scale. Proven by results.</h2>
+      <p>We only take 6 projects per year. Here's what we deliver.</p>
     </div>
     
     <div class="case-studies">
@@ -2500,11 +2500,11 @@ app.get('\/studio', (c) =>
       
       <div class="case case-featured">
         <div class="case-info">
-          <div class="case-label">Enterprise Fintech Platform</div>
+          <div class="case-label">Custom SaaS Platform</div>
           <div class="case-title">Access by CGI</div>
-          <div class="case-metric">$1B+ Family Fund</div>
+          <div class="case-metric">$1B+ Under Management</div>
           <div class="case-description">
-            Ultra-high-net-worth family office needed a platform that commands trust at the institutional level. We created a complete visual system and portfolio dashboard that speaks to serious capital.
+            Ultra-high-net-worth family office needed a platform that commands trust at the institutional level. We built a complete fintech SaaS platform with real-time portfolio analytics, secure authentication, and enterprise-grade infrastructure.
           </div>
         </div>
         
@@ -2529,7 +2529,7 @@ app.get('\/studio', (c) =>
           <div class="portfolio-dashboard">
             <div class="portfolio-header">Portfolio Growth</div>
             <div class="portfolio-aum">$1.2B</div>
-            <div class="portfolio-label">Current Assets Under Management</div>
+            <div class="portfolio-label">Assets Under Management During Our Relationship Period.</div>
             
             <div class="growth-chart">
               <div class="chart-bars">
