@@ -1,4 +1,4 @@
-// Spark Chat Widget 🔥
+// Spark Strategic Intelligence Widget 🔥
 (function() {
   // Inject Spark widget HTML
   const widgetHTML = `
@@ -15,9 +15,9 @@
         position: absolute;
         bottom: 80px;
         right: 0;
-        width: 420px;
+        width: 460px;
         max-width: calc(100vw - 48px);
-        height: 600px;
+        height: 680px;
         max-height: calc(100vh - 120px);
         background: rgba(0,0,0,0.95);
         backdrop-filter: blur(30px);
@@ -142,11 +142,11 @@
       }
       
       .spark-bubble {
-        max-width: 75%;
+        max-width: 85%;
         padding: 14px 18px;
         border-radius: 18px;
         font-size: 15px;
-        line-height: 1.5;
+        line-height: 1.6;
         background: rgba(255,255,255,0.08);
         border: 1px solid rgba(255,255,255,0.12);
         color: #f5f5f7;
@@ -269,70 +269,61 @@
         100% { transform: scale(1.3); opacity: 0; }
       }
       
-      .spark-landing {
-        background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(71,148,166,0.05) 100%);
+      .spark-insight-card {
+        background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(71,148,166,0.08));
         border: 1px solid rgba(255,107,53,0.3);
-        border-radius: 20px;
-        padding: 32px 24px;
-        margin: 16px 0;
+        border-radius: 16px;
+        padding: 20px;
+        margin: 12px 0;
       }
       
-      .spark-landing h3 {
-        font-size: 24px;
-        font-weight: 900;
-        margin-bottom: 10px;
-        background: linear-gradient(135deg, #FF6B35, #FFD23F);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      
-      .spark-landing-section {
-        background: rgba(0,0,0,0.4);
-        border-radius: 14px;
-        padding: 16px;
-        margin: 14px 0;
-      }
-      
-      .spark-landing-section h4 {
+      .spark-insight-card h4 {
         font-size: 16px;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         color: #FF6B35;
       }
       
-      .spark-landing-section p, .spark-landing-section ul {
+      .spark-insight-card p, .spark-insight-card ul {
         font-size: 14px;
         line-height: 1.6;
-        color: rgba(255,255,255,0.8);
+        color: rgba(255,255,255,0.85);
       }
       
-      .spark-landing-section ul {
+      .spark-insight-card ul {
         list-style: none;
         padding: 0;
+        margin: 8px 0;
       }
       
-      .spark-landing-section li {
+      .spark-insight-card li {
         padding: 6px 0 6px 24px;
         position: relative;
       }
       
-      .spark-landing-section li:before {
-        content: "🔥";
+      .spark-insight-card li:before {
+        content: "→";
         position: absolute;
         left: 0;
+        color: #FF6B35;
+        font-weight: 700;
       }
       
-      .spark-color-palette {
-        display: flex;
-        gap: 10px;
-        margin-top: 12px;
+      .spark-strategic-brief {
+        background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(71,148,166,0.05) 100%);
+        border: 1px solid rgba(255,107,53,0.3);
+        border-radius: 20px;
+        padding: 28px 20px;
+        margin: 16px 0;
       }
       
-      .spark-color-swatch {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-        border: 2px solid rgba(255,255,255,0.2);
+      .spark-strategic-brief h3 {
+        font-size: 22px;
+        font-weight: 900;
+        margin-bottom: 8px;
+        background: linear-gradient(135deg, #FF6B35, #FFD23F);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
       
       .spark-cta-banner {
@@ -393,8 +384,8 @@
           <div class="spark-header-left">
             <div class="spark-avatar-header">🔥</div>
             <div>
-              <div class="spark-title">Meet Spark</div>
-              <div class="spark-subtitle">Your brand strategist</div>
+              <div class="spark-title">Spark Strategic AI</div>
+              <div class="spark-subtitle">Deep brand intelligence</div>
             </div>
           </div>
           <button class="spark-close" onclick="window.SparkWidget.toggle()">✕</button>
@@ -430,6 +421,139 @@
   // Inject into DOM
   document.body.insertAdjacentHTML('beforeend', widgetHTML);
   
+  // Strategic Intelligence Database
+  const StrategicIntelligence = {
+    // Industry-specific competitive landscapes
+    competitiveLandscapes: {
+      'fitness': {
+        keyPlayers: ['Peloton', 'ClassPass', 'Barry\'s Bootcamp', 'F45', 'Orangetheory'],
+        marketSize: '$96.7B globally',
+        trends: ['At-home fitness', 'Boutique studios', 'Wearable tech integration', 'Community-first'],
+        blueOcean: 'Hyper-personalized recovery + performance tracking',
+        positioning: 'Most brands compete on equipment or class variety. Win by owning OUTCOMES.'
+      },
+      'saas': {
+        keyPlayers: ['Varies by vertical'],
+        marketSize: '$195B and growing 18% YoY',
+        trends: ['AI-first products', 'Vertical SaaS', 'No-code tools', 'Usage-based pricing'],
+        blueOcean: 'Solving one workflow problem 10x better than horizontal tools',
+        positioning: 'Horizontal SaaS is saturated. Vertical + AI + specific workflow = moat.'
+      },
+      'beauty': {
+        keyPlayers: ['Glossier', 'The Ordinary', 'Drunk Elephant', 'Fenty Beauty'],
+        marketSize: '$511B globally',
+        trends: ['Clean beauty', 'Personalization', 'DTC brands', 'Influencer-led'],
+        blueOcean: 'Science-backed formulations with transparent ingredients',
+        positioning: 'Market is emotional + aspirational. Win with education + trust.'
+      },
+      'ecommerce': {
+        keyPlayers: ['Amazon', 'Shopify merchants', 'DTC brands'],
+        marketSize: '$5.7T globally',
+        trends: ['Social commerce', 'Subscription models', 'Fast shipping', 'Sustainability'],
+        blueOcean: 'Niche products with strong community + content',
+        positioning: 'Compete on trust, story, and community—not price.'
+      },
+      'realestate': {
+        keyPlayers: ['Zillow', 'Redfin', 'Compass', 'Opendoor'],
+        marketSize: '$3.7T (US residential alone)',
+        trends: ['iBuying', 'Virtual tours', 'Data-driven pricing', 'Fractional ownership'],
+        blueOcean: 'Institutional-grade tools for individual investors',
+        positioning: 'Technology + trust + transparency = differentiation.'
+      },
+      'default': {
+        keyPlayers: ['Varies by vertical'],
+        marketSize: 'Depends on niche',
+        trends: ['Digital transformation', 'AI integration', 'Customer experience'],
+        blueOcean: 'Solve a specific pain point 10x better',
+        positioning: 'Find where incumbents are weak and dominate that wedge.'
+      }
+    },
+    
+    // Strategic frameworks
+    frameworks: {
+      blueOcean: (industry, problem) => `
+        <strong>Blue Ocean Strategy Analysis:</strong><br>
+        Instead of competing in the red ocean (crowded ${industry} space), create uncontested market space by:<br>
+        • <strong>Eliminate:</strong> Features that are industry standard but don't create value<br>
+        • <strong>Reduce:</strong> Over-delivered features that customers don't value<br>
+        • <strong>Raise:</strong> Factors well above industry standard (focus on ${problem})<br>
+        • <strong>Create:</strong> New value elements the industry has never offered
+      `,
+      
+      jobsToBeDone: (audience, problem) => `
+        <strong>Jobs-to-be-Done Framework:</strong><br>
+        ${audience} isn't buying your product—they're "hiring" it to do a job:<br>
+        • <strong>Functional job:</strong> Solve ${problem}<br>
+        • <strong>Emotional job:</strong> Feel confident, secure, successful<br>
+        • <strong>Social job:</strong> Look smart to peers/colleagues<br>
+        <em>Win by being the BEST tool for that specific job.</em>
+      `,
+      
+      positioning: (audience, problem, competitors) => `
+        <strong>Strategic Positioning:</strong><br>
+        • <strong>Who:</strong> ${audience} (hyper-specific)<br>
+        • <strong>What:</strong> The ONLY solution that solves ${problem}<br>
+        • <strong>How:</strong> Unlike ${competitors}, you [unique approach]<br>
+        • <strong>Proof:</strong> [Case study / metric / testimonial]<br>
+        <em>This is your positioning statement. Memorize it.</em>
+      `
+    },
+    
+    // Growth stage playbooks
+    stagePlaybooks: {
+      'pre-revenue': {
+        focus: 'Validation & Positioning',
+        kpis: ['Customer interviews (20+)', 'MVP feedback', 'Positioning clarity'],
+        nextSteps: [
+          'Talk to 20-50 target customers BEFORE building',
+          'Identify the ONE problem worth solving',
+          'Build MVP that solves ONLY that problem',
+          'Get 10 paying customers (even if manual process)'
+        ]
+      },
+      '0-5k': {
+        focus: 'Product-Market Fit',
+        kpis: ['Customer retention', 'NPS score', 'Word-of-mouth growth'],
+        nextSteps: [
+          'Double down on your best customers (who loves you?)',
+          'Build a repeatable acquisition channel',
+          'Nail your onboarding (first 24 hours = critical)',
+          'Create case studies from early wins'
+        ]
+      },
+      '5k-25k': {
+        focus: 'Scalable Acquisition',
+        kpis: ['CAC:LTV ratio', 'Monthly growth rate', 'Churn rate'],
+        nextSteps: [
+          'Automate customer acquisition (ads, content, partnerships)',
+          'Build a content engine (SEO + thought leadership)',
+          'Hire your first growth person',
+          'Implement analytics + cohort tracking'
+        ]
+      },
+      '25k-100k': {
+        focus: 'Scale & Systems',
+        kpis: ['Revenue per employee', 'Gross margin', 'Expansion revenue'],
+        nextSteps: [
+          'Build systems for sales, marketing, operations',
+          'Hire specialists (not generalists)',
+          'Launch second acquisition channel',
+          'Explore strategic partnerships'
+        ]
+      },
+      '100k+': {
+        focus: 'Market Leadership',
+        kpis: ['Market share', 'Brand awareness', 'Enterprise deals'],
+        nextSteps: [
+          'Dominate your category (thought leadership)',
+          'Launch enterprise offering',
+          'Build moat (network effects, data, brand)',
+          'Consider strategic M&A'
+        ]
+      }
+    }
+  };
+  
   // Spark Widget Logic
   window.SparkWidget = {
     isOpen: false,
@@ -437,9 +561,12 @@
     currentStep: '',
     userData: {
       business: '',
-      why: '',
+      industry: '',
       audience: '',
-      problem: ''
+      problem: '',
+      stage: '',
+      competitors: '',
+      differentiator: ''
     },
     
     toggle() {
@@ -449,7 +576,7 @@
       
       if (this.isOpen && !this.conversationStarted) {
         setTimeout(() => {
-          this.addMessage('Hey! 👋 I\'m Spark, your brand strategist. Tell me about your business and I\'ll build you a custom brand framework in 2 minutes. What do you do?', 'spark');
+          this.addMessage('Hey! 👋 I\'m Spark—your strategic intelligence AI.<br><br>I don\'t do surface-level BS. I\'ll analyze your competitive landscape, diagnose your positioning gaps, and build you a real strategic brief.<br><br><strong>Let\'s start: What do you do?</strong> (Be specific—e.g., "I build AI-powered invoicing software for freelance designers")', 'spark');
           document.getElementById('spark-input').focus();
         }, 300);
       }
@@ -491,141 +618,221 @@
     
     extractIndustry(text) {
       const lower = text.toLowerCase();
-      if (lower.includes('fitness') || lower.includes('gym')) return 'fitness';
-      if (lower.includes('saas') || lower.includes('software')) return 'SaaS';
-      if (lower.includes('beauty') || lower.includes('skincare')) return 'beauty';
-      if (lower.includes('ecommerce') || lower.includes('online store')) return 'e-commerce';
-      if (lower.includes('real estate') || lower.includes('property')) return 'real estate';
-      if (lower.includes('food') || lower.includes('restaurant')) return 'food & beverage';
-      if (lower.includes('consulting') || lower.includes('agency')) return 'services';
-      return 'your industry';
+      if (lower.includes('fitness') || lower.includes('gym') || lower.includes('workout')) return 'fitness';
+      if (lower.includes('saas') || lower.includes('software') || lower.includes('platform')) return 'saas';
+      if (lower.includes('beauty') || lower.includes('skincare') || lower.includes('cosmetic')) return 'beauty';
+      if (lower.includes('ecommerce') || lower.includes('e-commerce') || lower.includes('online store')) return 'ecommerce';
+      if (lower.includes('real estate') || lower.includes('property') || lower.includes('realestate')) return 'realestate';
+      return 'default';
     },
     
     async handleMessage(message) {
       if (!this.conversationStarted) {
+        // Step 1: Business description + industry extraction
         this.conversationStarted = true;
         this.userData.business = message;
-        const industry = this.extractIndustry(message);
+        this.userData.industry = this.extractIndustry(message);
+        
+        const intel = StrategicIntelligence.competitiveLandscapes[this.userData.industry];
         
         this.showTyping();
-        await new Promise(r => setTimeout(r, 1500));
+        await new Promise(r => setTimeout(r, 2000));
         this.hideTyping();
         
-        this.addMessage(`Love it! ${industry.charAt(0).toUpperCase() + industry.slice(1)} is huge right now. 🚀<br><br>Here's the thing: people don't buy WHAT you do—they buy <strong>WHY you do it</strong>.<br><br>So tell me: <strong>Why did you start this? What's the deeper mission?</strong>`, 'spark');
-        this.currentStep = 'why';
+        this.addMessage(`Got it. ${intel ? `The ${this.userData.industry} space is a <strong>$${intel.marketSize}</strong> market` : 'Interesting niche'}.<br><br>Here's what I'm seeing competitively:`, 'spark');
         
-      } else if (this.currentStep === 'why') {
-        this.userData.why = message;
+        await new Promise(r => setTimeout(r, 800));
         
-        this.showTyping();
-        await new Promise(r => setTimeout(r, 1400));
-        this.hideTyping();
+        if (intel) {
+          const competitiveInsight = `
+            <div class="spark-insight-card">
+              <h4>🎯 Competitive Landscape</h4>
+              <p><strong>Key players:</strong> ${intel.keyPlayers.join(', ')}</p>
+              <p><strong>Market trends:</strong></p>
+              <ul>
+                ${intel.trends.map(t => `<li>${t}</li>`).join('')}
+              </ul>
+              <p><strong>Blue Ocean opportunity:</strong> ${intel.blueOcean}</p>
+            </div>
+          `;
+          this.addMessage(competitiveInsight, 'spark');
+        }
         
-        this.addMessage(`That's POWERFUL. 💪 People connect with that story instantly.<br><br>Now let's get tactical: <strong>Who EXACTLY are you trying to reach?</strong> Be specific.`, 'spark');
+        await new Promise(r => setTimeout(r, 600));
+        this.addMessage(`Now let's get tactical.<br><br><strong>Who EXACTLY are you targeting?</strong> (e.g., "Series A SaaS founders with 10-50 employees who struggle with manual processes")<br><br><em>Specificity = power.</em>`, 'spark');
         this.currentStep = 'audience';
         
       } else if (this.currentStep === 'audience') {
+        // Step 2: Audience definition
         this.userData.audience = message;
+        
+        this.showTyping();
+        await new Promise(r => setTimeout(r, 1600));
+        this.hideTyping();
+        
+        this.addMessage(`Perfect. That's crystal clear.<br><br>Here's the framework I'm using:`, 'spark');
+        
+        await new Promise(r => setTimeout(r, 600));
+        
+        const jtbdInsight = StrategicIntelligence.frameworks.jobsToBeDone(this.userData.audience, '[problem TBD]');
+        this.addMessage(`<div class="spark-insight-card">${jtbdInsight}</div>`, 'spark');
+        
+        await new Promise(r => setTimeout(r, 800));
+        this.addMessage(`<strong>What's the #1 problem they're trying to solve?</strong><br><br>Not a surface-level symptom—the REAL pain point. (e.g., "They waste 10 hours/week on manual data entry and it's killing their margins")`, 'spark');
+        this.currentStep = 'problem';
+        
+      } else if (this.currentStep === 'problem') {
+        // Step 3: Problem diagnosis
+        this.userData.problem = message;
+        
+        this.showTyping();
+        await new Promise(r => setTimeout(r, 1800));
+        this.hideTyping();
+        
+        this.addMessage(`That's a HUGE problem. ${this.extractPainValidation(message)}<br><br>Quick question: <strong>What stage are you at revenue-wise?</strong><br><br>Options:<br>• Pre-revenue<br>• $0-5K MRR<br>• $5K-25K MRR<br>• $25K-100K MRR<br>• $100K+ MRR`, 'spark');
+        this.currentStep = 'stage';
+        
+      } else if (this.currentStep === 'stage') {
+        // Step 4: Revenue stage
+        this.userData.stage = this.normalizeStage(message);
         
         this.showTyping();
         await new Promise(r => setTimeout(r, 1400));
         this.hideTyping();
         
-        this.addMessage(`Crystal clear. That specificity is GOLD. 🎯<br><br>Last question: <strong>What's the #1 problem your audience faces that you solve?</strong>`, 'spark');
-        this.currentStep = 'problem';
+        this.addMessage(`Got it. At the <strong>${this.userData.stage}</strong> stage, ${this.getStageInsight(this.userData.stage)}<br><br>Two more tactical questions:<br><br><strong>1) Who are your main competitors?</strong> (Name 2-3 if you can)`, 'spark');
+        this.currentStep = 'competitors';
         
-      } else if (this.currentStep === 'problem') {
-        this.userData.problem = message;
+      } else if (this.currentStep === 'competitors') {
+        // Step 5: Competitors
+        this.userData.competitors = message;
         
         this.showTyping();
+        await new Promise(r => setTimeout(r, 1200));
+        this.hideTyping();
+        
+        this.addMessage(`Perfect. Knowing your competitive set is critical.<br><br><strong>Last question: What makes you different?</strong><br><br>Why would someone choose YOU over ${this.userData.competitors}?`, 'spark');
+        this.currentStep = 'differentiator';
+        
+      } else if (this.currentStep === 'differentiator') {
+        // Step 6: Differentiator → Generate strategic brief
+        this.userData.differentiator = message;
+        
+        this.showTyping();
+        await new Promise(r => setTimeout(r, 3000));
+        this.hideTyping();
+        
+        this.addMessage(`Alright. Let me synthesize everything… 🔥🧠`, 'spark');
+        
         await new Promise(r => setTimeout(r, 2500));
-        this.hideTyping();
-        
-        this.addMessage(`Alright, let me cook… 🔥👨‍🍳`, 'spark');
-        
-        await new Promise(r => setTimeout(r, 2000));
         this.showTyping();
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(r => setTimeout(r, 3000));
         this.hideTyping();
         
-        this.generateLandingPage();
+        this.generateStrategicBrief();
         return;
       }
     },
     
-    generateLandingPage() {
-      const brandName = this.extractBrandName(this.userData.business);
-      const industry = this.extractIndustry(this.userData.business);
-      const colors = this.generateColorPalette(industry);
+    extractPainValidation(problem) {
+      if (problem.toLowerCase().includes('time') || problem.toLowerCase().includes('hour')) {
+        return 'Time = money. If you can save them hours, you can charge premium.';
+      }
+      if (problem.toLowerCase().includes('money') || problem.toLowerCase().includes('cost')) {
+        return 'ROI is clear. Lead with cost savings in your messaging.';
+      }
+      if (problem.toLowerCase().includes('trust') || problem.toLowerCase().includes('confidence')) {
+        return 'This is emotional. Your brand needs to scream trust + authority.';
+      }
+      return 'That's a painful problem worth solving.';
+    },
+    
+    normalizeStage(input) {
+      const lower = input.toLowerCase();
+      if (lower.includes('pre') || lower.includes('0') && lower.includes('revenue')) return 'pre-revenue';
+      if (lower.includes('5k') && !lower.includes('25')) return '0-5k';
+      if (lower.includes('25') || (lower.includes('5') && lower.includes('25'))) return '5k-25k';
+      if (lower.includes('100') || lower.includes('25k-100')) return '25k-100k';
+      if (lower.includes('100k+') || lower.includes('100k +')) return '100k+';
+      return 'pre-revenue';
+    },
+    
+    getStageInsight(stage) {
+      const playbook = StrategicIntelligence.stagePlaybooks[stage];
+      if (!playbook) return 'focus is critical.';
+      return `your focus should be <strong>${playbook.focus}</strong>.`;
+    },
+    
+    generateStrategicBrief() {
+      const intel = StrategicIntelligence.competitiveLandscapes[this.userData.industry] || StrategicIntelligence.competitiveLandscapes.default;
+      const playbook = StrategicIntelligence.stagePlaybooks[this.userData.stage];
       
-      const landingHTML = `
-        <div class="spark-landing">
-          <h3>${brandName}</h3>
-          <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">${this.generateTagline()}</p>
+      const briefHTML = `
+        <div class="spark-strategic-brief">
+          <h3>📊 Your Strategic Brief</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 20px;">This is your battle plan. Screenshot it.</p>
           
-          <div class="spark-landing-section">
-            <h4>🎯 Your "Why" (This is what sells)</h4>
-            <p>${this.userData.why}</p>
+          <div class="spark-insight-card">
+            <h4>🎯 Market Position</h4>
+            <p><strong>Industry:</strong> ${this.userData.industry.charAt(0).toUpperCase() + this.userData.industry.slice(1)}<br>
+            <strong>Market size:</strong> ${intel.marketSize}<br>
+            <strong>Your stage:</strong> ${this.userData.stage}<br>
+            <strong>Positioning gap:</strong> ${intel.positioning}</p>
           </div>
           
-          <div class="spark-landing-section">
-            <h4>🧠 Brand Positioning</h4>
-            <p>For <strong>${this.userData.audience}</strong> who struggle with <strong>${this.userData.problem}</strong>, ${brandName} is the solution that actually delivers.</p>
+          <div class="spark-insight-card">
+            <h4>🧠 Strategic Positioning</h4>
+            <p><strong>Who:</strong> ${this.userData.audience}<br>
+            <strong>What they need:</strong> ${this.userData.problem}<br>
+            <strong>Your differentiator:</strong> ${this.userData.differentiator}<br>
+            <strong>vs. Competitors:</strong> ${this.userData.competitors}</p>
+            <p style="margin-top: 12px;"><em>Your one-liner:</em><br>"For ${this.userData.audience.split(',')[0] || this.userData.audience.split('.')[0]} who ${this.userData.problem.split('.')[0]}, we're the only solution that ${this.userData.differentiator.split('.')[0]}."</p>
           </div>
           
-          <div class="spark-landing-section">
-            <h4>💎 Your Unique Value</h4>
+          <div class="spark-insight-card">
+            <h4>📈 Growth Playbook (${this.userData.stage})</h4>
+            <p><strong>Focus area:</strong> ${playbook.focus}<br>
+            <strong>Key metrics:</strong> ${playbook.kpis.join(', ')}</p>
+            <p style="margin-top: 12px;"><strong>Next 4 weeks:</strong></p>
             <ul>
-              <li>Built for ${this.userData.audience.split(',')[0] || this.userData.audience.split(' ').slice(0,4).join(' ')}</li>
-              <li>Solves ${this.userData.problem.split(' ').slice(0,5).join(' ')}...</li>
-              <li>Founded on: ${this.userData.why.split('.')[0]}</li>
+              ${playbook.nextSteps.map((s, i) => `<li><strong>Week ${i+1}:</strong> ${s}</li>`).join('')}
             </ul>
           </div>
           
-          <div class="spark-landing-section">
-            <h4>🎨 Brand Colors</h4>
-            <div class="spark-color-palette">
-              ${colors.map(c => `<div class="spark-color-swatch" style="background: ${c.hex};" title="${c.name}"></div>`).join('')}
-            </div>
+          <div class="spark-insight-card">
+            <h4>🚀 Blue Ocean Strategy</h4>
+            <p>${intel.blueOcean}</p>
+            <p style="margin-top: 12px;"><strong>Your wedge:</strong><br>
+            Instead of competing on ${intel.trends[0]}, dominate on solving "${this.userData.problem}" better than anyone else.</p>
+          </div>
+          
+          <div class="spark-insight-card">
+            <h4>💡 Tactical Recommendations</h4>
+            <ul>
+              <li><strong>Messaging:</strong> Lead with "${this.userData.problem}"—not your product</li>
+              <li><strong>Content:</strong> Create 10 pieces educating ${this.userData.audience.split(',')[0]} on solving this problem</li>
+              <li><strong>Positioning:</strong> Be THE solution for ${this.userData.audience.split(',')[0]}—not a "feature"</li>
+              <li><strong>Differentiation:</strong> Triple down on "${this.userData.differentiator}"—that's your moat</li>
+            </ul>
           </div>
           
           <div class="spark-cta-banner">
-            <h4>Ready to Build This? 🚀</h4>
-            <p>We'll turn this into a complete system in 4-8 weeks.</p>
+            <h4>Want Us to Build This? 🚀</h4>
+            <p>We turn strategic briefs into complete systems: positioning → platform → content engine.</p>
             <a href="/contact" class="spark-cta-btn">Book Strategy Call →</a>
           </div>
         </div>
       `;
       
-      this.addMessage(landingHTML, 'spark');
+      this.addMessage(briefHTML, 'spark');
       
       setTimeout(() => {
-        this.addMessage(`There you go! 🎉 Screenshot it, share it, own it.<br><br><a href="/contact" style="color: #FF6B35; text-decoration: underline; font-weight: 700;">Want us to build the full thing? →</a>`, 'spark');
-      }, 800);
+        this.addMessage(`There's your strategic brief. 🔥<br><br>This isn't generic advice—it's a real battle plan based on your competitive landscape, growth stage, and positioning gaps.<br><br><a href="/contact" style="color: #FF6B35; text-decoration: underline; font-weight: 700;">Ready to execute? Let's build it →</a>`, 'spark');
+      }, 1000);
       
       document.getElementById('spark-input').disabled = true;
       document.getElementById('spark-send').disabled = true;
-      document.getElementById('spark-input').placeholder = "✨ Your framework is ready!";
-    },
-    
-    extractBrandName(desc) {
-      const words = desc.split(' ').filter(w => w.length > 3);
-      return words[0] ? words[0].charAt(0).toUpperCase() + words[0].slice(1) : 'Your Brand';
-    },
-    
-    generateTagline() {
-      return `Helping ${this.userData.audience.split(',')[0] || this.userData.audience.split(' ').slice(0,4).join(' ')}...`;
-    },
-    
-    generateColorPalette(industry) {
-      const palettes = {
-        'fitness': [{ hex: '#FF6B35' }, { hex: '#004E89' }, { hex: '#00A896' }],
-        'beauty': [{ hex: '#D4AF37' }, { hex: '#F4E4E3' }, { hex: '#A43C5A' }],
-        'SaaS': [{ hex: '#0071E3' }, { hex: '#4794A6' }, { hex: '#6C63FF' }],
-        'e-commerce': [{ hex: '#FF6B6B' }, { hex: '#4ECDC4' }, { hex: '#FFD93D' }],
-        'default': [{ hex: '#FF6B35' }, { hex: '#4794A6' }, { hex: '#FFD23F' }]
-      };
-      return palettes[industry] || palettes['default'];
+      document.getElementById('spark-input').placeholder = "✨ Your strategic brief is ready!";
     }
   };
   
@@ -642,12 +849,10 @@
     input.disabled = true;
     sendBtn.disabled = true;
     
-    // Check if this is the final answer BEFORE processing
-    const isFinalAnswer = window.SparkWidget.currentStep === 'problem';
+    const isFinalAnswer = window.SparkWidget.currentStep === 'differentiator';
     
     await window.SparkWidget.handleMessage(message);
     
-    // Don't re-enable input if we just submitted the final answer
     if (!isFinalAnswer) {
       input.disabled = false;
       sendBtn.disabled = false;
