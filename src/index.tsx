@@ -1836,15 +1836,15 @@ app.get('\/studio', (c) =>
       left: 0;
       right: 0;
       z-index: 9999;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(10, 10, 10, 0.8);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     nav {
       max-width: 1600px;
       margin: 0 auto;
-      padding: 24px 48px;
+      padding: 20px 48px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -2201,8 +2201,12 @@ app.get('\/studio', (c) =>
   <!-- HEADER -->
   <header>
     <nav>
-      <a href="/" class="logo">ACROMATICO</a>
+      <a href="/" class="logo">
+        <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" style="width: 180px; height: auto; filter: brightness(0) invert(1);">
+      </a>
       <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/education">Education</a>
         <a href="/studio">Studio</a>
         <a href="/prints">Prints</a>
         <a href="/photography">Photography</a>
@@ -2574,147 +2578,152 @@ app.get('\/studio', (c) =>
       </div>
       
       <!-- TRAVEL DRD -->
-      <div class="case">
-        <div class="case-content">
+      <div class="case case-featured">
+        <div class="case-info">
           <div class="case-label">Exclusive Multi-Property Rental Platform</div>
           <div class="case-title">Travel DRD</div>
           <div class="case-metric">Luxury Travel Redefined</div>
           <div class="case-description">
             Exclusive vacation rental platform needed a SaaS solution for curating multi-property experiences. We built a custom booking platform with integrated property management, concierge services, and seamless guest experiences across premium destinations.
           </div>
-          <div class="case-stats">
-            <div class="stat">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Exclusive Properties</div>
+        </div>
+        
+        <div class="device-showcase">
+          <!-- Desktop Frame - iMac Style -->
+          <div class="desktop-frame">
+            <div class="desktop-screen">
+              <img src="/static/images/brand-showcase/travel-drd-hero.jpg" alt="Travel DRD Platform">
             </div>
-            <div class="stat">
-              <div class="stat-number">24/7</div>
-              <div class="stat-label">Concierge</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">∞</div>
-              <div class="stat-label">Premium Amenities</div>
+            <div class="desktop-notch"></div>
+            <div class="desktop-stand"></div>
+          </div>
+          
+          <!-- Mobile Frame -->
+          <div class="mobile-frame">
+            <div class="mobile-screen">
+              <img src="/static/images/brand-showcase/travel-drd-hero.jpg" alt="Travel DRD Mobile">
             </div>
           </div>
-        </div>
-        <div class="case-image">
-          <img src="/static/images/brand-showcase/travel-drd-hero.jpg" alt="Travel DRD Platform">
         </div>
       </div>
       
       <!-- LIA -->
-      <div class="case">
-        <div class="case-content">
+      <div class="case case-featured">
+        <div class="case-info">
           <div class="case-label">Celebrity Beauty Brand</div>
           <div class="case-title">LIA by Jomari Goyso</div>
           <div class="case-metric">$7.2M</div>
           <div class="case-description">
             Celebrity stylist needed a brand that matched his vision. We built the complete visual identity, shot all product photography, and created a content system that scaled to 7-figures in 9 months.
           </div>
-          <div class="case-stats">
-            <div class="stat">
-              <div class="stat-number">9</div>
-              <div class="stat-label">Months to $7.2M</div>
+        </div>
+        
+        <div class="device-showcase">
+          <!-- Desktop Frame - iMac Style -->
+          <div class="desktop-frame">
+            <div class="desktop-screen">
+              <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA Beauty Platform">
             </div>
-            <div class="stat">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Custom Assets</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">∞</div>
-              <div class="stat-label">Brand Recognition</div>
+            <div class="desktop-notch"></div>
+            <div class="desktop-stand"></div>
+          </div>
+          
+          <!-- Mobile Frame -->
+          <div class="mobile-frame">
+            <div class="mobile-screen">
+              <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA Beauty Mobile">
             </div>
           </div>
-        </div>
-        <div class="case-image">
-          <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA Beauty">
         </div>
       </div>
       
       <!-- ECOLOSOPHY -->
-      <div class="case">
-        <div class="case-image">
-          <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy">
-        </div>
-        <div class="case-content">
+      <div class="case case-featured">
+        <div class="case-info">
           <div class="case-label">Non-Toxic Cleaning Brand</div>
           <div class="case-title">Ecolosophy</div>
           <div class="case-metric">$0 → 6-figures</div>
           <div class="case-description">
             Started with nothing. Built complete Shopify store, shot 500+ product photos, created 12-month content system, integrated warehouse fulfillment. Launched in 8 months.
           </div>
-          <div class="case-stats">
-            <div class="stat">
-              <div class="stat-number">500+</div>
-              <div class="stat-label">Custom Photos</div>
+        </div>
+        
+        <div class="device-showcase">
+          <!-- Desktop Frame - iMac Style -->
+          <div class="desktop-frame">
+            <div class="desktop-screen">
+              <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy Platform">
             </div>
-            <div class="stat">
-              <div class="stat-number">12</div>
-              <div class="stat-label">Month Content Plan</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">0</div>
-              <div class="stat-label">Stock Images</div>
+            <div class="desktop-notch"></div>
+            <div class="desktop-stand"></div>
+          </div>
+          
+          <!-- Mobile Frame -->
+          <div class="mobile-frame">
+            <div class="mobile-screen">
+              <img src="/static/images/brand-showcase/ecolosophy-real.jpg" alt="Ecolosophy Mobile">
             </div>
           </div>
         </div>
       </div>
       
       <!-- REPUBLIC COMMERCIAL FUND -->
-      <div class="case">
-        <div class="case-image">
-          <img src="/static/images/brand-showcase/republic-fund-hero.jpg" alt="Republic Commercial Fund">
-        </div>
-        <div class="case-content">
+      <div class="case case-featured">
+        <div class="case-info">
           <div class="case-label">Commercial Real Estate Funding Platform</div>
           <div class="case-title">Republic Commercial Fund</div>
           <div class="case-metric">Enterprise Capital Solutions</div>
           <div class="case-description">
             Commercial real estate fund needed a platform that commands institutional trust. We built a complete fintech SaaS with deal flow management, investor portal, secure document handling, and real-time portfolio analytics for high-value transactions.
           </div>
-          <div class="case-stats">
-            <div class="stat">
-              <div class="stat-number">Secure</div>
-              <div class="stat-label">Deal Flow</div>
+        </div>
+        
+        <div class="device-showcase">
+          <!-- Desktop Frame - iMac Style -->
+          <div class="desktop-frame">
+            <div class="desktop-screen">
+              <img src="/static/images/brand-showcase/republic-fund-hero.jpg" alt="Republic Commercial Fund Platform">
             </div>
-            <div class="stat">
-              <div class="stat-number">Real-Time</div>
-              <div class="stat-label">Analytics</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">Enterprise</div>
-              <div class="stat-label">Grade Security</div>
+            <div class="desktop-notch"></div>
+            <div class="desktop-stand"></div>
+          </div>
+          
+          <!-- Mobile Frame -->
+          <div class="mobile-frame">
+            <div class="mobile-screen">
+              <img src="/static/images/brand-showcase/republic-fund-hero.jpg" alt="Republic Fund Mobile">
             </div>
           </div>
         </div>
       </div>
       
       <!-- BLUE BUILDING -->
-      <div class="case">
-        <div class="case-content">
+      <div class="case case-featured">
+        <div class="case-info">
           <div class="case-label">Smart Luxury Office Rentals</div>
           <div class="case-title">Blue Building</div>
           <div class="case-metric">24/7 Business</div>
           <div class="case-description">
             Modern office rental company needed a brand that positioned smart workspaces as the future. We created a visual identity that speaks to growing entrepreneurs who demand excellence.
           </div>
-          <div class="case-stats">
-            <div class="stat">
-              <div class="stat-number">Smart</div>
-              <div class="stat-label">Positioning</div>
+        </div>
+        
+        <div class="device-showcase">
+          <!-- Desktop Frame - iMac Style -->
+          <div class="desktop-frame">
+            <div class="desktop-screen">
+              <img src="/static/images/brand-showcase/blue-building-real.jpg" alt="Blue Building Platform">
             </div>
-            <div class="stat">
-              <div class="stat-number">Luxury</div>
-              <div class="stat-label">Experience</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">24/7</div>
-              <div class="stat-label">Availability</div>
+            <div class="desktop-notch"></div>
+            <div class="desktop-stand"></div>
+          </div>
+          
+          <!-- Mobile Frame -->
+          <div class="mobile-frame">
+            <div class="mobile-screen">
+              <img src="/static/images/brand-showcase/blue-building-real.jpg" alt="Blue Building Mobile">
             </div>
           </div>
-        </div>
-        <div class="case-image">
-          <img src="/static/images/brand-showcase/blue-building-real.jpg" alt="Blue Building">
         </div>
       </div>
       
@@ -2738,6 +2747,22 @@ app.get('\/studio', (c) =>
       <a href="/contact" class="cta-primary">Let's Talk</a>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #000; border-top: 1px solid rgba(255,255,255,0.1); padding: 60px 48px; text-align: center;">
+    <div style="max-width: 1600px; margin: 0 auto;">
+      <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" style="width: 200px; height: auto; filter: brightness(0) invert(1); margin-bottom: 32px; opacity: 0.6;">
+      <div style="display: flex; justify-content: center; gap: 32px; margin-bottom: 32px; flex-wrap: wrap;">
+        <a href="/" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Home</a>
+        <a href="/education" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Education</a>
+        <a href="/studio" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Studio</a>
+        <a href="/prints" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Prints</a>
+        <a href="/photography" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Photography</a>
+        <a href="/contact" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Contact</a>
+      </div>
+      <p style="color: rgba(255,255,255,0.4); font-size: 14px; margin: 0;">© 2026 Acromatico. We help people see differently.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
