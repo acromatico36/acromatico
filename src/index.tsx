@@ -2244,27 +2244,34 @@ app.get('\/studio', (c) =>
       <style>
         .case-featured {
           position: relative;
-          min-height: 800px;
+          min-height: 900px;
           background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
           padding: 80px 40px;
-          overflow: hidden;
+          overflow: visible;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px;
+          align-items: center;
+          max-width: 1600px;
+          margin: 0 auto;
+        }
+        
+        .case-info {
+          max-width: 500px;
         }
         
         .device-showcase {
           position: relative;
-          max-width: 1400px;
-          margin: 0 auto;
-          height: 700px;
+          width: 100%;
+          height: 600px;
         }
         
         /* Desktop Frame - iMac Style */
         .desktop-frame {
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 70%;
+          position: relative;
+          width: 100%;
           z-index: 1;
+          margin-bottom: 20px;
         }
         
         .desktop-screen {
@@ -2322,13 +2329,12 @@ app.get('\/studio', (c) =>
         /* Mobile Frame */
         .mobile-frame {
           position: absolute;
-          right: 5%;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 280px;
+          right: -40px;
+          bottom: 40px;
+          width: 200px;
           background: #1a1a1a;
-          border-radius: 32px;
-          padding: 12px;
+          border-radius: 28px;
+          padding: 10px;
           box-shadow: 0 30px 60px rgba(0,0,0,0.6);
           z-index: 2;
         }
@@ -2467,33 +2473,24 @@ app.get('\/studio', (c) =>
         }
         
         @media (max-width: 1024px) {
+          .case-featured {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+          
           .device-showcase {
             height: auto;
-            min-height: 600px;
+            min-height: 400px;
           }
           
           .desktop-frame {
-            position: relative;
             width: 100%;
-            margin-bottom: 40px;
-            transform: none;
-            top: auto;
-            left: auto;
+            margin-bottom: 30px;
           }
           
           .mobile-frame {
             position: relative;
-            width: 240px;
-            margin: 0 auto 40px;
-            transform: none;
-            top: auto;
-            right: auto;
-          }
-          
-          .portfolio-dashboard {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
+            width: 200px;
             margin: 0 auto;
             right: auto;
             bottom: auto;
