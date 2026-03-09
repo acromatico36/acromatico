@@ -2522,20 +2522,89 @@
                   <strong>✨ Handmade in Italy</strong> • Every album is handcrafted by Italian artisans using the world's finest materials. Lifetime warranty included.
                 </div>
               </div>
-              <label class="builder-checkbox">
-                <input type="checkbox" value="canvas" onchange="calculateCustomPrice()">
-                <span class="checkbox-card">
-                  <span class="checkbox-name">Canvas Art Print (20x30)</span>
-                  <span class="checkbox-price">+$450</span>
-                </span>
-              </label>
-              <label class="builder-checkbox">
-                <input type="checkbox" value="framed" onchange="calculateCustomPrice()">
-                <span class="checkbox-card">
-                  <span class="checkbox-name">Framed Art Print (30x40)</span>
-                  <span class="checkbox-price">+$850</span>
-                </span>
-              </label>
+              
+              <!-- PREMIUM WALL ART SECTION -->
+              <div style="margin-top: 32px; padding-top: 32px; border-top: 2px solid #e5e5e5;">
+                <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">Premium Wall Art</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 24px;">Museum-quality prints handcrafted in Italy by Graphistudio</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                  <!-- CANVAS PRO 20x30 -->
+                  <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s;">
+                    <input type="checkbox" value="canvas_pro_20x30" onchange="calculateCustomPrice()" style="display: none;">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=%2BiiMjGsBhKCUbERUlwamni0gPlP2L6YFNkcUbqoG4ldJf8D06sn6IOjzXf%2BWpQdS3P7amHhYJwJvbkdhj0jDFyKe5dR9u5IlaTcp0Kb308NJoHjVNg219HiOhGPDdbee8GVR&u2=ogPCQ9iNLNFZOi1g&width=500" alt="Canvas Pro" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 16px;">
+                      <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">Canvas Pro</div>
+                      <div style="font-size: 13px; color: #666; margin-bottom: 10px;">20×30"</div>
+                      <div style="font-size: 12px; color: #666; line-height: 1.4; margin-bottom: 12px;">
+                        • Premium cotton canvas<br>
+                        • Anti-glare finish
+                      </div>
+                      <div style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
+                    </div>
+                  </label>
+
+                  <!-- METAL PRO 20x30 -->
+                  <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s;">
+                    <input type="checkbox" value="metal_pro_20x30" onchange="calculateCustomPrice()" style="display: none;">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=30buYmgwqQUSkUaiWPD8f4GQL9LRzMBRXtDOeFeEJQMlUkgwL%2B1AP0jzyc%2FiXXnRYxHb3IbGoLP1%2FjzXCyZgXBbsvEDeujN0pFlmV92Q9mZG958PQiIM6GLZ2Y0RSw%3D%3D&u2=H6jbcyCsBPa%2Fl3ip&width=500" alt="Metal Pro" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 16px;">
+                      <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">Metal Pro</div>
+                      <div style="font-size: 13px; color: #666; margin-bottom: 10px;">20×30"</div>
+                      <div style="font-size: 12px; color: #666; line-height: 1.4; margin-bottom: 12px;">
+                        • ChromaLuxe® aluminum<br>
+                        • Waterproof & anti-scratch
+                      </div>
+                      <div style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
+                    </div>
+                  </label>
+
+                  <!-- ACRYLIC PRO 20x30 -->
+                  <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s;">
+                    <input type="checkbox" value="acrylic_pro_20x30" onchange="calculateCustomPrice()" style="display: none;">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=WNQE9cWMm%2BkhBfuB2Vn0RjPSy8onmdLXeQSF5CaPImnc7g%2BVLqflq%2BNJEmNfCbul9cHYTLjtCaUpJEJ6FxskRcBAUVfQChDe36%2FC0yPkGsv8rv0FdCdYYvQ%3D&u2=txRgWbm2%2BaaM2IxG&width=500" alt="Acrylic Pro" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 16px;">
+                      <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">Acrylic Pro</div>
+                      <div style="font-size: 13px; color: #666; margin-bottom: 10px;">20×30"</div>
+                      <div style="font-size: 12px; color: #666; line-height: 1.4; margin-bottom: 12px;">
+                        • Ultra HD acrylic<br>
+                        • Vibrant colors & depth
+                      </div>
+                      <div style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
+                    </div>
+                  </label>
+
+                  <!-- CANVAS PRO 30x40 -->
+                  <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s;">
+                    <input type="checkbox" value="canvas_pro_30x40" onchange="calculateCustomPrice()" style="display: none;">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=3Am7SeKxEkQV0Q4y9HuU2OLTMMaaO%2F2ahdj4Ub3mdfhd1a1amIgzCh%2FJKW8qpOeuK5vQNO7ow3RnMOYSXdoHnLUiKPD041LpiLKRDiOuR%2B%2BdBu9ypo51n04bTQ%3D%3D&u2=Ss8k%2Fcq5vtoRDsXa&width=500" alt="Canvas Pro Large" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 16px;">
+                      <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">Canvas Pro</div>
+                      <div style="font-size: 13px; color: #666; margin-bottom: 10px;">30×40" <span style="background: var(--accent); color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 600;">LARGE</span></div>
+                      <div style="font-size: 12px; color: #666; line-height: 1.4; margin-bottom: 12px;">
+                        • Statement piece size<br>
+                        • Perfect for living rooms
+                      </div>
+                      <div style="font-size: 20px; font-weight: 700; color: var(--accent);">$1,200</div>
+                    </div>
+                  </label>
+                </div>
+                
+                <style>
+                  .wall-art-card-custom:hover {
+                    border-color: var(--accent) !important;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+                  }
+                  .wall-art-card-custom input:checked + img {
+                    opacity: 0.9;
+                  }
+                  .wall-art-card-custom input:checked ~ div {
+                    background: rgba(0,113,227,0.05);
+                  }
+                </style>
+              </div>
+              
               <label class="builder-checkbox">
                 <input type="checkbox" value="video" onchange="calculateCustomPrice()">
                 <span class="checkbox-card">
