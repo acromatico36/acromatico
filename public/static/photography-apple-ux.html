@@ -1803,14 +1803,15 @@
     </a>
   </header>
 
-  <!-- VIDEO HERO -->
-  <div class="video-hero">
+  <!-- VIDEO HERO with FALLBACK -->
+  <div class="video-hero" style="position: relative; background-image: url('https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1920&h=1080&fit=crop&q=90'); background-size: cover; background-position: center;">
     <iframe 
       src="https://www.youtube.com/embed/9DiS2Z_H15U?autoplay=1&mute=1&loop=1&playlist=9DiS2Z_H15U&controls=0&showinfo=0&modestbranding=1&vq=hd1080&rel=0" 
       allow="autoplay; encrypted-media" 
-      allowfullscreen>
+      allowfullscreen
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; z-index: 1;">
     </iframe>
-    <div class="video-overlay">
+    <div class="video-overlay" style="position: relative; z-index: 2;">
       <h1>Your Story, Unfiltered.<br>Let's Create Something Real</h1>
       <a href="#packages" class="hero-cta">Explore Packages</a>
     </div>
@@ -2207,9 +2208,9 @@
                     <div style="margin-bottom: 16px;">
                       <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FRAME STYLE</label>
                       <select class="frame-selector" onchange="updateProductPreview(this)" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="floating" data-img="https://www.genspark.ai/api/files/s/s3DJn5kG" data-price="0">Floating Block (Included)</option>
-                        <option value="light" data-img="https://www.genspark.ai/api/files/s/enn5DQ2C" data-price="150">Light Frame (+$150)</option>
-                        <option value="premium" data-img="https://www.genspark.ai/api/files/s/CYW7mBNe" data-price="250">Premium Frame (+$250)</option>
+                        <option value="floating" data-img="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop&q=90" data-price="0">Floating Block (Included)</option>
+                        <option value="light" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="150">Light Frame (+$150)</option>
+                        <option value="premium" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="250">Premium Frame (+$250)</option>
                       </select>
                     </div>
 
@@ -2247,9 +2248,9 @@
                     <div style="margin-bottom: 16px;">
                       <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FRAME STYLE</label>
                       <select class="frame-selector" onchange="updateProductPreview(this)" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="floating" data-img="https://www.genspark.ai/api/files/s/s3DJn5kG" data-price="0">Floating Block (Included)</option>
-                        <option value="light" data-img="https://www.genspark.ai/api/files/s/enn5DQ2C" data-price="150">Light Frame (+$150)</option>
-                        <option value="premium" data-img="https://www.genspark.ai/api/files/s/CYW7mBNe" data-price="250">Premium Frame (+$250)</option>
+                        <option value="floating" data-img="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop&q=90" data-price="0">Floating Block (Included)</option>
+                        <option value="light" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="150">Light Frame (+$150)</option>
+                        <option value="premium" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="250">Premium Frame (+$250)</option>
                       </select>
                     </div>
 
@@ -2288,9 +2289,9 @@
                     <div style="margin-bottom: 16px;">
                       <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FRAME STYLE</label>
                       <select class="frame-selector" onchange="updateProductPreview(this)" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="floating" data-img="https://www.genspark.ai/api/files/s/s3DJn5kG" data-price="0">Floating Block (Included)</option>
-                        <option value="light" data-img="https://www.genspark.ai/api/files/s/enn5DQ2C" data-price="150">Light Frame (+$150)</option>
-                        <option value="premium" data-img="https://www.genspark.ai/api/files/s/CYW7mBNe" data-price="250">Premium Frame (+$250)</option>
+                        <option value="floating" data-img="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop&q=90" data-price="0">Floating Block (Included)</option>
+                        <option value="light" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="150">Light Frame (+$150)</option>
+                        <option value="premium" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="250">Premium Frame (+$250)</option>
                       </select>
                     </div>
 
@@ -2327,9 +2328,9 @@
                     <div style="margin-bottom: 16px;">
                       <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FRAME STYLE</label>
                       <select class="frame-selector" onchange="updateProductPreview(this)" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="floating" data-img="https://www.genspark.ai/api/files/s/s3DJn5kG" data-price="0">Floating Block (Included)</option>
-                        <option value="light" data-img="https://www.genspark.ai/api/files/s/enn5DQ2C" data-price="200">Light Frame (+$200)</option>
-                        <option value="premium" data-img="https://www.genspark.ai/api/files/s/CYW7mBNe" data-price="350">Premium Frame (+$350)</option>
+                        <option value="floating" data-img="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop&q=90" data-price="0">Floating Block (Included)</option>
+                        <option value="light" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="200">Light Frame (+$200)</option>
+                        <option value="premium" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="350">Premium Frame (+$350)</option>
                       </select>
                     </div>
 
@@ -2631,7 +2632,7 @@
                     <label class="wall-art-card-custom" style="cursor: pointer; border: 1px solid #d2d2d7; border-radius: 18px; overflow: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: block; background: #fbfbfd;">
                       <input type="checkbox" value="canvas_pro_20x30" onchange="toggleWallArtProductCustom(this)" style="display: none;">
                       <div style="position: relative; background: #f5f5f7; overflow: hidden;">
-                        <img class="product-main-image-custom" src="https://www.genspark.ai/api/files/s/s3DJn5kG" alt="Canvas Pro" style="width: 100%; height: 240px; object-fit: cover; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img class="product-main-image-custom" src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop&q=90" alt="Canvas Pro" style="width: 100%; height: 240px; object-fit: cover; display: block;">
                         <div style="display: none; width: 100%; height: 240px; align-items: center; justify-content: center; background: #f5f5f7; color: #86868b; font-size: 14px;">
                           <div style="text-align: center;">
                             <div style="font-size: 48px; margin-bottom: 8px;">🖼️</div>
@@ -2647,9 +2648,9 @@
                         <div style="margin-bottom: 16px;">
                           <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 8px; letter-spacing: 0.5px; text-transform: uppercase;">Frame Style</label>
                           <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 12px 14px; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 15px; background: white; cursor: pointer; color: #1d1d1f; font-weight: 400; appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg width=\'14\' height=\'8\' viewBox=\'0 0 14 8\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M1 1L7 7L13 1\' stroke=\'%23666\' stroke-width=\'2\' stroke-linecap=\'round\'/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; transition: all 0.2s;">
-                            <option value="floating" data-img="https://www.genspark.ai/api/files/s/s3DJn5kG" data-price="0">Floating Block — Included</option>
-                            <option value="light" data-img="https://www.genspark.ai/api/files/s/enn5DQ2C" data-price="150">Light Frame — $150</option>
-                            <option value="premium" data-img="https://www.genspark.ai/api/files/s/CYW7mBNe" data-price="250">Premium Frame — $250</option>
+                            <option value="floating" data-img="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop&q=90" data-price="0">Floating Block — Included</option>
+                            <option value="light" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="150">Light Frame — $150</option>
+                            <option value="premium" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="250">Premium Frame — $250</option>
                           </select>
                         </div>
 
@@ -2673,7 +2674,7 @@
                     <label class="wall-art-card-custom" style="cursor: pointer; border: 1px solid #d2d2d7; border-radius: 18px; overflow: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: block; background: #fbfbfd;">
                       <input type="checkbox" value="metal_pro_20x30" onchange="toggleWallArtProductCustom(this)" style="display: none;">
                       <div style="position: relative; background: #f5f5f7; overflow: hidden;">
-                        <img class="product-main-image-custom" src="https://www.genspark.ai/api/files/s/ZyoEq5Bo" alt="Metal Pro" style="width: 100%; height: 240px; object-fit: cover; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img class="product-main-image-custom" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&h=600&fit=crop&q=90" alt="Metal Pro" style="width: 100%; height: 240px; object-fit: cover; display: block;">
                         <div style="display: none; width: 100%; height: 240px; align-items: center; justify-content: center; background: #f5f5f7; color: #86868b; font-size: 14px;">
                           <div style="text-align: center;">
                             <div style="font-size: 48px; margin-bottom: 8px;">✨</div>
@@ -2689,9 +2690,9 @@
                         <div style="margin-bottom: 16px;">
                           <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 8px; letter-spacing: 0.5px; text-transform: uppercase;">Frame Style</label>
                           <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 12px 14px; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 15px; background: white; cursor: pointer; color: #1d1d1f; font-weight: 400; appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg width=\'14\' height=\'8\' viewBox=\'0 0 14 8\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M1 1L7 7L13 1\' stroke=\'%23666\' stroke-width=\'2\' stroke-linecap=\'round\'/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; transition: all 0.2s;">
-                            <option value="floating" data-img="https://www.genspark.ai/api/files/s/ZyoEq5Bo" data-price="0">Floating Block — Included</option>
-                            <option value="light" data-img="https://www.genspark.ai/api/files/s/enn5DQ2C" data-price="150">Light Frame — $150</option>
-                            <option value="premium" data-img="https://www.genspark.ai/api/files/s/CYW7mBNe" data-price="250">Premium Frame — $250</option>
+                            <option value="floating" data-img="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&h=600&fit=crop&q=90" data-price="0">Floating Block — Included</option>
+                            <option value="light" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="150">Light Frame — $150</option>
+                            <option value="premium" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="250">Premium Frame — $250</option>
                           </select>
                         </div>
 
@@ -2715,9 +2716,9 @@
                         <div style="margin-bottom: 12px;">
                           <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FRAME STYLE</label>
                           <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
-                            <option value="floating" data-img="https://www.genspark.ai/api/files/s/s3DJn5kG" data-price="0">Floating Block (Included)</option>
-                            <option value="light" data-img="https://www.genspark.ai/api/files/s/enn5DQ2C" data-price="150">Light Frame (+$150)</option>
-                            <option value="premium" data-img="https://www.genspark.ai/api/files/s/CYW7mBNe" data-price="250">Premium Frame (+$250)</option>
+                            <option value="floating" data-img="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop&q=90" data-price="0">Floating Block (Included)</option>
+                            <option value="light" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="150">Light Frame (+$150)</option>
+                            <option value="premium" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="250">Premium Frame (+$250)</option>
                           </select>
                         </div>
 
@@ -2750,9 +2751,9 @@
                         <div style="margin-bottom: 12px;">
                           <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FRAME STYLE</label>
                           <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
-                            <option value="floating" data-img="https://www.genspark.ai/api/files/s/s3DJn5kG" data-price="0">Floating Block (Included)</option>
-                            <option value="light" data-img="https://www.genspark.ai/api/files/s/enn5DQ2C" data-price="150">Light Frame (+$150)</option>
-                            <option value="premium" data-img="https://www.genspark.ai/api/files/s/CYW7mBNe" data-price="250">Premium Frame (+$250)</option>
+                            <option value="floating" data-img="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop&q=90" data-price="0">Floating Block (Included)</option>
+                            <option value="light" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="150">Light Frame (+$150)</option>
+                            <option value="premium" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="250">Premium Frame (+$250)</option>
                           </select>
                         </div>
 
@@ -2783,9 +2784,9 @@
                         <div style="margin-bottom: 12px;">
                           <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FRAME STYLE</label>
                           <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
-                            <option value="floating" data-img="https://www.genspark.ai/api/files/s/s3DJn5kG" data-price="0">Floating Block (Included)</option>
-                            <option value="light" data-img="https://www.genspark.ai/api/files/s/enn5DQ2C" data-price="200">Light Frame (+$200)</option>
-                            <option value="premium" data-img="https://www.genspark.ai/api/files/s/CYW7mBNe" data-price="350">Premium Frame (+$350)</option>
+                            <option value="floating" data-img="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop&q=90" data-price="0">Floating Block (Included)</option>
+                            <option value="light" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="200">Light Frame (+$200)</option>
+                            <option value="premium" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop&q=90" data-price="350">Premium Frame (+$350)</option>
                           </select>
                         </div>
 
