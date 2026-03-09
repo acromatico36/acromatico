@@ -241,9 +241,13 @@
         border: none;
         box-shadow: 0 8px 30px rgba(255,107,53,0.4);
         cursor: pointer;
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
+        z-index: 999999;
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
         font-size: 32px;
         transition: all 0.3s ease;
         position: relative;
