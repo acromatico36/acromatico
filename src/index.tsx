@@ -1799,7 +1799,9 @@ app.get('/academy', (c) =>
   )
 )
 
-app.get('/studio', (c) =>
+app.get('/studio', (c) => c.redirect('/static/studio.html', 302))
+
+app.get('/studio-old', (c) =>
   c.html(`
 <!DOCTYPE html>
 <html lang="en">
