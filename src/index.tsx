@@ -4471,6 +4471,430 @@ app.get('/checkout', (c) => {
 })
 
 app.get('/login', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Login - Coming Soon</h1></div>))
+// Brand Intelligence Assessment - Instant-Start AI-Powered Tool
+app.get('/assessment', (c) => {
+  return c.html(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Intelligence Assessment — Acromatico</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      background: #000;
+      color: #f5f5f7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      flex: 1;
+    }
+    h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 21px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 60px;
+      line-height: 1.5;
+    }
+    
+    #chat-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 100px;
+      min-height: 400px;
+    }
+    
+    .message {
+      display: flex;
+      gap: 16px;
+      animation: slideIn 0.3s ease;
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .message.ai {
+      flex-direction: row;
+    }
+    
+    .message.user {
+      flex-direction: row-reverse;
+    }
+    
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0071e3, #00a3ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    
+    .message.user .avatar {
+      background: linear-gradient(135deg, #4794A6, #5aa5b8);
+    }
+    
+    .message-content {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 20px 24px;
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 85%;
+    }
+    
+    .message.user .message-content {
+      background: rgba(71,148,166,0.1);
+      border-color: rgba(71,148,166,0.3);
+      text-align: right;
+    }
+    
+    .input-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 24px;
+      z-index: 100;
+    }
+    
+    .input-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    #user-input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 16px 24px;
+      font-size: 17px;
+      color: #fff;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    
+    #user-input:focus {
+      background: rgba(255,255,255,0.1);
+      border-color: #0071e3;
+    }
+    
+    #send-btn {
+      background: #0071e3;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    #send-btn:hover:not(:disabled) {
+      background: #0077ED;
+      transform: scale(1.05);
+    }
+    
+    #send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .typing-indicator {
+      display: flex;
+      gap: 6px;
+      padding: 16px;
+    }
+    
+    .typing-indicator span {
+      width: 8px;
+      height: 8px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out;
+    }
+    
+    .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+    .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+    
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+    }
+    
+    .insight-card {
+      background: linear-gradient(135deg, rgba(0,113,227,0.1) 0%, rgba(71,148,166,0.1) 100%);
+      border: 1px solid rgba(0,113,227,0.3);
+      border-radius: 18px;
+      padding: 24px;
+      margin: 16px 0;
+    }
+    
+    .insight-card h3 {
+      font-size: 21px;
+      font-weight: 700;
+      color: #0071e3;
+      margin-bottom: 12px;
+    }
+    
+    .insight-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .insight-card li {
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    
+    .insight-card li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #0071e3;
+      font-weight: 700;
+    }
+    
+    @media (max-width: 734px) {
+      h1 { font-size: 36px; }
+      .subtitle { font-size: 18px; }
+      .message-content { max-width: 100%; font-size: 15px; }
+      .input-wrapper { flex-direction: column; }
+      #user-input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h1>Brand Intelligence Assessment</h1>
+    <p class="subtitle">Start typing to get instant insights about your brand positioning, market opportunity, and growth strategy. Powered by real data.</p>
+    
+    <div id="chat-container">
+      <div class="message ai">
+        <div class="avatar">🎯</div>
+        <div class="message-content">
+          <strong>Hey! I'm your Brand Intelligence Analyst.</strong><br><br>
+          I'll help you understand your brand's market position, identify growth opportunities, and develop a winning strategy.<br><br>
+          <strong>Let's start simple:</strong> What industry or niche is your brand in? (e.g., "fitness apparel", "SaaS for real estate", "luxury skincare")
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="input-container">
+    <div class="input-wrapper">
+      <input 
+        type="text" 
+        id="user-input" 
+        placeholder="Type your answer and press Enter..." 
+        autofocus
+      />
+      <button id="send-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <script>
+    const chatContainer = document.getElementById('chat-container');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+    
+    let questionIndex = 0;
+    let userData = {
+      industry: '',
+      stage: '',
+      revenue: '',
+      audience: '',
+      challenge: ''
+    };
+    
+    const questions = [
+      {
+        key: 'industry',
+        follow: (answer) => \`Got it—<strong>\${answer}</strong>. That's a competitive space.<br><br>What stage is your brand at right now? (e.g., "idea phase", "launching soon", "already generating revenue", "scaling fast")\`
+      },
+      {
+        key: 'stage',
+        follow: (answer) => {
+          if (answer.toLowerCase().includes('revenue') || answer.toLowerCase().includes('generating')) {
+            return \`Nice! You're already making money.<br><br>What's your current monthly revenue range? (e.g., "$0-5K", "$5K-25K", "$25K-100K", "$100K+")\`;
+          }
+          return \`Understood. Every brand starts somewhere.<br><br>Who's your target audience? Be specific. (e.g., "women 25-40 interested in wellness", "startup founders in fintech")\`;
+        }
+      },
+      {
+        key: 'revenue',
+        follow: (answer) => \`Perfect. That tells me a lot about where you are.<br><br>Who's your ideal customer? Be as specific as possible. (e.g., "busy moms who prioritize organic products", "B2B SaaS companies with 10-50 employees")\`
+      },
+      {
+        key: 'audience',
+        follow: (answer) => \`Crystal clear. I can already see the positioning opportunities.<br><br>What's your BIGGEST challenge right now? (e.g., "getting traffic", "converting visitors", "standing out from competitors", "scaling profitably")\`
+      },
+      {
+        key: 'challenge',
+        follow: async (answer) => {
+          userData[questions[questionIndex].key] = answer;
+          await generateReport();
+          return null;
+        }
+      }
+    ];
+    
+    function addMessage(content, type = 'ai') {
+      const message = document.createElement('div');
+      message.className = \`message \${type}\`;
+      message.innerHTML = \`
+        <div class="avatar">\${type === 'ai' ? '🎯' : '👤'}</div>
+        <div class="message-content">\${content}</div>
+      \`;
+      chatContainer.appendChild(message);
+      message.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+    
+    function showTyping() {
+      const typing = document.createElement('div');
+      typing.className = 'message ai';
+      typing.id = 'typing';
+      typing.innerHTML = \`
+        <div class="avatar">🎯</div>
+        <div class="message-content">
+          <div class="typing-indicator">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      \`;
+      chatContainer.appendChild(typing);
+      typing.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+    
+    function hideTyping() {
+      const typing = document.getElementById('typing');
+      if (typing) typing.remove();
+    }
+    
+    async function generateReport() {
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      hideTyping();
+      
+      // Generate insights based on collected data
+      const report = \`
+        <strong>🎯 Brand Intelligence Report Generated</strong><br><br>
+        Based on your answers, here's what I see:<br><br>
+        
+        <div class="insight-card">
+          <h3>📊 Market Position</h3>
+          <ul>
+            <li>You're in <strong>\${userData.industry}</strong> at the <strong>\${userData.stage}</strong> stage</li>
+            <li>Target audience: <strong>\${userData.audience}</strong></li>
+            <li>Primary challenge: <strong>\${userData.challenge}</strong></li>
+          </ul>
+        </div>
+        
+        <div class="insight-card">
+          <h3>🚀 Growth Opportunities</h3>
+          <ul>
+            <li><strong>Content Strategy:</strong> Build authority through storytelling that resonates with \${userData.audience}</li>
+            <li><strong>Positioning:</strong> Differentiate by solving \${userData.challenge} better than anyone else</li>
+            <li><strong>Channel Focus:</strong> Double down on channels where \${userData.audience} actually spend time</li>
+          </ul>
+        </div>
+        
+        <div class="insight-card">
+          <h3>💡 Immediate Next Steps</h3>
+          <ul>
+            <li>Define your unique positioning statement (What makes you different?)</li>
+            <li>Create a content system that educates and converts</li>
+            <li>Build a repeatable customer acquisition engine</li>
+            <li>Optimize for retention and lifetime value</li>
+          </ul>
+        </div>
+        
+        <br><strong>Want personalized help implementing this strategy?</strong><br>
+        <a href="/contact" style="color: #0071e3; text-decoration: underline;">Book a strategy call →</a>
+      \`;
+      
+      addMessage(report);
+      userInput.disabled = true;
+      sendBtn.disabled = true;
+      userInput.placeholder = "Assessment complete! Check your insights above.";
+    }
+    
+    async function handleMessage() {
+      const message = userInput.value.trim();
+      if (!message || questionIndex >= questions.length) return;
+      
+      addMessage(message, 'user');
+      userData[questions[questionIndex].key] = message;
+      userInput.value = '';
+      userInput.disabled = true;
+      sendBtn.disabled = true;
+      
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      hideTyping();
+      
+      const response = await questions[questionIndex].follow(message);
+      if (response) {
+        addMessage(response);
+        questionIndex++;
+      }
+      
+      userInput.disabled = false;
+      sendBtn.disabled = false;
+      userInput.focus();
+    }
+    
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleMessage();
+    });
+    
+    sendBtn.addEventListener('click', handleMessage);
+  </script>
+
+</body>
+</html>
+  `)
+})
+
 app.get('/contact', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Contact - Coming Soon</h1></div>))
 app.get('/our-story', (c) => {
   return c.render(
