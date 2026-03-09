@@ -418,10 +418,7 @@
     </div>
   `;
   
-  // Inject into DOM
-  document.body.insertAdjacentHTML('beforeend', widgetHTML);
-  
-  // Strategic Intelligence Database
+  // Strategic Intelligence Database (define BEFORE injecting DOM)
   const StrategicIntelligence = {
     // Industry-specific competitive landscapes
     competitiveLandscapes: {
@@ -836,7 +833,10 @@
     }
   };
   
-  // Event listeners
+  // Inject widget into DOM (AFTER all code is defined)
+  document.body.insertAdjacentHTML('beforeend', widgetHTML);
+  
+  // Event listeners (AFTER DOM injection)
   const input = document.getElementById('spark-input');
   const sendBtn = document.getElementById('spark-send');
   
