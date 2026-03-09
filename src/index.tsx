@@ -2223,11 +2223,11 @@ app.get('\/studio', (c) =>
   <!-- TRUTH: WHY WE'RE DIFFERENT -->
   <section class="truth">
     <div class="truth-content">
-      <h2>Your brand is either a commodity or a cult.</h2>
+      <h2>Your brand is everything.</h2>
       <p>If people can't recognize your brand in 0.3 seconds, you're invisible.</p>
       <p>If your content looks like stock photos, you're forgettable.</p>
       <p>If your message sounds like everyone else's, you're <span class="highlight">a commodity</span>.</p>
-      <p>We make you <span class="highlight">a cult</span>.</p>
+      <p>We make you <span class="highlight">unforgettable</span>.</p>
     </div>
   </section>
 
@@ -2257,37 +2257,66 @@ app.get('\/studio', (c) =>
           height: 700px;
         }
         
-        /* Desktop Frame */
+        /* Desktop Frame - iMac Style */
         .desktop-frame {
           position: absolute;
           left: 0;
           top: 50%;
           transform: translateY(-50%);
           width: 70%;
-          background: #1a1a1a;
-          border-radius: 12px;
-          padding: 8px;
-          box-shadow: 0 40px 80px rgba(0,0,0,0.5);
           z-index: 1;
         }
         
         .desktop-screen {
           width: 100%;
-          border-radius: 8px;
-          overflow: hidden;
-          background: #000;
+          background: #1a1a1a;
+          border-radius: 12px;
+          padding: 8px;
+          box-shadow: 0 40px 80px rgba(0,0,0,0.5);
         }
         
         .desktop-screen img {
           width: 100%;
           height: auto;
           display: block;
+          border-radius: 8px;
         }
         
         .desktop-notch {
-          height: 20px;
+          height: 24px;
           background: #1a1a1a;
           border-radius: 0 0 8px 8px;
+        }
+        
+        .desktop-stand {
+          width: 200px;
+          height: 80px;
+          margin: 0 auto;
+          position: relative;
+        }
+        
+        .desktop-stand::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 6px;
+          height: 50px;
+          background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+          border-radius: 3px;
+        }
+        
+        .desktop-stand::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 180px;
+          height: 12px;
+          background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+          border-radius: 6px;
         }
         
         /* Mobile Frame */
@@ -2483,18 +2512,19 @@ app.get('\/studio', (c) =>
         </div>
         
         <div class="device-showcase">
-          <!-- Desktop Frame -->
+          <!-- Desktop Frame - iMac Style -->
           <div class="desktop-frame">
             <div class="desktop-screen">
-              <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI Desktop">
+              <img src="/static/images/brand-showcase/access-cgi-app-screen.jpg" alt="Access by CGI Dashboard">
             </div>
             <div class="desktop-notch"></div>
+            <div class="desktop-stand"></div>
           </div>
           
           <!-- Mobile Frame -->
           <div class="mobile-frame">
             <div class="mobile-screen">
-              <img src="/static/images/brand-showcase/access-cgi-real.jpg" alt="Access by CGI Mobile">
+              <img src="/static/images/brand-showcase/access-cgi-app-screen.jpg" alt="Access by CGI Mobile App">
             </div>
           </div>
           
