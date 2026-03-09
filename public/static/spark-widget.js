@@ -633,7 +633,9 @@
         await new Promise(r => setTimeout(r, 1600));
         this.hideTyping();
         
-        this.addMessage(`That's costing you time and money. ${this.extractPainValidation(message)}<br><br><strong>Quick context: What do you do?</strong><br><br>(e.g., "I run a SaaS for project management" or "I sell eco-friendly products online")`, 'spark');
+        // ADAPTIVE: Reference their exact problem
+        const painInsight = this.extractPainValidation(message);
+        this.addMessage(`"<em>${message}</em>"<br><br>${painInsight}<br><br><strong>What industry/space are you in?</strong> This helps me understand who you're competing against.`, 'spark');
         this.currentStep = 'business';
         
       } else if (this.currentStep === 'business') {
@@ -647,27 +649,31 @@
         await new Promise(r => setTimeout(r, 1800));
         this.hideTyping();
         
-        this.addMessage(`Got it. ${intel ? `The ${this.userData.industry} market is <strong>$${intel.marketSize}</strong>` : 'Interesting space'}.<br><br>Here's what I'm seeing:`, 'spark');
-        
-        await new Promise(r => setTimeout(r, 600));
-        
+        // ADAPTIVE: Reference their business + problem
         if (intel) {
+          this.addMessage(`Got it. So you're in <strong>${this.userData.industry}</strong> and struggling with "<em>${this.userData.problem}</em>".<br><br>Here's what I see in your market:`, 'spark');
+          
+          await new Promise(r => setTimeout(r, 600));
+          
           const competitiveInsight = `
             <div class="spark-insight-card">
-              <h4>🎯 Competitive Intel</h4>
+              <h4>🎯 ${this.userData.industry.charAt(0).toUpperCase() + this.userData.industry.slice(1)} Market Intel</h4>
               <p><strong>Market size:</strong> ${intel.marketSize}</p>
               <p><strong>Key trends:</strong></p>
               <ul>
                 ${intel.trends.slice(0, 3).map(t => `<li>${t}</li>`).join('')}
               </ul>
-              <p><strong>Your opportunity:</strong> ${intel.blueOcean}</p>
+              <p><strong>Your opportunity:</strong> Most players aren't solving "${this.userData.problem}" effectively. That's your wedge.</p>
             </div>
           `;
           this.addMessage(competitiveInsight, 'spark');
+        } else {
+          this.addMessage(`Okay, so you're dealing with "<em>${this.userData.problem}</em>" in your space.`, 'spark');
         }
         
         await new Promise(r => setTimeout(r, 600));
-        this.addMessage(`Now let's get tactical.<br><br><strong>Who are you targeting specifically?</strong><br><br>(e.g., "B2B SaaS founders with $1M-10M ARR" or "Millennial moms who prioritize organic products")`, 'spark');
+        // ADAPTIVE: Tie audience to their problem
+        this.addMessage(`Now here's the key: <strong>Who SPECIFICALLY feels the pain of "${this.userData.problem}"?</strong><br><br>Be hyper-specific. (e.g., "B2B SaaS founders $1M-10M ARR" not just "business owners")`, 'spark');
         this.currentStep = 'audience';
         
       } else if (this.currentStep === 'audience') {
@@ -678,26 +684,41 @@
         await new Promise(r => setTimeout(r, 1400));
         this.hideTyping();
         
-        this.addMessage(`Perfect. Crystal clear target.<br><br>Here's the strategic framework:`, 'spark');
+        // ADAPTIVE: Reference problem + audience connection
+        this.addMessage(`Perfect. So <strong>${message}</strong> are the ones struggling with "${this.userData.problem}".<br><br>Let me frame this strategically:`, 'spark');
         
         await new Promise(r => setTimeout(r, 500));
         
-        const jtbdInsight = StrategicIntelligence.frameworks.jobsToBeDone(this.userData.audience, this.userData.problem);
-        this.addMessage(`<div class="spark-insight-card">${jtbdInsight}</div>`, 'spark');
+        // ADAPTIVE: Jobs-to-be-Done with their exact problem
+        const jtbdInsight = `
+          <div class="spark-insight-card">
+            <h4>🧠 Strategic Framework</h4>
+            <p><strong>${message}</strong> aren't buying your solution—they're "hiring" it to do a job:</p>
+            <ul>
+              <li><strong>Functional job:</strong> Eliminate "${this.userData.problem}"</li>
+              <li><strong>Emotional job:</strong> Feel confident and in control</li>
+              <li><strong>Social job:</strong> Look smart to peers/colleagues</li>
+            </ul>
+            <p><em>Win by being the BEST tool for solving "${this.userData.problem}" for ${message}.</em></p>
+          </div>
+        `;
+        this.addMessage(jtbdInsight, 'spark');
         
         await new Promise(r => setTimeout(r, 600));
-        this.addMessage(`<strong>What stage are you at revenue-wise?</strong><br><br>Options:<br>• Pre-revenue<br>• $0-5K MRR<br>• $5K-25K MRR<br>• $25K-100K MRR<br>• $100K+ MRR`, 'spark');
+        this.addMessage(`<strong>What revenue stage are you at?</strong><br><br>• Pre-revenue<br>• $0-5K MRR<br>• $5K-25K MRR<br>• $25K-100K MRR<br>• $100K+ MRR`, 'spark');
         this.currentStep = 'stage';
         
       } else if (this.currentStep === 'stage') {
         // Step 4: Revenue stage
         this.userData.stage = this.normalizeStage(message);
+        const playbook = StrategicIntelligence.stagePlaybooks[this.userData.stage];
         
         this.showTyping();
         await new Promise(r => setTimeout(r, 1400));
         this.hideTyping();
         
-        this.addMessage(`Got it. At the <strong>${this.userData.stage}</strong> stage, ${this.getStageInsight(this.userData.stage)}<br><br>Two more tactical questions:<br><br><strong>1) Who are your main competitors?</strong> (Name 2-3 if you can)`, 'spark');
+        // ADAPTIVE: Reference their stage + problem
+        this.addMessage(`Okay, at <strong>${this.userData.stage}</strong>, solving "${this.userData.problem}" for ${this.userData.audience} means your focus should be <strong>${playbook.focus}</strong>.<br><br><strong>Who are your main competitors?</strong> (Name 2-3 who also target ${this.userData.audience})`, 'spark');
         this.currentStep = 'competitors';
         
       } else if (this.currentStep === 'competitors') {
@@ -708,7 +729,8 @@
         await new Promise(r => setTimeout(r, 1200));
         this.hideTyping();
         
-        this.addMessage(`Perfect. Knowing your competitive set is critical.<br><br><strong>Last question: What makes you different?</strong><br><br>Why would someone choose YOU over ${this.userData.competitors}?`, 'spark');
+        // ADAPTIVE: Reference their competitors + problem
+        this.addMessage(`So you're up against <strong>${message}</strong>.<br><br>Here's the million-dollar question: <strong>Why would ${this.userData.audience} choose YOU over ${message.split(',')[0] || message}?</strong><br><br>What do you do differently when it comes to solving "${this.userData.problem}"?`, 'spark');
         this.currentStep = 'differentiator';
         
       } else if (this.currentStep === 'differentiator') {
@@ -824,7 +846,7 @@
       this.addMessage(briefHTML, 'spark');
       
       setTimeout(() => {
-        this.addMessage(`There's your strategic brief. 🔥<br><br>This isn't generic advice—it's a real battle plan based on your competitive landscape, growth stage, and positioning gaps.<br><br><a href="/contact" style="color: #FF6B35; text-decoration: underline; font-weight: 700;">Ready to execute? Let's build it →</a>`, 'spark');
+        this.addMessage(`There's your strategic brief for solving "<strong>${this.userData.problem}</strong>" for <strong>${this.userData.audience}</strong>. 🔥<br><br>This isn't generic BS—it's a battle plan based on your ${this.userData.industry} market, your ${this.userData.stage} stage, and how you stack up against ${this.userData.competitors.split(',')[0] || this.userData.competitors}.<br><br><a href="/contact" style="color: #FF6B35; text-decoration: underline; font-weight: 700;">Want us to build the platform that executes this? →</a>`, 'spark');
       }, 1000);
       
       document.getElementById('spark-input').disabled = true;
