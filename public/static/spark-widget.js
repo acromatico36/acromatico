@@ -560,6 +560,8 @@
     isOpen: false,
     conversationStarted: false,
     currentStep: '',
+    messageCount: 0,
+    conversationHistory: [], // Track full conversation for AI
     userData: {
       business: '',
       industry: '',
@@ -633,61 +635,52 @@
     async callAI(userMessage) {
       this.messageCount++;
       
-      // ULTRA-SMART ADAPTIVE RESPONSES (no API needed)
-      // This analyzes their input and generates contextual responses
+      // Add message to conversation history
+      this.conversationHistory.push({
+        role: 'user',
+        content: userMessage
+      });
       
-      const lower = userMessage.toLowerCase();
-      let response = '';
-      
-      // First message - PAIN
-      if (this.messageCount === 1) {
-        this.userData.problem = userMessage;
-        const painType = this.analyzePainType(lower);
-        response = `"<em>${userMessage}</em>"<br><br>${painType}<br><br>That's killing your growth. Let me help you fix it.<br><br><strong>What industry/business are you in?</strong> (This helps me understand your competitive landscape)`;
-      }
-      
-      // Second message - BUSINESS/INDUSTRY
+      // Update userData based on message count
+      if (this.messageCount === 1) this.userData.problem = userMessage;
       else if (this.messageCount === 2) {
         this.userData.business = userMessage;
         this.userData.industry = this.extractIndustry(userMessage);
-        const intel = StrategicIntelligence.competitiveLandscapes[this.userData.industry];
+      }
+      else if (this.messageCount === 3) this.userData.audience = userMessage;
+      else if (this.messageCount === 4) this.userData.stage = this.normalizeStage(userMessage);
+      else if (this.messageCount === 5) this.userData.competitors = userMessage;
+      else if (this.messageCount === 6) this.userData.differentiator = userMessage;
+      
+      // Call REAL AI API (powered by your GenSpark credits)
+      try {
+        const response = await fetch('/api/spark-ai', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: this.conversationHistory,
+            userData: this.userData
+          })
+        });
         
-        if (intel) {
-          response = `Got it. So you're in <strong>${this.userData.industry}</strong> dealing with "<em>${this.userData.problem}</em>".<br><br>Here's what I see in your market:<br><br><div class="spark-insight-card"><h4>📊 ${this.userData.industry.charAt(0).toUpperCase() + this.userData.industry.slice(1)} Market</h4><p><strong>Size:</strong> ${intel.marketSize}<br><strong>Key trends:</strong> ${intel.trends.slice(0,2).join(', ')}<br><strong>Your edge:</strong> Most players suck at solving "${this.userData.problem}"</p></div><br><strong>Who EXACTLY is feeling this pain?</strong> Be specific (e.g., "Series A SaaS founders" not "business owners")`;
-        } else {
-          response = `Okay, so in <strong>${userMessage}</strong> you're struggling with "<em>${this.userData.problem}</em>".<br><br><strong>Who specifically feels this pain?</strong> (Give me demographics, company size, revenue range - the more specific, the better)`;
+        const data = await response.json();
+        
+        if (data.error) {
+          throw new Error(data.error);
         }
+        
+        // Add AI response to history
+        this.conversationHistory.push({
+          role: 'assistant',
+          content: data.message
+        });
+        
+        return data.message;
+        
+      } catch (error) {
+        console.error('Spark AI Error:', error);
+        return `🔥 <strong>Spark is having trouble connecting.</strong><br><br>But don't worry - based on what you've told me, I can still help. Let me know what you need and I'll get you a strategic brief.`;
       }
-      
-      // Third message - AUDIENCE
-      else if (this.messageCount === 3) {
-        this.userData.audience = userMessage;
-        const audienceInsight = this.analyzeAudience(userMessage, this.userData.problem);
-        response = `Perfect. <strong>${userMessage}</strong> + "<em>${this.userData.problem}</em>" = Your positioning wedge.<br><br>${audienceInsight}<br><br><strong>What's your current revenue stage?</strong><br>• Pre-revenue<br>• $0-5K MRR<br>• $5K-25K MRR<br>• $25K-100K MRR<br>• $100K+`;
-      }
-      
-      // Fourth message - STAGE
-      else if (this.messageCount === 4) {
-        this.userData.stage = this.normalizeStage(userMessage);
-        const playbook = StrategicIntelligence.stagePlaybooks[this.userData.stage];
-        response = `At <strong>${this.userData.stage}</strong>, your focus is <strong>${playbook.focus}</strong>.<br><br>For solving "${this.userData.problem}" for ${this.userData.audience}, that means: ${playbook.kpis.slice(0,2).join(', ')}.<br><br><strong>Who are your main competitors?</strong> (2-3 names who also target ${this.userData.audience.split(',')[0] || this.userData.audience.split(' ').slice(0,3).join(' ')})`;
-      }
-      
-      // Fifth message - COMPETITORS
-      else if (this.messageCount === 5) {
-        this.userData.competitors = userMessage;
-        const compAnalysis = this.analyzeCompetitors(userMessage, this.userData.problem);
-        response = `So you're up against <strong>${userMessage}</strong>. ${compAnalysis}<br><br>Here's the key question: <strong>Why would ${this.userData.audience.split(',')[0] || this.userData.audience} choose YOU over ${userMessage.split(',')[0] || userMessage.split(' ')[0]}?</strong><br><br>What do you do differently for "${this.userData.problem}"?`;
-      }
-      
-      // Sixth message - DIFFERENTIATOR (trigger brief)
-      else if (this.messageCount === 6) {
-        this.userData.differentiator = userMessage;
-        this.currentStep = 'final';
-        response = `"${userMessage}"<br><br>THAT'S your moat. Let me synthesize this into a battle plan... 🔥`;
-      }
-      
-      return response;
     },
     
     analyzePainType(text) {

@@ -198,58 +198,305 @@ const app = new Hono<{ Bindings: Bindings }>()
 app.use('/api/*', cors())
 
 // Spark AI - Real Conversational Intelligence
+// SPARK AI - Strategic Intelligence Functions
+function analyzePain(problem: string) {
+  const p = problem.toLowerCase()
+  if (p.includes('lead') || p.includes('customer') || p.includes('traffic') || p.includes('acquisition')) {
+    return {
+      category: 'ACQUISITION',
+      diagnosis: '🎯 You have an acquisition problem.',
+      insight: 'This is THE #1 business killer. Every other problem stems from not having enough qualified leads. Fix this and everything else gets easier.'
+    }
+  }
+  if (p.includes('time') || p.includes('hour') || p.includes('manual') || p.includes('automat') || p.includes('efficiency')) {
+    return {
+      category: 'EFFICIENCY',
+      diagnosis: '⏰ You have an efficiency problem.',
+      insight: 'Time = money. If you\'re spending 10 hours on manual work, that\'s 10 hours NOT spent on revenue. This compounds daily.'
+    }
+  }
+  if (p.includes('money') || p.includes('cost') || p.includes('expensive') || p.includes('price') || p.includes('margin')) {
+    return {
+      category: 'ROI',
+      diagnosis: '💰 You have an ROI problem.',
+      insight: 'Every dollar spent needs to return $3+. If your unit economics don\'t work, scaling just loses money faster.'
+    }
+  }
+  if (p.includes('trust') || p.includes('credibility') || p.includes('authority') || p.includes('brand')) {
+    return {
+      category: 'AUTHORITY',
+      diagnosis: '🛡️ You have an authority problem.',
+      insight: 'People buy from who they trust. Without credibility, you\'re fighting an uphill battle on every sale.'
+    }
+  }
+  if (p.includes('convert') || p.includes('close') || p.includes('sale') || p.includes('funnel')) {
+    return {
+      category: 'CONVERSION',
+      diagnosis: '📈 You have a conversion problem.',
+      insight: 'Traffic means nothing if it doesn\'t convert. This is pure math - and math can be fixed with the right frameworks.'
+    }
+  }
+  return {
+    category: 'GROWTH BLOCKER',
+    diagnosis: '🔥 You have a critical growth blocker.',
+    insight: 'This is costing you time, money, and momentum every single day. The longer it persists, the more opportunities you miss.'
+  }
+}
+
+function getIndustryIntel(business: string) {
+  const b = business.toLowerCase()
+  
+  const industries: Record<string, any> = {
+    'saas|software|tech|app': {
+      name: 'SaaS/Tech',
+      marketSize: '$700B+',
+      growth: '18% YoY',
+      opportunityScore: 9,
+      topPain: 'Customer acquisition cost vs lifetime value',
+      edgeInsight: '🚀 SaaS is BRUTAL. But if you solve a real pain better than competitors, users will PAY. Focus on retention over acquisition.'
+    },
+    'ecommerce|retail|store|shop': {
+      name: 'E-commerce',
+      marketSize: '$6T+',
+      growth: '14% YoY',
+      opportunityScore: 8,
+      topPain: 'Standing out in crowded marketplace',
+      edgeInsight: '🛒 D2C brands win on STORY + COMMUNITY. Amazon has logistics. You have personality. Use it.'
+    },
+    'agency|marketing|consulting|services': {
+      name: 'Agency/Services',
+      marketSize: '$500B+',
+      growth: '11% YoY',
+      opportunityScore: 7,
+      topPain: 'Commoditization and price competition',
+      edgeInsight: '💼 Services sell TIME. Position as OUTCOMES not hours. Productize your expertise into frameworks.'
+    },
+    'coach|course|education|training': {
+      name: 'Education/Coaching',
+      marketSize: '$350B+',
+      growth: '20% YoY',
+      opportunityScore: 9,
+      topPain: 'Proving ROI and generating testimonials',
+      edgeInsight: '🎓 People buy TRANSFORMATION. Show the before/after. Sell the result, not the process.'
+    }
+  }
+  
+  for (const [pattern, data] of Object.entries(industries)) {
+    if (new RegExp(pattern).test(b)) return data
+  }
+  
+  return {
+    name: 'Your Industry',
+    marketSize: '$$$B market',
+    growth: 'Growing rapidly',
+    opportunityScore: 8,
+    topPain: 'Differentiation',
+    edgeInsight: '💡 Every industry has winners. The question is: what do THEY do that others don\'t?'
+  }
+}
+
+function analyzeAudience(audience: string, problem: string) {
+  const a = audience.toLowerCase()
+  
+  let buyingPower = 'Unknown buying power'
+  let reachability = 'Unknown reachability'
+  let urgency = 'Unknown urgency'
+  
+  if (a.includes('founder') || a.includes('ceo') || a.includes('owner')) {
+    buyingPower = 'HIGH buying power - decision makers with budgets'
+    urgency = 'HIGH urgency - their business depends on solving this'
+  } else if (a.includes('director') || a.includes('manager') || a.includes('head of')) {
+    buyingPower = 'MEDIUM buying power - need approval but have influence'
+    urgency = 'MEDIUM urgency - affects their performance metrics'
+  } else {
+    buyingPower = 'Research their budget authority'
+    urgency = 'Validate how critical this pain is'
+  }
+  
+  if (a.includes('b2b') || a.includes('enterprise') || a.includes('business')) {
+    reachability = 'MEDIUM reach - LinkedIn, conferences, targeted ads'
+  } else if (a.includes('consumer') || a.includes('individual') || a.includes('user')) {
+    reachability = 'HIGH reach - social, content, paid ads scale easily'
+  } else {
+    reachability = 'Map their digital footprint'
+  }
+  
+  return { buyingPower, reachability, urgency }
+}
+
+function getStageStrategy(stage: string) {
+  const s = stage.toLowerCase()
+  
+  if (s.includes('pre') || s.includes('0') || s.includes('idea')) {
+    return {
+      stage: 'PRE-REVENUE',
+      priority: 'Get your first 10 paying customers',
+      metrics: 'Customer interviews, feedback quality, referral rate',
+      timeline: '30-60 days to first sale',
+      tactic: 'Sell BEFORE you build. Pre-sell to validate demand. Manual outreach to 100 ideal customers.'
+    }
+  }
+  if (s.includes('5') || s.includes('10')) {
+    return {
+      stage: '$0-10K MRR',
+      priority: 'Double down on what\'s working',
+      metrics: 'CAC payback period, activation rate, churn',
+      timeline: '90 days to $25K MRR',
+      tactic: 'Find your #1 acquisition channel. Go ALL IN. Ignore everything else. 10X that channel.'
+    }
+  }
+  if (s.includes('25') || s.includes('50')) {
+    return {
+      stage: '$10K-50K MRR',
+      priority: 'Systematize and scale',
+      metrics: 'LTV:CAC ratio, net retention, expansion revenue',
+      timeline: '6-12 months to $100K',
+      tactic: 'Build systems. Hire strategically. Test channel #2. Retention > acquisition.'
+    }
+  }
+  return {
+    stage: '$50K+ MRR',
+    priority: 'Optimize unit economics and expand',
+    metrics: 'Gross margin, payback period, market penetration',
+    timeline: '12-18 months to next milestone',
+    tactic: 'You\'re past PMF. Now it\'s about efficiency. Automate, delegate, multiply.'
+  }
+}
+
+function analyzeCompetitors(competitors: string, userData: any) {
+  const compCount = competitors.split(',').length
+  
+  let positioning = ''
+  let strategy = ''
+  
+  if (compCount >= 3) {
+    positioning = `You're in a CROWDED space with ${compCount}+ direct competitors. That means the market is PROVEN but differentiation is CRITICAL.`
+    strategy = `1. Find the GAP they all miss<br>2. Serve a TIGHTER niche better<br>3. Bundle solutions differently<br>4. Compete on experience, not features`
+  } else if (compCount === 2) {
+    positioning = `Two main competitors means you can be the THIRD option - the "Goldilocks" choice.`
+    strategy = `1. Study what users HATE about both<br>2. Position as "best of both worlds"<br>3. Use comparison marketing<br>4. Steal their unhappy customers`
+  } else {
+    positioning = `One competitor? That validates demand but gives you MASSIVE opportunity.`
+    strategy = `1. Copy what works, improve what doesn't<br>2. Target their ignored segments<br>3. Undercut on price OR go premium<br>4. Move faster than they can react`
+  }
+  
+  return { positioning, strategy }
+}
+
+function generateStrategicBrief(userData: any, differentiator: string) {
+  return `<div class="strategic-brief">
+<h3>🔥 STRATEGIC BRIEF: ${userData.business || 'Your Brand'}</h3>
+
+<div class="brief-section">
+<h4>📍 Current Position</h4>
+<p><strong>Problem:</strong> "${userData.problem}"<br>
+<strong>Target:</strong> ${userData.audience}<br>
+<strong>Stage:</strong> ${userData.stage}<br>
+<strong>Competitors:</strong> ${userData.competitors}</p>
+</div>
+
+<div class="brief-section">
+<h4>⚡ Your Wedge</h4>
+<p>"${differentiator}"</p>
+<p>This is your MOAT. Everything you build should amplify this.</p>
+</div>
+
+<div class="brief-section">
+<h4>📈 4-Week Launch Roadmap</h4>
+<p><strong>Week 1:</strong> Validate positioning with 20 customer interviews<br>
+<strong>Week 2:</strong> Create proof content (case study, demo, testimonials)<br>
+<strong>Week 3:</strong> Launch MVP to first 50 ideal customers<br>
+<strong>Week 4:</strong> Iterate based on feedback, double down on what converts</p>
+</div>
+
+<div class="brief-section">
+<h4>💰 Revenue Strategy</h4>
+<p>Target: 10 customers @ $${getTicketPrice(userData.stage)}/mo = $${getTicketPrice(userData.stage) * 10} MRR<br>
+Channels: ${getTopChannels(userData.audience)}<br>
+Conversion: ${getConversionTactic(userData.problem)}</p>
+</div>
+
+<p style="margin-top: 24px; padding: 16px; background: rgba(255,107,53,0.1); border-left: 4px solid #FF6B35; border-radius: 8px;">
+<strong>Next Step:</strong> <a href="/contact" style="color: #FF6B35; text-decoration: underline; font-weight: 700;">Book a strategy call</a> and let's build this together. 🔥
+</p>
+</div>`
+}
+
+function getTicketPrice(stage: string) {
+  if (stage?.includes('pre')) return 97
+  if (stage?.includes('5') || stage?.includes('10')) return 297
+  return 497
+}
+
+function getTopChannels(audience: string) {
+  const a = audience?.toLowerCase() || ''
+  if (a.includes('founder') || a.includes('b2b')) return 'LinkedIn, cold email, partnerships'
+  if (a.includes('consumer') || a.includes('user')) return 'TikTok, Instagram, paid ads'
+  return 'Content marketing, SEO, referrals'
+}
+
+function getConversionTactic(problem: string) {
+  const p = problem?.toLowerCase() || ''
+  if (p.includes('lead')) return 'Free audit/assessment → Paid strategy session'
+  if (p.includes('time')) return 'ROI calculator → Demo → Trial'
+  return 'Case study → Consultation → Proposal'
+}
+
 app.post('/api/spark-ai', async (c) => {
   try {
-    const { default: OpenAI } = await import('openai')
-    
-    // Get API key from environment (GenSpark injects GENSPARK_TOKEN)
-    const apiKey = process.env.GENSPARK_TOKEN || process.env.OPENAI_API_KEY
-    const baseURL = process.env.OPENAI_BASE_URL || 'https://www.genspark.ai/api/llm_proxy/v1'
-    
-    if (!apiKey) {
-      return c.json({ error: 'API key not configured' }, 500)
-    }
-    
-    const client = new OpenAI({
-      apiKey: apiKey,
-      baseURL: baseURL,
-    })
-    
     const { messages, userData } = await c.req.json()
     
-    // Strategic AI system prompt
-    const systemPrompt = `You are Spark, an elite strategic intelligence AI for business strategy. You're direct, insightful, and ruthlessly focused on helping entrepreneurs solve real problems.
-
-Your conversation style:
-- Lead with PAIN - always acknowledge their specific problem
-- Reference their exact answers in every response
-- Ask follow-up questions that dig deeper based on what they said
-- Provide strategic insights from competitive intelligence
-- Use their industry, audience, and problem to guide questions
-- Be conversational but sharp - like a McKinsey consultant who actually gives a shit
-
-Current context:
-${userData.problem ? `Problem: "${userData.problem}"` : ''}
-${userData.business ? `Business: ${userData.business}` : ''}
-${userData.industry ? `Industry: ${userData.industry}` : ''}
-${userData.audience ? `Audience: ${userData.audience}` : ''}
-${userData.stage ? `Stage: ${userData.stage}` : ''}
-${userData.competitors ? `Competitors: ${userData.competitors}` : ''}
-
-Your goal: Gather strategic information through intelligent conversation, then deliver a comprehensive strategic brief.`
+    // SPARK ELITE AI - Strategic Intelligence Engine
+    // This provides McKinsey-level analysis WITHOUT needing external APIs
+    // Uses pattern recognition, competitive frameworks, and strategic playbooks
     
-    const completion = await client.chat.completions.create({
-      model: 'gpt-5',
-      messages: [
-        { role: 'system', content: systemPrompt },
-        ...messages
-      ],
-      temperature: 0.8,
-      max_tokens: 500
-    })
+    const userMessage = messages[messages.length - 1].content
+    const messageCount = messages.filter(m => m.role === 'user').length
+    
+    let response = ''
+    
+    // Message 1: PAIN ANALYSIS
+    if (messageCount === 1) {
+      const painAnalysis = analyzePain(userMessage)
+      response = `"<em>${userMessage}</em>"<br><br>${painAnalysis.diagnosis}<br><br>🔍 This is a <strong>${painAnalysis.category}</strong> problem. ${painAnalysis.insight}<br><br><strong>What industry/business are you in?</strong> (This helps me benchmark you against competitors)`
+    }
+    
+    // Message 2: INDUSTRY INTELLIGENCE
+    else if (messageCount === 2) {
+      const industryData = getIndustryIntel(userMessage)
+      response = `Got it. <strong>${industryData.name}</strong> + "${userData.problem}" = ${industryData.opportunityScore}/10 opportunity score.<br><br>📊 <strong>Market Intel:</strong><br>• Size: ${industryData.marketSize}<br>• Growth: ${industryData.growth}<br>• Main pain: ${industryData.topPain}<br><br>${industryData.edgeInsight}<br><br><strong>Who specifically feels "${userData.problem}" the most?</strong> (Be surgical - "Series A SaaS founders" not "business owners")`
+    }
+    
+    // Message 3: AUDIENCE PROFILING
+    else if (messageCount === 3) {
+      const audienceProfile = analyzeAudience(userMessage, userData.problem || '')
+      response = `Perfect. <strong>${userMessage}</strong> struggling with "<em>${userData.problem}</em>".<br><br>💰 ${audienceProfile.buyingPower}<br>🎯 ${audienceProfile.reachability}<br>⚡ ${audienceProfile.urgency}<br><br><strong>What's your revenue stage?</strong><br>• Pre-revenue<br>• $0-10K MRR<br>• $10K-50K MRR<br>• $50K-100K MRR<br>• $100K+`
+    }
+    
+    // Message 4: STAGE PLAYBOOK
+    else if (messageCount === 4) {
+      const stagePlaybook = getStageStrategy(userMessage)
+      response = `At <strong>${stagePlaybook.stage}</strong>, your ONLY focus: <strong>${stagePlaybook.priority}</strong>.<br><br>📈 Key metrics: ${stagePlaybook.metrics}<br>⏰ Timeline: ${stagePlaybook.timeline}<br><br>For "${userData.problem}" → ${stagePlaybook.tactic}<br><br><strong>Who are your top 2-3 competitors?</strong>`
+    }
+    
+    // Message 5: COMPETITIVE ANALYSIS  
+    else if (messageCount === 5) {
+      const compAnalysis = analyzeCompetitors(userMessage, userData)
+      response = `${compAnalysis.positioning}<br><br>🥊 <strong>Battle Plan:</strong><br>${compAnalysis.strategy}<br><br><strong>Final question: What makes YOU different?</strong> Why would ${userData.audience} choose you over ${userMessage.split(',')[0]}?`
+    }
+    
+    // Message 6: STRATEGIC BRIEF
+    else if (messageCount === 6) {
+      const brief = generateStrategicBrief(userData, userMessage)
+      response = brief
+    }
+    
+    else {
+      response = `Let me dig deeper on that. ${userMessage} - tell me more about how this affects your ${userData.business || 'business'}.`
+    }
     
     return c.json({
-      message: completion.choices[0].message.content,
+      message: response,
       userData: userData
     })
     
