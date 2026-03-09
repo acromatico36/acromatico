@@ -1799,10 +1799,7 @@ app.get('/academy', (c) =>
   )
 )
 
-app.get('/studio', async (c) => {
-  const html = await Bun.file('/home/user/webapp/public/static/studio.html').text()
-  return c.html(html)
-})
+app.get('/studio', (c) => c.redirect('/static/studio.html', 302))
 
 app.get('/studio-old', (c) =>
   c.html(`
