@@ -2768,33 +2768,130 @@ app.get('\/studio', (c) =>
         </div>
       </div>
       
-      <!-- REPUBLIC COMMERCIAL FUND -->
-      <div class="case case-featured">
-        <div class="case-info">
-          <div class="case-label">Commercial Real Estate Funding Platform</div>
-          <div class="case-title">Republic Commercial Fund</div>
-          <div class="case-metric">Enterprise Capital Solutions</div>
-          <div class="case-description">
-            Commercial real estate fund needed a platform that commands institutional trust. We built a complete fintech SaaS with deal flow management, investor portal, secure document handling, and real-time portfolio analytics for high-value transactions.
-          </div>
-        </div>
+      <!-- REPUBLIC COMMERCIAL FUND - ICONIC SHOWCASE -->
+      <div class="case case-featured" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); padding: 100px 60px; min-height: auto;">
         
-        <div class="device-showcase">
-          <!-- Desktop Frame - iMac Style -->
-          <div class="desktop-frame">
-            <div class="desktop-screen">
-              <img src="/static/images/brand-showcase/republic-fund-hero.jpg" alt="Republic Commercial Fund Platform">
+        <!-- Platform Overview -->
+        <div style="max-width: 1400px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 80px;">
+            <div class="case-label" style="margin-bottom: 24px;">Commercial Real Estate Investment Platform</div>
+            <h2 class="case-title" style="margin-bottom: 24px;">Republic Commercial Fund</h2>
+            <p style="font-size: 20px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 900px; margin: 0 auto 40px;">When CGI Merchant Group acquired the Trump International Hotel in Washington D.C. for <span style="color: #4794A6; font-weight: 700;">$375 million</span>, they needed a platform that could democratize institutional-grade real estate investments. We built the infrastructure.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-top: 60px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">$375M+</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Assets Under Management</div>
+              </div>
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">525</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Total Hotel Keys</div>
+              </div>
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">3</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Iconic Properties</div>
+              </div>
             </div>
-            <div class="desktop-notch"></div>
-            <div class="desktop-stand"></div>
           </div>
           
-          <!-- Mobile Frame -->
-          <div class="mobile-frame">
-            <div class="mobile-screen">
-              <img src="/static/images/brand-showcase/republic-fund-hero.jpg" alt="Republic Fund Mobile">
+          <!-- Platform UI Showcase -->
+          <div style="margin-bottom: 100px;">
+            <div class="desktop-frame" style="max-width: 1200px; margin: 0 auto;">
+              <div class="desktop-screen">
+                <img src="/static/images/brand-showcase/republic-platform-ui.jpg" alt="Republic Investment Platform">
+              </div>
+              <div class="desktop-notch"></div>
+              <div class="desktop-stand"></div>
             </div>
           </div>
+          
+          <!-- Iconic Properties Grid -->
+          <div style="margin-bottom: 60px;">
+            <h3 style="font-size: 36px; font-weight: 900; text-align: center; margin-bottom: 60px; color: #fff;">Portfolio Highlights</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px;">
+              
+              <!-- Waldorf Astoria DC -->
+              <div style="background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; transition: transform 0.3s ease;">
+                <img src="/static/images/brand-showcase/waldorf-astoria-dc.jpg" alt="Waldorf Astoria Washington DC" style="width: 100%; height: 280px; object-fit: cover;">
+                <div style="padding: 32px;">
+                  <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin-bottom: 12px;">ICONIC HOTEL</div>
+                  <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #fff;">Waldorf Astoria Washington D.C.</h4>
+                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px;">Historic Old Post Office building (1899) on Pennsylvania Avenue. Between the White House and U.S. Capitol. CGI Merchant Group's $375M acquisition transformed this landmark into Hilton's flagship Waldorf Astoria property.</p>
+                  <div style="display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">263</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Keys</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">$375M</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Acquisition</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">1899</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Built</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- The Gabriel South Beach -->
+              <div style="background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; transition: transform 0.3s ease;">
+                <img src="/static/images/brand-showcase/gabriel-miami-south-beach.jpg" alt="The Gabriel Miami South Beach" style="width: 100%; height: 280px; object-fit: cover;">
+                <div style="padding: 32px;">
+                  <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin-bottom: 12px;">ART DECO ICON</div>
+                  <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #fff;">The Gabriel Miami South Beach</h4>
+                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px;">Blending mid-century modernism with quintessential Floridian style on Ocean Drive. Greatest linear footage on Miami Beach's most iconic street. Curio Collection by Hilton's Art Deco masterpiece steps from the ocean.</p>
+                  <div style="display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">132</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Keys</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">Ocean</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Drive</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">2 Pools</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Amenities</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- The Gabriel Downtown -->
+              <div style="background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; transition: transform 0.3s ease;">
+                <img src="/static/images/brand-showcase/gabriel-miami-downtown.jpg" alt="The Gabriel Miami Downtown" style="width: 100%; height: 280px; object-fit: cover;">
+                <div style="padding: 32px;">
+                  <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin-bottom: 12px;">MODERN LUXURY</div>
+                  <h4 style="font-size: 24px; font-weight: 900; margin-bottom: 12px; color: #fff;">The Gabriel Miami Downtown</h4>
+                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px;">Located in the arts and cultural epicenter of Miami. Benefits from one of the most foot-trafficked areas downtown. High-rise tower with stunning Biscayne Bay views and proximity to American Airlines Arena, Pérez Art Museum, and Phillip & Patricia Frost Museum.</p>
+                  <div style="display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">130</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Keys</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">Bay</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">Views</div>
+                    </div>
+                    <div>
+                      <div style="font-size: 20px; font-weight: 700; color: #4794A6;">Arts</div>
+                      <div style="font-size: 12px; color: rgba(255,255,255,0.5);">District</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- Platform Impact -->
+          <div style="background: rgba(71,148,166,0.05); border: 1px solid rgba(71,148,166,0.2); border-radius: 16px; padding: 60px; text-align: center; margin-top: 80px;">
+            <h3 style="font-size: 28px; font-weight: 900; margin-bottom: 24px; color: #fff;">Platform Impact</h3>
+            <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto;">We built a complete fintech SaaS that democratizes access to institutional-grade real estate investments. Secure deal flow management, investor portal with real-time analytics, automated document handling, and portfolio tracking. The platform enables both institutional and retail investors to access high-value commercial real estate opportunities previously limited to ultra-high-net-worth individuals.</p>
+          </div>
+          
         </div>
       </div>
       
