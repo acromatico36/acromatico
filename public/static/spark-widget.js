@@ -624,37 +624,110 @@
     },
     
     conversationHistory: [],
+    messageCount: 0,
     
     async callAI(userMessage) {
-      // Add user message to history
-      this.conversationHistory.push({
-        role: 'user',
-        content: userMessage
-      });
+      this.messageCount++;
       
-      try {
-        const response = await fetch('/api/spark-ai', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            messages: this.conversationHistory,
-            userData: this.userData
-          })
-        });
-        
-        const data = await response.json();
-        
-        // Add AI response to history
-        this.conversationHistory.push({
-          role: 'assistant',
-          content: data.message
-        });
-        
-        return data.message;
-      } catch (error) {
-        console.error('AI Error:', error);
-        return 'Sorry, I had a connection issue. Can you repeat that?';
+      // ULTRA-SMART ADAPTIVE RESPONSES (no API needed)
+      // This analyzes their input and generates contextual responses
+      
+      const lower = userMessage.toLowerCase();
+      let response = '';
+      
+      // First message - PAIN
+      if (this.messageCount === 1) {
+        this.userData.problem = userMessage;
+        const painType = this.analyzePainType(lower);
+        response = `"<em>${userMessage}</em>"<br><br>${painType}<br><br>That's killing your growth. Let me help you fix it.<br><br><strong>What industry/business are you in?</strong> (This helps me understand your competitive landscape)`;
       }
+      
+      // Second message - BUSINESS/INDUSTRY
+      else if (this.messageCount === 2) {
+        this.userData.business = userMessage;
+        this.userData.industry = this.extractIndustry(userMessage);
+        const intel = StrategicIntelligence.competitiveLandscapes[this.userData.industry];
+        
+        if (intel) {
+          response = `Got it. So you're in <strong>${this.userData.industry}</strong> dealing with "<em>${this.userData.problem}</em>".<br><br>Here's what I see in your market:<br><br><div class="spark-insight-card"><h4>📊 ${this.userData.industry.charAt(0).toUpperCase() + this.userData.industry.slice(1)} Market</h4><p><strong>Size:</strong> ${intel.marketSize}<br><strong>Key trends:</strong> ${intel.trends.slice(0,2).join(', ')}<br><strong>Your edge:</strong> Most players suck at solving "${this.userData.problem}"</p></div><br><strong>Who EXACTLY is feeling this pain?</strong> Be specific (e.g., "Series A SaaS founders" not "business owners")`;
+        } else {
+          response = `Okay, so in <strong>${userMessage}</strong> you're struggling with "<em>${this.userData.problem}</em>".<br><br><strong>Who specifically feels this pain?</strong> (Give me demographics, company size, revenue range - the more specific, the better)`;
+        }
+      }
+      
+      // Third message - AUDIENCE
+      else if (this.messageCount === 3) {
+        this.userData.audience = userMessage;
+        const audienceInsight = this.analyzeAudience(userMessage, this.userData.problem);
+        response = `Perfect. <strong>${userMessage}</strong> + "<em>${this.userData.problem}</em>" = Your positioning wedge.<br><br>${audienceInsight}<br><br><strong>What's your current revenue stage?</strong><br>• Pre-revenue<br>• $0-5K MRR<br>• $5K-25K MRR<br>• $25K-100K MRR<br>• $100K+`;
+      }
+      
+      // Fourth message - STAGE
+      else if (this.messageCount === 4) {
+        this.userData.stage = this.normalizeStage(userMessage);
+        const playbook = StrategicIntelligence.stagePlaybooks[this.userData.stage];
+        response = `At <strong>${this.userData.stage}</strong>, your focus is <strong>${playbook.focus}</strong>.<br><br>For solving "${this.userData.problem}" for ${this.userData.audience}, that means: ${playbook.kpis.slice(0,2).join(', ')}.<br><br><strong>Who are your main competitors?</strong> (2-3 names who also target ${this.userData.audience.split(',')[0] || this.userData.audience.split(' ').slice(0,3).join(' ')})`;
+      }
+      
+      // Fifth message - COMPETITORS
+      else if (this.messageCount === 5) {
+        this.userData.competitors = userMessage;
+        const compAnalysis = this.analyzeCompetitors(userMessage, this.userData.problem);
+        response = `So you're up against <strong>${userMessage}</strong>. ${compAnalysis}<br><br>Here's the key question: <strong>Why would ${this.userData.audience.split(',')[0] || this.userData.audience} choose YOU over ${userMessage.split(',')[0] || userMessage.split(' ')[0]}?</strong><br><br>What do you do differently for "${this.userData.problem}"?`;
+      }
+      
+      // Sixth message - DIFFERENTIATOR (trigger brief)
+      else if (this.messageCount === 6) {
+        this.userData.differentiator = userMessage;
+        this.currentStep = 'final';
+        response = `"${userMessage}"<br><br>THAT'S your moat. Let me synthesize this into a battle plan... 🔥`;
+      }
+      
+      return response;
+    },
+    
+    analyzePainType(text) {
+      if (text.includes('lead') || text.includes('customer') || text.includes('traffic')) {
+        return '🎯 <strong>Acquisition problem.</strong> This is THE number 1 killer of businesses. Every other problem stems from this.';
+      }
+      if (text.includes('time') || text.includes('hour') || text.includes('manual') || text.includes('automat')) {
+        return '⏰ <strong>Efficiency problem.</strong> Time equals money. If you are spending 10 hours on X, that is opportunity cost you cannot scale.';
+      }
+      if (text.includes('money') || text.includes('cost') || text.includes('expensive') || text.includes('price')) {
+        return '💰 <strong>ROI problem.</strong> Every dollar matters. You need to see clear returns or you are bleeding cash.';
+      }
+      if (text.includes('trust') || text.includes('credibility') || text.includes('confidence')) {
+        return '🛡️ <strong>Authority problem.</strong> People buy from who they trust. Without credibility, you are fighting uphill.';
+      }
+      if (text.includes('convert') || text.includes('close') || text.includes('sale')) {
+        return '📈 <strong>Conversion problem.</strong> Traffic means nothing if it does not convert. This is pure math you can fix.';
+      }
+      return '🔥 <strong>Growth blocker.</strong> This is costing you time, money, and momentum.';
+    },
+    
+    analyzeAudience(audience, problem) {
+      const size = audience.match(/\d+[\-\+]?/g);
+      if (size) {
+        return `The specificity is GOLD. ${audience} with "${problem}" = A market segment you can dominate.`;
+      }
+      if (audience.includes('founder') || audience.includes('CEO') || audience.includes('owner')) {
+        return `Decision-makers. That means shorter sales cycles, higher LTV, but you need to PROVE ROI fast.`;
+      }
+      if (audience.includes('millennial') || audience.includes('gen z') || audience.includes('boomer')) {
+        return `Generational targeting = smart. Different pain points, different buying behaviors. Tailor everything to THEM.`;
+      }
+      return `That's your ICP (Ideal Customer Profile). Every marketing dollar should target THIS person.`;
+    },
+    
+    analyzeCompetitors(competitors, problem) {
+      const names = competitors.split(/[,;&]+/).map(c => c.trim());
+      if (names.length >= 2) {
+        return `Multiple competitors means validated market. Good. Now you need to differentiate on solving "${problem}" better than ALL of them.`;
+      }
+      if (competitors.toLowerCase().includes('no one') || competitors.toLowerCase().includes('none')) {
+        return `No direct competitors? Either you found a blue ocean or the market doesn't exist yet. Validate demand FAST.`;
+      }
+      return `Knowing your enemy is half the battle. Study how they solve "${problem}" and do it 10x better.`;
     },
     
     async handleMessage(message) {

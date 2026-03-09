@@ -200,23 +200,19 @@ app.use('/api/*', cors())
 // Spark AI - Real Conversational Intelligence
 app.post('/api/spark-ai', async (c) => {
   try {
-    const { OpenAI } = await import('openai')
-    const fs = await import('fs')
-    const yaml = await import('js-yaml')
-    const os = await import('os')
-    const path = await import('path')
+    const { default: OpenAI } = await import('openai')
     
-    // Load config
-    const configPath = path.join(os.homedir(), '.genspark_llm.yaml')
-    let config = null
-    if (fs.existsSync(configPath)) {
-      const fileContents = fs.readFileSync(configPath, 'utf8')
-      config = yaml.load(fileContents)
+    // Get API key from environment (GenSpark injects GENSPARK_TOKEN)
+    const apiKey = process.env.GENSPARK_TOKEN || process.env.OPENAI_API_KEY
+    const baseURL = process.env.OPENAI_BASE_URL || 'https://www.genspark.ai/api/llm_proxy/v1'
+    
+    if (!apiKey) {
+      return c.json({ error: 'API key not configured' }, 500)
     }
     
     const client = new OpenAI({
-      apiKey: config?.openai?.api_key || process.env.OPENAI_API_KEY || process.env.GENSPARK_TOKEN,
-      baseURL: config?.openai?.base_url || process.env.OPENAI_BASE_URL || 'https://www.genspark.ai/api/llm_proxy/v1',
+      apiKey: apiKey,
+      baseURL: baseURL,
     })
     
     const { messages, userData } = await c.req.json()
@@ -257,9 +253,12 @@ Your goal: Gather strategic information through intelligent conversation, then d
       userData: userData
     })
     
-  } catch (error) {
+  } catch (error: any) {
     console.error('Spark AI Error:', error)
-    return c.json({ error: 'AI temporarily unavailable' }, 500)
+    return c.json({ 
+      error: 'AI temporarily unavailable',
+      details: error.message 
+    }, 500)
   }
 })
 
