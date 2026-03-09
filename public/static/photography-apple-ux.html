@@ -2187,41 +2187,100 @@
             </div>
           </div>
 
-          <!-- OTHER ADD-ONS -->
-          <div class="addon-group">
-            <h4 class="addon-group-title">Wall Art & Additional Services</h4>
+          <!-- WALL ART SHOWCASE -->
+          <div class="addon-group" style="margin-top: 48px;">
+            <h4 class="addon-group-title" style="font-size: 24px; margin-bottom: 24px;">Premium Wall Art</h4>
+            <p style="font-size: 15px; color: #666; margin-bottom: 32px; text-align: center;">Museum-quality prints handcrafted in Italy by Graphistudio. Turn your favorite moments into stunning wall art.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 32px;">
+              <!-- CANVAS PRO 20x30 -->
+              <label class="wall-art-card" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 16px; overflow: hidden; transition: all 0.3s;">
+                <input type="checkbox" value="canvas_pro_20x30" onchange="updateAddons()" style="display: none;">
+                <img src="https://sspark.genspark.ai/cfimages?u1=%2BiiMjGsBhKCUbERUlwamni0gPlP2L6YFNkcUbqoG4ldJf8D06sn6IOjzXf%2BWpQdS3P7amHhYJwJvbkdhj0jDFyKe5dR9u5IlaTcp0Kb308NJoHjVNg219HiOhGPDdbee8GVR&u2=ogPCQ9iNLNFZOi1g&width=600" alt="Canvas Pro" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 20px;">
+                  <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Canvas Pro</div>
+                  <div style="font-size: 14px; color: #666; margin-bottom: 12px;">20×30"</div>
+                  <div style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 16px;">
+                    • Premium cotton canvas<br>
+                    • Anti-glare finish<br>
+                    • 2.3" wooden panel with 3D hanger<br>
+                    • Archival certified HD printing
+                  </div>
+                  <div style="font-size: 22px; font-weight: 700; color: var(--accent);">$650</div>
+                </div>
+              </label>
+
+              <!-- METAL PRO 20x30 -->
+              <label class="wall-art-card" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 16px; overflow: hidden; transition: all 0.3s;">
+                <input type="checkbox" value="metal_pro_20x30" onchange="updateAddons()" style="display: none;">
+                <img src="https://sspark.genspark.ai/cfimages?u1=30buYmgwqQUSkUaiWPD8f4GQL9LRzMBRXtDOeFeEJQMlUkgwL%2B1AP0jzyc%2FiXXnRYxHb3IbGoLP1%2FjzXCyZgXBbsvEDeujN0pFlmV92Q9mZG958PQiIM6GLZ2Y0RSw%3D%3D&u2=H6jbcyCsBPa%2Fl3ip&width=600" alt="Metal Pro" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 20px;">
+                  <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Metal Pro</div>
+                  <div style="font-size: 14px; color: #666; margin-bottom: 12px;">20×30"</div>
+                  <div style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 16px;">
+                    • ChromaLuxe® aluminum<br>
+                    • Waterproof & anti-scratch<br>
+                    • Multiple finish options<br>
+                    • 2.3" wooden panel with hanger
+                  </div>
+                  <div style="font-size: 22px; font-weight: 700; color: var(--accent);">$650</div>
+                </div>
+              </label>
+
+              <!-- ACRYLIC PRO 20x30 -->
+              <label class="wall-art-card" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 16px; overflow: hidden; transition: all 0.3s;">
+                <input type="checkbox" value="acrylic_pro_20x30" onchange="updateAddons()" style="display: none;">
+                <img src="https://sspark.genspark.ai/cfimages?u1=WNQE9cWMm%2BkhBfuB2Vn0RjPSy8onmdLXeQSF5CaPImnc7g%2BVLqflq%2BNJEmNfCbul9cHYTLjtCaUpJEJ6FxskRcBAUVfQChDe36%2FC0yPkGsv8rv0FdCdYYvQ%3D&u2=txRgWbm2%2BaaM2IxG&width=600" alt="Acrylic Pro" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 20px;">
+                  <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Acrylic Pro</div>
+                  <div style="font-size: 14px; color: #666; margin-bottom: 12px;">20×30"</div>
+                  <div style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 16px;">
+                    • Ultra HD acrylic<br>
+                    • Glossy or Matte finish<br>
+                    • 12 fine art inks<br>
+                    • Vibrant colors & depth
+                  </div>
+                  <div style="font-size: 22px; font-weight: 700; color: var(--accent);">$650</div>
+                </div>
+              </label>
+
+              <!-- CANVAS PRO 30x40 -->
+              <label class="wall-art-card" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 16px; overflow: hidden; transition: all 0.3s;">
+                <input type="checkbox" value="canvas_pro_30x40" onchange="updateAddons()" style="display: none;">
+                <img src="https://sspark.genspark.ai/cfimages?u1=3Am7SeKxEkQV0Q4y9HuU2OLTMMaaO%2F2ahdj4Ub3mdfhd1a1amIgzCh%2FJKW8qpOeuK5vQNO7ow3RnMOYSXdoHnLUiKPD041LpiLKRDiOuR%2B%2BdBu9ypo51n04bTQ%3D%3D&u2=Ss8k%2Fcq5vtoRDsXa&width=600" alt="Canvas Pro Large" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 20px;">
+                  <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Canvas Pro</div>
+                  <div style="font-size: 14px; color: #666; margin-bottom: 12px;">30×40" <span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">LARGE</span></div>
+                  <div style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 16px;">
+                    • Premium cotton canvas<br>
+                    • Statement piece size<br>
+                    • Anti-glare finish<br>
+                    • Perfect for living rooms
+                  </div>
+                  <div style="font-size: 22px; font-weight: 700; color: var(--accent);">$1,200</div>
+                </div>
+              </label>
+            </div>
+            
+            <style>
+              .wall-art-card:hover {
+                border-color: var(--accent) !important;
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+              }
+              .wall-art-card input:checked + img {
+                opacity: 0.9;
+              }
+              .wall-art-card input:checked ~ div {
+                background: rgba(0,113,227,0.05);
+              }
+            </style>
+          </div>
+
+          <!-- ADDITIONAL SERVICES -->
+          <div class="addon-group" style="margin-top: 48px;">
+            <h4 class="addon-group-title" style="font-size: 24px; margin-bottom: 24px;">Additional Services</h4>
             <div class="addon-options">
-              <!-- WALL ART OPTIONS -->
-              <label class="addon-checkbox">
-                <input type="checkbox" value="canvas_pro_20x30" onchange="updateAddons()">
-                <span class="addon-card">
-                  <span class="addon-name">Canvas Pro (20×30") - Premium cotton canvas</span>
-                  <span class="addon-price-label">+$650</span>
-                </span>
-              </label>
-              <label class="addon-checkbox">
-                <input type="checkbox" value="metal_pro_20x30" onchange="updateAddons()">
-                <span class="addon-card">
-                  <span class="addon-name">Metal Pro (20×30") - ChromaLuxe® aluminum</span>
-                  <span class="addon-price-label">+$650</span>
-                </span>
-              </label>
-              <label class="addon-checkbox">
-                <input type="checkbox" value="acrylic_pro_20x30" onchange="updateAddons()">
-                <span class="addon-card">
-                  <span class="addon-name">Acrylic Pro (20×30") - Ultra HD acrylic</span>
-                  <span class="addon-price-label">+$650</span>
-                </span>
-              </label>
-              <label class="addon-checkbox">
-                <input type="checkbox" value="canvas_pro_30x40" onchange="updateAddons()">
-                <span class="addon-card">
-                  <span class="addon-name">Canvas Pro (30×40") - Large premium canvas</span>
-                  <span class="addon-price-label">+$1,200</span>
-                </span>
-              </label>
-              
-              <!-- ADDITIONAL SERVICES -->
               <label class="addon-checkbox">
                 <input type="checkbox" value="video" onchange="updateAddons()">
                 <span class="addon-card">
