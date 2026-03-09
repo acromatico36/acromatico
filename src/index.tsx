@@ -2781,43 +2781,130 @@ app.get('/studio-old', (c) =>
           <!-- Platform Impact -->
           <div style="background: rgba(71,148,166,0.05); border: 1px solid rgba(71,148,166,0.2); border-radius: 18px; padding: 60px; text-align: center; margin-top: 80px;">
             <h3 style="font-size: 28px; font-weight: 900; margin-bottom: 24px; color: #fff;">Platform Impact</h3>
-            <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto;">We built a complete fintech SaaS that democratizes access to institutional-grade real estate investments. Secure deal flow management, investor portal with real-time analytics, automated document handling, and portfolio tracking. The platform enables both institutional and retail investors to access high-value commercial real estate opportunities.</p>
+            <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto 32px;">We built a complete fintech SaaS that democratizes access to institutional-grade real estate investments. Secure deal flow management, investor portal with real-time analytics, automated document handling, and portfolio tracking. The platform enables both institutional and retail investors to access high-value commercial real estate opportunities.</p>
+            
+            <div style="border-top: 1px solid rgba(71,148,166,0.3); padding-top: 32px; margin-top: 32px;">
+              <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4794A6; margin-bottom: 16px;">Built For:</div>
+              <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto;">
+                <span style="color: #4794A6; font-weight: 700;">Fintech Startups</span> disrupting real estate investment. 
+                <span style="color: #4794A6; font-weight: 700;">Family Offices</span> managing high-net-worth portfolios. 
+                <span style="color: #4794A6; font-weight: 700;">Investment Firms</span> seeking institutional-grade infrastructure. 
+                <span style="color: #4794A6; font-weight: 700;">Lenders</span> managing commercial real estate deals at scale.
+              </p>
+            </div>
           </div>
           
         </div>
       </div>
       
-      <!-- TRAVEL DRD -->
-      <div class="case case-featured">
-        <div class="case-info">
-          <div class="case-label">Exclusive Multi-Property Rental Platform</div>
-          <div class="case-title">Travel DRD</div>
-          <div class="case-metric">Luxury Travel Redefined</div>
-          <div class="case-description">
-            Exclusive vacation rental platform needed a SaaS solution for curating multi-property experiences. We built a custom booking platform with integrated property management, concierge services, and seamless guest experiences across premium destinations.
-          </div>
-        </div>
+      <!-- TRAVEL DRD / VIBE36 - AIRBNB PORTFOLIO MANAGEMENT -->
+      <div class="case case-featured" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); padding: 100px 60px; min-height: auto;">
         
-        <div class="device-showcase">
-          <!-- Desktop Frame - iMac Style -->
-          <div class="desktop-frame">
-            <div class="desktop-screen">
-              <img src="/static/images/brand-showcase/travel-drd-hero.jpg" alt="Travel DRD Platform">
+        <div style="max-width: 1400px; margin: 0 auto;">
+          <!-- Header -->
+          <div style="text-align: center; margin-bottom: 80px;">
+            <div class="case-label" style="margin-bottom: 24px;">Luxury Vacation Rental Portfolio Management</div>
+            <h2 class="case-title" style="margin-bottom: 24px;">Travel DRD</h2>
+            <p style="font-size: 20px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 900px; margin: 0 auto 40px;">Building a tech platform for an exclusive vacation rental portfolio isn't just about booking calendars—it's about creating a system that manages <span style="color: #4794A6; font-weight: 700;">multiple high-end properties</span>, coordinates concierge services, tracks guest experiences, and automates operations at scale. We built the backbone for a luxury travel empire managing properties from <span style="color: #4794A6; font-weight: 700;">Miami Beach to Dominican Republic</span>.</p>
+            
+            <!-- Key Stats -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; margin-top: 60px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">10+</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Properties Managed</div>
+              </div>
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">24/7</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Concierge Portal</div>
+              </div>
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">100%</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Exclusive Access</div>
+              </div>
+              <div>
+                <div style="font-size: 48px; font-weight: 900; color: #4794A6; margin-bottom: 8px;">∞</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em;">Premium Amenities</div>
+              </div>
             </div>
-            <div class="desktop-notch"></div>
-            <div class="desktop-stand"></div>
           </div>
+          
+          <!-- Platform UI Showcase -->
+          <div style="margin-bottom: 100px;">
+            <h3 style="font-size: 36px; font-weight: 900; text-align: center; margin-bottom: 60px; color: #fff;">Platform Dashboard</h3>
+            <div class="desktop-frame" style="max-width: 1200px; margin: 0 auto;">
+              <div class="desktop-screen">
+                <img src="/static/images/brand-showcase/travel-drd-hero.jpg" alt="Travel DRD Dashboard">
+              </div>
+              <div class="desktop-notch"></div>
+              <div class="desktop-stand"></div>
+            </div>
+          </div>
+          
+          <!-- Vibe36 Story -->
+          <div style="background: rgba(71,148,166,0.05); border: 1px solid rgba(71,148,166,0.2); border-radius: 18px; padding: 60px; margin-bottom: 80px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+              <h3 style="font-size: 32px; font-weight: 900; margin-bottom: 24px; color: #fff;">The Vibe36 Story</h3>
+              <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 900px; margin: 0 auto;">When the founder approached us, they had a vision: transform how travelers discover and book luxury properties in the Caribbean. Not Airbnb. Not VRBO. Something <em>exclusive</em>. Something that spoke to travelers who demand more than just a place to sleep—they want <span style="color: #4794A6; font-weight: 700;">an experience</span>.</p>
+            </div>
+            
+            <!-- Chart Showcase -->
+            <div style="max-width: 1000px; margin: 0 auto 40px;">
+              <img src="/static/images/brand-showcase/travel-drd-chart.jpg" alt="Travel DRD Analytics" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+              <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.7); margin-bottom: 24px;">We didn't just build a booking engine. We built a complete ecosystem:</p>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px;">
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px;">
+                  <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4794A6; margin-bottom: 12px;">Property Management</div>
+                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin: 0;">Multi-property calendars, pricing automation, availability sync, maintenance scheduling.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px;">
+                  <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4794A6; margin-bottom: 12px;">Guest Experience</div>
+                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin: 0;">Custom booking flows, digital check-in, concierge requests, activity coordination.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px;">
+                  <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4794A6; margin-bottom: 12px;">Revenue Analytics</div>
+                  <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin: 0;">Real-time dashboards, occupancy tracking, revenue forecasting, performance metrics.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Who It's For -->
+          <div style="text-align: center; padding: 60px 40px; background: rgba(255,255,255,0.02); border-radius: 18px;">
+            <h3 style="font-size: 28px; font-weight: 900; margin-bottom: 24px; color: #fff;">Built For:</h3>
+            <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto;">
+              <span style="color: #4794A6; font-weight: 700;">Airbnb Portfolio Managers</span> managing 5-50+ properties. 
+              <span style="color: #4794A6; font-weight: 700;">Vacation Rental Companies</span> scaling operations. 
+              <span style="color: #4794A6; font-weight: 700;">Luxury Property Owners</span> who refuse to settle for generic platforms.
+            </p>
+          </div>
+          
         </div>
       </div>
       
-      <!-- LIA -->
+      <!-- LIA - E-COMMERCE -->
       <div class="case case-featured">
         <div class="case-info">
-          <div class="case-label">Celebrity Beauty Brand</div>
+          <div class="case-label">Celebrity Beauty Brand E-Commerce</div>
           <div class="case-title">LIA by Jomari Goyso</div>
-          <div class="case-metric">$7.2M</div>
+          <div class="case-metric">$7.2M in 9 Months</div>
           <div class="case-description">
-            Celebrity stylist needed a brand that matched his vision. We built the complete visual identity, shot all product photography, and created a content system that scaled to 7-figures in 9 months.
+            Celebrity stylist Jomari Goyso needed more than a Shopify template—he needed a complete brand ecosystem that could scale to 7-figures fast. We built the visual identity from scratch, shot every piece of product photography in-house, and created a 12-month content system that turned his vision into a multi-million dollar beauty empire. From packaging design to Instagram strategy, we handled it all.
+          </div>
+          
+          <!-- Built For Section -->
+          <div style="margin-top: 40px; padding: 32px; background: rgba(71,148,166,0.05); border: 1px solid rgba(71,148,166,0.2); border-radius: 12px;">
+            <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4794A6; margin-bottom: 16px;">Built For:</div>
+            <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.7); margin: 0;">
+              <span style="color: #4794A6; font-weight: 700;">Celebrity Brands</span> launching product lines. 
+              <span style="color: #4794A6; font-weight: 700;">Direct-to-Consumer Brands</span> scaling fast. 
+              <span style="color: #4794A6; font-weight: 700;">Premium E-Commerce</span> companies that refuse stock photography and generic stores.
+            </p>
           </div>
         </div>
         
@@ -2833,14 +2920,24 @@ app.get('/studio-old', (c) =>
         </div>
       </div>
       
-      <!-- ECOLOSOPHY -->
+      <!-- ECOLOSOPHY - E-COMMERCE -->
       <div class="case case-featured">
         <div class="case-info">
-          <div class="case-label">Non-Toxic Cleaning Brand</div>
+          <div class="case-label">Non-Toxic Cleaning Brand E-Commerce</div>
           <div class="case-title">Ecolosophy</div>
-          <div class="case-metric">$0 → 6-figures</div>
+          <div class="case-metric">$0 → 6-Figures in 8 Months</div>
           <div class="case-description">
-            Started with nothing. Built complete Shopify store, shot 500+ product photos, created 12-month content system, integrated warehouse fulfillment. Launched in 8 months.
+            Started with literally nothing. No brand. No product photography. No store. We built the complete Shopify ecosystem from the ground up: shot 500+ custom product photos, designed packaging, created a 12-month content calendar, integrated warehouse fulfillment with ShipMonk, and launched a movement—not just a cleaning products company. From concept to 6-figure revenue in 8 months. Zero stock images. 100% custom everything.
+          </div>
+          
+          <!-- Built For Section -->
+          <div style="margin-top: 40px; padding: 32px; background: rgba(71,148,166,0.05); border: 1px solid rgba(71,148,166,0.2); border-radius: 12px;">
+            <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4794A6; margin-bottom: 16px;">Built For:</div>
+            <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.7); margin: 0;">
+              <span style="color: #4794A6; font-weight: 700;">Product Startups</span> launching from zero. 
+              <span style="color: #4794A6; font-weight: 700;">Mission-Driven Brands</span> building movements. 
+              <span style="color: #4794A6; font-weight: 700;">E-Commerce Entrepreneurs</span> who want everything done in-house—from photography to fulfillment integration.
+            </p>
           </div>
         </div>
         
@@ -2856,14 +2953,24 @@ app.get('/studio-old', (c) =>
         </div>
       </div>
 
-      <!-- BLUE BUILDING -->
+      <!-- BLUE BUILDING - COMMERCIAL REAL ESTATE -->
       <div class="case case-featured">
         <div class="case-info">
           <div class="case-label">Smart Luxury Office Rentals</div>
           <div class="case-title">Blue Building</div>
-          <div class="case-metric">24/7 Business</div>
+          <div class="case-metric">24/7 Business Operations</div>
           <div class="case-description">
-            Modern office rental company needed a brand that positioned smart workspaces as the future. We created a visual identity that speaks to growing entrepreneurs who demand excellence.
+            Commercial real estate companies need more than a website—they need a platform that positions premium workspaces as the future of entrepreneurship. We created a complete visual identity and digital presence that speaks directly to growing businesses who demand excellence in every detail. From smart access control to amenity booking, we built a brand that transforms office rentals into lifestyle statements.
+          </div>
+          
+          <!-- Built For Section -->
+          <div style="margin-top: 40px; padding: 32px; background: rgba(71,148,166,0.05); border: 1px solid rgba(71,148,166,0.2); border-radius: 12px;">
+            <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4794A6; margin-bottom: 16px;">Built For:</div>
+            <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.7); margin: 0;">
+              <span style="color: #4794A6; font-weight: 700;">Commercial Building Owners</span> repositioning for modern tenants. 
+              <span style="color: #4794A6; font-weight: 700;">Co-Working Operators</span> scaling locations. 
+              <span style="color: #4794A6; font-weight: 700;">Property Developers</span> targeting high-growth startups and entrepreneurs.
+            </p>
           </div>
         </div>
         
