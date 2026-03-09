@@ -576,7 +576,7 @@
       
       if (this.isOpen && !this.conversationStarted) {
         setTimeout(() => {
-          this.addMessage('Hey! 👋 I\'m Spark—your strategic intelligence AI.<br><br>I don\'t do surface-level BS. I\'ll analyze your competitive landscape, diagnose your positioning gaps, and build you a real strategic brief.<br><br><strong>Let\'s start: What do you do?</strong> (Be specific—e.g., "I build AI-powered invoicing software for freelance designers")', 'spark');
+          this.addMessage('<strong>What\'s the biggest problem in your business right now?</strong><br><br>(e.g., "Can\'t get consistent leads", "Spending 10 hours/week on manual tasks", "Competitors are crushing us on price")', 'spark');
           document.getElementById('spark-input').focus();
         }, 300);
       }
@@ -628,68 +628,68 @@
     
     async handleMessage(message) {
       if (!this.conversationStarted) {
-        // Step 1: Business description + industry extraction
+        // Step 1: PAIN FIRST - What's the problem?
         this.conversationStarted = true;
+        this.userData.problem = message;
+        
+        this.showTyping();
+        await new Promise(r => setTimeout(r, 1600));
+        this.hideTyping();
+        
+        this.addMessage(`That's costing you time and money. ${this.extractPainValidation(message)}<br><br><strong>Quick context: What do you do?</strong><br><br>(e.g., "I run a SaaS for project management" or "I sell eco-friendly products online")`, 'spark');
+        this.currentStep = 'business';
+        
+      } else if (this.currentStep === 'business') {
+        // Step 2: Business description + industry extraction
         this.userData.business = message;
         this.userData.industry = this.extractIndustry(message);
         
         const intel = StrategicIntelligence.competitiveLandscapes[this.userData.industry];
         
         this.showTyping();
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(r => setTimeout(r, 1800));
         this.hideTyping();
         
-        this.addMessage(`Got it. ${intel ? `The ${this.userData.industry} space is a <strong>$${intel.marketSize}</strong> market` : 'Interesting niche'}.<br><br>Here's what I'm seeing competitively:`, 'spark');
+        this.addMessage(`Got it. ${intel ? `The ${this.userData.industry} market is <strong>$${intel.marketSize}</strong>` : 'Interesting space'}.<br><br>Here's what I'm seeing:`, 'spark');
         
-        await new Promise(r => setTimeout(r, 800));
+        await new Promise(r => setTimeout(r, 600));
         
         if (intel) {
           const competitiveInsight = `
             <div class="spark-insight-card">
-              <h4>🎯 Competitive Landscape</h4>
-              <p><strong>Key players:</strong> ${intel.keyPlayers.join(', ')}</p>
-              <p><strong>Market trends:</strong></p>
+              <h4>🎯 Competitive Intel</h4>
+              <p><strong>Market size:</strong> ${intel.marketSize}</p>
+              <p><strong>Key trends:</strong></p>
               <ul>
-                ${intel.trends.map(t => `<li>${t}</li>`).join('')}
+                ${intel.trends.slice(0, 3).map(t => `<li>${t}</li>`).join('')}
               </ul>
-              <p><strong>Blue Ocean opportunity:</strong> ${intel.blueOcean}</p>
+              <p><strong>Your opportunity:</strong> ${intel.blueOcean}</p>
             </div>
           `;
           this.addMessage(competitiveInsight, 'spark');
         }
         
         await new Promise(r => setTimeout(r, 600));
-        this.addMessage(`Now let's get tactical.<br><br><strong>Who EXACTLY are you targeting?</strong> (e.g., "Series A SaaS founders with 10-50 employees who struggle with manual processes")<br><br><em>Specificity = power.</em>`, 'spark');
+        this.addMessage(`Now let's get tactical.<br><br><strong>Who are you targeting specifically?</strong><br><br>(e.g., "B2B SaaS founders with $1M-10M ARR" or "Millennial moms who prioritize organic products")`, 'spark');
         this.currentStep = 'audience';
         
       } else if (this.currentStep === 'audience') {
-        // Step 2: Audience definition
+        // Step 3: Audience definition
         this.userData.audience = message;
         
         this.showTyping();
-        await new Promise(r => setTimeout(r, 1600));
+        await new Promise(r => setTimeout(r, 1400));
         this.hideTyping();
         
-        this.addMessage(`Perfect. That's crystal clear.<br><br>Here's the framework I'm using:`, 'spark');
+        this.addMessage(`Perfect. Crystal clear target.<br><br>Here's the strategic framework:`, 'spark');
         
-        await new Promise(r => setTimeout(r, 600));
+        await new Promise(r => setTimeout(r, 500));
         
-        const jtbdInsight = StrategicIntelligence.frameworks.jobsToBeDone(this.userData.audience, '[problem TBD]');
+        const jtbdInsight = StrategicIntelligence.frameworks.jobsToBeDone(this.userData.audience, this.userData.problem);
         this.addMessage(`<div class="spark-insight-card">${jtbdInsight}</div>`, 'spark');
         
-        await new Promise(r => setTimeout(r, 800));
-        this.addMessage(`<strong>What's the #1 problem they're trying to solve?</strong><br><br>Not a surface-level symptom—the REAL pain point. (e.g., "They waste 10 hours/week on manual data entry and it's killing their margins")`, 'spark');
-        this.currentStep = 'problem';
-        
-      } else if (this.currentStep === 'problem') {
-        // Step 3: Problem diagnosis
-        this.userData.problem = message;
-        
-        this.showTyping();
-        await new Promise(r => setTimeout(r, 1800));
-        this.hideTyping();
-        
-        this.addMessage(`That's a HUGE problem. ${this.extractPainValidation(message)}<br><br>Quick question: <strong>What stage are you at revenue-wise?</strong><br><br>Options:<br>• Pre-revenue<br>• $0-5K MRR<br>• $5K-25K MRR<br>• $25K-100K MRR<br>• $100K+ MRR`, 'spark');
+        await new Promise(r => setTimeout(r, 600));
+        this.addMessage(`<strong>What stage are you at revenue-wise?</strong><br><br>Options:<br>• Pre-revenue<br>• $0-5K MRR<br>• $5K-25K MRR<br>• $25K-100K MRR<br>• $100K+ MRR`, 'spark');
         this.currentStep = 'stage';
         
       } else if (this.currentStep === 'stage') {
