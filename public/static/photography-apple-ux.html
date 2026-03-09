@@ -2617,71 +2617,149 @@
                 </div>
               </div>
               
-              <!-- PREMIUM WALL ART SECTION -->
+              <!-- PREMIUM WALL ART SECTION with FRAME SELECTORS -->
               <div style="margin-top: 32px; padding-top: 32px; border-top: 2px solid #e5e5e5;">
-                <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">Premium Wall Art</h4>
-                <p style="font-size: 14px; color: #666; margin-bottom: 24px;">Museum-quality prints handcrafted in Italy by Graphistudio</p>
+                <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Premium Wall Art</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 24px;">Museum-quality prints handcrafted in Italy by Graphistudio. Select your frame style and finish.</p>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 24px;">
-                  <!-- CANVAS PRO 20x30 -->
-                  <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s;">
-                    <input type="checkbox" value="canvas_pro_20x30" onchange="calculateCustomPrice()" style="display: none;">
-                    <img src="https://sspark.genspark.ai/cfimages?u1=%2BiiMjGsBhKCUbERUlwamni0gPlP2L6YFNkcUbqoG4ldJf8D06sn6IOjzXf%2BWpQdS3P7amHhYJwJvbkdhj0jDFyKe5dR9u5IlaTcp0Kb308NJoHjVNg219HiOhGPDdbee8GVR&u2=ogPCQ9iNLNFZOi1g&width=500" alt="Canvas Pro" style="width: 100%; height: 160px; object-fit: cover;">
-                    <div style="padding: 16px;">
-                      <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">Canvas Pro</div>
-                      <div style="font-size: 13px; color: #666; margin-bottom: 10px;">20×30"</div>
-                      <div style="font-size: 12px; color: #666; line-height: 1.4; margin-bottom: 12px;">
-                        • Premium cotton canvas<br>
-                        • Anti-glare finish
-                      </div>
-                      <div style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
-                    </div>
-                  </label>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                  
+                  <!-- CANVAS PRO 20x30 with FRAME SELECTOR -->
+                  <div class="wall-art-product-card-custom" data-product="canvas_pro_20x30" data-base-price="650">
+                    <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s; display: block;">
+                      <input type="checkbox" value="canvas_pro_20x30" onchange="toggleWallArtProductCustom(this)" style="display: none;">
+                      <img class="product-main-image-custom" src="https://sspark.genspark.ai/cfimages?u1=gZ0LhgvM3kRzYnZZk1vU5z3v6P8qnkFCM6S0wwqSL0xSJr1u0XJyD4QRNgDPwZIZTYXnWYcBuoTOMzYoFUi%2BPcYh0yEr0mWXG%2Feg65vqQhDM2bXb%2BiDTUfscExY%3D&u2=HqLH1c8wBiG6z%2BEh&width=500" alt="Canvas Pro" style="width: 100%; height: 180px; object-fit: cover;">
+                      <div style="padding: 16px;">
+                        <div style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">Canvas Pro</div>
+                        <div style="font-size: 13px; color: #666; margin-bottom: 14px;">20×30"</div>
+                        
+                        <!-- FRAME SELECTOR -->
+                        <div style="margin-bottom: 12px;">
+                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FRAME STYLE</label>
+                          <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
+                            <option value="floating" data-img="https://sspark.genspark.ai/cfimages?u1=gZ0LhgvM3kRzYnZZk1vU5z3v6P8qnkFCM6S0wwqSL0xSJr1u0XJyD4QRNgDPwZIZTYXnWYcBuoTOMzYoFUi%2BPcYh0yEr0mWXG%2Feg65vqQhDM2bXb%2BiDTUfscExY%3D&u2=HqLH1c8wBiG6z%2BEh&width=500" data-price="0">Floating Block (Included)</option>
+                            <option value="light" data-img="https://sspark.genspark.ai/cfimages?u1=TiS5T%2FQIWTfQDL4y%2BcxMGY4qFiQbK%2BI5o28p3KTTSC2qOFw%2F0S3Tnn7rqQ0P6XHRXxVdJlEVqMxlp43WbkzZMhXrNfr6hd3CHDQXX9XCsjDrcqvQqJTxcdGb5l8%3D&u2=eKcn6CmE5bfgQwHk&width=500" data-price="150">Light Frame (+$150)</option>
+                            <option value="premium" data-img="https://sspark.genspark.ai/cfimages?u1=TiS5T%2FQIWTfQDL4y%2BcxMGY4qFiQbK%2BI5o28p3KTTSC2qOFw%2F0S3Tnn7rqQ0P6XHRXxVdJlEVqMxlp43WbkzZMhXrNfr6hd3CHDQXX9XCsjDrcqvQqJTxcdGb5l8%3D&u2=eKcn6CmE5bfgQwHk&width=500" data-price="250">Premium Frame (+$250)</option>
+                          </select>
+                        </div>
 
-                  <!-- METAL PRO 20x30 -->
-                  <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s;">
-                    <input type="checkbox" value="metal_pro_20x30" onchange="calculateCustomPrice()" style="display: none;">
-                    <img src="https://sspark.genspark.ai/cfimages?u1=30buYmgwqQUSkUaiWPD8f4GQL9LRzMBRXtDOeFeEJQMlUkgwL%2B1AP0jzyc%2FiXXnRYxHb3IbGoLP1%2FjzXCyZgXBbsvEDeujN0pFlmV92Q9mZG958PQiIM6GLZ2Y0RSw%3D%3D&u2=H6jbcyCsBPa%2Fl3ip&width=500" alt="Metal Pro" style="width: 100%; height: 160px; object-fit: cover;">
-                    <div style="padding: 16px;">
-                      <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">Metal Pro</div>
-                      <div style="font-size: 13px; color: #666; margin-bottom: 10px;">20×30"</div>
-                      <div style="font-size: 12px; color: #666; line-height: 1.4; margin-bottom: 12px;">
-                        • ChromaLuxe® aluminum<br>
-                        • Waterproof & anti-scratch
-                      </div>
-                      <div style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
-                    </div>
-                  </label>
+                        <!-- FINISH SELECTOR -->
+                        <div style="margin-bottom: 14px;">
+                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FINISH</label>
+                          <select class="finish-selector-custom" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
+                            <option value="matte">Matte (Anti-Glare)</option>
+                            <option value="glossy">Glossy</option>
+                            <option value="satin">Satin</option>
+                          </select>
+                        </div>
 
-                  <!-- ACRYLIC PRO 20x30 -->
-                  <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s;">
-                    <input type="checkbox" value="acrylic_pro_20x30" onchange="calculateCustomPrice()" style="display: none;">
-                    <img src="https://sspark.genspark.ai/cfimages?u1=WNQE9cWMm%2BkhBfuB2Vn0RjPSy8onmdLXeQSF5CaPImnc7g%2BVLqflq%2BNJEmNfCbul9cHYTLjtCaUpJEJ6FxskRcBAUVfQChDe36%2FC0yPkGsv8rv0FdCdYYvQ%3D&u2=txRgWbm2%2BaaM2IxG&width=500" alt="Acrylic Pro" style="width: 100%; height: 160px; object-fit: cover;">
-                    <div style="padding: 16px;">
-                      <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">Acrylic Pro</div>
-                      <div style="font-size: 13px; color: #666; margin-bottom: 10px;">20×30"</div>
-                      <div style="font-size: 12px; color: #666; line-height: 1.4; margin-bottom: 12px;">
-                        • Ultra HD acrylic<br>
-                        • Vibrant colors & depth
+                        <div class="product-price-custom" style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
                       </div>
-                      <div style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
-                    </div>
-                  </label>
+                    </label>
+                  </div>
 
-                  <!-- CANVAS PRO 30x40 -->
-                  <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s;">
-                    <input type="checkbox" value="canvas_pro_30x40" onchange="calculateCustomPrice()" style="display: none;">
-                    <img src="https://sspark.genspark.ai/cfimages?u1=3Am7SeKxEkQV0Q4y9HuU2OLTMMaaO%2F2ahdj4Ub3mdfhd1a1amIgzCh%2FJKW8qpOeuK5vQNO7ow3RnMOYSXdoHnLUiKPD041LpiLKRDiOuR%2B%2BdBu9ypo51n04bTQ%3D%3D&u2=Ss8k%2Fcq5vtoRDsXa&width=500" alt="Canvas Pro Large" style="width: 100%; height: 160px; object-fit: cover;">
-                    <div style="padding: 16px;">
-                      <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">Canvas Pro</div>
-                      <div style="font-size: 13px; color: #666; margin-bottom: 10px;">30×40" <span style="background: var(--accent); color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 600;">LARGE</span></div>
-                      <div style="font-size: 12px; color: #666; line-height: 1.4; margin-bottom: 12px;">
-                        • Statement piece size<br>
-                        • Perfect for living rooms
+                  <!-- METAL PRO 20x30 with FRAME SELECTOR -->
+                  <div class="wall-art-product-card-custom" data-product="metal_pro_20x30" data-base-price="650">
+                    <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s; display: block;">
+                      <input type="checkbox" value="metal_pro_20x30" onchange="toggleWallArtProductCustom(this)" style="display: none;">
+                      <img class="product-main-image-custom" src="https://sspark.genspark.ai/cfimages?u1=Wzy%2FpCIwOoUJG6v9XYmVvOh%2Fvo%2F%2FpAJ7RsVaWYJgYKlHHrqIjH2RaB8P83PjO9Fn%2Bl8DlxeqOOUjm%2FrJ0RsPyiKV6oa6u3Ty0%2F1YaPZV6ByJ92A%3D&u2=EfVoqKVxL8Fk39Wy&width=500" alt="Metal Pro" style="width: 100%; height: 180px; object-fit: cover;">
+                      <div style="padding: 16px;">
+                        <div style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">Metal Pro</div>
+                        <div style="font-size: 13px; color: #666; margin-bottom: 14px;">20×30"</div>
+                        
+                        <!-- FRAME SELECTOR -->
+                        <div style="margin-bottom: 12px;">
+                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FRAME STYLE</label>
+                          <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
+                            <option value="floating" data-img="https://sspark.genspark.ai/cfimages?u1=30buYmgwqQUSkUaiWPD8f4GQL9LRzMBRXtDOeFeEJQMlUkgwL%2B1AP0jzyc%2FiXXnRYxHb3IbGoLP1%2FjzXCyZgXBbsvEDeujN0pFlmV92Q9mZG958PQiIM6GLZ2Y0RSw%3D%3D&u2=H6jbcyCsBPa%2Fl3ip&width=500" data-price="0">Floating Block (Included)</option>
+                            <option value="light" data-img="https://sspark.genspark.ai/cfimages?u1=Wzy%2FpCIwOoUJG6v9XYmVvOh%2Fvo%2F%2FpAJ7RsVaWYJgYKlHHrqIjH2RaB8P83PjO9Fn%2Bl8DlxeqOOUjm%2FrJ0RsPyiKV6oa6u3Ty0%2F1YaPZV6ByJ92A%3D&u2=EfVoqKVxL8Fk39Wy&width=500" data-price="150">Light Frame (+$150)</option>
+                            <option value="premium" data-img="https://sspark.genspark.ai/cfimages?u1=Wzy%2FpCIwOoUJG6v9XYmVvOh%2Fvo%2F%2FpAJ7RsVaWYJgYKlHHrqIjH2RaB8P83PjO9Fn%2Bl8DlxeqOOUjm%2FrJ0RsPyiKV6oa6u3Ty0%2F1YaPZV6ByJ92A%3D&u2=EfVoqKVxL8Fk39Wy&width=500" data-price="250">Premium Frame (+$250)</option>
+                          </select>
+                        </div>
+
+                        <!-- FINISH SELECTOR -->
+                        <div style="margin-bottom: 14px;">
+                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FINISH</label>
+                          <select class="finish-selector-custom" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
+                            <option value="glossy">Glossy</option>
+                            <option value="matte">Matte</option>
+                            <option value="satin">Satin</option>
+                            <option value="brushed">Brushed Aluminum</option>
+                          </select>
+                        </div>
+
+                        <div class="product-price-custom" style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
                       </div>
-                      <div style="font-size: 20px; font-weight: 700; color: var(--accent);">$1,200</div>
-                    </div>
-                  </label>
+                    </label>
+                  </div>
+
+                  <!-- ACRYLIC PRO 20x30 with FRAME SELECTOR -->
+                  <div class="wall-art-product-card-custom" data-product="acrylic_pro_20x30" data-base-price="650">
+                    <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s; display: block;">
+                      <input type="checkbox" value="acrylic_pro_20x30" onchange="toggleWallArtProductCustom(this)" style="display: none;">
+                      <img class="product-main-image-custom" src="https://sspark.genspark.ai/cfimages?u1=WNQE9cWMm%2BkhBfuB2Vn0RjPSy8onmdLXeQSF5CaPImnc7g%2BVLqflq%2BNJEmNfCbul9cHYTLjtCaUpJEJ6FxskRcBAUVfQChDe36%2FC0yPkGsv8rv0FdCdYYvQ%3D&u2=txRgWbm2%2BaaM2IxG&width=500" alt="Acrylic Pro" style="width: 100%; height: 180px; object-fit: cover;">
+                      <div style="padding: 16px;">
+                        <div style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">Acrylic Pro</div>
+                        <div style="font-size: 13px; color: #666; margin-bottom: 14px;">20×30"</div>
+                        
+                        <!-- FRAME SELECTOR -->
+                        <div style="margin-bottom: 12px;">
+                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FRAME STYLE</label>
+                          <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
+                            <option value="floating" data-img="https://sspark.genspark.ai/cfimages?u1=WNQE9cWMm%2BkhBfuB2Vn0RjPSy8onmdLXeQSF5CaPImnc7g%2BVLqflq%2BNJEmNfCbul9cHYTLjtCaUpJEJ6FxskRcBAUVfQChDe36%2FC0yPkGsv8rv0FdCdYYvQ%3D&u2=txRgWbm2%2BaaM2IxG&width=500" data-price="0">Floating Block (Included)</option>
+                            <option value="light" data-img="https://sspark.genspark.ai/cfimages?u1=VfOOLTmzZ7Ov3S1T8rQY3hDCKGIcqk6kCRSTewv%2FOhF7jNFOPXKC5qmNpBNO48OtL1BWMB0lXpFXCm6l7VaYrAm5nW6K6f0XEhGy1ZVlN%2F%2FgBLCYYu0%3D&u2=oc6%2FiTHNUr9%2FDHUZ&width=500" data-price="150">Light Frame (+$150)</option>
+                            <option value="premium" data-img="https://sspark.genspark.ai/cfimages?u1=VfOOLTmzZ7Ov3S1T8rQY3hDCKGIcqk6kCRSTewv%2FOhF7jNFOPXKC5qmNpBNO48OtL1BWMB0lXpFXCm6l7VaYrAm5nW6K6f0XEhGy1ZVlN%2F%2FgBLCYYu0%3D&u2=oc6%2FiTHNUr9%2FDHUZ&width=500" data-price="250">Premium Frame (+$250)</option>
+                          </select>
+                        </div>
+
+                        <!-- FINISH SELECTOR -->
+                        <div style="margin-bottom: 14px;">
+                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FINISH</label>
+                          <select class="finish-selector-custom" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
+                            <option value="glossy">Glossy (High Shine)</option>
+                            <option value="matte">Matte (Low Glare)</option>
+                          </select>
+                        </div>
+
+                        <div class="product-price-custom" style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
+                      </div>
+                    </label>
+                  </div>
+
+                  <!-- CANVAS PRO 30x40 with FRAME SELECTOR -->
+                  <div class="wall-art-product-card-custom" data-product="canvas_pro_30x40" data-base-price="1200">
+                    <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s; display: block;">
+                      <input type="checkbox" value="canvas_pro_30x40" onchange="toggleWallArtProductCustom(this)" style="display: none;">
+                      <img class="product-main-image-custom" src="https://sspark.genspark.ai/cfimages?u1=gZ0LhgvM3kRzYnZZk1vU5z3v6P8qnkFCM6S0wwqSL0xSJr1u0XJyD4QRNgDPwZIZTYXnWYcBuoTOMzYoFUi%2BPcYh0yEr0mWXG%2Feg65vqQhDM2bXb%2BiDTUfscExY%3D&u2=HqLH1c8wBiG6z%2BEh&width=500" alt="Canvas Pro Large" style="width: 100%; height: 180px; object-fit: cover;">
+                      <div style="padding: 16px;">
+                        <div style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">Canvas Pro</div>
+                        <div style="font-size: 13px; color: #666; margin-bottom: 14px;">30×40" <span style="background: var(--accent); color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 600;">LARGE</span></div>
+                        
+                        <!-- FRAME SELECTOR -->
+                        <div style="margin-bottom: 12px;">
+                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FRAME STYLE</label>
+                          <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
+                            <option value="floating" data-img="https://sspark.genspark.ai/cfimages?u1=gZ0LhgvM3kRzYnZZk1vU5z3v6P8qnkFCM6S0wwqSL0xSJr1u0XJyD4QRNgDPwZIZTYXnWYcBuoTOMzYoFUi%2BPcYh0yEr0mWXG%2Feg65vqQhDM2bXb%2BiDTUfscExY%3D&u2=HqLH1c8wBiG6z%2BEh&width=500" data-price="0">Floating Block (Included)</option>
+                            <option value="light" data-img="https://sspark.genspark.ai/cfimages?u1=TiS5T%2FQIWTfQDL4y%2BcxMGY4qFiQbK%2BI5o28p3KTTSC2qOFw%2F0S3Tnn7rqQ0P6XHRXxVdJlEVqMxlp43WbkzZMhXrNfr6hd3CHDQXX9XCsjDrcqvQqJTxcdGb5l8%3D&u2=eKcn6CmE5bfgQwHk&width=500" data-price="200">Light Frame (+$200)</option>
+                            <option value="premium" data-img="https://sspark.genspark.ai/cfimages?u1=TiS5T%2FQIWTfQDL4y%2BcxMGY4qFiQbK%2BI5o28p3KTTSC2qOFw%2F0S3Tnn7rqQ0P6XHRXxVdJlEVqMxlp43WbkzZMhXrNfr6hd3CHDQXX9XCsjDrcqvQqJTxcdGb5l8%3D&u2=eKcn6CmE5bfgQwHk&width=500" data-price="350">Premium Frame (+$350)</option>
+                          </select>
+                        </div>
+
+                        <!-- FINISH SELECTOR -->
+                        <div style="margin-bottom: 14px;">
+                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FINISH</label>
+                          <select class="finish-selector-custom" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
+                            <option value="matte">Matte (Anti-Glare)</option>
+                            <option value="glossy">Glossy</option>
+                            <option value="satin">Satin</option>
+                          </select>
+                        </div>
+
+                        <div class="product-price-custom" style="font-size: 20px; font-weight: 700; color: var(--accent);">$1,200</div>
+                      </div>
+                    </label>
+                  </div>
+
                 </div>
                 
                 <style>
@@ -2691,10 +2769,10 @@
                     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
                   }
                   .wall-art-card-custom input:checked + img {
-                    opacity: 0.9;
+                    opacity: 0.95;
                   }
                   .wall-art-card-custom input:checked ~ div {
-                    background: rgba(0,113,227,0.05);
+                    background: rgba(0,113,227,0.03);
                   }
                 </style>
               </div>
@@ -3182,17 +3260,17 @@
           `+$${secondPhotographerCost.toLocaleString()} (${actualHours}hr minimum)`;
       }
       
-      // Add-ons
+      // Add-ons - NOW WITH DYNAMIC WALL ART FRAME PRICING
       let addonsTotal = 0;
       const addons = {
         engagement: 695,
-        canvas_pro_20x30: 650,
-        metal_pro_20x30: 650,
-        acrylic_pro_20x30: 650,
-        canvas_pro_30x40: 1200,
         video: photoPrice, // Video equals photo price
         travel: 1000
       };
+      
+      // Use dynamic wall art calculator with frame options
+      const wallArtTotal = window.getWallArtTotalCustom ? window.getWallArtTotalCustom() : 0;
+      addonsTotal += wallArtTotal;
       
       // Check if wedding album is selected and get its dynamic price
       const albumCheckbox = document.getElementById('albumCheckbox');
@@ -3889,6 +3967,63 @@
         if (checkbox && checkbox.checked) {
           const basePrice = parseInt(card.getAttribute('data-base-price'));
           const frameSelector = card.querySelector('.frame-selector');
+          const selectedOption = frameSelector.options[frameSelector.selectedIndex];
+          const framePrice = parseInt(selectedOption.getAttribute('data-price')) || 0;
+          total += basePrice + framePrice;
+        }
+      });
+      return total;
+    }
+
+    // ===== CUSTOM BUILDER WALL ART FRAME SELECTOR =====
+    window.toggleWallArtProductCustom = function(checkbox) {
+      const productCard = checkbox.closest('.wall-art-product-card-custom');
+      const wallArtCard = productCard.querySelector('.wall-art-card-custom');
+      
+      if (checkbox.checked) {
+        wallArtCard.style.borderColor = 'var(--accent)';
+        wallArtCard.style.boxShadow = '0 6px 20px rgba(0,113,227,0.15)';
+      } else {
+        wallArtCard.style.borderColor = '#e5e5e5';
+        wallArtCard.style.boxShadow = 'none';
+      }
+      
+      calculateCustomPrice();
+    }
+
+    window.updateProductPreviewCustom = function(selectElement) {
+      const option = selectElement.options[selectElement.selectedIndex];
+      const productCard = selectElement.closest('.wall-art-product-card-custom');
+      const productImage = productCard.querySelector('.product-main-image-custom');
+      const priceDisplay = productCard.querySelector('.product-price-custom');
+      
+      // Update image
+      const newImage = option.getAttribute('data-img');
+      if (newImage) {
+        productImage.src = newImage;
+      }
+      
+      // Update price
+      const basePrice = parseInt(productCard.getAttribute('data-base-price'));
+      const framePrice = parseInt(option.getAttribute('data-price')) || 0;
+      const totalPrice = basePrice + framePrice;
+      priceDisplay.textContent = `$${totalPrice.toLocaleString()}`;
+      
+      // Update pricing if checked
+      const checkbox = productCard.querySelector('input[type="checkbox"]');
+      if (checkbox && checkbox.checked) {
+        calculateCustomPrice();
+      }
+    }
+
+    // Calculate custom builder wall art total with frame options
+    window.getWallArtTotalCustom = function() {
+      let total = 0;
+      document.querySelectorAll('.wall-art-product-card-custom').forEach(card => {
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        if (checkbox && checkbox.checked) {
+          const basePrice = parseInt(card.getAttribute('data-base-price'));
+          const frameSelector = card.querySelector('.frame-selector-custom');
           const selectedOption = frameSelector.options[frameSelector.selectedIndex];
           const framePrice = parseInt(selectedOption.getAttribute('data-price')) || 0;
           total += basePrice + framePrice;
