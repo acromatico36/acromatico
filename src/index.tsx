@@ -2573,6 +2573,35 @@ app.get('\/studio', (c) =>
         </div>
       </div>
       
+      <!-- TRAVEL DRD -->
+      <div class="case">
+        <div class="case-content">
+          <div class="case-label">Exclusive Multi-Property Rental Platform</div>
+          <div class="case-title">Travel DRD</div>
+          <div class="case-metric">Luxury Travel Redefined</div>
+          <div class="case-description">
+            Exclusive vacation rental platform needed a SaaS solution for curating multi-property experiences. We built a custom booking platform with integrated property management, concierge services, and seamless guest experiences across premium destinations.
+          </div>
+          <div class="case-stats">
+            <div class="stat">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Exclusive Properties</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Concierge</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">∞</div>
+              <div class="stat-label">Premium Amenities</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-image">
+          <img src="/static/images/brand-showcase/travel-drd-hero.jpg" alt="Travel DRD Platform">
+        </div>
+      </div>
+      
       <!-- LIA -->
       <div class="case">
         <div class="case-content">
@@ -2626,6 +2655,35 @@ app.get('\/studio', (c) =>
             <div class="stat">
               <div class="stat-number">0</div>
               <div class="stat-label">Stock Images</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- REPUBLIC COMMERCIAL FUND -->
+      <div class="case">
+        <div class="case-image">
+          <img src="/static/images/brand-showcase/republic-fund-hero.jpg" alt="Republic Commercial Fund">
+        </div>
+        <div class="case-content">
+          <div class="case-label">Commercial Real Estate Funding Platform</div>
+          <div class="case-title">Republic Commercial Fund</div>
+          <div class="case-metric">Enterprise Capital Solutions</div>
+          <div class="case-description">
+            Commercial real estate fund needed a platform that commands institutional trust. We built a complete fintech SaaS with deal flow management, investor portal, secure document handling, and real-time portfolio analytics for high-value transactions.
+          </div>
+          <div class="case-stats">
+            <div class="stat">
+              <div class="stat-number">Secure</div>
+              <div class="stat-label">Deal Flow</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">Real-Time</div>
+              <div class="stat-label">Analytics</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">Enterprise</div>
+              <div class="stat-label">Grade Security</div>
             </div>
           </div>
         </div>
