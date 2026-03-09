@@ -741,7 +741,7 @@
       if (problem.toLowerCase().includes('trust') || problem.toLowerCase().includes('confidence')) {
         return 'This is emotional. Your brand needs to scream trust + authority.';
       }
-      return 'That's a painful problem worth solving.';
+      return 'That is a painful problem worth solving.';
     },
     
     normalizeStage(input) {
