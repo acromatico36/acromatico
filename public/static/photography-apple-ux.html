@@ -2815,47 +2815,74 @@
                     </div>
                   </div>
 
-                  <!-- METAL PRO 20x30 - APPLE STYLE -->
+                  <!-- METAL PRO - COUPLE BEDROOM -->
                   <div class="wall-art-product-card-custom" data-product="metal_pro_20x30" data-base-price="650">
-                    <label class="wall-art-card-custom" style="cursor: pointer; border: 1px solid #d2d2d7; border-radius: 18px; overflow: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: block; background: #fbfbfd;">
-                      <input type="checkbox" value="metal_pro_20x30" onchange="toggleWallArtProductCustom(this)" style="display: none;">
+                    <div class="wall-art-card-custom" style="border: 1px solid #d2d2d7; border-radius: 18px; overflow: hidden; background: #fbfbfd;">
                       <div style="position: relative; background: #f5f5f7; overflow: hidden;">
-                        <img class="product-main-image-custom" src="/static/prints/metal-pro-couple-bedroom.jpg" alt="Metal Pro - Couple Bedroom" style="width: 100%; height: 240px; object-fit: cover; display: block;">
-                        <div style="display: none; width: 100%; height: 240px; align-items: center; justify-content: center; background: #f5f5f7; color: #86868b; font-size: 14px;">
-                          <div style="text-align: center;">
-                            <div style="font-size: 48px; margin-bottom: 8px;">✨</div>
-                            <div>Metal Pro</div>
+                        <img class="product-main-image-custom" src="/static/prints/metal-pro-couple-bedroom.jpg" alt="Metal Pro - Couple Bedroom" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+                      </div>
+                      <div style="padding: 32px;">
+                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; letter-spacing: -0.3px;">Metal Pro</div>
+                        <div style="font-size: 15px; color: #86868b; margin-bottom: 8px; font-weight: 400;">ChromaLuxe Aluminum • Multiple Sizes</div>
+                        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 28px; line-height: 1.6;">Printed on premium aluminum with durable ChromaLuxe dye sublimation. Stunning depth and vibrant colors that last a lifetime.</div>
+                        
+                        <!-- SIZE SELECTOR - VISUAL -->
+                        <div style="margin-bottom: 20px;">
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Size</label>
+                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                            <button onclick="selectSizeCustom(this, 650)" style="padding: 12px; border: 2px solid #0071e3; border-radius: 10px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              20×30"<br><span style="font-size: 12px; color: #86868b;">$650</span>
+                            </button>
+                            <button onclick="selectSizeCustom(this, 900)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              24×36"<br><span style="font-size: 12px; color: #86868b;">$900</span>
+                            </button>
+                            <button onclick="selectSizeCustom(this, 1300)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              30×40"<br><span style="font-size: 12px; color: #86868b;">$1,300</span>
+                            </button>
+                            <button onclick="selectSizeCustom(this, 2100)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              40×60"<br><span style="font-size: 12px; color: #86868b;">$2,100</span>
+                            </button>
                           </div>
                         </div>
-                      </div>
-                      <div style="padding: 24px;">
-                        <div style="font-size: 21px; font-weight: 600; margin-bottom: 2px; color: #1d1d1f; letter-spacing: -0.3px;">Metal Pro</div>
-                        <div style="font-size: 14px; color: #86868b; margin-bottom: 24px; font-weight: 400;">20×30"</div>
-                        
-                        <!-- FRAME SELECTOR - APPLE STYLE -->
-                        <div style="margin-bottom: 16px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 8px; letter-spacing: 0.5px; text-transform: uppercase;">Frame Style</label>
-                          <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 12px 14px; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 15px; background: white; cursor: pointer; color: #1d1d1f; font-weight: 400; appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg width=\'14\' height=\'8\' viewBox=\'0 0 14 8\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M1 1L7 7L13 1\' stroke=\'%23666\' stroke-width=\'2\' stroke-linecap=\'round\'/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; transition: all 0.2s;">
-                            <option value="floating" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="0">Floating Block — Included</option>
-                            <option value="light" data-img="/static/prints/staging-coastal-terrace.jpg" data-price="150">Light Frame — $150</option>
-                            <option value="premium" data-img="/static/prints/staging-cinque-terre-villa.jpg" data-price="250">Premium Frame — $250</option>
-                          </select>
-                        </div>
 
-                        <!-- FINISH SELECTOR - APPLE STYLE -->
+                        <!-- FRAME STYLE - VISUAL SELECTOR -->
                         <div style="margin-bottom: 20px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 8px; letter-spacing: 0.5px; text-transform: uppercase;">Finish</label>
-                          <select class="finish-selector-custom" onclick="event.stopPropagation()" style="width: 100%; padding: 12px 14px; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 15px; background: white; cursor: pointer; color: #1d1d1f; font-weight: 400; appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg width=\'14\' height=\'8\' viewBox=\'0 0 14 8\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M1 1L7 7L13 1\' stroke=\'%23666\' stroke-width=\'2\' stroke-linecap=\'round\'/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; transition: all 0.2s;">
-                            <option value="glossy">Glossy</option>
-                            <option value="matte">Matte</option>
-                            <option value="satin">Satin</option>
-                            <option value="brushed">Brushed Aluminum</option>
-                          </select>
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Frame Style</label>
+                          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                            <div onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05);">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/staging-mediterranean-villa.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Floating Block</div>
+                              <div style="font-size: 10px; color: #86868b;">Included</div>
+                            </div>
+                            <div onclick="selectFrameCustom(this, 150)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/staging-coastal-terrace.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Light Frame</div>
+                              <div style="font-size: 10px; color: #86868b;">+$150</div>
+                            </div>
+                            <div onclick="selectFrameCustom(this, 250)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/staging-cinque-terre-villa.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Premium</div>
+                              <div style="font-size: 10px; color: #86868b;">+$250</div>
+                            </div>
+                          </div>
                         </div>
 
-                        <div class="product-price-custom" style="font-size: 28px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.5px;">$650</div>
+                        <!-- FINISH SELECTOR - VISUAL CHIPS -->
+                        <div style="margin-bottom: 28px;">
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Finish</label>
+                          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #0071e3; border-radius: 20px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Glossy</button>
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Matte</button>
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Satin</button>
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Brushed</button>
+                          </div>
+                        </div>
+
+                        <div class="product-price-custom" style="font-size: 32px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.5px; margin-bottom: 16px;">$650</div>
+                        
+                        <button style="width: 100%; padding: 16px; background: #0071e3; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#0077ed'" onmouseout="this.style.background='#0071e3'">Add to Cart</button>
                       </div>
-                    </label>
+                    </div>
                   </div>
                         
                         <!-- FRAME SELECTOR -->
@@ -2884,71 +2911,127 @@
                     </label>
                   </div>
 
-                  <!-- ACRYLIC PRO 20x30 with FRAME SELECTOR -->
+                  <!-- ACRYLIC PRO - FAMILY DINING ROOM -->
                   <div class="wall-art-product-card-custom" data-product="acrylic_pro_20x30" data-base-price="650">
-                    <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s; display: block;">
-                      <input type="checkbox" value="acrylic_pro_20x30" onchange="toggleWallArtProductCustom(this)" style="display: none;">
-                      <img class="product-main-image-custom" src="/static/prints/acrylic-pro-family-dining-room.jpg" alt="Acrylic Pro - Family Dining Room" style="width: 100%; height: 180px; object-fit: cover;">
-                      <div style="padding: 16px;">
-                        <div style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">Acrylic Pro</div>
-                        <div style="font-size: 13px; color: #666; margin-bottom: 14px;">20×30"</div>
-                        
-                        <!-- FRAME SELECTOR -->
-                        <div style="margin-bottom: 12px;">
-                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FRAME STYLE</label>
-                          <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
-                            <option value="floating" data-img="/static/prints/staging-aruba-living-room.jpg" data-price="0">Floating Block (Included)</option>
-                            <option value="light" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="150">Light Frame (+$150)</option>
-                            <option value="premium" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="250">Premium Frame (+$250)</option>
-                          </select>
-                        </div>
-
-                        <!-- FINISH SELECTOR -->
-                        <div style="margin-bottom: 14px;">
-                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FINISH</label>
-                          <select class="finish-selector-custom" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
-                            <option value="glossy">Glossy (High Shine)</option>
-                            <option value="matte">Matte (Low Glare)</option>
-                          </select>
-                        </div>
-
-                        <div class="product-price-custom" style="font-size: 20px; font-weight: 700; color: var(--accent);">$650</div>
+                    <div class="wall-art-card-custom" style="border: 1px solid #d2d2d7; border-radius: 18px; overflow: hidden; background: #fbfbfd;">
+                      <div style="position: relative; background: #f5f5f7; overflow: hidden;">
+                        <img class="product-main-image-custom" src="/static/prints/acrylic-pro-family-dining-room.jpg" alt="Acrylic Pro - Family Dining Room" style="width: 100%; height: 400px; object-fit: cover; display: block;">
                       </div>
-                    </label>
+                      <div style="padding: 32px;">
+                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; letter-spacing: -0.3px;">Acrylic Pro</div>
+                        <div style="font-size: 15px; color: #86868b; margin-bottom: 8px; font-weight: 400;">Ultra-Clear Acrylic • Multiple Sizes</div>
+                        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 28px; line-height: 1.6;">Museum-quality acrylic with incredible depth. Light passes through creating a stunning three-dimensional effect.</div>
+                        
+                        <!-- SIZE SELECTOR - VISUAL -->
+                        <div style="margin-bottom: 20px;">
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Size</label>
+                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                            <button onclick="selectSizeCustom(this, 650)" style="padding: 12px; border: 2px solid #0071e3; border-radius: 10px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              20×30"<br><span style="font-size: 12px; color: #86868b;">$650</span>
+                            </button>
+                            <button onclick="selectSizeCustom(this, 950)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              24×36"<br><span style="font-size: 12px; color: #86868b;">$950</span>
+                            </button>
+                            <button onclick="selectSizeCustom(this, 1400)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              30×40"<br><span style="font-size: 12px; color: #86868b;">$1,400</span>
+                            </button>
+                            <button onclick="selectSizeCustom(this, 2200)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              40×60"<br><span style="font-size: 12px; color: #86868b;">$2,200</span>
+                            </button>
+                          </div>
+                        </div>
+
+                        <!-- FRAME STYLE - VISUAL SELECTOR -->
+                        <div style="margin-bottom: 20px;">
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Frame Style</label>
+                          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                            <div onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05);">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/staging-aruba-living-room.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Floating Block</div>
+                              <div style="font-size: 10px; color: #86868b;">Included</div>
+                            </div>
+                            <div onclick="selectFrameCustom(this, 150)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/staging-mediterranean-villa.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Light Frame</div>
+                              <div style="font-size: 10px; color: #86868b;">+$150</div>
+                            </div>
+                            <div onclick="selectFrameCustom(this, 250)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/staging-cinque-terre-villa.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Premium</div>
+                              <div style="font-size: 10px; color: #86868b;">+$250</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- FINISH SELECTOR - VISUAL CHIPS -->
+                        <div style="margin-bottom: 28px;">
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Finish</label>
+                          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #0071e3; border-radius: 20px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Glossy</button>
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Matte</button>
+                          </div>
+                        </div>
+
+                        <div class="product-price-custom" style="font-size: 32px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.5px; margin-bottom: 16px;">$650</div>
+                        
+                        <button style="width: 100%; padding: 16px; background: #0071e3; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#0077ed'" onmouseout="this.style.background='#0071e3'">Add to Cart</button>
+                      </div>
+                    </div>
                   </div>
 
-                  <!-- CANVAS PRO 30x40 with FRAME SELECTOR -->
-                  <div class="wall-art-product-card-custom" data-product="canvas_pro_30x40" data-base-price="1200">
-                    <label class="wall-art-card-custom" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s; display: block;">
-                      <input type="checkbox" value="canvas_pro_30x40" onchange="toggleWallArtProductCustom(this)" style="display: none;">
-                      <img class="product-main-image-custom" src="/static/prints/canvas-wrap-couple-hallway.jpg" alt="Canvas Wrap - Couple Hallway" style="width: 100%; height: 180px; object-fit: cover;">
-                      <div style="padding: 16px;">
-                        <div style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">Canvas Pro</div>
-                        <div style="font-size: 13px; color: #666; margin-bottom: 14px;">30×40" <span style="background: var(--accent); color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 600;">LARGE</span></div>
-                        
-                        <!-- FRAME SELECTOR -->
-                        <div style="margin-bottom: 12px;">
-                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FRAME STYLE</label>
-                          <select class="frame-selector-custom" onchange="updateProductPreviewCustom(this)" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
-                            <option value="floating" data-img="/static/prints/staging-aruba-living-room.jpg" data-price="0">Floating Block (Included)</option>
-                            <option value="light" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="200">Light Frame (+$200)</option>
-                            <option value="premium" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="350">Premium Frame (+$350)</option>
-                          </select>
-                        </div>
-
-                        <!-- FINISH SELECTOR -->
-                        <div style="margin-bottom: 14px;">
-                          <label style="display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px;">FINISH</label>
-                          <select class="finish-selector-custom" onclick="event.stopPropagation()" style="width: 100%; padding: 8px; border: 1.5px solid #ddd; border-radius: 6px; font-size: 13px; background: white; cursor: pointer;">
-                            <option value="matte">Matte (Anti-Glare)</option>
-                            <option value="glossy">Glossy</option>
-                            <option value="satin">Satin</option>
-                          </select>
-                        </div>
-
-                        <div class="product-price-custom" style="font-size: 20px; font-weight: 700; color: var(--accent);">$1,200</div>
+                  <!-- CANVAS WRAP - COUPLE HALLWAY -->
+                  <div class="wall-art-product-card-custom" data-product="canvas_wrap" data-base-price="450">
+                    <div class="wall-art-card-custom" style="border: 1px solid #d2d2d7; border-radius: 18px; overflow: hidden; background: #fbfbfd;">
+                      <div style="position: relative; background: #f5f5f7; overflow: hidden;">
+                        <img class="product-main-image-custom" src="/static/prints/canvas-wrap-couple-hallway.jpg" alt="Canvas Wrap - Couple Hallway" style="width: 100%; height: 400px; object-fit: cover; display: block;">
                       </div>
-                    </label>
+                      <div style="padding: 32px;">
+                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; letter-spacing: -0.3px;">Canvas Wrap</div>
+                        <div style="font-size: 15px; color: #86868b; margin-bottom: 8px; font-weight: 400;">Traditional Gallery Wrap • Multiple Sizes</div>
+                        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 28px; line-height: 1.6;">Classic canvas stretched around wooden frame. Image wraps around edges for a seamless, frameless look.</div>
+                        
+                        <!-- SIZE SELECTOR - VISUAL -->
+                        <div style="margin-bottom: 20px;">
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Size</label>
+                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                            <button onclick="selectSizeCustom(this, 450)" style="padding: 12px; border: 2px solid #0071e3; border-radius: 10px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              20×30"<br><span style="font-size: 12px; color: #86868b;">$450</span>
+                            </button>
+                            <button onclick="selectSizeCustom(this, 650)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              24×36"<br><span style="font-size: 12px; color: #86868b;">$650</span>
+                            </button>
+                            <button onclick="selectSizeCustom(this, 950)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              30×40"<br><span style="font-size: 12px; color: #86868b;">$950</span>
+                            </button>
+                            <button onclick="selectSizeCustom(this, 1500)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
+                              40×60"<br><span style="font-size: 12px; color: #86868b;">$1,500</span>
+                            </button>
+                          </div>
+                        </div>
+
+                        <!-- DEPTH SELECTOR - VISUAL CHIPS -->
+                        <div style="margin-bottom: 20px;">
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Canvas Depth</label>
+                          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #0071e3; border-radius: 20px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">1.5" Standard</button>
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">2.3" Gallery</button>
+                          </div>
+                        </div>
+
+                        <!-- FINISH SELECTOR - VISUAL CHIPS -->
+                        <div style="margin-bottom: 28px;">
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Finish</label>
+                          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #0071e3; border-radius: 20px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Matte</button>
+                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Satin</button>
+                          </div>
+                        </div>
+
+                        <div class="product-price-custom" style="font-size: 32px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.5px; margin-bottom: 16px;">$450</div>
+                        
+                        <button style="width: 100%; padding: 16px; background: #0071e3; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#0077ed'" onmouseout="this.style.background='#0071e3'">Add to Cart</button>
+                      </div>
+                    </div>
                   </div>
 
                 </div>
