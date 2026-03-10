@@ -3020,50 +3020,35 @@
                           </div>
                         </div>
 
-                        <!-- FRAME STYLE - VISUAL SELECTOR -->
+                        <!-- THICKNESS SELECTOR (CANVAS PRO) -->
                         <div style="margin-bottom: 20px;">
                           <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
-                            Frame Style
-                            <span class="info-tooltip" data-tooltip="Choose your frame style: Floating Block (thick modern edge), Light Frame (minimal clean), or Premium (gallery bevel frame)">i</span>
+                            Thickness
+                            <span class="info-tooltip" data-tooltip="Choose mount depth: 2.3 inch (gallery) or 1.2 inch (slim)">i</span>
                           </label>
-                          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                            <div class="frame-option" onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05);">
-                              <div style="width: 100%; height: 100px; background: url('/static/prints/frame-035.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Floating Block</div>
+                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                            <div class="frame-option" onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 10px; text-align: center; background: rgba(0,113,227,0.05);">
+                              <div style="width: 100%; height: 100px; background: url('/static/prints/frame-014.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">2.3" Gallery</div>
                               <div style="font-size: 10px; color: #86868b;">Included</div>
                             </div>
-                            <div class="frame-option" onclick="selectFrameCustom(this, 150)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
-                              <div style="width: 100%; height: 100px; background: url('/static/prints/frame-005.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Light Frame</div>
-                              <div style="font-size: 10px; color: #86868b;">+$150</div>
-                            </div>
-                            <div class="frame-option" onclick="selectFrameCustom(this, 250)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
-                              <div style="width: 100%; height: 100px; background: url('/static/prints/frame-003.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Premium</div>
-                              <div style="font-size: 10px; color: #86868b;">+$250</div>
+                            <div class="frame-option" onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 10px; text-align: center;">
+                              <div style="width: 100%; height: 100px; background: url('/static/prints/frame-022.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">1.2" Slim</div>
+                              <div style="font-size: 10px; color: #86868b;">Same price</div>
                             </div>
                           </div>
                         </div>
 
-                        <!-- FINISH SELECTOR - VISUAL WITH IMAGES -->
+                        <!-- FINISH (CANVAS PRO - TOUCH ANTI-GLARE ONLY) -->
                         <div style="margin-bottom: 28px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Finish</label>
-                          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 10px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05); transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-023.jpg'); background-size: cover; background-position: left; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Matte</div>
-                              <div style="font-size: 9px; color: #86868b;">No glare</div>
-                            </div>
-                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-031.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Glossy</div>
-                              <div style="font-size: 9px; color: #86868b;">Reflective</div>
-                            </div>
-                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-022.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Satin</div>
-                              <div style="font-size: 9px; color: #86868b;">Semi-gloss</div>
-                            </div>
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
+                            Finish
+                            <span class="info-tooltip" data-tooltip="Exclusive Touch anti-glare finish on archival cotton canvas">i</span>
+                          </label>
+                          <div style="padding: 16px; background: #f5f5f7; border-radius: 10px; text-align: center;">
+                            <div style="font-size: 14px; font-weight: 600; color: #1d1d1f; margin-bottom: 4px;">✨ Touch Anti-Glare</div>
+                            <div style="font-size: 12px; color: #86868b;">Exclusive matte finish • No reflections</div>
                           </div>
                         </div>
 
