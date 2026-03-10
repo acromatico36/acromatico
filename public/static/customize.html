@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customize Your Package | Acromatico Photography</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #fafafa;
+      color: #1d1d1f;
+    }
+
+    /* Fixed Header */
+    .header-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* Sticky Cart Summary */
+    .cart-summary {
+      position: sticky;
+      top: 100px;
+      background: white;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Toggle Switch - Apple Style */
+    .toggle-switch {
+      position: relative;
+      width: 51px;
+      height: 31px;
+      background: #e5e5e7;
+      border-radius: 31px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch.active {
+      background: #34c759;
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 27px;
+      height: 27px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-switch.active::after {
+      transform: translateX(20px);
+    }
+
+    /* Add-on Card */
+    .addon-card {
+      background: white;
+      border: 1px solid #d2d2d7;
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+
+    .addon-card:hover {
+      border-color: #0071e3;
+      box-shadow: 0 4px 20px rgba(0, 113, 227, 0.1);
+    }
+
+    .addon-card.selected {
+      border-color: #0071e3;
+      background: rgba(0, 113, 227, 0.03);
+    }
+
+    /* CTA Button */
+    .cta-button {
+      width: 100%;
+      padding: 16px;
+      background: #0071e3;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .cta-button:hover {
+      background: #0077ed;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(0, 113, 227, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Header -->
+  <header class="header-fixed">
+    <div style="max-width: 1400px; margin: 0 auto; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-size: 21px; font-weight: 600; letter-spacing: -0.3px;">
+        <a href="/static/" style="text-decoration: none; color: #1d1d1f;">Acromatico</a>
+      </div>
+      <nav style="display: flex; gap: 32px; font-size: 15px;">
+        <a href="/static/" style="text-decoration: none; color: #6e6e73; transition: color 0.2s;" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Home</a>
+        <a href="/static/photography-apple-ux.html" style="text-decoration: none; color: #0071e3; font-weight: 600;">Packages</a>
+        <a href="/static/wall-art.html" style="text-decoration: none; color: #6e6e73; transition: color 0.2s;" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Wall Art</a>
+        <a href="/static/studio.html" style="text-decoration: none; color: #6e6e73; transition: color 0.2s;" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Studio</a>
+        <a href="#contact" style="text-decoration: none; color: #6e6e73; transition: color 0.2s;" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div style="max-width: 1400px; margin: 120px auto 80px; padding: 0 32px;">
+    <div style="display: grid; grid-template-columns: 380px 1fr; gap: 48px;">
+      
+      <!-- LEFT: STICKY CART SUMMARY -->
+      <div>
+        <div class="cart-summary">
+          <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.3px;">Your Package</h3>
+          
+          <!-- Base Collection -->
+          <div style="padding: 16px; background: #f5f5f7; border-radius: 12px; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 15px; font-weight: 600;">Premium Collection</span>
+              <span style="font-size: 17px; font-weight: 600;">$5,400</span>
+            </div>
+            <div style="font-size: 13px; color: #6e6e73;">
+              8 hours • 1 photographer • 400+ edited images
+            </div>
+          </div>
+
+          <!-- Selected Add-ons -->
+          <div id="selected-addons" style="margin-bottom: 24px;">
+            <!-- Dynamically added items will appear here -->
+          </div>
+
+          <!-- Divider -->
+          <div style="border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+          <!-- Total -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+            <span style="font-size: 19px; font-weight: 600;">Total</span>
+            <span id="total-price" style="font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">$5,400</span>
+          </div>
+
+          <!-- CTA -->
+          <button class="cta-button" onclick="window.location.href='/static/wall-art.html'">
+            Continue to Wall Art
+          </button>
+
+          <!-- Help Text -->
+          <p style="font-size: 13px; color: #86868b; margin-top: 16px; text-align: center;">
+            You can add wall art products in the next step
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: ADD-ONS SECTION -->
+      <div>
+        <div style="margin-bottom: 48px;">
+          <h1 style="font-size: 48px; font-weight: 700; margin-bottom: 12px; letter-spacing: -1px;">Customize Your Package</h1>
+          <p style="font-size: 21px; color: #6e6e73; line-height: 1.4;">Add exactly what you need. Remove what you don't.</p>
+        </div>
+
+        <!-- Second Photographer -->
+        <div class="addon-card" id="addon-photographer" onclick="toggleAddon('photographer', 2400)">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                <div style="font-size: 24px; font-weight: 600; letter-spacing: -0.3px;">Second Photographer</div>
+                <div class="toggle-switch" id="toggle-photographer"></div>
+              </div>
+              <p style="font-size: 15px; color: #6e6e73; line-height: 1.5; margin-bottom: 12px;">
+                Capture twice the moments with a second pro photographer. Perfect for larger weddings or multi-location coverage.
+              </p>
+              <div style="font-size: 13px; color: #86868b;">
+                <i class="fas fa-clock" style="margin-right: 6px;"></i> 6-hour minimum
+              </div>
+            </div>
+            <div style="margin-left: 32px;">
+              <div style="font-size: 32px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.5px;">+$2,400</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engagement Session -->
+        <div class="addon-card" id="addon-engagement" onclick="toggleAddon('engagement', 695)">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                <div style="font-size: 24px; font-weight: 600; letter-spacing: -0.3px;">Engagement Session</div>
+                <div class="toggle-switch" id="toggle-engagement"></div>
+              </div>
+              <p style="font-size: 15px; color: #6e6e73; line-height: 1.5; margin-bottom: 12px;">
+                Get comfortable in front of the camera before your big day. 90-minute session at your favorite location.
+              </p>
+              <div style="font-size: 13px; color: #86868b;">
+                <i class="fas fa-images" style="margin-right: 6px;"></i> 50+ edited images included
+              </div>
+            </div>
+            <div style="margin-left: 32px;">
+              <div style="font-size: 32px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.5px;">$695</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wedding Album -->
+        <div class="addon-card" id="addon-album" onclick="toggleAddon('album', 1895)">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                <div style="font-size: 24px; font-weight: 600; letter-spacing: -0.3px;">Wedding Album</div>
+                <div class="toggle-switch" id="toggle-album"></div>
+              </div>
+              <p style="font-size: 15px; color: #6e6e73; line-height: 1.5; margin-bottom: 12px;">
+                Museum-quality album handcrafted in Italy by Graphistudio. Premium leather cover, archival paper, lifetime warranty.
+              </p>
+              <div style="font-size: 13px; color: #86868b;">
+                <i class="fas fa-book" style="margin-right: 6px;"></i> 30 pages (60 sides) • 12×12" format
+              </div>
+            </div>
+            <div style="margin-left: 32px;">
+              <div style="font-size: 32px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.5px;">$1,895</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wall Art Teaser -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 18px; padding: 40px; color: white; text-align: center; margin-top: 32px;">
+          <div style="font-size: 36px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px;">Premium Wall Art</div>
+          <p style="font-size: 17px; margin-bottom: 24px; opacity: 0.9;">
+            Museum-quality prints handcrafted in Italy. Canvas, Metal, Acrylic & more.
+          </p>
+          <button onclick="window.location.href='/static/wall-art.html'" style="padding: 14px 32px; background: white; color: #667eea; border: none; border-radius: 12px; font-size: 17px; font-weight: 600; cursor: pointer;">
+            Browse Wall Art
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const basePrice = 5400;
+    const addons = {
+      photographer: { price: 2400, name: 'Second Photographer', active: false },
+      engagement: { price: 695, name: 'Engagement Session', active: false },
+      album: { price: 1895, name: 'Wedding Album', active: false }
+    };
+
+    function toggleAddon(id, price) {
+      // Toggle active state
+      addons[id].active = !addons[id].active;
+
+      // Update card style
+      const card = document.getElementById(`addon-${id}`);
+      const toggle = document.getElementById(`toggle-${id}`);
+      
+      if (addons[id].active) {
+        card.classList.add('selected');
+        toggle.classList.add('active');
+      } else {
+        card.classList.remove('selected');
+        toggle.classList.remove('active');
+      }
+
+      // Update cart summary
+      updateCart();
+    }
+
+    function updateCart() {
+      let total = basePrice;
+      let html = '';
+
+      Object.keys(addons).forEach(key => {
+        if (addons[key].active) {
+          total += addons[key].price;
+          html += `
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f5f5f7;">
+              <span style="font-size: 15px;">${addons[key].name}</span>
+              <span style="font-size: 15px; font-weight: 600;">+$${addons[key].price.toLocaleString()}</span>
+            </div>
+          `;
+        }
+      });
+
+      document.getElementById('selected-addons').innerHTML = html;
+      document.getElementById('total-price').textContent = `$${total.toLocaleString()}`;
+    }
+  </script>
+
+</body>
+</html>
