@@ -2029,6 +2029,22 @@
         font-size: 17px;
       }
     }
+
+    /* Wall Art Grid Responsive */
+    .wall-art-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px;
+      margin-bottom: 48px;
+      padding: 0 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .wall-art-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2903,10 +2919,7 @@
                   <p style="font-size: 17px; color: #6e6e73; line-height: 1.5; font-weight: 400;">Museum-quality prints handcrafted in Italy by Graphistudio. Choose your frame and finish to bring your vision to life.</p>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; margin-bottom: 48px; max-width: 1400px; margin-left: auto; margin-right: auto;">
-                  @media (max-width: 1024px) {
-                    grid-template-columns: 1fr;
-                  }
+                <div class="wall-art-grid">
                   
                   <!-- CANVAS PRO - FAMILY LIVING ROOM -->
                   <div class="wall-art-product-card-custom" data-product="canvas_pro_20x30" data-base-price="650">
