@@ -2033,16 +2033,19 @@
     /* Wall Art Grid Responsive */
     .wall-art-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 48px;
+      grid-template-columns: 1fr;
+      gap: 64px;
       margin-bottom: 48px;
       padding: 0 40px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     @media (max-width: 1024px) {
       .wall-art-grid {
-        grid-template-columns: 1fr;
         padding: 0 20px;
+        gap: 48px;
       }
     }
   </style>
