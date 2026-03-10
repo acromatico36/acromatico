@@ -2804,6 +2804,155 @@
                   <span class="option-desc">Lifestyle & portrait session</span>
                 </span>
               </label>
+              <label class="builder-option">
+                <input type="radio" name="sessionType" value="education" onchange="updateSessionType()">
+                <span class="option-card">
+                  <span class="option-name">Education</span>
+                  <span class="option-desc">Photography workshops & mentoring</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- EDUCATION LAUNCH OFFERS (Show when Education is selected) -->
+          <div id="educationOffersSection" style="display: none; margin-top: 32px;">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <h3 style="font-size: 28px; font-weight: 700; color: #1d1d1f; margin-bottom: 8px;">🎓 Launch Offer - Limited Time</h3>
+              <p style="font-size: 15px; color: #6e6e73;">Special pricing for parents who want to accelerate their child's photography journey</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 32px;">
+              
+              <!-- STARTER WORKSHOP PACKAGE -->
+              <div style="border: 3px solid #0071e3; border-radius: 18px; padding: 32px; background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%); position: relative;">
+                <div style="position: absolute; top: 16px; right: 16px; background: #0071e3; color: white; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Launch Offer</div>
+                
+                <div style="margin-bottom: 24px;">
+                  <h4 style="font-size: 22px; font-weight: 700; color: #1d1d1f; margin-bottom: 8px;">Starter Workshop Package</h4>
+                  <div style="font-size: 13px; color: #6e6e73; margin-bottom: 16px;">Perfect for aspiring young photographers</div>
+                  <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+                    <span style="font-size: 42px; font-weight: 700; color: #0071e3;">$695</span>
+                    <span style="font-size: 18px; color: #86868b; text-decoration: line-through;">$1,200</span>
+                  </div>
+                  <div style="font-size: 12px; color: #0071e3; font-weight: 600;">Save $505 • 42% OFF</div>
+                </div>
+
+                <div style="margin-bottom: 24px;">
+                  <div style="font-size: 14px; font-weight: 600; color: #1d1d1f; margin-bottom: 16px;">What's Included:</div>
+                  <div style="display: grid; gap: 12px; font-size: 13px; color: #1d1d1f;">
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #0071e3; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>3 In-Person Workshops</strong><br><span style="font-size: 12px; color: #6e6e73;">Learn camera basics, composition, lighting & editing</span></div>
+                    </div>
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #0071e3; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>Personalized 1-on-1 Session</strong><br><span style="font-size: 12px; color: #6e6e73;">Custom guidance tailored to your child's interests</span></div>
+                    </div>
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #0071e3; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>Hands-On Shooting Experience</strong><br><span style="font-size: 12px; color: #6e6e73;">Learn by doing - shoot with professional equipment</span></div>
+                    </div>
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #0071e3; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>Complimentary Photo Session</strong><br><span style="font-size: 12px; color: #6e6e73;">Professional portraits of your child ($395 value)</span></div>
+                    </div>
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #0071e3; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>Behind-The-Camera Experience</strong><br><span style="font-size: 12px; color: #6e6e73;">See photography from both sides of the lens</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <button style="width: 100%; padding: 16px; background: #0071e3; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#0077ed'" onmouseout="this.style.background='#0071e3'">Claim Launch Offer</button>
+                
+                <div style="margin-top: 16px; padding: 12px; background: rgba(0,113,227,0.1); border-radius: 10px; text-align: center;">
+                  <div style="font-size: 11px; color: #0071e3; font-weight: 600;">🎁 BONUS: Free digital gallery included</div>
+                </div>
+              </div>
+
+              <!-- ACCELERATOR PROGRAM -->
+              <div style="border: 3px solid #ff9500; border-radius: 18px; padding: 32px; background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%); position: relative; box-shadow: 0 8px 32px rgba(255,149,0,0.2);">
+                <div style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%); color: white; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Best Value</div>
+                
+                <div style="margin-bottom: 24px;">
+                  <h4 style="font-size: 22px; font-weight: 700; color: #1d1d1f; margin-bottom: 8px;">Year-Long Accelerator</h4>
+                  <div style="font-size: 13px; color: #6e6e73; margin-bottom: 16px;">Complete mentorship program for serious learners</div>
+                  <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+                    <span style="font-size: 42px; font-weight: 700; color: #ff9500;">$1,995</span>
+                    <span style="font-size: 18px; color: #86868b; text-decoration: line-through;">$4,500</span>
+                  </div>
+                  <div style="font-size: 12px; color: #ff9500; font-weight: 600;">Save $2,505 • 56% OFF</div>
+                </div>
+
+                <div style="margin-bottom: 24px;">
+                  <div style="font-size: 14px; font-weight: 600; color: #1d1d1f; margin-bottom: 16px;">Everything in Starter PLUS:</div>
+                  <div style="display: grid; gap: 12px; font-size: 13px; color: #1d1d1f;">
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #ff9500; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>Full Year Membership Access</strong><br><span style="font-size: 12px; color: #6e6e73;">Access to all workshops, resources & community</span></div>
+                    </div>
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #ff9500; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>12 Months On-Demand 1-on-1 Coaching</strong><br><span style="font-size: 12px; color: #6e6e73;">Unlimited questions & personalized feedback</span></div>
+                    </div>
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #ff9500; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>Portfolio Development</strong><br><span style="font-size: 12px; color: #6e6e73;">Build a professional portfolio with guidance</span></div>
+                    </div>
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #ff9500; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>Monthly Progress Reviews</strong><br><span style="font-size: 12px; color: #6e6e73;">Track growth and set goals together</span></div>
+                    </div>
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #ff9500; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>Advanced Technique Training</strong><br><span style="font-size: 12px; color: #6e6e73;">Master editing, business basics & creative vision</span></div>
+                    </div>
+                    <div style="display: flex; align-items: start; gap: 10px;">
+                      <span style="color: #ff9500; font-size: 16px; line-height: 1;">✓</span>
+                      <div><strong>Exclusive Member Events</strong><br><span style="font-size: 12px; color: #6e6e73;">Photo walks, guest speakers & competitions</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <button style="width: 100%; padding: 16px; background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%); color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(255,149,0,0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(255,149,0,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(255,149,0,0.3)'">Claim Accelerator Offer</button>
+                
+                <div style="margin-top: 16px; padding: 12px; background: rgba(255,149,0,0.1); border-radius: 10px; text-align: center;">
+                  <div style="font-size: 11px; color: #ff9500; font-weight: 600;">🚀 BONUS: Free equipment rental for personal projects</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div style="padding: 24px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 16px; border: 1px solid #d2d2d7;">
+              <h5 style="font-size: 16px; font-weight: 600; color: #1d1d1f; margin-bottom: 16px; text-align: center;">Why Choose Our Education Program?</h5>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; font-size: 13px; color: #1d1d1f;">
+                <div style="text-align: center;">
+                  <div style="font-size: 32px; margin-bottom: 8px;">🎯</div>
+                  <div style="font-weight: 600; margin-bottom: 4px;">Personalized Learning</div>
+                  <div style="font-size: 12px; color: #6e6e73;">Tailored to your child's pace and interests</div>
+                </div>
+                <div style="text-align: center;">
+                  <div style="font-size: 32px; margin-bottom: 8px;">📸</div>
+                  <div style="font-weight: 600; margin-bottom: 4px;">Hands-On Experience</div>
+                  <div style="font-size: 12px; color: #6e6e73;">Learn by doing with professional equipment</div>
+                </div>
+                <div style="text-align: center;">
+                  <div style="font-size: 32px; margin-bottom: 8px;">💼</div>
+                  <div style="font-weight: 600; margin-bottom: 4px;">Real Skills</div>
+                  <div style="font-size: 12px; color: #6e6e73;">Build a portfolio & creative confidence</div>
+                </div>
+                <div style="text-align: center;">
+                  <div style="font-size: 32px; margin-bottom: 8px;">🎓</div>
+                  <div style="font-weight: 600; margin-bottom: 4px;">Professional Mentorship</div>
+                  <div style="font-size: 12px; color: #6e6e73;">Learn from working photographers</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 24px; padding: 20px; background: rgba(0,113,227,0.05); border-left: 4px solid #0071e3; border-radius: 8px;">
+              <div style="font-size: 13px; color: #1d1d1f; line-height: 1.7;">
+                <strong>⏰ Limited Launch Pricing:</strong> These special offers are only available for the first 20 families who join. After that, pricing returns to standard rates. Secure your spot today and invest in your child's creative future.
+              </div>
             </div>
           </div>
 
@@ -3046,10 +3195,22 @@
                             </div>
                           </div>
                           
-                          <!-- COLOR SCALE PREVIEW -->
+                          <!-- COLOR OPTIONS PREVIEW -->
                           <div style="margin-top: 16px; padding: 16px; background: #fff; border-radius: 12px; border: 1px solid #e0e0e0;">
-                            <div style="font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 8px;">Premium Color Selection</div>
-                            <img src="/static/prints/gobook-color-scale.jpg" alt="40 Premium Cover Shades" style="width: 100%; border-radius: 8px; margin-bottom: 8px;">
+                            <div style="font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px;">40 Premium Cover Colors Available</div>
+                            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #2c3e50; border: 2px solid #0071e3;"></div>
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #8b7355; border: 2px solid #d2d2d7;"></div>
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #556b2f; border: 2px solid #d2d2d7;"></div>
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #8b4513; border: 2px solid #d2d2d7;"></div>
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #708090; border: 2px solid #d2d2d7;"></div>
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #000000; border: 2px solid #d2d2d7;"></div>
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #4a4a4a; border: 2px solid #d2d2d7;"></div>
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #a0522d; border: 2px solid #d2d2d7;"></div>
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #8b0000; border: 2px solid #d2d2d7;"></div>
+                              <div style="width: 32px; height: 32px; border-radius: 50%; background: #191970; border: 2px solid #d2d2d7;"></div>
+                              <div style="padding: 0 12px; display: flex; align-items: center; font-size: 11px; color: #86868b; font-weight: 500;">+30 more shades</div>
+                            </div>
                             <div style="font-size: 11px; color: #6e6e73; line-height: 1.5;">Choose from 40 premium color shades after booking. Each cover is handmade to order with your selected color combination.</div>
                           </div>
                         </div>
@@ -3819,22 +3980,36 @@
     function updateSessionType() {
       const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
       const hoursSlider = document.getElementById('hoursSlider');
+      const educationSection = document.getElementById('educationOffersSection');
+      const builderSections = document.querySelectorAll('.builder-section');
       
-      if (sessionType === 'portrait') {
-        // Portrait: default to 1 hour
-        hoursSlider.min = 1;
-        hoursSlider.value = 1;
-        updateHoursDisplay(1);
+      if (sessionType === 'education') {
+        // Show education offers, hide standard builder sections
+        if (educationSection) educationSection.style.display = 'block';
+        builderSections.forEach((section, index) => {
+          if (index > 0) section.style.display = 'none'; // Hide all except Session Type
+        });
       } else {
-        // Wedding: default to 6 hours (minimum 2)
-        hoursSlider.min = 2;
-        if (parseInt(hoursSlider.value) < 6) {
-          hoursSlider.value = 6;
-          updateHoursDisplay(6);
+        // Hide education offers, show standard builder sections
+        if (educationSection) educationSection.style.display = 'none';
+        builderSections.forEach(section => section.style.display = 'block');
+        
+        if (sessionType === 'portrait') {
+          // Portrait: default to 1 hour
+          hoursSlider.min = 1;
+          hoursSlider.value = 1;
+          updateHoursDisplay(1);
+        } else {
+          // Wedding: default to 6 hours (minimum 2)
+          hoursSlider.min = 2;
+          if (parseInt(hoursSlider.value) < 6) {
+            hoursSlider.value = 6;
+            updateHoursDisplay(6);
+          }
         }
+        
+        calculateCustomPrice();
       }
-      
-      calculateCustomPrice();
     }
 
     function calculateCustomPrice() {
