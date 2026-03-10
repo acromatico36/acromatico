@@ -2042,10 +2042,76 @@
       margin-right: auto;
     }
 
+    /* Frame selector hover zoom */
+    .frame-option {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .frame-option:hover {
+      transform: scale(1.08);
+      z-index: 10;
+    }
+    .frame-option img,
+    .frame-option > div:first-child {
+      transition: all 0.3s ease;
+    }
+
+    /* Tooltip styles */
+    .info-tooltip {
+      position: relative;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: #0071e3;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 16px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: help;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .info-tooltip:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1d1d1f;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 400;
+      white-space: nowrap;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .info-tooltip:hover::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: #1d1d1f;
+      z-index: 1000;
+    }
+
     @media (max-width: 1024px) {
       .wall-art-grid {
         padding: 0 20px;
         gap: 48px;
+      }
+      
+      /* Mobile: tap to show tooltip */
+      .info-tooltip:active::after {
+        content: attr(data-tooltip);
+      }
+      .info-tooltip:active::before {
+        content: '';
       }
     }
   </style>
@@ -2956,19 +3022,22 @@
 
                         <!-- FRAME STYLE - VISUAL SELECTOR -->
                         <div style="margin-bottom: 20px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Frame Style</label>
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
+                            Frame Style
+                            <span class="info-tooltip" data-tooltip="Choose your frame style: Floating Block (thick modern edge), Light Frame (minimal clean), or Premium (gallery bevel frame)">i</span>
+                          </label>
                           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                            <div onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05);">
+                            <div class="frame-option" onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05);">
                               <div style="width: 100%; height: 100px; background: url('/static/prints/frame-035.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
                               <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Floating Block</div>
                               <div style="font-size: 10px; color: #86868b;">Included</div>
                             </div>
-                            <div onclick="selectFrameCustom(this, 150)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
+                            <div class="frame-option" onclick="selectFrameCustom(this, 150)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
                               <div style="width: 100%; height: 100px; background: url('/static/prints/frame-005.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
                               <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Light Frame</div>
                               <div style="font-size: 10px; color: #86868b;">+$150</div>
                             </div>
-                            <div onclick="selectFrameCustom(this, 250)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
+                            <div class="frame-option" onclick="selectFrameCustom(this, 250)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
                               <div style="width: 100%; height: 100px; background: url('/static/prints/frame-003.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
                               <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Premium</div>
                               <div style="font-size: 10px; color: #86868b;">+$250</div>
@@ -2976,13 +3045,25 @@
                           </div>
                         </div>
 
-                        <!-- FINISH SELECTOR - VISUAL CHIPS -->
+                        <!-- FINISH SELECTOR - VISUAL WITH IMAGES -->
                         <div style="margin-bottom: 28px;">
                           <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Finish</label>
-                          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #0071e3; border-radius: 20px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Matte</button>
-                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Glossy</button>
-                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Satin</button>
+                          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 10px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05); transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-023.jpg'); background-size: cover; background-position: left; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Matte</div>
+                              <div style="font-size: 9px; color: #86868b;">No glare</div>
+                            </div>
+                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-031.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Glossy</div>
+                              <div style="font-size: 9px; color: #86868b;">Reflective</div>
+                            </div>
+                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-022.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Satin</div>
+                              <div style="font-size: 9px; color: #86868b;">Semi-gloss</div>
+                            </div>
                           </div>
                         </div>
 
@@ -3025,19 +3106,22 @@
 
                         <!-- FRAME STYLE - VISUAL SELECTOR -->
                         <div style="margin-bottom: 20px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Frame Style</label>
+                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
+                            Frame Style
+                            <span class="info-tooltip" data-tooltip="Choose your frame style: Floating Block (thick modern edge), Light Frame (minimal clean), or Premium (gallery bevel frame)">i</span>
+                          </label>
                           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                            <div onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05);">
+                            <div class="frame-option" onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05);">
                               <div style="width: 100%; height: 100px; background: url('/static/prints/frame-035.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
                               <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Floating Block</div>
                               <div style="font-size: 10px; color: #86868b;">Included</div>
                             </div>
-                            <div onclick="selectFrameCustom(this, 150)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
+                            <div class="frame-option" onclick="selectFrameCustom(this, 150)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
                               <div style="width: 100%; height: 100px; background: url('/static/prints/frame-005.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
                               <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Light Frame</div>
                               <div style="font-size: 10px; color: #86868b;">+$150</div>
                             </div>
-                            <div onclick="selectFrameCustom(this, 250)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
+                            <div class="frame-option" onclick="selectFrameCustom(this, 250)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 8px; text-align: center;">
                               <div style="width: 100%; height: 100px; background: url('/static/prints/frame-003.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
                               <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Premium</div>
                               <div style="font-size: 10px; color: #86868b;">+$250</div>
@@ -3045,14 +3129,30 @@
                           </div>
                         </div>
 
-                        <!-- FINISH SELECTOR - VISUAL CHIPS -->
+                        <!-- FINISH SELECTOR - VISUAL WITH IMAGES (METAL PRO) -->
                         <div style="margin-bottom: 28px;">
                           <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Finish</label>
-                          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #0071e3; border-radius: 20px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Glossy</button>
-                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Matte</button>
-                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Satin</button>
-                            <button onclick="selectFinishCustom(this)" style="padding: 10px 18px; border: 2px solid #d2d2d7; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #1d1d1f;">Brushed</button>
+                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 10px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05); transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-031.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Glossy</div>
+                              <div style="font-size: 9px; color: #86868b;">Reflective</div>
+                            </div>
+                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-023.jpg'); background-size: cover; background-position: left; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Matte</div>
+                              <div style="font-size: 9px; color: #86868b;">No glare</div>
+                            </div>
+                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-022.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Satin</div>
+                              <div style="font-size: 9px; color: #86868b;">Semi-gloss</div>
+                            </div>
+                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                              <div style="width: 100%; height: 60px; background: url('/static/prints/frame-037.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
+                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px;">Brushed</div>
+                              <div style="font-size: 9px; color: #86868b;">Aluminum</div>
+                            </div>
                           </div>
                         </div>
 
