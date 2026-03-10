@@ -2472,6 +2472,99 @@
         </div>
       </div>
 
+      <!-- EDUCATION PROGRAMS (Initially hidden) -->
+      <div class="packages-grid" id="educationPackages" style="display: none;">
+        
+        <!-- YOUTH STARTER WORKSHOP -->
+        <div class="package-card" style="border: 3px solid #0071e3; background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);">
+          <div class="package-badge" style="background: #0071e3;">YOUTH PROGRAM</div>
+          <div class="package-name">Starter Workshop</div>
+          <div class="package-subtitle">Ages 10-17 · Perfect for Beginners</div>
+          <div class="package-price">
+            <div class="price-amount" style="color: #0071e3;">$695</div>
+            <div class="price-total" style="text-decoration: line-through; color: #86868b;">Was: $1,200</div>
+            <div style="font-size: 13px; color: #0071e3; font-weight: 600; margin-top: 4px;">Save $505 • Launch Offer</div>
+          </div>
+          <ul class="package-features">
+            <li><strong>3 In-Person Workshops</strong></li>
+            <li>Personalized 1-on-1 Session</li>
+            <li>Hands-On Shooting Experience</li>
+            <li><strong>✓ Complimentary Photo Session ($395 value)</strong></li>
+            <li>Behind-The-Camera Experience</li>
+            <li>Digital Gallery Included</li>
+          </ul>
+          <button class="select-btn" style="background: #0071e3;" onclick="window.location.href='#contact'">Enroll Now</button>
+        </div>
+
+        <!-- YOUTH YEAR-LONG ACCELERATOR -->
+        <div class="package-card" style="border: 3px solid #ff9500; background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%); box-shadow: 0 8px 32px rgba(255,149,0,0.2);">
+          <div class="package-badge" style="background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);">BEST VALUE</div>
+          <div class="package-name">Year-Long Accelerator</div>
+          <div class="package-subtitle">Ages 10-17 · Complete Mentorship</div>
+          <div class="package-price">
+            <div class="price-amount" style="color: #ff9500;">$1,995</div>
+            <div class="price-total" style="text-decoration: line-through; color: #86868b;">Was: $4,500</div>
+            <div style="font-size: 13px; color: #ff9500; font-weight: 600; margin-top: 4px;">Save $2,505 • Launch Offer</div>
+          </div>
+          <ul class="package-features">
+            <li><strong>Everything in Starter PLUS:</strong></li>
+            <li><strong>12 Months On-Demand 1-on-1 Coaching</strong></li>
+            <li>Full Year Membership Access</li>
+            <li>Portfolio Development</li>
+            <li>Monthly Progress Reviews</li>
+            <li>Advanced Technique Training</li>
+            <li>Exclusive Member Events</li>
+            <li><strong>✓ Free Equipment Rental</strong></li>
+          </ul>
+          <button class="select-btn" style="background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);" onclick="window.location.href='#contact'">Enroll Now</button>
+        </div>
+
+        <!-- MASTERCLASS STRATEGIC SESSIONS -->
+        <div class="package-card" style="border: 3px solid #8e44ad; background: linear-gradient(135deg, #f8f4fc 0%, #ffffff 100%);">
+          <div class="package-badge" style="background: #8e44ad;">TEENS & ADULTS</div>
+          <div class="package-name">Masterclass Coaching</div>
+          <div class="package-subtitle">Ages 16+ · Strategic Sessions</div>
+          <div class="package-price">
+            <div class="price-amount" style="color: #8e44ad;">$695</div>
+            <div class="price-total">2 Strategic Sessions</div>
+          </div>
+          <ul class="package-features">
+            <li><strong>2 Strategic Coaching Sessions</strong></li>
+            <li>Award-Winning Photographer Mentors</li>
+            <li>Personalized Action Plan</li>
+            <li>Portfolio Review & Feedback</li>
+            <li>Business Strategy Consultation</li>
+            <li><strong>✓ Credit Towards Business in a Box ($695)</strong></li>
+          </ul>
+          <button class="select-btn" style="background: #8e44ad;" onclick="window.location.href='#contact'">Book Sessions</button>
+        </div>
+
+        <!-- MASTERCLASS BUSINESS IN A BOX -->
+        <div class="package-card" style="border: 3px solid #e74c3c; background: linear-gradient(135deg, #fef5f4 0%, #ffffff 100%); box-shadow: 0 8px 32px rgba(231,76,60,0.2);">
+          <div class="package-badge" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">PRO PROGRAM</div>
+          <div class="package-name">Business in a Box</div>
+          <div class="package-subtitle">Ages 16+ · Complete Business Masterclass</div>
+          <div class="package-price">
+            <div class="price-amount" style="color: #e74c3c;">$3,000</div>
+            <div class="price-total">Zero to Wedding Pro</div>
+          </div>
+          <ul class="package-features">
+            <li><strong>Complete Wedding Photography Training</strong></li>
+            <li>Shoot Your First Wedding Confidently</li>
+            <li>Build Your Brand from Scratch</li>
+            <li>Business Setup & Legal Essentials</li>
+            <li>Marketing & Client Acquisition</li>
+            <li>Pricing & Package Strategy</li>
+            <li>Workflow & Post-Processing Systems</li>
+            <li>Equipment & Technical Mastery</li>
+            <li><strong>✓ Apply $695 Credit from Strategic Sessions</strong></li>
+            <li><strong>✓ Ongoing Support & Community</strong></li>
+          </ul>
+          <button class="select-btn" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);" onclick="window.location.href='#contact'">Launch Your Business</button>
+        </div>
+
+      </div>
+
       <!-- ADD-ONS SECTION (shown after package selection) -->
       <div class="addons-section" id="addonsSection" style="display: none;">
         <div class="addons-container">
@@ -4233,6 +4326,42 @@
       
       openModal();
     }
+    
+    // Package Type Switcher for main packages section
+    function showPackageType(type) {
+      const weddingPackages = document.getElementById('weddingPackages');
+      const educationPackages = document.getElementById('educationPackages');
+      const weddingTab = document.getElementById('weddingTab');
+      const educationTab = document.getElementById('educationTab');
+      
+      if (type === 'wedding') {
+        weddingPackages.style.display = 'grid';
+        educationPackages.style.display = 'none';
+        weddingTab.style.background = '#0071e3';
+        weddingTab.style.color = 'white';
+        weddingTab.style.border = 'none';
+        educationTab.style.background = '#f5f5f7';
+        educationTab.style.color = '#1d1d1f';
+        educationTab.style.border = '2px solid #d2d2d7';
+      } else {
+        weddingPackages.style.display = 'none';
+        educationPackages.style.display = 'grid';
+        educationTab.style.background = '#0071e3';
+        educationTab.style.color = 'white';
+        educationTab.style.border = 'none';
+        weddingTab.style.background = '#f5f5f7';
+        weddingTab.style.color = '#1d1d1f';
+        weddingTab.style.border = '2px solid #d2d2d7';
+      }
+    }
+    
+    // Show wedding packages by default on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const weddingPackages = document.getElementById('weddingPackages');
+      if (weddingPackages) {
+        weddingPackages.style.display = 'grid';
+      }
+    });
 
     function toggleVideo() {
       videoEnabled = !videoEnabled;
