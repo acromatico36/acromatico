@@ -385,7 +385,7 @@
                     </div>
                 </button>
                 
-                <button onclick="setHeroImage('https://acromatico.com/wp-content/uploads/2018/09/Loft20Photoshoot-105.jpg', 'Loft Shoot 105')" style="all: unset; cursor: pointer; background: url('https://acromatico.com/wp-content/uploads/2018/09/Loft20Photoshoot-105.jpg') center/cover; aspect-ratio: 1; border-radius: 8px; border: 3px solid transparent; transition: all 0.3s; position: relative;" onmouseover="this.style.borderColor='#fff'; this.style.transform='scale(1.05)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='scale(1)'">
+                <button onclick="setHeroImage('https://acromatico.com/wp-content/uploads/2018/09/Loft20Photoshoot-105.jpg', 'Loft Shoot 105', '50% 30%')" style="all: unset; cursor: pointer; background: url('https://acromatico.com/wp-content/uploads/2018/09/Loft20Photoshoot-105.jpg') 50% 30%/cover; aspect-ratio: 1; border-radius: 8px; border: 3px solid transparent; transition: all 0.3s; position: relative;" onmouseover="this.style.borderColor='#fff'; this.style.transform='scale(1.05)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='scale(1)'">
                     <div style="background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.9) 100%); height: 100%; display: flex; align-items: flex-end; justify-content: center; padding: 8px; border-radius: 8px;">
                         <span style="color: #fff; font-size: 9px; font-weight: 700; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">Loft 105</span>
                     </div>
@@ -442,12 +442,22 @@
         </div>
         
         <script>
-            function setHeroImage(url, name) {
+            function setHeroImage(url, name, position = 'center') {
                 const heroBg = document.querySelector('.hero-bg');
                 const nameDisplay = document.getElementById('heroImageName');
                 
-                // Update CSS variable
-                document.documentElement.style.setProperty('--hero-image', `url('${url}')`);
+                // Update CSS variable with custom position
+                const bgValue = `url('${url}') ${position}/cover`;
+                document.documentElement.style.setProperty('--hero-image', bgValue);
+                
+                // Also update the ::before element directly
+                const style = document.createElement('style');
+                style.innerHTML = `
+                    .hero-bg::before {
+                        background: ${bgValue} !important;
+                    }
+                `;
+                document.head.appendChild(style);
                 
                 // Update name
                 nameDisplay.textContent = `Current: ${name}`;
