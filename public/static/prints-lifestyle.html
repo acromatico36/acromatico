@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall Art Prints - Acromatico Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #fff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 2rem 80px;
+            text-align: center;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Product Grid */
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .product-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .product-image {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            background: #0a0a0a;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .product-details {
+            padding: 3rem;
+        }
+        
+        .product-details h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .product-details p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .features-list li {
+            padding: 0.75rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .features-list i {
+            color: #4ade80;
+            font-size: 1.2rem;
+        }
+        
+        /* Selectors */
+        .selector-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .selector-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .selector {
+            width: 100%;
+            padding: 1rem;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .selector:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .selector:focus {
+            outline: none;
+            border-color: #4ade80;
+        }
+        
+        /* Price Display */
+        .price-box {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .price-box .price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #000;
+        }
+        
+        .price-box .price-label {
+            font-size: 0.9rem;
+            color: rgba(0, 0, 0, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background: #4ade80;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Comparison Table */
+        .comparison-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+            background: #1a1a1a;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-table th {
+            background: #0a0a0a;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">ACROMATICO</a>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/photography">Photography</a>
+                <a href="/prints-lifestyle">Wall Art</a>
+                <a href="/studio">Brand Building</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Museum-Quality Wall Art</h1>
+        <p>Transform your favorite moments into stunning artwork. Professional-grade prints with Graphistudio quality—trusted by photographers worldwide.</p>
+    </section>
+    
+    <!-- Products -->
+    <div class="products-container">
+        
+        <!-- 1. CANVAS PRO -->
+        <div class="product-card">
+            <div class="product-grid">
+                <div class="product-image">
+                    <img src="https://acromatico.com/wp-content/uploads/2018/09/Loft20Photoshoot-105.jpg" alt="Canvas Pro Wall Art" style="object-position: 50% 30%;">
+                    <div class="product-badge">Canvas Pro</div>
+                </div>
+                <div class="product-details">
+                    <h2>Canvas Pro</h2>
+                    <p>An unprecedented artistic result. Cotton canvas with exclusive anti-glare "Touch" finishing and 12-color HD printing.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Archival certified 12-color HD printing</li>
+                        <li><i class="fas fa-check-circle"></i> 100% cotton canvas</li>
+                        <li><i class="fas fa-check-circle"></i> Anti-glare "Touch" finishing</li>
+                        <li><i class="fas fa-check-circle"></i> Seamless wooden panel (2.3" or 1.2" depth)</li>
+                        <li><i class="fas fa-check-circle"></i> Optional certificate on back</li>
+                    </ul>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Size</label>
+                        <select class="selector" id="canvas-pro-size" onchange="updatePrice('canvas-pro')">
+                            <option value="196">20x20" - $196</option>
+                            <option value="253">24x24" - $253</option>
+                            <option value="359">30x30" - $359</option>
+                            <option value="488">36x36" - $488</option>
+                            <option value="588">40x40" - $588</option>
+                            <option value="849">40x60" - $849</option>
+                        </select>
+                    </div>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Depth</label>
+                        <select class="selector">
+                            <option>2.3" (Standard)</option>
+                            <option>1.2" (Slim)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-box">
+                        <div class="price" id="canvas-pro-price">$196</div>
+                        <div class="price-label">Starting Price + 15% Shipping</div>
+                    </div>
+                    
+                    <button class="cta-button" onclick="window.location.href='mailto:info@acromatico.com?subject=Canvas Pro Inquiry'">
+                        <i class="fas fa-shopping-cart"></i> Order Canvas Pro
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 2. METAL PRO -->
+        <div class="product-card">
+            <div class="product-grid">
+                <div class="product-image">
+                    <img src="https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-223.jpg" alt="Metal Pro Wall Art">
+                    <div class="product-badge">Metal Pro</div>
+                </div>
+                <div class="product-details">
+                    <h2>Metal Pro</h2>
+                    <p>Infused beauty. ChromaLuxe aluminum with dye sublimation—waterproof, anti-scratch, and stunning color vibrancy.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> ChromaLuxe® aluminum panels</li>
+                        <li><i class="fas fa-check-circle"></i> Dye sublimation (waterproof & anti-scratch)</li>
+                        <li><i class="fas fa-check-circle"></i> 5 finishes available</li>
+                        <li><i class="fas fa-check-circle"></i> Seamless wooden panel with hanger</li>
+                        <li><i class="fas fa-check-circle"></i> 2.3" or 1.2" thickness</li>
+                    </ul>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Size</label>
+                        <select class="selector" id="metal-pro-size" onchange="updatePrice('metal-pro')">
+                            <option value="196">20x20" - $196</option>
+                            <option value="253">24x24" - $253</option>
+                            <option value="359">30x30" - $359</option>
+                            <option value="488">36x36" - $488</option>
+                            <option value="588">40x40" - $588</option>
+                            <option value="849">40x60" - $849</option>
+                        </select>
+                    </div>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Finish</label>
+                        <select class="selector">
+                            <option>Gloss (Vibrant)</option>
+                            <option>Semi Matte</option>
+                            <option>Matte (Subdued)</option>
+                            <option>Satin Glossy</option>
+                            <option>Satin Matte</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-box">
+                        <div class="price" id="metal-pro-price">$196</div>
+                        <div class="price-label">Starting Price + 15% Shipping</div>
+                    </div>
+                    
+                    <button class="cta-button" onclick="window.location.href='mailto:info@acromatico.com?subject=Metal Pro Inquiry'">
+                        <i class="fas fa-shopping-cart"></i> Order Metal Pro
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 3. ACRYLIC PRO -->
+        <div class="product-card">
+            <div class="product-grid">
+                <div class="product-image">
+                    <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-1020.jpg" alt="Acrylic Pro Wall Art">
+                    <div class="product-badge">Acrylic Pro</div>
+                </div>
+                <div class="product-details">
+                    <h2>Acrylic Pro</h2>
+                    <p>An explosion of color and a play of light. Highest quality acrylic with 12 fine art inks for unmatched vibrancy.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Glossy or Matte 1/8" acrylic</li>
+                        <li><i class="fas fa-check-circle"></i> 12 fine art ink jet printing</li>
+                        <li><i class="fas fa-check-circle"></i> Seamless wooden panel with hanger</li>
+                        <li><i class="fas fa-check-circle"></i> 2.3" or 1.2" thickness</li>
+                        <li><i class="fas fa-check-circle"></i> Optional certificate on back</li>
+                    </ul>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Size</label>
+                        <select class="selector" id="acrylic-pro-size" onchange="updatePrice('acrylic-pro')">
+                            <option value="196">20x20" - $196</option>
+                            <option value="253">24x24" - $253</option>
+                            <option value="359">30x30" - $359</option>
+                            <option value="488">36x36" - $488</option>
+                            <option value="588">40x40" - $588</option>
+                            <option value="849">40x60" - $849</option>
+                        </select>
+                    </div>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Finish</label>
+                        <select class="selector">
+                            <option>Glossy (High Shine)</option>
+                            <option>Matte (Subtle)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-box">
+                        <div class="price" id="acrylic-pro-price">$196</div>
+                        <div class="price-label">Starting Price + 15% Shipping</div>
+                    </div>
+                    
+                    <button class="cta-button" onclick="window.location.href='mailto:info@acromatico.com?subject=Acrylic Pro Inquiry'">
+                        <i class="fas fa-shopping-cart"></i> Order Acrylic Pro
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 4. METAL PRINT (Light Frame) -->
+        <div class="product-card">
+            <div class="product-grid">
+                <div class="product-image">
+                    <img src="https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-646.jpg" alt="Metal Print Wall Art">
+                    <div class="product-badge">Metal Print</div>
+                </div>
+                <div class="product-details">
+                    <h2>Metal Print</h2>
+                    <p>ChromaLuxe aluminum with frame options. Choose Light Frame or Floating Block for a modern, gallery-ready look.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> ChromaLuxe® aluminum</li>
+                        <li><i class="fas fa-check-circle"></i> Dye sublimation printing</li>
+                        <li><i class="fas fa-check-circle"></i> Light Frame or Floating Block options</li>
+                        <li><i class="fas fa-check-circle"></i> 4 corner finish options</li>
+                        <li><i class="fas fa-check-circle"></i> Optional certificate on back</li>
+                    </ul>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Size & Frame Style</label>
+                        <select class="selector" id="metal-print-size" onchange="updatePrice('metal-print')">
+                            <option value="136">20x20" Light Frame - $136</option>
+                            <option value="191">24x24" Light Frame - $191</option>
+                            <option value="269">30x30" Light Frame - $269</option>
+                            <option value="365">36x36" Light Frame - $365</option>
+                            <option value="456">40x40" Light Frame - $456</option>
+                            <option value="650">40x60" Light Frame - $650</option>
+                        </select>
+                    </div>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Corner Finish (+$2.20)</label>
+                        <select class="selector">
+                            <option>Sharp Square (Default)</option>
+                            <option>1/8" Rounded</option>
+                            <option>3/16" Rounded</option>
+                            <option>Contoured</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-box">
+                        <div class="price" id="metal-print-price">$136</div>
+                        <div class="price-label">Starting Price + Shipping from $15</div>
+                    </div>
+                    
+                    <button class="cta-button" onclick="window.location.href='mailto:info@acromatico.com?subject=Metal Print Inquiry'">
+                        <i class="fas fa-shopping-cart"></i> Order Metal Print
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 5. ACRYLIC PRINT (Light Frame) -->
+        <div class="product-card">
+            <div class="product-grid">
+                <div class="product-image">
+                    <img src="https://acromatico.com/wp-content/uploads/2018/09/KH-Ritz-262.jpg" alt="Acrylic Print Wall Art">
+                    <div class="product-badge">Acrylic Print</div>
+                </div>
+                <div class="product-details">
+                    <h2>Acrylic Print</h2>
+                    <p>Ultra-clear 1/8" acrylic with anti-UV filter. Stunning HD visual effects with vibrant colors and maximum definition.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Ultra-clear acrylic with anti-UV filter</li>
+                        <li><i class="fas fa-check-circle"></i> Plotter printing (HD quality)</li>
+                        <li><i class="fas fa-check-circle"></i> Light Frame or Floating Block</li>
+                        <li><i class="fas fa-check-circle"></i> Glossy or Matte finish</li>
+                        <li><i class="fas fa-check-circle"></i> Optional certificate on back</li>
+                    </ul>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Size & Frame Style</label>
+                        <select class="selector" id="acrylic-print-size" onchange="updatePrice('acrylic-print')">
+                            <option value="136">20x20" Light Frame - $136</option>
+                            <option value="191">24x24" Light Frame - $191</option>
+                            <option value="269">30x30" Light Frame - $269</option>
+                            <option value="365">36x36" Light Frame - $365</option>
+                            <option value="456">40x40" Light Frame - $456</option>
+                            <option value="650">40x60" Light Frame - $650</option>
+                        </select>
+                    </div>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Finish</label>
+                        <select class="selector">
+                            <option>Glossy (High Shine)</option>
+                            <option>Matte/Satin (Subtle)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-box">
+                        <div class="price" id="acrylic-print-price">$136</div>
+                        <div class="price-label">Starting Price + Shipping from $15</div>
+                    </div>
+                    
+                    <button class="cta-button" onclick="window.location.href='mailto:info@acromatico.com?subject=Acrylic Print Inquiry'">
+                        <i class="fas fa-shopping-cart"></i> Order Acrylic Print
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 6. CANVAS WRAP -->
+        <div class="product-card">
+            <div class="product-grid">
+                <div class="product-image">
+                    <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-550.jpg" alt="Canvas Wrap Wall Art">
+                    <div class="product-badge">Canvas Wrap</div>
+                </div>
+                <div class="product-details">
+                    <h2>Canvas Wrap</h2>
+                    <p>A classic at its best. Canvas wrapped on rigid body with refined fabric back—timeless and affordable.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> 6-color Latex printing</li>
+                        <li><i class="fas fa-check-circle"></i> Canvas wrapped on rigid body</li>
+                        <li><i class="fas fa-check-circle"></i> Refined fabric back with 3D hanger</li>
+                        <li><i class="fas fa-check-circle"></i> 2.3" or 1.2" panel depth</li>
+                        <li><i class="fas fa-check-circle"></i> Optional certificate on back</li>
+                    </ul>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Size</label>
+                        <select class="selector" id="canvas-wrap-size" onchange="updatePrice('canvas-wrap')">
+                            <option value="130">20x20" - $130</option>
+                            <option value="169">24x24" - $169</option>
+                            <option value="224">30x30" - $224</option>
+                            <option value="299">36x36" - $299</option>
+                            <option value="356">40x40" - $356</option>
+                            <option value="506">40x60" - $506</option>
+                        </select>
+                    </div>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Depth</label>
+                        <select class="selector">
+                            <option>2.3" (Standard)</option>
+                            <option>1.2" (Slim)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-box">
+                        <div class="price" id="canvas-wrap-price">$130</div>
+                        <div class="price-label">Starting Price + 15% Shipping</div>
+                    </div>
+                    
+                    <button class="cta-button" onclick="window.location.href='mailto:info@acromatico.com?subject=Canvas Wrap Inquiry'">
+                        <i class="fas fa-shopping-cart"></i> Order Canvas Wrap
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 7. CANVAS PLUS -->
+        <div class="product-card">
+            <div class="product-grid">
+                <div class="product-image">
+                    <img src="https://acromatico.com/wp-content/uploads/2018/09/Tessa-Kurien-W-HIGH-RES-152.jpg" alt="Canvas Plus Wall Art">
+                    <div class="product-badge">Canvas Plus</div>
+                </div>
+                <div class="product-details">
+                    <h2>Canvas Plus</h2>
+                    <p>Enhanced canvas with thin frame surround. Upgraded from Canvas Wrap with premium finishing.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> 6-color Latex printing</li>
+                        <li><i class="fas fa-check-circle"></i> Rigid unibody with thin frame (1/12" or 1/4")</li>
+                        <li><i class="fas fa-check-circle"></i> Refined fabric back with 3D hanger</li>
+                        <li><i class="fas fa-check-circle"></i> 2.3" or 1.2" panel depth</li>
+                        <li><i class="fas fa-check-circle"></i> Optional certificate on back</li>
+                    </ul>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Size</label>
+                        <select class="selector" id="canvas-plus-size" onchange="updatePrice('canvas-plus')">
+                            <option value="165">20x20" - $165</option>
+                            <option value="214">24x24" - $214</option>
+                            <option value="292">30x30" - $292</option>
+                            <option value="393">36x36" - $393</option>
+                            <option value="472">40x40" - $472</option>
+                            <option value="678">40x60" - $678</option>
+                        </select>
+                    </div>
+                    
+                    <div class="selector-group">
+                        <label class="selector-label">Frame Thickness</label>
+                        <select class="selector">
+                            <option>1/12" (Slim)</option>
+                            <option>1/4" (Bold)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-box">
+                        <div class="price" id="canvas-plus-price">$165</div>
+                        <div class="price-label">Starting Price + 15% Shipping</div>
+                    </div>
+                    
+                    <button class="cta-button" onclick="window.location.href='mailto:info@acromatico.com?subject=Canvas Plus Inquiry'">
+                        <i class="fas fa-shopping-cart"></i> Order Canvas Plus
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Comparison Table -->
+    <div class="comparison-section">
+        <h2>Product Comparison</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Material</th>
+                    <th>Best For</th>
+                    <th>Starting Price (20x20")</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Canvas Pro</strong></td>
+                    <td>Cotton Canvas</td>
+                    <td>Traditional art collectors, soft aesthetic</td>
+                    <td>$196</td>
+                </tr>
+                <tr>
+                    <td><strong>Metal Pro</strong></td>
+                    <td>ChromaLuxe Aluminum</td>
+                    <td>Modern spaces, high durability</td>
+                    <td>$196</td>
+                </tr>
+                <tr>
+                    <td><strong>Acrylic Pro</strong></td>
+                    <td>1/8" Acrylic</td>
+                    <td>Vibrant colors, luxury displays</td>
+                    <td>$196</td>
+                </tr>
+                <tr>
+                    <td><strong>Metal Print (Light Frame)</strong></td>
+                    <td>ChromaLuxe Aluminum</td>
+                    <td>Gallery-ready framed metal</td>
+                    <td>$136</td>
+                </tr>
+                <tr>
+                    <td><strong>Acrylic Print (Light Frame)</strong></td>
+                    <td>Ultra-clear Acrylic</td>
+                    <td>Modern framed acrylic</td>
+                    <td>$136</td>
+                </tr>
+                <tr>
+                    <td><strong>Canvas Wrap</strong></td>
+                    <td>Canvas on Rigid Body</td>
+                    <td>Budget-friendly classic</td>
+                    <td>$130</td>
+                </tr>
+                <tr>
+                    <td><strong>Canvas Plus</strong></td>
+                    <td>Canvas with Frame</td>
+                    <td>Upgraded canvas with frame accent</td>
+                    <td>$165</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        function updatePrice(product) {
+            const selectId = product + '-size';
+            const priceId = product + '-price';
+            const select = document.getElementById(selectId);
+            const priceDisplay = document.getElementById(priceId);
+            
+            const selectedPrice = select.value;
+            priceDisplay.textContent = '$' + selectedPrice;
+        }
+    </script>
+</body>
+</html>
