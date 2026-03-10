@@ -1886,9 +1886,171 @@
         font-size: 15px;
       }
     }
+
+    /* ============================================
+       STICKY CART - MOBILE FIRST (NO LAYOUT CHANGES)
+       ============================================ */
+    
+    .sticky-cart {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      padding: 16px 20px;
+      z-index: 9998;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .sticky-cart.visible {
+      transform: translateY(0);
+      display: block;
+    }
+
+    .cart-content-wrapper {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cart-summary-text {
+      flex: 1;
+    }
+
+    .cart-label {
+      font-size: 13px;
+      color: var(--secondary);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .cart-total {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .cart-cta {
+      padding: 14px 28px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .cart-cta:active {
+      transform: scale(0.98);
+    }
+
+    .cart-items {
+      display: none;
+    }
+
+    /* Desktop: Sidebar */
+    @media (min-width: 1200px) {
+      .sticky-cart {
+        position: fixed;
+        top: 120px;
+        right: 40px;
+        bottom: auto;
+        left: auto;
+        width: 340px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 28px;
+        transform: none;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .sticky-cart.visible {
+        transform: none;
+      }
+
+      .cart-content-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: none;
+      }
+
+      .cart-summary-text {
+        margin-bottom: 20px;
+      }
+
+      .cart-label {
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .cart-total {
+        font-size: 32px;
+      }
+
+      .cart-items {
+        display: block;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        font-size: 14px;
+      }
+
+      .cart-item-name {
+        color: var(--secondary);
+      }
+
+      .cart-item-price {
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .cart-cta {
+        width: 100%;
+        padding: 16px;
+        font-size: 17px;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- STICKY CART (Mobile: bottom bar, Desktop: sidebar) -->
+  <div class="sticky-cart" id="stickyCart">
+    <div class="cart-content-wrapper">
+      <div class="cart-summary-text">
+        <div class="cart-label">Your Package Total</div>
+        <div class="cart-total" id="cartTotal">$0</div>
+        
+        <!-- Desktop: Itemized list -->
+        <div class="cart-items" id="cartItems">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+      
+      <button class="cart-cta" onclick="proceedToCheckout()">
+        Continue
+      </button>
+    </div>
+  </div>
 
   <header class="site-header">
     <a href="/" class="site-logo-link">
@@ -3600,6 +3762,81 @@
       
       document.getElementById('customTotalPrice').textContent = `$${totalPrice.toLocaleString()}`;
       document.getElementById('customPaymentAmount').textContent = `$${paymentAmount.toLocaleString()}`;
+      
+      // UPDATE STICKY CART
+      updateStickyCart(totalPrice, photoPrice, videoIncluded ? videoPrice : 0, addonsTotal);
+    }
+
+    // ============================================
+    // STICKY CART UPDATE FUNCTION
+    // ============================================
+    function updateStickyCart(total, photoPrice, videoPrice, addonsTotal) {
+      const cart = document.getElementById('stickyCart');
+      const totalDisplay = document.getElementById('cartTotal');
+      const itemsList = document.getElementById('cartItems');
+      
+      if (total > 0) {
+        cart.classList.add('visible');
+        totalDisplay.textContent = `$${total.toLocaleString()}`;
+        
+        // Build items list for desktop
+        let itemsHTML = '';
+        if (photoPrice > 0) {
+          itemsHTML += `
+            <div class="cart-item">
+              <span class="cart-item-name">Photography Package</span>
+              <span class="cart-item-price">$${photoPrice.toLocaleString()}</span>
+            </div>
+          `;
+        }
+        if (videoPrice > 0) {
+          itemsHTML += `
+            <div class="cart-item">
+              <span class="cart-item-name">Cinematic Video</span>
+              <span class="cart-item-price">$${videoPrice.toLocaleString()}</span>
+            </div>
+          `;
+        }
+        if (addonsTotal > 0) {
+          itemsHTML += `
+            <div class="cart-item">
+              <span class="cart-item-name">Add-ons</span>
+              <span class="cart-item-price">$${addonsTotal.toLocaleString()}</span>
+            </div>
+          `;
+        }
+        
+        itemsList.innerHTML = itemsHTML;
+      } else {
+        cart.classList.remove('visible');
+      }
+    }
+
+    // Show cart on mobile after scrolling past hero
+    window.addEventListener('scroll', () => {
+      const cart = document.getElementById('stickyCart');
+      const hero = document.querySelector('.video-hero');
+      
+      if (window.innerWidth < 1200 && hero) {
+        const heroBottom = hero.offsetHeight;
+        if (window.scrollY > heroBottom - 100) {
+          if (cart.classList.contains('visible')) {
+            cart.style.display = 'block';
+          }
+        } else {
+          cart.style.display = 'none';
+        }
+      }
+    });
+
+    // Checkout function
+    function proceedToCheckout() {
+      const totalPrice = parseInt(document.getElementById('cartTotal').textContent.replace(/[$,]/g, ''));
+      if (totalPrice > 0) {
+        bookCustomPackage();
+      } else {
+        alert('Please select a package or add items to continue.');
+      }
     }
 
     function bookCustomPackage() {
