@@ -1647,6 +1647,12 @@ app.get('/masterclass', (c) => {
                   <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
+                  <span class="text-lg">Mentorship for All Ages</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
                   <span class="text-lg">2 Strategic Coaching Sessions</span>
                 </li>
                 <li class="flex items-start gap-3">
@@ -1709,6 +1715,12 @@ app.get('/masterclass', (c) => {
                   <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
+                  <span class="text-lg">Mentorship for All Ages</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
                   <span class="text-lg">Complete Wedding/Portrait/Commercial Training</span>
                 </li>
                 <li class="flex items-start gap-3">
@@ -1762,6 +1774,12 @@ app.get('/masterclass', (c) => {
               </div>
               
               {/* Rows */}
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Mentorship for All Ages</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
               <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
                 <div>Strategic Coaching Sessions</div>
                 <div class="text-center text-[#4794A6] text-2xl">✓</div>
@@ -4505,281 +4523,376 @@ app.get('/about', (c) =>
 app.get('/pricing', (c) => {
   return c.render(
     <div class="min-h-screen bg-black text-white">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
+
       {/* Navigation */}
       <Header />
 
       {/* Hero Section */}
-      <section class="pt-32 pb-20 bg-gradient-to-b from-gray-900 to-black">
-        <div class="max-w-6xl mx-auto px-6 lg:px-8 text-center">
-          <h1 class="text-6xl md:text-7xl font-black mb-6">
-            Choose Your Plan
+      <section class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+          <h1 class="text-7xl md:text-8xl font-black mb-6" style="letter-spacing: -0.02em;">
+            Programs & Pricing
           </h1>
-          <p class="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
-            Flexible pricing that grows with your family. Pay only for what you use with daily proration.
+          <p class="text-2xl text-gray-400 mb-12 max-w-3xl mx-auto">
+            From beginner-friendly academy classes to professional masterclass coaching—<br/>
+            find the perfect program for your journey.
           </p>
-          
-          {/* Billing Toggle */}
-          <div class="flex items-center justify-center gap-4 mb-12">
-            <span class="text-lg" id="monthly-label">Monthly</span>
-            <button class="relative inline-flex h-8 w-16 items-center rounded-full bg-gray-700" id="billing-toggle">
-              <span class="inline-block h-6 w-6 transform rounded-full bg-white transition ml-1" id="toggle-circle"></span>
-            </button>
-            <span class="text-lg" id="annual-label">
-              Annual <span class="text-teal-500 text-sm font-bold">(Save 20%)</span>
-            </span>
+        </div>
+      </section>
+
+      {/* MASTERCLASS PROGRAMS */}
+      <section class="py-20 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-5xl font-black mb-4">Masterclass Programs</h2>
+            <p class="text-xl text-gray-400">Professional coaching for photographers of all ages</p>
+          </div>
+
+          {/* Masterclass Cards */}
+          <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+            {/* Masterclass Coaching */}
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-10 border-2 border-[#4794A6]/30 hover:border-[#4794A6] transition-all">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <h3 class="text-3xl font-bold mb-2">Masterclass Coaching</h3>
+                  <div class="text-5xl font-black text-[#4794A6] mb-2">$695</div>
+                  <p class="text-gray-400">One-time investment</p>
+                </div>
+                <span class="bg-[#4794A6] text-white px-3 py-1 rounded-full text-xs font-bold uppercase">STARTER</span>
+              </div>
+              
+              <a href="/masterclass" class="block w-full py-4 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white text-center font-bold text-lg mb-8 transition-all">
+                Learn More
+              </a>
+
+              <div class="space-y-3 text-sm">
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Mentorship for All Ages</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>2 Strategic Coaching Sessions</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Portfolio Review & Feedback</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Equipment Review</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Brand Guidance</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Business Strategy Consultation</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>$695 Credit Toward Business in a Box</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Business in a Box */}
+            <div class="bg-gradient-to-br from-white to-gray-100 rounded-3xl p-10 border-2 border-white text-black">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <h3 class="text-3xl font-bold mb-2">Business in a Box</h3>
+                  <div class="text-5xl font-black mb-2">$3,000</div>
+                  <p class="text-gray-600">One-time investment</p>
+                </div>
+                <span class="bg-black text-white px-3 py-1 rounded-full text-xs font-bold uppercase">PRO</span>
+              </div>
+              
+              <a href="/masterclass" class="block w-full py-4 rounded-full bg-black hover:bg-gray-800 text-white text-center font-bold text-lg mb-8 transition-all">
+                Learn More
+              </a>
+
+              <div class="space-y-3 text-sm">
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-black flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span class="font-semibold">Everything in Coaching, plus:</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-black flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Complete Wedding/Portrait/Commercial Training</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-black flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>AI Tools</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-black flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Photography Workflow (Booking to Delivery)</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-black flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Business Plan & Marketing Strategy</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-black flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Legal & Business Guidance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Masterclass Comparison Table - COMPREHENSIVE */}
+          <div class="max-w-5xl mx-auto bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border-2 border-gray-800">
+            <h3 class="text-3xl font-bold text-center mb-8">Masterclass Comparison</h3>
+            
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead>
+                  <tr class="border-b-2 border-gray-800">
+                    <th class="text-left py-4 px-4 font-bold">Feature</th>
+                    <th class="text-center py-4 px-4 font-bold">Coaching</th>
+                    <th class="text-center py-4 px-4 font-bold">Business Box</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm">
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Mentorship for All Ages</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Strategic Coaching Sessions</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Portfolio Review & Feedback</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Equipment Review</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Brand Guidance</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Business Strategy Consultation</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Complete Photography Training</td>
+                    <td class="text-center py-3 px-4 text-gray-600">—</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">AI Tools</td>
+                    <td class="text-center py-3 px-4 text-gray-600">—</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Photography Workflow System</td>
+                    <td class="text-center py-3 px-4 text-gray-600">—</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Business Plan & Marketing Strategy</td>
+                    <td class="text-center py-3 px-4 text-gray-600">—</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-800/50">
+                    <td class="py-3 px-4">Legal & Business Guidance</td>
+                    <td class="text-center py-3 px-4 text-gray-600">—</td>
+                    <td class="text-center py-3 px-4 text-[#4794A6] text-xl">✓</td>
+                  </tr>
+                  <tr class="bg-gradient-to-r from-gray-900 to-black">
+                    <td class="py-4 px-4 font-bold text-lg">Investment</td>
+                    <td class="text-center py-4 px-4 font-bold text-2xl text-[#4794A6]">$695</td>
+                    <td class="text-center py-4 px-4 font-bold text-2xl">$3,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Cards */}
-      <section class="py-20 bg-black">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="pricing-cards">
-            
+      {/* ACADEMY PROGRAMS */}
+      <section class="py-20 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-5xl font-black mb-4">Academy Programs</h2>
+            <p class="text-xl text-gray-400">Monthly photography classes for young creators (Ages 7-14)</p>
+          </div>
+
+          {/* Academy Pricing Cards */}
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {/* 1 Student */}
-            <div class="pricing-card feature-card p-8 rounded-3xl relative" data-tier="1" data-monthly="116" data-annual="93">
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 border border-gray-800">
               <div class="text-center mb-6">
-                <div class="text-5xl font-black mb-2">
-                  <span class="stat-number">1</span>
-                </div>
-                <div class="text-gray-400">Student</div>
+                <div class="text-4xl font-black mb-2 text-[#4794A6]">1</div>
+                <div class="text-gray-400 text-sm">Student</div>
               </div>
               <div class="text-center mb-6">
-                <div class="text-4xl font-bold mb-2 price-display">
-                  $116<span class="text-xl text-gray-400">/mo</span>
-                </div>
-                <div class="text-sm text-gray-500">per student</div>
-                <div class="text-teal-500 text-sm font-bold mt-2 savings-display" style="display: none;"></div>
+                <div class="text-3xl font-bold">$116<span class="text-sm text-gray-400">/mo</span></div>
+                <div class="text-xs text-gray-500 mt-1">$93/mo annual</div>
               </div>
-              <button onclick="addToCart(1, 116, false)" class="btn-primary w-full px-6 py-4 rounded-full font-bold text-white" style="background: #4794A6; display: block;">
-                Add to Cart
-              </button>
-              <div class="mt-6 pt-6 border-t border-white/10 space-y-3 text-sm text-gray-400">
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>8 live classes/month</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>All recordings included</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Daily proration</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Cancel anytime</span></div>
+              <a href="/education" class="block w-full py-3 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white text-center font-bold text-sm transition-all">
+                Enroll Now
+              </a>
+              <div class="mt-6 pt-6 border-t border-gray-800 space-y-2 text-xs text-gray-400">
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> 8 live classes/month</div>
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> All recordings</div>
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> Cancel anytime</div>
               </div>
             </div>
 
-            {/* 2 Students - MOST POPULAR */}
-            <div class="pricing-card feature-card p-8 rounded-3xl ring-2 ring-teal-500 relative" data-tier="2" data-monthly="99" data-annual="79">
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-teal-500 text-white px-4 py-1 rounded-full text-sm font-bold">Most Popular</div>
+            {/* 2 Students */}
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 border-2 border-[#4794A6] relative">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4794A6] text-white px-3 py-1 rounded-full text-xs font-bold">POPULAR</div>
               <div class="text-center mb-6">
-                <div class="text-5xl font-black mb-2">
-                  <span class="stat-number">2</span>
-                </div>
-                <div class="text-gray-400">Students</div>
+                <div class="text-4xl font-black mb-2 text-[#4794A6]">2</div>
+                <div class="text-gray-400 text-sm">Students</div>
               </div>
               <div class="text-center mb-6">
-                <div class="text-4xl font-bold mb-2 price-display">
-                  $99<span class="text-xl text-gray-400">/mo</span>
-                </div>
-                <div class="text-sm text-gray-500">per student</div>
-                <div class="text-teal-500 text-sm font-bold mt-2 savings-display" style="display: none;"></div>
+                <div class="text-3xl font-bold">$99<span class="text-sm text-gray-400">/mo</span></div>
+                <div class="text-xs text-gray-500 mt-1">$79/mo annual (each)</div>
               </div>
-              <button onclick="addToCart(2, 99, false)" class="btn-primary w-full px-6 py-4 rounded-full font-bold text-white" style="background: #4794A6; display: block;">
-                Add to Cart
-              </button>
-              <div class="mt-6 pt-6 border-t border-white/10 space-y-3 text-sm text-gray-400">
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>8 live classes/month</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>All recordings included</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Daily proration</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Cancel anytime</span></div>
+              <a href="/education" class="block w-full py-3 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white text-center font-bold text-sm transition-all">
+                Enroll Now
+              </a>
+              <div class="mt-6 pt-6 border-t border-gray-800 space-y-2 text-xs text-gray-400">
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> 8 live classes/month</div>
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> All recordings</div>
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> Save $400/year</div>
               </div>
             </div>
 
             {/* 3 Students */}
-            <div class="pricing-card feature-card p-8 rounded-3xl relative" data-tier="3" data-monthly="89" data-annual="71">
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 border border-gray-800">
               <div class="text-center mb-6">
-                <div class="text-5xl font-black mb-2">
-                  <span class="stat-number">3</span>
-                </div>
-                <div class="text-gray-400">Students</div>
+                <div class="text-4xl font-black mb-2 text-[#4794A6]">3</div>
+                <div class="text-gray-400 text-sm">Students</div>
               </div>
               <div class="text-center mb-6">
-                <div class="text-4xl font-bold mb-2 price-display">
-                  $89<span class="text-xl text-gray-400">/mo</span>
-                </div>
-                <div class="text-sm text-gray-500">per student</div>
-                <div class="text-teal-500 text-sm font-bold mt-2 savings-display" style="display: none;"></div>
+                <div class="text-3xl font-bold">$89<span class="text-sm text-gray-400">/mo</span></div>
+                <div class="text-xs text-gray-500 mt-1">$71/mo annual (each)</div>
               </div>
-              <button onclick="addToCart(3, 89, false)" class="btn-primary w-full px-6 py-4 rounded-full font-bold text-white" style="background: #4794A6; display: block;">
-                Add to Cart
-              </button>
-              <div class="mt-6 pt-6 border-t border-white/10 space-y-3 text-sm text-gray-400">
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>8 live classes/month</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>All recordings included</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Daily proration</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Cancel anytime</span></div>
+              <a href="/education" class="block w-full py-3 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white text-center font-bold text-sm transition-all">
+                Enroll Now
+              </a>
+              <div class="mt-6 pt-6 border-t border-gray-800 space-y-2 text-xs text-gray-400">
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> 8 live classes/month</div>
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> All recordings</div>
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> Save $540/year</div>
               </div>
             </div>
 
             {/* 4+ Students */}
-            <div class="pricing-card feature-card p-8 rounded-3xl relative" data-tier="4" data-monthly="79" data-annual="63">
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 border border-gray-800">
               <div class="text-center mb-6">
-                <div class="text-5xl font-black mb-2">
-                  <span class="stat-number">4+</span>
-                </div>
-                <div class="text-gray-400">Students</div>
+                <div class="text-4xl font-black mb-2 text-[#4794A6]">4+</div>
+                <div class="text-gray-400 text-sm">Students</div>
               </div>
               <div class="text-center mb-6">
-                <div class="text-4xl font-bold mb-2 price-display">
-                  $79<span class="text-xl text-gray-400">/mo</span>
-                </div>
-                <div class="text-sm text-gray-500">per student</div>
-                <div class="text-teal-500 text-sm font-bold mt-2 savings-display" style="display: none;"></div>
+                <div class="text-3xl font-bold">$79<span class="text-sm text-gray-400">/mo</span></div>
+                <div class="text-xs text-gray-500 mt-1">$63/mo annual (each)</div>
               </div>
-              <button onclick="addToCart(4, 79, false)" class="btn-primary w-full px-6 py-4 rounded-full font-bold text-white" style="background: #4794A6; display: block;">
-                Add to Cart
-              </button>
-              <div class="mt-6 pt-6 border-t border-white/10 space-y-3 text-sm text-gray-400">
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>8 live classes/month</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>All recordings included</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Daily proration</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-check text-teal-500"></i><span>Cancel anytime</span></div>
+              <a href="/education" class="block w-full py-3 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white text-center font-bold text-sm transition-all">
+                Enroll Now
+              </a>
+              <div class="mt-6 pt-6 border-t border-gray-800 space-y-2 text-xs text-gray-400">
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> 8 live classes/month</div>
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> All recordings</div>
+                <div class="flex items-center gap-2"><span class="text-[#4794A6]">✓</span> Save $640/year</div>
               </div>
             </div>
+          </div>
 
-          </div>
-          
-          {/* CTA Button - Middle Section */}
-          <div class="mt-16 text-center">
-            <div class="max-w-2xl mx-auto mb-8">
-              <h3 class="text-3xl font-bold mb-4">Ready to Transform Your Child's Creative Journey?</h3>
-              <p class="text-xl text-gray-400 mb-8">
-                Join hundreds of families building confidence, creativity, and lifelong skills through photography.
-              </p>
-            </div>
-            <a 
-              href="/pricing#pricing-cards" 
-              class="inline-block px-12 py-5 rounded-full text-xl font-bold text-white transition shadow-2xl hover:shadow-teal-500/50" 
-              style="background: #4794A6;"
-            >
-              Start Your Journey Today
-            </a>
-          </div>
-          
-          {/* Features Section */}
-          <div class="mt-20 pt-20 border-t border-white/10">
-            <h2 class="text-4xl font-black text-center mb-12">Everything Included</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="feature-card p-8 rounded-2xl text-center">
-                <i class="fas fa-video text-4xl text-teal-500 mb-4"></i>
-                <h3 class="text-xl font-bold mb-3">Live Classes</h3>
-                <p class="text-gray-400 text-sm">8 live classes per month, Mon & Thu at 11:30 AM ET</p>
+          {/* Academy Features Table */}
+          <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border-2 border-gray-800">
+            <h3 class="text-3xl font-bold text-center mb-8">What's Included in Academy</h3>
+            <div class="grid md:grid-cols-2 gap-6 text-sm">
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>30-Minute Micro-Learning Sessions</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>8 Live Classes per Month</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Lifetime Instruction Library</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>December Bonus Workshops</span>
+                </div>
               </div>
-              <div class="feature-card p-8 rounded-2xl text-center">
-                <i class="fas fa-play-circle text-4xl text-teal-500 mb-4"></i>
-                <h3 class="text-xl font-bold mb-3">Recorded Sessions</h3>
-                <p class="text-gray-400 text-sm">Access all class recordings anytime, anywhere</p>
-              </div>
-              <div class="feature-card p-8 rounded-2xl text-center">
-                <i class="fas fa-certificate text-4xl text-teal-500 mb-4"></i>
-                <h3 class="text-xl font-bold mb-3">Portfolio Building</h3>
-                <p class="text-gray-400 text-sm">Create a professional portfolio throughout the year</p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Portfolio Building</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>All Class Recordings</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Cancel Anytime (Daily Proration)</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[#4794A6] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Annual Billing (Save 20%)</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* JavaScript for Pricing Logic */}
-      <script dangerouslySetInnerHTML={{__html: `
-        let isAnnual = false;
-        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        
-        function updateCartCount() {
-          const count = cart.reduce((sum, item) => sum + (item.students * item.quantity), 0);
-          const el = document.getElementById('cart-count');
-          if (el) el.textContent = count;
-        }
-        
-        function addToCart(students, price, annual) {
-          const existingIndex = cart.findIndex(item => 
-            item.type === 'academy' && 
-            item.students === students && 
-            item.billing === (annual ? 'annual' : 'monthly')
-          );
-          
-          if (existingIndex >= 0) {
-            cart[existingIndex].quantity += 1;
-          } else {
-            cart.push({
-              type: 'academy',
-              students: students,
-              billing: annual ? 'annual' : 'monthly',
-              price: price,
-              quantity: 1
-            });
-          }
-          
-          localStorage.setItem('cart', JSON.stringify(cart));
-          updateCartCount();
-          alert('Added to cart! 🎉');
-        }
-        
-        function updatePricing() {
-          const cards = document.querySelectorAll('.pricing-card');
-          cards.forEach(card => {
-            const tier = parseInt(card.getAttribute('data-tier'));
-            const monthlyPrice = parseInt(card.getAttribute('data-monthly'));
-            const annualPrice = parseInt(card.getAttribute('data-annual'));
-            const currentPrice = isAnnual ? annualPrice : monthlyPrice;
-            
-            // Update price display
-            const priceDisplay = card.querySelector('.price-display');
-            if (priceDisplay) {
-              priceDisplay.innerHTML = '$' + currentPrice + '<span class="text-xl text-gray-400">/mo</span>';
-            }
-            
-            // Update savings display
-            const savingsDisplay = card.querySelector('.savings-display');
-            if (savingsDisplay && isAnnual) {
-              const savings = (monthlyPrice * 10) - (annualPrice * 10);
-              savingsDisplay.textContent = 'Save $' + savings + '/year';
-              savingsDisplay.style.display = 'block';
-            } else if (savingsDisplay) {
-              savingsDisplay.style.display = 'none';
-            }
-            
-            // Update button onclick
-            const button = card.querySelector('button');
-            if (button) {
-              button.setAttribute('onclick', 'addToCart(' + tier + ', ' + currentPrice + ', ' + isAnnual + ')');
-            }
-          });
-        }
-        
-        // Toggle billing
-        const toggleBtn = document.getElementById('billing-toggle');
-        if (toggleBtn) {
-          toggleBtn.addEventListener('click', function() {
-            isAnnual = !isAnnual;
-            const circle = document.getElementById('toggle-circle');
-            const toggle = document.getElementById('billing-toggle');
-            
-            if (isAnnual) {
-              if (circle) circle.style.transform = 'translateX(32px)';
-              if (toggle) toggle.style.backgroundColor = '#4794A6';
-            } else {
-              if (circle) circle.style.transform = 'translateX(0)';
-              if (toggle) toggle.style.backgroundColor = '#374151';
-            }
-            
-            updatePricing();
-          });
-        }
-        
-        // Initial update
-        updateCartCount();
-      `}} />
+      {/* Final CTA */}
+      <section class="py-20 px-6 border-t border-white/10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl font-bold mb-6">Still have questions?</h2>
+          <p class="text-xl text-gray-400 mb-10">
+            We're here to help you find the perfect program for your photography journey.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:hello@acromatico.com" class="px-10 py-5 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-lg transition-all inline-block">
+              Contact Us
+            </a>
+            <a href="/faq" class="px-10 py-5 rounded-full border-2 border-white hover:bg-white hover:text-black text-white font-bold text-lg transition-all inline-block">
+              View FAQ
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div dangerouslySetInnerHTML={{__html: footerHTML}} />
     </div>,
-    { title: 'Pricing - Acromatico Academy' }
+    { title: 'Programs & Pricing - Acromatico' }
   )
 })
-
-// Success page after Stripe checkout
 app.get('/success', (c) => {
   const sessionId = c.req.query('session_id')
   
