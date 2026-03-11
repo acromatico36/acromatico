@@ -1656,6 +1656,12 @@ app.get('/masterclass', (c) => {
                   <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
+                  <span class="text-lg">Equipment Review</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
                   <span class="text-lg">Business Strategy Consultation</span>
                 </li>
                 <li class="flex items-start gap-3">
@@ -1700,7 +1706,7 @@ app.get('/masterclass', (c) => {
                   <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
-                  <span class="text-lg">AI Tools for Editing & Workflow</span>
+                  <span class="text-lg">AI Tools</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
@@ -1718,7 +1724,7 @@ app.get('/masterclass', (c) => {
                   <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
-                  <span class="text-lg">Legal & Business Setup (LLC, Contracts)</span>
+                  <span class="text-lg">Legal & Business Guidance</span>
                 </li>
               </ul>
               
@@ -1754,6 +1760,12 @@ app.get('/masterclass', (c) => {
               </div>
               
               <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Equipment Review</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
                 <div>Business Strategy Consultation</div>
                 <div class="text-center text-[#4794A6] text-2xl">✓</div>
                 <div class="text-center text-[#4794A6] text-2xl">✓</div>
@@ -1766,7 +1778,7 @@ app.get('/masterclass', (c) => {
               </div>
               
               <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>AI Tools & Workflow</div>
+                <div>AI Tools</div>
                 <div class="text-center text-gray-600">—</div>
                 <div class="text-center text-[#4794A6] text-2xl">✓</div>
               </div>
@@ -1790,7 +1802,7 @@ app.get('/masterclass', (c) => {
               </div>
               
               <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>Legal & Business Setup</div>
+                <div>Legal & Business Guidance</div>
                 <div class="text-center text-gray-600">—</div>
                 <div class="text-center text-[#4794A6] text-2xl">✓</div>
               </div>
