@@ -2524,7 +2524,7 @@
             <li>Exclusive Member Events</li>
             <li><strong>✓ Free Equipment Rental</strong></li>
           </ul>
-          <button class="select-btn" style="background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);" onclick="window.location.href='#contact'">Enroll Now</button>
+          <button class="select-btn" style="background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);" onclick="openEducationModal()">Enroll Now</button>
         </div>
 
         <!-- MASTERCLASS STRATEGIC SESSIONS -->
@@ -3515,6 +3515,8 @@
                           </div>
                         </div>
 
+                                  </div>
+
                         <div class="product-price-custom" style="font-size: 32px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.5px; margin-bottom: 16px;">$470</div>
                         
                         <button style="width: 100%; padding: 16px; background: #0071e3; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#0077ed'" onmouseout="this.style.background='#0071e3'">Add to Cart</button>
@@ -4276,7 +4278,7 @@
       let videoIncluded = false;
       let videoPrice = 0;
       
-      document.querySelectorAll('.builder-checkboxes input[type="checkbox"]:checked').forEach(checkbox => {
+      document.querySelectorAll('.builder-).forEach(checkbox => {
         const addonValue = checkbox.value;
         if (addonValue === 'album') {
           // Skip - handled above with getAlbumPrice()
@@ -5281,6 +5283,177 @@
       // Set active state
       button.style.borderColor = '#0071e3';
       button.style.background = 'rgba(0,113,227,0.05)';
+    }
+  </script>
+
+  <!-- EDUCATION ENROLLMENT MODAL -->
+  <div class="modal-overlay" id="educationModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
+    <div style="background: #1a1a1a; border-radius: 24px; max-width: 900px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
+      <button onclick="closeEducationModal()" style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 24px; z-index: 10001; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">✕</button>
+      
+      <div style="padding: 48px 40px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <h2 style="font-size: 36px; font-weight: 700; color: white; margin-bottom: 12px;">Choose Your Program</h2>
+          <p style="font-size: 16px; color: #a0a0a0;">Select the package that fits your goals</p>
+        </div>
+
+        <!-- PROGRAM TYPE TOGGLE -->
+        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 40px;">
+          <button onclick="switchEducationType('youth')" id="youthTypeBtn" style="padding: 12px 28px; background: #0071e3; color: white; border: none; border-radius: 24px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s;">Youth Programs</button>
+          <button onclick="switchEducationType('masterclass')" id="masterclassTypeBtn" style="padding: 12px 28px; background: rgba(255,255,255,0.1); color: white; border: 2px solid rgba(255,255,255,0.2); border-radius: 24px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s;">Masterclass</button>
+        </div>
+
+        <!-- YOUTH PROGRAMS -->
+        <div id="youthPrograms" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          
+          <!-- YOUTH STARTER -->
+          <div onclick="selectEducationPackage('youth-starter', 695)" style="background: rgba(0,113,227,0.1); border: 3px solid rgba(0,113,227,0.3); border-radius: 16px; padding: 28px; cursor: pointer; transition: all 0.3s; position: relative;" onmouseover="this.style.borderColor='#0071e3'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(0,113,227,0.3)'; this.style.transform='translateY(0)'">
+            <div style="position: absolute; top: 16px; right: 16px; background: #0071e3; color: white; padding: 4px 10px; border-radius: 12px; font-size: 10px; font-weight: 700;">LAUNCH</div>
+            
+            <div style="margin-bottom: 20px;">
+              <div style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 4px;">Starter Workshop</div>
+              <div style="font-size: 13px; color: #a0a0a0; margin-bottom: 16px;">Ages 10-17</div>
+              <div style="font-size: 42px; font-weight: 700; color: #0071e3; margin-bottom: 4px;">$695</div>
+              <div style="font-size: 13px; color: #a0a0a0; text-decoration: line-through;">Was $1,200</div>
+            </div>
+
+            <ul style="list-style: none; padding: 0; margin: 0; color: white; font-size: 13px; line-height: 1.8;">
+              <li style="margin-bottom: 8px;">✓ 3 In-Person Workshops</li>
+              <li style="margin-bottom: 8px;">✓ 1-on-1 Personalized Session</li>
+              <li style="margin-bottom: 8px;">✓ Hands-On Shooting</li>
+              <li style="margin-bottom: 8px;">✓ Free Photo Session ($395)</li>
+            </ul>
+          </div>
+
+          <!-- YOUTH ACCELERATOR -->
+          <div onclick="selectEducationPackage('youth-accelerator', 1995)" style="background: rgba(255,149,0,0.1); border: 3px solid rgba(255,149,0,0.3); border-radius: 16px; padding: 28px; cursor: pointer; transition: all 0.3s; position: relative;" onmouseover="this.style.borderColor='#ff9500'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,149,0,0.3)'; this.style.transform='translateY(0)'">
+            <div style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #ff9500, #ff6b00); color: white; padding: 4px 10px; border-radius: 12px; font-size: 10px; font-weight: 700;">BEST VALUE</div>
+            
+            <div style="margin-bottom: 20px;">
+              <div style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 4px;">Year Accelerator</div>
+              <div style="font-size: 13px; color: #a0a0a0; margin-bottom: 16px;">Ages 10-17</div>
+              <div style="font-size: 42px; font-weight: 700; color: #ff9500; margin-bottom: 4px;">$1,995</div>
+              <div style="font-size: 13px; color: #a0a0a0; text-decoration: line-through;">Was $4,500</div>
+            </div>
+
+            <ul style="list-style: none; padding: 0; margin: 0; color: white; font-size: 13px; line-height: 1.8;">
+              <li style="margin-bottom: 8px;">✓ Everything in Starter</li>
+              <li style="margin-bottom: 8px;">✓ 12 Months 1-on-1 Coaching</li>
+              <li style="margin-bottom: 8px;">✓ Full Year Membership</li>
+              <li style="margin-bottom: 8px;">✓ Portfolio Development</li>
+              <li style="margin-bottom: 8px;">✓ Free Equipment Rental</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- MASTERCLASS PROGRAMS -->
+        <div id="masterclassPrograms" style="display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          
+          <!-- MASTERCLASS COACHING -->
+          <div onclick="selectEducationPackage('masterclass-coaching', 695)" style="background: rgba(142,68,173,0.1); border: 3px solid rgba(142,68,173,0.3); border-radius: 16px; padding: 28px; cursor: pointer; transition: all 0.3s; position: relative;" onmouseover="this.style.borderColor='#8e44ad'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(142,68,173,0.3)'; this.style.transform='translateY(0)'">
+            <div style="position: absolute; top: 16px; right: 16px; background: #8e44ad; color: white; padding: 4px 10px; border-radius: 12px; font-size: 10px; font-weight: 700;">STARTER</div>
+            
+            <div style="margin-bottom: 20px;">
+              <div style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 4px;">Strategic Coaching</div>
+              <div style="font-size: 13px; color: #a0a0a0; margin-bottom: 16px;">Ages 16+ • Teens & Adults</div>
+              <div style="font-size: 42px; font-weight: 700; color: #8e44ad; margin-bottom: 4px;">$695</div>
+              <div style="font-size: 13px; color: #a0a0a0;">2 Strategic Sessions</div>
+            </div>
+
+            <ul style="list-style: none; padding: 0; margin: 0; color: white; font-size: 13px; line-height: 1.8;">
+              <li style="margin-bottom: 8px;">✓ 2 Strategic Sessions</li>
+              <li style="margin-bottom: 8px;">✓ Award-Winning Mentors</li>
+              <li style="margin-bottom: 8px;">✓ Portfolio Review</li>
+              <li style="margin-bottom: 8px;">✓ Business Strategy</li>
+              <li style="margin-bottom: 8px; color: #8e44ad; font-weight: 600;">✓ $695 Credit to Business Box</li>
+            </ul>
+          </div>
+
+          <!-- BUSINESS IN A BOX -->
+          <div onclick="selectEducationPackage('business-box', 3000)" style="background: rgba(231,76,60,0.1); border: 3px solid rgba(231,76,60,0.3); border-radius: 16px; padding: 28px; cursor: pointer; transition: all 0.3s; position: relative;" onmouseover="this.style.borderColor='#e74c3c'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(231,76,60,0.3)'; this.style.transform='translateY(0)'">
+            <div style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 4px 10px; border-radius: 12px; font-size: 10px; font-weight: 700;">PRO</div>
+            
+            <div style="margin-bottom: 20px;">
+              <div style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 4px;">Business in a Box</div>
+              <div style="font-size: 13px; color: #a0a0a0; margin-bottom: 16px;">Ages 16+ • Complete Training</div>
+              <div style="font-size: 42px; font-weight: 700; color: #e74c3c; margin-bottom: 4px;">$3,000</div>
+              <div style="font-size: 13px; color: #a0a0a0;">Zero to Wedding Pro</div>
+            </div>
+
+            <ul style="list-style: none; padding: 0; margin: 0; color: white; font-size: 13px; line-height: 1.8;">
+              <li style="margin-bottom: 8px;">✓ Complete Wedding Training</li>
+              <li style="margin-bottom: 8px;">✓ Build Your Brand</li>
+              <li style="margin-bottom: 8px;">✓ Business Setup & Legal</li>
+              <li style="margin-bottom: 8px;">✓ Marketing Systems</li>
+              <li style="margin-bottom: 8px;">✓ Equipment Mastery</li>
+              <li style="margin-bottom: 8px; color: #e74c3c; font-weight: 600;">✓ Apply $695 from Coaching</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div style="margin-top: 32px; padding: 20px; background: rgba(0,113,227,0.1); border-radius: 12px; text-align: center;">
+          <p style="color: white; font-size: 13px; line-height: 1.6;">
+            <strong>⏰ Limited Launch Pricing:</strong> Only available for the first 20 enrollments. After booking, we'll schedule your personalized kickoff call.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openEducationModal() {
+      document.getElementById('educationModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeEducationModal() {
+      document.getElementById('educationModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function switchEducationType(type) {
+      const youthPrograms = document.getElementById('youthPrograms');
+      const masterclassPrograms = document.getElementById('masterclassPrograms');
+      const youthBtn = document.getElementById('youthTypeBtn');
+      const masterclassBtn = document.getElementById('masterclassTypeBtn');
+
+      if (type === 'youth') {
+        youthPrograms.style.display = 'grid';
+        masterclassPrograms.style.display = 'none';
+        youthBtn.style.background = '#0071e3';
+        youthBtn.style.border = 'none';
+        masterclassBtn.style.background = 'rgba(255,255,255,0.1)';
+        masterclassBtn.style.border = '2px solid rgba(255,255,255,0.2)';
+      } else {
+        youthPrograms.style.display = 'none';
+        masterclassPrograms.style.display = 'grid';
+        masterclassBtn.style.background = '#8e44ad';
+        masterclassBtn.style.border = 'none';
+        youthBtn.style.background = 'rgba(255,255,255,0.1)';
+        youthBtn.style.border = '2px solid rgba(255,255,255,0.2)';
+      }
+    }
+
+    function selectEducationPackage(packageType, price) {
+      // Store selection
+      sessionStorage.setItem('educationPackage', packageType);
+      sessionStorage.setItem('educationPrice', price);
+      
+      // Close modal and open booking form
+      closeEducationModal();
+      
+      // Show confirmation
+      alert(`Great choice! Package: ${packageType}, Price: $${price}. Redirecting to enrollment form...`);
+      
+      // Scroll to contact form
+      window.location.href = '#contact';
+    }
+  </script>
+
+</body>
+</html>html>';
     }
   </script>
 
