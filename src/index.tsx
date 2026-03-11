@@ -4893,6 +4893,345 @@ app.get('/pricing', (c) => {
     { title: 'Programs & Pricing - Acromatico' }
   )
 })
+
+// INVOICE GENERATION SYSTEM
+app.get('/invoices', (c) => {
+  return c.render(
+    <div class="min-h-screen bg-black text-white">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        @media print {
+          body { background: white !important; color: black !important; }
+          .no-print { display: none !important; }
+          .invoice-container { box-shadow: none !important; border: 1px solid #ddd !important; }
+        }
+      `}</style>
+
+      {/* Navigation - No Print */}
+      <div class="no-print">
+        <Header />
+      </div>
+
+      {/* Invoice Generator */}
+      <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="no-print text-center mb-12">
+            <h1 class="text-6xl font-black mb-6">Invoice Generator</h1>
+            <p class="text-xl text-gray-400">Create professional invoices for your program enrollment</p>
+          </div>
+
+          {/* Invoice Form - No Print */}
+          <div class="no-print bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border-2 border-gray-800 mb-12">
+            <h2 class="text-2xl font-bold mb-6">Invoice Details</h2>
+            
+            <div class="space-y-4">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium mb-2">Parent/Guardian Name*</label>
+                  <input type="text" id="parentName" placeholder="John Smith" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2">Email</label>
+                  <input type="email" id="parentEmail" placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium mb-2">Student Name(s)*</label>
+                  <input type="text" id="studentNames" placeholder="Sarah Smith, Michael Smith" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2">Invoice Date*</label>
+                  <input type="date" id="invoiceDate" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium mb-2">Program*</label>
+                <select id="programType" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none">
+                  <option value="">Select a program...</option>
+                  <optgroup label="Academy (Ages 7-14)">
+                    <option value="academy-1-monthly">Academy - 1 Student - Monthly ($116/mo)</option>
+                    <option value="academy-1-annual">Academy - 1 Student - Annual ($930/year)</option>
+                    <option value="academy-2-monthly">Academy - 2 Students - Monthly ($198/mo)</option>
+                    <option value="academy-2-annual">Academy - 2 Students - Annual ($1,580/year)</option>
+                    <option value="academy-3-monthly">Academy - 3 Students - Monthly ($267/mo)</option>
+                    <option value="academy-3-annual">Academy - 3 Students - Annual ($2,130/year)</option>
+                    <option value="academy-4-monthly">Academy - 4+ Students - Monthly ($316/mo)</option>
+                    <option value="academy-4-annual">Academy - 4+ Students - Annual ($2,520/year)</option>
+                  </optgroup>
+                  <optgroup label="Masterclass">
+                    <option value="masterclass-coaching">Masterclass Coaching ($695)</option>
+                    <option value="masterclass-business">Business in a Box ($3,000)</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium mb-2">Amount*</label>
+                  <input type="number" id="invoiceAmount" placeholder="116.00" step="0.01" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2">Due Date</label>
+                  <input type="date" id="dueDate" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium mb-2">Additional Notes</label>
+                <textarea id="invoiceNotes" rows="3" placeholder="Any additional information..." class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none"></textarea>
+              </div>
+
+              <button onclick="generateInvoice()" class="w-full py-4 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-lg transition-all">
+                Generate Invoice
+              </button>
+            </div>
+          </div>
+
+          {/* Invoice Preview */}
+          <div id="invoicePreview" class="invoice-container bg-white text-black rounded-3xl p-12 shadow-2xl hidden">
+            {/* Company Header */}
+            <div class="border-b-2 border-gray-300 pb-8 mb-8">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h1 class="text-4xl font-black text-[#4794A6] mb-2">INVOICE</h1>
+                  <div class="text-sm text-gray-600">
+                    <p class="font-bold text-lg text-black mb-2">Acromatico Inc</p>
+                    <p>2300 W 84th ST. Suite 213</p>
+                    <p>Miami, FL 33016</p>
+                    <p class="mt-2">Phone: 954.779.0921</p>
+                    <p>Email: info@acromatico.com</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm text-gray-600 mb-1">Invoice #</p>
+                  <p class="text-2xl font-bold" id="invoiceNumber">INV-001</p>
+                  <p class="text-sm text-gray-600 mt-4 mb-1">Date</p>
+                  <p class="font-semibold" id="displayInvoiceDate">-</p>
+                  <p class="text-sm text-gray-600 mt-2 mb-1">Due Date</p>
+                  <p class="font-semibold" id="displayDueDate">-</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bill To */}
+            <div class="mb-8">
+              <p class="text-sm text-gray-600 font-bold mb-2">BILL TO</p>
+              <p class="text-lg font-bold" id="displayParentName">-</p>
+              <p class="text-gray-600" id="displayParentEmail">-</p>
+            </div>
+
+            {/* Invoice Items */}
+            <table class="w-full mb-8">
+              <thead class="bg-gray-100 border-y-2 border-gray-300">
+                <tr>
+                  <th class="text-left py-3 px-4 font-bold">Description</th>
+                  <th class="text-center py-3 px-4 font-bold">Students</th>
+                  <th class="text-right py-3 px-4 font-bold">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 px-4">
+                    <p class="font-semibold" id="displayProgram">-</p>
+                    <p class="text-sm text-gray-600" id="displayStudents">-</p>
+                  </td>
+                  <td class="text-center py-4 px-4" id="displayStudentCount">1</td>
+                  <td class="text-right py-4 px-4 font-bold" id="displayAmount">$0.00</td>
+                </tr>
+              </tbody>
+            </table>
+
+            {/* Total */}
+            <div class="flex justify-end mb-8">
+              <div class="w-64">
+                <div class="flex justify-between py-2 text-lg">
+                  <span class="font-bold">Subtotal:</span>
+                  <span id="displaySubtotal">$0.00</span>
+                </div>
+                <div class="flex justify-between py-3 border-t-2 border-gray-300 text-2xl">
+                  <span class="font-black">TOTAL:</span>
+                  <span class="font-black text-[#4794A6]" id="displayTotal">$0.00</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Notes */}
+            <div id="notesSection" class="mb-8 hidden">
+              <p class="text-sm font-bold text-gray-600 mb-2">NOTES</p>
+              <p class="text-gray-700" id="displayNotes"></p>
+            </div>
+
+            {/* Payment Methods */}
+            <div class="border-t-2 border-gray-300 pt-8">
+              <p class="text-sm font-bold text-gray-600 mb-4">PAYMENT METHODS</p>
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p class="font-bold mb-1">💳 Credit/Debit Card</p>
+                  <p class="text-gray-600">Pay securely online via Stripe</p>
+                  <a href="mailto:info@acromatico.com?subject=Payment%20Request" class="text-[#4794A6] hover:underline">Request payment link →</a>
+                </div>
+                <div>
+                  <p class="font-bold mb-1">📱 Zelle</p>
+                  <p class="text-gray-600">954-779-0921</p>
+                </div>
+                <div>
+                  <p class="font-bold mb-1">💰 Venmo</p>
+                  <p class="text-gray-600">@acromatico</p>
+                </div>
+                <div>
+                  <p class="font-bold mb-1">💵 Cash App</p>
+                  <p class="text-gray-600">$acromatico</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div class="text-center text-xs text-gray-500 mt-8 pt-8 border-t border-gray-300">
+              <p>Thank you for choosing Acromatico!</p>
+              <p class="mt-1">Questions? Contact us at info@acromatico.com or 954.779.0921</p>
+            </div>
+          </div>
+
+          {/* Action Buttons - No Print */}
+          <div id="invoiceActions" class="no-print flex gap-4 justify-center mt-8 hidden">
+            <button onclick="window.print()" class="px-8 py-4 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold transition-all">
+              Print / Save as PDF
+            </button>
+            <button onclick="editInvoice()" class="px-8 py-4 rounded-full border-2 border-white hover:bg-white hover:text-black text-white font-bold transition-all">
+              Edit Invoice
+            </button>
+            <button onclick="resetInvoice()" class="px-8 py-4 rounded-full border-2 border-gray-800 hover:bg-gray-800 text-white font-bold transition-all">
+              New Invoice
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="no-print" dangerouslySetInnerHTML={{__html: footerHTML}} />
+
+      {/* JavaScript */}
+      <script dangerouslySetInnerHTML={{__html: `
+        // Set today's date as default
+        document.getElementById('invoiceDate').valueAsDate = new Date();
+        
+        // Auto-calculate due date (30 days from invoice date)
+        document.getElementById('invoiceDate').addEventListener('change', function() {
+          const invoiceDate = new Date(this.value);
+          const dueDate = new Date(invoiceDate);
+          dueDate.setDate(dueDate.getDate() + 30);
+          document.getElementById('dueDate').valueAsDate = dueDate;
+        });
+        
+        // Auto-populate amount based on program selection
+        document.getElementById('programType').addEventListener('change', function() {
+          const prices = {
+            'academy-1-monthly': 116,
+            'academy-1-annual': 930,
+            'academy-2-monthly': 198,
+            'academy-2-annual': 1580,
+            'academy-3-monthly': 267,
+            'academy-3-annual': 2130,
+            'academy-4-monthly': 316,
+            'academy-4-annual': 2520,
+            'masterclass-coaching': 695,
+            'masterclass-business': 3000
+          };
+          
+          const selectedProgram = this.value;
+          if (prices[selectedProgram]) {
+            document.getElementById('invoiceAmount').value = prices[selectedProgram].toFixed(2);
+          }
+        });
+        
+        function generateInvoice() {
+          // Get form values
+          const parentName = document.getElementById('parentName').value;
+          const parentEmail = document.getElementById('parentEmail').value;
+          const studentNames = document.getElementById('studentNames').value;
+          const invoiceDate = document.getElementById('invoiceDate').value;
+          const dueDate = document.getElementById('dueDate').value;
+          const programType = document.getElementById('programType');
+          const programText = programType.options[programType.selectedIndex].text;
+          const amount = parseFloat(document.getElementById('invoiceAmount').value);
+          const notes = document.getElementById('invoiceNotes').value;
+          
+          // Validation
+          if (!parentName || !studentNames || !invoiceDate || !programType.value || !amount) {
+            alert('Please fill in all required fields (*)');
+            return;
+          }
+          
+          // Generate invoice number
+          const invoiceNum = 'INV-' + new Date().getTime().toString().slice(-6);
+          
+          // Populate invoice
+          document.getElementById('invoiceNumber').textContent = invoiceNum;
+          document.getElementById('displayInvoiceDate').textContent = new Date(invoiceDate).toLocaleDateString();
+          document.getElementById('displayDueDate').textContent = dueDate ? new Date(dueDate).toLocaleDateString() : 'Upon Receipt';
+          document.getElementById('displayParentName').textContent = parentName;
+          document.getElementById('displayParentEmail').textContent = parentEmail || '';
+          document.getElementById('displayProgram').textContent = programText;
+          document.getElementById('displayStudents').textContent = studentNames;
+          
+          // Count students
+          const studentCount = studentNames.split(',').length;
+          document.getElementById('displayStudentCount').textContent = studentCount;
+          
+          // Set amounts
+          const formattedAmount = '$' + amount.toFixed(2);
+          document.getElementById('displayAmount').textContent = formattedAmount;
+          document.getElementById('displaySubtotal').textContent = formattedAmount;
+          document.getElementById('displayTotal').textContent = formattedAmount;
+          
+          // Notes
+          if (notes) {
+            document.getElementById('displayNotes').textContent = notes;
+            document.getElementById('notesSection').classList.remove('hidden');
+          } else {
+            document.getElementById('notesSection').classList.add('hidden');
+          }
+          
+          // Show invoice
+          document.getElementById('invoicePreview').classList.remove('hidden');
+          document.getElementById('invoiceActions').classList.remove('hidden');
+          
+          // Scroll to invoice
+          document.getElementById('invoicePreview').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function editInvoice() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function resetInvoice() {
+          document.getElementById('parentName').value = '';
+          document.getElementById('parentEmail').value = '';
+          document.getElementById('studentNames').value = '';
+          document.getElementById('programType').value = '';
+          document.getElementById('invoiceAmount').value = '';
+          document.getElementById('invoiceNotes').value = '';
+          document.getElementById('invoiceDate').valueAsDate = new Date();
+          const dueDate = new Date();
+          dueDate.setDate(dueDate.getDate() + 30);
+          document.getElementById('dueDate').valueAsDate = dueDate;
+          document.getElementById('invoicePreview').classList.add('hidden');
+          document.getElementById('invoiceActions').classList.add('hidden');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      `}} />
+    </div>,
+    { title: 'Invoice Generator - Acromatico' }
+  )
+})
+
 app.get('/success', (c) => {
   const sessionId = c.req.query('session_id')
   

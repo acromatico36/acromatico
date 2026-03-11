@@ -13,6 +13,7 @@ export const footerHTML = `
           <li><a href="/academy" class="hover:text-white transition">Curriculum</a></li>
           <li><a href="/masterclass" class="hover:text-white transition">Masterclass</a></li>
           <li><a href="/pricing" class="hover:text-white transition">Pricing</a></li>
+          <li><a href="/invoices" class="hover:text-white transition">Generate Invoice</a></li>
           <li><a href="/faq" class="hover:text-white transition">FAQ</a></li>
         </ul>
       </div>
