@@ -962,8 +962,8 @@ app.get('/education', (c) => {
       <div dangerouslySetInnerHTML={{__html: footerHTML}} />
 
       {/* TYPEFORM-STYLE ENROLLMENT MODAL */}
-      <div id="enrollment-modal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
-        <div class="max-w-2xl w-full">
+      <div id="enrollment-modal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="max-w-2xl w-full my-8 max-h-[90vh] overflow-y-auto">
           {/* Progress Bar */}
           <div class="mb-8">
             <div class="flex justify-between mb-2 text-sm text-gray-400">
@@ -1024,82 +1024,82 @@ app.get('/education', (c) => {
 
           {/* STEP 2: Select Package */}
           <div id="step-2" class="step-content hidden">
-            <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-4 flex items-center gap-2">
+            <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-3 flex items-center gap-2 text-sm">
               ← Back
             </button>
-            <h2 class="text-5xl font-black mb-4">How Many Students?</h2>
-            <p class="text-xl text-gray-400 mb-6">Select the package that fits your family</p>
+            <h2 class="text-3xl font-black mb-2">How Many Students?</h2>
+            <p class="text-base text-gray-400 mb-4">Select the package that fits your family</p>
             
             {/* Monthly/Annual Toggle */}
-            <div class="flex items-center justify-center gap-4 mb-8 bg-gray-900 p-3 rounded-full inline-flex mx-auto">
-              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-6 py-3 rounded-full font-semibold transition bg-teal-500 text-white">
+            <div class="flex items-center justify-center gap-3 mb-4 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
+              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
                 Monthly
               </button>
-              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-6 py-3 rounded-full font-semibold transition text-gray-400">
-                Annual <span class="text-teal-500 text-sm ml-1">Save 20%</span>
+              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm">
+                Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
               </button>
             </div>
-            <p class="text-center text-sm text-gray-400 mb-6">
-              <span class="annual-note hidden">Annual billing covers 10 months (Sept-June school year). No classes in July & August. December includes 2 special 1-hour workshops!</span>
-              <span class="monthly-note">Billed monthly. Cancel anytime with daily proration.</span>
+            <p class="text-center text-xs text-gray-400 mb-4">
+              <span class="annual-note hidden">Annual: 10 months (Sept-June). December: 2 special workshops!</span>
+              <span class="monthly-note">Billed monthly. Cancel anytime.</span>
             </p>
 
-            <div class="grid grid-cols-2 gap-4 mb-8">
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
-                <div class="text-4xl font-black mb-2">1</div>
-                <div class="text-gray-400 text-sm mb-3">Student</div>
-                <div class="text-2xl font-bold">
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
+                <div class="text-3xl font-black mb-1">1</div>
+                <div class="text-gray-400 text-xs mb-2">Student</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$116</span>
                   <span class="annual-price hidden">$93</span>
-                  <span class="text-sm text-gray-500">/mo</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $230 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$14.50 per class</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$11.63 per class</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $230</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$14.50 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$11.63 per class</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 px-3 py-1 rounded-full text-xs font-bold">Most Popular</div>
-                <div class="text-4xl font-black mb-2">2</div>
-                <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
+                <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-teal-500 px-2 py-0.5 rounded-full text-xs font-bold">Most Popular</div>
+                <div class="text-3xl font-black mb-1">2</div>
+                <div class="text-gray-400 text-xs mb-2">Students</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$99</span>
                   <span class="annual-price hidden">$79</span>
-                  <span class="text-sm text-gray-500">/mo each</span>
+                  <span class="text-xs text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $400 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$12.38 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$9.88 per class (each)</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $400</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.38 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.88 per class (each)</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
-                <div class="text-4xl font-black mb-2">3</div>
-                <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
+                <div class="text-3xl font-black mb-1">3</div>
+                <div class="text-gray-400 text-xs mb-2">Students</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$89</span>
                   <span class="annual-price hidden">$71</span>
-                  <span class="text-sm text-gray-500">/mo each</span>
+                  <span class="text-xs text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $540 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$11.13 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$8.88 per class (each)</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $540</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.13 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.88 per class (each)</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
-                <div class="text-4xl font-black mb-2">4+</div>
-                <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
+                <div class="text-3xl font-black mb-1">4+</div>
+                <div class="text-gray-400 text-xs mb-2">Students</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$79</span>
                   <span class="annual-price hidden">$63</span>
-                  <span class="text-sm text-gray-500">/mo each</span>
+                  <span class="text-xs text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $640 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$9.88 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$7.88 per class (each)</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $640</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$9.88 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$7.88 per class (each)</div>
               </div>
             </div>
             
             {/* What's Included */}
-            <div class="feature-card p-6 rounded-2xl mt-6">
-              <h3 class="text-lg font-bold mb-4 text-center">Everything Included</h3>
-              <div class="grid grid-cols-1 gap-3 text-sm">
+            <div class="feature-card p-4 rounded-xl mt-4">
+              <h3 class="text-base font-bold mb-3 text-center">Everything Included</h3>
+              <div class="grid grid-cols-1 gap-2 text-xs">
                 <div class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -1614,8 +1614,11 @@ app.get('/masterclass', (c) => {
           <h1 class="text-8xl md:text-9xl font-black mb-8" style="letter-spacing: -0.02em; background: linear-gradient(135deg, #4794A6 0%, #fff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
             Masterclass.
           </h1>
-          <p class="text-3xl md:text-4xl text-gray-400 mb-12 max-w-4xl mx-auto">
+          <p class="text-3xl md:text-4xl text-gray-400 mb-6 max-w-4xl mx-auto">
             Strategic coaching and complete business training<br/>for serious photographers.
+          </p>
+          <p class="text-xl text-gray-500 mb-12 max-w-3xl mx-auto">
+            Perfect for all ages—from kids seeking professional guidance to adults launching their photography business.
           </p>
           <a href="#programs" class="inline-block px-12 py-6 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-xl transition-all">
             Explore Programs
@@ -1657,6 +1660,12 @@ app.get('/masterclass', (c) => {
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
                   <span class="text-lg">Equipment Review</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">Brand Guidance</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
@@ -1712,6 +1721,12 @@ app.get('/masterclass', (c) => {
                   <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
+                  <span class="text-lg">Brand Guidance</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
                   <span class="text-lg">Photography Workflow (Booking to Delivery)</span>
                 </li>
                 <li class="flex items-start gap-3">
@@ -1761,6 +1776,12 @@ app.get('/masterclass', (c) => {
               
               <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
                 <div>Equipment Review</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Brand Guidance</div>
                 <div class="text-center text-[#4794A6] text-2xl">✓</div>
                 <div class="text-center text-[#4794A6] text-2xl">✓</div>
               </div>
@@ -2222,82 +2243,82 @@ app.get('/academy', (c) =>
 
           {/* STEP 2: Select Package */}
           <div id="step-2" class="step-content hidden">
-            <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-4 flex items-center gap-2">
+            <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-3 flex items-center gap-2 text-sm">
               ← Back
             </button>
-            <h2 class="text-5xl font-black mb-4">How Many Students?</h2>
-            <p class="text-xl text-gray-400 mb-6">Select the package that fits your family</p>
+            <h2 class="text-3xl font-black mb-2">How Many Students?</h2>
+            <p class="text-base text-gray-400 mb-4">Select the package that fits your family</p>
             
             {/* Monthly/Annual Toggle */}
-            <div class="flex items-center justify-center gap-4 mb-8 bg-gray-900 p-3 rounded-full inline-flex mx-auto">
-              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-6 py-3 rounded-full font-semibold transition bg-teal-500 text-white">
+            <div class="flex items-center justify-center gap-3 mb-4 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
+              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
                 Monthly
               </button>
-              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-6 py-3 rounded-full font-semibold transition text-gray-400">
-                Annual <span class="text-teal-500 text-sm ml-1">Save 20%</span>
+              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm">
+                Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
               </button>
             </div>
-            <p class="text-center text-sm text-gray-400 mb-6">
-              <span class="annual-note hidden">Annual billing covers 10 months (Sept-June school year). No classes in July & August. December includes 2 special 1-hour workshops!</span>
-              <span class="monthly-note">Billed monthly. Cancel anytime with daily proration.</span>
+            <p class="text-center text-xs text-gray-400 mb-4">
+              <span class="annual-note hidden">Annual: 10 months (Sept-June). December: 2 special workshops!</span>
+              <span class="monthly-note">Billed monthly. Cancel anytime.</span>
             </p>
 
-            <div class="grid grid-cols-2 gap-4 mb-8">
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
-                <div class="text-4xl font-black mb-2">1</div>
-                <div class="text-gray-400 text-sm mb-3">Student</div>
-                <div class="text-2xl font-bold">
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
+                <div class="text-3xl font-black mb-1">1</div>
+                <div class="text-gray-400 text-xs mb-2">Student</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$116</span>
                   <span class="annual-price hidden">$93</span>
-                  <span class="text-sm text-gray-500">/mo</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $230 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$14.50 per class</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$11.63 per class</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $230</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$14.50 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$11.63 per class</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 px-3 py-1 rounded-full text-xs font-bold">Most Popular</div>
-                <div class="text-4xl font-black mb-2">2</div>
-                <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
+                <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-teal-500 px-2 py-0.5 rounded-full text-xs font-bold">Most Popular</div>
+                <div class="text-3xl font-black mb-1">2</div>
+                <div class="text-gray-400 text-xs mb-2">Students</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$99</span>
                   <span class="annual-price hidden">$79</span>
-                  <span class="text-sm text-gray-500">/mo each</span>
+                  <span class="text-xs text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $400 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$12.38 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$9.88 per class (each)</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $400</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.38 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.88 per class (each)</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
-                <div class="text-4xl font-black mb-2">3</div>
-                <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
+                <div class="text-3xl font-black mb-1">3</div>
+                <div class="text-gray-400 text-xs mb-2">Students</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$89</span>
                   <span class="annual-price hidden">$71</span>
-                  <span class="text-sm text-gray-500">/mo each</span>
+                  <span class="text-xs text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $540 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$11.13 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$8.88 per class (each)</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $540</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.13 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.88 per class (each)</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
-                <div class="text-4xl font-black mb-2">4+</div>
-                <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
+                <div class="text-3xl font-black mb-1">4+</div>
+                <div class="text-gray-400 text-xs mb-2">Students</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$79</span>
                   <span class="annual-price hidden">$63</span>
-                  <span class="text-sm text-gray-500">/mo each</span>
+                  <span class="text-xs text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $640 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$9.88 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$7.88 per class (each)</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $640</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$9.88 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$7.88 per class (each)</div>
               </div>
             </div>
             
             {/* What's Included */}
-            <div class="feature-card p-6 rounded-2xl mt-6">
-              <h3 class="text-lg font-bold mb-4 text-center">Everything Included</h3>
-              <div class="grid grid-cols-1 gap-3 text-sm">
+            <div class="feature-card p-4 rounded-xl mt-4">
+              <h3 class="text-base font-bold mb-3 text-center">Everything Included</h3>
+              <div class="grid grid-cols-1 gap-2 text-xs">
                 <div class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -5848,82 +5869,82 @@ app.get('/faq', (c) =>
 
           {/* STEP 2: Select Package */}
           <div id="step-2" class="step-content hidden">
-            <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-4 flex items-center gap-2">
+            <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-3 flex items-center gap-2 text-sm">
               ← Back
             </button>
-            <h2 class="text-5xl font-black mb-4">How Many Students?</h2>
-            <p class="text-xl text-gray-400 mb-6">Select the package that fits your family</p>
+            <h2 class="text-3xl font-black mb-2">How Many Students?</h2>
+            <p class="text-base text-gray-400 mb-4">Select the package that fits your family</p>
             
             {/* Monthly/Annual Toggle */}
-            <div class="flex items-center justify-center gap-4 mb-8 bg-gray-900 p-3 rounded-full inline-flex mx-auto">
-              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-6 py-3 rounded-full font-semibold transition bg-teal-500 text-white">
+            <div class="flex items-center justify-center gap-3 mb-4 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
+              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
                 Monthly
               </button>
-              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-6 py-3 rounded-full font-semibold transition text-gray-400">
-                Annual <span class="text-teal-500 text-sm ml-1">Save 20%</span>
+              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm">
+                Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
               </button>
             </div>
-            <p class="text-center text-sm text-gray-400 mb-6">
-              <span class="annual-note hidden">Annual billing covers 10 months (Sept-June school year). No classes in July & August. December includes 2 special 1-hour workshops!</span>
-              <span class="monthly-note">Billed monthly. Cancel anytime with daily proration.</span>
+            <p class="text-center text-xs text-gray-400 mb-4">
+              <span class="annual-note hidden">Annual: 10 months (Sept-June). December: 2 special workshops!</span>
+              <span class="monthly-note">Billed monthly. Cancel anytime.</span>
             </p>
 
-            <div class="grid grid-cols-2 gap-4 mb-8">
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
-                <div class="text-4xl font-black mb-2">1</div>
-                <div class="text-gray-400 text-sm mb-3">Student</div>
-                <div class="text-2xl font-bold">
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
+                <div class="text-3xl font-black mb-1">1</div>
+                <div class="text-gray-400 text-xs mb-2">Student</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$116</span>
                   <span class="annual-price hidden">$93</span>
-                  <span class="text-sm text-gray-500">/mo</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $230 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$14.50 per class</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$11.63 per class</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $230</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$14.50 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$11.63 per class</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 px-3 py-1 rounded-full text-xs font-bold">Most Popular</div>
-                <div class="text-4xl font-black mb-2">2</div>
-                <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
+                <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-teal-500 px-2 py-0.5 rounded-full text-xs font-bold">Most Popular</div>
+                <div class="text-3xl font-black mb-1">2</div>
+                <div class="text-gray-400 text-xs mb-2">Students</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$99</span>
                   <span class="annual-price hidden">$79</span>
-                  <span class="text-sm text-gray-500">/mo each</span>
+                  <span class="text-xs text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $400 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$12.38 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$9.88 per class (each)</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $400</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.38 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.88 per class (each)</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
-                <div class="text-4xl font-black mb-2">3</div>
-                <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
+                <div class="text-3xl font-black mb-1">3</div>
+                <div class="text-gray-400 text-xs mb-2">Students</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$89</span>
                   <span class="annual-price hidden">$71</span>
-                  <span class="text-sm text-gray-500">/mo each</span>
+                  <span class="text-xs text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $540 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$11.13 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$8.88 per class (each)</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $540</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.13 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.88 per class (each)</div>
               </div>
-              <div class="package-option feature-card p-6 rounded-2xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
-                <div class="text-4xl font-black mb-2">4+</div>
-                <div class="text-gray-400 text-sm mb-3">Students</div>
-                <div class="text-2xl font-bold">
+              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
+                <div class="text-3xl font-black mb-1">4+</div>
+                <div class="text-gray-400 text-xs mb-2">Students</div>
+                <div class="text-xl font-bold">
                   <span class="monthly-price">$79</span>
                   <span class="annual-price hidden">$63</span>
-                  <span class="text-sm text-gray-500">/mo each</span>
+                  <span class="text-xs text-gray-500">/mo each</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-2 hidden">Save $640 (school year)</div>
-                <div class="text-xs text-gray-500 mt-3 monthly-per-class">$9.88 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-3 annual-per-class hidden">$7.88 per class (each)</div>
+                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $640</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$9.88 per class (each)</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$7.88 per class (each)</div>
               </div>
             </div>
             
             {/* What's Included */}
-            <div class="feature-card p-6 rounded-2xl mt-6">
-              <h3 class="text-lg font-bold mb-4 text-center">Everything Included</h3>
-              <div class="grid grid-cols-1 gap-3 text-sm">
+            <div class="feature-card p-4 rounded-xl mt-4">
+              <h3 class="text-base font-bold mb-3 text-center">Everything Included</h3>
+              <div class="grid grid-cols-1 gap-2 text-xs">
                 <div class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
