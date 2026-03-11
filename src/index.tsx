@@ -959,216 +959,6 @@ app.get('/education', (c) => {
         </div>
       </section>
 
-      {/* MASTERCLASS PROGRAMS - APPLE STYLE */}
-      <section class="relative py-32 px-6 overflow-hidden bg-black">
-        <div class="max-w-7xl mx-auto">
-          {/* Header */}
-          <div class="text-center mb-20">
-            <h2 class="text-7xl font-black mb-6" style="letter-spacing: -0.02em;">
-              Masterclass.
-            </h2>
-            <p class="text-2xl text-gray-400">
-              Strategic coaching and complete business training<br/>for serious photographers.
-            </p>
-          </div>
-
-          {/* Programs Grid */}
-          <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20">
-            {/* Masterclass Coaching */}
-            <div class="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl p-12 border-2 border-[#4794A6]/30 hover:border-[#4794A6] transition-all duration-300 group hover:-translate-y-2">
-              <div class="absolute top-8 right-8">
-                <span class="inline-block bg-[#4794A6] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                  STARTER
-                </span>
-              </div>
-              
-              <h3 class="text-4xl font-bold mb-4">Masterclass Coaching</h3>
-              <div class="text-6xl font-black mb-2 text-[#4794A6]">$695</div>
-              <p class="text-gray-400 text-lg mb-8">Strategic sessions with award-winning photographers</p>
-              
-              <ul class="space-y-4 mb-10">
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg">2 Strategic Coaching Sessions</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg">Portfolio Review & Feedback</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg">Business Strategy Consultation</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg">$695 Credit Toward Business in a Box</span>
-                </li>
-              </ul>
-              
-              <a href="mailto:hello@acromatico.com?subject=Masterclass%20Coaching%20Inquiry" class="block w-full py-5 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white text-center font-bold text-lg transition-all">
-                Start with Coaching
-              </a>
-            </div>
-
-            {/* Business in a Box */}
-            <div class="relative bg-gradient-to-br from-white to-gray-100 rounded-3xl p-12 border-2 border-white hover:shadow-2xl transition-all duration-300 group hover:-translate-y-2 text-black">
-              <div class="absolute top-8 right-8">
-                <span class="inline-block bg-black text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                  PRO PROGRAM
-                </span>
-              </div>
-              
-              <h3 class="text-4xl font-bold mb-4">Business in a Box</h3>
-              <div class="text-6xl font-black mb-2">$3,000</div>
-              <p class="text-gray-600 text-lg mb-8">Complete wedding photography business training</p>
-              
-              <ul class="space-y-4 mb-10">
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg font-semibold">Everything in Coaching, plus:</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg">Complete Wedding/Portrait/Commercial Training</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg">AI Tools for Editing & Workflow</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg">Photography Workflow (Booking to Delivery)</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg">Business Plan & Marketing Strategy</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg">Legal & Business Setup (LLC, Contracts)</span>
-                </li>
-              </ul>
-              
-              <a href="mailto:hello@acromatico.com?subject=Business%20in%20a%20Box%20Inquiry" class="block w-full py-5 rounded-full bg-black hover:bg-gray-800 text-white text-center font-bold text-lg transition-all">
-                Go All-In
-              </a>
-            </div>
-          </div>
-
-          {/* Comparison Table */}
-          <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-900 to-black rounded-3xl p-12 border-2 border-gray-800">
-            <h3 class="text-4xl font-bold text-center mb-12">Compare Programs</h3>
-            
-            <div class="space-y-1">
-              {/* Header */}
-              <div class="grid grid-cols-3 gap-4 pb-4 border-b-2 border-gray-800 mb-4">
-                <div class="font-bold text-lg">What's Included</div>
-                <div class="font-bold text-lg text-center">Coaching</div>
-                <div class="font-bold text-lg text-center">Business Box</div>
-              </div>
-              
-              {/* Rows */}
-              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>Strategic Coaching Sessions</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-              </div>
-              
-              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>Portfolio Review & Feedback</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-              </div>
-              
-              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>Business Strategy Consultation</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-              </div>
-              
-              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>Complete Photography Training</div>
-                <div class="text-center text-gray-600">—</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-              </div>
-              
-              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>AI Tools & Workflow</div>
-                <div class="text-center text-gray-600">—</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-              </div>
-              
-              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>Photography Workflow System</div>
-                <div class="text-center text-gray-600">—</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-              </div>
-              
-              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>Business Plan & Financials</div>
-                <div class="text-center text-gray-600">—</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-              </div>
-              
-              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>Marketing & Client Acquisition</div>
-                <div class="text-center text-gray-600">—</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-              </div>
-              
-              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
-                <div>Legal & Business Setup</div>
-                <div class="text-center text-gray-600">—</div>
-                <div class="text-center text-[#4794A6] text-2xl">✓</div>
-              </div>
-              
-              {/* Investment Row */}
-              <div class="grid grid-cols-3 gap-4 py-6 mt-4 bg-gradient-to-r from-gray-900 to-black rounded-xl">
-                <div class="font-bold text-xl">Investment</div>
-                <div class="text-center font-bold text-2xl text-[#4794A6]">$695</div>
-                <div class="text-center font-bold text-2xl">$3,000</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Final CTA */}
-          <div class="text-center mt-20">
-            <h3 class="text-4xl font-bold mb-6">Ready to launch your photography business?</h3>
-            <p class="text-xl text-gray-400 mb-10">
-              Join photographers who have transformed their passion into a thriving business.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:hello@acromatico.com?subject=Masterclass%20Coaching%20Inquiry" class="px-10 py-5 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-lg transition-all inline-block">
-                Start with Coaching - $695
-              </a>
-              <a href="mailto:hello@acromatico.com?subject=Business%20in%20a%20Box%20Inquiry" class="px-10 py-5 rounded-full bg-white hover:bg-gray-100 text-black font-bold text-lg transition-all inline-block">
-                Go All-In - $3,000
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <div dangerouslySetInnerHTML={{__html: footerHTML}} />
 
       {/* TYPEFORM-STYLE ENROLLMENT MODAL */}
@@ -1798,6 +1588,246 @@ app.get('/education', (c) => {
     { title: 'Acromatico - Learn to See The World Differently' }
   )
 })
+
+// MASTERCLASS ROUTE
+app.get('/masterclass', (c) => {
+  return c.render(
+    <div class="min-h-screen bg-black text-white">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
+
+      {/* Navigation */}
+      <Header />
+
+      {/* Hero Section */}
+      <section class="relative py-32 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center">
+          <h1 class="text-8xl md:text-9xl font-black mb-8" style="letter-spacing: -0.02em; background: linear-gradient(135deg, #4794A6 0%, #fff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Masterclass.
+          </h1>
+          <p class="text-3xl md:text-4xl text-gray-400 mb-12 max-w-4xl mx-auto">
+            Strategic coaching and complete business training<br/>for serious photographers.
+          </p>
+          <a href="#programs" class="inline-block px-12 py-6 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-xl transition-all">
+            Explore Programs
+          </a>
+        </div>
+      </section>
+
+      {/* Programs Grid */}
+      <section id="programs" class="relative py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20">
+            {/* Masterclass Coaching */}
+            <div class="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl p-12 border-2 border-[#4794A6]/30 hover:border-[#4794A6] transition-all duration-300 group hover:-translate-y-2">
+              <div class="absolute top-8 right-8">
+                <span class="inline-block bg-[#4794A6] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                  STARTER
+                </span>
+              </div>
+              
+              <h3 class="text-4xl font-bold mb-4">Masterclass Coaching</h3>
+              <div class="text-6xl font-black mb-2 text-[#4794A6]">$695</div>
+              <p class="text-gray-400 text-lg mb-8">Strategic sessions with award-winning photographers</p>
+              
+              <ul class="space-y-4 mb-10">
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">2 Strategic Coaching Sessions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">Portfolio Review & Feedback</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">Business Strategy Consultation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#4794A6] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">$695 Credit Toward Business in a Box</span>
+                </li>
+              </ul>
+              
+              <a href="mailto:hello@acromatico.com?subject=Masterclass%20Coaching%20Inquiry" class="block w-full py-5 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white text-center font-bold text-lg transition-all">
+                Start with Coaching
+              </a>
+            </div>
+
+            {/* Business in a Box */}
+            <div class="relative bg-gradient-to-br from-white to-gray-100 rounded-3xl p-12 border-2 border-white hover:shadow-2xl transition-all duration-300 group hover:-translate-y-2 text-black">
+              <div class="absolute top-8 right-8">
+                <span class="inline-block bg-black text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                  PRO PROGRAM
+                </span>
+              </div>
+              
+              <h3 class="text-4xl font-bold mb-4">Business in a Box</h3>
+              <div class="text-6xl font-black mb-2">$3,000</div>
+              <p class="text-gray-600 text-lg mb-8">Complete wedding photography business training</p>
+              
+              <ul class="space-y-4 mb-10">
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg font-semibold">Everything in Coaching, plus:</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">Complete Wedding/Portrait/Commercial Training</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">AI Tools for Editing & Workflow</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">Photography Workflow (Booking to Delivery)</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">Business Plan & Marketing Strategy</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-lg">Legal & Business Setup (LLC, Contracts)</span>
+                </li>
+              </ul>
+              
+              <a href="mailto:hello@acromatico.com?subject=Business%20in%20a%20Box%20Inquiry" class="block w-full py-5 rounded-full bg-black hover:bg-gray-800 text-white text-center font-bold text-lg transition-all">
+                Go All-In
+              </a>
+            </div>
+          </div>
+
+          {/* Comparison Table */}
+          <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-900 to-black rounded-3xl p-12 border-2 border-gray-800">
+            <h3 class="text-4xl font-bold text-center mb-12">Compare Programs</h3>
+            
+            <div class="space-y-1">
+              {/* Header */}
+              <div class="grid grid-cols-3 gap-4 pb-4 border-b-2 border-gray-800 mb-4">
+                <div class="font-bold text-lg">What's Included</div>
+                <div class="font-bold text-lg text-center">Coaching</div>
+                <div class="font-bold text-lg text-center">Business Box</div>
+              </div>
+              
+              {/* Rows */}
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Strategic Coaching Sessions</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Portfolio Review & Feedback</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Business Strategy Consultation</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Complete Photography Training</div>
+                <div class="text-center text-gray-600">—</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>AI Tools & Workflow</div>
+                <div class="text-center text-gray-600">—</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Photography Workflow System</div>
+                <div class="text-center text-gray-600">—</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Business Plan & Financials</div>
+                <div class="text-center text-gray-600">—</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Marketing & Client Acquisition</div>
+                <div class="text-center text-gray-600">—</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50">
+                <div>Legal & Business Setup</div>
+                <div class="text-center text-gray-600">—</div>
+                <div class="text-center text-[#4794A6] text-2xl">✓</div>
+              </div>
+              
+              {/* Investment Row */}
+              <div class="grid grid-cols-3 gap-4 py-6 mt-4 bg-gradient-to-r from-gray-900 to-black rounded-xl">
+                <div class="font-bold text-xl">Investment</div>
+                <div class="text-center font-bold text-2xl text-[#4794A6]">$695</div>
+                <div class="text-center font-bold text-2xl">$3,000</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Final CTA */}
+          <div class="text-center mt-20">
+            <h3 class="text-4xl font-bold mb-6">Ready to launch your photography business?</h3>
+            <p class="text-xl text-gray-400 mb-10">
+              Join photographers who have transformed their passion into a thriving business.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="mailto:hello@acromatico.com?subject=Masterclass%20Coaching%20Inquiry" class="px-10 py-5 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-lg transition-all inline-block">
+                Start with Coaching - $695
+              </a>
+              <a href="mailto:hello@acromatico.com?subject=Business%20in%20a%20Box%20Inquiry" class="px-10 py-5 rounded-full bg-white hover:bg-gray-100 text-black font-bold text-lg transition-all inline-block">
+                Go All-In - $3,000
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div dangerouslySetInnerHTML={{__html: footerHTML}} />
+    </div>,
+    { title: 'Masterclass - Acromatico' }
+  )
+})
+
 app.get('/api/health', (c) => {
   return c.json({ 
     status: 'healthy', 

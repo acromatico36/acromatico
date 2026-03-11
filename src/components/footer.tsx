@@ -11,6 +11,7 @@ export const footerHTML = `
         <ul class="space-y-2 text-gray-400 text-sm">
           <li><a href="/education" class="hover:text-white transition">Academy</a></li>
           <li><a href="/academy" class="hover:text-white transition">Curriculum</a></li>
+          <li><a href="/masterclass" class="hover:text-white transition">Masterclass</a></li>
           <li><a href="/pricing" class="hover:text-white transition">Pricing</a></li>
           <li><a href="/faq" class="hover:text-white transition">FAQ</a></li>
         </ul>
