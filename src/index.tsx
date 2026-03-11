@@ -953,9 +953,9 @@ app.get('/education', (c) => {
           <p class="text-2xl mb-12 opacity-90">
             Learn from educators with 20+ years of professional experience
           </p>
-          <a href="/checkout" class="btn-primary px-12 py-6 rounded-full text-xl font-bold text-white inline-block shadow-2xl">
+          <button onclick="openEducationModal()" class="btn-primary px-12 py-6 rounded-full text-xl font-bold text-white inline-block shadow-2xl border-0 cursor-pointer">
             Enroll Now
-          </a>
+          </button>
         </div>
       </section>
 
@@ -1371,6 +1371,218 @@ app.get('/education', (c) => {
             });
           });
         });
+      `}} />
+
+      {/* EDUCATION PROGRAMS MODAL - Youth & Masterclass */}
+      <div id="educationProgramsModal" class="fixed inset-0 bg-black/95 z-[200] hidden flex items-center justify-center p-4">
+        <div class="max-w-5xl w-full bg-gray-900 rounded-3xl p-12 relative max-h-[90vh] overflow-y-auto">
+          <button onclick="closeEducationProgramsModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-4xl font-light transition">×</button>
+          
+          <div class="text-center mb-12">
+            <h2 class="text-5xl font-black mb-4 text-white">Choose Your Program</h2>
+            <p class="text-xl text-gray-400">Select the package that fits your goals</p>
+          </div>
+
+          {/* Program Type Toggle */}
+          <div class="flex justify-center gap-4 mb-12">
+            <button onclick="switchProgramType('youth')" id="youthProgramBtn" class="px-8 py-4 rounded-full font-bold text-lg transition bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg">
+              Youth Programs (Ages 10-17)
+            </button>
+            <button onclick="switchProgramType('masterclass')" id="masterclassProgramBtn" class="px-8 py-4 rounded-full font-bold text-lg transition bg-gray-800 text-gray-400 hover:bg-gray-700">
+              Masterclass (Ages 16+)
+            </button>
+          </div>
+
+          {/* Youth Programs */}
+          <div id="youthProgramsContent" class="grid md:grid-cols-2 gap-8">
+            {/* Starter Workshop */}
+            <div class="bg-gradient-to-br from-blue-900/30 to-blue-800/20 border-2 border-blue-500/30 rounded-2xl p-8 hover:border-blue-500 transition cursor-pointer" onclick="window.location.href='/pricing'">
+              <div class="flex items-center justify-between mb-4">
+                <span class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold">LAUNCH OFFER</span>
+                <span class="text-sm text-gray-400 line-through">$1,200</span>
+              </div>
+              <h3 class="text-3xl font-black mb-2 text-white">Starter Workshop</h3>
+              <div class="text-5xl font-black text-blue-400 mb-2">$695</div>
+              <p class="text-green-400 font-semibold mb-6">Save $505 (42% off)</p>
+              
+              <ul class="space-y-3 text-gray-300 mb-8">
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-400 text-xl">✓</span>
+                  <span><strong>3 In-Person Workshops</strong><br/><span class="text-sm text-gray-400">Hands-on learning sessions</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-400 text-xl">✓</span>
+                  <span><strong>1-on-1 Personalized Session</strong><br/><span class="text-sm text-gray-400">Individual coaching & feedback</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-400 text-xl">✓</span>
+                  <span><strong>Complimentary Photo Session</strong><br/><span class="text-sm text-gray-400">$395 value included</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-400 text-xl">✓</span>
+                  <span><strong>Digital Gallery</strong><br/><span class="text-sm text-gray-400">All your best shots delivered</span></span>
+                </li>
+              </ul>
+              
+              <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 rounded-xl transition">
+                Enroll in Starter Workshop →
+              </button>
+            </div>
+
+            {/* Year Accelerator */}
+            <div class="bg-gradient-to-br from-orange-900/30 to-orange-800/20 border-2 border-orange-500 rounded-2xl p-8 hover:border-orange-400 transition cursor-pointer relative" onclick="window.location.href='/pricing'">
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                BEST VALUE
+              </div>
+              <div class="flex items-center justify-between mb-4 mt-4">
+                <span class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">LAUNCH OFFER</span>
+                <span class="text-sm text-gray-400 line-through">$4,500</span>
+              </div>
+              <h3 class="text-3xl font-black mb-2 text-white">Year-Long Accelerator</h3>
+              <div class="text-5xl font-black text-orange-400 mb-2">$1,995</div>
+              <p class="text-green-400 font-semibold mb-6">Save $2,505 (56% off)</p>
+              
+              <ul class="space-y-3 text-gray-300 mb-8">
+                <li class="flex items-start gap-3">
+                  <span class="text-orange-400 text-xl">✓</span>
+                  <span><strong>Everything in Starter</strong></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-orange-400 text-xl">✓</span>
+                  <span><strong>12 Months On-Demand 1-on-1 Coaching</strong><br/><span class="text-sm text-gray-400">Unlimited questions & feedback</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-orange-400 text-xl">✓</span>
+                  <span><strong>Full Year Membership Access</strong><br/><span class="text-sm text-gray-400">All workshops & resources</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-orange-400 text-xl">✓</span>
+                  <span><strong>Portfolio Development</strong><br/><span class="text-sm text-gray-400">Build a pro portfolio</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-orange-400 text-xl">✓</span>
+                  <span><strong>Free Equipment Rental</strong><br/><span class="text-sm text-gray-400">For personal projects</span></span>
+                </li>
+              </ul>
+              
+              <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 rounded-xl transition shadow-lg">
+                Enroll in Accelerator →
+              </button>
+            </div>
+          </div>
+
+          {/* Masterclass Programs */}
+          <div id="masterclassProgramsContent" class="hidden grid md:grid-cols-2 gap-8">
+            {/* Masterclass Coaching */}
+            <div class="bg-gradient-to-br from-purple-900/30 to-purple-800/20 border-2 border-purple-500/30 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer" onclick="window.location.href='/pricing'">
+              <div class="flex items-center justify-between mb-4">
+                <span class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold">TEENS & ADULTS</span>
+              </div>
+              <h3 class="text-3xl font-black mb-2 text-white">Masterclass Coaching</h3>
+              <div class="text-5xl font-black text-purple-400 mb-2">$695</div>
+              <p class="text-gray-400 mb-6">2 Strategic Sessions</p>
+              
+              <ul class="space-y-3 text-gray-300 mb-8">
+                <li class="flex items-start gap-3">
+                  <span class="text-purple-400 text-xl">✓</span>
+                  <span><strong>2 Strategic Coaching Sessions</strong><br/><span class="text-sm text-gray-400">Deep-dive with award-winning photographers</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-purple-400 text-xl">✓</span>
+                  <span><strong>Portfolio Review & Feedback</strong><br/><span class="text-sm text-gray-400">Professional critique & strategies</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-purple-400 text-xl">✓</span>
+                  <span><strong>Business Strategy Consultation</strong><br/><span class="text-sm text-gray-400">Pricing, marketing, client acquisition</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-purple-400 text-xl">✓</span>
+                  <span><strong>$695 Credit Towards Business in a Box</strong><br/><span class="text-sm text-gray-400">Apply full amount to complete program</span></span>
+                </li>
+              </ul>
+              
+              <button class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 rounded-xl transition">
+                Book Strategic Sessions →
+              </button>
+            </div>
+
+            {/* Business in a Box */}
+            <div class="bg-gradient-to-br from-red-900/30 to-red-800/20 border-2 border-red-500 rounded-2xl p-8 hover:border-red-400 transition cursor-pointer relative" onclick="window.location.href='/pricing'">
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                PRO PROGRAM
+              </div>
+              <div class="flex items-center justify-between mb-4 mt-4">
+                <span class="bg-red-500 text-white px-4 py-1 rounded-full text-sm font-bold">AGES 16+</span>
+              </div>
+              <h3 class="text-3xl font-black mb-2 text-white">Business in a Box</h3>
+              <div class="text-5xl font-black text-red-400 mb-2">$3,000</div>
+              <p class="text-gray-400 mb-6">Zero to Wedding Pro Program</p>
+              
+              <ul class="space-y-3 text-gray-300 mb-8">
+                <li class="flex items-start gap-3">
+                  <span class="text-red-400 text-xl">✓</span>
+                  <span><strong>Shoot Your First Wedding Confidently</strong><br/><span class="text-sm text-gray-400">Complete technical & creative training</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-red-400 text-xl">✓</span>
+                  <span><strong>Build Your Brand from Scratch</strong><br/><span class="text-sm text-gray-400">Identity, website, marketing materials</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-red-400 text-xl">✓</span>
+                  <span><strong>Legal & Business Setup</strong><br/><span class="text-sm text-gray-400">Contracts, LLC, insurance, taxes</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-red-400 text-xl">✓</span>
+                  <span><strong>Equipment Mastery</strong><br/><span class="text-sm text-gray-400">Cameras, lenses, lighting, backup gear</span></span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-red-400 text-xl">✓</span>
+                  <span><strong>$695 Credit Applied from Masterclass</strong><br/><span class="text-sm text-gray-400">Effective price $2,305 when upgrading</span></span>
+                </li>
+              </ul>
+              
+              <button class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-4 rounded-xl transition shadow-lg">
+                Launch Your Business →
+              </button>
+            </div>
+          </div>
+
+          <p class="text-center text-gray-500 text-sm mt-12">
+            Limited time launch pricing • Only available for first 20 families
+          </p>
+        </div>
+      </div>
+
+      {/* Education Programs Modal JavaScript */}
+      <script dangerouslySetInnerHTML={{__html: `
+        function openEducationModal() {
+          document.getElementById('educationProgramsModal').classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeEducationProgramsModal() {
+          document.getElementById('educationProgramsModal').classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+
+        function switchProgramType(type) {
+          const youthBtn = document.getElementById('youthProgramBtn');
+          const masterclassBtn = document.getElementById('masterclassProgramBtn');
+          const youthContent = document.getElementById('youthProgramsContent');
+          const masterclassContent = document.getElementById('masterclassProgramsContent');
+
+          if (type === 'youth') {
+            youthBtn.className = 'px-8 py-4 rounded-full font-bold text-lg transition bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg';
+            masterclassBtn.className = 'px-8 py-4 rounded-full font-bold text-lg transition bg-gray-800 text-gray-400 hover:bg-gray-700';
+            youthContent.classList.remove('hidden');
+            masterclassContent.classList.add('hidden');
+          } else {
+            masterclassBtn.className = 'px-8 py-4 rounded-full font-bold text-lg transition bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-lg';
+            youthBtn.className = 'px-8 py-4 rounded-full font-bold text-lg transition bg-gray-800 text-gray-400 hover:bg-gray-700';
+            masterclassContent.classList.remove('hidden');
+            youthContent.classList.add('hidden');
+          }
+        }
       `}} />
     </div>,
     { title: 'Acromatico - Learn to See The World Differently' }
