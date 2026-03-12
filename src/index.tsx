@@ -5077,7 +5077,7 @@ app.get('/invoices', (c) => {
             <div class="border-b-2 border-gray-300 pb-8 mb-8">
               <div class="flex justify-between items-start">
                 <div>
-                  <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" class="h-16 mb-4" />
+                  <img src="/static/acromatico-logo-new.png" alt="Acromatico" class="h-16 mb-4" />
                   <div class="text-sm text-gray-600">
                     <p class="font-bold text-lg text-black mb-2">Acromatico Inc</p>
                     <p>2300 W 84th ST. Suite 213</p>
@@ -5089,7 +5089,7 @@ app.get('/invoices', (c) => {
                 <div class="text-right">
                   <h1 class="text-5xl font-thin tracking-widest text-[#4794A6] mb-4" style="font-family: 'Inter', sans-serif; letter-spacing: 0.2em;">INVOICE</h1>
                   <p class="text-sm text-gray-600 mb-1">Invoice #</p>
-                  <p class="text-2xl font-bold" id="invoiceNumber">INV-001</p>
+                  <p class="text-2xl font-bold" id="invoiceNumber">INV-1247</p>
                   <p class="text-sm text-gray-600 mt-3 mb-1">Invoice Date</p>
                   <p class="font-semibold" id="displayInvoiceDate">-</p>
                   <p class="text-sm text-gray-600 mt-2 mb-1">Due Date</p>
@@ -5248,8 +5248,11 @@ app.get('/invoices', (c) => {
             return;
           }
           
-          // Generate invoice
-          const invoiceNum = 'INV-' + new Date().getTime().toString().slice(-6);
+          // Generate invoice with auto-incrementing number
+          let invoiceCounter = parseInt(localStorage.getItem('acromatico_invoice_counter') || '1247');
+          invoiceCounter += Math.floor(Math.random() * 3) + 1; // Skip 1-3 numbers to look busy
+          localStorage.setItem('acromatico_invoice_counter', invoiceCounter.toString());
+          const invoiceNum = 'INV-' + invoiceCounter;
           document.getElementById('invoiceNumber').textContent = invoiceNum;
           document.getElementById('displayInvoiceDate').textContent = new Date(invoiceDate).toLocaleDateString();
           document.getElementById('displayDueDate').textContent = dueDate ? new Date(dueDate).toLocaleDateString() : 'Upon Receipt';
@@ -5381,13 +5384,13 @@ app.get('/invoices', (c) => {
                   <!-- Header -->
                   <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #4794A6; padding-bottom: 20px; margin-bottom: 25px;">
                     <div>
-                      <img src="https://3000-i49aua0ijjil4k3yd5ptd-82b888ba.sandbox.novita.ai/static/acromatico-logo-transparent.png" style="width: 180px; height: auto; margin-bottom: 12px;" />
+                      <img src="https://3000-i49aua0ijjil4k3yd5ptd-82b888ba.sandbox.novita.ai/static/acromatico-logo-new.png" style="width: 180px; height: auto; margin-bottom: 12px;" />
                       <h1 style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; letter-spacing: -0.02em;">Acromatico Photography Academy</h1>
                       <h2 style="font-size: 14px; font-weight: 400; color: #4794A6; margin: 0 0 12px 0;">Instructor Credentials • Step Up For Students PEP</h2>
                       <span style="display: inline-block; background: #4794A6; color: white; padding: 6px 16px; border-radius: 15px; font-size: 11px; font-weight: 600;">ELECTIVES - Photography Enrichment</span>
                     </div>
                     <div style="text-align: center;">
-                      <img src="https://media.licdn.com/dms/image/v2/D4E03AQGvH7P6qo2Qog/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725302169850" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid #4794A6; margin-bottom: 8px;" crossorigin="anonymous" />
+                      <img src="https://3000-i49aua0ijjil4k3yd5ptd-82b888ba.sandbox.novita.ai/static/italo-headshot.jpg" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid #4794A6; margin-bottom: 8px;" crossorigin="anonymous" />
                       <div style="font-size: 15px; font-weight: 600; color: #000;">Italo Campilii</div>
                       <div style="font-size: 12px; color: #666;">Lead Instructor</div>
                     </div>
