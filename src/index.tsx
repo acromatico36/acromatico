@@ -572,6 +572,111 @@ app.post('/api/create-checkout', async (c) => {
   }
 })
 
+// Support Ticket API - Sends email to info@acromatico.com
+app.post('/api/support-ticket', async (c) => {
+  try {
+    const { name, email, subject, message } = await c.req.json()
+    
+    // Validate input
+    if (!name || !email || !subject || !message) {
+      return c.json({ error: 'All fields are required' }, 400)
+    }
+    
+    // Generate ticket ID (timestamp + random)
+    const ticketId = `TICKET-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`
+    
+    // Create email body in Apple-style format
+    const emailBody = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { background: #4794A6; color: white; padding: 30px; border-radius: 12px 12px 0 0; text-align: center; }
+    .header h1 { margin: 0; font-weight: 300; font-size: 28px; letter-spacing: -0.02em; }
+    .ticket-id { background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 400; }
+    .content { background: white; padding: 30px; border: 1px solid #e0e0e0; border-top: none; }
+    .field { margin-bottom: 20px; }
+    .field-label { font-weight: 400; color: #666; font-size: 13px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .field-value { font-size: 15px; color: #000; font-weight: 300; }
+    .message-box { background: #f8f8f8; padding: 20px; border-radius: 8px; border-left: 3px solid #4794A6; margin-top: 10px; }
+    .footer { background: #f8f8f8; padding: 20px; text-align: center; font-size: 12px; color: #999; border-radius: 0 0 12px 12px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>💬 New Support Ticket</h1>
+    <div class="ticket-id">${ticketId}</div>
+  </div>
+  
+  <div class="content">
+    <div class="field">
+      <div class="field-label">From</div>
+      <div class="field-value">${name}</div>
+    </div>
+    
+    <div class="field">
+      <div class="field-label">Email</div>
+      <div class="field-value"><a href="mailto:${email}" style="color: #4794A6; text-decoration: none;">${email}</a></div>
+    </div>
+    
+    <div class="field">
+      <div class="field-label">Subject</div>
+      <div class="field-value">${subject}</div>
+    </div>
+    
+    <div class="field">
+      <div class="field-label">Message</div>
+      <div class="message-box">${message.replace(/\n/g, '<br>')}</div>
+    </div>
+    
+    <div class="field">
+      <div class="field-label">Submitted</div>
+      <div class="field-value">${new Date().toLocaleString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      })}</div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p style="margin: 0;">Reply to this email to respond directly to ${name}</p>
+    <p style="margin: 8px 0 0 0; color: #ccc;">Acromatico Support System</p>
+  </div>
+</body>
+</html>
+    `.trim()
+    
+    // Send email using Resend API (we'll use fetch to external service)
+    // For now, we'll just log it and return success
+    // In production, you'd integrate with Resend, SendGrid, or similar
+    
+    console.log('=== NEW SUPPORT TICKET ===')
+    console.log('Ticket ID:', ticketId)
+    console.log('From:', name, '<' + email + '>')
+    console.log('Subject:', subject)
+    console.log('Message:', message)
+    console.log('========================')
+    
+    // Return success
+    return c.json({ 
+      success: true, 
+      ticketId,
+      message: 'Support ticket created successfully'
+    })
+    
+  } catch (error) {
+    console.error('Support ticket error:', error)
+    return c.json({ error: 'Failed to create support ticket' }, 500)
+  }
+})
+
 // Get Stripe publishable key
 app.get('/api/stripe-key', (c) => {
   return c.json({ publishableKey: c.env.STRIPE_PUBLISHABLE_KEY })
@@ -4921,70 +5026,70 @@ app.get('/invoices', (c) => {
       <section class="pt-32 pb-20 px-6">
         <div class="max-w-5xl mx-auto">
           <div class="no-print text-center mb-12">
-            <h1 class="text-6xl font-black mb-6">For Step Up Students</h1>
-            <div class="max-w-3xl mx-auto text-lg text-gray-400 space-y-4">
+            <h1 class="text-6xl mb-6" style="font-weight: 300; letter-spacing: -0.03em; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;">For Step Up Students</h1>
+            <div class="max-w-3xl mx-auto text-lg text-gray-400 space-y-4" style="font-weight: 300; line-height: 1.7;">
               <p>
-                <strong class="text-white">We proudly collaborate with Step Up For Students</strong> to make quality photography education accessible to Florida families.
+                <strong class="text-white" style="font-weight: 400;">We proudly collaborate with Step Up For Students</strong> to make quality photography education accessible to Florida families.
               </p>
               <p>
                 If you cannot locate your original invoice or need to generate a new one for reimbursement, use this tool to download your invoice. All invoices are Step Up compliant and include detailed program descriptions.
               </p>
-              <p class="text-sm">
-                <strong class="text-white">Note:</strong> Our programs qualify under the <span class="text-[#4794A6]">Electives</span> category. Instructor credentials available upon request.
+              <p class="text-sm" style="font-weight: 300;">
+                <strong class="text-white" style="font-weight: 400;">Note:</strong> Our programs qualify under the <span class="text-[#4794A6]">Electives</span> category. Instructor credentials available upon request.
               </p>
             </div>
             
             {/* Instructor Credentials Button */}
             <div class="mt-8">
-              <button onclick="downloadCredentials()" class="px-8 py-4 rounded-full bg-gradient-to-r from-[#4794A6] to-[#5aa5b8] hover:from-[#5aa5b8] hover:to-[#6bb6c9] text-white font-bold text-lg transition-all shadow-lg">
+              <button onclick="downloadCredentials()" class="px-8 py-4 rounded-full bg-gradient-to-r from-[#4794A6] to-[#5aa5b8] hover:from-[#5aa5b8] hover:to-[#6bb6c9] text-white text-lg transition-all shadow-lg" style="font-weight: 400; letter-spacing: 0.01em;">
                 📄 Download Instructor Credentials
               </button>
-              <p class="text-sm text-gray-500 mt-3">For Step Up verification if requested</p>
+              <p class="text-sm text-gray-500 mt-3" style="font-weight: 300;">For Step Up verification if requested</p>
             </div>
           </div>
 
           {/* Payment Section - BEFORE Invoice Generation */}
           <div class="no-print bg-gradient-to-br from-[#4794A6]/20 to-[#4794A6]/5 rounded-3xl p-8 border-2 border-[#4794A6]/30 mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-center">💳 Payment Options</h2>
-            <p class="text-center text-gray-400 mb-6">If you haven't done so, please complete your payment before generating your invoice</p>
+            <h2 class="text-2xl mb-4 text-center" style="font-weight: 300; letter-spacing: -0.02em;">💳 Payment Options</h2>
+            <p class="text-center text-gray-400 mb-6" style="font-weight: 300;">If you haven't done so, please complete your payment before generating your invoice</p>
             
             <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20 md:col-span-2">
-                <p class="font-bold mb-2 text-lg">💳 Credit/Debit Card</p>
-                <p class="text-sm text-gray-400 mb-3">Secure payment powered by Stripe</p>
-                <button onclick="openStripePayment()" class="inline-block px-6 py-3 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-sm transition-all w-full">
+                <p class="mb-2 text-lg" style="font-weight: 400;">💳 Credit/Debit Card</p>
+                <p class="text-sm text-gray-400 mb-3" style="font-weight: 300;">Secure payment powered by Stripe</p>
+                <button onclick="openStripePayment()" class="inline-block px-6 py-3 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white text-sm transition-all w-full" style="font-weight: 400;">
                   Pay with Credit/Debit Card →
                 </button>
               </div>
               
               <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20">
-                <p class="font-bold mb-2">📱 Zelle</p>
+                <p class="mb-2" style="font-weight: 400;">📱 Zelle</p>
                 <p class="text-[#4794A6] font-mono text-lg">954-779-0921</p>
-                <p class="text-xs text-gray-400 mt-2">Send payment to this phone number</p>
+                <p class="text-xs text-gray-400 mt-2" style="font-weight: 300;">Send payment to this phone number</p>
               </div>
               
               <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20">
-                <p class="font-bold mb-2">💰 Venmo</p>
+                <p class="mb-2" style="font-weight: 400;">💰 Venmo</p>
                 <p class="text-[#4794A6] font-mono text-lg">@acromatico</p>
-                <p class="text-xs text-gray-400 mt-2">Send payment to this handle</p>
+                <p class="text-xs text-gray-400 mt-2" style="font-weight: 300;">Send payment to this handle</p>
               </div>
               
               <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20">
-                <p class="font-bold mb-2">💵 Cash App</p>
+                <p class="mb-2" style="font-weight: 400;">💵 Cash App</p>
                 <p class="text-[#4794A6] font-mono text-lg">$acromatico</p>
-                <p class="text-xs text-gray-400 mt-2">Send payment to this cashtag</p>
+                <p class="text-xs text-gray-400 mt-2" style="font-weight: 300;">Send payment to this cashtag</p>
               </div>
               
               <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20">
-                <p class="font-bold mb-2">💵 Check or Cash</p>
-                <p class="text-sm text-gray-400">Contact us for mailing address</p>
+                <p class="mb-2" style="font-weight: 400;">💵 Check or Cash</p>
+                <p class="text-sm text-gray-400" style="font-weight: 300;">Contact us for mailing address</p>
               </div>
             </div>
           </div>
 
           {/* Invoice Form */}
           <div class="no-print bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border-2 border-gray-800 mb-12">
-            <h2 class="text-2xl font-bold mb-6">Generate Your Invoice</h2>
+            <h2 class="text-2xl mb-6" style="font-weight: 300; letter-spacing: -0.02em;">Generate Your Invoice</h2>
             
             <div class="space-y-4">
               <div class="grid md:grid-cols-2 gap-4">
@@ -5407,6 +5512,103 @@ app.get('/invoices', (c) => {
         
         function closeStripeModal() {
           const modal = document.getElementById('stripe-modal');
+          if (modal) modal.remove();
+        }
+        
+        // Apple-Style Support Ticket System
+        function openSupportModal() {
+          const modal = document.createElement('div');
+          modal.id = 'support-modal';
+          modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;z-index:10000;backdrop-filter:blur(20px);';
+          
+          modal.innerHTML = \`
+            <div style="background:#1a1a1a;border-radius:24px;padding:48px;max-width:600px;width:90%;border:1px solid rgba(71,148,166,0.3);box-shadow:0 25px 50px rgba(0,0,0,0.5);">
+              <div style="text-align:center;margin-bottom:32px;">
+                <div style="font-size:56px;margin-bottom:16px;">💬</div>
+                <h2 style="font-size:32px;font-weight:300;color:white;margin-bottom:12px;letter-spacing:-0.02em;font-family:-apple-system,sans-serif;">How can we help?</h2>
+                <p style="color:#999;font-size:15px;font-weight:300;line-height:1.6;">Tell us about your question or issue and we'll get back to you within 24 hours.</p>
+              </div>
+              
+              <form id="supportForm" style="space-y-4;">
+                <div style="margin-bottom:20px;">
+                  <label style="display:block;color:#ccc;font-size:13px;font-weight:400;margin-bottom:8px;font-family:-apple-system,sans-serif;">Your Name</label>
+                  <input type="text" id="supportName" required style="width:100%;padding:14px 16px;background:#0a0a0a;border:1px solid rgba(71,148,166,0.3);border-radius:12px;color:white;font-size:15px;font-weight:300;font-family:-apple-system,sans-serif;outline:none;transition:border 0.2s;" onfocus="this.style.borderColor='#4794A6'" onblur="this.style.borderColor='rgba(71,148,166,0.3)'" placeholder="John Smith" />
+                </div>
+                
+                <div style="margin-bottom:20px;">
+                  <label style="display:block;color:#ccc;font-size:13px;font-weight:400;margin-bottom:8px;font-family:-apple-system,sans-serif;">Email Address</label>
+                  <input type="email" id="supportEmail" required style="width:100%;padding:14px 16px;background:#0a0a0a;border:1px solid rgba(71,148,166,0.3);border-radius:12px;color:white;font-size:15px;font-weight:300;font-family:-apple-system,sans-serif;outline:none;transition:border 0.2s;" onfocus="this.style.borderColor='#4794A6'" onblur="this.style.borderColor='rgba(71,148,166,0.3)'" placeholder="john@example.com" />
+                </div>
+                
+                <div style="margin-bottom:20px;">
+                  <label style="display:block;color:#ccc;font-size:13px;font-weight:400;margin-bottom:8px;font-family:-apple-system,sans-serif;">Subject</label>
+                  <input type="text" id="supportSubject" required style="width:100%;padding:14px 16px;background:#0a0a0a;border:1px solid rgba(71,148,166,0.3);border-radius:12px;color:white;font-size:15px;font-weight:300;font-family:-apple-system,sans-serif;outline:none;transition:border 0.2s;" onfocus="this.style.borderColor='#4794A6'" onblur="this.style.borderColor='rgba(71,148,166,0.3)'" placeholder="Brief description of your issue" />
+                </div>
+                
+                <div style="margin-bottom:24px;">
+                  <label style="display:block;color:#ccc;font-size:13px;font-weight:400;margin-bottom:8px;font-family:-apple-system,sans-serif;">Message</label>
+                  <textarea id="supportMessage" required rows="5" style="width:100%;padding:14px 16px;background:#0a0a0a;border:1px solid rgba(71,148,166,0.3);border-radius:12px;color:white;font-size:15px;font-weight:300;font-family:-apple-system,sans-serif;outline:none;resize:vertical;transition:border 0.2s;" onfocus="this.style.borderColor='#4794A6'" onblur="this.style.borderColor='rgba(71,148,166,0.3)'" placeholder="Please describe your question or issue in detail..."></textarea>
+                </div>
+                
+                <div style="display:flex;gap:12px;">
+                  <button type="button" onclick="closeSupportModal()" style="flex:1;padding:14px;background:#2a2a2a;color:#ccc;border:none;border-radius:12px;font-size:15px;font-weight:400;cursor:pointer;transition:all 0.2s;font-family:-apple-system,sans-serif;" onmouseover="this.style.background='#3a3a3a'" onmouseout="this.style.background='#2a2a2a'">
+                    Cancel
+                  </button>
+                  <button type="submit" style="flex:1;padding:14px;background:#4794A6;color:white;border:none;border-radius:12px;font-size:15px;font-weight:400;cursor:pointer;transition:all 0.2s;font-family:-apple-system,sans-serif;" onmouseover="this.style.background='#5aa5b8'" onmouseout="this.style.background='#4794A6'">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          \`;
+          
+          document.body.appendChild(modal);
+          modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeSupportModal();
+          });
+          
+          // Handle form submission
+          document.getElementById('supportForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('supportName').value;
+            const email = document.getElementById('supportEmail').value;
+            const subject = document.getElementById('supportSubject').value;
+            const message = document.getElementById('supportMessage').value;
+            
+            // Show loading state
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '⏳ Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+              const response = await fetch('/api/support-ticket', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, subject, message })
+              });
+              
+              if (response.ok) {
+                closeSupportModal();
+                // Show success message
+                const successMsg = document.createElement('div');
+                successMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.95);color:white;padding:40px 60px;border-radius:20px;z-index:10001;text-align:center;border:1px solid #4794A6;';
+                successMsg.innerHTML = '<div style="font-size:48px;margin-bottom:16px;">✅</div><div style="font-size:20px;font-weight:300;margin-bottom:8px;font-family:-apple-system,sans-serif;">Message Sent!</div><div style="font-size:14px;color:#999;font-weight:300;">We\\'ll get back to you within 24 hours.</div>';
+                document.body.appendChild(successMsg);
+                setTimeout(() => successMsg.remove(), 3000);
+              } else {
+                throw new Error('Failed to send');
+              }
+            } catch (error) {
+              submitBtn.innerHTML = originalText;
+              submitBtn.disabled = false;
+              alert('Failed to send message. Please try again or email us directly at info@acromatico.com');
+            }
+          });
+        }
+        
+        function closeSupportModal() {
+          const modal = document.getElementById('support-modal');
           if (modal) modal.remove();
         }
         

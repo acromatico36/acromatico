@@ -31,6 +31,7 @@ export const footerHTML = `
           <li><a href="/about" class="hover:text-white transition">About</a></li>
           <li><a href="/blog" class="hover:text-white transition">Blog</a></li>
           <li><a href="/contact" class="hover:text-white transition">Contact</a></li>
+          <li><a href="javascript:void(0)" onclick="openSupportModal()" class="hover:text-white transition">💬 Support</a></li>
         </ul>
       </div>
       <div>
