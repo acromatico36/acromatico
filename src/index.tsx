@@ -4894,7 +4894,7 @@ app.get('/pricing', (c) => {
   )
 })
 
-// INVOICE GENERATION SYSTEM
+// INVOICE GENERATION SYSTEM FOR STEP UP STUDENTS
 app.get('/invoices', (c) => {
   return c.render(
     <div class="min-h-screen bg-black text-white">
@@ -4919,15 +4919,61 @@ app.get('/invoices', (c) => {
 
       {/* Invoice Generator */}
       <section class="pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-5xl mx-auto">
           <div class="no-print text-center mb-12">
-            <h1 class="text-6xl font-black mb-6">Invoice Generator</h1>
-            <p class="text-xl text-gray-400">Create professional invoices for your program enrollment</p>
+            <h1 class="text-6xl font-black mb-6">For Step Up Students</h1>
+            <div class="max-w-3xl mx-auto text-lg text-gray-400 space-y-4">
+              <p>
+                <strong class="text-white">We proudly collaborate with Step Up For Students</strong> to make quality photography education accessible to Florida families.
+              </p>
+              <p>
+                If you cannot locate your original invoice or need to generate a new one for reimbursement, use this tool to download your invoice. All invoices are Step Up compliant and include detailed program descriptions.
+              </p>
+            </div>
           </div>
 
-          {/* Invoice Form - No Print */}
+          {/* Payment Section - BEFORE Invoice Generation */}
+          <div class="no-print bg-gradient-to-br from-[#4794A6]/20 to-[#4794A6]/5 rounded-3xl p-8 border-2 border-[#4794A6]/30 mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-center">💳 Payment Options</h2>
+            <p class="text-center text-gray-400 mb-6">Please complete your payment before generating your invoice</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20 md:col-span-2">
+                <p class="font-bold mb-2 text-lg">💳 Credit/Debit Card</p>
+                <p class="text-sm text-gray-400 mb-3">Secure payment powered by Stripe</p>
+                <button onclick="openStripePayment()" class="inline-block px-6 py-3 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-sm transition-all w-full">
+                  Pay with Credit/Debit Card →
+                </button>
+              </div>
+              
+              <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20">
+                <p class="font-bold mb-2">📱 Zelle</p>
+                <p class="text-[#4794A6] font-mono text-lg">954-779-0921</p>
+                <p class="text-xs text-gray-400 mt-2">Send payment to this phone number</p>
+              </div>
+              
+              <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20">
+                <p class="font-bold mb-2">💰 Venmo</p>
+                <p class="text-[#4794A6] font-mono text-lg">@acromatico</p>
+                <p class="text-xs text-gray-400 mt-2">Send payment to this handle</p>
+              </div>
+              
+              <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20">
+                <p class="font-bold mb-2">💵 Cash App</p>
+                <p class="text-[#4794A6] font-mono text-lg">$acromatico</p>
+                <p class="text-xs text-gray-400 mt-2">Send payment to this cashtag</p>
+              </div>
+              
+              <div class="bg-black/30 rounded-2xl p-6 border border-[#4794A6]/20">
+                <p class="font-bold mb-2">💵 Check or Cash</p>
+                <p class="text-sm text-gray-400">Contact us for mailing address</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Invoice Form */}
           <div class="no-print bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border-2 border-gray-800 mb-12">
-            <h2 class="text-2xl font-bold mb-6">Invoice Details</h2>
+            <h2 class="text-2xl font-bold mb-6">Generate Your Invoice</h2>
             
             <div class="space-y-4">
               <div class="grid md:grid-cols-2 gap-4">
@@ -4936,7 +4982,7 @@ app.get('/invoices', (c) => {
                   <input type="text" id="parentName" placeholder="John Smith" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
                 </div>
                 <div>
-                  <label class="block text-sm font-medium mb-2">Email</label>
+                  <label class="block text-sm font-medium mb-2">Email*</label>
                   <input type="email" id="parentEmail" placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
                 </div>
               </div>
@@ -4984,24 +5030,43 @@ app.get('/invoices', (c) => {
                 </div>
               </div>
 
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium mb-2">Payment Date*</label>
+                  <input type="date" id="paymentDate" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2">Payment Method*</label>
+                  <select id="paymentMethod" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none">
+                    <option value="">Select payment method...</option>
+                    <option value="Credit Card (Stripe)">Credit Card (Stripe)</option>
+                    <option value="Zelle">Zelle</option>
+                    <option value="Venmo">Venmo</option>
+                    <option value="Cash App">Cash App</option>
+                    <option value="Check">Check</option>
+                    <option value="Cash">Cash</option>
+                  </select>
+                </div>
+              </div>
+
               <div>
                 <label class="block text-sm font-medium mb-2">Additional Notes</label>
-                <textarea id="invoiceNotes" rows="3" placeholder="Any additional information..." class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none"></textarea>
+                <textarea id="invoiceNotes" rows="2" placeholder="Any additional information..." class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none"></textarea>
               </div>
 
               <button onclick="generateInvoice()" class="w-full py-4 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-lg transition-all">
-                Generate Invoice
+                Generate Invoice for Step Up
               </button>
             </div>
           </div>
 
           {/* Invoice Preview */}
           <div id="invoicePreview" class="invoice-container bg-white text-black rounded-3xl p-12 shadow-2xl hidden">
-            {/* Company Header */}
+            {/* Company Header with Logo */}
             <div class="border-b-2 border-gray-300 pb-8 mb-8">
               <div class="flex justify-between items-start">
                 <div>
-                  <h1 class="text-4xl font-black text-[#4794A6] mb-2">INVOICE</h1>
+                  <img src="/static/acromatico-logo.png" alt="Acromatico" class="h-16 mb-4" />
                   <div class="text-sm text-gray-600">
                     <p class="font-bold text-lg text-black mb-2">Acromatico Inc</p>
                     <p>2300 W 84th ST. Suite 213</p>
@@ -5011,9 +5076,10 @@ app.get('/invoices', (c) => {
                   </div>
                 </div>
                 <div class="text-right">
+                  <h1 class="text-4xl font-black text-[#4794A6] mb-4">INVOICE</h1>
                   <p class="text-sm text-gray-600 mb-1">Invoice #</p>
                   <p class="text-2xl font-bold" id="invoiceNumber">INV-001</p>
-                  <p class="text-sm text-gray-600 mt-4 mb-1">Date</p>
+                  <p class="text-sm text-gray-600 mt-3 mb-1">Invoice Date</p>
                   <p class="font-semibold" id="displayInvoiceDate">-</p>
                   <p class="text-sm text-gray-600 mt-2 mb-1">Due Date</p>
                   <p class="font-semibold" id="displayDueDate">-</p>
@@ -5028,7 +5094,7 @@ app.get('/invoices', (c) => {
               <p class="text-gray-600" id="displayParentEmail">-</p>
             </div>
 
-            {/* Invoice Items */}
+            {/* Invoice Items with Educational Benefits */}
             <table class="w-full mb-8">
               <thead class="bg-gray-100 border-y-2 border-gray-300">
                 <tr>
@@ -5040,25 +5106,39 @@ app.get('/invoices', (c) => {
               <tbody>
                 <tr class="border-b border-gray-200">
                   <td class="py-4 px-4">
-                    <p class="font-semibold" id="displayProgram">-</p>
-                    <p class="text-sm text-gray-600" id="displayStudents">-</p>
+                    <p class="font-semibold text-lg mb-2" id="displayProgram">-</p>
+                    <p class="text-sm font-medium text-gray-700 mb-1">Student(s): <span id="displayStudents">-</span></p>
+                    <div class="text-sm text-gray-600 mt-2" id="displayBenefits"></div>
                   </td>
-                  <td class="text-center py-4 px-4" id="displayStudentCount">1</td>
-                  <td class="text-right py-4 px-4 font-bold" id="displayAmount">$0.00</td>
+                  <td class="text-center py-4 px-4 font-bold text-lg" id="displayStudentCount">1</td>
+                  <td class="text-right py-4 px-4 font-bold text-xl" id="displayAmount">$0.00</td>
                 </tr>
               </tbody>
             </table>
 
             {/* Total */}
             <div class="flex justify-end mb-8">
-              <div class="w-64">
+              <div class="w-80">
                 <div class="flex justify-between py-2 text-lg">
                   <span class="font-bold">Subtotal:</span>
                   <span id="displaySubtotal">$0.00</span>
                 </div>
                 <div class="flex justify-between py-3 border-t-2 border-gray-300 text-2xl">
-                  <span class="font-black">TOTAL:</span>
+                  <span class="font-black">TOTAL DUE:</span>
                   <span class="font-black text-[#4794A6]" id="displayTotal">$0.00</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Payment Information */}
+            <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="text-3xl">✅</div>
+                <div class="flex-1">
+                  <p class="font-bold text-lg text-green-800 mb-1">PAYMENT RECEIVED</p>
+                  <p class="text-gray-700">Payment Date: <span class="font-semibold" id="displayPaymentDate">-</span></p>
+                  <p class="text-gray-700">Payment Method: <span class="font-semibold" id="displayPaymentMethod">-</span></p>
+                  <p class="text-sm text-gray-600 mt-2">Thank you for your payment!</p>
                 </div>
               </div>
             </div>
@@ -5069,47 +5149,24 @@ app.get('/invoices', (c) => {
               <p class="text-gray-700" id="displayNotes"></p>
             </div>
 
-            {/* Payment Methods */}
-            <div class="border-t-2 border-gray-300 pt-8">
-              <p class="text-sm font-bold text-gray-600 mb-4">PAYMENT METHODS</p>
-              <div class="grid md:grid-cols-2 gap-4 text-sm">
-                <div>
-                  <p class="font-bold mb-1">💳 Credit/Debit Card</p>
-                  <p class="text-gray-600">Pay securely online via Stripe</p>
-                  <a href="mailto:info@acromatico.com?subject=Payment%20Request" class="text-[#4794A6] hover:underline">Request payment link →</a>
-                </div>
-                <div>
-                  <p class="font-bold mb-1">📱 Zelle</p>
-                  <p class="text-gray-600">954-779-0921</p>
-                </div>
-                <div>
-                  <p class="font-bold mb-1">💰 Venmo</p>
-                  <p class="text-gray-600">@acromatico</p>
-                </div>
-                <div>
-                  <p class="font-bold mb-1">💵 Cash App</p>
-                  <p class="text-gray-600">$acromatico</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Footer */}
-            <div class="text-center text-xs text-gray-500 mt-8 pt-8 border-t border-gray-300">
-              <p>Thank you for choosing Acromatico!</p>
-              <p class="mt-1">Questions? Contact us at info@acromatico.com or 954.779.0921</p>
+            {/* Step Up Footer */}
+            <div class="border-t-2 border-gray-300 pt-6 text-center text-sm text-gray-600">
+              <p class="font-bold text-black mb-2">For Step Up For Students Reimbursement</p>
+              <p>This invoice is compliant with Step Up For Students requirements and includes detailed educational program descriptions.</p>
+              <p class="mt-3">Questions? Contact us at <strong>info@acromatico.com</strong> or <strong>954.779.0921</strong></p>
             </div>
           </div>
 
-          {/* Action Buttons - No Print */}
+          {/* Action Buttons */}
           <div id="invoiceActions" class="no-print flex gap-4 justify-center mt-8 hidden">
             <button onclick="window.print()" class="px-8 py-4 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold transition-all">
-              Print / Save as PDF
+              📄 Download / Print Invoice
             </button>
             <button onclick="editInvoice()" class="px-8 py-4 rounded-full border-2 border-white hover:bg-white hover:text-black text-white font-bold transition-all">
-              Edit Invoice
+              ✏️ Edit Invoice
             </button>
             <button onclick="resetInvoice()" class="px-8 py-4 rounded-full border-2 border-gray-800 hover:bg-gray-800 text-white font-bold transition-all">
-              New Invoice
+              🔄 New Invoice
             </button>
           </div>
         </div>
@@ -5119,10 +5176,25 @@ app.get('/invoices', (c) => {
 
       {/* JavaScript */}
       <script dangerouslySetInnerHTML={{__html: `
-        // Set today's date as default
-        document.getElementById('invoiceDate').valueAsDate = new Date();
+        // Program benefits (Step Up compliant descriptions)
+        const programBenefits = {
+          'academy-1-monthly': 'Photography fundamentals education including composition, lighting, camera operation, and creative development. 8 live instructional sessions per month (30 minutes each), lifetime access to recorded lessons, portfolio development, and creative skill building for ages 7-14.',
+          'academy-1-annual': 'Full year photography education program including composition, lighting, camera operation, and creative development. 8 live instructional sessions per month (30 minutes each), lifetime access to recorded lessons, portfolio development, December bonus workshops, and creative skill building for ages 7-14.',
+          'academy-2-monthly': 'Photography fundamentals education including composition, lighting, camera operation, and creative development. 8 live instructional sessions per month (30 minutes each) per student, lifetime access to recorded lessons, portfolio development, and creative skill building for ages 7-14.',
+          'academy-2-annual': 'Full year photography education program including composition, lighting, camera operation, and creative development. 8 live instructional sessions per month (30 minutes each) per student, lifetime access to recorded lessons, portfolio development, December bonus workshops, and creative skill building for ages 7-14.',
+          'academy-3-monthly': 'Photography fundamentals education including composition, lighting, camera operation, and creative development. 8 live instructional sessions per month (30 minutes each) per student, lifetime access to recorded lessons, portfolio development, and creative skill building for ages 7-14.',
+          'academy-3-annual': 'Full year photography education program including composition, lighting, camera operation, and creative development. 8 live instructional sessions per month (30 minutes each) per student, lifetime access to recorded lessons, portfolio development, December bonus workshops, and creative skill building for ages 7-14.',
+          'academy-4-monthly': 'Photography fundamentals education including composition, lighting, camera operation, and creative development. 8 live instructional sessions per month (30 minutes each) per student, lifetime access to recorded lessons, portfolio development, and creative skill building for ages 7-14.',
+          'academy-4-annual': 'Full year photography education program including composition, lighting, camera operation, and creative development. 8 live instructional sessions per month (30 minutes each) per student, lifetime access to recorded lessons, portfolio development, December bonus workshops, and creative skill building for ages 7-14.',
+          'masterclass-coaching': 'Professional photography coaching including portfolio review, equipment consultation, brand development guidance, and business strategy. Two individual coaching sessions with award-winning photographers, personalized feedback, and career development mentorship.',
+          'masterclass-business': 'Comprehensive photography business training including wedding/portrait/commercial photography techniques, professional workflow systems, business planning, marketing strategy, legal guidance, and entrepreneurship development. Complete professional development program with AI tools training and industry best practices.'
+        };
         
-        // Auto-calculate due date (30 days from invoice date)
+        // Set defaults
+        document.getElementById('invoiceDate').valueAsDate = new Date();
+        document.getElementById('paymentDate').valueAsDate = new Date();
+        
+        // Auto-calculate due date
         document.getElementById('invoiceDate').addEventListener('change', function() {
           const invoiceDate = new Date(this.value);
           const dueDate = new Date(invoiceDate);
@@ -5130,29 +5202,22 @@ app.get('/invoices', (c) => {
           document.getElementById('dueDate').valueAsDate = dueDate;
         });
         
-        // Auto-populate amount based on program selection
+        // Auto-populate amount
         document.getElementById('programType').addEventListener('change', function() {
           const prices = {
-            'academy-1-monthly': 116,
-            'academy-1-annual': 930,
-            'academy-2-monthly': 198,
-            'academy-2-annual': 1580,
-            'academy-3-monthly': 267,
-            'academy-3-annual': 2130,
-            'academy-4-monthly': 316,
-            'academy-4-annual': 2520,
-            'masterclass-coaching': 695,
-            'masterclass-business': 3000
+            'academy-1-monthly': 116, 'academy-1-annual': 930,
+            'academy-2-monthly': 198, 'academy-2-annual': 1580,
+            'academy-3-monthly': 267, 'academy-3-annual': 2130,
+            'academy-4-monthly': 316, 'academy-4-annual': 2520,
+            'masterclass-coaching': 695, 'masterclass-business': 3000
           };
-          
-          const selectedProgram = this.value;
-          if (prices[selectedProgram]) {
-            document.getElementById('invoiceAmount').value = prices[selectedProgram].toFixed(2);
+          if (prices[this.value]) {
+            document.getElementById('invoiceAmount').value = prices[this.value].toFixed(2);
           }
         });
         
         function generateInvoice() {
-          // Get form values
+          // Get values
           const parentName = document.getElementById('parentName').value;
           const parentEmail = document.getElementById('parentEmail').value;
           const studentNames = document.getElementById('studentNames').value;
@@ -5160,36 +5225,45 @@ app.get('/invoices', (c) => {
           const dueDate = document.getElementById('dueDate').value;
           const programType = document.getElementById('programType');
           const programText = programType.options[programType.selectedIndex].text;
+          const programValue = programType.value;
           const amount = parseFloat(document.getElementById('invoiceAmount').value);
+          const paymentDate = document.getElementById('paymentDate').value;
+          const paymentMethod = document.getElementById('paymentMethod').value;
           const notes = document.getElementById('invoiceNotes').value;
           
           // Validation
-          if (!parentName || !studentNames || !invoiceDate || !programType.value || !amount) {
+          if (!parentName || !parentEmail || !studentNames || !invoiceDate || !programValue || !amount || !paymentDate || !paymentMethod) {
             alert('Please fill in all required fields (*)');
             return;
           }
           
-          // Generate invoice number
+          // Generate invoice
           const invoiceNum = 'INV-' + new Date().getTime().toString().slice(-6);
-          
-          // Populate invoice
           document.getElementById('invoiceNumber').textContent = invoiceNum;
           document.getElementById('displayInvoiceDate').textContent = new Date(invoiceDate).toLocaleDateString();
           document.getElementById('displayDueDate').textContent = dueDate ? new Date(dueDate).toLocaleDateString() : 'Upon Receipt';
           document.getElementById('displayParentName').textContent = parentName;
-          document.getElementById('displayParentEmail').textContent = parentEmail || '';
+          document.getElementById('displayParentEmail').textContent = parentEmail;
           document.getElementById('displayProgram').textContent = programText;
           document.getElementById('displayStudents').textContent = studentNames;
           
-          // Count students
+          // Benefits
+          const benefits = programBenefits[programValue] || 'Educational photography program';
+          document.getElementById('displayBenefits').innerHTML = '<strong>Educational Benefits:</strong><br>' + benefits;
+          
+          // Student count
           const studentCount = studentNames.split(',').length;
           document.getElementById('displayStudentCount').textContent = studentCount;
           
-          // Set amounts
-          const formattedAmount = '$' + amount.toFixed(2);
+          // Amounts
+          const formattedAmount = '$' + amount.toFixed(2).replace(/\\B(?=(\\d{3})+(?!\\d))/g, ',');
           document.getElementById('displayAmount').textContent = formattedAmount;
           document.getElementById('displaySubtotal').textContent = formattedAmount;
           document.getElementById('displayTotal').textContent = formattedAmount;
+          
+          // Payment info
+          document.getElementById('displayPaymentDate').textContent = new Date(paymentDate).toLocaleDateString();
+          document.getElementById('displayPaymentMethod').textContent = paymentMethod;
           
           // Notes
           if (notes) {
@@ -5202,8 +5276,6 @@ app.get('/invoices', (c) => {
           // Show invoice
           document.getElementById('invoicePreview').classList.remove('hidden');
           document.getElementById('invoiceActions').classList.remove('hidden');
-          
-          // Scroll to invoice
           document.getElementById('invoicePreview').scrollIntoView({ behavior: 'smooth' });
         }
         
@@ -5217,8 +5289,10 @@ app.get('/invoices', (c) => {
           document.getElementById('studentNames').value = '';
           document.getElementById('programType').value = '';
           document.getElementById('invoiceAmount').value = '';
+          document.getElementById('paymentMethod').value = '';
           document.getElementById('invoiceNotes').value = '';
           document.getElementById('invoiceDate').valueAsDate = new Date();
+          document.getElementById('paymentDate').valueAsDate = new Date();
           const dueDate = new Date();
           dueDate.setDate(dueDate.getDate() + 30);
           document.getElementById('dueDate').valueAsDate = dueDate;
@@ -5226,9 +5300,57 @@ app.get('/invoices', (c) => {
           document.getElementById('invoiceActions').classList.add('hidden');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        
+        function openStripePayment() {
+          const programType = document.getElementById('programType').value;
+          const amount = document.getElementById('invoiceAmount').value;
+          
+          if (!programType || !amount) {
+            alert('Please select a program first to see the payment amount.');
+            document.getElementById('programType').focus();
+            return;
+          }
+          
+          // Show custom payment modal with Stripe integration
+          const modal = document.createElement('div');
+          modal.id = 'stripe-modal';
+          modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:9999;';
+          
+          modal.innerHTML = \`
+            <div style="background:#1a1a1a;border-radius:24px;padding:48px;max-width:500px;width:90%;border:2px solid #4794A6;">
+              <div style="text-align:center;margin-bottom:32px;">
+                <h2 style="font-size:32px;font-weight:bold;color:white;margin-bottom:16px;">💳 Stripe Payment</h2>
+                <p style="color:#999;margin-bottom:8px;">Amount to Pay</p>
+                <p style="font-size:48px;font-weight:bold;color:#4794A6;">$\${parseFloat(amount).toFixed(2)}</p>
+              </div>
+              
+              <div style="background:#0a0a0a;border-radius:16px;padding:24px;margin-bottom:24px;">
+                <p style="color:#ccc;font-size:14px;line-height:1.6;">
+                  <strong style="color:white;">Email us to get your secure payment link:</strong><br><br>
+                  📧 <a href="mailto:info@acromatico.com?subject=Stripe Payment Request - $\${amount}&body=Hi, I'd like to make a payment of $\${amount} for my Step Up invoice. Please send me a secure Stripe payment link.%0A%0AProgram: \${programType}%0A%0AThank you!" style="color:#4794A6;text-decoration:underline;">info@acromatico.com</a><br><br>
+                  We'll send you a secure Stripe payment link within 1 business hour.
+                </p>
+              </div>
+              
+              <button onclick="closeStripeModal()" style="width:100%;padding:16px;background:#4794A6;color:white;border:none;border-radius:12px;font-size:16px;font-weight:bold;cursor:pointer;">
+                Close
+              </button>
+            </div>
+          \`;
+          
+          document.body.appendChild(modal);
+          modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeStripeModal();
+          });
+        }
+        
+        function closeStripeModal() {
+          const modal = document.getElementById('stripe-modal');
+          if (modal) modal.remove();
+        }
       `}} />
     </div>,
-    { title: 'Invoice Generator - Acromatico' }
+    { title: 'For Step Up Students - Invoice Generator - Acromatico' }
   )
 })
 
