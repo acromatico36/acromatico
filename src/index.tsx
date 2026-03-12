@@ -5074,30 +5074,48 @@ app.get('/invoices', (c) => {
           {/* Invoice Preview */}
           <style>{`
             @media print {
-              body { margin: 0; padding: 0; }
+              @page { 
+                size: letter portrait; 
+                margin: 0.4in 0.5in; 
+              }
+              body { 
+                margin: 0 !important; 
+                padding: 0 !important;
+                width: 8.5in !important;
+              }
               .invoice-container { 
-                max-width: 8.5in !important;
-                padding: 0.5in !important;
+                max-width: 7.5in !important;
+                width: 100% !important;
+                padding: 0 !important;
                 margin: 0 !important;
                 border-radius: 0 !important;
                 box-shadow: none !important;
                 page-break-after: avoid !important;
+                page-break-inside: avoid !important;
+                transform: scale(0.92);
+                transform-origin: top left;
               }
               .invoice-container * { 
-                font-size: 11px !important; 
-                line-height: 1.4 !important;
+                font-size: 10px !important; 
+                line-height: 1.35 !important;
               }
-              .invoice-container h1 { font-size: 32px !important; }
-              .invoice-container .text-5xl { font-size: 32px !important; }
-              .invoice-container .text-2xl { font-size: 18px !important; }
-              .invoice-container .text-xl { font-size: 16px !important; }
-              .invoice-container .text-lg { font-size: 13px !important; }
-              .invoice-container .text-sm { font-size: 10px !important; }
-              .invoice-container img { max-height: 50px !important; }
-              .invoice-container .p-12 { padding: 0.5in !important; }
-              .invoice-container .pb-8, .invoice-container .pt-8, .invoice-container .py-8 { padding-top: 0.3in !important; padding-bottom: 0.3in !important; }
-              .invoice-container .mb-8 { margin-bottom: 0.2in !important; }
-              .invoice-container table { margin-bottom: 0.2in !important; }
+              .invoice-container h1 { font-size: 28px !important; margin: 0 0 8px 0 !important; }
+              .invoice-container .text-5xl { font-size: 28px !important; }
+              .invoice-container .text-2xl { font-size: 16px !important; }
+              .invoice-container .text-xl { font-size: 14px !important; }
+              .invoice-container .text-lg { font-size: 12px !important; }
+              .invoice-container .text-sm { font-size: 9px !important; }
+              .invoice-container img { max-height: 42px !important; margin-bottom: 8px !important; }
+              .invoice-container .p-12 { padding: 0 !important; }
+              .invoice-container .pb-8 { padding-bottom: 0.2in !important; }
+              .invoice-container .pt-8 { padding-top: 0.2in !important; }
+              .invoice-container .py-8 { padding-top: 0.2in !important; padding-bottom: 0.2in !important; }
+              .invoice-container .mb-8 { margin-bottom: 0.15in !important; }
+              .invoice-container .mb-4 { margin-bottom: 0.08in !important; }
+              .invoice-container table { margin-bottom: 0.15in !important; }
+              .invoice-container thead th { padding: 6px 8px !important; }
+              .invoice-container tbody td { padding: 6px 8px !important; }
+              .invoice-container .border-b-2 { border-bottom-width: 1px !important; }
               .no-print { display: none !important; }
             }
           `}</style>
@@ -5438,85 +5456,85 @@ app.get('/invoices', (c) => {
             // Create beautiful HTML content for PDF with LUXURY THIN FONT
             const pdfContent = document.createElement('div');
             pdfContent.innerHTML = \`
-              <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; width: 8.5in; height: 11in; padding: 0.25in 0.35in 0.6in 0.35in; background: white; color: #000; font-weight: 300; position: relative;">
+              <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; width: 8.5in; min-height: 11in; padding: 0.65in 0.6in 1.3in 0.6in; background: white; color: #000; font-weight: 300; position: relative;">
                 <!-- Header -->
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid #4794A6; padding-bottom: 6px; margin-bottom: 8px;">
-                  <div>
-                    <img src="\${logoBase64}" style="width: 120px; height: auto; margin-bottom: 4px;" />
-                    <h1 style="font-size: 18px; font-weight: 300; color: #000; margin: 0 0 3px 0; letter-spacing: -0.5px;">Acromatico Photography Academy</h1>
-                    <h2 style="font-size: 10px; font-weight: 300; color: #4794A6; margin: 0 0 4px 0; letter-spacing: 0.3px;">Instructor Credentials • Step Up For Students PEP</h2>
-                    <span style="display: inline-block; background: #4794A6; color: white; padding: 2px 8px; border-radius: 8px; font-size: 7px; font-weight: 400; letter-spacing: 0.3px;">ELECTIVES - Photography Enrichment</span>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #4794A6; padding-bottom: 18px; margin-bottom: 26px;">
+                  <div style="flex: 1;">
+                    <img src="\${logoBase64}" style="width: 200px; height: auto; margin-bottom: 12px;" />
+                    <h1 style="font-size: 28px; font-weight: 300; color: #000; margin: 0 0 8px 0; letter-spacing: -0.8px;">Acromatico Photography Academy</h1>
+                    <h2 style="font-size: 14px; font-weight: 300; color: #4794A6; margin: 0 0 10px 0; letter-spacing: 0.3px;">Instructor Credentials • Step Up For Students PEP</h2>
+                    <span style="display: inline-block; background: #4794A6; color: white; padding: 6px 16px; border-radius: 12px; font-size: 11px; font-weight: 400; letter-spacing: 0.5px;">ELECTIVES - Photography Enrichment</span>
                   </div>
-                  <div style="text-align: center;">
-                    <img src="\${photoBase64}" style="width: 65px; height: 65px; border-radius: 50%; object-fit: cover; border: 2px solid #4794A6; margin-bottom: 3px;" />
-                    <div style="font-size: 11px; font-weight: 400; color: #000; letter-spacing: -0.3px;">Italo Campilii</div>
-                    <div style="font-size: 8px; font-weight: 300; color: #666; letter-spacing: 0.2px;">Lead Instructor</div>
+                  <div style="text-align: center; margin-left: 30px;">
+                    <img src="\${photoBase64}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid #4794A6; margin-bottom: 10px;" />
+                    <div style="font-size: 16px; font-weight: 400; color: #000; letter-spacing: -0.3px;">Italo Campilii</div>
+                    <div style="font-size: 12px; font-weight: 300; color: #666; letter-spacing: 0.2px;">Lead Instructor</div>
                   </div>
                 </div>
 
                 <!-- Two Column Layout -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 26px;">
                   <!-- Left Column -->
                   <div>
-                    <div style="background: #fafafa; padding: 8px; border-radius: 5px; border-left: 2px solid #4794A6; margin-bottom: 8px;">
-                      <h3 style="font-size: 11px; font-weight: 400; color: #000; margin: 0 0 4px 0; letter-spacing: -0.2px;">📸 Photography Experience</h3>
-                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 8px; font-weight: 300; line-height: 1.4;">
-                        <li style="margin-bottom: 3px; color: #333;">• <strong style="font-weight: 400;">20+ years</strong> professional experience (2004–present)</li>
-                        <li style="margin-bottom: 3px; color: #333;">• <strong style="font-weight: 400;">1,000+ photography projects</strong> completed</li>
-                        <li style="margin-bottom: 3px; color: #333;">• Co-Founder & CMO, <strong style="font-weight: 400;">Acromatico Photography</strong></li>
-                        <li style="margin-bottom: 3px; color: #333;">• Award-winning wedding, portrait, commercial photographer</li>
+                    <div style="background: #fafafa; padding: 18px; border-radius: 12px; border-left: 4px solid #4794A6; margin-bottom: 18px;">
+                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 12px 0; letter-spacing: -0.3px;">📸 Photography Experience</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px; font-weight: 300; line-height: 1.7;">
+                        <li style="margin-bottom: 9px; color: #333;">• <strong style="font-weight: 400;">20+ years</strong> professional experience (2004–present)</li>
+                        <li style="margin-bottom: 9px; color: #333;">• <strong style="font-weight: 400;">1,000+ photography projects</strong> completed</li>
+                        <li style="margin-bottom: 9px; color: #333;">• Co-Founder & CMO, <strong style="font-weight: 400;">Acromatico Photography</strong></li>
+                        <li style="margin-bottom: 9px; color: #333;">• Award-winning wedding, portrait, commercial photographer</li>
                         <li style="margin-bottom: 0; color: #333;">• Portfolio: <strong style="font-weight: 400;">www.acromatico.com</strong></li>
                       </ul>
                     </div>
 
-                    <div style="background: #fafafa; padding: 8px; border-radius: 5px; border-left: 2px solid #4794A6;">
-                      <h3 style="font-size: 11px; font-weight: 400; color: #000; margin: 0 0 4px 0; letter-spacing: -0.2px;">🏆 Professional Certifications</h3>
-                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 8px; font-weight: 300; line-height: 1.4;">
-                        <li style="margin-bottom: 4px; color: #333;">• <strong style="font-weight: 400;">John Maxwell Certified</strong><br><span style="font-size: 7px; color: #666; font-weight: 300;">Leadership Coach, Team & Speaker</span></li>
-                        <li style="margin-bottom: 4px; color: #333;">• <strong style="font-weight: 400;">EXMA Certified Speaker</strong><br><span style="font-size: 7px; color: #666; font-weight: 300;">Experiential Marketing</span></li>
-                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">Apple Sales Specialist (ASTO)</strong><br><span style="font-size: 7px; color: #666; font-weight: 300;">Apple Training & Certification</span></li>
+                    <div style="background: #fafafa; padding: 18px; border-radius: 12px; border-left: 4px solid #4794A6;">
+                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 12px 0; letter-spacing: -0.3px;">🏆 Professional Certifications</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px; font-weight: 300; line-height: 1.7;">
+                        <li style="margin-bottom: 11px; color: #333;">• <strong style="font-weight: 400;">John Maxwell Certified</strong><br><span style="font-size: 10px; color: #666; font-weight: 300;">Leadership Coach, Team & Speaker</span></li>
+                        <li style="margin-bottom: 11px; color: #333;">• <strong style="font-weight: 400;">EXMA Certified Speaker</strong><br><span style="font-size: 10px; color: #666; font-weight: 300;">Experiential Marketing</span></li>
+                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">Apple Sales Specialist (ASTO)</strong><br><span style="font-size: 10px; color: #666; font-weight: 300;">Apple Training & Certification</span></li>
                       </ul>
                     </div>
                   </div>
 
                   <!-- Right Column -->
                   <div>
-                    <div style="background: #fafafa; padding: 8px; border-radius: 5px; border-left: 2px solid #4794A6; margin-bottom: 8px;">
-                      <h3 style="font-size: 11px; font-weight: 400; color: #000; margin: 0 0 4px 0; letter-spacing: -0.2px;">🎓 Education & Training</h3>
-                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 8px; font-weight: 300; line-height: 1.4;">
-                        <li style="margin-bottom: 4px; color: #333;">• <strong style="font-weight: 400;">FIAF Certified Photographer</strong><br><span style="font-size: 7px; color: #666; font-weight: 300;">Federazione Italiana Associazioni Fotografiche (Italy)</span></li>
-                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">BS Business Administration</strong><br><span style="font-size: 7px; color: #666; font-weight: 300;">Business Information Systems</span></li>
+                    <div style="background: #fafafa; padding: 18px; border-radius: 12px; border-left: 4px solid #4794A6; margin-bottom: 18px;">
+                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 12px 0; letter-spacing: -0.3px;">🎓 Education & Training</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px; font-weight: 300; line-height: 1.7;">
+                        <li style="margin-bottom: 11px; color: #333;">• <strong style="font-weight: 400;">FIAF Certified Photographer</strong><br><span style="font-size: 10px; color: #666; font-weight: 300;">Federazione Italiana Associazioni Fotografiche (Italy)</span></li>
+                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">BS Business Administration</strong><br><span style="font-size: 10px; color: #666; font-weight: 300;">Business Information Systems</span></li>
                       </ul>
                     </div>
 
-                    <div style="background: #fafafa; padding: 8px; border-radius: 5px; border-left: 2px solid #4794A6;">
-                      <h3 style="font-size: 11px; font-weight: 400; color: #000; margin: 0 0 4px 0; letter-spacing: -0.2px;">🌟 Additional Credentials</h3>
-                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 8px; font-weight: 300; line-height: 1.4;">
-                        <li style="margin-bottom: 4px; color: #333;">• <strong style="font-weight: 400;">Google AdWords Certified</strong><br><span style="font-size: 7px; color: #666; font-weight: 300;">Credential ID: 11533071</span></li>
-                        <li style="margin-bottom: 4px; color: #333;">• <strong style="font-weight: 400;">Guinness World Record Holder</strong><br><span style="font-size: 7px; color: #666; font-weight: 300;">Professional Achievement</span></li>
-                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">LinkedIn Profile</strong><br><span style="font-size: 7px; color: #666; font-weight: 300;">linkedin.com/in/italocampilii</span></li>
+                    <div style="background: #fafafa; padding: 18px; border-radius: 12px; border-left: 4px solid #4794A6;">
+                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 12px 0; letter-spacing: -0.3px;">🌟 Additional Credentials</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px; font-weight: 300; line-height: 1.7;">
+                        <li style="margin-bottom: 11px; color: #333;">• <strong style="font-weight: 400;">Google AdWords Certified</strong><br><span style="font-size: 10px; color: #666; font-weight: 300;">Credential ID: 11533071</span></li>
+                        <li style="margin-bottom: 11px; color: #333;">• <strong style="font-weight: 400;">Guinness World Record Holder</strong><br><span style="font-size: 10px; color: #666; font-weight: 300;">Professional Achievement</span></li>
+                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">LinkedIn Profile</strong><br><span style="font-size: 10px; color: #666; font-weight: 300;">linkedin.com/in/italocampilii</span></li>
                       </ul>
                     </div>
                   </div>
                 </div>
 
                 <!-- Compliance Box -->
-                <div style="background: #f0f8fa; border: 2px solid #4794A6; padding: 6px; border-radius: 5px; margin-bottom: 6px;">
-                  <div style="font-size: 10px; font-weight: 400; color: #000; margin-bottom: 4px; letter-spacing: -0.2px;">✅ Step Up PEP Compliance Statement</div>
-                  <p style="font-size: 8px; color: #333; line-height: 1.3; margin: 0 0 4px 0; font-weight: 300;">
+                <div style="background: #f0f8fa; border: 2px solid #4794A6; padding: 18px; border-radius: 12px; margin-bottom: 0;">
+                  <div style="font-size: 14px; font-weight: 400; color: #000; margin-bottom: 10px; letter-spacing: -0.3px;">✅ Step Up PEP Compliance Statement</div>
+                  <p style="font-size: 11px; color: #333; line-height: 1.6; margin: 0 0 9px 0; font-weight: 300;">
                     Acromatico Photography Academy programs qualify under the <strong style="color: #4794A6; font-weight: 400;">Electives</strong> category of Step Up For Students PEP scholarship. Per PEP Purchasing Guide (Page 7, Electives Section), eligible providers must have <strong style="font-weight: 400;">"minimum of three years of experience in the relevant subject area as demonstrated by employment records."</strong>
                   </p>
-                  <p style="font-size: 8px; color: #333; line-height: 1.3; margin: 0 0 4px 0; font-weight: 300;">
+                  <p style="font-size: 11px; color: #333; line-height: 1.6; margin: 0 0 9px 0; font-weight: 300;">
                     <strong style="font-weight: 400;">Our instructors exceed this requirement with 20+ years of professional photography experience and 1,000+ completed projects, documented at www.acromatico.com and LinkedIn.</strong>
                   </p>
-                  <p style="font-size: 7px; color: #666; margin: 0; font-weight: 300;"><strong style="font-weight: 400;">Reference:</strong> Step Up PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
+                  <p style="font-size: 10px; color: #666; margin: 0; font-weight: 300;"><strong style="font-weight: 400;">Reference:</strong> Step Up PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
                 </div>
 
                 <!-- Footer positioned at bottom -->
-                <div style="position: absolute; bottom: 0.25in; left: 0.35in; right: 0.35in; border-top: 1px solid #ddd; padding-top: 6px; text-align: center;">
-                  <p style="font-size: 8px; color: #000; margin: 0 0 2px 0; font-weight: 300;"><strong style="font-weight: 400;">Acromatico Inc</strong> • 2300 W 84th ST. Suite 213, Miami, FL 33016</p>
-                  <p style="font-size: 7px; color: #666; margin: 0 0 2px 0; font-weight: 300;">Phone: 954.779.0921 | Email: info@acromatico.com | Website: www.acromatico.com</p>
-                  <p style="font-size: 6px; color: #999; margin: 0; font-weight: 300;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • For Step Up verification purposes</p>
+                <div style="position: absolute; bottom: 0.5in; left: 0.6in; right: 0.6in; border-top: 1px solid #ddd; padding-top: 12px; text-align: center;">
+                  <p style="font-size: 11px; color: #000; margin: 0 0 6px 0; font-weight: 300;"><strong style="font-weight: 400;">Acromatico Inc</strong> • 2300 W 84th ST. Suite 213, Miami, FL 33016</p>
+                  <p style="font-size: 10px; color: #666; margin: 0 0 4px 0; font-weight: 300;">Phone: 954.779.0921 | Email: info@acromatico.com | Website: www.acromatico.com</p>
+                  <p style="font-size: 9px; color: #999; margin: 0; font-weight: 300;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • For Step Up verification purposes</p>
                 </div>
               </div>
             \`;
