@@ -4929,6 +4929,17 @@ app.get('/invoices', (c) => {
               <p>
                 If you cannot locate your original invoice or need to generate a new one for reimbursement, use this tool to download your invoice. All invoices are Step Up compliant and include detailed program descriptions.
               </p>
+              <p class="text-sm">
+                <strong class="text-white">Note:</strong> Our programs qualify under the <span class="text-[#4794A6]">Electives</span> category. Instructor credentials available upon request.
+              </p>
+            </div>
+            
+            {/* Instructor Credentials Button */}
+            <div class="mt-8">
+              <button onclick="downloadCredentials()" class="px-8 py-4 rounded-full bg-gradient-to-r from-[#4794A6] to-[#5aa5b8] hover:from-[#5aa5b8] hover:to-[#6bb6c9] text-white font-bold text-lg transition-all shadow-lg">
+                📄 Download Instructor Credentials
+              </button>
+              <p class="text-sm text-gray-500 mt-3">For Step Up verification if requested</p>
             </div>
           </div>
 
@@ -5347,6 +5358,110 @@ app.get('/invoices', (c) => {
         function closeStripeModal() {
           const modal = document.getElementById('stripe-modal');
           if (modal) modal.remove();
+        }
+        
+        function downloadCredentials() {
+          // Create credentials document content
+          const credentialsHTML = \`
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Acromatico Instructor Credentials - Step Up PEP</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+    .header { text-align: center; border-bottom: 3px solid #4794A6; padding-bottom: 20px; margin-bottom: 30px; }
+    .header h1 { color: #000; font-size: 28px; margin-bottom: 10px; }
+    .header h2 { color: #4794A6; font-size: 20px; font-weight: normal; }
+    .section { margin: 30px 0; padding: 20px; background: #f9f9f9; border-left: 4px solid #4794A6; }
+    .section h3 { color: #000; margin-top: 0; }
+    ul { padding-left: 20px; }
+    li { margin: 8px 0; }
+    .highlight { color: #4794A6; font-weight: bold; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #ddd; text-align: center; font-size: 12px; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>ACROMATICO PHOTOGRAPHY ACADEMY</h1>
+    <h2>Instructor Credentials for Step Up For Students PEP</h2>
+    <p><strong>Category:</strong> <span class="highlight">Electives - Photography Enrichment</span></p>
+  </div>
+
+  <div class="section">
+    <h3>Lead Instructor: Italo Campilii</h3>
+    <p><strong>Qualifications under PEP Electives Requirements:</strong></p>
+    <p>Per Step Up PEP Purchasing Guide (Page 7, Electives Section), eligible providers must have <span class="highlight">"minimum of three years of experience in the relevant subject area as demonstrated by employment records (resume, website, LinkedIn profile, etc.)"</span></p>
+  </div>
+
+  <div class="section">
+    <h3>Professional Photography Experience</h3>
+    <ul>
+      <li><strong>20+ years</strong> of professional photography experience (2004-present)</li>
+      <li>Co-Founder & Chief Marketing Officer, <strong>Acromatico Photography</strong></li>
+      <li>Award-winning wedding, portrait, and commercial photographer</li>
+      <li>Published portfolio: <a href="https://www.acromatico.com" target="_blank">www.acromatico.com</a></li>
+      <li>LinkedIn profile: <a href="https://www.linkedin.com/in/italocampilii/" target="_blank">linkedin.com/in/italocampilii</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Educational Background</h3>
+    <ul>
+      <li><strong>Bachelor of Science in Business Administration</strong><br>Concentration: Business Information Systems</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Professional Certifications</h3>
+    <ul>
+      <li><strong>John Maxwell Certified Leadership Coach</strong><br>Team, Speaker & Coach Certification</li>
+      <li><strong>EXMA Certified Speaker</strong><br>Experiential Marketing Certification</li>
+      <li><strong>Apple Certified Sales Specialist (ASTO)</strong><br>Apple Sales Training & Certification</li>
+      <li><strong>Google AdWords Certified</strong><br>Credential ID: 11533071</li>
+      <li><strong>Guinness World Record Holder</strong><br>Professional achievement recognition</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Additional Professional Experience</h3>
+    <ul>
+      <li>Founder of <strong>MentorMe</strong> - AI-powered course platform for entrepreneurs</li>
+      <li>Founder of <strong>Ecolosophy</strong> - Revolutionary non-toxic cleaning products company</li>
+      <li>Podcast Host - MentorMe & Ecolosophy podcasts</li>
+      <li>Professional filmmaker and content strategist</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Step Up PEP Compliance Statement</h3>
+    <p>Acromatico Photography Academy programs qualify under the <span class="highlight">Electives</span> category of Step Up For Students PEP scholarship program. Our instructors meet the requirement of "minimum of three years of experience in the relevant subject area" as defined in the PEP Purchasing Guide 2024-25.</p>
+    <p><strong>Reference:</strong> PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
+  </div>
+
+  <div class="footer">
+    <p><strong>Acromatico Inc</strong><br>
+    2300 W 84th ST. Suite 213, Miami, FL 33016<br>
+    Phone: 954.779.0921 | Email: info@acromatico.com<br>
+    Website: www.acromatico.com</p>
+    <p style="margin-top: 20px;">Document generated: \${new Date().toLocaleDateString()}</p>
+  </div>
+</body>
+</html>
+          \`;
+          
+          // Create blob and download
+          const blob = new Blob([credentialsHTML], { type: 'text/html' });
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'Acromatico_Instructor_Credentials_StepUp_PEP.html';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+          
+          alert('✅ Instructor credentials downloaded! Open the HTML file in any browser and print to PDF if needed.');
         }
       `}} />
     </div>,
