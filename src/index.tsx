@@ -5366,134 +5366,160 @@ app.get('/invoices', (c) => {
         async function downloadCredentials() {
           // Show loading message
           const loadingMsg = document.createElement('div');
-          loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.9);color:white;padding:30px 50px;border-radius:16px;z-index:99999;font-family:Inter,sans-serif;text-align:center;';
-          loadingMsg.innerHTML = '<div style="font-size:24px;margin-bottom:10px;">⏳</div><div style="font-size:16px;font-weight:600;">Generating PDF...</div><div style="font-size:12px;color:#ccc;margin-top:8px;">Including logo, photo & credentials</div>';
+          loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.9);color:white;padding:30px 50px;border-radius:16px;z-index:99999;font-family:-apple-system,sans-serif;text-align:center;';
+          loadingMsg.innerHTML = '<div style="font-size:24px;margin-bottom:10px;">⏳</div><div style="font-size:16px;font-weight:300;">Generating PDF...</div><div style="font-size:12px;color:#ccc;margin-top:8px;font-weight:300;">Including logo & photo • Luxury formatting</div>';
           document.body.appendChild(loadingMsg);
           
-          // Load html2pdf library
-          const script = document.createElement('script');
-          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
-          document.head.appendChild(script);
-          
-          script.onload = async function() {
-            try {
-              // Create beautiful HTML content for PDF
-              const pdfContent = document.createElement('div');
-              pdfContent.innerHTML = \`
-                <div style="font-family: 'Inter', sans-serif; width: 8.5in; min-height: 11in; padding: 0.5in; background: white; color: black;">
-                  <!-- Header -->
-                  <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #4794A6; padding-bottom: 20px; margin-bottom: 25px;">
-                    <div>
-                      <img src="https://3000-i49aua0ijjil4k3yd5ptd-82b888ba.sandbox.novita.ai/static/acromatico-logo-new.png" style="width: 180px; height: auto; margin-bottom: 12px;" />
-                      <h1 style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; letter-spacing: -0.02em;">Acromatico Photography Academy</h1>
-                      <h2 style="font-size: 14px; font-weight: 400; color: #4794A6; margin: 0 0 12px 0;">Instructor Credentials • Step Up For Students PEP</h2>
-                      <span style="display: inline-block; background: #4794A6; color: white; padding: 6px 16px; border-radius: 15px; font-size: 11px; font-weight: 600;">ELECTIVES - Photography Enrichment</span>
-                    </div>
-                    <div style="text-align: center;">
-                      <img src="https://3000-i49aua0ijjil4k3yd5ptd-82b888ba.sandbox.novita.ai/static/italo-headshot.jpg" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid #4794A6; margin-bottom: 8px;" crossorigin="anonymous" />
-                      <div style="font-size: 15px; font-weight: 600; color: #000;">Italo Campilii</div>
-                      <div style="font-size: 12px; color: #666;">Lead Instructor</div>
-                    </div>
+          try {
+            // Load images as base64 first to ensure they show in PDF
+            const loadImageAsBase64 = async (url) => {
+              return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = function() {
+                  const canvas = document.createElement('canvas');
+                  canvas.width = img.width;
+                  canvas.height = img.height;
+                  const ctx = canvas.getContext('2d');
+                  ctx.drawImage(img, 0, 0);
+                  resolve(canvas.toDataURL('image/png'));
+                };
+                img.onerror = () => reject(new Error('Failed to load image: ' + url));
+                img.src = url;
+              });
+            };
+            
+            loadingMsg.innerHTML = '<div style="font-size:24px;margin-bottom:10px;">⏳</div><div style="font-size:16px;font-weight:300;">Loading Acromatico logo...</div><div style="font-size:12px;color:#ccc;margin-top:8px;font-weight:300;">Step 1 of 3</div>';
+            const logoBase64 = await loadImageAsBase64('/static/acromatico-logo-new.png');
+            
+            loadingMsg.innerHTML = '<div style="font-size:24px;margin-bottom:10px;">⏳</div><div style="font-size:16px;font-weight:300;">Loading your headshot...</div><div style="font-size:12px;color:#ccc;margin-top:8px;font-weight:300;">Step 2 of 3</div>';
+            const photoBase64 = await loadImageAsBase64('/static/italo-headshot.jpg');
+            
+            loadingMsg.innerHTML = '<div style="font-size:24px;margin-bottom:10px;">⏳</div><div style="font-size:16px;font-weight:300;">Generating PDF...</div><div style="font-size:12px;color:#ccc;margin-top:8px;font-weight:300;">Step 3 of 3</div>';
+            
+            // Load html2pdf library
+            await new Promise((resolve, reject) => {
+              const script = document.createElement('script');
+              script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+              script.onload = resolve;
+              script.onerror = reject;
+              document.head.appendChild(script);
+            });
+            
+            // Create beautiful HTML content for PDF with LUXURY THIN FONT
+            const pdfContent = document.createElement('div');
+            pdfContent.innerHTML = \`
+              <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; width: 8.5in; min-height: 11in; padding: 0.5in; background: white; color: #000; font-weight: 300;">
+                <!-- Header -->
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid #4794A6; padding-bottom: 20px; margin-bottom: 25px;">
+                  <div>
+                    <img src="\${logoBase64}" style="width: 200px; height: auto; margin-bottom: 16px;" />
+                    <h1 style="font-size: 28px; font-weight: 300; color: #000; margin: 0 0 8px 0; letter-spacing: -1px;">Acromatico Photography Academy</h1>
+                    <h2 style="font-size: 15px; font-weight: 300; color: #4794A6; margin: 0 0 14px 0; letter-spacing: 0.5px;">Instructor Credentials • Step Up For Students PEP</h2>
+                    <span style="display: inline-block; background: #4794A6; color: white; padding: 7px 18px; border-radius: 20px; font-size: 11px; font-weight: 400; letter-spacing: 0.5px;">ELECTIVES - Photography Enrichment</span>
                   </div>
-
-                  <!-- Two Column Layout -->
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                    <!-- Left Column -->
-                    <div>
-                      <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; border-left: 4px solid #4794A6; margin-bottom: 20px;">
-                        <h3 style="font-size: 15px; font-weight: 600; color: #000; margin: 0 0 12px 0;">📸 Photography Experience</h3>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px;">
-                          <li style="margin-bottom: 8px; color: #3a3a3a;">• <strong>20+ years</strong> professional experience (2004–present)</li>
-                          <li style="margin-bottom: 8px; color: #3a3a3a;">• <strong>1,000+ photography projects</strong> completed</li>
-                          <li style="margin-bottom: 8px; color: #3a3a3a;">• Co-Founder & CMO, <strong>Acromatico Photography</strong></li>
-                          <li style="margin-bottom: 8px; color: #3a3a3a;">• Award-winning wedding, portrait, commercial photographer</li>
-                          <li style="margin-bottom: 0; color: #3a3a3a;">• Portfolio: <strong>www.acromatico.com</strong></li>
-                        </ul>
-                      </div>
-
-                      <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; border-left: 4px solid #4794A6;">
-                        <h3 style="font-size: 15px; font-weight: 600; color: #000; margin: 0 0 12px 0;">🏆 Professional Certifications</h3>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px;">
-                          <li style="margin-bottom: 10px; color: #3a3a3a;">• <strong>John Maxwell Certified</strong><br><span style="font-size: 10px; color: #666;">Leadership Coach, Team & Speaker</span></li>
-                          <li style="margin-bottom: 10px; color: #3a3a3a;">• <strong>EXMA Certified Speaker</strong><br><span style="font-size: 10px; color: #666;">Experiential Marketing</span></li>
-                          <li style="margin-bottom: 0; color: #3a3a3a;">• <strong>Apple Sales Specialist (ASTO)</strong><br><span style="font-size: 10px; color: #666;">Apple Training & Certification</span></li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <!-- Right Column -->
-                    <div>
-                      <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; border-left: 4px solid #4794A6; margin-bottom: 20px;">
-                        <h3 style="font-size: 15px; font-weight: 600; color: #000; margin: 0 0 12px 0;">🎓 Education & Training</h3>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px;">
-                          <li style="margin-bottom: 10px; color: #3a3a3a;">• <strong>FIAF Certified Photographer</strong><br><span style="font-size: 10px; color: #666;">Federazione Italiana Associazioni Fotografiche (Italy)</span></li>
-                          <li style="margin-bottom: 0; color: #3a3a3a;">• <strong>BS Business Administration</strong><br><span style="font-size: 10px; color: #666;">Business Information Systems</span></li>
-                        </ul>
-                      </div>
-
-                      <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; border-left: 4px solid #4794A6;">
-                        <h3 style="font-size: 15px; font-weight: 600; color: #000; margin: 0 0 12px 0;">🌟 Additional Credentials</h3>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px;">
-                          <li style="margin-bottom: 10px; color: #3a3a3a;">• <strong>Google AdWords Certified</strong><br><span style="font-size: 10px; color: #666;">Credential ID: 11533071</span></li>
-                          <li style="margin-bottom: 10px; color: #3a3a3a;">• <strong>Guinness World Record Holder</strong><br><span style="font-size: 10px; color: #666;">Professional Achievement</span></li>
-                          <li style="margin-bottom: 0; color: #3a3a3a;">• <strong>LinkedIn Profile</strong><br><span style="font-size: 10px; color: #666;">linkedin.com/in/italocampilii</span></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Compliance Box -->
-                  <div style="background: #f0f8fa; border: 3px solid #4794A6; padding: 18px; border-radius: 8px; margin-bottom: 20px;">
-                    <div style="font-size: 14px; font-weight: 600; color: #000; margin-bottom: 10px;">✅ Step Up PEP Compliance Statement</div>
-                    <p style="font-size: 11px; color: #3a3a3a; line-height: 1.6; margin: 0 0 10px 0;">
-                      Acromatico Photography Academy programs qualify under the <strong style="color: #4794A6;">Electives</strong> category of Step Up For Students PEP scholarship. Per PEP Purchasing Guide (Page 7, Electives Section), eligible providers must have <strong>"minimum of three years of experience in the relevant subject area as demonstrated by employment records."</strong>
-                    </p>
-                    <p style="font-size: 11px; color: #3a3a3a; line-height: 1.6; margin: 0 0 10px 0;">
-                      <strong>Our instructors exceed this requirement with 20+ years of professional photography experience and 1,000+ completed projects, documented at www.acromatico.com and LinkedIn.</strong>
-                    </p>
-                    <p style="font-size: 9px; color: #666; margin: 0;"><strong>Reference:</strong> Step Up PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
-                  </div>
-
-                  <!-- Footer -->
-                  <div style="border-top: 1px solid #ddd; padding-top: 15px; text-align: center;">
-                    <p style="font-size: 11px; color: #000; margin: 0 0 4px 0;"><strong>Acromatico Inc</strong> • 2300 W 84th ST. Suite 213, Miami, FL 33016</p>
-                    <p style="font-size: 10px; color: #666; margin: 0 0 8px 0;">Phone: 954.779.0921 | Email: info@acromatico.com | Website: www.acromatico.com</p>
-                    <p style="font-size: 9px; color: #999; margin: 0;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • For Step Up verification purposes</p>
+                  <div style="text-align: center;">
+                    <img src="\${photoBase64}" style="width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #4794A6; margin-bottom: 10px;" />
+                    <div style="font-size: 16px; font-weight: 400; color: #000; letter-spacing: -0.5px;">Italo Campilii</div>
+                    <div style="font-size: 13px; font-weight: 300; color: #666; letter-spacing: 0.3px;">Lead Instructor</div>
                   </div>
                 </div>
-              \`;
 
-              // Configure html2pdf options
-              const opt = {
-                margin: 0,
-                filename: 'Acromatico_Instructor_Credentials_StepUp_PEP.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                  scale: 2,
-                  useCORS: true,
-                  allowTaint: true,
-                  logging: false
-                },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-              };
+                <!-- Two Column Layout -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                  <!-- Left Column -->
+                  <div>
+                    <div style="background: #fafafa; padding: 18px; border-radius: 10px; border-left: 3px solid #4794A6; margin-bottom: 22px;">
+                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 14px 0; letter-spacing: -0.3px;">📸 Photography Experience</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; font-weight: 300; line-height: 1.8;">
+                        <li style="margin-bottom: 10px; color: #333;">• <strong style="font-weight: 400;">20+ years</strong> professional experience (2004–present)</li>
+                        <li style="margin-bottom: 10px; color: #333;">• <strong style="font-weight: 400;">1,000+ photography projects</strong> completed</li>
+                        <li style="margin-bottom: 10px; color: #333;">• Co-Founder & CMO, <strong style="font-weight: 400;">Acromatico Photography</strong></li>
+                        <li style="margin-bottom: 10px; color: #333;">• Award-winning wedding, portrait, commercial photographer</li>
+                        <li style="margin-bottom: 0; color: #333;">• Portfolio: <strong style="font-weight: 400;">www.acromatico.com</strong></li>
+                      </ul>
+                    </div>
 
-              // Generate PDF
-              await html2pdf().set(opt).from(pdfContent).save();
-              
-              document.body.removeChild(loadingMsg);
-              alert('✅ Beautiful PDF Downloaded!\\n\\n📄 Real PDF with logo & photo embedded\\n✨ Apple-level design preserved\\n\\nFile: Acromatico_Instructor_Credentials_StepUp_PEP.pdf');
-              
-            } catch(error) {
-              document.body.removeChild(loadingMsg);
-              alert('❌ PDF generation failed: ' + error.message + '\\n\\nPlease try again or contact support.');
-              console.error('PDF Error:', error);
-            }
-          };
-          
-          script.onerror = function() {
+                    <div style="background: #fafafa; padding: 18px; border-radius: 10px; border-left: 3px solid #4794A6;">
+                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 14px 0; letter-spacing: -0.3px;">🏆 Professional Certifications</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; font-weight: 300; line-height: 1.7;">
+                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">John Maxwell Certified</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Leadership Coach, Team & Speaker</span></li>
+                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">EXMA Certified Speaker</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Experiential Marketing</span></li>
+                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">Apple Sales Specialist (ASTO)</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Apple Training & Certification</span></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Right Column -->
+                  <div>
+                    <div style="background: #fafafa; padding: 18px; border-radius: 10px; border-left: 3px solid #4794A6; margin-bottom: 22px;">
+                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 14px 0; letter-spacing: -0.3px;">🎓 Education & Training</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; font-weight: 300; line-height: 1.7;">
+                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">FIAF Certified Photographer</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Federazione Italiana Associazioni Fotografiche (Italy)</span></li>
+                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">BS Business Administration</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Business Information Systems</span></li>
+                      </ul>
+                    </div>
+
+                    <div style="background: #fafafa; padding: 18px; border-radius: 10px; border-left: 3px solid #4794A6;">
+                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 14px 0; letter-spacing: -0.3px;">🌟 Additional Credentials</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; font-weight: 300; line-height: 1.7;">
+                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">Google AdWords Certified</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Credential ID: 11533071</span></li>
+                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">Guinness World Record Holder</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Professional Achievement</span></li>
+                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">LinkedIn Profile</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">linkedin.com/in/italocampilii</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Compliance Box -->
+                <div style="background: #f0f8fa; border: 2px solid #4794A6; padding: 20px; border-radius: 10px; margin-bottom: 24px;">
+                  <div style="font-size: 15px; font-weight: 400; color: #000; margin-bottom: 12px; letter-spacing: -0.3px;">✅ Step Up PEP Compliance Statement</div>
+                  <p style="font-size: 12px; color: #333; line-height: 1.7; margin: 0 0 12px 0; font-weight: 300;">
+                    Acromatico Photography Academy programs qualify under the <strong style="color: #4794A6; font-weight: 400;">Electives</strong> category of Step Up For Students PEP scholarship. Per PEP Purchasing Guide (Page 7, Electives Section), eligible providers must have <strong style="font-weight: 400;">"minimum of three years of experience in the relevant subject area as demonstrated by employment records."</strong>
+                  </p>
+                  <p style="font-size: 12px; color: #333; line-height: 1.7; margin: 0 0 12px 0; font-weight: 300;">
+                    <strong style="font-weight: 400;">Our instructors exceed this requirement with 20+ years of professional photography experience and 1,000+ completed projects, documented at www.acromatico.com and LinkedIn.</strong>
+                  </p>
+                  <p style="font-size: 10px; color: #666; margin: 0; font-weight: 300;"><strong style="font-weight: 400;">Reference:</strong> Step Up PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
+                </div>
+
+                <!-- Footer -->
+                <div style="border-top: 1px solid #ddd; padding-top: 16px; text-align: center;">
+                  <p style="font-size: 12px; color: #000; margin: 0 0 5px 0; font-weight: 300;"><strong style="font-weight: 400;">Acromatico Inc</strong> • 2300 W 84th ST. Suite 213, Miami, FL 33016</p>
+                  <p style="font-size: 11px; color: #666; margin: 0 0 10px 0; font-weight: 300;">Phone: 954.779.0921 | Email: info@acromatico.com | Website: www.acromatico.com</p>
+                  <p style="font-size: 10px; color: #999; margin: 0; font-weight: 300;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • For Step Up verification purposes</p>
+                </div>
+              </div>
+            \`;
+
+            // Configure html2pdf options with better settings
+            const opt = {
+              margin: 0,
+              filename: 'Acromatico_Instructor_Credentials_StepUp_PEP.pdf',
+              image: { type: 'jpeg', quality: 1.0 },
+              html2canvas: { 
+                scale: 3,
+                useCORS: false,
+                allowTaint: false,
+                logging: false,
+                backgroundColor: '#ffffff'
+              },
+              jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            // Generate PDF
+            await html2pdf().set(opt).from(pdfContent).save();
+            
             document.body.removeChild(loadingMsg);
-            alert('❌ Failed to load PDF library\\n\\nPlease check your internet connection and try again.');
-          };
+            alert('✅ LUXURY PDF DOWNLOADED!\\n\\n✨ New Acromatico logo included\\n📸 Your professional headshot included\\n🎨 Thin luxury font (like website)\\n\\nFile: Acromatico_Instructor_Credentials_StepUp_PEP.pdf');
+            
+          } catch(error) {
+            if (document.body.contains(loadingMsg)) {
+              document.body.removeChild(loadingMsg);
+            }
+            alert('❌ PDF generation failed: ' + error.message + '\\n\\nPlease try again or contact support.');
+            console.error('PDF Error:', error);
+          }
         }
       `}} />
     </div>,
