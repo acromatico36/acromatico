@@ -5072,6 +5072,35 @@ app.get('/invoices', (c) => {
           </div>
 
           {/* Invoice Preview */}
+          <style>{`
+            @media print {
+              body { margin: 0; padding: 0; }
+              .invoice-container { 
+                max-width: 8.5in !important;
+                padding: 0.5in !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                page-break-after: avoid !important;
+              }
+              .invoice-container * { 
+                font-size: 11px !important; 
+                line-height: 1.4 !important;
+              }
+              .invoice-container h1 { font-size: 32px !important; }
+              .invoice-container .text-5xl { font-size: 32px !important; }
+              .invoice-container .text-2xl { font-size: 18px !important; }
+              .invoice-container .text-xl { font-size: 16px !important; }
+              .invoice-container .text-lg { font-size: 13px !important; }
+              .invoice-container .text-sm { font-size: 10px !important; }
+              .invoice-container img { max-height: 50px !important; }
+              .invoice-container .p-12 { padding: 0.5in !important; }
+              .invoice-container .pb-8, .invoice-container .pt-8, .invoice-container .py-8 { padding-top: 0.3in !important; padding-bottom: 0.3in !important; }
+              .invoice-container .mb-8 { margin-bottom: 0.2in !important; }
+              .invoice-container table { margin-bottom: 0.2in !important; }
+              .no-print { display: none !important; }
+            }
+          `}</style>
           <div id="invoicePreview" class="invoice-container bg-white text-black rounded-3xl p-12 shadow-2xl hidden">
             {/* Company Header with Logo */}
             <div class="border-b-2 border-gray-300 pb-8 mb-8">
@@ -5409,7 +5438,7 @@ app.get('/invoices', (c) => {
             // Create beautiful HTML content for PDF with LUXURY THIN FONT
             const pdfContent = document.createElement('div');
             pdfContent.innerHTML = \`
-              <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; width: 8.5in; height: 11in; padding: 0.35in; background: white; color: #000; font-weight: 300;">
+              <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; width: 8.5in; height: 11in; padding: 0.35in 0.35in 0.8in 0.35in; background: white; color: #000; font-weight: 300; position: relative;">
                 <!-- Header -->
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid #4794A6; padding-bottom: 10px; margin-bottom: 12px;">
                   <div>
@@ -5472,22 +5501,22 @@ app.get('/invoices', (c) => {
                 </div>
 
                 <!-- Compliance Box -->
-                <div style="background: #f0f8fa; border: 2px solid #4794A6; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
-                  <div style="font-size: 13px; font-weight: 400; color: #000; margin-bottom: 8px; letter-spacing: -0.2px;">✅ Step Up PEP Compliance Statement</div>
-                  <p style="font-size: 10px; color: #333; line-height: 1.5; margin: 0 0 8px 0; font-weight: 300;">
+                <div style="background: #f0f8fa; border: 2px solid #4794A6; padding: 8px; border-radius: 6px; margin-bottom: 8px;">
+                  <div style="font-size: 11px; font-weight: 400; color: #000; margin-bottom: 5px; letter-spacing: -0.2px;">✅ Step Up PEP Compliance Statement</div>
+                  <p style="font-size: 9px; color: #333; line-height: 1.4; margin: 0 0 5px 0; font-weight: 300;">
                     Acromatico Photography Academy programs qualify under the <strong style="color: #4794A6; font-weight: 400;">Electives</strong> category of Step Up For Students PEP scholarship. Per PEP Purchasing Guide (Page 7, Electives Section), eligible providers must have <strong style="font-weight: 400;">"minimum of three years of experience in the relevant subject area as demonstrated by employment records."</strong>
                   </p>
-                  <p style="font-size: 10px; color: #333; line-height: 1.5; margin: 0 0 8px 0; font-weight: 300;">
+                  <p style="font-size: 9px; color: #333; line-height: 1.4; margin: 0 0 5px 0; font-weight: 300;">
                     <strong style="font-weight: 400;">Our instructors exceed this requirement with 20+ years of professional photography experience and 1,000+ completed projects, documented at www.acromatico.com and LinkedIn.</strong>
                   </p>
-                  <p style="font-size: 8px; color: #666; margin: 0; font-weight: 300;"><strong style="font-weight: 400;">Reference:</strong> Step Up PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
+                  <p style="font-size: 7px; color: #666; margin: 0; font-weight: 300;"><strong style="font-weight: 400;">Reference:</strong> Step Up PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
                 </div>
 
-                <!-- Footer -->
-                <div style="border-top: 1px solid #ddd; padding-top: 10px; text-align: center;">
-                  <p style="font-size: 10px; color: #000; margin: 0 0 4px 0; font-weight: 300;"><strong style="font-weight: 400;">Acromatico Inc</strong> • 2300 W 84th ST. Suite 213, Miami, FL 33016</p>
-                  <p style="font-size: 9px; color: #666; margin: 0 0 6px 0; font-weight: 300;">Phone: 954.779.0921 | Email: info@acromatico.com | Website: www.acromatico.com</p>
-                  <p style="font-size: 8px; color: #999; margin: 0; font-weight: 300;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • For Step Up verification purposes</p>
+                <!-- Footer positioned at bottom -->
+                <div style="position: absolute; bottom: 0.3in; left: 0.35in; right: 0.35in; border-top: 1px solid #ddd; padding-top: 8px; text-align: center;">
+                  <p style="font-size: 9px; color: #000; margin: 0 0 3px 0; font-weight: 300;"><strong style="font-weight: 400;">Acromatico Inc</strong> • 2300 W 84th ST. Suite 213, Miami, FL 33016</p>
+                  <p style="font-size: 8px; color: #666; margin: 0 0 3px 0; font-weight: 300;">Phone: 954.779.0921 | Email: info@acromatico.com | Website: www.acromatico.com</p>
+                  <p style="font-size: 7px; color: #999; margin: 0; font-weight: 300;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • For Step Up verification purposes</p>
                 </div>
               </div>
             \`;
