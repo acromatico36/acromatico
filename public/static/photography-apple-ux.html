@@ -3207,72 +3207,106 @@
               </label>
               
               <!-- WEDDING ALBUM BUILDER -->
-              <div id="albumBuilderSection" style="display: block; margin-top: 16px; padding: 24px; background: #f5f5f7; border-radius: 16px;">
-                <!-- ALBUM PREVIEW -->
-                <div style="margin-bottom: 24px; text-align: center;">
-                  <img id="albumPreviewImage" src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-1020.jpg" alt="Wedding Album Preview" style="width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);" loading="lazy">
-                </div>
-                
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                  <div>
-                    <h4 style="font-size: 18px; font-weight: 600; margin: 0 0 4px 0;">Design Your Wedding Album</h4>
-                    <p style="font-size: 13px; color: #666; margin: 0;">Handmade in Italy • All covers included • Lifetime warranty</p>
+              <div id="albumBuilderSection" style="display: block; margin-top: 16px; padding: 24px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 16px;">
+                <!-- HERO ALBUM PREVIEW - GraphiStudio Style -->
+                <div style="margin-bottom: 32px; text-align: center; position: relative;">
+                  <div style="display: inline-block; position: relative; perspective: 1000px;">
+                    <!-- Main album mockup with your photo as cover -->
+                    <img id="albumPreviewImage" src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-1020.jpg" alt="Wedding Album Preview" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); transform: rotateY(-5deg) rotateX(2deg);" loading="lazy">
+                    <!-- Album spine effect -->
+                    <div style="position: absolute; left: -8px; top: 5%; height: 90%; width: 8px; background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.1)); border-radius: 4px 0 0 4px;"></div>
                   </div>
-                  <span style="font-size: 24px; font-weight: 700; color: var(--accent);" id="albumTotalPrice">$995</span>
+                  <p style="font-size: 12px; color: #999; margin-top: 16px; font-style: italic;">Premium flush-mount album • Handcrafted in Italy</p>
                 </div>
                 
-                <!-- SIZE SELECTION -->
-                <div style="margin-bottom: 20px;">
-                  <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 12px;">Album Size</label>
-                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #e5e5e5;">
+                  <div>
+                    <h4 style="font-size: 22px; font-weight: 300; margin: 0 0 6px 0; letter-spacing: -0.02em;">The Original Wedding Book</h4>
+                    <p style="font-size: 13px; color: #666; margin: 0; font-weight: 300;">Handmade in Italy • Panoramic flush mount • Lifetime warranty</p>
+                  </div>
+                  <span style="font-size: 28px; font-weight: 300; color: var(--accent); letter-spacing: -0.03em;" id="albumTotalPrice">$995</span>
+                </div>
+                
+                <!-- SIZE SELECTION - GraphiStudio Style -->
+                <div style="margin-bottom: 24px;">
+                  <label style="font-size: 15px; font-weight: 400; display: block; margin-bottom: 16px; color: #333;">Choose Your Album Size</label>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
                     <label style="cursor: pointer;" onclick="window.selectAlbumSize('small', 995)">
-                      <div class="wedding-album-card album-size-small" style="padding: 16px; border: 2px solid var(--accent); border-radius: 12px; text-align: center; transition: all 0.2s; background: rgba(0,113,227,0.05);">
-                        <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" alt="Small Album" style="width: 100%; height: 90px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;" loading="lazy">
-                        <div style="font-size: 17px; font-weight: 700; margin-bottom: 4px;">Small</div>
-                        <div style="font-size: 13px; color: #666; margin-bottom: 8px;">12×8"</div>
-                        <div style="font-size: 19px; font-weight: 700; color: var(--accent);">$995</div>
+                      <div class="wedding-album-card album-size-small" style="padding: 20px; border: 3px solid var(--accent); border-radius: 16px; text-align: center; transition: all 0.3s; background: #fff; box-shadow: 0 8px 20px rgba(0,113,227,0.15);">
+                        <!-- Album mockup with your photo -->
+                        <div style="position: relative; margin-bottom: 12px;">
+                          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" alt="Small Album" style="width: 100%; height: 110px; object-fit: cover; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" loading="lazy">
+                          <div style="position: absolute; left: -3px; top: 8%; height: 84%; width: 6px; background: linear-gradient(to right, rgba(0,0,0,0.25), rgba(0,0,0,0.08)); border-radius: 3px 0 0 3px;"></div>
+                        </div>
+                        <div style="font-size: 18px; font-weight: 400; margin-bottom: 6px; letter-spacing: -0.01em;">Small</div>
+                        <div style="font-size: 13px; color: #666; margin-bottom: 10px; font-weight: 300;">12×8" (20×30 cm)</div>
+                        <div style="font-size: 22px; font-weight: 300; color: var(--accent); letter-spacing: -0.02em;">$995</div>
+                        <div style="font-size: 10px; color: var(--accent); font-weight: 600; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px;">✓ Selected</div>
                       </div>
                     </label>
                     <label style="cursor: pointer;" onclick="window.selectAlbumSize('standard', 1495)">
-                      <div class="wedding-album-card album-size-standard" style="padding: 16px; border: 2px solid #e5e5e5; border-radius: 12px; text-align: center; transition: all 0.2s; background: #fff;">
-                        <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg" alt="Standard Album" style="width: 100%; height: 90px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;" loading="lazy">
-                        <div style="font-size: 17px; font-weight: 700; margin-bottom: 4px;">Standard</div>
-                        <div style="font-size: 13px; color: #666; margin-bottom: 8px;">13×9.5"</div>
-                        <div style="font-size: 19px; font-weight: 700; color: var(--accent);">$1,495</div>
-                        <div style="font-size: 11px; color: var(--accent); font-weight: 600; margin-top: 6px;">MOST POPULAR</div>
+                      <div class="wedding-album-card album-size-standard" style="padding: 20px; border: 2px solid #e5e5e5; border-radius: 16px; text-align: center; transition: all 0.3s; background: #fff;">
+                        <div style="position: relative; margin-bottom: 12px;">
+                          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg" alt="Standard Album" style="width: 100%; height: 110px; object-fit: cover; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" loading="lazy">
+                          <div style="position: absolute; left: -3px; top: 8%; height: 84%; width: 6px; background: linear-gradient(to right, rgba(0,0,0,0.25), rgba(0,0,0,0.08)); border-radius: 3px 0 0 3px;"></div>
+                        </div>
+                        <div style="font-size: 18px; font-weight: 400; margin-bottom: 6px; letter-spacing: -0.01em;">Standard</div>
+                        <div style="font-size: 13px; color: #666; margin-bottom: 10px; font-weight: 300;">13×9.5" (30×25 cm)</div>
+                        <div style="font-size: 22px; font-weight: 300; color: var(--accent); letter-spacing: -0.02em;">$1,495</div>
+                        <div style="font-size: 10px; color: var(--accent); font-weight: 600; margin-top: 8px; background: rgba(0,113,227,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block; text-transform: uppercase; letter-spacing: 0.5px;">Most Popular</div>
                       </div>
                     </label>
                     <label style="cursor: pointer;" onclick="window.selectAlbumSize('large', 1995)">
-                      <div class="wedding-album-card album-size-large" style="padding: 16px; border: 2px solid #e5e5e5; border-radius: 12px; text-align: center; transition: all 0.2s; background: #fff;">
-                        <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-1020.jpg" alt="Large Album" style="width: 100%; height: 90px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;" loading="lazy">
-                        <div style="font-size: 17px; font-weight: 700; margin-bottom: 4px;">Large</div>
-                        <div style="font-size: 13px; color: #666; margin-bottom: 8px;">16×12"</div>
-                        <div style="font-size: 19px; font-weight: 700; color: var(--accent);">$1,995</div>
+                      <div class="wedding-album-card album-size-large" style="padding: 20px; border: 2px solid #e5e5e5; border-radius: 16px; text-align: center; transition: all 0.3s; background: #fff;">
+                        <div style="position: relative; margin-bottom: 12px;">
+                          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-1020.jpg" alt="Large Album" style="width: 100%; height: 110px; object-fit: cover; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" loading="lazy">
+                          <div style="position: absolute; left: -3px; top: 8%; height: 84%; width: 6px; background: linear-gradient(to right, rgba(0,0,0,0.25), rgba(0,0,0,0.08)); border-radius: 3px 0 0 3px;"></div>
+                        </div>
+                        <div style="font-size: 18px; font-weight: 400; margin-bottom: 6px; letter-spacing: -0.01em;">Large</div>
+                        <div style="font-size: 13px; color: #666; margin-bottom: 10px; font-weight: 300;">16×12" (40×30 cm)</div>
+                        <div style="font-size: 22px; font-weight: 300; color: var(--accent); letter-spacing: -0.02em;">$1,995</div>
                       </div>
                     </label>\n                  </div>\n                </div>
                 
-                <!-- COVER TYPE PREVIEW -->
-                <div style="margin-bottom: 20px;">
-                  <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 12px;">Choose Your Cover (All Included)</label>
-                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
-                    <div style="padding: 12px; background: #fff; border-radius: 10px; text-align: center; border: 2px solid #e5e5e5;">
-                      <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-394.jpg" alt="Acrylic Cover" style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;" loading="lazy">
-                      <div style="font-size: 13px; font-weight: 600;">Acrylic Cover</div>
+                <!-- COVER TYPE PREVIEW - GraphiStudio Luxury Style -->
+                <div style="margin-bottom: 24px;">
+                  <label style="font-size: 15px; font-weight: 400; display: block; margin-bottom: 8px; color: #333;">The Covers: Where the Magic Begins</label>
+                  <p style="font-size: 12px; color: #666; margin-bottom: 16px; font-weight: 300; line-height: 1.6;">All four premium cover materials included at no extra cost. Choose after booking.</p>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px;">
+                    <div style="padding: 16px; background: #fff; border-radius: 12px; text-align: center; border: 2px solid #e5e5e5; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='#e5e5e5'">
+                      <div style="position: relative; margin-bottom: 10px;">
+                        <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-394.jpg" alt="Crystal Glance" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" loading="lazy">
+                        <!-- Acrylic shine effect -->
+                        <div style="position: absolute; top: 10%; left: 10%; width: 30%; height: 40%; background: linear-gradient(135deg, rgba(255,255,255,0.6), transparent); border-radius: 8px;"></div>
+                      </div>
+                      <div style="font-size: 14px; font-weight: 400; margin-bottom: 3px;">Crystal Glance</div>
+                      <div style="font-size: 11px; color: #999; font-weight: 300;">6mm polycarbonate</div>
                     </div>
-                    <div style="padding: 12px; background: #fff; border-radius: 10px; text-align: center; border: 2px solid #e5e5e5;">
-                      <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-520.jpg" alt="Metal Cover" style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;" loading="lazy">
-                      <div style="font-size: 13px; font-weight: 600;">Metal Cover</div>
+                    <div style="padding: 16px; background: #fff; border-radius: 12px; text-align: center; border: 2px solid #e5e5e5; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='#e5e5e5'">
+                      <div style="position: relative; margin-bottom: 10px;">
+                        <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-520.jpg" alt="Metal Cover" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); filter: contrast(1.1) saturate(0.9);" loading="lazy">
+                      </div>
+                      <div style="font-size: 14px; font-weight: 400; margin-bottom: 3px;">Metal</div>
+                      <div style="font-size: 11px; color: #999; font-weight: 300;">Silver or gold finish</div>
                     </div>
-                    <div style="padding: 12px; background: #fff; border-radius: 10px; text-align: center; border: 2px solid #e5e5e5;">
-                      <img src="https://acromatico.com/wp-content/uploads/2018/09/KH-Ritz-262.jpg" alt="Leather Cover" style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;" loading="lazy">
-                      <div style="font-size: 13px; font-weight: 600;">Leather Cover</div>
+                    <div style="padding: 16px; background: #fff; border-radius: 12px; text-align: center; border: 2px solid #e5e5e5; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='#e5e5e5'">
+                      <div style="position: relative; margin-bottom: 10px;">
+                        <img src="https://acromatico.com/wp-content/uploads/2018/09/KH-Ritz-262.jpg" alt="Leather Cover" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" loading="lazy">
+                      </div>
+                      <div style="font-size: 14px; font-weight: 400; margin-bottom: 3px;">Italian Leather</div>
+                      <div style="font-size: 11px; color: #999; font-weight: 300;">Full grain premium</div>
                     </div>
-                    <div style="padding: 12px; background: #fff; border-radius: 10px; text-align: center; border: 2px solid #e5e5e5;">
-                      <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-044.jpg" alt="Photo Cover" style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;" loading="lazy">
-                      <div style="font-size: 13px; font-weight: 600;">Photo Cover</div>
+                    <div style="padding: 16px; background: #fff; border-radius: 12px; text-align: center; border: 2px solid #e5e5e5; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='#e5e5e5'">
+                      <div style="position: relative; margin-bottom: 10px;">
+                        <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-044.jpg" alt="Photo Cover" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" loading="lazy">
+                      </div>
+                      <div style="font-size: 14px; font-weight: 400; margin-bottom: 3px;">Photo Cover</div>
+                      <div style="font-size: 11px; color: #999; font-weight: 300;">Custom image print</div>
                     </div>
                   </div>
-                  <p style="font-size: 12px; color: #666; margin-top: 8px; text-align: center;">Choose your preferred cover after booking - all 4 options included at no extra cost</p>
+                  <div style="margin-top: 16px; padding: 12px; background: rgba(0,113,227,0.05); border-radius: 8px; border-left: 3px solid var(--accent);">
+                    <p style="font-size: 12px; color: #333; margin: 0; font-weight: 300; line-height: 1.5;">💎 <strong style="font-weight: 400;">Luxury materials</strong> — Whether you love crystal clear acrylic or Italian leather, all four premium options are included. Choose your favorite after booking.</p>
+                  </div>
                 </div>
                 
                 <!-- WHAT'S INCLUDED -->
