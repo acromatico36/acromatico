@@ -5087,7 +5087,7 @@ app.get('/invoices', (c) => {
                   </div>
                 </div>
                 <div class="text-right">
-                  <h1 class="text-4xl font-black text-[#4794A6] mb-4">INVOICE</h1>
+                  <h1 class="text-5xl font-thin tracking-widest text-[#4794A6] mb-4" style="font-family: 'Inter', sans-serif; letter-spacing: 0.2em;">INVOICE</h1>
                   <p class="text-sm text-gray-600 mb-1">Invoice #</p>
                   <p class="text-2xl font-bold" id="invoiceNumber">INV-001</p>
                   <p class="text-sm text-gray-600 mt-3 mb-1">Invoice Date</p>
@@ -5361,31 +5361,155 @@ app.get('/invoices', (c) => {
         }
         
         function downloadCredentials() {
-          // Create credentials document content
+          // Create Apple-level gorgeous credentials document
           const credentialsHTML = \`
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Acromatico Instructor Credentials - Step Up PEP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acromatico Instructor Credentials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-    .header { text-align: center; border-bottom: 3px solid #4794A6; padding-bottom: 20px; margin-bottom: 30px; }
-    .header h1 { color: #000; font-size: 28px; margin-bottom: 10px; }
-    .header h2 { color: #4794A6; font-size: 20px; font-weight: normal; }
-    .section { margin: 30px 0; padding: 20px; background: #f9f9f9; border-left: 4px solid #4794A6; }
-    .section h3 { color: #000; margin-top: 0; }
-    ul { padding-left: 20px; }
-    li { margin: 8px 0; }
-    .highlight { color: #4794A6; font-weight: bold; }
-    .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #ddd; text-align: center; font-size: 12px; color: #666; }
+    @page { margin: 0.5in; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 40px 60px;
+    }
+    
+    .logo-header { 
+      text-align: center; 
+      margin-bottom: 48px; 
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .logo-header img { 
+      width: 180px; 
+      height: auto; 
+      margin-bottom: 24px;
+    }
+    .logo-header h1 { 
+      font-size: 32px; 
+      font-weight: 700; 
+      color: #000; 
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .logo-header h2 { 
+      font-size: 18px; 
+      font-weight: 400; 
+      color: #4794A6; 
+      letter-spacing: 0.01em;
+    }
+    .category-badge {
+      display: inline-block;
+      background: #4794A6;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 16px;
+      letter-spacing: 0.02em;
+    }
+    
+    .section { 
+      margin-bottom: 36px; 
+      page-break-inside: avoid;
+    }
+    .section h3 { 
+      font-size: 20px; 
+      font-weight: 600; 
+      color: #000; 
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #4794A6;
+      letter-spacing: -0.01em;
+    }
+    .section p { 
+      font-size: 15px; 
+      color: #3a3a3a; 
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+    
+    ul { 
+      list-style: none; 
+      padding: 0; 
+      margin: 16px 0;
+    }
+    li { 
+      font-size: 15px; 
+      color: #3a3a3a; 
+      margin-bottom: 14px;
+      padding-left: 24px;
+      position: relative;
+      line-height: 1.7;
+    }
+    li:before {
+      content: "•";
+      color: #4794A6;
+      font-weight: bold;
+      font-size: 20px;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+    li strong { 
+      color: #000; 
+      font-weight: 600;
+    }
+    
+    .highlight { 
+      color: #4794A6; 
+      font-weight: 600;
+    }
+    .compliance-box {
+      background: #f8f9fa;
+      border-left: 4px solid #4794A6;
+      padding: 24px 28px;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+    .compliance-box p {
+      margin-bottom: 12px;
+    }
+    
+    .footer { 
+      margin-top: 60px; 
+      padding-top: 24px; 
+      border-top: 1px solid #e5e5e5; 
+      text-align: center;
+    }
+    .footer p { 
+      font-size: 13px; 
+      color: #666; 
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+    .footer strong { 
+      color: #000; 
+      font-weight: 600;
+    }
+    
+    @media print {
+      body { padding: 0; }
+      .no-print { display: none; }
+    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>ACROMATICO PHOTOGRAPHY ACADEMY</h1>
+  <div class="logo-header">
+    <img src="https://3000-i49aua0ijjil4k3yd5ptd-82b888ba.sandbox.novita.ai/static/acromatico-logo-transparent.png" alt="Acromatico" />
+    <h1>Acromatico Photography Academy</h1>
     <h2>Instructor Credentials for Step Up For Students PEP</h2>
-    <p><strong>Category:</strong> <span class="highlight">Electives - Photography Enrichment</span></p>
+    <span class="category-badge">ELECTIVES - Photography Enrichment</span>
   </div>
 
   <div class="section">
@@ -5397,54 +5521,44 @@ app.get('/invoices', (c) => {
   <div class="section">
     <h3>Professional Photography Experience</h3>
     <ul>
-      <li><strong>20+ years</strong> of professional photography experience (2004-present)</li>
+      <li><strong>20+ years</strong> of professional photography experience (2004–present)</li>
       <li>Co-Founder & Chief Marketing Officer, <strong>Acromatico Photography</strong></li>
       <li>Award-winning wedding, portrait, and commercial photographer</li>
-      <li>Published portfolio: <a href="https://www.acromatico.com" target="_blank">www.acromatico.com</a></li>
-      <li>LinkedIn profile: <a href="https://www.linkedin.com/in/italocampilii/" target="_blank">linkedin.com/in/italocampilii</a></li>
+      <li>Published portfolio: <strong>www.acromatico.com</strong></li>
+      <li>LinkedIn profile: <strong>linkedin.com/in/italocampilii</strong></li>
     </ul>
   </div>
 
   <div class="section">
     <h3>Educational Background</h3>
     <ul>
-      <li><strong>Bachelor of Science in Business Administration</strong><br>Concentration: Business Information Systems</li>
+      <li><strong>Bachelor of Science in Business Administration</strong><br><span style="color: #666;">Concentration: Business Information Systems</span></li>
     </ul>
   </div>
 
   <div class="section">
     <h3>Professional Certifications</h3>
     <ul>
-      <li><strong>John Maxwell Certified Leadership Coach</strong><br>Team, Speaker & Coach Certification</li>
-      <li><strong>EXMA Certified Speaker</strong><br>Experiential Marketing Certification</li>
-      <li><strong>Apple Certified Sales Specialist (ASTO)</strong><br>Apple Sales Training & Certification</li>
-      <li><strong>Google AdWords Certified</strong><br>Credential ID: 11533071</li>
-      <li><strong>Guinness World Record Holder</strong><br>Professional achievement recognition</li>
+      <li><strong>FIAF Certified</strong><br><span style="color: #666;">Fédération Internationale de l'Art Photographique (International Federation of Photographic Art)</span></li>
+      <li><strong>John Maxwell Certified Leadership Coach</strong><br><span style="color: #666;">Team, Speaker & Coach Certification</span></li>
+      <li><strong>EXMA Certified Speaker</strong><br><span style="color: #666;">Experiential Marketing Certification</span></li>
+      <li><strong>Apple Certified Sales Specialist (ASTO)</strong><br><span style="color: #666;">Apple Sales Training & Certification</span></li>
+      <li><strong>Google AdWords Certified</strong><br><span style="color: #666;">Credential ID: 11533071</span></li>
+      <li><strong>Guinness World Record Holder</strong><br><span style="color: #666;">Professional achievement recognition</span></li>
     </ul>
   </div>
 
-  <div class="section">
-    <h3>Additional Professional Experience</h3>
-    <ul>
-      <li>Founder of <strong>MentorMe</strong> - AI-powered course platform for entrepreneurs</li>
-      <li>Founder of <strong>Ecolosophy</strong> - Revolutionary non-toxic cleaning products company</li>
-      <li>Podcast Host - MentorMe & Ecolosophy podcasts</li>
-      <li>Professional filmmaker and content strategist</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3>Step Up PEP Compliance Statement</h3>
+  <div class="compliance-box">
+    <p style="font-weight: 600; color: #000; margin-bottom: 12px;">Step Up PEP Compliance Statement</p>
     <p>Acromatico Photography Academy programs qualify under the <span class="highlight">Electives</span> category of Step Up For Students PEP scholarship program. Our instructors meet the requirement of "minimum of three years of experience in the relevant subject area" as defined in the PEP Purchasing Guide 2024-25.</p>
-    <p><strong>Reference:</strong> PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
+    <p style="margin-top: 12px;"><strong>Reference:</strong> PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
   </div>
 
   <div class="footer">
-    <p><strong>Acromatico Inc</strong><br>
-    2300 W 84th ST. Suite 213, Miami, FL 33016<br>
-    Phone: 954.779.0921 | Email: info@acromatico.com<br>
-    Website: www.acromatico.com</p>
-    <p style="margin-top: 20px;">Document generated: \${new Date().toLocaleDateString()}</p>
+    <p><strong>Acromatico Inc</strong></p>
+    <p>2300 W 84th ST. Suite 213, Miami, FL 33016</p>
+    <p>Phone: 954.779.0921 | Email: info@acromatico.com</p>
+    <p style="margin-top: 16px; color: #999; font-size: 12px;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
   </div>
 </body>
 </html>
@@ -5461,7 +5575,7 @@ app.get('/invoices', (c) => {
           window.URL.revokeObjectURL(url);
           document.body.removeChild(a);
           
-          alert('✅ Instructor credentials downloaded! Open the HTML file in any browser and print to PDF if needed.');
+          alert('✅ Apple-style credentials document downloaded!\\n\\nOpen in browser → Print → Save as PDF\\nPerfect for Step Up verification.');
         }
       `}} />
     </div>,
