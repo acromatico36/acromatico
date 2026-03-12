@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Wedding - Acromatico</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1d1d1f;
+      --secondary: #6e6e73;
+      --accent: #0071e3;
+      --bg: #ffffff;
+      --bg-gray: #f5f5f7;
+      --border: #d2d2d7;
+      --success: #34c759;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+      color: var(--primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 16px 40px;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-back {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* PROGRESS BAR */
+    .progress-bar {
+      position: fixed;
+      top: 73px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #e5e5e5;
+      z-index: 999;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 11.11%;
+    }
+
+    /* MAIN LAYOUT */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+    }
+
+    /* LEFT: STEPS */
+    .steps-container {
+      max-width: 700px;
+    }
+
+    .step {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .step-number {
+      font-size: 14px;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .step-question {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -1.5px;
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    /* INPUTS */
+    input[type="text"],
+    input[type="email"],
+    input[type="date"] {
+      width: 100%;
+      padding: 20px 24px;
+      font-size: 21px;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      font-family: inherit;
+      transition: all 0.3s;
+      background: white;
+      margin-bottom: 24px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+    }
+
+    /* HOUR SLIDER */
+    .hour-slider-container {
+      margin: 48px 0;
+    }
+
+    .hour-display {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .hour-value {
+      font-size: 72px;
+      font-weight: 600;
+      letter-spacing: -2px;
+      color: var(--accent);
+    }
+
+    .hour-label {
+      font-size: 21px;
+      color: var(--secondary);
+      margin-top: 8px;
+    }
+
+    .hour-price {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: 16px;
+    }
+
+    .slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #e5e5e5;
+      outline: none;
+      -webkit-appearance: none;
+      margin: 32px 0;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,113,227,0.4);
+      transition: all 0.3s;
+    }
+
+    .slider::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(0,113,227,0.5);
+    }
+
+    .slider::-moz-range-thumb {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,113,227,0.4);
+      border: none;
+    }
+
+    /* PACKAGE CARDS */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .option-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+      position: relative;
+    }
+
+    .option-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .option-card.selected {
+      border-color: var(--accent);
+      background: rgba(0, 113, 227, 0.05);
+      box-shadow: 0 8px 30px rgba(0,113,227,0.15);
+    }
+
+    .option-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .option-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .option-description {
+      font-size: 15px;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .option-price {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .option-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(0, 113, 227, 0.1);
+      color: var(--accent);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* ALBUM SHOWCASE */
+    .album-showcase {
+      margin: 48px 0;
+    }
+
+    .album-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .album-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .album-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    /* UPGRADE CARDS WITH IMAGES */
+    .upgrade-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .upgrade-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .upgrade-card.selected {
+      border-color: var(--accent);
+      background: rgba(0, 113, 227, 0.05);
+    }
+
+    .upgrade-image {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .upgrade-content {
+      flex: 1;
+      padding: 16px 0;
+    }
+
+    .upgrade-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .upgrade-description {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .upgrade-price {
+      font-size: 21px;
+      font-weight: 600;
+      padding: 0 24px;
+    }
+
+    /* RIGHT: LIVE PREVIEW */
+    .preview-sidebar {
+      position: sticky;
+      top: 120px;
+      height: fit-content;
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      border: 2px solid var(--border);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+
+    .preview-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .preview-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--bg-gray);
+      font-size: 15px;
+    }
+
+    .preview-item:last-child {
+      border-bottom: none;
+    }
+
+    .preview-label {
+      color: var(--secondary);
+    }
+
+    .preview-value {
+      font-weight: 600;
+    }
+
+    .preview-total {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .preview-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+
+    /* BUTTONS */
+    .button-group {
+      display: flex;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .btn {
+      padding: 18px 40px;
+      font-size: 17px;
+      font-weight: 500;
+      border-radius: 980px;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,113,227,0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--border);
+    }
+
+    /* MOBILE */
+    @media (max-width: 1024px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-sidebar {
+        position: relative;
+        top: 0;
+        order: -1;
+      }
+
+      .step-question {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="/static/acromatico-logo-official.png" alt="Acromatico">
+      </a>
+      <a href="/photography" class="nav-back">← Back to Photography</a>
+    </div>
+  </nav>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="booking-layout">
+
+    <!-- LEFT: STEPS -->
+    <div class="steps-container">
+
+      <!-- STEP 1: WEDDING DATE -->
+      <div class="step active" id="step1">
+        <div class="step-number">Step 1 of 8</div>
+        <h1 class="step-question">Let's start with the basics.<br>What's your wedding date?</h1>
+        <input type="date" id="weddingDate">
+        <input type="text" id="venue" placeholder="Venue name or location">
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="nextStep(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: CUSTOM HOURS -->
+      <div class="step" id="step2">
+        <div class="step-number">Step 2 of 8</div>
+        <h1 class="step-question">How many hours of coverage do you need?</h1>
+        <div class="hour-slider-container">
+          <div class="hour-display">
+            <div class="hour-value" id="hourValue">6</div>
+            <div class="hour-label">Hours of Coverage</div>
+            <div class="hour-price" id="hourPrice">$0</div>
+          </div>
+          <input type="range" min="4" max="12" value="6" class="slider" id="hourSlider" oninput="updateHours(this.value)">
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: PACKAGE -->
+      <div class="step" id="step3">
+        <div class="step-number">Step 3 of 8</div>
+        <h1 class="step-question">Choose your package</h1>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectPackage(this, 'essential', 2500)">
+            <div class="option-title">Essential</div>
+            <div class="option-description">1 photographer<br>Digital gallery<br>300+ photos</div>
+            <div class="option-price">$2,500</div>
+          </div>
+          <div class="option-card" onclick="selectPackage(this, 'signature', 4500)">
+            <div class="option-badge">Most Popular</div>
+            <div class="option-title">Signature</div>
+            <div class="option-description">2 photographers<br>Engagement session<br>500+ photos</div>
+            <div class="option-price">$4,500</div>
+          </div>
+          <div class="option-card" onclick="selectPackage(this, 'legacy', 7500)">
+            <div class="option-title">Legacy</div>
+            <div class="option-description">2 photographers<br>Engagement + Album<br>800+ photos</div>
+            <div class="option-price">$7,500</div>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: ALBUM SHOWCASE -->
+      <div class="step" id="step4">
+        <div class="step-number">Step 4 of 8</div>
+        <h1 class="step-question">Want to add a luxury heirloom album?</h1>
+        
+        <div class="album-showcase">
+          <div class="album-gallery">
+            <img src="https://www.genspark.ai/api/files/s/IgtklWC4" class="album-image" loading="lazy">
+            <img src="https://www.genspark.ai/api/files/s/5fKxPEas" class="album-image" loading="lazy">
+            <img src="https://www.genspark.ai/api/files/s/MjQtMT3p" class="album-image" loading="lazy">
+            <img src="https://www.genspark.ai/api/files/s/yBpgfzre" class="album-image" loading="lazy">
+          </div>
+        </div>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="selectAlbumChoice(this, 'yes'); nextStep(5);">
+            <div class="option-title">Yes, please!</div>
+            <div class="option-description">I want a handcrafted album</div>
+          </div>
+          <div class="option-card" onclick="selectAlbumChoice(this, 'no'); nextStep(6);">
+            <div class="option-title">Not now</div>
+            <div class="option-description">Digital only is perfect</div>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: ALBUM SIZE -->
+      <div class="step" id="step5">
+        <div class="step-number">Step 5 of 8</div>
+        <h1 class="step-question">Choose your album size</h1>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectAlbum(this, 'intimate', 995, 'https://www.genspark.ai/api/files/s/MjQtMT3p')">
+            <div class="option-title">Intimate</div>
+            <div class="option-description">8×12" (20×30 cm)<br>40 pages</div>
+            <div class="option-price">$995</div>
+          </div>
+          <div class="option-card" onclick="selectAlbum(this, 'classic', 1495, 'https://www.genspark.ai/api/files/s/IgtklWC4')">
+            <div class="option-badge">Most Popular</div>
+            <div class="option-title">Classic</div>
+            <div class="option-description">12×16" (30×40 cm)<br>60 pages</div>
+            <div class="option-price">$1,495</div>
+          </div>
+          <div class="option-card" onclick="selectAlbum(this, 'statement', 1995, 'https://www.genspark.ai/api/files/s/5fKxPEas')">
+            <div class="option-title">Statement</div>
+            <div class="option-description">16×20" (40×50 cm)<br>80 pages</div>
+            <div class="option-price">$1,995</div>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(6)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: UPGRADES WITH IMAGES -->
+      <div class="step" id="step6">
+        <div class="step-number">Step 6 of 8</div>
+        <h1 class="step-question">Any upgrades?</h1>
+        
+        <div class="upgrade-card" onclick="toggleUpgrade(this, 'second', 800)">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg" class="upgrade-image">
+          <div class="upgrade-content">
+            <div class="upgrade-title">Second Photographer</div>
+            <div class="upgrade-description">Capture every angle of your day</div>
+          </div>
+          <div class="upgrade-price">$800</div>
+        </div>
+
+        <div class="upgrade-card" onclick="toggleUpgrade(this, 'engagement', 600)">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" class="upgrade-image">
+          <div class="upgrade-content">
+            <div class="upgrade-title">Engagement Session</div>
+            <div class="upgrade-description">1-hour photo session before your wedding</div>
+          </div>
+          <div class="upgrade-price">$600</div>
+        </div>
+
+        <div class="upgrade-card" onclick="toggleUpgrade(this, 'parent', 400)">
+          <img src="https://www.genspark.ai/api/files/s/yBpgfzre" class="upgrade-image">
+          <div class="upgrade-content">
+            <div class="upgrade-title">Parent Albums</div>
+            <div class="upgrade-description">Two smaller copies for parents (each)</div>
+          </div>
+          <div class="upgrade-price">$400</div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(7)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: YOUR INFO -->
+      <div class="step" id="step7">
+        <div class="step-number">Step 7 of 8</div>
+        <h1 class="step-question">Almost there! What's your name?</h1>
+        <input type="text" id="clientName" placeholder="Your full name">
+        <input type="email" id="clientEmail" placeholder="Your email address">
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(8)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 8: CHECKOUT -->
+      <div class="step" id="step8">
+        <div class="step-number">Step 8 of 8</div>
+        <h1 class="step-question">Ready to book your wedding?</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Review your selections on the right, then complete your booking.</p>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(7)">← Back</button>
+          <button class="btn btn-primary" onclick="checkout()">Complete Booking →</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: LIVE PREVIEW -->
+    <div class="preview-sidebar" id="previewSidebar">
+      <div class="preview-title">Your Selection</div>
+      
+      <div id="previewContent">
+        <div class="preview-item">
+          <span class="preview-label">Package</span>
+          <span class="preview-value" id="previewPackage">Not selected</span>
+        </div>
+        <div class="preview-item">
+          <span class="preview-label">Coverage Hours</span>
+          <span class="preview-value" id="previewHours">6 hours</span>
+        </div>
+        <div class="preview-item">
+          <span class="preview-label">Album</span>
+          <span class="preview-value" id="previewAlbum">Not selected</span>
+        </div>
+        <img id="previewAlbumImage" class="preview-image" style="display: none;">
+        <div id="previewUpgrades"></div>
+        <div class="preview-total">
+          <span>Total</span>
+          <span id="previewTotal">$0</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let booking = {
+      date: '',
+      venue: '',
+      hours: 6,
+      hourRate: 400,
+      package: '',
+      packagePrice: 0,
+      albumChoice: '',
+      album: '',
+      albumPrice: 0,
+      albumImage: '',
+      upgrades: [],
+      name: '',
+      email: ''
+    };
+
+    function updateHours(value) {
+      booking.hours = parseInt(value);
+      document.getElementById('hourValue').textContent = value;
+      document.getElementById('hourPrice').textContent = `$${(value * booking.hourRate).toLocaleString()}`;
+      document.getElementById('previewHours').textContent = `${value} hours`;
+      updateTotal();
+    }
+
+    function selectPackage(card, name, price) {
+      document.querySelectorAll('#step3 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      booking.package = name;
+      booking.packagePrice = price;
+      document.getElementById('previewPackage').textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      updateTotal();
+    }
+
+    function selectAlbumChoice(card, choice) {
+      booking.albumChoice = choice;
+    }
+
+    function selectAlbum(card, name, price, image) {
+      document.querySelectorAll('#step5 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      booking.album = name;
+      booking.albumPrice = price;
+      booking.albumImage = image;
+      document.getElementById('previewAlbum').textContent = `${name.charAt(0).toUpperCase() + name.slice(1)} - $${price.toLocaleString()}`;
+      const img = document.getElementById('previewAlbumImage');
+      img.src = image;
+      img.style.display = 'block';
+      updateTotal();
+    }
+
+    function toggleUpgrade(card, key, price) {
+      card.classList.toggle('selected');
+      if (card.classList.contains('selected')) {
+        booking.upgrades.push({ key, price });
+      } else {
+        booking.upgrades = booking.upgrades.filter(u => u.key !== key);
+      }
+      updateUpgradesPreview();
+      updateTotal();
+    }
+
+    function updateUpgradesPreview() {
+      const container = document.getElementById('previewUpgrades');
+      container.innerHTML = booking.upgrades.map(u => `
+        <div class="preview-item">
+          <span class="preview-label">${u.key.charAt(0).toUpperCase() + u.key.slice(1)}</span>
+          <span class="preview-value">$${u.price.toLocaleString()}</span>
+        </div>
+      `).join('');
+    }
+
+    function updateTotal() {
+      const hoursTotal = booking.hours * booking.hourRate;
+      const upgradesTotal = booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      const total = hoursTotal + booking.packagePrice + booking.albumPrice + upgradesTotal;
+      document.getElementById('previewTotal').textContent = `$${total.toLocaleString()}`;
+    }
+
+    function nextStep(step) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step${step}`).classList.add('active');
+      document.getElementById('progressFill').style.width = `${(step / 8) * 100}%`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevStep(step) {
+      nextStep(step);
+    }
+
+    function checkout() {
+      console.log('Booking:', booking);
+      alert('Redirecting to Stripe checkout...');
+    }
+
+    // Initialize
+    updateHours(6);
+  </script>
+
+</body>
+</html>
