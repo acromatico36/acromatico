@@ -5094,29 +5094,29 @@ app.get('/invoices', (c) => {
             <div class="space-y-4">
               <div class="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-sm font-medium mb-2">Parent/Guardian Name*</label>
-                  <input type="text" id="parentName" placeholder="John Smith" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                  <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Parent/Guardian Name*</label>
+                  <input type="text" id="parentName" placeholder="John Smith" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;" />
                 </div>
                 <div>
-                  <label class="block text-sm font-medium mb-2">Email*</label>
-                  <input type="email" id="parentEmail" placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                  <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Email*</label>
+                  <input type="email" id="parentEmail" placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;" />
                 </div>
               </div>
 
               <div class="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-sm font-medium mb-2">Student Name(s)*</label>
-                  <input type="text" id="studentNames" placeholder="Sarah Smith, Michael Smith" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                  <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Student Name(s)*</label>
+                  <input type="text" id="studentNames" placeholder="Sarah Smith, Michael Smith" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;" />
                 </div>
                 <div>
-                  <label class="block text-sm font-medium mb-2">Invoice Date*</label>
-                  <input type="date" id="invoiceDate" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                  <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Invoice Date*</label>
+                  <input type="date" id="invoiceDate" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;" />
                 </div>
               </div>
 
               <div>
-                <label class="block text-sm font-medium mb-2">Program*</label>
-                <select id="programType" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none">
+                <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Program*</label>
+                <select id="programType" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;">
                   <option value="">Select a program...</option>
                   <optgroup label="Academy (Ages 7-14)">
                     <option value="academy-1-monthly">Academy - 1 Student - Monthly ($116/mo)</option>
@@ -5137,23 +5137,23 @@ app.get('/invoices', (c) => {
 
               <div class="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-sm font-medium mb-2">Amount*</label>
-                  <input type="number" id="invoiceAmount" placeholder="116.00" step="0.01" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                  <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Amount*</label>
+                  <input type="number" id="invoiceAmount" placeholder="116.00" step="0.01" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;" />
                 </div>
                 <div>
-                  <label class="block text-sm font-medium mb-2">Due Date</label>
-                  <input type="date" id="dueDate" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                  <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Due Date</label>
+                  <input type="date" id="dueDate" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;" />
                 </div>
               </div>
 
               <div class="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-sm font-medium mb-2">Payment Date*</label>
-                  <input type="date" id="paymentDate" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" />
+                  <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Payment Date*</label>
+                  <input type="date" id="paymentDate" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;" />
                 </div>
                 <div>
-                  <label class="block text-sm font-medium mb-2">Payment Method*</label>
-                  <select id="paymentMethod" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none">
+                  <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Payment Method*</label>
+                  <select id="paymentMethod" class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;">
                     <option value="">Select payment method...</option>
                     <option value="Credit Card (Stripe)">Credit Card (Stripe)</option>
                     <option value="Zelle">Zelle</option>
@@ -5166,11 +5166,11 @@ app.get('/invoices', (c) => {
               </div>
 
               <div>
-                <label class="block text-sm font-medium mb-2">Additional Notes</label>
-                <textarea id="invoiceNotes" rows="2" placeholder="Any additional information..." class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none"></textarea>
+                <label class="block text-sm mb-2" style="font-weight: 300; color: #ccc;">Additional Notes</label>
+                <textarea id="invoiceNotes" rows="2" placeholder="Any additional information..." class="w-full px-4 py-3 rounded-xl bg-gray-900 border-2 border-gray-800 focus:border-[#4794A6] focus:outline-none" style="font-weight: 300;"></textarea>
               </div>
 
-              <button onclick="generateInvoice()" class="w-full py-4 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white font-bold text-lg transition-all">
+              <button onclick="generateInvoice()" class="w-full py-4 rounded-full bg-[#4794A6] hover:bg-[#5aa5b8] text-white text-lg transition-all" style="font-weight: 400; letter-spacing: 0.01em;">
                 Generate Invoice for Step Up
               </button>
             </div>
