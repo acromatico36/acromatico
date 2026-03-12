@@ -5360,8 +5360,8 @@ app.get('/invoices', (c) => {
           if (modal) modal.remove();
         }
         
-        function downloadCredentials() {
-          // Create Apple-level gorgeous credentials document
+        async function downloadCredentials() {
+          // Create Apple-level single-page PDF credentials
           const credentialsHTML = \`
 <!DOCTYPE html>
 <html lang="en">
@@ -5371,99 +5371,141 @@ app.get('/invoices', (c) => {
   <title>Acromatico Instructor Credentials</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    @page { margin: 0.5in; }
+    @page { 
+      size: letter; 
+      margin: 0.5in; 
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
       background: #ffffff;
       color: #1a1a1a;
-      line-height: 1.6;
-      max-width: 8.5in;
-      margin: 0 auto;
-      padding: 40px 60px;
+      line-height: 1.5;
+      font-size: 11px;
     }
     
-    .logo-header { 
-      text-align: center; 
-      margin-bottom: 48px; 
-      padding-bottom: 32px;
-      border-bottom: 1px solid #e5e5e5;
+    .container {
+      max-width: 7.5in;
+      margin: 0 auto;
+      padding: 20px;
     }
-    .logo-header img { 
-      width: 180px; 
+    
+    .header { 
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #4794A6;
+    }
+    .header-left img.logo { 
+      width: 140px; 
       height: auto; 
-      margin-bottom: 24px;
+      margin-bottom: 8px;
     }
-    .logo-header h1 { 
-      font-size: 32px; 
+    .header-left h1 { 
+      font-size: 18px; 
       font-weight: 700; 
       color: #000; 
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
     }
-    .logo-header h2 { 
-      font-size: 18px; 
+    .header-left h2 { 
+      font-size: 12px; 
       font-weight: 400; 
       color: #4794A6; 
-      letter-spacing: 0.01em;
+    }
+    .header-right {
+      text-align: center;
+    }
+    .header-right img.photo { 
+      width: 80px; 
+      height: 80px; 
+      border-radius: 50%; 
+      object-fit: cover;
+      border: 3px solid #4794A6;
+      margin-bottom: 6px;
+    }
+    .header-right .name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 2px;
+    }
+    .header-right .title {
+      font-size: 10px;
+      color: #666;
     }
     .category-badge {
       display: inline-block;
       background: #4794A6;
       color: white;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      margin-top: 16px;
-      letter-spacing: 0.02em;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 15px;
     }
     
     .section { 
-      margin-bottom: 36px; 
-      page-break-inside: avoid;
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 6px;
+      border-left: 3px solid #4794A6;
     }
     .section h3 { 
-      font-size: 20px; 
+      font-size: 13px; 
       font-weight: 600; 
       color: #000; 
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #4794A6;
+      margin-bottom: 8px;
       letter-spacing: -0.01em;
     }
     .section p { 
-      font-size: 15px; 
+      font-size: 10px; 
       color: #3a3a3a; 
-      margin-bottom: 12px;
-      line-height: 1.7;
+      margin-bottom: 6px;
+      line-height: 1.5;
     }
     
     ul { 
       list-style: none; 
       padding: 0; 
-      margin: 16px 0;
+      margin: 6px 0 0 0;
     }
     li { 
-      font-size: 15px; 
+      font-size: 10px; 
       color: #3a3a3a; 
-      margin-bottom: 14px;
-      padding-left: 24px;
+      margin-bottom: 5px;
+      padding-left: 12px;
       position: relative;
-      line-height: 1.7;
+      line-height: 1.4;
     }
     li:before {
       content: "•";
       color: #4794A6;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 14px;
       position: absolute;
       left: 0;
-      top: -2px;
+      top: -1px;
     }
     li strong { 
       color: #000; 
       font-weight: 600;
+    }
+    li span {
+      color: #666;
+      font-size: 9px;
+      display: block;
+      margin-top: 1px;
     }
     
     .highlight { 
@@ -5471,27 +5513,35 @@ app.get('/invoices', (c) => {
       font-weight: 600;
     }
     .compliance-box {
-      background: #f8f9fa;
-      border-left: 4px solid #4794A6;
-      padding: 24px 28px;
-      border-radius: 8px;
-      margin: 24px 0;
+      background: #f0f8fa;
+      border: 2px solid #4794A6;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 15px;
     }
     .compliance-box p {
-      margin-bottom: 12px;
+      font-size: 10px;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .compliance-box .title {
+      font-weight: 600;
+      color: #000;
+      font-size: 11px;
+      margin-bottom: 6px;
     }
     
     .footer { 
-      margin-top: 60px; 
-      padding-top: 24px; 
+      margin-top: 15px; 
+      padding-top: 10px; 
       border-top: 1px solid #e5e5e5; 
       text-align: center;
     }
     .footer p { 
-      font-size: 13px; 
+      font-size: 9px; 
       color: #666; 
-      line-height: 1.8;
-      margin-bottom: 8px;
+      line-height: 1.6;
+      margin-bottom: 3px;
     }
     .footer strong { 
       color: #000; 
@@ -5499,66 +5549,83 @@ app.get('/invoices', (c) => {
     }
     
     @media print {
-      body { padding: 0; }
-      .no-print { display: none; }
+      body { 
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .container { padding: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="logo-header">
-    <img src="https://3000-i49aua0ijjil4k3yd5ptd-82b888ba.sandbox.novita.ai/static/acromatico-logo-transparent.png" alt="Acromatico" />
-    <h1>Acromatico Photography Academy</h1>
-    <h2>Instructor Credentials for Step Up For Students PEP</h2>
-    <span class="category-badge">ELECTIVES - Photography Enrichment</span>
-  </div>
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <img src="https://3000-i49aua0ijjil4k3yd5ptd-82b888ba.sandbox.novita.ai/static/acromatico-logo-transparent.png" alt="Acromatico" class="logo" />
+        <h1>Acromatico Photography Academy</h1>
+        <h2>Instructor Credentials • Step Up For Students PEP</h2>
+        <span class="category-badge">ELECTIVES - Photography Enrichment</span>
+      </div>
+      <div class="header-right">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQGvH7P6qo2Qog/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725302169850?e=1747872000&v=beta&t=xQXYxvLVWBXJfFYvvJP0DfXYJ0v9KVvQPXuLPXKPxMU" alt="Italo Campilii" class="photo" onerror="this.style.display='none'" />
+        <div class="name">Italo Campilii</div>
+        <div class="title">Lead Instructor</div>
+      </div>
+    </div>
 
-  <div class="section">
-    <h3>Lead Instructor: Italo Campilii</h3>
-    <p><strong>Qualifications under PEP Electives Requirements:</strong></p>
-    <p>Per Step Up PEP Purchasing Guide (Page 7, Electives Section), eligible providers must have <span class="highlight">"minimum of three years of experience in the relevant subject area as demonstrated by employment records (resume, website, LinkedIn profile, etc.)"</span></p>
-  </div>
+    <div class="grid">
+      <div class="section">
+        <h3>📸 Photography Experience</h3>
+        <ul>
+          <li><strong>20+ years</strong> professional experience (2004–present)</li>
+          <li><strong>1,000+ photography projects</strong> completed</li>
+          <li>Co-Founder & CMO, <strong>Acromatico Photography</strong></li>
+          <li>Award-winning wedding, portrait, commercial photographer</li>
+          <li>Portfolio: <strong>www.acromatico.com</strong></li>
+        </ul>
+      </div>
 
-  <div class="section">
-    <h3>Professional Photography Experience</h3>
-    <ul>
-      <li><strong>20+ years</strong> of professional photography experience (2004–present)</li>
-      <li>Co-Founder & Chief Marketing Officer, <strong>Acromatico Photography</strong></li>
-      <li>Award-winning wedding, portrait, and commercial photographer</li>
-      <li>Published portfolio: <strong>www.acromatico.com</strong></li>
-      <li>LinkedIn profile: <strong>linkedin.com/in/italocampilii</strong></li>
-    </ul>
-  </div>
+      <div class="section">
+        <h3>🎓 Education & Training</h3>
+        <ul>
+          <li><strong>FIAF Certified Photographer</strong><span>Federazione Italiana Associazioni Fotografiche (Italy)</span></li>
+          <li><strong>BS Business Administration</strong><span>Business Information Systems</span></li>
+        </ul>
+      </div>
+    </div>
 
-  <div class="section">
-    <h3>Educational Background</h3>
-    <ul>
-      <li><strong>Bachelor of Science in Business Administration</strong><br><span style="color: #666;">Concentration: Business Information Systems</span></li>
-    </ul>
-  </div>
+    <div class="grid">
+      <div class="section">
+        <h3>🏆 Professional Certifications</h3>
+        <ul>
+          <li><strong>John Maxwell Certified</strong><span>Leadership Coach, Team & Speaker</span></li>
+          <li><strong>EXMA Certified Speaker</strong><span>Experiential Marketing</span></li>
+          <li><strong>Apple Sales Specialist (ASTO)</strong><span>Apple Training & Certification</span></li>
+        </ul>
+      </div>
 
-  <div class="section">
-    <h3>Professional Certifications</h3>
-    <ul>
-      <li><strong>FIAF Certified</strong><br><span style="color: #666;">Fédération Internationale de l'Art Photographique (International Federation of Photographic Art)</span></li>
-      <li><strong>John Maxwell Certified Leadership Coach</strong><br><span style="color: #666;">Team, Speaker & Coach Certification</span></li>
-      <li><strong>EXMA Certified Speaker</strong><br><span style="color: #666;">Experiential Marketing Certification</span></li>
-      <li><strong>Apple Certified Sales Specialist (ASTO)</strong><br><span style="color: #666;">Apple Sales Training & Certification</span></li>
-      <li><strong>Google AdWords Certified</strong><br><span style="color: #666;">Credential ID: 11533071</span></li>
-      <li><strong>Guinness World Record Holder</strong><br><span style="color: #666;">Professional achievement recognition</span></li>
-    </ul>
-  </div>
+      <div class="section">
+        <h3>🌟 Additional Credentials</h3>
+        <ul>
+          <li><strong>Google AdWords Certified</strong><span>Credential ID: 11533071</span></li>
+          <li><strong>Guinness World Record Holder</strong><span>Professional Achievement</span></li>
+          <li><strong>LinkedIn Profile</strong><span>linkedin.com/in/italocampilii</span></li>
+        </ul>
+      </div>
+    </div>
 
-  <div class="compliance-box">
-    <p style="font-weight: 600; color: #000; margin-bottom: 12px;">Step Up PEP Compliance Statement</p>
-    <p>Acromatico Photography Academy programs qualify under the <span class="highlight">Electives</span> category of Step Up For Students PEP scholarship program. Our instructors meet the requirement of "minimum of three years of experience in the relevant subject area" as defined in the PEP Purchasing Guide 2024-25.</p>
-    <p style="margin-top: 12px;"><strong>Reference:</strong> PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
-  </div>
+    <div class="compliance-box">
+      <div class="title">✅ Step Up PEP Compliance Statement</div>
+      <p>Acromatico Photography Academy programs qualify under the <span class="highlight">Electives</span> category of Step Up For Students PEP scholarship. Per PEP Purchasing Guide (Page 7, Electives Section), eligible providers must have <span class="highlight">"minimum of three years of experience in the relevant subject area as demonstrated by employment records."</span></p>
+      <p><strong>Our instructors exceed this requirement with 20+ years of professional photography experience and 1,000+ completed projects, documented at www.acromatico.com and LinkedIn.</strong></p>
+      <p style="margin-top: 8px; font-size: 9px;"><strong>Reference:</strong> Step Up PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
+    </div>
 
-  <div class="footer">
-    <p><strong>Acromatico Inc</strong></p>
-    <p>2300 W 84th ST. Suite 213, Miami, FL 33016</p>
-    <p>Phone: 954.779.0921 | Email: info@acromatico.com</p>
-    <p style="margin-top: 16px; color: #999; font-size: 12px;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+    <div class="footer">
+      <p><strong>Acromatico Inc</strong> • 2300 W 84th ST. Suite 213, Miami, FL 33016</p>
+      <p>Phone: 954.779.0921 | Email: info@acromatico.com | Website: www.acromatico.com</p>
+      <p style="margin-top: 8px; color: #999; font-size: 8px;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • For Step Up verification purposes</p>
+    </div>
   </div>
 </body>
 </html>
@@ -5575,7 +5642,7 @@ app.get('/invoices', (c) => {
           window.URL.revokeObjectURL(url);
           document.body.removeChild(a);
           
-          alert('✅ Apple-style credentials document downloaded!\\n\\nOpen in browser → Print → Save as PDF\\nPerfect for Step Up verification.');
+          alert('✅ Single-page PDF credentials downloaded!\\n\\n📄 Open in browser → Print → Save as PDF\\n✨ Perfect 1-page format for Step Up verification\\n\\nIncludes: Your photo, logo, FIAF Italy cert, 1000+ projects!');
         }
       `}} />
     </div>,
