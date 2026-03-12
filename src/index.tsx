@@ -5077,7 +5077,7 @@ app.get('/invoices', (c) => {
             <div class="border-b-2 border-gray-300 pb-8 mb-8">
               <div class="flex justify-between items-start">
                 <div>
-                  <img src="/static/acromatico-logo-new.png" alt="Acromatico" class="h-16 mb-4" />
+                  <img src="/static/acromatico-logo-official.png" alt="Acromatico" class="h-16 mb-4" />
                   <div class="text-sm text-gray-600">
                     <p class="font-bold text-lg text-black mb-2">Acromatico Inc</p>
                     <p>2300 W 84th ST. Suite 213</p>
@@ -5390,7 +5390,7 @@ app.get('/invoices', (c) => {
             };
             
             loadingMsg.innerHTML = '<div style="font-size:24px;margin-bottom:10px;">⏳</div><div style="font-size:16px;font-weight:300;">Loading Acromatico logo...</div><div style="font-size:12px;color:#ccc;margin-top:8px;font-weight:300;">Step 1 of 3</div>';
-            const logoBase64 = await loadImageAsBase64('/static/acromatico-logo-new.png');
+            const logoBase64 = await loadImageAsBase64('/static/acromatico-logo-official.png');
             
             loadingMsg.innerHTML = '<div style="font-size:24px;margin-bottom:10px;">⏳</div><div style="font-size:16px;font-weight:300;">Loading your headshot...</div><div style="font-size:12px;color:#ccc;margin-top:8px;font-weight:300;">Step 2 of 3</div>';
             const photoBase64 = await loadImageAsBase64('/static/italo-headshot.jpg');
@@ -5409,85 +5409,85 @@ app.get('/invoices', (c) => {
             // Create beautiful HTML content for PDF with LUXURY THIN FONT
             const pdfContent = document.createElement('div');
             pdfContent.innerHTML = \`
-              <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; width: 8.5in; min-height: 11in; padding: 0.5in; background: white; color: #000; font-weight: 300;">
+              <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; width: 8.5in; height: 11in; padding: 0.35in; background: white; color: #000; font-weight: 300;">
                 <!-- Header -->
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid #4794A6; padding-bottom: 20px; margin-bottom: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid #4794A6; padding-bottom: 10px; margin-bottom: 12px;">
                   <div>
-                    <img src="\${logoBase64}" style="width: 200px; height: auto; margin-bottom: 16px;" />
-                    <h1 style="font-size: 28px; font-weight: 300; color: #000; margin: 0 0 8px 0; letter-spacing: -1px;">Acromatico Photography Academy</h1>
-                    <h2 style="font-size: 15px; font-weight: 300; color: #4794A6; margin: 0 0 14px 0; letter-spacing: 0.5px;">Instructor Credentials • Step Up For Students PEP</h2>
-                    <span style="display: inline-block; background: #4794A6; color: white; padding: 7px 18px; border-radius: 20px; font-size: 11px; font-weight: 400; letter-spacing: 0.5px;">ELECTIVES - Photography Enrichment</span>
+                    <img src="\${logoBase64}" style="width: 140px; height: auto; margin-bottom: 6px;" />
+                    <h1 style="font-size: 20px; font-weight: 300; color: #000; margin: 0 0 4px 0; letter-spacing: -0.5px;">Acromatico Photography Academy</h1>
+                    <h2 style="font-size: 11px; font-weight: 300; color: #4794A6; margin: 0 0 6px 0; letter-spacing: 0.3px;">Instructor Credentials • Step Up For Students PEP</h2>
+                    <span style="display: inline-block; background: #4794A6; color: white; padding: 3px 10px; border-radius: 10px; font-size: 8px; font-weight: 400; letter-spacing: 0.3px;">ELECTIVES - Photography Enrichment</span>
                   </div>
                   <div style="text-align: center;">
-                    <img src="\${photoBase64}" style="width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #4794A6; margin-bottom: 10px;" />
-                    <div style="font-size: 16px; font-weight: 400; color: #000; letter-spacing: -0.5px;">Italo Campilii</div>
-                    <div style="font-size: 13px; font-weight: 300; color: #666; letter-spacing: 0.3px;">Lead Instructor</div>
+                    <img src="\${photoBase64}" style="width: 75px; height: 75px; border-radius: 50%; object-fit: cover; border: 2px solid #4794A6; margin-bottom: 5px;" />
+                    <div style="font-size: 12px; font-weight: 400; color: #000; letter-spacing: -0.3px;">Italo Campilii</div>
+                    <div style="font-size: 9px; font-weight: 300; color: #666; letter-spacing: 0.2px;">Lead Instructor</div>
                   </div>
                 </div>
 
                 <!-- Two Column Layout -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
                   <!-- Left Column -->
                   <div>
-                    <div style="background: #fafafa; padding: 18px; border-radius: 10px; border-left: 3px solid #4794A6; margin-bottom: 22px;">
-                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 14px 0; letter-spacing: -0.3px;">📸 Photography Experience</h3>
-                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; font-weight: 300; line-height: 1.8;">
-                        <li style="margin-bottom: 10px; color: #333;">• <strong style="font-weight: 400;">20+ years</strong> professional experience (2004–present)</li>
-                        <li style="margin-bottom: 10px; color: #333;">• <strong style="font-weight: 400;">1,000+ photography projects</strong> completed</li>
-                        <li style="margin-bottom: 10px; color: #333;">• Co-Founder & CMO, <strong style="font-weight: 400;">Acromatico Photography</strong></li>
-                        <li style="margin-bottom: 10px; color: #333;">• Award-winning wedding, portrait, commercial photographer</li>
+                    <div style="background: #fafafa; padding: 10px; border-radius: 6px; border-left: 2px solid #4794A6; margin-bottom: 10px;">
+                      <h3 style="font-size: 12px; font-weight: 400; color: #000; margin: 0 0 6px 0; letter-spacing: -0.2px;">📸 Photography Experience</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 9px; font-weight: 300; line-height: 1.5;">
+                        <li style="margin-bottom: 4px; color: #333;">• <strong style="font-weight: 400;">20+ years</strong> professional experience (2004–present)</li>
+                        <li style="margin-bottom: 4px; color: #333;">• <strong style="font-weight: 400;">1,000+ photography projects</strong> completed</li>
+                        <li style="margin-bottom: 4px; color: #333;">• Co-Founder & CMO, <strong style="font-weight: 400;">Acromatico Photography</strong></li>
+                        <li style="margin-bottom: 4px; color: #333;">• Award-winning wedding, portrait, commercial photographer</li>
                         <li style="margin-bottom: 0; color: #333;">• Portfolio: <strong style="font-weight: 400;">www.acromatico.com</strong></li>
                       </ul>
                     </div>
 
-                    <div style="background: #fafafa; padding: 18px; border-radius: 10px; border-left: 3px solid #4794A6;">
-                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 14px 0; letter-spacing: -0.3px;">🏆 Professional Certifications</h3>
-                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; font-weight: 300; line-height: 1.7;">
-                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">John Maxwell Certified</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Leadership Coach, Team & Speaker</span></li>
-                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">EXMA Certified Speaker</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Experiential Marketing</span></li>
-                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">Apple Sales Specialist (ASTO)</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Apple Training & Certification</span></li>
+                    <div style="background: #fafafa; padding: 10px; border-radius: 6px; border-left: 2px solid #4794A6;">
+                      <h3 style="font-size: 12px; font-weight: 400; color: #000; margin: 0 0 6px 0; letter-spacing: -0.2px;">🏆 Professional Certifications</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 9px; font-weight: 300; line-height: 1.5;">
+                        <li style="margin-bottom: 6px; color: #333;">• <strong style="font-weight: 400;">John Maxwell Certified</strong><br><span style="font-size: 8px; color: #666; font-weight: 300;">Leadership Coach, Team & Speaker</span></li>
+                        <li style="margin-bottom: 6px; color: #333;">• <strong style="font-weight: 400;">EXMA Certified Speaker</strong><br><span style="font-size: 8px; color: #666; font-weight: 300;">Experiential Marketing</span></li>
+                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">Apple Sales Specialist (ASTO)</strong><br><span style="font-size: 8px; color: #666; font-weight: 300;">Apple Training & Certification</span></li>
                       </ul>
                     </div>
                   </div>
 
                   <!-- Right Column -->
                   <div>
-                    <div style="background: #fafafa; padding: 18px; border-radius: 10px; border-left: 3px solid #4794A6; margin-bottom: 22px;">
-                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 14px 0; letter-spacing: -0.3px;">🎓 Education & Training</h3>
-                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; font-weight: 300; line-height: 1.7;">
-                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">FIAF Certified Photographer</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Federazione Italiana Associazioni Fotografiche (Italy)</span></li>
-                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">BS Business Administration</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Business Information Systems</span></li>
+                    <div style="background: #fafafa; padding: 10px; border-radius: 6px; border-left: 2px solid #4794A6; margin-bottom: 10px;">
+                      <h3 style="font-size: 12px; font-weight: 400; color: #000; margin: 0 0 6px 0; letter-spacing: -0.2px;">🎓 Education & Training</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 9px; font-weight: 300; line-height: 1.5;">
+                        <li style="margin-bottom: 6px; color: #333;">• <strong style="font-weight: 400;">FIAF Certified Photographer</strong><br><span style="font-size: 8px; color: #666; font-weight: 300;">Federazione Italiana Associazioni Fotografiche (Italy)</span></li>
+                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">BS Business Administration</strong><br><span style="font-size: 8px; color: #666; font-weight: 300;">Business Information Systems</span></li>
                       </ul>
                     </div>
 
-                    <div style="background: #fafafa; padding: 18px; border-radius: 10px; border-left: 3px solid #4794A6;">
-                      <h3 style="font-size: 16px; font-weight: 400; color: #000; margin: 0 0 14px 0; letter-spacing: -0.3px;">🌟 Additional Credentials</h3>
-                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; font-weight: 300; line-height: 1.7;">
-                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">Google AdWords Certified</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Credential ID: 11533071</span></li>
-                        <li style="margin-bottom: 12px; color: #333;">• <strong style="font-weight: 400;">Guinness World Record Holder</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">Professional Achievement</span></li>
-                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">LinkedIn Profile</strong><br><span style="font-size: 11px; color: #666; font-weight: 300;">linkedin.com/in/italocampilii</span></li>
+                    <div style="background: #fafafa; padding: 10px; border-radius: 6px; border-left: 2px solid #4794A6;">
+                      <h3 style="font-size: 12px; font-weight: 400; color: #000; margin: 0 0 6px 0; letter-spacing: -0.2px;">🌟 Additional Credentials</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 9px; font-weight: 300; line-height: 1.5;">
+                        <li style="margin-bottom: 6px; color: #333;">• <strong style="font-weight: 400;">Google AdWords Certified</strong><br><span style="font-size: 8px; color: #666; font-weight: 300;">Credential ID: 11533071</span></li>
+                        <li style="margin-bottom: 6px; color: #333;">• <strong style="font-weight: 400;">Guinness World Record Holder</strong><br><span style="font-size: 8px; color: #666; font-weight: 300;">Professional Achievement</span></li>
+                        <li style="margin-bottom: 0; color: #333;">• <strong style="font-weight: 400;">LinkedIn Profile</strong><br><span style="font-size: 8px; color: #666; font-weight: 300;">linkedin.com/in/italocampilii</span></li>
                       </ul>
                     </div>
                   </div>
                 </div>
 
                 <!-- Compliance Box -->
-                <div style="background: #f0f8fa; border: 2px solid #4794A6; padding: 20px; border-radius: 10px; margin-bottom: 24px;">
-                  <div style="font-size: 15px; font-weight: 400; color: #000; margin-bottom: 12px; letter-spacing: -0.3px;">✅ Step Up PEP Compliance Statement</div>
-                  <p style="font-size: 12px; color: #333; line-height: 1.7; margin: 0 0 12px 0; font-weight: 300;">
+                <div style="background: #f0f8fa; border: 2px solid #4794A6; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
+                  <div style="font-size: 13px; font-weight: 400; color: #000; margin-bottom: 8px; letter-spacing: -0.2px;">✅ Step Up PEP Compliance Statement</div>
+                  <p style="font-size: 10px; color: #333; line-height: 1.5; margin: 0 0 8px 0; font-weight: 300;">
                     Acromatico Photography Academy programs qualify under the <strong style="color: #4794A6; font-weight: 400;">Electives</strong> category of Step Up For Students PEP scholarship. Per PEP Purchasing Guide (Page 7, Electives Section), eligible providers must have <strong style="font-weight: 400;">"minimum of three years of experience in the relevant subject area as demonstrated by employment records."</strong>
                   </p>
-                  <p style="font-size: 12px; color: #333; line-height: 1.7; margin: 0 0 12px 0; font-weight: 300;">
+                  <p style="font-size: 10px; color: #333; line-height: 1.5; margin: 0 0 8px 0; font-weight: 300;">
                     <strong style="font-weight: 400;">Our instructors exceed this requirement with 20+ years of professional photography experience and 1,000+ completed projects, documented at www.acromatico.com and LinkedIn.</strong>
                   </p>
-                  <p style="font-size: 10px; color: #666; margin: 0; font-weight: 300;"><strong style="font-weight: 400;">Reference:</strong> Step Up PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
+                  <p style="font-size: 8px; color: #666; margin: 0; font-weight: 300;"><strong style="font-weight: 400;">Reference:</strong> Step Up PEP Purchasing Guide 2024-25, Page 7, Electives Section</p>
                 </div>
 
                 <!-- Footer -->
-                <div style="border-top: 1px solid #ddd; padding-top: 16px; text-align: center;">
-                  <p style="font-size: 12px; color: #000; margin: 0 0 5px 0; font-weight: 300;"><strong style="font-weight: 400;">Acromatico Inc</strong> • 2300 W 84th ST. Suite 213, Miami, FL 33016</p>
-                  <p style="font-size: 11px; color: #666; margin: 0 0 10px 0; font-weight: 300;">Phone: 954.779.0921 | Email: info@acromatico.com | Website: www.acromatico.com</p>
-                  <p style="font-size: 10px; color: #999; margin: 0; font-weight: 300;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • For Step Up verification purposes</p>
+                <div style="border-top: 1px solid #ddd; padding-top: 10px; text-align: center;">
+                  <p style="font-size: 10px; color: #000; margin: 0 0 4px 0; font-weight: 300;"><strong style="font-weight: 400;">Acromatico Inc</strong> • 2300 W 84th ST. Suite 213, Miami, FL 33016</p>
+                  <p style="font-size: 9px; color: #666; margin: 0 0 6px 0; font-weight: 300;">Phone: 954.779.0921 | Email: info@acromatico.com | Website: www.acromatico.com</p>
+                  <p style="font-size: 8px; color: #999; margin: 0; font-weight: 300;">Document generated: \${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • For Step Up verification purposes</p>
                 </div>
               </div>
             \`;
@@ -5511,7 +5511,7 @@ app.get('/invoices', (c) => {
             await html2pdf().set(opt).from(pdfContent).save();
             
             document.body.removeChild(loadingMsg);
-            alert('✅ LUXURY PDF DOWNLOADED!\\n\\n✨ New Acromatico logo included\\n📸 Your professional headshot included\\n🎨 Thin luxury font (like website)\\n\\nFile: Acromatico_Instructor_Credentials_StepUp_PEP.pdf');
+            alert('✅ Credentials Downloaded Successfully!\\n\\nYour instructor credentials PDF is ready to submit to Step Up For Students.\\n\\nFile saved: Acromatico_Instructor_Credentials_StepUp_PEP.pdf');
             
           } catch(error) {
             if (document.body.contains(loadingMsg)) {
