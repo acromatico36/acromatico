@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Services - Acromatico</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1d1d1f;
+      --secondary: #6e6e73;
+      --accent: #0071e3;
+      --bg: #ffffff;
+      --bg-gray: #f5f5f7;
+      --border: #d2d2d7;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      transition: all 0.3s;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      margin-top: 60px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: 72px;
+      font-weight: 600;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--secondary);
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 16px 48px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 980px;
+      font-size: 17px;
+      font-weight: 500;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(0,113,227,0.3);
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,113,227,0.4);
+    }
+
+    /* SERVICES GRID */
+    .services {
+      padding: 120px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 21px;
+      font-weight: 300;
+      color: var(--secondary);
+      letter-spacing: -0.3px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      border-color: var(--accent);
+    }
+
+    .service-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 32px;
+    }
+
+    .service-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .service-description {
+      font-size: 15px;
+      color: var(--secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .service-price {
+      font-size: 21px;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 15px;
+      transition: gap 0.3s;
+    }
+
+    .service-card:hover .service-link {
+      gap: 12px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 120px 40px;
+      background: var(--bg-gray);
+    }
+
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 80px;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .testimonial-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--primary);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .testimonial-role {
+      font-size: 13px;
+      color: var(--secondary);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 80px 40px 40px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-section h4 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-section a {
+      display: block;
+      color: #d2d2d7;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 13px;
+      color: #d2d2d7;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .hero-subtitle {
+        font-size: 21px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">Acromatico</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/photography">Photography</a>
+        <a href="/education">Education</a>
+        <a href="/our-story">Our Story</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">See differently.</h1>
+      <p class="hero-subtitle">20+ years capturing life's most precious moments with artistry and intention.</p>
+      <a href="#services" class="hero-cta">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Choose the experience that tells your story</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- WEDDINGS -->
+      <a href="/weddings/booking" class="service-card">
+        <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-1020.jpg" alt="Wedding Photography" class="service-image" loading="lazy">
+        <div class="service-content">
+          <h3 class="service-title">Weddings</h3>
+          <p class="service-description">Luxury wedding photography with timeless heirloom albums. Full-day coverage, engagement sessions, and museum-quality prints.</p>
+          <p class="service-price">Starting at $2,500</p>
+          <span class="service-link">Start your booking →</span>
+        </div>
+      </a>
+
+      <!-- PORTRAITS -->
+      <a href="/portraits/booking" class="service-card">
+        <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg" alt="Portrait Photography" class="service-image" loading="lazy">
+        <div class="service-content">
+          <h3 class="service-title">Portraits</h3>
+          <p class="service-description">Professional headshots, family portraits, and personal branding sessions. Studio or on-location.</p>
+          <p class="service-price">Starting at $500</p>
+          <span class="service-link">Book your session →</span>
+        </div>
+      </a>
+
+      <!-- EVENTS -->
+      <a href="/events/booking" class="service-card">
+        <img src="https://acromatico.com/wp-content/uploads/2018/09/KH-Ritz-262.jpg" alt="Event Photography" class="service-image" loading="lazy">
+        <div class="service-content">
+          <h3 class="service-title">Events</h3>
+          <p class="service-description">Corporate events, galas, conferences, and celebrations. Full event coverage with same-day delivery options.</p>
+          <p class="service-price">Starting at $1,200</p>
+          <span class="service-link">Plan your event →</span>
+        </div>
+      </a>
+
+      <!-- COMMERCIAL -->
+      <a href="/commercial/booking" class="service-card">
+        <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-520.jpg" alt="Commercial Photography" class="service-image" loading="lazy">
+        <div class="service-content">
+          <h3 class="service-title">Commercial</h3>
+          <p class="service-description">Product photography, brand campaigns, and editorial work. Studio production and creative direction.</p>
+          <p class="service-price">Custom pricing</p>
+          <span class="service-link">Get a quote →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="testimonials-container">
+      <div class="section-header">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Stories from couples, families, and brands we've worked with</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Italo captured our wedding day with such artistry and emotion. Every photo tells a story, and our album is a treasure we'll pass down for generations."</p>
+          <p class="testimonial-author">Jane & Dez</p>
+          <p class="testimonial-role">Wedding Clients</p>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Working with Acromatico for our brand campaign was seamless. Professional, creative, and the results exceeded our expectations."</p>
+          <p class="testimonial-author">Sarah M.</p>
+          <p class="testimonial-role">Marketing Director</p>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Our family portraits are stunning. Italo made the entire session fun and relaxed, and the final images are museum-quality."</p>
+          <p class="testimonial-author">The Rodriguez Family</p>
+          <p class="testimonial-role">Portrait Clients</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Services</h4>
+        <a href="/weddings/booking">Weddings</a>
+        <a href="/portraits/booking">Portraits</a>
+        <a href="/events/booking">Events</a>
+        <a href="/commercial/booking">Commercial</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="/our-story">Our Story</a>
+        <a href="/education">Education</a>
+        <a href="/blog">Blog</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <a href="tel:9547790921">954.779.0921</a>
+        <a href="mailto:info@acromatico.com">info@acromatico.com</a>
+        <a href="https://www.acromatico.com">www.acromatico.com</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Follow</h4>
+        <a href="https://www.instagram.com/acromatico" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/italocampilii" target="_blank">LinkedIn</a>
+        <a href="https://www.facebook.com/acromatico" target="_blank">Facebook</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Acromatico. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
