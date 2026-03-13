@@ -579,7 +579,7 @@
         </div>
 
         <div class="button-group">
-          <button class="btn btn-primary" onclick="nextStep(2)">Continue →</button>
+          <button class="btn btn-primary" onclick="validateStep1()">Continue →</button>
         </div>
       </div>
 
@@ -1093,6 +1093,35 @@
       const upgradesTotal = booking.upgrades.reduce((sum, u) => sum + u.price, 0);
       const total = booking.packagePrice + booking.albumPrice + upgradesTotal;
       document.getElementById('previewTotal').textContent = `$${total.toLocaleString()}`;
+    }
+
+    function validateStep1() {
+      const date = document.getElementById('weddingDate').value;
+      if (!date) {
+        alert('⚠️ Please select your wedding date');
+        return;
+      }
+      
+      const venueType = document.querySelector('input[name="venueType"]:checked').value;
+      let location = '';
+      
+      if (venueType === 'venue') {
+        location = document.getElementById('venue').value.trim();
+        if (!location) {
+          alert('⚠️ Please enter your venue name or select "No, just a city"');
+          return;
+        }
+      } else {
+        location = document.getElementById('city').value.trim();
+        if (!location) {
+          alert('⚠️ Please enter your city name');
+          return;
+        }
+      }
+      
+      // All validation passed
+      console.log('✅ Step 1 validated:', { date, venueType, location });
+      nextStep(2);
     }
 
     function nextStep(step) {
