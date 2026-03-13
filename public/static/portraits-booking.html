@@ -551,31 +551,33 @@
           </div>
           <span>Your Details</span>
         </div>
-        <h1 class="step-question">Let's start with the basics.<br>Do you have a location selected?</h1>
+        <h1 class="step-question">Let's start with the basics.<br>When would you like to schedule your portrait session?</h1>
+        <input type="date" id="portraitDate">
         
-        <div class="choice-cards">
-          <div class="choice-card" onclick="selectLocationChoice('yes')">
-            <h3>✅ Yes, I have a location</h3>
-            <p>I know where I want to shoot</p>
-          </div>
-          <div class="choice-card" onclick="selectLocationChoice('search')">
-            <h3>🔍 Search by address or name</h3>
-            <p>Find parks, beaches, studios, or locations</p>
-          </div>
+        <label style="display: block; margin: 24px 0 8px 0; font-size: 15px; font-weight: 500; color: var(--secondary);">Do you have a location selected?</label>
+        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+          <label style="flex: 1; cursor: pointer;">
+            <input type="radio" name="locationType" value="location" checked onchange="switchLocationType('location')" style="margin-right: 8px;">
+            <span>Yes, I have a location</span>
+          </label>
+          <label style="flex: 1; cursor: pointer;">
+            <input type="radio" name="locationType" value="city" onchange="switchLocationType('city')" style="margin-right: 8px;">
+            <span>No, just a city</span>
+          </label>
         </div>
-        
-        <div id="locationSearchContainer" style="display: none; margin-top: 24px;">
-          <input type="text" id="locationSearch" placeholder="Search for Florida or New York locations..." autocomplete="off" oninput="searchLocations(this.value)">
-          <div id="locationSuggestions" class="suggestions-dropdown" style="display: none;"></div>
+
+        <div id="locationInput">
+          <input type="text" id="location" placeholder="Start typing location name..." autocomplete="off" oninput="searchLocations(this.value)">
+          <div id="locationSuggestions" style="display: none; background: white; border: 2px solid var(--border); border-radius: 12px; margin-top: -12px; max-height: 200px; overflow-y: auto; box-shadow: 0 8px 30px rgba(0,0,0,0.1); z-index: 100;"></div>
         </div>
-        
-        <div id="manualLocationContainer" style="display: none; margin-top: 24px;">
-          <label style="display: block; font-size: 14px; color: var(--secondary); margin-bottom: 8px;">Location Name or Address:</label>
-          <input type="text" id="manualLocation" placeholder="e.g., Central Park, Bill Baggs State Park, my home...">
+
+        <div id="cityInput" style="display: none;">
+          <input type="text" id="city" placeholder="Enter city name" autocomplete="off" oninput="searchCities(this.value)">
+          <div id="citySuggestions" style="display: none; background: white; border: 2px solid var(--border); border-radius: 12px; margin-top: -12px; max-height: 200px; overflow-y: auto; box-shadow: 0 8px 30px rgba(0,0,0,0.1); z-index: 100;"></div>
         </div>
 
         <div class="button-group">
-          <button class="btn btn-primary" onclick="validatePortraitStep1()">Continue →</button>
+          <button class="btn btn-primary" onclick="validateStep1()">Continue →</button>
         </div>
       </div>
 
@@ -1162,11 +1164,11 @@
   <script>
     let booking = {
       date: '',
-      venue: '',
+      location: '',
       package: '',
       packagePrice: 0,
-      coverageHours: 2, // Minimum 2 hours for custom
-      coverageHoursPrice: 1200, // Base $1,200 for 2 hours
+      coverageHours: 1, // Minimum 1 hour for custom portraits
+      coverageHoursPrice: 595, // Base $595 for 1 hour
       albumChoice: '',
       album: '',
       albumPrice: 0,
@@ -1174,6 +1176,7 @@
       upgrades: [],
       name: '',
       email: '',
+      phone: '',
       isCustom: false
     };
 
@@ -1284,20 +1287,20 @@
     }
 
     function validateStep1() {
-      const date = document.getElementById('weddingDate').value;
+      const date = document.getElementById('portraitDate').value;
       if (!date) {
-        alert('⚠️ Please select your wedding date');
+        alert('⚠️ Please select your portrait session date');
         return;
       }
       
-      const venueType = document.querySelector('input[name="venueType"]:checked').value;
+      const locationType = document.querySelector('input[name="locationType"]:checked').value;
       let location = '';
       
-      if (venueType === 'venue') {
-        location = document.getElementById('venue').value.trim();
-        // Venue is optional - if empty, use "TBD"
+      if (locationType === 'location') {
+        location = document.getElementById('location').value.trim();
+        // Location is optional - if empty, use "TBD"
         if (!location) {
-          location = 'Venue TBD';
+          location = 'Location TBD';
         }
       } else {
         location = document.getElementById('city').value.trim();
@@ -1309,10 +1312,10 @@
       
       // Save to booking object
       booking.date = date;
-      booking.venue = location;
+      booking.location = location;
       
       // All validation passed
-      console.log('✅ Step 1 validated:', { date, venueType, location });
+      console.log('✅ Step 1 validated:', { date, locationType, location });
       nextStep(2);
     }
 
@@ -1507,19 +1510,212 @@
     }
 
     // Switch between venue and city input
-    function switchVenueType(type) {
-      if (type === 'venue') {
-        document.getElementById('venueInput').style.display = 'block';
+    function switchLocationType(type) {
+      if (type === 'location') {
+        document.getElementById('locationInput').style.display = 'block';
         document.getElementById('cityInput').style.display = 'none';
       } else {
-        document.getElementById('venueInput').style.display = 'none';
+        document.getElementById('locationInput').style.display = 'none';
         document.getElementById('cityInput').style.display = 'block';
       }
     }
 
-    // Venue search with MASSIVE database - FLORIDA + NEW YORK
+    // Location search with MASSIVE database - FLORIDA + NEW YORK STATE PARKS
     let venueDebounce;
-    const venueDatabase = [
+    const locationDatabase = [
+      // ========== FLORIDA STATE PARKS ==========
+      'Bill Baggs Cape Florida State Park, Key Biscayne',
+      'Bahia Honda State Park, Big Pine Key',
+      'John Pennekamp Coral Reef State Park, Key Largo',
+      'Fort Zachary Taylor Historic State Park, Key West',
+      'Sebastian Inlet State Park, Melbourne Beach',
+      'Jonathan Dickinson State Park, Hobe Sound',
+      'Hugh Taylor Birch State Park, Fort Lauderdale',
+      'Oleta River State Park, North Miami',
+      'Crandon Park, Key Biscayne',
+      'The Barnacle Historic State Park, Coconut Grove',
+      'Hillsborough River State Park, Thonotosassa',
+      'Honeymoon Island State Park, Dunedin',
+      'Caladesi Island State Park, Dunedin',
+      'Fort De Soto Park, Tierra Verde',
+      'Lovers Key State Park, Fort Myers Beach',
+      'Delnor-Wiggins Pass State Park, Naples',
+      'Collier-Seminole State Park, Naples',
+      'Cayo Costa State Park, Boca Grande',
+      'Myakka River State Park, Sarasota',
+      'Oscar Scherer State Park, Osprey',
+      'Washington Oaks Gardens State Park, Palm Coast',
+      'Anastasia State Park, St. Augustine',
+      'Little Talbot Island State Park, Jacksonville',
+      'Fort Clinch State Park, Fernandina Beach',
+      'Amelia Island State Park, Fernandina Beach',
+      'Ichetucknee Springs State Park, Fort White',
+      'Rainbow Springs State Park, Dunnellon',
+      'Silver Springs State Park, Ocala',
+      'Blue Spring State Park, Orange City',
+      'Wekiwa Springs State Park, Apopka',
+      'Kelly Park/Rock Springs, Apopka',
+      
+      // ========== FLORIDA BEACHES ==========
+      'South Beach, Miami Beach',
+      'Bal Harbour Beach, Bal Harbour',
+      'Haulover Beach, Miami Beach',
+      'Matheson Hammock Park, Coral Gables',
+      'Virginia Key Beach, Key Biscayne',
+      'Hollywood Beach, Hollywood',
+      'Deerfield Beach, Deerfield Beach',
+      'Delray Beach, Delray Beach',
+      'Palm Beach, Palm Beach',
+      'Singer Island, Riviera Beach',
+      'Juno Beach, Juno Beach',
+      'Jupiter Beach, Jupiter',
+      'Clearwater Beach, Clearwater',
+      'St. Pete Beach, St. Pete Beach',
+      'Treasure Island Beach, Treasure Island',
+      'Pass-a-Grille Beach, St. Pete Beach',
+      'Anna Maria Island, Anna Maria',
+      'Siesta Key Beach, Sarasota',
+      'Lido Beach, Sarasota',
+      'Venice Beach, Venice',
+      'Naples Beach, Naples',
+      'Marco Island Beach, Marco Island',
+      'Sanibel Island, Sanibel',
+      'Captiva Island, Captiva',
+      'Fort Myers Beach, Fort Myers',
+      'Bonita Beach, Bonita Springs',
+      'Cocoa Beach, Cocoa Beach',
+      'New Smyrna Beach, New Smyrna Beach',
+      'Daytona Beach, Daytona Beach',
+      'Jacksonville Beach, Jacksonville Beach',
+      'Ponte Vedra Beach, Ponte Vedra',
+      'Fernandina Beach, Fernandina Beach',
+      'Destin Beach, Destin',
+      'Seaside Beach, Seaside',
+      'Rosemary Beach, Rosemary Beach',
+      'Alys Beach, Alys Beach',
+      'Grayton Beach, Santa Rosa Beach',
+      'St. George Island Beach, St. George Island',
+      
+      // ========== FLORIDA GARDENS & MUSEUMS ==========
+      'Vizcaya Museum and Gardens, Miami',
+      'Fairchild Tropical Botanic Garden, Coral Gables',
+      'Miami Beach Botanical Garden, Miami Beach',
+      'The Kampong, Coconut Grove',
+      'Pinecrest Gardens, Pinecrest',
+      'Morikami Museum & Japanese Gardens, Delray Beach',
+      'Ann Norton Sculpture Gardens, West Palm Beach',
+      'Leu Gardens, Orlando',
+      'Bok Tower Gardens, Lake Wales',
+      'Sunken Gardens, St. Petersburg',
+      'Marie Selby Botanical Gardens, Sarasota',
+      'Naples Botanical Garden, Naples',
+      'Kanapaha Botanical Gardens, Gainesville',
+      
+      // ========== NEW YORK CITY ==========
+      'Central Park, Manhattan',
+      'Brooklyn Bridge Park, Brooklyn',
+      'Prospect Park, Brooklyn',
+      'The High Line, Manhattan',
+      'DUMBO, Brooklyn',
+      'Williamsburg Waterfront, Brooklyn',
+      'Gantry Plaza State Park, Long Island City',
+      'Roosevelt Island, Manhattan',
+      'Randall\'s Island Park, Manhattan',
+      'Hudson River Park, Manhattan',
+      'Battery Park, Manhattan',
+      'Fort Tryon Park, Manhattan',
+      'Riverside Park, Manhattan',
+      'Washington Square Park, Manhattan',
+      'Union Square Park, Manhattan',
+      'Madison Square Park, Manhattan',
+      'Bryant Park, Manhattan',
+      'Tompkins Square Park, Manhattan',
+      'Carl Schurz Park, Manhattan',
+      'The Cloisters, Manhattan',
+      'Brooklyn Botanic Garden, Brooklyn',
+      'New York Botanical Garden, Bronx',
+      'Queens Botanical Garden, Queens',
+      'Snug Harbor Cultural Center, Staten Island',
+      'Governors Island, New York Harbor',
+      'Liberty State Park, Jersey City',
+      'Pier 17, South Street Seaport',
+      'Chelsea Piers, Manhattan',
+      'One World Observatory, Manhattan',
+      'Top of the Rock, Manhattan',
+      'Edge at Hudson Yards, Manhattan',
+      
+      // ========== NEW YORK STATE PARKS ==========
+      'Jones Beach State Park, Wantagh',
+      'Robert Moses State Park, Fire Island',
+      'Sunken Meadow State Park, Kings Park',
+      'Caumsett State Historic Park, Lloyd Harbor',
+      'Montauk Point State Park, Montauk',
+      'Hither Hills State Park, Montauk',
+      'Orient Beach State Park, Orient',
+      'Wildwood State Park, Wading River',
+      'Bethpage State Park, Farmingdale',
+      'Heckscher State Park, East Islip',
+      'Belmont Lake State Park, Babylon',
+      'Valley Stream State Park, Valley Stream',
+      'Harriman State Park, Bear Mountain',
+      'Bear Mountain State Park, Bear Mountain',
+      'Storm King State Park, Cornwall',
+      'Minnewaska State Park, Kerhonkson',
+      'Watkins Glen State Park, Watkins Glen',
+      'Letchworth State Park, Castile',
+      'Niagara Falls State Park, Niagara Falls',
+      'Allegany State Park, Salamanca',
+      'Buttermilk Falls State Park, Ithaca',
+      'Taughannock Falls State Park, Trumansburg',
+      'Robert H. Treman State Park, Ithaca',
+      'Saratoga Spa State Park, Saratoga Springs',
+      'Lake George Battlefield Park, Lake George',
+      'Adirondack Park, North Creek',
+      'Letchworth State Park, Mount Morris',
+      'Finger Lakes National Forest, Seneca Falls',
+      
+      // ========== NEW YORK HAMPTONS & NORTH FORK ==========
+      'Cooper\'s Beach, Southampton',
+      'Main Beach, East Hampton',
+      'Georgica Beach, East Hampton',
+      'Two Mile Hollow Beach, East Hampton',
+      'Ditch Plains Beach, Montauk',
+      'Sagg Main Beach, Sagaponack',
+      'Pike\'s Beach, Westhampton Beach',
+      'Flying Point Beach, Water Mill',
+      'Mecox Beach, Bridgehampton',
+      'Ponquogue Beach, Hampton Bays',
+      'Crescent Beach, Shelter Island',
+      'Mashomack Preserve, Shelter Island',
+      'Orient Point, Orient',
+      'Greenport Village, Greenport',
+      'Jamesport Vineyards, Jamesport',
+      'Wölffer Estate Vineyard, Sagaponack',
+      'Bedell Cellars, Cutchogue',
+      
+      // ========== PHOTOGRAPHY STUDIOS & INDOOR LOCATIONS ==========
+      'Wynwood Walls, Miami',
+      'Design District, Miami',
+      'Brickell City Centre, Miami',
+      'Lincoln Road, Miami Beach',
+      'Coconut Grove Village, Coconut Grove',
+      'Las Olas Boulevard, Fort Lauderdale',
+      'Atlantic Avenue, Delray Beach',
+      'Worth Avenue, Palm Beach',
+      'SoHo, Manhattan',
+      'TriBeCa, Manhattan',
+      'West Village, Manhattan',
+      'Brooklyn Heights, Brooklyn',
+      'Park Slope, Brooklyn',
+      'Red Hook, Brooklyn',
+      'Long Island City, Queens',
+      'Astoria, Queens',
+      'The Bronx Zoo, Bronx',
+      'Coney Island, Brooklyn',
+      'Times Square, Manhattan',
+      'Grand Central Terminal, Manhattan',
+      'Brooklyn Bridge, Brooklyn'
+    ]
       // ========== FLORIDA ==========
       
       // MIAMI & MIAMI BEACH
@@ -1690,11 +1886,11 @@
       'The Giacomo Hotel Niagara Falls', 'Sheraton Niagara Falls', 'Niagara Falls State Park'
     ];
     
-    function searchVenues(query) {
-      console.log('🔍 searchVenues called with:', query);
+    function searchLocations(query) {
+      console.log('🔍 searchLocations called with:', query);
       
       if (!query || query.length < 2) {
-        document.getElementById('venueSuggestions').style.display = 'none';
+        document.getElementById('locationSuggestions').style.display = 'none';
         console.log('❌ Query too short, hiding suggestions');
         return;
       }
@@ -1704,42 +1900,42 @@
         const lowerQuery = query.toLowerCase();
         console.log('🔎 Searching for:', lowerQuery);
         
-        const suggestions = venueDatabase.filter(v => 
+        const suggestions = locationDatabase.filter(v => 
           v.toLowerCase().includes(lowerQuery)
         ).slice(0, 15); // Show top 15 results
 
-        console.log('✅ Found', suggestions.length, 'venues:', suggestions);
-        displayVenueSuggestions(suggestions);
+        console.log('✅ Found', suggestions.length, 'locations:', suggestions);
+        displayLocationSuggestions(suggestions);
       }, 200);
     }
 
-    function displayVenueSuggestions(venues) {
-      console.log('📋 displayVenueSuggestions called with', venues.length, 'venues');
+    function displayLocationSuggestions(locations) {
+      console.log('📋 displayLocationSuggestions called with', locations.length, 'locations');
       
-      const container = document.getElementById('venueSuggestions');
+      const container = document.getElementById('locationSuggestions');
       if (!container) {
-        console.error('❌ venueSuggestions container not found!');
+        console.error('❌ locationSuggestions container not found!');
         return;
       }
       
-      if (!venues.length) {
+      if (!locations.length) {
         container.style.display = 'none';
-        console.log('❌ No venues to display');
+        console.log('❌ No locations to display');
         return;
       }
 
-      container.innerHTML = venues.map(v => `
-        <div onclick="selectVenue('${v.replace(/'/g, "\\'")}')" style="padding: 16px 20px; cursor: pointer; border-bottom: 1px solid var(--bg-gray); transition: background 0.2s; font-size: 15px; font-weight: 400;" onmouseover="this.style.background='var(--bg-gray)'" onmouseout="this.style.background='white'">
+      container.innerHTML = locations.map(v => `
+        <div onclick="selectLocation('${v.replace(/'/g, "\\'")}')" style="padding: 16px 20px; cursor: pointer; border-bottom: 1px solid var(--bg-gray); transition: background 0.2s; font-size: 15px; font-weight: 400;" onmouseover="this.style.background='var(--bg-gray)'" onmouseout="this.style.background='white'">
           ${v}
         </div>
       `).join('');
       container.style.display = 'block';
-      console.log('✅ Displayed', venues.length, 'venue suggestions');
+      console.log('✅ Displayed', locations.length, 'location suggestions');
     }
 
-    function selectVenue(venue) {
-      document.getElementById('venue').value = venue;
-      document.getElementById('venueSuggestions').style.display = 'none';
+    function selectLocation(location) {
+      document.getElementById('location').value = location;
+      document.getElementById('locationSuggestions').style.display = 'none';
     }
 
     // City search with REAL working suggestions
