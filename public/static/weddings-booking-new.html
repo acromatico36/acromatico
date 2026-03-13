@@ -582,9 +582,9 @@
           <div class="option-card" onclick="selectCustom(this)" style="cursor: pointer; text-align: left; padding: 32px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
               <div class="option-title" style="margin: 0;">Build Custom</div>
-              <div style="font-size: 14px; color: var(--accent); font-weight: 500;">Start from scratch →</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">Starts at $800</div>
             </div>
-            <div class="option-description" style="text-align: left;">Choose exactly what you need, pay only for what you want. Full flexibility.</div>
+            <div class="option-description" style="text-align: left;">Choose exactly what you need, pay only for what you want. Base price includes 2 hours of coverage. Full flexibility to build your perfect day.</div>
           </div>
         </div>
 
@@ -655,6 +655,7 @@
       <div class="step" id="step4">
         <div class="step-number">Step 4 of 8</div>
         <h1 class="step-question">Want to add a luxury heirloom album?</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px; line-height: 1.7;">Handmade in Italy with museum-quality materials. A timeless treasure you'll pass down for generations. Flush-mount pages, premium leather covers, lifetime warranty.</p>
         
         <div class="album-showcase">
           <div class="album-gallery">
@@ -713,7 +714,7 @@
         <div class="step-number">Step 6 of 8</div>
         <h1 class="step-question">Any upgrades?</h1>
         
-        <div class="upgrade-card" onclick="toggleUpgrade(this, 'second', 800)">
+        <div class="upgrade-card" onclick="toggleUpgrade(this, 'Second Photographer', 800)">
           <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg" class="upgrade-image">
           <div class="upgrade-content">
             <div class="upgrade-title">Second Photographer</div>
@@ -722,7 +723,7 @@
           <div class="upgrade-price">$800</div>
         </div>
 
-        <div class="upgrade-card" onclick="toggleUpgrade(this, 'engagement', 600)">
+        <div class="upgrade-card" onclick="toggleUpgrade(this, 'Engagement Session', 600)">
           <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" class="upgrade-image">
           <div class="upgrade-content">
             <div class="upgrade-title">Engagement Session</div>
@@ -731,11 +732,11 @@
           <div class="upgrade-price">$600</div>
         </div>
 
-        <div class="upgrade-card" onclick="toggleUpgrade(this, 'parent', 400)">
+        <div class="upgrade-card" onclick="toggleUpgrade(this, 'Parent Album', 400)">
           <img src="https://www.genspark.ai/api/files/s/yBpgfzre" class="upgrade-image">
           <div class="upgrade-content">
-            <div class="upgrade-title">Parent Albums</div>
-            <div class="upgrade-description">Two smaller copies for parents (each)</div>
+            <div class="upgrade-title">Parent Album</div>
+            <div class="upgrade-description">One intimate 12×8 parent album</div>
           </div>
           <div class="upgrade-price">$400</div>
         </div>
@@ -748,7 +749,7 @@
 
       <!-- STEP 7: YOUR INFO -->
       <div class="step" id="step7">
-        <div class="step-number">Step 7 of 8</div>
+        <div class="step-number">Step 7 of 9</div>
         <h1 class="step-question">Almost there! What's your name?</h1>
         <input type="text" id="clientName" placeholder="Your full name">
         <input type="email" id="clientEmail" placeholder="Your email address">
@@ -758,14 +759,93 @@
         </div>
       </div>
 
-      <!-- STEP 8: CHECKOUT -->
+      <!-- STEP 8: CONTRACT SIGNING -->
       <div class="step" id="step8">
-        <div class="step-number">Step 8 of 8</div>
-        <h1 class="step-question">Ready to book your wedding?</h1>
-        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Review your selections on the right, then complete your booking.</p>
+        <div class="step-number">Step 8 of 9</div>
+        <h1 class="step-question">Review & sign your agreement</h1>
+        
+        <!-- Contract Preview -->
+        <div style="background: white; border: 2px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; max-height: 400px; overflow-y: auto;">
+          <h3 style="font-size: 21px; font-weight: 500; margin-bottom: 24px; text-align: center;">Wedding Photography Agreement</h3>
+          <div style="font-size: 14px; line-height: 1.8; color: var(--secondary);">
+            <p style="margin-bottom: 16px;"><strong>This Agreement</strong> is entered into on <span id="contractDate"></span> between Acromatico ("Photographer") and <span id="contractName">Client</span> ("Client").</p>
+            
+            <p style="margin-bottom: 16px;"><strong>Services:</strong> Photographer agrees to provide wedding photography services on <span id="contractWeddingDate"></span> at <span id="contractVenue"></span>.</p>
+            
+            <p style="margin-bottom: 16px;"><strong>Package:</strong> <span id="contractPackage"></span></p>
+            
+            <p style="margin-bottom: 16px;"><strong>Total Investment:</strong> $<span id="contractTotal"></span></p>
+            
+            <p style="margin-bottom: 16px;"><strong>Payment Terms:</strong> A 50% deposit is required to secure your date. The remaining balance is due 30 days before the wedding date.</p>
+            
+            <p style="margin-bottom: 16px;"><strong>Cancellation:</strong> Deposits are non-refundable. If Client cancels within 90 days of the wedding, the full balance becomes due.</p>
+            
+            <p style="margin-bottom: 16px;"><strong>Image Rights:</strong> Photographer retains all copyrights to images. Client receives a personal-use license for digital files.</p>
+            
+            <p style="margin-bottom: 16px;"><strong>Delivery:</strong> Final edited images will be delivered within 8-12 weeks via online gallery.</p>
+            
+            <p style="margin-bottom: 16px;"><strong>Full Agreement:</strong> View complete terms at <a href="/static/Wedding%20Agreement%20No%20CC.pdf" target="_blank" style="color: var(--accent);">Wedding Agreement PDF</a></p>
+          </div>
+        </div>
+
+        <!-- Signature Section -->
+        <div style="background: rgba(71, 148, 166, 0.05); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; margin-bottom: 32px;">
+          <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 16px;">Sign Below</h4>
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">Type your full name or draw your signature. This constitutes a legally binding electronic signature.</p>
+          
+          <div style="margin-bottom: 24px;">
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; margin-bottom: 16px;">
+              <input type="radio" name="signMethod" value="type" checked onchange="switchSignMethod('type')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Type my name</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+              <input type="radio" name="signMethod" value="draw" onchange="switchSignMethod('draw')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Draw my signature</span>
+            </label>
+          </div>
+
+          <!-- Type Signature -->
+          <div id="typeSignature">
+            <input type="text" id="signatureName" placeholder="Type your full legal name" style="width: 100%; padding: 20px; font-size: 24px; font-family: 'Brush Script MT', cursive; border: 2px solid var(--border); border-radius: 12px;">
+          </div>
+
+          <!-- Draw Signature -->
+          <div id="drawSignature" style="display: none;">
+            <canvas id="signatureCanvas" width="600" height="200" style="border: 2px solid var(--border); border-radius: 12px; background: white; cursor: crosshair; width: 100%; max-width: 600px;"></canvas>
+            <button onclick="clearSignature()" style="margin-top: 12px; padding: 12px 24px; background: white; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 14px;">Clear Signature</button>
+          </div>
+
+          <div style="margin-top: 24px; font-size: 13px; color: var(--secondary);">
+            <p>IP Address: <span id="ipAddress">Loading...</span></p>
+            <p style="margin-top: 8px;">Date: <span id="signDate"></span></p>
+          </div>
+        </div>
+
+        <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px; cursor: pointer;">
+          <input type="checkbox" id="agreeCheckbox" style="width: 24px; height: 24px; cursor: pointer;">
+          <span style="font-size: 15px;">I have read and agree to the terms of this agreement</span>
+        </label>
+
         <div class="button-group">
           <button class="btn btn-secondary" onclick="prevStep(7)">← Back</button>
-          <button class="btn btn-primary" onclick="checkout()">Complete Booking →</button>
+          <button class="btn btn-primary" onclick="validateAndContinue()">Sign & Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 9: FINAL CHECKOUT -->
+      <div class="step" id="step9">
+        <div class="step-number">Step 9 of 9</div>
+        <h1 class="step-question">Complete your booking</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Your contract is signed. Complete payment to secure your date.</p>
+        
+        <div style="background: rgba(52, 199, 89, 0.1); border: 2px solid var(--success); border-radius: 16px; padding: 24px; margin-bottom: 32px;">
+          <p style="font-size: 15px; font-weight: 500; color: var(--success); margin-bottom: 8px;">✓ Agreement Signed</p>
+          <p style="font-size: 14px; color: var(--secondary);">Signed by <span id="finalSignatureName"></span> on <span id="finalSignDate"></span></p>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(8)">← Back</button>
+          <button class="btn btn-primary" onclick="checkout()">Complete Payment → $<span id="finalTotalPrice">0</span></button>
         </div>
       </div>
 
@@ -830,8 +910,8 @@
       document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
       booking.package = 'custom';
-      booking.packagePrice = 0;
-      document.getElementById('previewPackage').textContent = 'Custom Build';
+      booking.packagePrice = 800; // Base 2 hours
+      document.getElementById('previewPackage').textContent = 'Custom Build (2 hours) - $800';
       updateTotal();
     }
 
@@ -889,9 +969,19 @@
     }
 
     function nextStep(step) {
+      // Save data from previous step
+      if (step === 8) {
+        booking.name = document.getElementById('clientName').value;
+        booking.email = document.getElementById('clientEmail').value;
+      }
+      if (step === 2) {
+        booking.date = document.getElementById('weddingDate').value;
+        booking.venue = document.getElementById('venue').value;
+      }
+
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
       document.getElementById(`step${step}`).classList.add('active');
-      document.getElementById('progressFill').style.width = `${(step / 8) * 100}%`;
+      document.getElementById('progressFill').style.width = `${(step / 9) * 100}%`;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -906,6 +996,134 @@
 
     // Initialize
     updateExtraHours(0);
+
+    // Get IP address
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('ipAddress').textContent = data.ip;
+        booking.ipAddress = data.ip;
+      })
+      .catch(() => {
+        document.getElementById('ipAddress').textContent = 'Unable to retrieve';
+      });
+
+    // Set dates
+    const today = new Date().toLocaleDateString();
+    document.getElementById('contractDate').textContent = today;
+    document.getElementById('signDate').textContent = today;
+
+    // Signature canvas
+    let canvas, ctx, isDrawing = false;
+    
+    function initCanvas() {
+      canvas = document.getElementById('signatureCanvas');
+      ctx = canvas.getContext('2d');
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+
+      canvas.addEventListener('mousedown', startDrawing);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDrawing);
+      canvas.addEventListener('mouseout', stopDrawing);
+
+      canvas.addEventListener('touchstart', handleTouch);
+      canvas.addEventListener('touchmove', handleTouch);
+      canvas.addEventListener('touchend', stopDrawing);
+    }
+
+    function startDrawing(e) {
+      isDrawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.stroke();
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    function handleTouch(e) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+
+      if (e.type === 'touchstart') {
+        isDrawing = true;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+      } else if (e.type === 'touchmove' && isDrawing) {
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
+    }
+
+    function clearSignature() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function switchSignMethod(method) {
+      if (method === 'type') {
+        document.getElementById('typeSignature').style.display = 'block';
+        document.getElementById('drawSignature').style.display = 'none';
+      } else {
+        document.getElementById('typeSignature').style.display = 'none';
+        document.getElementById('drawSignature').style.display = 'block';
+        initCanvas();
+      }
+    }
+
+    function validateAndContinue() {
+      const agreed = document.getElementById('agreeCheckbox').checked;
+      if (!agreed) {
+        alert('Please agree to the terms before continuing');
+        return;
+      }
+
+      const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
+      let signature;
+      
+      if (signMethod === 'type') {
+        signature = document.getElementById('signatureName').value.trim();
+        if (!signature) {
+          alert('Please type your full name');
+          return;
+        }
+      } else {
+        signature = canvas.toDataURL();
+        if (!signature || signature === canvas.toDataURL()) {
+          alert('Please draw your signature');
+          return;
+        }
+      }
+
+      booking.signature = signature;
+      booking.signMethod = signMethod;
+      booking.signedDate = new Date().toISOString();
+
+      // Fill contract details
+      document.getElementById('contractName').textContent = booking.name || 'Client';
+      document.getElementById('contractWeddingDate').textContent = booking.date || 'TBD';
+      document.getElementById('contractVenue').textContent = booking.venue || 'TBD';
+      document.getElementById('contractPackage').textContent = booking.package || 'TBD';
+      const total = booking.packagePrice + booking.extraHoursPrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      document.getElementById('contractTotal').textContent = total.toLocaleString();
+
+      // Fill final page
+      document.getElementById('finalSignatureName').textContent = booking.name;
+      document.getElementById('finalSignDate').textContent = today;
+      document.getElementById('finalTotalPrice').textContent = total.toLocaleString();
+
+      nextStep(9);
+    }
   </script>
 
 </body>
