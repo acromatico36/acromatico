@@ -549,12 +549,35 @@
             <div class="journey-dot"></div>
             <div class="journey-dot"></div>
             <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
           </div>
           <span>Your Details</span>
         </div>
         <h1 class="step-question">Let's start with the basics.<br>What's your wedding date?</h1>
         <input type="date" id="weddingDate">
-        <input type="text" id="venue" placeholder="Venue name or location">
+        
+        <label style="display: block; margin: 24px 0 8px 0; font-size: 15px; font-weight: 500; color: var(--secondary);">Do you have a venue selected?</label>
+        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+          <label style="flex: 1; cursor: pointer;">
+            <input type="radio" name="venueType" value="venue" checked onchange="switchVenueType('venue')" style="margin-right: 8px;">
+            <span>Yes, I have a venue</span>
+          </label>
+          <label style="flex: 1; cursor: pointer;">
+            <input type="radio" name="venueType" value="city" onchange="switchVenueType('city')" style="margin-right: 8px;">
+            <span>No, just a city</span>
+          </label>
+        </div>
+
+        <div id="venueInput">
+          <input type="text" id="venue" placeholder="Start typing venue name..." autocomplete="off" oninput="searchVenues(this.value)">
+          <div id="venueSuggestions" style="display: none; background: white; border: 2px solid var(--border); border-radius: 12px; margin-top: -12px; max-height: 200px; overflow-y: auto; box-shadow: 0 8px 30px rgba(0,0,0,0.1); z-index: 100;"></div>
+        </div>
+
+        <div id="cityInput" style="display: none;">
+          <input type="text" id="city" placeholder="Enter city name" autocomplete="off" oninput="searchCities(this.value)">
+          <div id="citySuggestions" style="display: none; background: white; border: 2px solid var(--border); border-radius: 12px; margin-top: -12px; max-height: 200px; overflow-y: auto; box-shadow: 0 8px 30px rgba(0,0,0,0.1); z-index: 100;"></div>
+        </div>
+
         <div class="button-group">
           <button class="btn btn-primary" onclick="nextStep(2)">Continue →</button>
         </div>
@@ -582,9 +605,9 @@
           <div class="option-card" onclick="selectCustom(this)" style="cursor: pointer; text-align: left; padding: 32px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
               <div class="option-title" style="margin: 0;">Build Custom</div>
-              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">Starts at $800</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">Starts at $1,200</div>
             </div>
-            <div class="option-description" style="text-align: left;">Choose exactly what you need, pay only for what you want. Base price includes 2 hours of coverage. Full flexibility to build your perfect day.</div>
+            <div class="option-description" style="text-align: left;">Choose exactly what you need, pay only for what you want. Minimum 2 hours of coverage. Full flexibility to build your perfect day.</div>
           </div>
         </div>
 
@@ -655,7 +678,7 @@
       <div class="step" id="step4">
         <div class="step-number">Step 4 of 8</div>
         <h1 class="step-question">Want to add a luxury heirloom album?</h1>
-        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px; line-height: 1.7;">Handmade in Italy with museum-quality materials. A timeless treasure you'll pass down for generations. Flush-mount pages, premium leather covers, lifetime warranty.</p>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px; line-height: 1.7;"><strong>Handmade in Italy.</strong> Museum-quality archival paper, flush-mount spreads, premium leather covers. A timeless memory you'll treasure for generations.</p>
         
         <div class="album-showcase">
           <div class="album-gallery">
@@ -735,8 +758,8 @@
         <div class="upgrade-card" onclick="toggleUpgrade(this, 'Parent Album', 400)">
           <img src="https://www.genspark.ai/api/files/s/yBpgfzre" class="upgrade-image">
           <div class="upgrade-content">
-            <div class="upgrade-title">Parent Album</div>
-            <div class="upgrade-description">One intimate 12×8 parent album</div>
+            <div class="upgrade-title">Parent Albums</div>
+            <div class="upgrade-description">One intimate 12×8" parent album</div>
           </div>
           <div class="upgrade-price">$400</div>
         </div>
@@ -772,9 +795,9 @@
             
             <p style="margin-bottom: 16px;"><strong>Services:</strong> Photographer agrees to provide wedding photography services on <span id="contractWeddingDate"></span> at <span id="contractVenue"></span>.</p>
             
-            <p style="margin-bottom: 16px;"><strong>Package:</strong> <span id="contractPackage"></span></p>
+            <p style="margin-bottom: 16px;"><strong>Package:</strong> <span id="contractPackage">Not selected</span></p>
             
-            <p style="margin-bottom: 16px;"><strong>Total Investment:</strong> $<span id="contractTotal"></span></p>
+            <p style="margin-bottom: 16px;"><strong>Total Investment:</strong> $<span id="contractTotal">0</span></p>
             
             <p style="margin-bottom: 16px;"><strong>Payment Terms:</strong> A 50% deposit is required to secure your date. The remaining balance is due 30 days before the wedding date.</p>
             
@@ -910,8 +933,8 @@
       document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
       booking.package = 'custom';
-      booking.packagePrice = 800; // Base 2 hours
-      document.getElementById('previewPackage').textContent = 'Custom Build (2 hours) - $800';
+      booking.packagePrice = 1200; // Minimum 2 hours
+      document.getElementById('previewPackage').textContent = 'Custom Build - $1,200';
       updateTotal();
     }
 
@@ -976,13 +999,122 @@
       }
       if (step === 2) {
         booking.date = document.getElementById('weddingDate').value;
-        booking.venue = document.getElementById('venue').value;
+        const venueType = document.querySelector('input[name="venueType"]:checked').value;
+        if (venueType === 'venue') {
+          booking.venue = document.getElementById('venue').value;
+        } else {
+          booking.venue = document.getElementById('city').value;
+        }
       }
 
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
       document.getElementById(`step${step}`).classList.add('active');
       document.getElementById('progressFill').style.width = `${(step / 9) * 100}%`;
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Switch between venue and city input
+    function switchVenueType(type) {
+      if (type === 'venue') {
+        document.getElementById('venueInput').style.display = 'block';
+        document.getElementById('cityInput').style.display = 'none';
+      } else {
+        document.getElementById('venueInput').style.display = 'none';
+        document.getElementById('cityInput').style.display = 'block';
+      }
+    }
+
+    // Venue search with Google Places API (simplified fallback)
+    let venueDebounce;
+    function searchVenues(query) {
+      if (!query || query.length < 3) {
+        document.getElementById('venueSuggestions').style.display = 'none';
+        return;
+      }
+
+      clearTimeout(venueDebounce);
+      venueDebounce = setTimeout(() => {
+        // Using Google Places API via proxy or simple fallback
+        const suggestions = [
+          'The Ritz-Carlton, Miami Beach',
+          'Vizcaya Museum and Gardens',
+          'The Breakers Palm Beach',
+          'Boca Raton Resort & Club',
+          'The Betsy Hotel, South Beach',
+          'Fairchild Tropical Botanic Garden',
+          'The Four Seasons Surf Club',
+          'The Bath Club, Miami Beach'
+        ].filter(v => v.toLowerCase().includes(query.toLowerCase()));
+
+        displayVenueSuggestions(suggestions);
+      }, 300);
+    }
+
+    function displayVenueSuggestions(venues) {
+      const container = document.getElementById('venueSuggestions');
+      if (!venues.length) {
+        container.style.display = 'none';
+        return;
+      }
+
+      container.innerHTML = venues.map(v => `
+        <div onclick="selectVenue('${v}')" style="padding: 16px; cursor: pointer; border-bottom: 1px solid var(--bg-gray); transition: background 0.2s;">
+          <div style="font-size: 15px; font-weight: 500;">${v}</div>
+        </div>
+      `).join('');
+      container.style.display = 'block';
+    }
+
+    function selectVenue(venue) {
+      document.getElementById('venue').value = venue;
+      document.getElementById('venueSuggestions').style.display = 'none';
+    }
+
+    // City search
+    let cityDebounce;
+    function searchCities(query) {
+      if (!query || query.length < 2) {
+        document.getElementById('citySuggestions').style.display = 'none';
+        return;
+      }
+
+      clearTimeout(cityDebounce);
+      cityDebounce = setTimeout(() => {
+        const cities = [
+          'Miami, FL',
+          'Fort Lauderdale, FL',
+          'West Palm Beach, FL',
+          'Boca Raton, FL',
+          'Key West, FL',
+          'Orlando, FL',
+          'Tampa, FL',
+          'Naples, FL',
+          'Sarasota, FL',
+          'Jacksonville, FL'
+        ].filter(c => c.toLowerCase().includes(query.toLowerCase()));
+
+        displayCitySuggestions(cities);
+      }, 300);
+    }
+
+    function displayCitySuggestions(cities) {
+      const container = document.getElementById('citySuggestions');
+      if (!cities.length) {
+        container.style.display = 'none';
+        return;
+      }
+
+      container.innerHTML = cities.map(c => `
+        <div onclick="selectCity('${c}')" style="padding: 16px; cursor: pointer; border-bottom: 1px solid var(--bg-gray); transition: background 0.2s;">
+          <div style="font-size: 15px; font-weight: 500;">${c}</div>
+        </div>
+      `).join('');
+      container.style.display = 'block';
+    }
+
+    function selectCity(city) {
+      document.getElementById('city').value = city;
+      document.getElementById('citySuggestions').style.display = 'none';
     }
 
     function prevStep(step) {
@@ -1098,8 +1230,13 @@
           return;
         }
       } else {
+        const blankCanvas = document.createElement('canvas');
+        blankCanvas.width = canvas.width;
+        blankCanvas.height = canvas.height;
         signature = canvas.toDataURL();
-        if (!signature || signature === canvas.toDataURL()) {
+        const blankSignature = blankCanvas.toDataURL();
+        
+        if (!signature || signature === blankSignature) {
           alert('Please draw your signature');
           return;
         }
@@ -1113,7 +1250,16 @@
       document.getElementById('contractName').textContent = booking.name || 'Client';
       document.getElementById('contractWeddingDate').textContent = booking.date || 'TBD';
       document.getElementById('contractVenue').textContent = booking.venue || 'TBD';
-      document.getElementById('contractPackage').textContent = booking.package || 'TBD';
+      
+      // Show package name with price
+      let packageDisplay = 'Not selected';
+      if (booking.package === 'custom') {
+        packageDisplay = 'Custom Build - $1,200';
+      } else if (booking.package) {
+        packageDisplay = booking.package.charAt(0).toUpperCase() + booking.package.slice(1) + ' - $' + booking.packagePrice.toLocaleString();
+      }
+      document.getElementById('contractPackage').textContent = packageDisplay;
+      
       const total = booking.packagePrice + booking.extraHoursPrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
       document.getElementById('contractTotal').textContent = total.toLocaleString();
 
