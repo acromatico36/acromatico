@@ -798,7 +798,7 @@
             <svg width="160" height="50" viewBox="0 0 200 60" style="margin: 0 auto;">
               <text x="100" y="35" text-anchor="middle" font-family="'Futura', 'Century Gothic', sans-serif" font-size="28" font-weight="300" letter-spacing="8" fill="#4794A6">ACROMATICO</text>
             </svg>
-            <div style="font-size: 11px; font-weight: 300; letter-spacing: 3px; color: #4794A6; margin-top: 8px;">FINE ART WEDDING PHOTOGRAPHY</div>
+            <div style="font-size: 11px; font-weight: 300; letter-spacing: 3px; color: #4794A6; margin-top: 8px;">CANDID WEDDING PHOTOGRAPHY</div>
           </div>
           
           <h3 style="font-size: 32px; font-weight: 300; margin-bottom: 48px; text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #4794A6;">Wedding Photography Agreement</h3>
@@ -1245,11 +1245,15 @@
       window.open('/static/Wedding%20Agreement%20No%20CC.pdf', '_blank');
     }
 
-    // Download signed agreement as PDF
+    // Download signed agreement as PDF with ACTUAL BEAUTIFUL CONTRACT
     function downloadAgreement() {
       const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
       
-      // Generate PDF content
+      // Get the actual contract HTML from the page
+      const contractDiv = document.querySelector('#step8 > div:nth-child(3)');
+      const contractHTML = contractDiv ? contractDiv.innerHTML : '';
+      
+      // Generate PDF content with ACTUAL CONTRACT
       const agreementHTML = `
         <!DOCTYPE html>
         <html>
@@ -1257,57 +1261,145 @@
           <meta charset="UTF-8">
           <title>Wedding Photography Agreement - ${booking.name}</title>
           <style>
-            body { font-family: 'Times New Roman', serif; padding: 40px; line-height: 1.8; }
-            h1 { text-align: center; font-size: 24px; margin-bottom: 40px; text-transform: uppercase; }
-            h2 { font-size: 18px; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #000; }
-            .signature { margin-top: 60px; border-top: 2px solid #000; padding-top: 10px; display: inline-block; width: 400px; }
-            .field { margin: 10px 0; }
-            .label { font-weight: bold; }
+            body { 
+              font-family: 'Helvetica Neue', 'Arial', sans-serif; 
+              padding: 60px; 
+              line-height: 1.9; 
+              color: #333;
+              font-weight: 300;
+            }
+            h3 { 
+              font-size: 32px; 
+              font-weight: 300; 
+              text-align: center; 
+              text-transform: uppercase; 
+              letter-spacing: 4px; 
+              color: #4794A6; 
+              margin-bottom: 48px;
+            }
+            h4 { 
+              font-size: 18px; 
+              font-weight: 300; 
+              text-transform: uppercase; 
+              letter-spacing: 3px; 
+              color: #4794A6; 
+              border-bottom: 1px solid rgba(71, 148, 166, 0.3); 
+              padding-bottom: 12px;
+              margin: 32px 0 20px 0;
+            }
+            p { 
+              margin-bottom: 12px; 
+              font-weight: 300; 
+              line-height: 1.9; 
+            }
+            strong { 
+              font-weight: 400; 
+            }
+            .logo-section {
+              text-align: center;
+              margin-bottom: 40px;
+            }
+            .logo-text {
+              font-size: 28px;
+              font-weight: 300;
+              letter-spacing: 8px;
+              color: #4794A6;
+            }
+            .tagline {
+              font-size: 11px;
+              font-weight: 300;
+              letter-spacing: 3px;
+              color: #4794A6;
+              margin-top: 8px;
+            }
+            .client-info {
+              background: rgba(71, 148, 166, 0.03);
+              padding: 28px;
+              border-radius: 12px;
+              margin-bottom: 32px;
+              border-left: 4px solid #4794A6;
+            }
+            .total-box {
+              background: linear-gradient(135deg, rgba(71, 148, 166, 0.08) 0%, rgba(71, 148, 166, 0.03) 100%);
+              padding: 32px;
+              border-radius: 12px;
+              margin-bottom: 40px;
+              text-align: center;
+              border: 2px solid rgba(71, 148, 166, 0.2);
+            }
+            .total-amount {
+              font-size: 42px;
+              font-weight: 200;
+              color: #4794A6;
+              letter-spacing: 2px;
+            }
+            .signature-box {
+              margin-top: 60px;
+              padding-top: 30px;
+              border-top: 2px solid #4794A6;
+            }
+            .footer {
+              margin-top: 48px;
+              padding-top: 32px;
+              border-top: 1px solid rgba(71, 148, 166, 0.2);
+              text-align: center;
+              font-size: 11px;
+              color: #999;
+            }
+            @media print {
+              body { padding: 40px; }
+              @page { margin: 0.5in; }
+            }
           </style>
         </head>
         <body>
-          <h1>Wedding Photography Agreement</h1>
-          
-          <div class="field"><span class="label">Date:</span> ${new Date().toLocaleDateString()}</div>
-          <div class="field"><span class="label">Client Name:</span> ${booking.name}</div>
-          <div class="field"><span class="label">Email:</span> ${booking.email}</div>
-          <div class="field"><span class="label">Wedding Date:</span> ${booking.date}</div>
-          <div class="field"><span class="label">Venue/Location:</span> ${booking.venue}</div>
-          
-          <h2>Services Provided</h2>
-          <p>Acromatico will provide the following photography services:</p>
-          <div class="field"><span class="label">Package:</span> ${booking.package === 'custom' ? `Custom Build (${booking.coverageHours} hours)` : booking.package.charAt(0).toUpperCase() + booking.package.slice(1)}</div>
-          ${booking.album ? `<div class="field"><span class="label">Album:</span> ${booking.album.charAt(0).toUpperCase() + booking.album.slice(1)} - $${booking.albumPrice.toLocaleString()}</div>` : ''}
-          ${booking.upgrades.map(u => `<div class="field"><span class="label">${u.key}:</span> $${u.price.toLocaleString()}</div>`).join('')}
-          
-          <h2>Total Investment</h2>
-          <div class="field" style="font-size: 20px;"><span class="label">Total:</span> $${total.toLocaleString()}</div>
-          
-          <h2>Payment Terms</h2>
-          <p>A 50% deposit is required to secure your date. The remaining balance is due 30 days before the wedding date.</p>
-          
-          <h2>Cancellation Policy</h2>
-          <p>Deposits are non-refundable. If Client cancels within 90 days of the wedding, the full balance becomes due.</p>
-          
-          <h2>Image Rights</h2>
-          <p>Photographer retains all copyrights to images. Client receives a personal-use license for digital files.</p>
-          
-          <h2>Delivery</h2>
-          <p>Final edited images will be delivered within 8-12 weeks via online gallery.</p>
-          
-          <h2>Signature</h2>
-          <div class="signature">
-            <div>${booking.signMethod === 'type' ? booking.signature : '<img src="' + booking.signature + '" style="max-width: 100%;" />'}</div>
-            <div style="margin-top: 10px;">${booking.name}</div>
-            <div>${new Date().toLocaleDateString()}</div>
-            <div style="font-size: 12px; color: #666;">IP: ${booking.ipAddress || 'N/A'}</div>
+          <div class="logo-section">
+            <div class="logo-text">ACROMATICO</div>
+            <div class="tagline">CANDID WEDDING PHOTOGRAPHY</div>
           </div>
           
-          <div style="margin-top: 60px; text-align: center; font-size: 12px; color: #666;">
-            <p>Acromatico Photography | T: 954.779.0921 | E: info@acromatico.com | W: acromatico.com</p>
+          <h3>Wedding Photography Agreement</h3>
+          
+          <div class="client-info">
+            <h4 style="font-size: 13px; margin: 0 0 20px 0;">Client Information</h4>
+            <p><strong>Name:</strong> ${booking.name}</p>
+            <p><strong>Email:</strong> ${booking.email}</p>
+            <p><strong>Wedding Date:</strong> ${booking.date}</p>
+            <p><strong>Venue:</strong> ${booking.venue}</p>
           </div>
-        <\/body>
-        <\/html>
+          
+          <h4>Services Provided</h4>
+          <p>On <strong>${booking.date}</strong>, Acromatico will provide to Client the following photography services:</p>
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 16px;">
+            <p><strong>Package:</strong> ${booking.package === 'custom' ? `Custom Build - ${booking.coverageHours} hours of coverage - $${booking.packagePrice.toLocaleString()}` : booking.package.charAt(0).toUpperCase() + booking.package.slice(1) + ' Package - $' + booking.packagePrice.toLocaleString()}</p>
+            ${booking.album ? `<p><strong>Album:</strong> ${booking.album.charAt(0).toUpperCase() + booking.album.slice(1)} - $${booking.albumPrice.toLocaleString()}</p>` : ''}
+            ${booking.upgrades.map(u => `<p><strong>${u.key}:</strong> $${u.price.toLocaleString()}</p>`).join('')}
+          </div>
+          
+          <div class="total-box">
+            <h4 style="font-size: 13px; margin: 0 0 16px 0; border: none;">Total Investment</h4>
+            <div class="total-amount">$${total.toLocaleString()}</div>
+          </div>
+
+          ${contractHTML}
+          
+          <div class="signature-box">
+            <h4>Signature</h4>
+            ${booking.signMethod === 'type' 
+              ? `<div style="font-size: 32px; font-family: 'Brush Script MT', cursive; margin: 20px 0;">${booking.signature}</div>` 
+              : `<img src="${booking.signature}" style="max-width: 400px; max-height: 150px;" />`
+            }
+            <p style="margin-top: 20px;"><strong>Signed by:</strong> ${booking.name}</p>
+            <p><strong>Date:</strong> ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+            <p><strong>IP Address:</strong> ${booking.ipAddress || 'N/A'}</p>
+          </div>
+          
+          <div class="footer">
+            <p>ACROMATICO CANDID WEDDING PHOTOGRAPHY</p>
+            <p>T: 954.779.0921 | E: info@acromatico.com | W: acromatico.com</p>
+          </div>
+        </body>
+        </html>
       `;
       
       // Open in new window for printing/saving
@@ -1316,6 +1408,7 @@
       win.document.close();
       setTimeout(() => win.print(), 500);
     }
+
 
     // Stripe checkout integration
     function initiateStripeCheckout() {
@@ -1848,6 +1941,15 @@
       booking.signature = signature;
       booking.signMethod = signMethod;
       booking.signedDate = new Date().toISOString();
+
+      console.log('🔍 FILLING CONTRACT WITH:', {
+        name: booking.name,
+        email: booking.email,
+        date: booking.date,
+        venue: booking.venue,
+        package: booking.package,
+        total: booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0)
+      });
 
       // Fill contract details
       document.getElementById('contractName').textContent = booking.name || 'Client';
