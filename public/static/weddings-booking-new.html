@@ -824,9 +824,43 @@
             </div>
             
             <!-- TOTAL INVESTMENT -->
-            <div style="background: linear-gradient(135deg, rgba(71, 148, 166, 0.08) 0%, rgba(71, 148, 166, 0.03) 100%); padding: 32px; border-radius: 12px; margin-bottom: 40px; text-align: center; border: 2px solid rgba(71, 148, 166, 0.2);">
+            <div style="background: linear-gradient(135deg, rgba(71, 148, 166, 0.08) 0%, rgba(71, 148, 166, 0.03) 100%); padding: 32px; border-radius: 12px; margin-bottom: 24px; text-align: center; border: 2px solid rgba(71, 148, 166, 0.2);">
               <h4 style="font-size: 13px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6;">Total Investment</h4>
               <p style="font-size: 42px; font-weight: 200; margin: 0; color: #4794A6; letter-spacing: 2px;">$<span id="contractTotal">0</span></p>
+            </div>
+
+            <!-- PAYMENT SCHEDULE -->
+            <div style="background: #ffffff; padding: 28px; border-radius: 12px; margin-bottom: 40px; border: 2px solid rgba(71, 148, 166, 0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+              <h4 style="font-size: 15px; font-weight: 400; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6; text-align: center;">3 Easy Payments</h4>
+              
+              <!-- Payment 1 -->
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px; margin-bottom: 12px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Payment 1 (Due Today)</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;"><span id="payment1Date">--</span></p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="payment1Amount">0</span></p>
+              </div>
+
+              <!-- Payment 2 -->
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px; margin-bottom: 12px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Payment 2 (Midpoint)</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;"><span id="payment2Date">--</span></p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="payment2Amount">0</span></p>
+              </div>
+
+              <!-- Payment 3 -->
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Payment 3 (Final)</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;"><span id="payment3Date">14 days before wedding</span></p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="payment3Amount">0</span></p>
+              </div>
+
+              <p style="margin: 20px 0 0 0; font-size: 11px; color: #999; text-align: center; font-weight: 300; line-height: 1.6;">All payments are non-refundable. Payment 1 secures your date. Payment 2 is due at the midpoint between today and your wedding. Payment 3 is due 14 days prior to your wedding date.</p>
             </div>
 
             <!-- ENTIRE AGREEMENT -->
@@ -1959,6 +1993,43 @@
       const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
       document.getElementById('contractTotal').textContent = total.toLocaleString();
       document.getElementById('contractTotal2').textContent = total.toLocaleString();
+
+      // Calculate 3-payment schedule
+      const payment1 = Math.round(total / 3);
+      const payment2 = Math.round(total / 3);
+      const payment3 = total - payment1 - payment2; // Ensure total matches exactly
+
+      // Calculate payment dates
+      const today = new Date();
+      const weddingDate = new Date(booking.date);
+      
+      // Payment 1: Today
+      const payment1DateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      
+      // Payment 2: Midpoint between today and wedding
+      const midpointTime = today.getTime() + ((weddingDate.getTime() - today.getTime()) / 2);
+      const payment2Date = new Date(midpointTime);
+      const payment2DateStr = payment2Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      
+      // Payment 3: 14 days before wedding
+      const payment3Date = new Date(weddingDate);
+      payment3Date.setDate(payment3Date.getDate() - 14);
+      const payment3DateStr = payment3Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      // Fill payment schedule
+      document.getElementById('payment1Amount').textContent = payment1.toLocaleString();
+      document.getElementById('payment1Date').textContent = payment1DateStr;
+      document.getElementById('payment2Amount').textContent = payment2.toLocaleString();
+      document.getElementById('payment2Date').textContent = payment2DateStr;
+      document.getElementById('payment3Amount').textContent = payment3.toLocaleString();
+      document.getElementById('payment3Date').textContent = payment3DateStr;
+
+      console.log('💰 PAYMENT SCHEDULE CALCULATED:', {
+        total,
+        payment1: `$${payment1.toLocaleString()} - ${payment1DateStr}`,
+        payment2: `$${payment2.toLocaleString()} - ${payment2DateStr}`,
+        payment3: `$${payment3.toLocaleString()} - ${payment3DateStr}`
+      });
 
       // Fill final page
       document.getElementById('finalSignatureName').textContent = booking.name;
