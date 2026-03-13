@@ -1355,29 +1355,6 @@
             <img src="/static/acromatico-logo-official.png" alt="Acromatico Logo" style="max-width: 300px; height: auto; display: block; margin: 0 auto 20px auto;" />
             <div class="tagline">CANDID WEDDING PHOTOGRAPHY</div>
           </div>
-          
-          <h3>Wedding Photography Agreement</h3>
-          
-          <div class="client-info">
-            <h4 style="font-size: 13px; margin: 0 0 20px 0;">Client Information</h4>
-            <p><strong>Name:</strong> ${booking.name}</p>
-            <p><strong>Email:</strong> ${booking.email}</p>
-            <p><strong>Wedding Date:</strong> ${booking.date}</p>
-            <p><strong>Venue:</strong> ${booking.venue}</p>
-          </div>
-          
-          <h4>Services Provided</h4>
-          <p>On <strong>${booking.date}</strong>, Acromatico will provide to Client the following photography services:</p>
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 16px;">
-            <p><strong>Package:</strong> ${booking.package === 'custom' ? `Custom Build - ${booking.coverageHours} hours of coverage - $${booking.packagePrice.toLocaleString()}` : booking.package.charAt(0).toUpperCase() + booking.package.slice(1) + ' Package - $' + booking.packagePrice.toLocaleString()}</p>
-            ${booking.album ? `<p><strong>Album:</strong> ${booking.album.charAt(0).toUpperCase() + booking.album.slice(1)} - $${booking.albumPrice.toLocaleString()}</p>` : ''}
-            ${booking.upgrades.map(u => `<p><strong>${u.key}:</strong> $${u.price.toLocaleString()}</p>`).join('')}
-          </div>
-          
-          <div class="total-box">
-            <h4 style="font-size: 13px; margin: 0 0 16px 0; border: none;">Total Investment</h4>
-            <div class="total-amount">$${total.toLocaleString()}</div>
-          </div>
 
           ${contractHTML}
           
