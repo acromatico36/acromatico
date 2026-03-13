@@ -1038,22 +1038,104 @@
       <!-- STEP 9: FINAL CHECKOUT -->
       <div class="step" id="step9">
         <div class="step-number">Step 9 of 9</div>
-        <h1 class="step-question">Complete your booking</h1>
-        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Your contract is signed. Complete payment to secure your date.</p>
+        <h1 class="step-question">Complete Your Payment</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Your contract is signed. Choose your payment amount and method below.</p>
         
+        <!-- AGREEMENT SIGNED CONFIRMATION -->
         <div style="background: rgba(52, 199, 89, 0.1); border: 2px solid var(--success); border-radius: 16px; padding: 24px; margin-bottom: 32px;">
           <p style="font-size: 15px; font-weight: 500; color: var(--success); margin-bottom: 8px;">✓ Agreement Signed</p>
           <p style="font-size: 14px; color: var(--secondary);">Signed by <span id="finalSignatureName"></span> on <span id="finalSignDate"></span></p>
         </div>
 
+        <!-- DOWNLOAD AGREEMENT -->
         <div style="background: rgba(71, 148, 166, 0.1); border: 2px solid var(--accent); border-radius: 16px; padding: 24px; margin-bottom: 32px;">
           <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 12px;">📄 Your Signed Agreement</h4>
           <button onclick="downloadAgreement()" style="padding: 16px 32px; background: white; border: 2px solid var(--accent); border-radius: 12px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 16px; transition: all 0.3s;" onmouseover="this.style.background='var(--accent)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='var(--accent)';">⬇ Download Signed Agreement PDF</button>
           <p style="font-size: 13px; color: var(--secondary);">A copy will also be emailed to you after payment.</p>
         </div>
+
+        <!-- PAYMENT AMOUNT SELECTION -->
+        <div style="background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 28px; margin-bottom: 32px;">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px; color: #333;">Choose Payment Amount</h3>
+          
+          <!-- Payment Option 1: Pay 1/3 -->
+          <label style="display: block; background: rgba(71, 148, 166, 0.05); border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.08)';" onmouseout="if(!this.querySelector('input').checked) { this.style.borderColor='#e0e0e0'; this.style.background='rgba(71, 148, 166, 0.05)'; }">
+            <input type="radio" name="paymentAmount" value="third" checked onchange="updatePaymentAmount('third')" style="margin-right: 12px; width: 20px; height: 20px; cursor: pointer;">
+            <span style="font-size: 18px; font-weight: 500; color: #333;">Pay 1/3 Today</span>
+            <span style="float: right; font-size: 24px; font-weight: 500; color: var(--accent);">$<span id="amount_third">0</span></span>
+            <div style="font-size: 13px; color: var(--secondary); margin-top: 8px; margin-left: 32px;">First payment of 3-part plan</div>
+          </label>
+
+          <!-- Payment Option 2: Pay 1/2 -->
+          <label style="display: block; background: rgba(71, 148, 166, 0.05); border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.08)';" onmouseout="if(!this.querySelector('input').checked) { this.style.borderColor='#e0e0e0'; this.style.background='rgba(71, 148, 166, 0.05)'; }">
+            <input type="radio" name="paymentAmount" value="half" onchange="updatePaymentAmount('half')" style="margin-right: 12px; width: 20px; height: 20px; cursor: pointer;">
+            <span style="font-size: 18px; font-weight: 500; color: #333;">Pay 1/2 Today</span>
+            <span style="float: right; font-size: 24px; font-weight: 500; color: var(--accent);">$<span id="amount_half">0</span></span>
+            <div style="font-size: 13px; color: var(--secondary); margin-top: 8px; margin-left: 32px;">50% deposit</div>
+          </label>
+
+          <!-- Payment Option 3: Pay in Full -->
+          <label style="display: block; background: rgba(71, 148, 166, 0.05); border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.08)';" onmouseout="if(!this.querySelector('input').checked) { this.style.borderColor='#e0e0e0'; this.style.background='rgba(71, 148, 166, 0.05)'; }">
+            <input type="radio" name="paymentAmount" value="full" onchange="updatePaymentAmount('full')" style="margin-right: 12px; width: 20px; height: 20px; cursor: pointer;">
+            <span style="font-size: 18px; font-weight: 500; color: #333;">Pay in Full</span>
+            <span style="float: right; font-size: 24px; font-weight: 500; color: var(--accent);">$<span id="amount_full">0</span></span>
+            <div style="font-size: 13px; color: var(--secondary); margin-top: 8px; margin-left: 32px;">Complete payment today</div>
+          </label>
+        </div>
+
+        <!-- PAYMENT METHODS -->
+        <div style="background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 28px; margin-bottom: 32px;">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px; color: #333;">Select Payment Method</h3>
+          
+          <!-- Credit Card with Stripe -->
+          <button onclick="payWithStripe()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
+            <span>💳 Credit/Debit Card (Stripe)</span>
+            <span style="font-size: 24px; font-weight: 600; color: var(--accent);">$<span id="selectedAmount">0</span></span>
+          </button>
+
+          <!-- Apple Pay -->
+          <button onclick="payWithApplePay()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
+            <span> Apple Pay</span>
+            <span style="font-size: 24px; font-weight: 600; color: var(--accent);">$<span id="selectedAmount2">0</span></span>
+          </button>
+
+          <!-- Google Pay -->
+          <button onclick="payWithGooglePay()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
+            <span>🅖 Google Pay</span>
+            <span style="font-size: 24px; font-weight: 600; color: var(--accent);">$<span id="selectedAmount3">0</span></span>
+          </button>
+
+          <!-- Manual Payment Methods -->
+          <div style="margin-top: 24px; padding-top: 24px; border-top: 2px solid #e0e0e0;">
+            <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 16px; color: #666;">Or send payment directly:</h4>
+            
+            <!-- Zelle -->
+            <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+              <div style="font-weight: 500; margin-bottom: 4px;">📱 Zelle</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">954-779-0921</div>
+              <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="manualAmount">0</span> to this phone number</div>
+            </div>
+
+            <!-- Cash App -->
+            <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+              <div style="font-weight: 500; margin-bottom: 4px;">💵 Cash App</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">$acromatico</div>
+              <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="manualAmount">0</span> to this Cash App handle</div>
+            </div>
+
+            <!-- Venmo -->
+            <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px;">
+              <div style="font-weight: 500; margin-bottom: 4px;">💙 Venmo</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">@acromatico</div>
+              <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="manualAmount">0</span> to this Venmo username</div>
+            </div>
+
+            <p style="font-size: 13px; color: var(--secondary); margin-top: 16px; font-style: italic;">After sending payment, please email your receipt to info@acromatico.com</p>
+          </div>
+        </div>
+
         <div class="button-group">
           <button class="btn btn-secondary" onclick="prevStep(8)">← Back</button>
-          <button class="btn btn-primary" id="stripeCheckoutBtn" onclick="initiateStripeCheckout()">Complete Payment → $<span id="finalTotalPrice">0</span></button>
         </div>
       </div>
 
@@ -2042,7 +2124,80 @@
       });
       document.getElementById('finalTotalPrice').textContent = total.toLocaleString();
 
+      // Initialize payment amounts for Step 9
+      initializePaymentAmounts(total);
+
       nextStep(9);
+    }
+
+    // Payment amount calculation and display
+    let selectedPaymentAmount = 0;
+    
+    function initializePaymentAmounts(total) {
+      const third = Math.round(total / 3);
+      const half = Math.round(total / 2);
+      
+      // Update payment option amounts
+      document.getElementById('amount_third').textContent = third.toLocaleString();
+      document.getElementById('amount_half').textContent = half.toLocaleString();
+      document.getElementById('amount_full').textContent = total.toLocaleString();
+      
+      // Set default selected amount (1/3)
+      selectedPaymentAmount = third;
+      updateSelectedAmountDisplay();
+      
+      console.log('💰 Payment amounts initialized:', { third, half, full: total });
+    }
+    
+    function updatePaymentAmount(option) {
+      const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      
+      if (option === 'third') {
+        selectedPaymentAmount = Math.round(total / 3);
+      } else if (option === 'half') {
+        selectedPaymentAmount = Math.round(total / 2);
+      } else if (option === 'full') {
+        selectedPaymentAmount = total;
+      }
+      
+      updateSelectedAmountDisplay();
+      console.log(`💳 Payment option changed to: ${option} = $${selectedPaymentAmount.toLocaleString()}`);
+    }
+    
+    function updateSelectedAmountDisplay() {
+      // Update all payment method buttons
+      document.getElementById('selectedAmount').textContent = selectedPaymentAmount.toLocaleString();
+      document.getElementById('selectedAmount2').textContent = selectedPaymentAmount.toLocaleString();
+      document.getElementById('selectedAmount3').textContent = selectedPaymentAmount.toLocaleString();
+      
+      // Update manual payment methods
+      const manualAmounts = document.querySelectorAll('.manualAmount');
+      manualAmounts.forEach(el => {
+        el.textContent = selectedPaymentAmount.toLocaleString();
+      });
+    }
+
+    // Payment method handlers
+    function payWithStripe() {
+      console.log('🔵 Initiating Stripe payment for $' + selectedPaymentAmount.toLocaleString());
+      alert(`🔵 Stripe Payment\n\nAmount: $${selectedPaymentAmount.toLocaleString()}\n\n✅ This will redirect you to Stripe checkout.\n\n(Stripe integration coming next!)`);
+      
+      // TODO: Implement actual Stripe checkout
+      // This will create a Stripe checkout session with the selected amount
+    }
+    
+    function payWithApplePay() {
+      console.log(' Initiating Apple Pay for $' + selectedPaymentAmount.toLocaleString());
+      alert(` Apple Pay\n\nAmount: $${selectedPaymentAmount.toLocaleString()}\n\n✅ This will open Apple Pay sheet.\n\n(Apple Pay integration coming next!)`);
+      
+      // TODO: Implement Apple Pay
+    }
+    
+    function payWithGooglePay() {
+      console.log('🅖 Initiating Google Pay for $' + selectedPaymentAmount.toLocaleString());
+      alert(`🅖 Google Pay\n\nAmount: $${selectedPaymentAmount.toLocaleString()}\n\n✅ This will open Google Pay sheet.\n\n(Google Pay integration coming next!)`);
+      
+      // TODO: Implement Google Pay
     }
   </script>
 
