@@ -1997,6 +1997,8 @@
     }
 
     function validateAndContinue() {
+      console.log('🔍 Starting validation...');
+      
       const agreed = document.getElementById('agreeCheckbox').checked;
       if (!agreed) {
         alert('Please agree to the terms before continuing');
@@ -2004,10 +2006,13 @@
       }
 
       const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
+      console.log('🖊️ Sign method:', signMethod);
+      
       let signature;
       
       if (signMethod === 'type') {
         signature = document.getElementById('signatureName').value.trim();
+        console.log('✍️ Typed signature:', signature);
         if (!signature) {
           alert('Please type your full name');
           return;
@@ -2015,9 +2020,20 @@
       } else {
         // Check if signature canvas exists and has been drawn on
         const canvas = document.getElementById('signatureCanvas');
+        console.log('🎨 Canvas element:', canvas);
+        
         if (!canvas) {
           alert('Canvas not found. Please refresh the page.');
           return;
+        }
+        
+        console.log('🎨 Canvas dimensions:', canvas.width, 'x', canvas.height);
+        
+        // Ensure canvas has proper dimensions
+        if (canvas.width === 0 || canvas.height === 0) {
+          canvas.width = 600;
+          canvas.height = 150;
+          console.log('⚠️ Canvas dimensions were 0, reset to 600x150');
         }
         
         const blankCanvas = document.createElement('canvas');
@@ -2026,12 +2042,17 @@
         signature = canvas.toDataURL();
         const blankSignature = blankCanvas.toDataURL();
         
+        console.log('🖼️ Signature data length:', signature.length);
+        console.log('🖼️ Blank signature data length:', blankSignature.length);
+        
         if (!signature || signature === blankSignature) {
-          alert('Please draw your signature');
+          alert('Please draw your signature on the canvas');
           return;
         }
       }
 
+      console.log('✅ Signature validation passed!');
+      
       booking.signature = signature;
       booking.signMethod = signMethod;
       booking.signedDate = new Date().toISOString();
