@@ -520,17 +520,27 @@
         </div>
       </div>
 
-      <!-- STEP 2: CUSTOM HOURS -->
+      <!-- STEP 2: PACKAGE SELECTION FIRST -->
       <div class="step" id="step2">
         <div class="step-number">Step 2 of 8</div>
-        <h1 class="step-question">How many hours of coverage do you need?</h1>
-        <div class="hour-slider-container">
-          <div class="hour-display">
-            <div class="hour-value" id="hourValue">6</div>
-            <div class="hour-label">Hours of Coverage</div>
-            <div class="hour-price" id="hourPrice">$0</div>
+        <h1 class="step-question">Choose your package</h1>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectPackage(this, 'essential', 2500)">
+            <div class="option-title">Essential</div>
+            <div class="option-description">6 hours<br>1 photographer<br>Digital gallery<br>300+ photos</div>
+            <div class="option-price">$2,500</div>
           </div>
-          <input type="range" min="4" max="12" value="6" class="slider" id="hourSlider" oninput="updateHours(this.value)">
+          <div class="option-card" onclick="selectPackage(this, 'signature', 4500)">
+            <div class="option-badge">Most Popular</div>
+            <div class="option-title">Signature</div>
+            <div class="option-description">8 hours<br>2 photographers<br>Engagement session<br>500+ photos</div>
+            <div class="option-price">$4,500</div>
+          </div>
+          <div class="option-card" onclick="selectPackage(this, 'legacy', 7500)">
+            <div class="option-title">Legacy</div>
+            <div class="option-description">Full day<br>2 photographers<br>Engagement + Album<br>800+ photos</div>
+            <div class="option-price">$7,500</div>
+          </div>
         </div>
         <div class="button-group">
           <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
@@ -538,27 +548,19 @@
         </div>
       </div>
 
-      <!-- STEP 3: PACKAGE -->
+      <!-- STEP 3: ADD EXTRA HOURS -->
       <div class="step" id="step3">
         <div class="step-number">Step 3 of 8</div>
-        <h1 class="step-question">Choose your package</h1>
-        <div class="options-grid">
-          <div class="option-card" onclick="selectPackage(this, 'essential', 2500)">
-            <div class="option-title">Essential</div>
-            <div class="option-description">1 photographer<br>Digital gallery<br>300+ photos</div>
-            <div class="option-price">$2,500</div>
+        <h1 class="step-question">Want to add extra hours?</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Your package includes base coverage. Add more hours if needed.</p>
+        <div class="hour-slider-container">
+          <div class="hour-display">
+            <div class="hour-value" id="hourValue">0</div>
+            <div class="hour-label">Extra Hours</div>
+            <div class="hour-price" id="hourPrice">$0</div>
           </div>
-          <div class="option-card" onclick="selectPackage(this, 'signature', 4500)">
-            <div class="option-badge">Most Popular</div>
-            <div class="option-title">Signature</div>
-            <div class="option-description">2 photographers<br>Engagement session<br>500+ photos</div>
-            <div class="option-price">$4,500</div>
-          </div>
-          <div class="option-card" onclick="selectPackage(this, 'legacy', 7500)">
-            <div class="option-title">Legacy</div>
-            <div class="option-description">2 photographers<br>Engagement + Album<br>800+ photos</div>
-            <div class="option-price">$7,500</div>
-          </div>
+          <input type="range" min="0" max="6" value="0" class="slider" id="hourSlider" oninput="updateExtraHours(this.value)">
+          <p style="text-align: center; color: var(--secondary); font-size: 15px; margin-top: 16px;">$400 per additional hour</p>
         </div>
         <div class="button-group">
           <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
@@ -696,8 +698,8 @@
           <span class="preview-value" id="previewPackage">Not selected</span>
         </div>
         <div class="preview-item">
-          <span class="preview-label">Coverage Hours</span>
-          <span class="preview-value" id="previewHours">6 hours</span>
+          <span class="preview-label">Extra Hours</span>
+          <span class="preview-value" id="previewHours">Base coverage</span>
         </div>
         <div class="preview-item">
           <span class="preview-label">Album</span>
@@ -718,10 +720,10 @@
     let booking = {
       date: '',
       venue: '',
-      hours: 6,
-      hourRate: 400,
       package: '',
       packagePrice: 0,
+      extraHours: 0,
+      extraHoursPrice: 0,
       albumChoice: '',
       album: '',
       albumPrice: 0,
@@ -731,20 +733,21 @@
       email: ''
     };
 
-    function updateHours(value) {
-      booking.hours = parseInt(value);
+    function updateExtraHours(value) {
+      booking.extraHours = parseInt(value);
+      booking.extraHoursPrice = value * 400;
       document.getElementById('hourValue').textContent = value;
-      document.getElementById('hourPrice').textContent = `$${(value * booking.hourRate).toLocaleString()}`;
-      document.getElementById('previewHours').textContent = `${value} hours`;
+      document.getElementById('hourPrice').textContent = `$${booking.extraHoursPrice.toLocaleString()}`;
+      document.getElementById('previewHours').textContent = booking.extraHours > 0 ? `+${value} extra hours` : 'Base coverage';
       updateTotal();
     }
 
     function selectPackage(card, name, price) {
-      document.querySelectorAll('#step3 .option-card').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
       booking.package = name;
       booking.packagePrice = price;
-      document.getElementById('previewPackage').textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      document.getElementById('previewPackage').textContent = name.charAt(0).toUpperCase() + name.slice(1) + ' - $' + price.toLocaleString();
       updateTotal();
     }
 
@@ -787,9 +790,8 @@
     }
 
     function updateTotal() {
-      const hoursTotal = booking.hours * booking.hourRate;
       const upgradesTotal = booking.upgrades.reduce((sum, u) => sum + u.price, 0);
-      const total = hoursTotal + booking.packagePrice + booking.albumPrice + upgradesTotal;
+      const total = booking.packagePrice + booking.extraHoursPrice + booking.albumPrice + upgradesTotal;
       document.getElementById('previewTotal').textContent = `$${total.toLocaleString()}`;
     }
 
@@ -810,7 +812,7 @@
     }
 
     // Initialize
-    updateHours(6);
+    updateExtraHours(0);
   </script>
 
 </body>
