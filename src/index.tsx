@@ -2721,8 +2721,8 @@ app.get('/academy', (c) =>
 
 app.get('/studio', (c) => c.redirect('/static/studio.html', 302))
 app.get('/prints', (c) => c.redirect('/static/prints.html', 302))
-// Photography routes - RESTORED ORIGINAL
-app.get('/photography', (c) => c.redirect('/static/photography-apple-ux.html', 302))
+// Photography routes - CLEAN PAGE WITH ROTATING HERO
+app.get('/photography', (c) => c.redirect('/static/photography-main.html', 302))
 app.get('/weddings/booking', (c) => c.redirect('/static/weddings-booking-new.html', 302))
 app.get('/portraits/booking', (c) => c.redirect('/static/weddings-booking-new.html', 302))
 app.get('/events/booking', (c) => c.redirect('/static/weddings-booking-new.html', 302))
