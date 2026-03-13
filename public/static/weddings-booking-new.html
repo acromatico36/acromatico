@@ -1741,10 +1741,16 @@
           return;
         }
       } else {
+        // Check if signature canvas has been drawn on
+        if (!signatureCanvas) {
+          alert('Please draw your signature');
+          return;
+        }
+        
         const blankCanvas = document.createElement('canvas');
-        blankCanvas.width = canvas.width;
-        blankCanvas.height = canvas.height;
-        signature = canvas.toDataURL();
+        blankCanvas.width = signatureCanvas.width;
+        blankCanvas.height = signatureCanvas.height;
+        signature = signatureCanvas.toDataURL();
         const blankSignature = blankCanvas.toDataURL();
         
         if (!signature || signature === blankSignature) {
@@ -1790,7 +1796,11 @@
 
       // Fill final page
       document.getElementById('finalSignatureName').textContent = booking.name;
-      document.getElementById('finalSignDate').textContent = today;
+      document.getElementById('finalSignDate').textContent = new Date().toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
       document.getElementById('finalTotalPrice').textContent = total.toLocaleString();
 
       nextStep(9);
