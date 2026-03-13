@@ -1221,9 +1221,11 @@
       }
     }
 
-    // Venue search with MASSIVE database
+    // Venue search with MASSIVE database - FLORIDA + NEW YORK
     let venueDebounce;
     const venueDatabase = [
+      // ========== FLORIDA ==========
+      
       // MIAMI & MIAMI BEACH
       'The Ritz-Carlton, Miami Beach', 'The Ritz-Carlton, Key Biscayne', 'The Ritz-Carlton, Coconut Grove',
       'Vizcaya Museum and Gardens, Miami', 'Fairchild Tropical Botanic Garden, Coral Gables',
@@ -1234,6 +1236,12 @@
       'InterContinental Miami', 'Epic Hotel Miami', 'SLS Brickell', 'EAST Miami',
       'Kimpton EPIC Hotel', 'Hyatt Regency Miami', 'Miami Beach Botanical Garden',
       'Perez Art Museum Miami', 'Frost Science Museum', 'Jungle Island',
+      '1 Hotel South Beach', 'Loews Miami Beach Hotel', 'The Palms Hotel & Spa',
+      'Soho Beach House', 'Faena Hotel Miami Beach', 'The Confidante Miami Beach',
+      'The National Hotel, South Beach', 'The Sagamore Hotel', 'Shelborne South Beach',
+      'Royal Palm South Beach', 'Trump National Doral', 'Biltmore Hotel, Coral Gables',
+      'Coral Gables Country Club', 'The Kampong Garden', 'Ancient Spanish Monastery',
+      'Vizcaya Village', 'The Barnacle Historic State Park', 'Crandon Park',
       
       // PALM BEACH & BOCA RATON
       'The Breakers Palm Beach', 'Four Seasons Resort Palm Beach', 'Eau Palm Beach Resort & Spa',
@@ -1241,46 +1249,149 @@
       'Delray Beach Marriott', 'PGA National Resort, Palm Beach Gardens',
       'Flagler Museum, Palm Beach', 'Ann Norton Sculpture Gardens, West Palm Beach',
       'Morikami Museum, Delray Beach', 'The Addison, Boca Raton',
+      'Sundy House, Delray Beach', 'The Colony Hotel Palm Beach', 'Brazilian Court Hotel',
+      'The Breakers Palm Beach Golf Club', 'Jupiter Beach Resort', 'Singer Island Resort',
+      'Palm Beach Zoo & Conservation Society', 'Norton Museum of Art',
+      'Crane\'s Beach House, Delray Beach', 'Old School Square, Delray Beach',
       
       // FORT LAUDERDALE & BROWARD
       'The Ritz-Carlton, Fort Lauderdale', 'W Fort Lauderdale', 'Hilton Fort Lauderdale Marina',
       'Pelican Grand Beach Resort', 'The Atlantic Hotel & Spa, Fort Lauderdale',
       'Bonnet House Museum & Gardens', 'NSU Art Museum Fort Lauderdale',
       'The Riverside Hotel, Fort Lauderdale', 'Lago Mar Resort & Club',
+      'Seminole Hard Rock Hotel & Casino', 'Harbor Beach Marriott',
+      'Fort Lauderdale Marriott Pompano Beach Resort', 'The Dalmar Hotel',
+      'Diplomat Beach Resort Hollywood', 'Margaritaville Hollywood Beach Resort',
+      'Las Olas Marina', 'Historic Stranahan House Museum',
       
       // FLORIDA KEYS
       'Hawks Cay Resort, Duck Key', 'The Reach Resort, Key West', 'Casa Marina Resort, Key West',
       'Cheeca Lodge, Islamorada', 'Little Palm Island Resort, Little Torch Key',
       'Sunset Key Cottages, Key West', 'The Marker Key West', 'Ocean Key Resort, Key West',
       'Postcard Inn Beach Resort, Islamorada', 'Playa Largo Resort, Key Largo',
+      'The Perry Hotel Key West', 'Southernmost Beach Resort', 'Pier House Resort',
+      'Hyatt Centric Key West', 'The Gates Hotel Key West', 'Tropical Weddings Key West',
+      'Key Largo Lighthouse Beach', 'Florida Keys Brewing Company',
       
       // ORLANDO
       'Four Seasons Resort Orlando', 'The Ritz-Carlton Orlando, Grande Lakes',
       'Waldorf Astoria Orlando', 'Disney\'s Grand Floridian Resort',
       'Universal\'s Portofino Bay Hotel', 'Rosen Shingle Creek',
       'Gaylord Palms Resort', 'Reunion Resort', 'Omni Orlando Resort at ChampionsGate',
+      'Disney\'s Wedding Pavilion', 'Bohemian Hotel Celebration', 'Cypress Grove Estate House',
+      'Paradise Cove', 'Dubsdread Ballroom', 'Casa Feliz Historic Home',
+      'Luxmore Grande Estate', 'Maggiano\'s Little Italy Orlando', 'The Mezz',
+      'Leu Gardens, Orlando', 'Orlando Museum of Art', 'Alfond Inn Winter Park',
       
       // TAMPA & ST. PETE
       'The Don CeSar, St. Pete Beach', 'The Vinoy Renaissance St. Petersburg',
       'Grand Hyatt Tampa Bay', 'JW Marriott Tampa Water Street',
       'The Tampa Marriott Water Street', 'Epicurean Hotel Tampa',
       'Museum of Fine Arts, St. Petersburg', 'The Mahaffey Theater, St. Petersburg',
+      'Tradewinds Island Grand Resort', 'Sandpearl Resort Clearwater Beach',
+      'The Belleview Inn', 'Armature Works Tampa', 'Oxford Exchange Tampa',
+      'Westshore Yacht Club', 'The Hall on Franklin', 'Sacred Heart Church Tampa',
       
       // NAPLES & SOUTHWEST FLORIDA
       'The Ritz-Carlton, Naples', 'The Ritz-Carlton Golf Resort, Naples',
       'Naples Grande Beach Resort', 'LaPlaya Beach Resort, Naples',
       'The Naples Beach Hotel & Golf Club', 'Hyatt Regency Coconut Point, Bonita Springs',
       'South Seas Island Resort, Captiva Island', 'Sanibel Harbour Marriott',
+      'Naples Botanical Garden', 'The Ritz-Carlton Beach Resort, Naples',
+      'Tiburon Golf Club', 'Naples Yacht Club', 'Port Royal Club',
+      'Pink Shell Beach Resort, Fort Myers', 'The Westin Cape Coral Resort',
       
       // JACKSONVILLE & NORTHEAST FLORIDA
       'One Ocean Resort & Spa, Atlantic Beach', 'The Ponte Vedra Inn & Club',
       'Sawgrass Marriott Golf Resort & Spa', 'The Lodge & Club at Ponte Vedra Beach',
       'Omni Amelia Island Resort', 'The Ritz-Carlton, Amelia Island',
+      'The Ribault Club', 'White Room Villa Blanca', 'Cummer Museum of Art & Gardens',
+      'Casa Marina Hotel Jacksonville Beach', 'St. Augustine Distillery',
+      'The Treasury on the Plaza St. Augustine', 'Casa Monica Resort & Spa',
       
       // SARASOTA & BRADENTON
       'The Ritz-Carlton, Sarasota', 'The Resort at Longboat Key Club',
       'Hyatt Regency Sarasota', 'The Powel Crosley Estate, Sarasota',
-      'The Ringling Museum, Sarasota', 'Marie Selby Botanical Gardens, Sarasota'
+      'The Ringling Museum, Sarasota', 'Marie Selby Botanical Gardens, Sarasota',
+      'Ca\' d\'Zan Mansion', 'Westshore Yacht Club', 'Anna Maria Island Beach Resort',
+      'The Beach House Restaurant, Bradenton Beach',
+      
+      // DESTIN & NORTHWEST FLORIDA
+      'Sandestin Golf and Beach Resort', 'Henderson Beach Resort, Destin',
+      'Hilton Sandestin Beach Golf Resort & Spa', 'WaterColor Inn & Resort',
+      'The Pearl Hotel Rosemary Beach', 'Alys Beach Chapel', 'Seaside Chapel',
+      'Camp Creek Inn', 'Eden Gardens State Park',
+      
+      // TALLAHASSEE & PANHANDLE
+      'Hotel Duval Tallahassee', 'The Governor\'s Club', 'Goodwood Museum & Gardens',
+      'Mission San Luis', 'The Club at SouthWood', 'Alfred B. Maclay Gardens',
+      
+      // ========== NEW YORK ==========
+      
+      // MANHATTAN - MIDTOWN
+      'The Plaza Hotel', 'The St. Regis New York', 'The Pierre Hotel',
+      'The Peninsula New York', 'Mandarin Oriental New York', 'Park Hyatt New York',
+      'The Carlyle, A Rosewood Hotel', 'The Ritz-Carlton New York, Central Park',
+      'Lotte New York Palace', 'The Rainbow Room', 'Rockefeller Center',
+      'Top of the Rock', 'The Beekman Hotel', 'The James New York',
+      'Conrad New York Downtown', 'Cipriani Wall Street', 'Capitale',
+      'Gotham Hall', 'Guastavino\'s', 'Angel Orensanz Foundation',
+      'The Plaza - Grand Ballroom', 'The Plaza - Terrace Room', 'The Plaza - Palm Court',
+      
+      // MANHATTAN - DOWNTOWN & BROOKLYN
+      'Brooklyn Botanic Garden', 'Brooklyn Bridge Park', 'The Foundry Long Island City',
+      'Greenpoint Loft', 'DUMBO Loft', 'Liberty Warehouse Brooklyn',
+      'Wythe Hotel Brooklyn', 'The Williamsburg Hotel', '1 Hotel Brooklyn Bridge',
+      'Deity NYC', 'The Bowery Hotel', 'The High Line Hotel',
+      'The Standard High Line', 'The Foundry', 'The Green Building Brooklyn',
+      'The Bell House Brooklyn', 'Rebar Brooklyn', 'The Astorian',
+      'Giando on the Water', 'Current at Chelsea Piers',
+      
+      // QUEENS & BRONX
+      'Terrace on the Park', 'LIC Landing', 'The Pavilion at Kingsland Point Park',
+      'New York Botanical Garden Bronx', 'Wave Hill Bronx',
+      
+      // WESTCHESTER & HUDSON VALLEY
+      'Castle Hotel & Spa Tarrytown', 'The Inn at Pound Ridge', 'Blue Hill at Stone Barns',
+      'Lyndhurst Mansion Tarrytown', 'Tappan Hill Mansion Tarrytown',
+      'Sleepy Hollow Country Club', 'Elmwood Country Club', 'Westchester Country Club',
+      'The Ryland Inn Whitehouse Station', 'Oheka Castle Long Island',
+      'The Piermont NYC', 'The Warehouse at Old Croton Aqueduct',
+      
+      // LONG ISLAND - NORTH SHORE
+      'Oheka Castle, Huntington', 'The Vanderbilt Museum', 'The Bourne Mansion',
+      'Fox Hollow Woodbury', 'The Carltun Long Island', 'Crest Hollow Country Club',
+      'The Inn at New Hyde Park', 'Jericho Terrace', 'The Royalton at Roslyn Country Club',
+      'The Old Field Club', 'Glen Cove Mansion', 'Muttontown Country Club',
+      
+      // LONG ISLAND - HAMPTONS
+      'The Maidstone Hotel East Hampton', 'Gurney\'s Montauk Resort & Seawater Spa',
+      'Topping Rose House Bridgehampton', 'The Baker House 1650',
+      'The American Hotel Sag Harbor', 'Wölffer Estate Vineyard Sagaponack',
+      'Montauk Yacht Club', 'Gurney\'s Star Island Resort',
+      'Parrish Art Museum Water Mill', 'Ram\'s Head Inn Shelter Island',
+      
+      // LONG ISLAND - SOUTH SHORE
+      'The Larkfield Manor', 'The Allegria Hotel Long Beach', 'Coral House Baldwin',
+      'Watermill Caterers Smithtown', 'Chateau Briand Carle Place',
+      'The Sands at Atlantic Beach', 'The Mansion at West Sayville',
+      
+      // UPSTATE NEW YORK
+      'Mohonk Mountain House New Paltz', 'The Garrison', 'The Glenmere Mansion',
+      'The Sagamore Resort Lake George', 'The Inn at Saratoga', 'Saratoga National Golf Club',
+      'The Roxbury Motel & Resort', 'Full Moon Resort Big Indian',
+      'The Emerson Resort & Spa', 'Hasbrouck House Stone Ridge',
+      'The Hill Hudson', 'The Grand Sutton Beacon',
+      
+      // FINGER LAKES & ROCHESTER
+      'The Windham at Geneva', 'Bristol Harbour Resort', 'Belhurst Castle Geneva',
+      'The del Lago Resort & Casino', 'Shadow Lake Rochester', 'Woodcliff Hotel & Spa',
+      'Casa Larga Vineyards', 'Ravenwood Golf Club',
+      
+      // BUFFALO & NIAGARA FALLS
+      'The Curtiss Hotel Buffalo', 'Hotel Henry Buffalo', 'The Albright-Knox Art Gallery',
+      'The Buffalo Club', 'Salvatore\'s Italian Gardens', 'Statler City',
+      'The Giacomo Hotel Niagara Falls', 'Sheraton Niagara Falls', 'Niagara Falls State Park'
     ];
     
     function searchVenues(query) {
@@ -1294,7 +1405,7 @@
         const lowerQuery = query.toLowerCase();
         const suggestions = venueDatabase.filter(v => 
           v.toLowerCase().includes(lowerQuery)
-        ).slice(0, 10);
+        ).slice(0, 15); // Show top 15 results
 
         displayVenueSuggestions(suggestions);
       }, 200);
