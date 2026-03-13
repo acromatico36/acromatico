@@ -117,10 +117,38 @@
     }
 
     .step-number {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--secondary);
-      margin-bottom: 16px;
-      font-weight: 500;
+      margin-bottom: 24px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .journey-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .journey-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e5e5e5;
+      transition: all 0.3s;
+    }
+
+    .journey-dot.active {
+      width: 32px;
+      border-radius: 4px;
+      background: var(--accent);
+    }
+
+    .journey-dot.completed {
+      background: var(--accent);
+      opacity: 0.5;
     }
 
     .step-question {
@@ -511,7 +539,19 @@
 
       <!-- STEP 1: WEDDING DATE -->
       <div class="step active" id="step1">
-        <div class="step-number">Step 1 of 8</div>
+        <div class="step-number">
+          <div class="journey-dots">
+            <div class="journey-dot active"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+          </div>
+          <span>Your Details</span>
+        </div>
         <h1 class="step-question">Let's start with the basics.<br>What's your wedding date?</h1>
         <input type="date" id="weddingDate">
         <input type="text" id="venue" placeholder="Venue name or location">
@@ -520,10 +560,41 @@
         </div>
       </div>
 
-      <!-- STEP 2: PACKAGE SELECTION FIRST -->
+      <!-- STEP 2: CUSTOM OR PACKAGE -->
       <div class="step" id="step2">
-        <div class="step-number">Step 2 of 8</div>
-        <h1 class="step-question">Choose your package</h1>
+        <div class="step-number">
+          <div class="journey-dots">
+            <div class="journey-dot completed"></div>
+            <div class="journey-dot active"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+          </div>
+          <span>Build Your Experience</span>
+        </div>
+        <h1 class="step-question">Build a custom experience<br>or choose a package</h1>
+        
+        <!-- CUSTOM OPTION -->
+        <div style="margin-bottom: 48px;">
+          <div class="option-card" onclick="selectCustom(this)" style="cursor: pointer; text-align: left; padding: 32px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <div class="option-title" style="margin: 0;">Build Custom</div>
+              <div style="font-size: 14px; color: var(--accent); font-weight: 500;">Start from scratch →</div>
+            </div>
+            <div class="option-description" style="text-align: left;">Choose exactly what you need, pay only for what you want. Full flexibility.</div>
+          </div>
+        </div>
+
+        <!-- OR DIVIDER -->
+        <div style="text-align: center; margin: 48px 0; position: relative;">
+          <div style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--border);"></div>
+          <span style="position: relative; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); padding: 0 24px; color: var(--secondary); font-size: 15px; font-weight: 500;">OR CHOOSE A PACKAGE</span>
+        </div>
+
+        <!-- PACKAGE OPTIONS -->
         <div class="options-grid">
           <div class="option-card" onclick="selectPackage(this, 'essential', 2500)">
             <div class="option-title">Essential</div>
@@ -550,7 +621,19 @@
 
       <!-- STEP 3: ADD EXTRA HOURS -->
       <div class="step" id="step3">
-        <div class="step-number">Step 3 of 8</div>
+        <div class="step-number">
+          <div class="journey-dots">
+            <div class="journey-dot completed"></div>
+            <div class="journey-dot completed"></div>
+            <div class="journey-dot active"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+          </div>
+          <span>Coverage Hours</span>
+        </div>
         <h1 class="step-question">Want to add extra hours?</h1>
         <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Your package includes base coverage. Add more hours if needed.</p>
         <div class="hour-slider-container">
@@ -739,6 +822,16 @@
       document.getElementById('hourValue').textContent = value;
       document.getElementById('hourPrice').textContent = `$${booking.extraHoursPrice.toLocaleString()}`;
       document.getElementById('previewHours').textContent = booking.extraHours > 0 ? `+${value} extra hours` : 'Base coverage';
+      updateTotal();
+    }
+
+    function selectCustom(card) {
+      // Clear any package selection
+      document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      booking.package = 'custom';
+      booking.packagePrice = 0;
+      document.getElementById('previewPackage').textContent = 'Custom Build';
       updateTotal();
     }
 
