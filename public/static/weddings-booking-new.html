@@ -777,11 +777,11 @@
       <div class="step" id="step7">
         <div class="step-number">Step 7 of 9</div>
         <h1 class="step-question">Almost there! What's your name?</h1>
-        <input type="text" id="clientName" placeholder="Your full name">
-        <input type="email" id="clientEmail" placeholder="Your email address">
+        <input type="text" id="clientName" placeholder="Your full name" required>
+        <input type="email" id="clientEmail" placeholder="Your email address" required>
         <div class="button-group">
           <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
-          <button class="btn btn-primary" onclick="nextStep(8)">Continue →</button>
+          <button class="btn btn-primary" onclick="validateStep7()">Continue →</button>
         </div>
       </div>
 
@@ -894,11 +894,8 @@
 
           <!-- Draw Signature -->
           <div id="drawSignature" style="display: none;">
-            <div style="position: relative; border: 3px solid var(--accent); border-radius: 12px; background: white; padding: 0; overflow: hidden;">
-              <canvas id="signatureCanvas" style="display: block; cursor: crosshair; touch-action: none;"></canvas>
-            </div>
-            <button onclick="clearSignature()" style="margin-top: 12px; padding: 12px 24px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500;">🗑️ Clear Signature</button>
-            <p style="font-size: 13px; color: var(--secondary); margin-top: 8px;">Click and drag to sign</p>
+            <canvas id="signatureCanvas" width="600" height="200" style="border: 2px solid var(--border); border-radius: 12px; background: white; cursor: crosshair; width: 100%; max-width: 600px;"></canvas>
+            <button onclick="clearSignature()" style="margin-top: 12px; padding: 12px 24px; background: white; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 14px;">Clear Signature</button>
           </div>
 
           <div style="margin-top: 24px; font-size: 13px; color: var(--secondary);">
@@ -1506,134 +1503,85 @@
     document.getElementById('contractDate').textContent = today;
     document.getElementById('signDate').textContent = today;
 
-    // Signature canvas - COMPLETELY NEW IMPLEMENTATION
-    let canvas = null;
-    let ctx = null;
-    let isDrawing = false;
-    let points = [];
+    // Signature canvas - ORIGINAL WORKING VERSION
+    let canvas, ctx, isDrawing = false;
     
     function initCanvas() {
-      console.log('🖊️ Initializing signature canvas...');
-      
       canvas = document.getElementById('signatureCanvas');
-      if (!canvas) {
-        console.error('❌ Canvas element not found!');
-        return;
-      }
-      
-      // Set canvas size to match container
-      canvas.width = 600;
-      canvas.height = 200;
-      canvas.style.width = '100%';
-      canvas.style.height = '200px';
-      
       ctx = canvas.getContext('2d');
-      ctx.strokeStyle = '#000000';
-      ctx.lineWidth = 3;
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 2;
       ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      
-      console.log('✅ Canvas initialized:', canvas.width, 'x', canvas.height);
-      
-      // Remove any existing listeners
-      canvas.onmousedown = null;
-      canvas.onmousemove = null;
-      canvas.onmouseup = null;
-      canvas.onmouseleave = null;
-      canvas.ontouchstart = null;
-      canvas.ontouchmove = null;
-      canvas.ontouchend = null;
-      
-      // MOUSE EVENTS
-      canvas.onmousedown = function(e) {
-        console.log('🖱️ Mouse down');
+
+      canvas.addEventListener('mousedown', startDrawing);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDrawing);
+      canvas.addEventListener('mouseout', stopDrawing);
+
+      canvas.addEventListener('touchstart', handleTouch);
+      canvas.addEventListener('touchmove', handleTouch);
+      canvas.addEventListener('touchend', stopDrawing);
+    }
+
+    function startDrawing(e) {
+      isDrawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.stroke();
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    function handleTouch(e) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+
+      if (e.type === 'touchstart') {
         isDrawing = true;
-        const rect = canvas.getBoundingClientRect();
-        const scaleX = canvas.width / rect.width;
-        const scaleY = canvas.height / rect.height;
-        const x = (e.clientX - rect.left) * scaleX;
-        const y = (e.clientY - rect.top) * scaleY;
-        
         ctx.beginPath();
         ctx.moveTo(x, y);
-        points = [{x, y}];
-      };
-      
-      canvas.onmousemove = function(e) {
-        if (!isDrawing) return;
-        
-        const rect = canvas.getBoundingClientRect();
-        const scaleX = canvas.width / rect.width;
-        const scaleY = canvas.height / rect.height;
-        const x = (e.clientX - rect.left) * scaleX;
-        const y = (e.clientY - rect.top) * scaleY;
-        
+      } else if (e.type === 'touchmove' && isDrawing) {
         ctx.lineTo(x, y);
         ctx.stroke();
-        points.push({x, y});
-      };
-      
-      canvas.onmouseup = function() {
-        console.log('🖱️ Mouse up');
-        isDrawing = false;
-      };
-      
-      canvas.onmouseleave = function() {
-        isDrawing = false;
-      };
-      
-      // TOUCH EVENTS
-      canvas.ontouchstart = function(e) {
-        console.log('👆 Touch start');
-        e.preventDefault();
-        isDrawing = true;
-        
-        const rect = canvas.getBoundingClientRect();
-        const scaleX = canvas.width / rect.width;
-        const scaleY = canvas.height / rect.height;
-        const touch = e.touches[0];
-        const x = (touch.clientX - rect.left) * scaleX;
-        const y = (touch.clientY - rect.top) * scaleY;
-        
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        points = [{x, y}];
-      };
-      
-      canvas.ontouchmove = function(e) {
-        if (!isDrawing) return;
-        e.preventDefault();
-        
-        const rect = canvas.getBoundingClientRect();
-        const scaleX = canvas.width / rect.width;
-        const scaleY = canvas.height / rect.height;
-        const touch = e.touches[0];
-        const x = (touch.clientX - rect.left) * scaleX;
-        const y = (touch.clientY - rect.top) * scaleY;
-        
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        points.push({x, y});
-      };
-      
-      canvas.ontouchend = function(e) {
-        console.log('👆 Touch end');
-        e.preventDefault();
-        isDrawing = false;
-      };
-      
-      console.log('✅ All event listeners attached!');
+      }
     }
 
     function clearSignature() {
-      console.log('🗑️ Clearing signature...');
-      if (!canvas || !ctx) {
-        console.error('❌ Canvas not initialized!');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function validateStep7() {
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      
+      if (!name) {
+        alert('Please enter your name');
         return;
       }
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      points = [];
-      console.log('✅ Signature cleared!');
+      
+      if (!email) {
+        alert('Please enter your email');
+        return;
+      }
+      
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+      
+      nextStep(8);
     }
 
     function switchSignMethod(method) {
