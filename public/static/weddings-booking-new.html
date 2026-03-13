@@ -894,10 +894,11 @@
 
           <!-- Draw Signature -->
           <div id="drawSignature" style="display: none;">
-            <div style="border: 2px solid var(--border); border-radius: 12px; background: white; padding: 16px;">
-              <canvas id="signatureCanvas" style="width: 100%; height: 200px; cursor: crosshair; display: block;"></canvas>
+            <div style="position: relative; border: 3px solid var(--accent); border-radius: 12px; background: white; padding: 0; overflow: hidden;">
+              <canvas id="signatureCanvas" style="display: block; cursor: crosshair; touch-action: none;"></canvas>
             </div>
-            <button onclick="clearSignature()" style="margin-top: 12px; padding: 12px 24px; background: white; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500;">Clear Signature</button>
+            <button onclick="clearSignature()" style="margin-top: 12px; padding: 12px 24px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500;">🗑️ Clear Signature</button>
+            <p style="font-size: 13px; color: var(--secondary); margin-top: 8px;">Click and drag to sign</p>
           </div>
 
           <div style="margin-top: 24px; font-size: 13px; color: var(--secondary);">
@@ -1220,29 +1221,66 @@
       }
     }
 
-    // Venue search with REAL working suggestions
+    // Venue search with MASSIVE database
     let venueDebounce;
     const venueDatabase = [
-      'The Ritz-Carlton, Miami Beach',
-      'Vizcaya Museum and Gardens, Miami',
-      'The Breakers Palm Beach',
-      'Boca Raton Resort & Club',
-      'The Betsy Hotel, South Beach',
-      'Fairchild Tropical Botanic Garden, Coral Gables',
-      'The Four Seasons Surf Club, Surfside',
-      'The Bath Club, Miami Beach',
-      'Fontainebleau Miami Beach',
-      'Eden Roc Miami Beach',
-      'W South Beach',
-      'The Setai, Miami Beach',
-      'Rusty Pelican, Key Biscayne',
-      'Deering Estate, Miami',
-      'PGA National Resort, Palm Beach Gardens',
-      'Delray Beach Marriott',
-      'Hawks Cay Resort, Duck Key',
-      'The Reach Resort, Key West',
-      'Cheeca Lodge, Islamorada',
-      'Little Palm Island Resort, Little Torch Key'
+      // MIAMI & MIAMI BEACH
+      'The Ritz-Carlton, Miami Beach', 'The Ritz-Carlton, Key Biscayne', 'The Ritz-Carlton, Coconut Grove',
+      'Vizcaya Museum and Gardens, Miami', 'Fairchild Tropical Botanic Garden, Coral Gables',
+      'The Betsy Hotel, South Beach', 'The Setai, Miami Beach', 'Fontainebleau Miami Beach',
+      'Eden Roc Miami Beach', 'W South Beach', 'The Bath Club, Miami Beach',
+      'Rusty Pelican, Key Biscayne', 'Deering Estate, Miami', 'The Cruz Building, Miami',
+      'The Four Seasons Hotel Miami', 'Mandarin Oriental Miami', 'JW Marriott Marquis Miami',
+      'InterContinental Miami', 'Epic Hotel Miami', 'SLS Brickell', 'EAST Miami',
+      'Kimpton EPIC Hotel', 'Hyatt Regency Miami', 'Miami Beach Botanical Garden',
+      'Perez Art Museum Miami', 'Frost Science Museum', 'Jungle Island',
+      
+      // PALM BEACH & BOCA RATON
+      'The Breakers Palm Beach', 'Four Seasons Resort Palm Beach', 'Eau Palm Beach Resort & Spa',
+      'The Boca Raton Resort & Club', 'Boca Beach Club', 'The Seagate Hotel & Spa, Delray Beach',
+      'Delray Beach Marriott', 'PGA National Resort, Palm Beach Gardens',
+      'Flagler Museum, Palm Beach', 'Ann Norton Sculpture Gardens, West Palm Beach',
+      'Morikami Museum, Delray Beach', 'The Addison, Boca Raton',
+      
+      // FORT LAUDERDALE & BROWARD
+      'The Ritz-Carlton, Fort Lauderdale', 'W Fort Lauderdale', 'Hilton Fort Lauderdale Marina',
+      'Pelican Grand Beach Resort', 'The Atlantic Hotel & Spa, Fort Lauderdale',
+      'Bonnet House Museum & Gardens', 'NSU Art Museum Fort Lauderdale',
+      'The Riverside Hotel, Fort Lauderdale', 'Lago Mar Resort & Club',
+      
+      // FLORIDA KEYS
+      'Hawks Cay Resort, Duck Key', 'The Reach Resort, Key West', 'Casa Marina Resort, Key West',
+      'Cheeca Lodge, Islamorada', 'Little Palm Island Resort, Little Torch Key',
+      'Sunset Key Cottages, Key West', 'The Marker Key West', 'Ocean Key Resort, Key West',
+      'Postcard Inn Beach Resort, Islamorada', 'Playa Largo Resort, Key Largo',
+      
+      // ORLANDO
+      'Four Seasons Resort Orlando', 'The Ritz-Carlton Orlando, Grande Lakes',
+      'Waldorf Astoria Orlando', 'Disney\'s Grand Floridian Resort',
+      'Universal\'s Portofino Bay Hotel', 'Rosen Shingle Creek',
+      'Gaylord Palms Resort', 'Reunion Resort', 'Omni Orlando Resort at ChampionsGate',
+      
+      // TAMPA & ST. PETE
+      'The Don CeSar, St. Pete Beach', 'The Vinoy Renaissance St. Petersburg',
+      'Grand Hyatt Tampa Bay', 'JW Marriott Tampa Water Street',
+      'The Tampa Marriott Water Street', 'Epicurean Hotel Tampa',
+      'Museum of Fine Arts, St. Petersburg', 'The Mahaffey Theater, St. Petersburg',
+      
+      // NAPLES & SOUTHWEST FLORIDA
+      'The Ritz-Carlton, Naples', 'The Ritz-Carlton Golf Resort, Naples',
+      'Naples Grande Beach Resort', 'LaPlaya Beach Resort, Naples',
+      'The Naples Beach Hotel & Golf Club', 'Hyatt Regency Coconut Point, Bonita Springs',
+      'South Seas Island Resort, Captiva Island', 'Sanibel Harbour Marriott',
+      
+      // JACKSONVILLE & NORTHEAST FLORIDA
+      'One Ocean Resort & Spa, Atlantic Beach', 'The Ponte Vedra Inn & Club',
+      'Sawgrass Marriott Golf Resort & Spa', 'The Lodge & Club at Ponte Vedra Beach',
+      'Omni Amelia Island Resort', 'The Ritz-Carlton, Amelia Island',
+      
+      // SARASOTA & BRADENTON
+      'The Ritz-Carlton, Sarasota', 'The Resort at Longboat Key Club',
+      'Hyatt Regency Sarasota', 'The Powel Crosley Estate, Sarasota',
+      'The Ringling Museum, Sarasota', 'Marie Selby Botanical Gardens, Sarasota'
     ];
     
     function searchVenues(query) {
@@ -1253,9 +1291,10 @@
 
       clearTimeout(venueDebounce);
       venueDebounce = setTimeout(() => {
+        const lowerQuery = query.toLowerCase();
         const suggestions = venueDatabase.filter(v => 
-          v.toLowerCase().includes(query.toLowerCase())
-        ).slice(0, 8);
+          v.toLowerCase().includes(lowerQuery)
+        ).slice(0, 10);
 
         displayVenueSuggestions(suggestions);
       }, 200);
@@ -1356,19 +1395,26 @@
     document.getElementById('contractDate').textContent = today;
     document.getElementById('signDate').textContent = today;
 
-    // Signature canvas
-    let canvas, ctx, isDrawing = false;
-    let lastX = 0, lastY = 0;
+    // Signature canvas - COMPLETELY NEW IMPLEMENTATION
+    let canvas = null;
+    let ctx = null;
+    let isDrawing = false;
+    let points = [];
     
     function initCanvas() {
-      canvas = document.getElementById('signatureCanvas');
-      if (!canvas) return;
+      console.log('🖊️ Initializing signature canvas...');
       
-      // Set actual canvas resolution
-      const container = canvas.parentElement;
-      const rect = container.getBoundingClientRect();
-      canvas.width = rect.width - 32; // Subtract padding
+      canvas = document.getElementById('signatureCanvas');
+      if (!canvas) {
+        console.error('❌ Canvas element not found!');
+        return;
+      }
+      
+      // Set canvas size to match container
+      canvas.width = 600;
       canvas.height = 200;
+      canvas.style.width = '100%';
+      canvas.style.height = '200px';
       
       ctx = canvas.getContext('2d');
       ctx.strokeStyle = '#000000';
@@ -1376,28 +1422,48 @@
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
       
-      // Mouse events
+      console.log('✅ Canvas initialized:', canvas.width, 'x', canvas.height);
+      
+      // Remove any existing listeners
+      canvas.onmousedown = null;
+      canvas.onmousemove = null;
+      canvas.onmouseup = null;
+      canvas.onmouseleave = null;
+      canvas.ontouchstart = null;
+      canvas.ontouchmove = null;
+      canvas.ontouchend = null;
+      
+      // MOUSE EVENTS
       canvas.onmousedown = function(e) {
+        console.log('🖱️ Mouse down');
         isDrawing = true;
         const rect = canvas.getBoundingClientRect();
-        lastX = e.clientX - rect.left;
-        lastY = e.clientY - rect.top;
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+        
         ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
+        ctx.moveTo(x, y);
+        points = [{x, y}];
       };
       
       canvas.onmousemove = function(e) {
         if (!isDrawing) return;
+        
         const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+        
         ctx.lineTo(x, y);
         ctx.stroke();
-        lastX = x;
-        lastY = y;
+        points.push({x, y});
       };
       
       canvas.onmouseup = function() {
+        console.log('🖱️ Mouse up');
         isDrawing = false;
       };
       
@@ -1405,73 +1471,58 @@
         isDrawing = false;
       };
       
-      // Touch events
+      // TOUCH EVENTS
       canvas.ontouchstart = function(e) {
+        console.log('👆 Touch start');
         e.preventDefault();
         isDrawing = true;
+        
         const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
         const touch = e.touches[0];
-        lastX = touch.clientX - rect.left;
-        lastY = touch.clientY - rect.top;
+        const x = (touch.clientX - rect.left) * scaleX;
+        const y = (touch.clientY - rect.top) * scaleY;
+        
         ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
+        ctx.moveTo(x, y);
+        points = [{x, y}];
       };
       
       canvas.ontouchmove = function(e) {
-        e.preventDefault();
         if (!isDrawing) return;
+        e.preventDefault();
+        
         const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
         const touch = e.touches[0];
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
+        const x = (touch.clientX - rect.left) * scaleX;
+        const y = (touch.clientY - rect.top) * scaleY;
+        
         ctx.lineTo(x, y);
         ctx.stroke();
-        lastX = x;
-        lastY = y;
+        points.push({x, y});
       };
       
       canvas.ontouchend = function(e) {
+        console.log('👆 Touch end');
         e.preventDefault();
         isDrawing = false;
       };
-    }
-
-    function startDrawing(e) {
-      isDrawing = true;
-      ctx.beginPath();
-      ctx.moveTo(e.offsetX, e.offsetY);
-    }
-
-    function draw(e) {
-      if (!isDrawing) return;
-      ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.stroke();
-    }
-
-    function stopDrawing() {
-      isDrawing = false;
-    }
-
-    function handleTouch(e) {
-      e.preventDefault();
-      const touch = e.touches[0];
-      const rect = canvas.getBoundingClientRect();
-      const x = touch.clientX - rect.left;
-      const y = touch.clientY - rect.top;
-
-      if (e.type === 'touchstart') {
-        isDrawing = true;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-      } else if (e.type === 'touchmove' && isDrawing) {
-        ctx.lineTo(x, y);
-        ctx.stroke();
-      }
+      
+      console.log('✅ All event listeners attached!');
     }
 
     function clearSignature() {
-      if (!ctx || !canvas) return;
+      console.log('🗑️ Clearing signature...');
+      if (!canvas || !ctx) {
+        console.error('❌ Canvas not initialized!');
+        return;
+      }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      points = [];
+      console.log('✅ Signature cleared!');
     }
 
     function switchSignMethod(method) {
