@@ -2070,13 +2070,29 @@
         });
 
         // Fill contract details
-        document.getElementById('contractName').textContent = booking.name || 'Client';
-        document.getElementById('contractName2').textContent = booking.name || 'Client';
-        document.getElementById('contractEmail').textContent = booking.email || '';
-        document.getElementById('contractWeddingDate').textContent = booking.date || 'TBD';
-        document.getElementById('contractWeddingDate2').textContent = booking.date || 'TBD';
-        document.getElementById('contractWeddingDate3').textContent = booking.date || 'TBD';
-        document.getElementById('contractVenue').textContent = booking.venue || 'TBD';
+        const contractNameEl = document.getElementById('contractName');
+        const contractName2El = document.getElementById('contractName2');
+        const contractEmailEl = document.getElementById('contractEmail');
+        const contractWeddingDateEl = document.getElementById('contractWeddingDate');
+        const contractWeddingDate2El = document.getElementById('contractWeddingDate2');
+        const contractWeddingDate3El = document.getElementById('contractWeddingDate3');
+        const contractVenueEl = document.getElementById('contractVenue');
+        
+        if (!contractNameEl) throw new Error('contractName element not found');
+        if (!contractName2El) throw new Error('contractName2 element not found');
+        if (!contractEmailEl) throw new Error('contractEmail element not found');
+        if (!contractWeddingDateEl) throw new Error('contractWeddingDate element not found');
+        if (!contractWeddingDate2El) throw new Error('contractWeddingDate2 element not found');
+        if (!contractWeddingDate3El) throw new Error('contractWeddingDate3 element not found');
+        if (!contractVenueEl) throw new Error('contractVenue element not found');
+        
+        contractNameEl.textContent = booking.name || 'Client';
+        contractName2El.textContent = booking.name || 'Client';
+        contractEmailEl.textContent = booking.email || '';
+        contractWeddingDateEl.textContent = booking.date || 'TBD';
+        contractWeddingDate2El.textContent = booking.date || 'TBD';
+        contractWeddingDate3El.textContent = booking.date || 'TBD';
+        contractVenueEl.textContent = booking.venue || 'TBD';
         
         console.log('✅ Contract details filled');
         
@@ -2087,27 +2103,37 @@
         } else if (booking.package) {
           packageDisplay = booking.package.charAt(0).toUpperCase() + booking.package.slice(1) + ' Package - $' + booking.packagePrice.toLocaleString();
         }
-        document.getElementById('contractPackage').textContent = packageDisplay;
+        const contractPackageEl = document.getElementById('contractPackage');
+        if (!contractPackageEl) throw new Error('contractPackage element not found');
+        contractPackageEl.textContent = packageDisplay;
         
         console.log('✅ Package display set');
         
         // Show upgrades
+        const contractUpgradesEl = document.getElementById('contractUpgrades');
+        if (!contractUpgradesEl) throw new Error('contractUpgrades element not found');
+        
         const upgradesHTML = booking.upgrades.map(u => 
           `<p style="margin-bottom: 8px;">\u2022 ${u.key}: $${u.price.toLocaleString()}</p>`
         ).join('');
         if (booking.album) {
-          document.getElementById('contractUpgrades').innerHTML = 
+          contractUpgradesEl.innerHTML = 
             `<p style="margin-bottom: 8px;">\u2022 ${booking.album.charAt(0).toUpperCase() + booking.album.slice(1)} Album: $${booking.albumPrice.toLocaleString()}</p>` + 
             upgradesHTML;
         } else {
-          document.getElementById('contractUpgrades').innerHTML = upgradesHTML;
+          contractUpgradesEl.innerHTML = upgradesHTML;
         }
         
         console.log('✅ Upgrades filled');
         
         const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
-        document.getElementById('contractTotal').textContent = total.toLocaleString();
-        document.getElementById('contractTotal2').textContent = total.toLocaleString();
+        const contractTotalEl = document.getElementById('contractTotal');
+        const contractTotal2El = document.getElementById('contractTotal2');
+        if (!contractTotalEl) throw new Error('contractTotal element not found');
+        if (!contractTotal2El) throw new Error('contractTotal2 element not found');
+        
+        contractTotalEl.textContent = total.toLocaleString();
+        contractTotal2El.textContent = total.toLocaleString();
 
         console.log('✅ Totals set');
 
@@ -2157,13 +2183,21 @@
         console.log('✅ Payment schedule filled');
 
         // Fill final page
-        document.getElementById('finalSignatureName').textContent = booking.name;
-        document.getElementById('finalSignDate').textContent = new Date().toLocaleDateString('en-US', { 
+        const finalSignatureNameEl = document.getElementById('finalSignatureName');
+        const finalSignDateEl = document.getElementById('finalSignDate');
+        const finalTotalPriceEl = document.getElementById('finalTotalPrice');
+        
+        if (!finalSignatureNameEl) throw new Error('finalSignatureName element not found');
+        if (!finalSignDateEl) throw new Error('finalSignDate element not found');
+        if (!finalTotalPriceEl) throw new Error('finalTotalPrice element not found');
+        
+        finalSignatureNameEl.textContent = booking.name;
+        finalSignDateEl.textContent = new Date().toLocaleDateString('en-US', { 
           year: 'numeric', 
           month: 'long', 
           day: 'numeric' 
         });
-        document.getElementById('finalTotalPrice').textContent = total.toLocaleString();
+        finalTotalPriceEl.textContent = total.toLocaleString();
 
         console.log('✅ Final page details set');
 
