@@ -1816,15 +1816,13 @@
     updateCoverageHours(2); // Set minimum 2 hours
     
     // Set today's date
-    {
-      const today = new Date();
-      const dateString = today.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      });
-      document.getElementById('signDate').textContent = dateString;
-    }
+    const todayDate = new Date();
+    const dateString = todayDate.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    document.getElementById('signDate').textContent = dateString;
     console.log('📅 Date set to:', dateString);
 
     // Get IP address
@@ -2184,105 +2182,6 @@
       }
     }
 
-      console.log('🔍 FILLING CONTRACT WITH:', {
-        name: booking.name,
-        email: booking.email,
-        date: booking.date,
-        venue: booking.venue,
-        package: booking.package,
-        total: booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0)
-      });
-
-      // Fill contract details
-      document.getElementById('contractName').textContent = booking.name || 'Client';
-      document.getElementById('contractName2').textContent = booking.name || 'Client';
-      document.getElementById('contractEmail').textContent = booking.email || '';
-      document.getElementById('contractWeddingDate').textContent = booking.date || 'TBD';
-      document.getElementById('contractWeddingDate2').textContent = booking.date || 'TBD';
-      document.getElementById('contractWeddingDate3').textContent = booking.date || 'TBD';
-      document.getElementById('contractVenue').textContent = booking.venue || 'TBD';
-      
-      // Show package name with price
-      let packageDisplay = 'Not selected';
-      if (booking.package === 'custom') {
-        packageDisplay = `Custom Build - ${booking.coverageHours} hours of coverage - $${booking.packagePrice.toLocaleString()}`;
-      } else if (booking.package) {
-        packageDisplay = booking.package.charAt(0).toUpperCase() + booking.package.slice(1) + ' Package - $' + booking.packagePrice.toLocaleString();
-      }
-      document.getElementById('contractPackage').textContent = packageDisplay;
-      
-      // Show upgrades
-      const upgradesHTML = booking.upgrades.map(u => 
-        `<p style="margin-bottom: 8px;">\u2022 ${u.key}: $${u.price.toLocaleString()}</p>`
-      ).join('');
-      if (booking.album) {
-        document.getElementById('contractUpgrades').innerHTML = 
-          `<p style="margin-bottom: 8px;">\u2022 ${booking.album.charAt(0).toUpperCase() + booking.album.slice(1)} Album: $${booking.albumPrice.toLocaleString()}</p>` + 
-          upgradesHTML;
-      } else {
-        document.getElementById('contractUpgrades').innerHTML = upgradesHTML;
-      }
-      
-      const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
-      document.getElementById('contractTotal').textContent = total.toLocaleString();
-      document.getElementById('contractTotal2').textContent = total.toLocaleString();
-
-      // Calculate 3-payment schedule
-      const payment1 = Math.round(total / 3);
-      const payment2 = Math.round(total / 3);
-      const payment3 = total - payment1 - payment2; // Ensure total matches exactly
-
-      // Calculate payment dates
-      const today = new Date();
-      const weddingDate = new Date(booking.date);
-      
-      // Payment 1: Today
-      const payment1DateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-      
-      // Payment 2: Midpoint between today and wedding
-      const midpointTime = today.getTime() + ((weddingDate.getTime() - today.getTime()) / 2);
-      const payment2Date = new Date(midpointTime);
-      const payment2DateStr = payment2Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-      
-      // Payment 3: 14 days before wedding
-      const payment3Date = new Date(weddingDate);
-      payment3Date.setDate(payment3Date.getDate() - 14);
-      const payment3DateStr = payment3Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-
-      // Fill payment schedule (only if elements exist)
-      const payment1AmountEl = document.getElementById('payment1Amount');
-      if (payment1AmountEl) {
-        document.getElementById('payment1Amount').textContent = payment1.toLocaleString();
-        document.getElementById('payment1Date').textContent = payment1DateStr;
-        document.getElementById('payment2Amount').textContent = payment2.toLocaleString();
-        document.getElementById('payment2Date').textContent = payment2DateStr;
-        document.getElementById('payment3Amount').textContent = payment3.toLocaleString();
-        document.getElementById('payment3Date').textContent = payment3DateStr;
-
-        console.log('💰 PAYMENT SCHEDULE CALCULATED:', {
-          total,
-          payment1: `$${payment1.toLocaleString()} - ${payment1DateStr}`,
-          payment2: `$${payment2.toLocaleString()} - ${payment2DateStr}`,
-          payment3: `$${payment3.toLocaleString()} - ${payment3DateStr}`
-        });
-      } else {
-        console.log('⚠️ Payment schedule elements not found (might not be wedding package)');
-      }
-
-      // Fill final page
-      document.getElementById('finalSignatureName').textContent = booking.name;
-      document.getElementById('finalSignDate').textContent = new Date().toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      });
-      document.getElementById('finalTotalPrice').textContent = total.toLocaleString();
-
-      // Initialize payment amounts for Step 9
-      initializePaymentAmounts(total);
-
-      nextStep(9);
-    }
 
     // Payment amount calculation and display
     let selectedPaymentAmount = 0;
