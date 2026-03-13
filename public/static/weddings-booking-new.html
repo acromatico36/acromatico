@@ -1359,35 +1359,11 @@
     
     function initCanvas() {
       canvas = document.getElementById('signatureCanvas');
-      if (!canvas) {
-        console.error('Canvas element not found!');
-        return;
-      }
       ctx = canvas.getContext('2d');
-      if (!ctx) {
-        console.error('Canvas context not available!');
-        return;
-      }
-      
-      // Set canvas dimensions properly
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width;
-      canvas.height = rect.height;
-      
       ctx.strokeStyle = '#000';
       ctx.lineWidth = 2;
       ctx.lineCap = 'round';
 
-      // Remove old listeners first to prevent duplicates
-      canvas.removeEventListener('mousedown', startDrawing);
-      canvas.removeEventListener('mousemove', draw);
-      canvas.removeEventListener('mouseup', stopDrawing);
-      canvas.removeEventListener('mouseout', stopDrawing);
-      canvas.removeEventListener('touchstart', handleTouch);
-      canvas.removeEventListener('touchmove', handleTouch);
-      canvas.removeEventListener('touchend', stopDrawing);
-
-      // Add new listeners
       canvas.addEventListener('mousedown', startDrawing);
       canvas.addEventListener('mousemove', draw);
       canvas.addEventListener('mouseup', stopDrawing);
@@ -1442,10 +1418,7 @@
       } else {
         document.getElementById('typeSignature').style.display = 'none';
         document.getElementById('drawSignature').style.display = 'block';
-        // Wait for DOM to render canvas
-        setTimeout(() => {
-          initCanvas();
-        }, 100);
+        initCanvas();
       }
     }
 
