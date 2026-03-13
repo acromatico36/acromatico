@@ -2013,16 +2013,17 @@
           return;
         }
       } else {
-        // Check if signature canvas has been drawn on
-        if (!signatureCanvas) {
-          alert('Please draw your signature');
+        // Check if signature canvas exists and has been drawn on
+        const canvas = document.getElementById('signatureCanvas');
+        if (!canvas) {
+          alert('Canvas not found. Please refresh the page.');
           return;
         }
         
         const blankCanvas = document.createElement('canvas');
-        blankCanvas.width = signatureCanvas.width;
-        blankCanvas.height = signatureCanvas.height;
-        signature = signatureCanvas.toDataURL();
+        blankCanvas.width = canvas.width;
+        blankCanvas.height = canvas.height;
+        signature = canvas.toDataURL();
         const blankSignature = blankCanvas.toDataURL();
         
         if (!signature || signature === blankSignature) {
@@ -2100,20 +2101,25 @@
       payment3Date.setDate(payment3Date.getDate() - 14);
       const payment3DateStr = payment3Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
-      // Fill payment schedule
-      document.getElementById('payment1Amount').textContent = payment1.toLocaleString();
-      document.getElementById('payment1Date').textContent = payment1DateStr;
-      document.getElementById('payment2Amount').textContent = payment2.toLocaleString();
-      document.getElementById('payment2Date').textContent = payment2DateStr;
-      document.getElementById('payment3Amount').textContent = payment3.toLocaleString();
-      document.getElementById('payment3Date').textContent = payment3DateStr;
+      // Fill payment schedule (only if elements exist)
+      const payment1AmountEl = document.getElementById('payment1Amount');
+      if (payment1AmountEl) {
+        document.getElementById('payment1Amount').textContent = payment1.toLocaleString();
+        document.getElementById('payment1Date').textContent = payment1DateStr;
+        document.getElementById('payment2Amount').textContent = payment2.toLocaleString();
+        document.getElementById('payment2Date').textContent = payment2DateStr;
+        document.getElementById('payment3Amount').textContent = payment3.toLocaleString();
+        document.getElementById('payment3Date').textContent = payment3DateStr;
 
-      console.log('💰 PAYMENT SCHEDULE CALCULATED:', {
-        total,
-        payment1: `$${payment1.toLocaleString()} - ${payment1DateStr}`,
-        payment2: `$${payment2.toLocaleString()} - ${payment2DateStr}`,
-        payment3: `$${payment3.toLocaleString()} - ${payment3DateStr}`
-      });
+        console.log('💰 PAYMENT SCHEDULE CALCULATED:', {
+          total,
+          payment1: `$${payment1.toLocaleString()} - ${payment1DateStr}`,
+          payment2: `$${payment2.toLocaleString()} - ${payment2DateStr}`,
+          payment3: `$${payment3.toLocaleString()} - ${payment3DateStr}`
+        });
+      } else {
+        console.log('⚠️ Payment schedule elements not found (might not be wedding package)');
+      }
 
       // Fill final page
       document.getElementById('finalSignatureName').textContent = booking.name;
