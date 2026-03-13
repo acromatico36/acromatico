@@ -665,10 +665,10 @@
             <div class="hour-label">Hours of Coverage</div>
             <div class="hour-price" id="hourPrice">$1,200</div>
           </div>
-          <input type="range" min="2" max="12" value="2" class="slider" id="hourSlider" oninput="updateCoverageHours(this.value)">
+          <input type="range" min="2" max="36" value="2" class="slider" id="hourSlider" oninput="updateCoverageHours(this.value)">
           <div style="display: flex; justify-content: space-between; margin-top: 16px; font-size: 14px; color: var(--secondary);">
             <span>2 hrs</span>
-            <span>12 hrs</span>
+            <span>36 hrs</span>
           </div>
         </div>
         <div class="button-group">
@@ -790,27 +790,84 @@
         <div class="step-number">Step 8 of 9</div>
         <h1 class="step-question">Review & sign your agreement</h1>
         
-        <!-- Contract Preview -->
-        <div style="background: white; border: 2px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; max-height: 400px; overflow-y: auto;">
-          <h3 style="font-size: 21px; font-weight: 500; margin-bottom: 24px; text-align: center;">Wedding Photography Agreement</h3>
-          <div style="font-size: 14px; line-height: 1.8; color: var(--secondary);">
-            <p style="margin-bottom: 16px;"><strong>This Agreement</strong> is entered into on <span id="contractDate"></span> between Acromatico ("Photographer") and <span id="contractName">Client</span> ("Client").</p>
+        <!-- FULL CONTRACT PREVIEW -->
+        <div style="background: white; border: 2px solid var(--border); border-radius: 16px; padding: 40px; margin-bottom: 32px; max-height: 600px; overflow-y: auto;">
+          <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 32px; text-align: center; text-transform: uppercase; border-bottom: 2px solid var(--primary); padding-bottom: 16px;">Wedding Photography Agreement</h3>
+          
+          <div style="font-size: 14px; line-height: 1.8; color: var(--primary);">
             
-            <p style="margin-bottom: 16px;"><strong>Services:</strong> Photographer agrees to provide wedding photography services on <span id="contractWeddingDate"></span> at <span id="contractVenue"></span>.</p>
+            <!-- CLIENT INFORMATION -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Client's Information</h4>
+            <p style="margin-bottom: 12px;"><strong>Name:</strong> <span id="contractName">Client</span></p>
+            <p style="margin-bottom: 12px;"><strong>Email:</strong> <span id="contractEmail"></span></p>
+            <p style="margin-bottom: 12px;"><strong>Wedding Date:</strong> <span id="contractWeddingDate"></span></p>
+            <p style="margin-bottom: 12px;"><strong>Ceremony/Reception Location:</strong> <span id="contractVenue"></span></p>
             
-            <p style="margin-bottom: 16px;"><strong>Package:</strong> <span id="contractPackage">Not selected</span></p>
+            <!-- SERVICES PROVIDED -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Services Provided</h4>
+            <p style="margin-bottom: 12px;">On <span id="contractWeddingDate2"></span>, Acromatico will provide to Client the following photography services:</p>
+            <p style="margin-bottom: 12px;"><strong>Package:</strong> <span id="contractPackage">Not selected</span></p>
+            <div id="contractUpgrades" style="margin-left: 20px;"></div>
             
-            <p style="margin-bottom: 16px;"><strong>Total Investment:</strong> $<span id="contractTotal">0</span></p>
+            <!-- TOTAL INVESTMENT -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Total Investment</h4>
+            <p style="font-size: 20px; font-weight: 600; margin-bottom: 24px;">$<span id="contractTotal">0</span></p>
             
-            <p style="margin-bottom: 16px;"><strong>Payment Terms:</strong> A 50% deposit is required to secure your date. The remaining balance is due 30 days before the wedding date.</p>
+            <!-- PAYMENT TERMS -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Payment Terms</h4>
+            <p style="margin-bottom: 12px;">• A <strong>50% non-refundable deposit</strong> is required to secure your wedding date.</p>
+            <p style="margin-bottom: 12px;">• The remaining <strong>50% balance</strong> is due <strong>30 days before</strong> the wedding date.</p>
+            <p style="margin-bottom: 12px;">• Payment can be made via credit card, bank transfer, or certified check.</p>
+            <p style="margin-bottom: 12px;">• Late payments may result in cancellation of services.</p>
             
-            <p style="margin-bottom: 16px;"><strong>Cancellation:</strong> Deposits are non-refundable. If Client cancels within 90 days of the wedding, the full balance becomes due.</p>
+            <!-- CANCELLATION POLICY -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Cancellation Policy</h4>
+            <p style="margin-bottom: 12px;">• <strong>Deposits are non-refundable</strong> under any circumstances.</p>
+            <p style="margin-bottom: 12px;">• If Client cancels within <strong>90 days</strong> of the wedding date, the <strong>full balance becomes due immediately</strong>.</p>
+            <p style="margin-bottom: 12px;">• If Photographer must cancel due to illness, emergency, or unforeseeable circumstances, all payments will be refunded in full.</p>
             
-            <p style="margin-bottom: 16px;"><strong>Image Rights:</strong> Photographer retains all copyrights to images. Client receives a personal-use license for digital files.</p>
+            <!-- IMAGE RIGHTS & USAGE -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Image Rights & Usage</h4>
+            <p style="margin-bottom: 12px;">• <strong>Copyright:</strong> Photographer retains all copyrights to all images created.</p>
+            <p style="margin-bottom: 12px;">• <strong>Client License:</strong> Client receives a personal-use license for all digital files delivered.</p>
+            <p style="margin-bottom: 12px;">• <strong>Commercial Use:</strong> Client may NOT use images for commercial purposes without written permission.</p>
+            <p style="margin-bottom: 12px;">• <strong>Photographer's Portfolio:</strong> Photographer may use images for portfolio, website, social media, and promotional purposes.</p>
             
-            <p style="margin-bottom: 16px;"><strong>Delivery:</strong> Final edited images will be delivered within 8-12 weeks via online gallery.</p>
+            <!-- DELIVERY TIMELINE -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Delivery Timeline</h4>
+            <p style="margin-bottom: 12px;">• <strong>Sneak Peek:</strong> 5-10 edited images delivered within 48-72 hours.</p>
+            <p style="margin-bottom: 12px;">• <strong>Full Gallery:</strong> All final edited images delivered within <strong>8-12 weeks</strong> via online gallery.</p>
+            <p style="margin-bottom: 12px;">• <strong>Album Delivery:</strong> If ordered, custom albums delivered within 12-16 weeks after image selection.</p>
             
-            <p style="margin-bottom: 16px;"><strong>Full Agreement:</strong> <a href="#" onclick="viewFullAgreement(); return false;" style="color: var(--accent); text-decoration: underline; cursor: pointer;">Click here to view complete terms</a></p>
+            <!-- PHOTOGRAPHER'S RESPONSIBILITIES -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Photographer's Responsibilities</h4>
+            <p style="margin-bottom: 12px;">• Arrive on time and ready to photograph.</p>
+            <p style="margin-bottom: 12px;">• Capture all key moments and requested shots.</p>
+            <p style="margin-bottom: 12px;">• Edit images to maintain consistent style and quality.</p>
+            <p style="margin-bottom: 12px;">• Maintain backup systems to protect images.</p>
+            
+            <!-- CLIENT'S RESPONSIBILITIES -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Client's Responsibilities</h4>
+            <p style="margin-bottom: 12px;">• Provide accurate timeline and schedule of events.</p>
+            <p style="margin-bottom: 12px;">• Coordinate with venue to ensure Photographer has access and permissions.</p>
+            <p style="margin-bottom: 12px;">• Provide meal for Photographer if coverage exceeds 6 hours.</p>
+            <p style="margin-bottom: 12px;">• Respect Photographer's creative process and artistic vision.</p>
+            
+            <!-- LIABILITY & INDEMNIFICATION -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Liability & Indemnification</h4>
+            <p style="margin-bottom: 12px;">• Photographer is not liable for equipment failure, venue restrictions, or uncontrollable circumstances.</p>
+            <p style="margin-bottom: 12px;">• Photographer carries liability insurance but is not responsible for injuries or damages at the event.</p>
+            <p style="margin-bottom: 12px;">• Client agrees to indemnify Photographer against any claims arising from the event.</p>
+            
+            <!-- FORCE MAJEURE -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Force Majeure</h4>
+            <p style="margin-bottom: 12px;">If performance is prevented due to acts of God, war, terrorism, pandemic, government restrictions, or other unforeseeable events, both parties are released from obligations without penalty.</p>
+            
+            <!-- ENTIRE AGREEMENT -->
+            <h4 style="font-size: 16px; font-weight: 600; margin: 24px 0 16px 0; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;">Entire Agreement</h4>
+            <p style="margin-bottom: 12px;">This Agreement constitutes the entire understanding between the parties. Any modifications must be made in writing and signed by both parties.</p>
+            
+            <p style="margin-top: 32px; font-size: 13px; color: var(--secondary); text-align: center;">By signing below, you acknowledge that you have read, understood, and agree to all terms and conditions.</p>
           </div>
         </div>
 
@@ -1400,19 +1457,33 @@
 
       // Fill contract details
       document.getElementById('contractName').textContent = booking.name || 'Client';
+      document.getElementById('contractEmail').textContent = booking.email || '';
       document.getElementById('contractWeddingDate').textContent = booking.date || 'TBD';
+      document.getElementById('contractWeddingDate2').textContent = booking.date || 'TBD';
       document.getElementById('contractVenue').textContent = booking.venue || 'TBD';
       
       // Show package name with price
       let packageDisplay = 'Not selected';
       if (booking.package === 'custom') {
-        packageDisplay = 'Custom Build - $1,200';
+        packageDisplay = `Custom Build - ${booking.coverageHours} hours of coverage - $${booking.packagePrice.toLocaleString()}`;
       } else if (booking.package) {
-        packageDisplay = booking.package.charAt(0).toUpperCase() + booking.package.slice(1) + ' - $' + booking.packagePrice.toLocaleString();
+        packageDisplay = booking.package.charAt(0).toUpperCase() + booking.package.slice(1) + ' Package - $' + booking.packagePrice.toLocaleString();
       }
       document.getElementById('contractPackage').textContent = packageDisplay;
       
-      const total = booking.packagePrice + booking.extraHoursPrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      // Show upgrades
+      const upgradesHTML = booking.upgrades.map(u => 
+        `<p style="margin-bottom: 8px;">\u2022 ${u.key}: $${u.price.toLocaleString()}</p>`
+      ).join('');
+      if (booking.album) {
+        document.getElementById('contractUpgrades').innerHTML = 
+          `<p style="margin-bottom: 8px;">\u2022 ${booking.album.charAt(0).toUpperCase() + booking.album.slice(1)} Album: $${booking.albumPrice.toLocaleString()}</p>` + 
+          upgradesHTML;
+      } else {
+        document.getElementById('contractUpgrades').innerHTML = upgradesHTML;
+      }
+      
+      const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
       document.getElementById('contractTotal').textContent = total.toLocaleString();
 
       // Fill final page
