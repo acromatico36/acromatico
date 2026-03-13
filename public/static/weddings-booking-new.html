@@ -793,12 +793,6 @@
         <!-- FULL CONTRACT PREVIEW -->
         <div style="background: white; border: 2px solid var(--border); border-radius: 16px; padding: 60px; margin-bottom: 32px; max-height: 600px; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
           
-          <!-- LOGO -->
-          <div style="text-align: center; margin-bottom: 40px;">
-            <img src="https://www.genspark.ai/api/files/s/LiLvLcjl" alt="Acromatico" style="max-width: 300px; height: auto; filter: brightness(0) saturate(100%) invert(52%) sepia(26%) saturate(894%) hue-rotate(144deg) brightness(91%) contrast(88%);">
-            <div style="font-size: 11px; font-weight: 300; letter-spacing: 3px; color: #4794A6; margin-top: 12px;">CANDID WEDDING PHOTOGRAPHY</div>
-          </div>
-          
           <h3 style="font-size: 32px; font-weight: 300; margin-bottom: 48px; text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #4794A6;">Wedding Photography Agreement</h3>
           
           <div style="font-size: 14px; line-height: 2; color: #333; font-weight: 300;">
@@ -1088,6 +1082,10 @@
           <span>Total</span>
           <span id="previewTotal">$0</span>
         </div>
+        <div class="preview-item" style="opacity: 0.7; font-size: 13px; margin-top: 8px;">
+          <span class="preview-label">3 Easy Payments</span>
+          <span class="preview-value" id="previewPaymentPlan">$0 each</span>
+        </div>
       </div>
     </div>
 
@@ -1211,6 +1209,10 @@
       const upgradesTotal = booking.upgrades.reduce((sum, u) => sum + u.price, 0);
       const total = booking.packagePrice + booking.albumPrice + upgradesTotal;
       document.getElementById('previewTotal').textContent = `$${total.toLocaleString()}`;
+      
+      // Calculate 3 easy payments
+      const paymentAmount = Math.round(total / 3);
+      document.getElementById('previewPaymentPlan').textContent = `$${paymentAmount.toLocaleString()} each`;
     }
 
     function validateStep1() {
