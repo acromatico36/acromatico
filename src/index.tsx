@@ -2723,7 +2723,7 @@ app.get('/studio', (c) => c.redirect('/static/studio.html', 302))
 app.get('/prints', (c) => c.redirect('/static/prints.html', 302))
 // Photography routes - CLEAN PAGE WITH ROTATING HERO
 app.get('/photography', (c) => c.redirect('/static/photography-main.html', 302))
-app.get('/weddings/booking', (c) => c.redirect(`/static/weddings-booking-new.html?v=${Date.now()}`, 302))
+app.get('/weddings/booking', (c) => c.redirect(`/static/weddings-booking-new.html?v=${Date.now()}&bust=${Math.random()}`, 302))
 app.get('/portraits/booking', (c) => c.redirect('/static/weddings-booking-new.html', 302))
 app.get('/events/booking', (c) => c.redirect('/static/weddings-booking-new.html', 302))
 app.get('/commercial/booking', (c) => c.redirect('/static/weddings-booking-new.html', 302))
