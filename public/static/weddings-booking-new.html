@@ -894,16 +894,16 @@
 
           <!-- Draw Signature -->
           <div id="drawSignature" style="display: none;">
-            <div style="border: 3px solid #4794A6; border-radius: 12px; background: white; padding: 16px; position: relative;">
+            <div id="canvasContainer" style="border: 3px solid #4794A6; border-radius: 12px; background: white; padding: 0; position: relative; max-width: 600px;">
               <canvas 
                 id="signatureCanvas" 
-                width="700" 
-                height="200"
-                style="display: block; width: 100%; height: auto; cursor: crosshair; border: 1px solid #ddd; border-radius: 8px; background: white;"
+                width="600" 
+                height="150"
+                style="display: block; width: 100%; height: 150px; cursor: crosshair; background: white; touch-action: none;"
               ></canvas>
             </div>
-            <button onclick="clearSignature()" style="margin-top: 16px; padding: 14px 28px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s;">🗑️ Clear Signature</button>
-            <p style="font-size: 14px; color: #4794A6; margin-top: 12px; font-weight: 500;">📝 Click and drag on the white box above to draw your signature</p>
+            <button type="button" onclick="clearSignature()" style="margin-top: 16px; padding: 14px 28px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s;">🗑️ Clear Signature</button>
+            <p style="font-size: 14px; color: #4794A6; margin-top: 12px; font-weight: 500;">🖊️ <strong>CLICK AND DRAG</strong> on the white canvas above to draw your signature</p>
           </div>
 
           <div style="margin-top: 24px; font-size: 13px; color: var(--secondary);">
@@ -1494,6 +1494,16 @@
 
     // Initialize
     updateCoverageHours(2); // Set minimum 2 hours
+    
+    // Set today's date
+    const today = new Date();
+    const dateString = today.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    document.getElementById('signDate').textContent = dateString;
+    console.log('📅 Date set to:', dateString);
 
     // Get IP address
     fetch('https://api.ipify.org?format=json')
@@ -1512,119 +1522,127 @@
     document.getElementById('signDate').textContent = today;
 
     // Signature canvas - ORIGINAL WORKING VERSION
-    // Signature Canvas - COMPLETELY REBUILT FROM SCRATCH
-    let canvas, ctx, isDrawing = false;
+    // ========================================
+    // SIGNATURE CANVAS - SIMPLEST APPROACH
+    // ========================================
+    let signatureCanvas;
+    let signatureCtx;
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
     
     function initCanvas() {
-      canvas = document.getElementById('signatureCanvas');
-      if (!canvas) {
-        console.error('❌ Canvas not found!');
-        return;
-      }
+      signatureCanvas = document.getElementById('signatureCanvas');
+      signatureCtx = signatureCanvas.getContext('2d');
       
-      ctx = canvas.getContext('2d');
-      if (!ctx) {
-        console.error('❌ Cannot get canvas context!');
-        return;
-      }
+      // Set canvas actual size
+      signatureCanvas.width = 600;
+      signatureCanvas.height = 150;
       
       // Set drawing style
-      ctx.strokeStyle = '#000000';
-      ctx.lineWidth = 3;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
+      signatureCtx.strokeStyle = '#000000';
+      signatureCtx.lineWidth = 2;
+      signatureCtx.lineCap = 'round';
+      signatureCtx.lineJoin = 'round';
       
-      console.log('✅ Canvas initialized:', canvas.width, 'x', canvas.height);
+      console.log('✅ Canvas initialized!', signatureCanvas.width, 'x', signatureCanvas.height);
       
-      // Mouse events
-      canvas.addEventListener('mousedown', handleMouseDown);
-      canvas.addEventListener('mousemove', handleMouseMove);
-      canvas.addEventListener('mouseup', handleMouseUp);
-      canvas.addEventListener('mouseleave', handleMouseUp);
+      // Add event listeners
+      signatureCanvas.addEventListener('mousedown', onMouseDown);
+      signatureCanvas.addEventListener('mousemove', onMouseMove);
+      signatureCanvas.addEventListener('mouseup', onMouseUp);
+      signatureCanvas.addEventListener('mouseleave', onMouseUp);
       
-      // Touch events
-      canvas.addEventListener('touchstart', handleTouchStart);
-      canvas.addEventListener('touchmove', handleTouchMove);
-      canvas.addEventListener('touchend', handleTouchEnd);
-      
-      // Prevent scrolling on touch
-      canvas.style.touchAction = 'none';
+      signatureCanvas.addEventListener('touchstart', onTouchStart);
+      signatureCanvas.addEventListener('touchmove', onTouchMove);
+      signatureCanvas.addEventListener('touchend', onTouchEnd);
     }
     
-    function getCanvasCoordinates(e) {
-      const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
-      
-      let clientX, clientY;
-      
-      if (e.touches && e.touches.length > 0) {
-        clientX = e.touches[0].clientX;
-        clientY = e.touches[0].clientY;
-      } else {
-        clientX = e.clientX;
-        clientY = e.clientY;
-      }
-      
-      const x = (clientX - rect.left) * scaleX;
-      const y = (clientY - rect.top) * scaleY;
-      
-      return { x, y };
+    function getMousePos(e) {
+      const rect = signatureCanvas.getBoundingClientRect();
+      const scaleX = signatureCanvas.width / rect.width;
+      const scaleY = signatureCanvas.height / rect.height;
+      return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+      };
     }
     
-    function handleMouseDown(e) {
+    function getTouchPos(e) {
+      const rect = signatureCanvas.getBoundingClientRect();
+      const scaleX = signatureCanvas.width / rect.width;
+      const scaleY = signatureCanvas.height / rect.height;
+      return {
+        x: (e.touches[0].clientX - rect.left) * scaleX,
+        y: (e.touches[0].clientY - rect.top) * scaleY
+      };
+    }
+    
+    function onMouseDown(e) {
       e.preventDefault();
       isDrawing = true;
-      const coords = getCanvasCoordinates(e);
-      ctx.beginPath();
-      ctx.moveTo(coords.x, coords.y);
-      console.log('🖊️ Drawing started at', coords.x, coords.y);
+      const pos = getMousePos(e);
+      lastX = pos.x;
+      lastY = pos.y;
+      console.log('🖊️ Started drawing at', lastX, lastY);
     }
     
-    function handleMouseMove(e) {
+    function onMouseMove(e) {
       if (!isDrawing) return;
       e.preventDefault();
-      const coords = getCanvasCoordinates(e);
-      ctx.lineTo(coords.x, coords.y);
-      ctx.stroke();
+      const pos = getMousePos(e);
+      
+      signatureCtx.beginPath();
+      signatureCtx.moveTo(lastX, lastY);
+      signatureCtx.lineTo(pos.x, pos.y);
+      signatureCtx.stroke();
+      
+      lastX = pos.x;
+      lastY = pos.y;
     }
     
-    function handleMouseUp(e) {
+    function onMouseUp(e) {
       if (!isDrawing) return;
       isDrawing = false;
-      console.log('✋ Drawing stopped');
+      console.log('✋ Stopped drawing');
     }
     
-    function handleTouchStart(e) {
+    function onTouchStart(e) {
       e.preventDefault();
       isDrawing = true;
-      const coords = getCanvasCoordinates(e);
-      ctx.beginPath();
-      ctx.moveTo(coords.x, coords.y);
-      console.log('📱 Touch drawing started at', coords.x, coords.y);
+      const pos = getTouchPos(e);
+      lastX = pos.x;
+      lastY = pos.y;
+      console.log('📱 Touch started at', lastX, lastY);
     }
     
-    function handleTouchMove(e) {
+    function onTouchMove(e) {
       if (!isDrawing) return;
       e.preventDefault();
-      const coords = getCanvasCoordinates(e);
-      ctx.lineTo(coords.x, coords.y);
-      ctx.stroke();
+      const pos = getTouchPos(e);
+      
+      signatureCtx.beginPath();
+      signatureCtx.moveTo(lastX, lastY);
+      signatureCtx.lineTo(pos.x, pos.y);
+      signatureCtx.stroke();
+      
+      lastX = pos.x;
+      lastY = pos.y;
     }
     
-    function handleTouchEnd(e) {
+    function onTouchEnd(e) {
       if (!isDrawing) return;
       e.preventDefault();
       isDrawing = false;
-      console.log('✋ Touch drawing stopped');
+      console.log('✋ Touch ended');
     }
     
     function clearSignature() {
-      if (!canvas || !ctx) {
+      if (!signatureCtx || !signatureCanvas) {
         console.error('❌ Canvas not initialized!');
         return;
       }
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
       console.log('🗑️ Signature cleared');
     }
 
