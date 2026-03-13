@@ -1816,13 +1816,15 @@
     updateCoverageHours(2); // Set minimum 2 hours
     
     // Set today's date
-    const today = new Date();
-    const dateString = today.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    });
-    document.getElementById('signDate').textContent = dateString;
+    {
+      const today = new Date();
+      const dateString = today.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+      document.getElementById('signDate').textContent = dateString;
+    }
     console.log('📅 Date set to:', dateString);
 
     // Get IP address
@@ -1999,63 +2001,188 @@
     function validateAndContinue() {
       console.log('🔍 Starting validation...');
       
-      const agreed = document.getElementById('agreeCheckbox').checked;
-      if (!agreed) {
-        alert('Please agree to the terms before continuing');
-        return;
-      }
+      try {
+        const agreed = document.getElementById('agreeCheckbox').checked;
+        console.log('✅ Agreement checked:', agreed);
+        
+        if (!agreed) {
+          alert('Please agree to the terms before continuing');
+          return;
+        }
 
-      const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
-      console.log('🖊️ Sign method:', signMethod);
-      
-      let signature;
-      
-      if (signMethod === 'type') {
-        signature = document.getElementById('signatureName').value.trim();
-        console.log('✍️ Typed signature:', signature);
-        if (!signature) {
-          alert('Please type your full name');
-          return;
+        const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
+        console.log('🖊️ Sign method:', signMethod);
+        
+        let signature;
+        
+        if (signMethod === 'type') {
+          signature = document.getElementById('signatureName').value.trim();
+          console.log('✍️ Typed signature:', signature);
+          if (!signature) {
+            alert('Please type your full name');
+            return;
+          }
+        } else {
+          // Check if signature canvas exists and has been drawn on
+          const canvas = document.getElementById('signatureCanvas');
+          console.log('🎨 Canvas element:', canvas);
+          
+          if (!canvas) {
+            alert('Canvas not found. Please refresh the page.');
+            return;
+          }
+          
+          console.log('🎨 Canvas dimensions:', canvas.width, 'x', canvas.height);
+          
+          // Ensure canvas has proper dimensions
+          if (canvas.width === 0 || canvas.height === 0) {
+            canvas.width = 600;
+            canvas.height = 150;
+            console.log('⚠️ Canvas dimensions were 0, reset to 600x150');
+          }
+          
+          const blankCanvas = document.createElement('canvas');
+          blankCanvas.width = canvas.width;
+          blankCanvas.height = canvas.height;
+          signature = canvas.toDataURL();
+          const blankSignature = blankCanvas.toDataURL();
+          
+          console.log('🖼️ Signature data length:', signature.length);
+          console.log('🖼️ Blank signature data length:', blankSignature.length);
+          
+          if (!signature || signature === blankSignature) {
+            alert('Please draw your signature on the canvas');
+            return;
+          }
         }
-      } else {
-        // Check if signature canvas exists and has been drawn on
-        const canvas = document.getElementById('signatureCanvas');
-        console.log('🎨 Canvas element:', canvas);
-        
-        if (!canvas) {
-          alert('Canvas not found. Please refresh the page.');
-          return;
-        }
-        
-        console.log('🎨 Canvas dimensions:', canvas.width, 'x', canvas.height);
-        
-        // Ensure canvas has proper dimensions
-        if (canvas.width === 0 || canvas.height === 0) {
-          canvas.width = 600;
-          canvas.height = 150;
-          console.log('⚠️ Canvas dimensions were 0, reset to 600x150');
-        }
-        
-        const blankCanvas = document.createElement('canvas');
-        blankCanvas.width = canvas.width;
-        blankCanvas.height = canvas.height;
-        signature = canvas.toDataURL();
-        const blankSignature = blankCanvas.toDataURL();
-        
-        console.log('🖼️ Signature data length:', signature.length);
-        console.log('🖼️ Blank signature data length:', blankSignature.length);
-        
-        if (!signature || signature === blankSignature) {
-          alert('Please draw your signature on the canvas');
-          return;
-        }
-      }
 
-      console.log('✅ Signature validation passed!');
-      
-      booking.signature = signature;
-      booking.signMethod = signMethod;
-      booking.signedDate = new Date().toISOString();
+        console.log('✅ Signature validation passed!');
+        
+        booking.signature = signature;
+        booking.signMethod = signMethod;
+        booking.signedDate = new Date().toISOString();
+
+        console.log('🔍 FILLING CONTRACT WITH:', {
+          name: booking.name,
+          email: booking.email,
+          date: booking.date,
+          venue: booking.venue,
+          package: booking.package,
+          total: booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0)
+        });
+
+        // Fill contract details
+        document.getElementById('contractName').textContent = booking.name || 'Client';
+        document.getElementById('contractName2').textContent = booking.name || 'Client';
+        document.getElementById('contractEmail').textContent = booking.email || '';
+        document.getElementById('contractWeddingDate').textContent = booking.date || 'TBD';
+        document.getElementById('contractWeddingDate2').textContent = booking.date || 'TBD';
+        document.getElementById('contractWeddingDate3').textContent = booking.date || 'TBD';
+        document.getElementById('contractVenue').textContent = booking.venue || 'TBD';
+        
+        console.log('✅ Contract details filled');
+        
+        // Show package name with price
+        let packageDisplay = 'Not selected';
+        if (booking.package === 'custom') {
+          packageDisplay = `Custom Build - ${booking.coverageHours} hours of coverage - $${booking.packagePrice.toLocaleString()}`;
+        } else if (booking.package) {
+          packageDisplay = booking.package.charAt(0).toUpperCase() + booking.package.slice(1) + ' Package - $' + booking.packagePrice.toLocaleString();
+        }
+        document.getElementById('contractPackage').textContent = packageDisplay;
+        
+        console.log('✅ Package display set');
+        
+        // Show upgrades
+        const upgradesHTML = booking.upgrades.map(u => 
+          `<p style="margin-bottom: 8px;">\u2022 ${u.key}: $${u.price.toLocaleString()}</p>`
+        ).join('');
+        if (booking.album) {
+          document.getElementById('contractUpgrades').innerHTML = 
+            `<p style="margin-bottom: 8px;">\u2022 ${booking.album.charAt(0).toUpperCase() + booking.album.slice(1)} Album: $${booking.albumPrice.toLocaleString()}</p>` + 
+            upgradesHTML;
+        } else {
+          document.getElementById('contractUpgrades').innerHTML = upgradesHTML;
+        }
+        
+        console.log('✅ Upgrades filled');
+        
+        const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+        document.getElementById('contractTotal').textContent = total.toLocaleString();
+        document.getElementById('contractTotal2').textContent = total.toLocaleString();
+
+        console.log('✅ Totals set');
+
+        // Calculate 3-payment schedule
+        const payment1 = Math.round(total / 3);
+        const payment2 = Math.round(total / 3);
+        const payment3 = total - payment1 - payment2;
+
+        console.log('✅ Payments calculated');
+
+        // Calculate payment dates
+        const today = new Date();
+        const weddingDate = new Date(booking.date);
+        
+        const payment1DateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        
+        const midpointTime = today.getTime() + ((weddingDate.getTime() - today.getTime()) / 2);
+        const payment2Date = new Date(midpointTime);
+        const payment2DateStr = payment2Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        
+        const payment3Date = new Date(weddingDate);
+        payment3Date.setDate(payment3Date.getDate() - 14);
+        const payment3DateStr = payment3Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        console.log('✅ Payment dates calculated');
+
+        // Fill payment schedule (only if elements exist)
+        const payment1AmountEl = document.getElementById('payment1Amount');
+        if (payment1AmountEl) {
+          document.getElementById('payment1Amount').textContent = payment1.toLocaleString();
+          document.getElementById('payment1Date').textContent = payment1DateStr;
+          document.getElementById('payment2Amount').textContent = payment2.toLocaleString();
+          document.getElementById('payment2Date').textContent = payment2DateStr;
+          document.getElementById('payment3Amount').textContent = payment3.toLocaleString();
+          document.getElementById('payment3Date').textContent = payment3DateStr;
+
+          console.log('💰 PAYMENT SCHEDULE CALCULATED:', {
+            total,
+            payment1: `$${payment1.toLocaleString()} - ${payment1DateStr}`,
+            payment2: `$${payment2.toLocaleString()} - ${payment2DateStr}`,
+            payment3: `$${payment3.toLocaleString()} - ${payment3DateStr}`
+          });
+        } else {
+          console.log('⚠️ Payment schedule elements not found (might not be wedding package)');
+        }
+
+        console.log('✅ Payment schedule filled');
+
+        // Fill final page
+        document.getElementById('finalSignatureName').textContent = booking.name;
+        document.getElementById('finalSignDate').textContent = new Date().toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        });
+        document.getElementById('finalTotalPrice').textContent = total.toLocaleString();
+
+        console.log('✅ Final page details set');
+
+        // Initialize payment amounts for Step 9
+        initializePaymentAmounts(total);
+
+        console.log('✅ Payment amounts initialized');
+
+        console.log('🚀 About to call nextStep(9)...');
+        nextStep(9);
+        console.log('✅ nextStep(9) called!');
+        
+      } catch (error) {
+        console.error('❌ ERROR IN VALIDATION:', error);
+        alert('Error: ' + error.message);
+      }
+    }
 
       console.log('🔍 FILLING CONTRACT WITH:', {
         name: booking.name,
