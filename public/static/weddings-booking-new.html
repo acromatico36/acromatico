@@ -1429,26 +1429,40 @@
     ];
     
     function searchVenues(query) {
+      console.log('🔍 searchVenues called with:', query);
+      
       if (!query || query.length < 2) {
         document.getElementById('venueSuggestions').style.display = 'none';
+        console.log('❌ Query too short, hiding suggestions');
         return;
       }
 
       clearTimeout(venueDebounce);
       venueDebounce = setTimeout(() => {
         const lowerQuery = query.toLowerCase();
+        console.log('🔎 Searching for:', lowerQuery);
+        
         const suggestions = venueDatabase.filter(v => 
           v.toLowerCase().includes(lowerQuery)
         ).slice(0, 15); // Show top 15 results
 
+        console.log('✅ Found', suggestions.length, 'venues:', suggestions);
         displayVenueSuggestions(suggestions);
       }, 200);
     }
 
     function displayVenueSuggestions(venues) {
+      console.log('📋 displayVenueSuggestions called with', venues.length, 'venues');
+      
       const container = document.getElementById('venueSuggestions');
+      if (!container) {
+        console.error('❌ venueSuggestions container not found!');
+        return;
+      }
+      
       if (!venues.length) {
         container.style.display = 'none';
+        console.log('❌ No venues to display');
         return;
       }
 
@@ -1458,6 +1472,7 @@
         </div>
       `).join('');
       container.style.display = 'block';
+      console.log('✅ Displayed', venues.length, 'venue suggestions');
     }
 
     function selectVenue(venue) {
