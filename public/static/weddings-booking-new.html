@@ -2185,11 +2185,9 @@
         // Fill final page
         const finalSignatureNameEl = document.getElementById('finalSignatureName');
         const finalSignDateEl = document.getElementById('finalSignDate');
-        const finalTotalPriceEl = document.getElementById('finalTotalPrice');
         
         if (!finalSignatureNameEl) throw new Error('finalSignatureName element not found');
         if (!finalSignDateEl) throw new Error('finalSignDate element not found');
-        if (!finalTotalPriceEl) throw new Error('finalTotalPrice element not found');
         
         finalSignatureNameEl.textContent = booking.name;
         finalSignDateEl.textContent = new Date().toLocaleDateString('en-US', { 
@@ -2197,7 +2195,6 @@
           month: 'long', 
           day: 'numeric' 
         });
-        finalTotalPriceEl.textContent = total.toLocaleString();
 
         console.log('✅ Final page details set');
 
