@@ -1107,17 +1107,21 @@
       
       if (venueType === 'venue') {
         location = document.getElementById('venue').value.trim();
+        // Venue is optional - if empty, use "TBD"
         if (!location) {
-          alert('⚠️ Please enter your venue name or select "No, just a city"');
-          return;
+          location = 'Venue TBD';
         }
       } else {
         location = document.getElementById('city').value.trim();
+        // City is optional - if empty, use "TBD"
         if (!location) {
-          alert('⚠️ Please enter your city name');
-          return;
+          location = 'City TBD';
         }
       }
+      
+      // Save to booking object
+      booking.date = date;
+      booking.venue = location;
       
       // All validation passed
       console.log('✅ Step 1 validated:', { date, venueType, location });
