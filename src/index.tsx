@@ -682,6 +682,14 @@ app.get('/api/stripe-key', (c) => {
   return c.json({ publishableKey: c.env.STRIPE_PUBLISHABLE_KEY })
 })
 
+// Middleware to disable caching for development
+app.use('/static/*', async (c, next) => {
+  await next()
+  c.header('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
+  c.header('Pragma', 'no-cache')
+  c.header('Expires', '0')
+})
+
 // Serve static files from public directory
 app.use('/static/*', serveStatic({ root: './' }))
 app.use('/*.html', serveStatic({ root: './public' }))
