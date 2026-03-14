@@ -1468,16 +1468,13 @@
       booking.albumChoice = choice;
     }
 
+    // PORTRAITS DON'T USE ALBUMS - Function disabled
     function selectAlbum(card, name, price, image) {
-      document.querySelectorAll('#step5 .option-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
+      // This function is not used in portrait bookings
+      console.log('⚠️ selectAlbum called but portraits do not have albums');
       booking.album = name;
       booking.albumPrice = price;
       booking.albumImage = image;
-      document.getElementById('previewAlbum').textContent = `${name.charAt(0).toUpperCase() + name.slice(1)} - $${price.toLocaleString()}`;
-      const img = document.getElementById('previewAlbumImage');
-      img.src = image;
-      img.style.display = 'block';
       updateTotal();
     }
 
