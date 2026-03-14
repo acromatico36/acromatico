@@ -997,8 +997,10 @@
       }
       
       const deposit = Math.round(total * 0.5);
-      document.getElementById('contractTotal').textContent = '$' + total.toLocaleString();
-      document.getElementById('contractDeposit').textContent = '$' + deposit.toLocaleString();
+      const balance = total - deposit;
+      document.getElementById('contractTotal').textContent = total.toLocaleString();
+      document.getElementById('contractDeposit').textContent = deposit.toLocaleString();
+      document.getElementById('contractBalance').textContent = balance.toLocaleString();
     }
     
     function validateSignature() {
@@ -1149,8 +1151,9 @@
         '.signature-section { margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(71, 148, 166, 0.2); }' +
         '.signature-line { border-bottom: 2px solid #333; width: 400px; margin: 24px auto; padding: 12px 0; text-align: center; font-family: "Brush Script MT", cursive; font-size: 28px; }' +
         '.signature-image { max-width: 400px; margin: 0 auto; display: block; border: 2px solid #4794A6; border-radius: 8px; padding: 12px; }' +
+        '.logo-section img { height: 60px; display: block; margin: 0 auto; }' +
         '</style></head><body>' +
-        '<div class="logo-section"><h3>ACROMATICO</h3></div>';
+        '<div class="logo-section"><img src="/static/acromatico-logo-dark.png" alt="Acromatico" /></div>';
       
       const signatureHTML = '<div class="signature-section">' +
         '<h4 style="text-align: center; margin-bottom: 32px;">Signed Agreement</h4>' +
