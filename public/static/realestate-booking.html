@@ -2288,96 +2288,34 @@
       const contractDiv = document.querySelector('#step6 > div:nth-child(3)');
       const contractHTML = contractDiv ? contractDiv.innerHTML : '';
       
-      // Generate PDF content with ACTUAL CONTRACT
-      const agreementHTML = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="UTF-8">
-          <title>Real Estate Photography Agreement - ${booking.realtorName || 'Client'}</title>
-          <style>
-            body { 
-              font-family: 'Helvetica Neue', 'Arial', sans-serif; 
-              padding: 60px; 
-              line-height: 1.9; 
-              color: #333;
-              font-weight: 300;
-            }
-            h3 { 
-              font-size: 32px; 
-              font-weight: 300; 
-              text-align: center; 
-              text-transform: uppercase; 
-              letter-spacing: 4px; 
-              color: #4794A6; 
-              margin-bottom: 48px;
-            }
-            h4 { 
-              font-size: 18px; 
-              font-weight: 300; 
-              text-transform: uppercase; 
-              letter-spacing: 3px; 
-              color: #4794A6; 
-              border-bottom: 1px solid rgba(71, 148, 166, 0.3); 
-              padding-bottom: 12px;
-              margin: 32px 0 20px 0;
-            }
-            p { 
-              margin-bottom: 12px; 
-              font-weight: 300; 
-              line-height: 1.9; 
-            }
-            strong { 
-              font-weight: 400; 
-            }
-            .logo-section {
-              text-align: center;
-              margin-bottom: 40px;
-            }
-            .signature-section {
-              margin-top: 60px;
-              padding-top: 40px;
-              border-top: 2px solid rgba(71, 148, 166, 0.2);
-            }
-            .signature-line {
-              border-bottom: 2px solid #333;
-              width: 400px;
-              margin: 24px auto;
-              padding: 12px 0;
-              text-align: center;
-              font-family: 'Brush Script MT', cursive;
-              font-size: 28px;
-            }
-            .signature-image {
-              max-width: 400px;
-              margin: 0 auto;
-              display: block;
-              border: 2px solid #4794A6;
-              border-radius: 8px;
-              padding: 12px;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="logo-section">
-            <h3>ACROMATICO</h3>
-          </div>
-          
-          ${contractHTML}
-          
-          <div class="signature-section">
-            <h4 style="text-align: center; margin-bottom: 32px;">Signed Agreement</h4>
-            ${booking.signMethod === 'draw' ? 
-              `<img src="${booking.signature}" class="signature-image" alt="Signature" />` : 
-              `<div class="signature-line">${booking.signature}</div>`
-            }
-            <p style="text-align: center; font-size: 14px; color: #666; margin-top: 16px;">
-              Signed by ${booking.realtorName || 'Client'} on ${new Date(booking.signatureDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </p>
-          </div>
-        </body>
-        </html>
-      `;
+      // Generate PDF content with ACTUAL CONTRACT (concatenated to avoid template literal issues)
+      const htmlStart = '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+        '<title>Real Estate Photography Agreement - ' + (booking.realtorName || 'Client') + '</title>' +
+        '<style>' +
+        'body { font-family: "Helvetica Neue", "Arial", sans-serif; padding: 60px; line-height: 1.9; color: #333; font-weight: 300; }' +
+        'h3 { font-size: 32px; font-weight: 300; text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #4794A6; margin-bottom: 48px; }' +
+        'h4 { font-size: 18px; font-weight: 300; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px; margin: 32px 0 20px 0; }' +
+        'p { margin-bottom: 12px; font-weight: 300; line-height: 1.9; }' +
+        'strong { font-weight: 400; }' +
+        '.logo-section { text-align: center; margin-bottom: 40px; }' +
+        '.signature-section { margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(71, 148, 166, 0.2); }' +
+        '.signature-line { border-bottom: 2px solid #333; width: 400px; margin: 24px auto; padding: 12px 0; text-align: center; font-family: "Brush Script MT", cursive; font-size: 28px; }' +
+        '.signature-image { max-width: 400px; margin: 0 auto; display: block; border: 2px solid #4794A6; border-radius: 8px; padding: 12px; }' +
+        '</style></head><body>' +
+        '<div class="logo-section"><h3>ACROMATICO</h3></div>';
+      
+      const signatureHTML = '<div class="signature-section">' +
+        '<h4 style="text-align: center; margin-bottom: 32px;">Signed Agreement</h4>' +
+        (booking.signMethod === 'draw' ? 
+          '<img src="' + booking.signature + '" class="signature-image" alt="Signature" />' : 
+          '<div class="signature-line">' + booking.signature + '</div>') +
+        '<p style="text-align: center; font-size: 14px; color: #666; margin-top: 16px;">' +
+        'Signed by ' + (booking.realtorName || 'Client') + ' on ' + new Date(booking.signatureDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) +
+        '</p></div>';
+      
+      const htmlEnd = '</body></html>';
+      
+      const agreementHTML = htmlStart + contractHTML + signatureHTML + htmlEnd;
       
       // Create a blob and download
       const blob = new Blob([agreementHTML], { type: 'text/html' });
