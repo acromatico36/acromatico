@@ -1245,15 +1245,26 @@
 
     function validateStep1b() {
       const count = booking.propertyCount;
-      booking.properties = [];
+      
+      // Clear previous selections when returning from Step 2
+      // (prices may have changed if sqft was modified)
+      const wasComingFromStep2 = booking.services && booking.services.length > 0;
+      if (wasComingFromStep2) {
+        console.log('⚠️ Square footage changed - clearing service selections');
+      }
+      booking.services = [];
+      booking.servicesPrice = 0;
       
       // Validate and collect data for each property
       for (let i = 0; i < count; i++) {
         const address = document.getElementById(`propertyAddress${i}`).value.trim();
         const type = document.getElementById(`propertyType${i}`).value;
         const sqft = document.getElementById(`squareFootage${i}`).value;
-        const beds = document.getElementById(`bedrooms${i}`).value;
-        const baths = document.getElementById(`bathrooms${i}`).value;
+        const customSqft = document.getElementById(`customSqft${i}`)?.value;
+        const beds = document.getElementById(`bedrooms${i}`)?.value;
+        const baths = document.getElementById(`bathrooms${i}`)?.value;
+        const notes = document.getElementById(`notes${i}`)?.value;
+        const coverage = booking.properties[i]?.coverage || 'interior'; // Keep existing coverage
         
         if (!address) {
           alert(`Please enter address for Property ${i + 1}`);
@@ -1268,13 +1279,23 @@
           return;
         }
         
-        booking.properties.push({
+        // For 8000+ sqft, require custom input
+        if (sqft === '8000+' && (!customSqft || customSqft < 8000)) {
+          alert(`Please enter exact square footage (minimum 8,000) for Property ${i + 1}`);
+          return;
+        }
+        
+        // Update property data (preserve coverage)
+        booking.properties[i] = {
           address,
           type,
           squareFootage: sqft,
+          customSqft: customSqft || '',
           bedrooms: beds || '0',
-          bathrooms: baths || '0'
-        });
+          bathrooms: baths || '0',
+          notes: notes || '',
+          coverage: coverage
+        };
       }
       
       console.log('✅ Properties validated:', booking.properties);
@@ -1452,6 +1473,11 @@
       // When entering Step 2, update pricing based on square footage
       if (step === 2) {
         updateStep2Pricing();
+        
+        // Clear all selected service cards (prices may have changed)
+        document.querySelectorAll('#step2 .option-card').forEach(card => {
+          card.classList.remove('selected');
+        });
       }
     }
 
