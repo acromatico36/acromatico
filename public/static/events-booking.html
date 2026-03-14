@@ -461,6 +461,32 @@
       font-size: 14px;
       color: var(--secondary);
     }
+
+    .payment-option {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: white;
+    }
+
+    .payment-option:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(71, 148, 166, 0.1);
+    }
+
+    .payment-option.active-option {
+      border: 3px solid var(--accent);
+      background: rgba(71, 148, 166, 0.05);
+    }
+
+    .payment-button:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 91, 255, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -974,14 +1000,136 @@
         </div>
       </div>
 
-      <!-- STEP 7: PAYMENT - Will add this next -->
+      <!-- STEP 7: PAYMENT -->
       <div class="step" id="step7">
         <div class="step-number">Step 7 of 7</div>
         <h1 class="step-question">Complete your booking</h1>
         <p class="step-description">Choose your payment option to secure your event date.</p>
 
-        <div style="text-align: center; padding: 80px 40px;">
-          <p style="font-size: 20px; color: var(--secondary);">Payment options coming next...</p>
+        <!-- AGREEMENT SIGNED CONFIRMATION -->
+        <div style="background: rgba(71, 148, 166, 0.1); border: 2px solid var(--accent); border-radius: 12px; padding: 24px; margin-bottom: 32px; text-align: center;">
+          <div style="font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 8px;">✓ Agreement Signed</div>
+          <p style="margin: 0; font-size: 14px; color: var(--secondary);">
+            Signed by <strong id="finalSignatureName">Client Name</strong> on <span id="finalSignDate">Date</span>
+          </p>
+        </div>
+
+        <!-- PAYMENT OPTIONS -->
+        <div style="max-width: 600px; margin: 0 auto;">
+          <h3 style="font-size: 22px; font-weight: 500; margin-bottom: 24px;">Select Payment Option</h3>
+
+          <!-- Option 1: 50% Deposit (RECOMMENDED) -->
+          <div class="payment-option active-option" data-option="deposit" onclick="selectPaymentOption('deposit')">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div>
+                <div style="font-size: 18px; font-weight: 500;">50% Deposit</div>
+                <div style="font-size: 13px; color: var(--secondary); margin-top: 4px;">Pay half now, half before event</div>
+              </div>
+              <div style="font-size: 24px; font-weight: 300; color: var(--accent);">$<span id="depositAmount">0</span></div>
+            </div>
+            <div style="font-size: 12px; color: var(--secondary); line-height: 1.6;">
+              • <strong>Due today:</strong> 50% non-refundable deposit<br>
+              • <strong>Final 50%:</strong> Due 7 days before event<br>
+              • Secures your event date immediately
+            </div>
+          </div>
+
+          <!-- Option 2: Pay in Full -->
+          <div class="payment-option" data-option="full" onclick="selectPaymentOption('full')">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div>
+                <div style="font-size: 18px; font-weight: 500;">Pay in Full</div>
+                <div style="font-size: 13px; color: var(--secondary); margin-top: 4px;">Complete payment today</div>
+              </div>
+              <div style="font-size: 24px; font-weight: 300; color: var(--accent);">$<span id="fullAmount">0</span></div>
+            </div>
+            <div style="font-size: 12px; color: var(--secondary); line-height: 1.6;">
+              • No additional payments required<br>
+              • Fully locked in and confirmed
+            </div>
+          </div>
+
+          <!-- Option 3: Net 30 (for established corporate clients) -->
+          <div class="payment-option" data-option="net30" onclick="selectPaymentOption('net30')">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div>
+                <div style="font-size: 18px; font-weight: 500;">Net 30 Terms</div>
+                <div style="font-size: 13px; color: var(--secondary); margin-top: 4px;">Invoice payment (corporate accounts)</div>
+              </div>
+              <div style="font-size: 16px; font-weight: 500; color: var(--accent);">Invoice</div>
+            </div>
+            <div style="font-size: 12px; color: var(--secondary); line-height: 1.6;">
+              • Full payment due 30 days after event<br>
+              • Subject to credit approval<br>
+              • Requires signed agreement and PO number
+            </div>
+          </div>
+
+          <!-- PAYMENT METHODS -->
+          <div id="paymentMethods" style="margin-top: 40px;">
+            <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 20px;">Payment Method</h4>
+
+            <!-- Stripe Card Payment -->
+            <button onclick="payWithStripe()" class="payment-button" style="background: #635BFF; color: white; width: 100%; padding: 18px; border: none; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; margin-bottom: 16px; transition: all 0.3s;">
+              💳 Pay with Credit/Debit Card
+            </button>
+
+            <!-- Alternative Payment Methods -->
+            <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+              <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 16px; color: #666;">Or send payment directly:</h4>
+              
+              <!-- Zelle -->
+              <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+                <div style="font-weight: 500; margin-bottom: 4px;">📱 Zelle</div>
+                <div style="font-size: 18px; color: var(--accent); font-weight: 500;">954-779-0921</div>
+                <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="selectedPaymentAmount">0</span> to this phone number</div>
+              </div>
+
+              <!-- Cash App -->
+              <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+                <div style="font-weight: 500; margin-bottom: 4px;">💵 Cash App</div>
+                <div style="font-size: 18px; color: var(--accent); font-weight: 500;">$acromatico</div>
+                <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="selectedPaymentAmount">0</span> to this handle</div>
+              </div>
+
+              <!-- Venmo -->
+              <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px;">
+                <div style="font-weight: 500; margin-bottom: 4px;">💙 Venmo</div>
+                <div style="font-size: 18px; color: var(--accent); font-weight: 500;">@acromatico</div>
+                <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="selectedPaymentAmount">0</span> to this username</div>
+              </div>
+
+              <p style="font-size: 13px; color: var(--secondary); margin-top: 16px; font-style: italic;">After sending payment, please email your receipt to info@acromatico.com</p>
+            </div>
+          </div>
+
+          <!-- Net 30 Instructions (hidden by default) -->
+          <div id="net30Instructions" style="margin-top: 40px; display: none;">
+            <div style="background: rgba(71, 148, 166, 0.05); border: 2px solid var(--accent); border-radius: 12px; padding: 24px;">
+              <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 16px; color: var(--accent);">✓ Net 30 Payment Selected</h4>
+              <p style="margin-bottom: 16px; line-height: 1.8;">
+                Your signed agreement has been received. We will send you an invoice via email within 24 hours.
+              </p>
+              <div style="background: white; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+                <div style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">Invoice Details:</div>
+                <div style="font-size: 13px; color: var(--secondary); line-height: 1.8;">
+                  • <strong>Total Amount:</strong> $<span id="net30Total">0</span><br>
+                  • <strong>Payment Terms:</strong> Net 30 from event date<br>
+                  • <strong>PO Number:</strong> <span id="net30PO">Not provided</span>
+                </div>
+              </div>
+              <p style="font-size: 13px; color: var(--secondary); line-height: 1.6; margin: 0;">
+                <strong>Next Steps:</strong> Check your email for the invoice and agreement copy. Payment is due 30 days after the event. If you need any changes to payment terms, please contact us at info@acromatico.com.
+              </p>
+            </div>
+            <button onclick="confirmNet30()" class="btn btn-primary" style="width: 100%; margin-top: 24px; padding: 18px; font-size: 16px;">
+              Confirm Booking with Net 30 Terms
+            </button>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
         </div>
       </div>
 
@@ -1482,7 +1630,95 @@
         });
       
       console.log('✅ Contract validated, moving to payment');
+      
+      // Update payment Step 7 with data
+      const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
+      const signatureName = signMethod === 'type' ? document.getElementById('signatureName').value.trim() : 'Drawn Signature';
+      const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      
+      document.getElementById('finalSignatureName').textContent = signatureName;
+      document.getElementById('finalSignDate').textContent = today;
+      
+      // Calculate amounts
+      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
+      const deposit = Math.round(total / 2);
+      
+      document.getElementById('depositAmount').textContent = deposit.toLocaleString();
+      document.getElementById('fullAmount').textContent = total.toLocaleString();
+      document.getElementById('net30Total').textContent = total.toLocaleString();
+      document.getElementById('net30PO').textContent = booking.poNumber || 'Not provided';
+      
+      // Update all payment amount displays
+      document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
+        el.textContent = deposit.toLocaleString();
+      });
+      
       nextStep(7);
+    }
+
+    // ========================================
+    // STEP 7: PAYMENT FUNCTIONS
+    // ========================================
+    let selectedPaymentOption = 'deposit';
+    let selectedPaymentAmount = 0;
+
+    function selectPaymentOption(option) {
+      console.log('💰 Payment option selected:', option);
+      selectedPaymentOption = option;
+      
+      // Remove active class from all options
+      document.querySelectorAll('.payment-option').forEach(opt => {
+        opt.classList.remove('active-option');
+      });
+      
+      // Add active class to selected option
+      document.querySelector(`.payment-option[data-option="${option}"]`).classList.add('active-option');
+      
+      // Calculate amount based on option
+      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
+      const deposit = Math.round(total / 2);
+      
+      if (option === 'deposit') {
+        selectedPaymentAmount = deposit;
+        document.getElementById('paymentMethods').style.display = 'block';
+        document.getElementById('net30Instructions').style.display = 'none';
+      } else if (option === 'full') {
+        selectedPaymentAmount = total;
+        document.getElementById('paymentMethods').style.display = 'block';
+        document.getElementById('net30Instructions').style.display = 'none';
+      } else if (option === 'net30') {
+        selectedPaymentAmount = 0;
+        document.getElementById('paymentMethods').style.display = 'none';
+        document.getElementById('net30Instructions').style.display = 'block';
+      }
+      
+      // Update all payment amount displays
+      document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
+        el.textContent = selectedPaymentAmount.toLocaleString();
+      });
+      
+      console.log('💵 Selected amount:', selectedPaymentAmount);
+    }
+
+    function payWithStripe() {
+      console.log('💳 Initiating Stripe payment for $', selectedPaymentAmount);
+      
+      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
+      
+      alert(`Stripe Checkout - $${selectedPaymentAmount.toLocaleString()}\n\nEvent: ${booking.eventName}\nDate: ${booking.eventDate}\nCompany: ${booking.companyName}\nContact: ${booking.contactName} (${booking.contactEmail})\n\nTotal Investment: $${total.toLocaleString()}\nPayment Option: ${selectedPaymentOption === 'deposit' ? '50% Deposit' : 'Pay in Full'}\n\n[Stripe integration will be added here]`);
+      
+      console.log('📦 Full booking object:', booking);
+    }
+
+    function confirmNet30() {
+      console.log('📄 Confirming Net 30 booking');
+      
+      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
+      
+      alert(`Net 30 Booking Confirmed!\n\nYour enterprise event photography booking has been confirmed with Net 30 payment terms.\n\nTotal: $${total.toLocaleString()}\nPayment Due: 30 days after event\n\nYou will receive:\n• Invoice via email within 24 hours\n• Copy of signed agreement\n• Event confirmation details\n\nThank you for choosing Acromatico!`);
+      
+      console.log('📦 Full booking object:', booking);
+      console.log('✅ Net 30 booking confirmed');
     }
 
     // PREVIEW SIDEBAR UPDATE
