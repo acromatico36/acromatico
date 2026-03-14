@@ -1010,7 +1010,25 @@
           </h3>
           
           <label>Property Address *</label>
-          <input type="text" id="propertyAddress${i}" placeholder="123 Main St, Miami, FL 33101" value="${property.address || ''}" required>
+          <input type="text" id="propertyAddress${i}" list="addressSuggestions${i}" placeholder="123 Main St, Miami, FL 33101" value="${property.address || ''}" required autocomplete="off">
+          <datalist id="addressSuggestions${i}">
+            <option value="Brickell Ave, Miami, FL">
+            <option value="Ocean Drive, Miami Beach, FL">
+            <option value="Collins Ave, Miami Beach, FL">
+            <option value="Alton Road, Miami Beach, FL">
+            <option value="Lincoln Road, Miami Beach, FL">
+            <option value="Washington Ave, Miami Beach, FL">
+            <option value="Flagler Street, Miami, FL">
+            <option value="Coral Way, Miami, FL">
+            <option value="Miracle Mile, Coral Gables, FL">
+            <option value="Main Highway, Coconut Grove, FL">
+            <option value="Biscayne Blvd, Miami, FL">
+            <option value="SW 8th Street, Miami, FL">
+            <option value="Las Olas Blvd, Fort Lauderdale, FL">
+            <option value="A1A, Fort Lauderdale, FL">
+            <option value="Atlantic Blvd, Pompano Beach, FL">
+          </datalist>
+          <p style="font-size: 12px; color: var(--secondary); margin-top: 4px; margin-bottom: 16px;">📍 Start typing street name for suggestions</p>
           
           <label>Property Type *</label>
           <select id="propertyType${i}" required>
