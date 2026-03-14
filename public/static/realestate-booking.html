@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Real Estate Photography - Acromatico</title>
+  <!-- Google Places Autocomplete API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw&libraries=places&callback=initAutocomplete" async defer></script>
   <style>
     * {
       margin: 0;
@@ -180,6 +182,21 @@
       justify-content: center;
       font-weight: 600;
       font-size: 16px;
+    }
+
+    .coverage-option {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .coverage-option:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(71, 148, 166, 0.15);
+    }
+
+    .coverage-option.selected {
+      border-color: var(--accent) !important;
+      background: rgba(71, 148, 166, 0.05) !important;
+      box-shadow: 0 4px 16px rgba(71, 148, 166, 0.2);
     }
 
     .option-title {
@@ -460,6 +477,28 @@
     .team-price {
       font-size: 14px;
       color: var(--secondary);
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideOutRight {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(400px);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -908,67 +947,315 @@
       nextStep('1b');
     }
 
+    // Property form state
+    let currentPropertyIndex = 0;
+    let autocompleteInstances = [];
+
     function generatePropertyForms() {
       const container = document.getElementById('propertiesFormsContainer');
-      container.innerHTML = '';
-      
       const count = booking.propertyCount;
+      
+      // Initialize properties array if empty
+      if (booking.properties.length === 0) {
+        booking.properties = Array(count).fill(null).map(() => ({
+          address: '',
+          type: '',
+          squareFootage: '',
+          customSqft: '',
+          bedrooms: '',
+          bathrooms: '',
+          coverage: 'both', // interior, exterior, both
+          notes: ''
+        }));
+      }
+      
+      // Load from localStorage if exists
+      const saved = localStorage.getItem('acromaticoRealEstateBooking');
+      if (saved) {
+        const savedData = JSON.parse(saved);
+        if (savedData.properties && savedData.properties.length === count) {
+          booking.properties = savedData.properties;
+        }
+      }
+      
+      currentPropertyIndex = 0;
+      renderCurrentPropertyForm();
+    }
+
+    function renderCurrentPropertyForm() {
+      const container = document.getElementById('propertiesFormsContainer');
+      const count = booking.propertyCount;
+      const i = currentPropertyIndex;
+      const property = booking.properties[i];
       
       // Update title
       if (count === 1) {
         document.getElementById('propertyDetailsTitle').textContent = 'Property Details';
         document.getElementById('propertyDetailsSubtitle').textContent = 'Provide details for your property listing.';
       } else {
-        document.getElementById('propertyDetailsTitle').textContent = `Details for ${count} Properties`;
-        document.getElementById('propertyDetailsSubtitle').textContent = `Provide details for each property. We'll apply bulk pricing discounts automatically.`;
+        document.getElementById('propertyDetailsTitle').textContent = `Property ${i + 1} of ${count}`;
+        document.getElementById('propertyDetailsSubtitle').textContent = `Fill out details for this property. We'll apply bulk pricing discounts automatically (${count >= 4 ? '15%' : '10%'} off).`;
       }
       
-      // Generate a form for each property
-      for (let i = 0; i < count; i++) {
-        const propertyNum = i + 1;
-        const formHTML = `
-          <div class="property-form" style="background: rgba(71, 148, 166, 0.03); border: 2px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px;">
-            <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 16px; color: var(--accent);">
-              ${count > 1 ? `Property ${propertyNum}` : 'Property Details'}
-            </h3>
-            
-            <label>Property Address *</label>
-            <input type="text" id="propertyAddress${i}" placeholder="123 Main St, Miami, FL 33101" required>
-            
-            <label>Property Type *</label>
-            <select id="propertyType${i}" required>
-              <option value="">Select property type...</option>
-              <option value="residential">Residential Home</option>
-              <option value="condo">Condo / Apartment</option>
-              <option value="luxury">Luxury Estate</option>
-              <option value="commercial">Commercial Property</option>
-              <option value="airbnb">Airbnb / Vacation Rental</option>
-              <option value="land">Land / Lot</option>
-            </select>
-            
-            <label>Square Footage *</label>
-            <select id="squareFootage${i}" required>
-              <option value="">Select square footage...</option>
-              <option value="0-1500">0-1,500 sq ft</option>
-              <option value="1501-3000">1,501-3,000 sq ft</option>
-              <option value="3001-5000">3,001-5,000 sq ft</option>
-              <option value="5001-8000">5,001-8,000 sq ft</option>
-              <option value="8000+">8,000+ sq ft</option>
-            </select>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-              <div>
-                <label>Bedrooms</label>
-                <input type="number" id="bedrooms${i}" min="0" max="20" placeholder="e.g., 3">
-              </div>
-              <div>
-                <label>Bathrooms</label>
-                <input type="number" id="bathrooms${i}" min="0" max="20" step="0.5" placeholder="e.g., 2.5">
-              </div>
+      // Progress indicator for multiple properties
+      const progressHTML = count > 1 ? `
+        <div style="background: rgba(71, 148, 166, 0.1); border-radius: 8px; padding: 12px 20px; margin-bottom: 24px; text-align: center;">
+          <div style="font-size: 14px; color: var(--secondary); margin-bottom: 8px;">Property Progress</div>
+          <div style="display: flex; gap: 8px; justify-content: center;">
+            ${Array(count).fill(0).map((_, idx) => `
+              <div style="width: ${Math.max(40, 200 / count)}px; height: 8px; background: ${idx < i ? 'var(--accent)' : idx === i ? 'var(--accent)' : 'var(--border)'}; border-radius: 4px; opacity: ${idx <= i ? '1' : '0.3'};"></div>
+            `).join('')}
+          </div>
+          <div style="font-size: 12px; color: var(--secondary); margin-top: 8px;">${i} of ${count} completed</div>
+        </div>
+      ` : '';
+      
+      const formHTML = `
+        ${progressHTML}
+        <div class="property-form" style="background: white; border: 2px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 24px;">
+          <h3 style="font-size: 22px; font-weight: 500; margin-bottom: 24px; color: var(--accent);">
+            ${count > 1 ? `Property ${i + 1}` : 'Property Information'}
+          </h3>
+          
+          <label>Property Address *</label>
+          <input type="text" id="propertyAddress${i}" class="autocomplete-address" placeholder="Start typing address..." value="${property.address || ''}" required>
+          <p style="font-size: 12px; color: var(--secondary); margin-top: 4px; margin-bottom: 16px;">📍 Start typing and select from the dropdown</p>
+          
+          <label>Property Type *</label>
+          <select id="propertyType${i}" required onchange="autoSaveProperty(${i})">
+            <option value="">Select property type...</option>
+            <option value="residential" ${property.type === 'residential' ? 'selected' : ''}>Residential Home</option>
+            <option value="condo" ${property.type === 'condo' ? 'selected' : ''}>Condo / Apartment</option>
+            <option value="luxury" ${property.type === 'luxury' ? 'selected' : ''}>Luxury Estate</option>
+            <option value="commercial-building" ${property.type === 'commercial-building' ? 'selected' : ''}>Commercial Building / Mall</option>
+            <option value="commercial-other" ${property.type === 'commercial-other' ? 'selected' : ''}>Other Commercial Property</option>
+            <option value="airbnb" ${property.type === 'airbnb' ? 'selected' : ''}>Airbnb / Vacation Rental</option>
+            <option value="land" ${property.type === 'land' ? 'selected' : ''}>Land / Lot</option>
+          </select>
+          
+          <label>What needs to be captured? *</label>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;">
+            <div class="coverage-option ${property.coverage === 'interior' ? 'selected' : ''}" onclick="selectCoverage(${i}, 'interior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
+              <div style="font-size: 24px; margin-bottom: 4px;">🏠</div>
+              <div style="font-size: 14px; font-weight: 500;">Interior Only</div>
+            </div>
+            <div class="coverage-option ${property.coverage === 'exterior' ? 'selected' : ''}" onclick="selectCoverage(${i}, 'exterior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
+              <div style="font-size: 24px; margin-bottom: 4px;">🌳</div>
+              <div style="font-size: 14px; font-weight: 500;">Exterior Only</div>
+            </div>
+            <div class="coverage-option ${property.coverage === 'both' ? 'selected' : ''}" onclick="selectCoverage(${i}, 'both')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
+              <div style="font-size: 24px; margin-bottom: 4px;">🏘️</div>
+              <div style="font-size: 14px; font-weight: 500;">Both</div>
+              <div style="font-size: 11px; color: var(--accent); margin-top: 2px;">Recommended</div>
             </div>
           </div>
-        `;
-        container.innerHTML += formHTML;
+          
+          <label>Square Footage *</label>
+          <select id="squareFootage${i}" required onchange="handleSqftChange(${i})">
+            <option value="">Select square footage...</option>
+            <option value="0-1500" ${property.squareFootage === '0-1500' ? 'selected' : ''}>0-1,500 sq ft</option>
+            <option value="1501-3000" ${property.squareFootage === '1501-3000' ? 'selected' : ''}>1,501-3,000 sq ft</option>
+            <option value="3001-5000" ${property.squareFootage === '3001-5000' ? 'selected' : ''}>3,001-5,000 sq ft</option>
+            <option value="5001-8000" ${property.squareFootage === '5001-8000' ? 'selected' : ''}>5,001-8,000 sq ft</option>
+            <option value="8000+" ${property.squareFootage === '8000+' ? 'selected' : ''}>8,000+ sq ft (specify below)</option>
+          </select>
+          
+          <div id="customSqftContainer${i}" style="display: ${property.squareFootage === '8000+' ? 'block' : 'none'}; margin-top: 16px;">
+            <label>Exact Square Footage</label>
+            <input type="number" id="customSqft${i}" placeholder="e.g., 12500" min="8001" value="${property.customSqft || ''}" onchange="autoSaveProperty(${i})">
+            <p style="font-size: 12px; color: var(--secondary); margin-top: 4px;">For properties over 8,000 sq ft</p>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
+            <div>
+              <label>Bedrooms</label>
+              <input type="number" id="bedrooms${i}" min="0" max="50" placeholder="e.g., 3" value="${property.bedrooms || ''}" onchange="autoSaveProperty(${i})">
+            </div>
+            <div>
+              <label>Bathrooms</label>
+              <input type="number" id="bathrooms${i}" min="0" max="50" step="0.5" placeholder="e.g., 2.5" value="${property.bathrooms || ''}" onchange="autoSaveProperty(${i})">
+            </div>
+          </div>
+          
+          <label style="margin-top: 16px;">Additional Notes (Optional)</label>
+          <textarea id="notes${i}" placeholder="Any special requests, access instructions, or details we should know..." style="width: 100%; min-height: 80px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; resize: vertical;" onchange="autoSaveProperty(${i})">${property.notes || ''}</textarea>
+          <p style="font-size: 12px; color: var(--secondary); margin-top: 4px;">e.g., "Vacant property - lockbox code 1234" or "Tenant occupied - schedule after 5pm"</p>
+        </div>
+        
+        <div class="button-group" style="display: flex; gap: 12px; justify-content: space-between;">
+          <button class="btn btn-secondary" onclick="previousProperty()" ${i === 0 ? 'style="visibility: hidden;"' : ''}>← Previous Property</button>
+          <button class="btn btn-primary" onclick="nextProperty()">${i < count - 1 ? 'Next Property →' : 'Continue to Services →'}</button>
+        </div>
+      `;
+      
+      container.innerHTML = formHTML;
+      
+      // Initialize Google Places Autocomplete for this address field
+      setTimeout(() => initializeAutocomplete(i), 100);
+      
+      // Apply selected styling to coverage options
+      updateCoverageStyles(i);
+    }
+
+    function initializeAutocomplete(index) {
+      const input = document.getElementById(`propertyAddress${index}`);
+      if (!input || !window.google) return;
+      
+      const autocomplete = new google.maps.places.Autocomplete(input, {
+        types: ['address'],
+        componentRestrictions: { country: 'us' }
+      });
+      
+      autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (place.formatted_address) {
+          booking.properties[index].address = place.formatted_address;
+          autoSaveProperty(index);
+        }
+      });
+      
+      // Also save on blur
+      input.addEventListener('blur', () => {
+        booking.properties[index].address = input.value.trim();
+        autoSaveProperty(index);
+      });
+    }
+
+    function selectCoverage(index, coverage) {
+      booking.properties[index].coverage = coverage;
+      updateCoverageStyles(index);
+      autoSaveProperty(index);
+    }
+
+    function updateCoverageStyles(index) {
+      const options = document.querySelectorAll('.coverage-option');
+      options.forEach(opt => {
+        opt.style.borderColor = 'var(--border)';
+        opt.style.background = 'white';
+      });
+      
+      const selected = document.querySelector(`.coverage-option[onclick*="${booking.properties[index].coverage}"]`);
+      if (selected) {
+        selected.style.borderColor = 'var(--accent)';
+        selected.style.background = 'rgba(71, 148, 166, 0.05)';
+      }
+    }
+
+    function handleSqftChange(index) {
+      const select = document.getElementById(`squareFootage${index}`);
+      const customContainer = document.getElementById(`customSqftContainer${index}`);
+      
+      if (select.value === '8000+') {
+        customContainer.style.display = 'block';
+      } else {
+        customContainer.style.display = 'none';
+      }
+      
+      booking.properties[index].squareFootage = select.value;
+      autoSaveProperty(index);
+    }
+
+    function autoSaveProperty(index) {
+      const property = booking.properties[index];
+      
+      // Collect all values
+      property.address = document.getElementById(`propertyAddress${index}`)?.value.trim() || property.address;
+      property.type = document.getElementById(`propertyType${index}`)?.value || property.type;
+      property.squareFootage = document.getElementById(`squareFootage${index}`)?.value || property.squareFootage;
+      property.customSqft = document.getElementById(`customSqft${index}`)?.value || property.customSqft;
+      property.bedrooms = document.getElementById(`bedrooms${index}`)?.value || property.bedrooms;
+      property.bathrooms = document.getElementById(`bathrooms${index}`)?.value || property.bathrooms;
+      property.notes = document.getElementById(`notes${index}`)?.value || property.notes;
+      
+      // Save to localStorage
+      localStorage.setItem('acromaticoRealEstateBooking', JSON.stringify(booking));
+      console.log('💾 Auto-saved property', index + 1);
+      
+      // Show brief save indicator
+      showSaveIndicator();
+    }
+
+    function showSaveIndicator() {
+      // Remove existing indicator if present
+      const existing = document.getElementById('saveIndicator');
+      if (existing) existing.remove();
+      
+      // Create save indicator
+      const indicator = document.createElement('div');
+      indicator.id = 'saveIndicator';
+      indicator.innerHTML = '✓ Saved';
+      indicator.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: var(--success);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
+        z-index: 10000;
+        animation: slideInRight 0.3s ease-out;
+      `;
+      
+      document.body.appendChild(indicator);
+      
+      // Remove after 2 seconds
+      setTimeout(() => {
+        indicator.style.animation = 'slideOutRight 0.3s ease-in';
+        setTimeout(() => indicator.remove(), 300);
+      }, 2000);
+    }
+
+    function previousProperty() {
+      if (currentPropertyIndex > 0) {
+        // Save current property data first
+        autoSaveProperty(currentPropertyIndex);
+        currentPropertyIndex--;
+        renderCurrentPropertyForm();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function nextProperty() {
+      const i = currentPropertyIndex;
+      const property = booking.properties[i];
+      
+      // Validate current property
+      const address = document.getElementById(`propertyAddress${i}`).value.trim();
+      const type = document.getElementById(`propertyType${i}`).value;
+      const sqft = document.getElementById(`squareFootage${i}`).value;
+      
+      if (!address) {
+        alert('Please enter property address');
+        return;
+      }
+      if (!type) {
+        alert('Please select property type');
+        return;
+      }
+      if (!sqft) {
+        alert('Please select square footage');
+        return;
+      }
+      if (sqft === '8000+' && !document.getElementById(`customSqft${i}`).value) {
+        alert('Please specify exact square footage for properties over 8,000 sq ft');
+        return;
+      }
+      
+      // Save current property
+      autoSaveProperty(i);
+      
+      // Move to next property or continue
+      if (currentPropertyIndex < booking.propertyCount - 1) {
+        currentPropertyIndex++;
+        renderCurrentPropertyForm();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // All properties filled, move to services
+        console.log('✅ All properties completed:', booking.properties);
+        nextStep(2);
       }
     }
 
@@ -1307,6 +1594,12 @@
 
     // Initialize
     updatePreview();
+    
+    // Global callback for Google Places API
+    window.initAutocomplete = function() {
+      console.log('✅ Google Places API loaded');
+      // Autocomplete will be initialized when each property form renders
+    };
   </script>
 
 </body>
