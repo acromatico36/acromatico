@@ -1,3 +1,9 @@
+    // BOOKING STATE
+    let booking = {
+      propertyCount: 0,
+      properties: [],
+      services: [],
+      servicesPrice: 0,
       addons: [],
       addonsPrice: 0,
       realtorName: '',
