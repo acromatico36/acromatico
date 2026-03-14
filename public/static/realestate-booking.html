@@ -1505,11 +1505,6 @@
       console.log(`   3D Tour: $${tourPrice}`);
       console.log(`   Avg Sqft: ${avgSqft}`);
     }
-      });
-      
-      const avgSqft = Math.round(totalSqft / propertyCount);
-      document.getElementById('sqft-display').textContent = `${avgSqft.toLocaleString()} sq ft`;
-    }
 
     function prevStep(step) {
       document.getElementById(`step${currentStep}`).classList.remove('active');
