@@ -1409,12 +1409,15 @@
     }
     
     function selectMemoryBook(card, size, price) {
+      console.log('📚 selectMemoryBook called:', size, price);
+      
       if (size === 'skip') {
         booking.memoryBook = null;
         booking.memoryBookPrice = 0;
         booking.memoryBookAddons = [];
         document.getElementById('previewMemoryBook').textContent = 'None';
         updateTotal();
+        console.log('✅ Memory book set to None');
         return;
       }
       
@@ -1424,6 +1427,8 @@
       booking.memoryBookBasePrice = price;
       booking.memoryBookPrice = price;
       booking.memoryBookAddons = [];
+      
+      console.log('📦 Memory book selected:', booking.memoryBook, booking.memoryBookBasePrice);
       
       // Reset page radio buttons to default (20 pages)
       document.getElementById('memoryBookPages20').checked = true;
@@ -2133,7 +2138,16 @@
     let lastY = 0;
     
     function initCanvas() {
+      console.log('🎨 initCanvas() CALLED');
+      
       signatureCanvas = document.getElementById('signatureCanvas');
+      if (!signatureCanvas) {
+        console.error('❌ Canvas element not found!');
+        return;
+      }
+      
+      console.log('✅ Canvas element found:', signatureCanvas);
+      
       signatureCtx = signatureCanvas.getContext('2d');
       
       // Set canvas actual size
@@ -2147,6 +2161,7 @@
       signatureCtx.lineJoin = 'round';
       
       console.log('✅ Canvas initialized!', signatureCanvas.width, 'x', signatureCanvas.height);
+      console.log('✅ Canvas context:', signatureCtx);
       
       // Add event listeners
       signatureCanvas.addEventListener('mousedown', onMouseDown);
@@ -2157,6 +2172,8 @@
       signatureCanvas.addEventListener('touchstart', onTouchStart);
       signatureCanvas.addEventListener('touchmove', onTouchMove);
       signatureCanvas.addEventListener('touchend', onTouchEnd);
+      
+      console.log('✅ Event listeners attached to canvas');
     }
     
     function getMousePos(e) {
