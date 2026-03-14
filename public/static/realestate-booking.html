@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Real Estate Photography - Acromatico</title>
-  <!-- Google Places Autocomplete API -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw&libraries=places" async defer></script>
   <style>
     * {
       margin: 0;
@@ -944,7 +942,6 @@
 
     // Property form state
     let currentPropertyIndex = 0;
-    let autocompleteInstances = [];
 
     function generatePropertyForms() {
       const container = document.getElementById('propertiesFormsContainer');
@@ -1013,8 +1010,7 @@
           </h3>
           
           <label>Property Address *</label>
-          <input type="text" id="propertyAddress${i}" class="autocomplete-address" placeholder="Start typing address..." value="${property.address || ''}" required>
-          <p style="font-size: 12px; color: var(--secondary); margin-top: 4px; margin-bottom: 16px;">📍 Start typing and select from the dropdown</p>
+          <input type="text" id="propertyAddress${i}" placeholder="123 Main St, Miami, FL 33101" value="${property.address || ''}" required>
           
           <label>Property Type *</label>
           <select id="propertyType${i}" required>
@@ -1085,68 +1081,8 @@
       
       container.innerHTML = formHTML;
       
-      // Initialize Google Places Autocomplete for this address field
-      // Give it a moment for the DOM to be ready
-      setTimeout(() => initializeAutocomplete(i), 300);
-      
       // Apply selected styling to coverage options
       updateCoverageStyles(i);
-    }
-
-    function initializeAutocomplete(index) {
-      const input = document.getElementById(`propertyAddress${index}`);
-      if (!input) {
-        console.error('Address input not found:', index);
-        return;
-      }
-      
-      // Wait for Google API to load
-      let attempts = 0;
-      const maxAttempts = 20;
-      
-      const tryInit = () => {
-        attempts++;
-        
-        if (window.google && window.google.maps && window.google.maps.places) {
-          console.log('✅ Google Places API loaded, initializing autocomplete...');
-          
-          const autocomplete = new google.maps.places.Autocomplete(input, {
-            types: ['address'],
-            componentRestrictions: { country: 'us' }
-          });
-          
-          autocomplete.addListener('place_changed', () => {
-            const place = autocomplete.getPlace();
-            if (place.formatted_address) {
-              input.value = place.formatted_address;
-              booking.properties[index].address = place.formatted_address;
-              console.log('📍 Address selected:', place.formatted_address);
-            }
-          });
-          
-          // Save address on blur
-          input.addEventListener('blur', () => {
-            booking.properties[index].address = input.value.trim();
-          });
-          
-          // Store autocomplete instance
-          if (!autocompleteInstances[index]) {
-            autocompleteInstances[index] = autocomplete;
-          }
-          
-        } else {
-          if (attempts < maxAttempts) {
-            console.log(`⏳ Waiting for Google API... (attempt ${attempts}/${maxAttempts})`);
-            setTimeout(tryInit, 200);
-          } else {
-            console.error('❌ Google Places API failed to load after', maxAttempts, 'attempts');
-            // Fallback: just use regular input
-            input.placeholder = 'Enter property address (Google autocomplete unavailable)';
-          }
-        }
-      };
-      
-      tryInit();
     }
 
     function selectCoverage(index, coverage) {
