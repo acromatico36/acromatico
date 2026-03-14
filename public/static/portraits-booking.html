@@ -1128,12 +1128,12 @@
 
           <!-- Draw Signature -->
           <div id="drawSignature" style="display: none;">
-            <div id="canvasContainer" style="border: 3px solid #4794A6; border-radius: 12px; background: white; padding: 0; position: relative; max-width: 600px;">
+            <div id="canvasContainer" style="background: white; padding: 12px; position: relative; max-width: 624px;">
               <canvas 
                 id="signatureCanvas" 
                 width="600" 
                 height="150"
-                style="display: block; width: 100%; height: 150px; cursor: crosshair; background: white;"
+                style="display: block; cursor: crosshair; background: white; border: 2px solid #4794A6; border-radius: 8px; max-width: 100%;"
               ></canvas>
             </div>
             <button type="button" onclick="clearSignature()" style="margin-top: 16px; padding: 14px 28px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s;">🗑️ Clear Signature</button>
@@ -1272,11 +1272,6 @@
           <span class="preview-label">Prints</span>
           <div id="previewPrintsList" style="font-size: 13px; color: var(--secondary); margin-top: 8px;"></div>
         </div>
-        <div class="preview-item">
-          <span class="preview-label">Album</span>
-          <span class="preview-value" id="previewAlbum">Not selected</span>
-        </div>
-        <img id="previewAlbumImage" class="preview-image" style="display: none;">
         <div id="previewUpgrades"></div>
         <div class="preview-total">
           <span>Total</span>
@@ -1772,7 +1767,7 @@
 
     // Stripe checkout integration
     function initiateStripeCheckout() {
-      const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      const total = booking.packagePrice + booking.memoryBookPrice + booking.printsPrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
       
       // TODO: Replace with your actual Stripe integration
       alert(`Stripe checkout initiated for $${total.toLocaleString()}\n\nBooking details:\n- Package: ${booking.package}\n- Date: ${booking.date}\n- Venue: ${booking.venue}\n- Client: ${booking.name} (${booking.email})\n\nThis will redirect to Stripe payment page.`);
@@ -2447,7 +2442,7 @@
         
         console.log('✅ Upgrades filled');
         
-        const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+        const total = booking.packagePrice + booking.memoryBookPrice + booking.printsPrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
         const contractTotalEl = document.getElementById('contractTotal');
         const contractTotal2El = document.getElementById('contractTotal2');
         if (!contractTotalEl) throw new Error('contractTotal element not found');
