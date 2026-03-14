@@ -1316,6 +1316,9 @@
       isCustom: false
     };
 
+    // Payment amount tracking
+    let selectedPaymentAmount = 0;
+
     // Update coverage hours (for custom packages)
     function updateCoverageHours(value) {
       const hours = parseInt(value);
@@ -2279,13 +2282,21 @@
     }
 
     function switchSignMethod(method) {
+      console.log('🔀 Switching signature method to:', method);
+      
       if (method === 'type') {
         document.getElementById('typeSignature').style.display = 'block';
         document.getElementById('drawSignature').style.display = 'none';
+        console.log('✅ Switched to type signature');
       } else {
         document.getElementById('typeSignature').style.display = 'none';
         document.getElementById('drawSignature').style.display = 'block';
-        initCanvas();
+        console.log('🎨 Switched to draw signature, initializing canvas...');
+        
+        // Give the canvas time to render before initializing
+        setTimeout(() => {
+          initCanvas();
+        }, 100);
       }
     }
 
@@ -2501,7 +2512,6 @@
 
 
     // Payment amount calculation and display
-    let selectedPaymentAmount = 0;
     
     function initializePaymentAmounts(total) {
       const half = Math.round(total / 2);
