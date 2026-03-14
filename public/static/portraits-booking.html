@@ -1287,23 +1287,31 @@
     }
 
     function validateStep1() {
+      console.log('🔥 validateStep1 CALLED!!');
+      
       const date = document.getElementById('portraitDate').value;
+      console.log('📅 Date value:', date);
+      
       if (!date) {
         alert('⚠️ Please select your portrait session date');
         return;
       }
       
       const locationType = document.querySelector('input[name="locationType"]:checked').value;
+      console.log('📍 Location type:', locationType);
+      
       let location = '';
       
       if (locationType === 'location') {
         location = document.getElementById('location').value.trim();
+        console.log('🏞️ Location field value:', location);
         // Location is optional - if empty, use "TBD"
         if (!location) {
           location = 'Location TBD';
         }
       } else {
         location = document.getElementById('city').value.trim();
+        console.log('🌆 City field value:', location);
         // City is optional - if empty, use "TBD"
         if (!location) {
           location = 'City TBD';
@@ -1316,28 +1324,30 @@
       
       // All validation passed
       console.log('✅ Step 1 validated:', { date, locationType, location });
+      console.log('🚀 About to call nextStep(2)...');
       nextStep(2);
     }
 
     function nextStep(step) {
       // Save data from previous step
-      if (step === 8) {
+      if (step === 7) {
         booking.name = document.getElementById('clientName').value;
         booking.email = document.getElementById('clientEmail').value;
+        booking.phone = document.getElementById('clientPhone').value;
       }
       if (step === 2) {
-        booking.date = document.getElementById('weddingDate').value;
-        const venueType = document.querySelector('input[name="venueType"]:checked').value;
-        if (venueType === 'venue') {
-          booking.venue = document.getElementById('venue').value;
+        booking.date = document.getElementById('portraitDate').value;
+        const locationType = document.querySelector('input[name="locationType"]:checked').value;
+        if (locationType === 'location') {
+          booking.location = document.getElementById('location').value;
         } else {
-          booking.venue = document.getElementById('city').value;
+          booking.location = document.getElementById('city').value;
         }
       }
 
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
       document.getElementById(`step${step}`).classList.add('active');
-      document.getElementById('progressFill').style.width = `${(step / 9) * 100}%`;
+      document.getElementById('progressFill').style.width = `${(step / 7) * 100}%`;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
