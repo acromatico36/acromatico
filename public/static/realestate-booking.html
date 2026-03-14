@@ -945,7 +945,6 @@
     // Property form state
     let currentPropertyIndex = 0;
     let autocompleteInstances = [];
-    let saveTimeout;
 
     function generatePropertyForms() {
       const container = document.getElementById('propertiesFormsContainer');
@@ -1018,7 +1017,7 @@
           <p style="font-size: 12px; color: var(--secondary); margin-top: 4px; margin-bottom: 16px;">📍 Start typing and select from the dropdown</p>
           
           <label>Property Type *</label>
-          <select id="propertyType${i}" required onchange="autoSaveProperty(${i})">
+          <select id="propertyType${i}" required>
             <option value="">Select property type...</option>
             <option value="residential" ${property.type === 'residential' ? 'selected' : ''}>Residential Home</option>
             <option value="condo" ${property.type === 'condo' ? 'selected' : ''}>Condo / Apartment</option>
@@ -1058,23 +1057,23 @@
           
           <div id="customSqftContainer${i}" style="display: ${property.squareFootage === '8000+' ? 'block' : 'none'}; margin-top: 16px;">
             <label>Exact Square Footage</label>
-            <input type="number" id="customSqft${i}" placeholder="e.g., 12500" min="8001" value="${property.customSqft || ''}" onblur="autoSaveProperty(${i})">
+            <input type="number" id="customSqft${i}" placeholder="e.g., 12500" min="8001" value="${property.customSqft || ''}">
             <p style="font-size: 12px; color: var(--secondary); margin-top: 4px;">For properties over 8,000 sq ft</p>
           </div>
           
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
             <div>
               <label>Bedrooms</label>
-              <input type="number" id="bedrooms${i}" min="0" max="50" placeholder="e.g., 3" value="${property.bedrooms || ''}" onblur="autoSaveProperty(${i})">
+              <input type="number" id="bedrooms${i}" min="0" max="50" placeholder="e.g., 3" value="${property.bedrooms || ''}">
             </div>
             <div>
               <label>Bathrooms</label>
-              <input type="number" id="bathrooms${i}" min="0" max="50" step="0.5" placeholder="e.g., 2.5" value="${property.bathrooms || ''}" onblur="autoSaveProperty(${i})">
+              <input type="number" id="bathrooms${i}" min="0" max="50" step="0.5" placeholder="e.g., 2.5" value="${property.bathrooms || ''}">
             </div>
           </div>
           
           <label style="margin-top: 16px;">Additional Notes (Optional)</label>
-          <textarea id="notes${i}" placeholder="Any special requests, access instructions, or details we should know..." style="width: 100%; min-height: 80px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; resize: vertical;" onblur="autoSaveProperty(${i})">${property.notes || ''}</textarea>
+          <textarea id="notes${i}" placeholder="Any special requests, access instructions, or details we should know..." style="width: 100%; min-height: 80px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; resize: vertical;">${property.notes || ''}</textarea>
           <p style="font-size: 12px; color: var(--secondary); margin-top: 4px;">e.g., "Vacant property - lockbox code 1234" or "Tenant occupied - schedule after 5pm"</p>
         </div>
         
@@ -1106,21 +1105,18 @@
         const place = autocomplete.getPlace();
         if (place.formatted_address) {
           booking.properties[index].address = place.formatted_address;
-          autoSaveProperty(index);
         }
       });
       
-      // Also save on blur
+      // Save address on blur
       input.addEventListener('blur', () => {
         booking.properties[index].address = input.value.trim();
-        autoSaveProperty(index);
       });
     }
 
     function selectCoverage(index, coverage) {
       booking.properties[index].coverage = coverage;
       updateCoverageStyles(index);
-      autoSaveProperty(index);
     }
 
     function updateCoverageStyles(index) {
@@ -1148,72 +1144,29 @@
       }
       
       booking.properties[index].squareFootage = select.value;
-      autoSaveProperty(index);
     }
 
-    function autoSaveProperty(index) {
-      // Clear existing timeout
-      if (saveTimeout) clearTimeout(saveTimeout);
+    function savePropertyData(index) {
+      const property = booking.properties[index];
       
-      // Debounce save by 500ms to avoid blocking typing
-      saveTimeout = setTimeout(() => {
-        const property = booking.properties[index];
-        
-        // Collect all values
-        property.address = document.getElementById(`propertyAddress${index}`)?.value.trim() || property.address;
-        property.type = document.getElementById(`propertyType${index}`)?.value || property.type;
-        property.squareFootage = document.getElementById(`squareFootage${index}`)?.value || property.squareFootage;
-        property.customSqft = document.getElementById(`customSqft${index}`)?.value || property.customSqft;
-        property.bedrooms = document.getElementById(`bedrooms${index}`)?.value || property.bedrooms;
-        property.bathrooms = document.getElementById(`bathrooms${index}`)?.value || property.bathrooms;
-        property.notes = document.getElementById(`notes${index}`)?.value || property.notes;
-        
-        // Save to localStorage
-        localStorage.setItem('acromaticoRealEstateBooking', JSON.stringify(booking));
-        console.log('💾 Auto-saved property', index + 1);
-        
-        // Show brief save indicator
-        showSaveIndicator();
-      }, 500);
-    }
-
-    function showSaveIndicator() {
-      // Remove existing indicator if present
-      const existing = document.getElementById('saveIndicator');
-      if (existing) existing.remove();
+      // Collect all values
+      property.address = document.getElementById(`propertyAddress${index}`)?.value.trim() || property.address;
+      property.type = document.getElementById(`propertyType${index}`)?.value || property.type;
+      property.squareFootage = document.getElementById(`squareFootage${index}`)?.value || property.squareFootage;
+      property.customSqft = document.getElementById(`customSqft${index}`)?.value || property.customSqft;
+      property.bedrooms = document.getElementById(`bedrooms${index}`)?.value || property.bedrooms;
+      property.bathrooms = document.getElementById(`bathrooms${index}`)?.value || property.bathrooms;
+      property.notes = document.getElementById(`notes${index}`)?.value || property.notes;
       
-      // Create save indicator
-      const indicator = document.createElement('div');
-      indicator.id = 'saveIndicator';
-      indicator.innerHTML = '✓ Saved';
-      indicator.style.cssText = `
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        background: var(--success);
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 500;
-        box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
-        z-index: 10000;
-        animation: slideInRight 0.3s ease-out;
-      `;
-      
-      document.body.appendChild(indicator);
-      
-      // Remove after 2 seconds
-      setTimeout(() => {
-        indicator.style.animation = 'slideOutRight 0.3s ease-in';
-        setTimeout(() => indicator.remove(), 300);
-      }, 2000);
+      // Save to localStorage
+      localStorage.setItem('acromaticoRealEstateBooking', JSON.stringify(booking));
+      console.log('💾 Saved property', index + 1);
     }
 
     function previousProperty() {
       if (currentPropertyIndex > 0) {
         // Save current property data first
-        autoSaveProperty(currentPropertyIndex);
+        savePropertyData(currentPropertyIndex);
         currentPropertyIndex--;
         renderCurrentPropertyForm();
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1247,7 +1200,7 @@
       }
       
       // Save current property
-      autoSaveProperty(i);
+      savePropertyData(i);
       
       // Move to next property or continue
       if (currentPropertyIndex < booking.propertyCount - 1) {
