@@ -469,7 +469,7 @@
   <nav>
     <div class="nav-container">
       <div class="logo">
-        <img src="https://acromatico.com/wp-content/uploads/2024/11/acromatico_logo.png" alt="Acromatico">
+        <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" style="height: 40px; filter: brightness(0) invert(1);">
       </div>
       <a href="/events" class="nav-back">← Back to Events</a>
     </div>
@@ -785,22 +785,192 @@
         </div>
       </div>
 
-      <!-- STEP 6: CONTRACT - Will add this next -->
+      <!-- STEP 6: CONTRACT -->
       <div class="step" id="step6">
         <div class="step-number">Step 6 of 7</div>
         <h1 class="step-question">Review & sign agreement</h1>
         <p class="step-description">Please review the service agreement below and sign electronically to proceed.</p>
 
         <div style="background: white; border-radius: 16px; padding: 40px; margin-bottom: 32px; border: 2px solid var(--border);">
-          <h2 style="text-align: center; font-size: 28px; margin-bottom: 32px;">ENTERPRISE EVENT PHOTOGRAPHY AGREEMENT</h2>
+          <h2 style="text-align: center; font-size: 28px; margin-bottom: 32px; letter-spacing: 2px;">ENTERPRISE EVENT PHOTOGRAPHY AGREEMENT</h2>
           
-          <!-- CONTRACT CONTENT WILL GO HERE -->
-          <p style="text-align: center; margin-top: 40px; color: var(--secondary);">Contract content coming next...</p>
+          <!-- CLIENT INFO -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Client Information</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">
+              <strong style="font-weight: 400;">Company:</strong> <span id="contractCompany">Company Name</span><br>
+              <strong style="font-weight: 400;">Contact:</strong> <span id="contractContact">Contact Name</span>, <span id="contractTitle">Title</span><br>
+              <strong style="font-weight: 400;">Email:</strong> <span id="contractEmail">email@company.com</span><br>
+              <strong style="font-weight: 400;">Phone:</strong> <span id="contractPhone">(000) 000-0000</span>
+            </p>
+          </div>
+
+          <!-- EVENT DETAILS -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Event Details</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">
+              <strong style="font-weight: 400;">Event Name:</strong> <span id="contractEventName">Event Name</span><br>
+              <strong style="font-weight: 400;">Date:</strong> <span id="contractEventDate">MM/DD/YYYY</span><br>
+              <strong style="font-weight: 400;">Type:</strong> <span id="contractEventType">Conference</span><br>
+              <strong style="font-weight: 400;">Venue:</strong> <span id="contractVenue">Venue Location</span>
+            </p>
+          </div>
+
+          <!-- SERVICES PROVIDED -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Services Provided</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">
+              <strong style="font-weight: 400;">Coverage:</strong> <span id="contractCoverage">Full-Day Coverage</span><br>
+              <strong style="font-weight: 400;">Team:</strong> <span id="contractTeam">Solo Photographer</span><br>
+              <strong style="font-weight: 400;">Video:</strong> <span id="contractVideo">None</span><br>
+              <strong style="font-weight: 400;">Deliverables:</strong> <span id="contractDeliverables">Professional edited images, online gallery</span>
+            </p>
+          </div>
+
+          <!-- TOTAL INVESTMENT -->
+          <div style="margin-bottom: 32px; background: rgba(71, 148, 166, 0.08); padding: 24px; border-radius: 12px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6;">Total Investment</h4>
+            <p style="font-size: 32px; font-weight: 300; margin: 0; color: #4794A6;">$<span id="contractTotal">0</span></p>
+          </div>
+
+          <!-- PAYMENT TERMS -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Payment Terms</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Client agrees to pay Acromatico <strong style="font-weight: 400;">$<span id="contractTotal2">0</span> (Lump Sum All-Inclusive)</strong> in consideration for the professional event photography services to be rendered by Acromatico.</p>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">A <strong style="font-weight: 400;">non-refundable deposit of 50%</strong> is required to reserve the specified services and event date. The deposit will be subtracted from the total payment owed by Client upon completion of services.</p>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">The remaining balance of <strong style="font-weight: 400;">50%</strong> is due <strong style="font-weight: 400;">7 days prior to the event date</strong>. Acromatico does not begin post-production work or deliver final images until final payment is received.</p>
+          </div>
+
+          <!-- DELIVERABLES & TIMELINE -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Deliverables & Timeline</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico will provide Client with professionally edited high-resolution images via secure online gallery within <strong style="font-weight: 400;">30 business days</strong> of event completion, unless Rush Delivery or Same-Day Sneak Peek service has been purchased.</p>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">All images will be professionally color-corrected, exposure-adjusted, and optimized for both web and print use. Images will remain available for download for a minimum of <strong style="font-weight: 400;">90 days</strong> from delivery date.</p>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">If Rush Delivery (7-day) is selected, edited images will be delivered within 7 business days. If Same-Day Sneak Peek is selected, a curated selection of 20-30 edited images will be delivered within 24 hours of event conclusion.</p>
+          </div>
+
+          <!-- CANCELLATION POLICY -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Cancellation Policy</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;"><strong style="font-weight: 400;">All deposit fees are non-refundable.</strong> A minimum of 60 days notice is required for cancellation of this contract by Client. Any cancellation made with less than 60 days notice prior to the agreed upon event date will result in full payment by Client.</p>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">If cancellation is initiated by Acromatico due to circumstances beyond our control, all money paid to Acromatico from Client shall be fully refunded, including the deposit fee. Refund shall be paid out within 30 calendar days from the cancellation date.</p>
+          </div>
+
+          <!-- COPYRIGHT & USAGE RIGHTS -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Copyright & Usage Rights</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico retains copyright ownership of all images produced. Upon final payment, Client receives a <strong style="font-weight: 400;">perpetual, non-exclusive license</strong> to use the images for the following purposes:</p>
+            <p style="margin-bottom: 8px; margin-left: 20px; font-weight: 300;">• Internal company communications and presentations</p>
+            <p style="margin-bottom: 8px; margin-left: 20px; font-weight: 300;">• Social media, website, and marketing materials</p>
+            <p style="margin-bottom: 8px; margin-left: 20px; font-weight: 300;">• Press releases and media kits</p>
+            <p style="margin-bottom: 12px; margin-left: 20px; font-weight: 300;">• Annual reports and corporate publications</p>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Client agrees that Acromatico may use images from this event for portfolio, website, social media, and promotional purposes. If Client requires exclusive rights or image usage restrictions, a separate licensing agreement must be negotiated.</p>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Images may not be resold, sublicensed, or used for commercial purposes beyond Client's own business operations without written permission from Acromatico.</p>
+          </div>
+
+          <!-- PERFORMANCE OF SERVICES -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Performance of Services</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico agrees to provide professional event photography services as specified in the Services Provided section, with full artistic discretion for composition, lighting, and editing style.</p>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">If additional coverage hours are required beyond the contracted package, they will be billed at <strong style="font-weight: 400;">$400 per hour per photographer</strong>. Additional hours must be approved by Client before they are rendered.</p>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Acromatico is not responsible for missed shots due to event schedule changes, key individuals not being present, venue restrictions, or details not communicated to Acromatico in advance.</p>
+          </div>
+
+          <!-- VENUE & LOCATION REQUIREMENTS -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Venue & Location Requirements</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico is limited by venue guidelines and regulations. Client agrees to coordinate with venue management to ensure photographer access to all necessary areas. If venue restrictions prevent specific shots, Acromatico is not liable.</p>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">If the event venue is located more than 50 miles from Fort Lauderdale, FL, travel expenses (mileage at $0.65/mile or airfare, accommodations, and ground transportation) will be invoiced separately unless already included in the package price.</p>
+          </div>
+
+          <!-- FORCE MAJEURE -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Force Majeure</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">If performance of this contract is prevented by causes beyond either party's reasonable control (acts of God, fire, natural disasters, pandemics, government restrictions, illness, etc.), the affected party shall provide written notice, and obligations will be suspended.</p>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">In such cases, Acromatico will make every reasonable effort to secure a qualified replacement photographer. If a suitable replacement cannot be found, liability is limited to a full refund of payments received.</p>
+          </div>
+
+          <!-- LIMIT OF LIABILITY -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Limit of Liability</h4>
+            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico takes the utmost care in capturing, transporting, and processing all images. However, in the unlikely event that images are lost, stolen, or destroyed for reasons within or beyond Acromatico's control, liability is limited to a full refund of all payments received.</p>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Acromatico carries professional liability insurance and equipment backup systems to minimize risk. Digital files are backed up to multiple secure locations throughout and after each event.</p>
+          </div>
+
+          <!-- INDEMNIFICATION -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Indemnification</h4>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Client agrees to indemnify and hold harmless Acromatico from any claims, damages, or legal fees that arise from litigation by Client against Acromatico resulting from the acts or omissions of Acromatico.</p>
+          </div>
+
+          <!-- WARRANTY -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Warranty</h4>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Acromatico shall provide its services in a timely and professional manner, meeting generally acceptable industry standards for professional event photography, and will provide a standard of care equal to care used by professional photographers in the corporate event industry.</p>
+          </div>
+
+          <!-- GOVERNING LAW -->
+          <div style="margin-bottom: 32px;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Governing Law</h4>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">This agreement will be construed under Florida law. Should any litigation arise as a result of this agreement, it will be litigated in the State of Florida.</p>
+          </div>
+
+          <!-- ENTIRE AGREEMENT -->
+          <div style="margin-bottom: 0;">
+            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Entire Agreement</h4>
+            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">This Enterprise Event Photography Agreement constitutes the final and complete agreement between <span id="contractCompany2">Company Name</span> and Acromatico. This contract supersedes any prior written or oral agreements between the parties. Any modifications must be made in writing and signed by both parties.</p>
+          </div>
         </div>
+
+        <!-- Signature Section -->
+        <div style="background: rgba(71, 148, 166, 0.05); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; margin-bottom: 32px;">
+          <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 16px;">Electronic Signature</h4>
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">Type your full name or draw your signature. This constitutes a legally binding electronic signature under ESIGN Act and UETA.</p>
+          
+          <div style="margin-bottom: 24px;">
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; margin-bottom: 16px;">
+              <input type="radio" name="signMethod" value="type" checked onchange="switchSignMethod('type')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Type my name</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+              <input type="radio" name="signMethod" value="draw" onchange="switchSignMethod('draw')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Draw my signature</span>
+            </label>
+          </div>
+
+          <!-- Type Signature -->
+          <div id="typeSignature">
+            <input type="text" id="signatureName" placeholder="Type your full legal name" style="width: 100%; padding: 20px; font-size: 24px; font-family: 'Brush Script MT', cursive; border: 2px solid var(--border); border-radius: 12px;">
+          </div>
+
+          <!-- Draw Signature -->
+          <div id="drawSignature" style="display: none;">
+            <div id="canvasContainer" style="border: 3px solid #4794A6; border-radius: 12px; background: white; padding: 0; position: relative; max-width: 600px;">
+              <canvas 
+                id="signatureCanvas" 
+                width="600" 
+                height="150"
+                style="display: block; width: 100%; height: 150px; cursor: crosshair; background: white; touch-action: none;"
+              ></canvas>
+            </div>
+            <button type="button" onclick="clearSignature()" style="margin-top: 16px; padding: 14px 28px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s;">🗑️ Clear Signature</button>
+            <p style="font-size: 14px; color: #4794A6; margin-top: 12px; font-weight: 500;">🖊️ <strong>CLICK AND DRAG</strong> on the white canvas above to draw your signature</p>
+          </div>
+
+          <div style="margin-top: 24px; font-size: 13px; color: var(--secondary);">
+            <p>IP Address: <span id="ipAddress">Loading...</span></p>
+            <p style="margin-top: 8px;">Date: <span id="signDate"></span></p>
+          </div>
+        </div>
+
+        <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px; cursor: pointer;">
+          <input type="checkbox" id="agreeCheckbox" style="width: 24px; height: 24px; cursor: pointer;">
+          <span style="font-size: 15px;">I have read and agree to the terms of this Enterprise Event Photography Agreement</span>
+        </label>
 
         <div class="button-group">
           <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
-          <button class="btn btn-primary" onclick="nextStep(7)">Sign & Continue →</button>
+          <button class="btn btn-primary" onclick="validateStep6()">Sign & Continue →</button>
         </div>
       </div>
 
@@ -1076,6 +1246,243 @@
       booking.poNumber = document.getElementById('poNumber').value.trim();
 
       nextStep(6);
+    }
+
+    // ========================================
+    // SIGNATURE CANVAS
+    // ========================================
+    let signatureCanvas;
+    let signatureCtx;
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    
+    function initCanvas() {
+      signatureCanvas = document.getElementById('signatureCanvas');
+      if (!signatureCanvas) {
+        console.error('❌ Canvas element not found!');
+        return;
+      }
+      signatureCtx = signatureCanvas.getContext('2d');
+      
+      // Set canvas actual size
+      signatureCanvas.width = 600;
+      signatureCanvas.height = 150;
+      
+      // Set drawing style
+      signatureCtx.strokeStyle = '#000000';
+      signatureCtx.lineWidth = 2;
+      signatureCtx.lineCap = 'round';
+      signatureCtx.lineJoin = 'round';
+      
+      console.log('✅ Canvas initialized!', signatureCanvas.width, 'x', signatureCanvas.height);
+      
+      // Add event listeners
+      signatureCanvas.addEventListener('mousedown', onMouseDown);
+      signatureCanvas.addEventListener('mousemove', onMouseMove);
+      signatureCanvas.addEventListener('mouseup', onMouseUp);
+      signatureCanvas.addEventListener('mouseleave', onMouseUp);
+      
+      signatureCanvas.addEventListener('touchstart', onTouchStart);
+      signatureCanvas.addEventListener('touchmove', onTouchMove);
+      signatureCanvas.addEventListener('touchend', onTouchEnd);
+    }
+    
+    function getMousePos(e) {
+      const rect = signatureCanvas.getBoundingClientRect();
+      const scaleX = signatureCanvas.width / rect.width;
+      const scaleY = signatureCanvas.height / rect.height;
+      return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+      };
+    }
+    
+    function getTouchPos(e) {
+      const rect = signatureCanvas.getBoundingClientRect();
+      const scaleX = signatureCanvas.width / rect.width;
+      const scaleY = signatureCanvas.height / rect.height;
+      return {
+        x: (e.touches[0].clientX - rect.left) * scaleX,
+        y: (e.touches[0].clientY - rect.top) * scaleY
+      };
+    }
+    
+    function onMouseDown(e) {
+      e.preventDefault();
+      isDrawing = true;
+      const pos = getMousePos(e);
+      lastX = pos.x;
+      lastY = pos.y;
+      console.log('🖊️ Started drawing at', lastX, lastY);
+    }
+    
+    function onMouseMove(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const pos = getMousePos(e);
+      
+      signatureCtx.beginPath();
+      signatureCtx.moveTo(lastX, lastY);
+      signatureCtx.lineTo(pos.x, pos.y);
+      signatureCtx.stroke();
+      
+      lastX = pos.x;
+      lastY = pos.y;
+    }
+    
+    function onMouseUp(e) {
+      if (!isDrawing) return;
+      isDrawing = false;
+      console.log('✋ Stopped drawing');
+    }
+    
+    function onTouchStart(e) {
+      e.preventDefault();
+      isDrawing = true;
+      const pos = getTouchPos(e);
+      lastX = pos.x;
+      lastY = pos.y;
+      console.log('📱 Touch started at', lastX, lastY);
+    }
+    
+    function onTouchMove(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const pos = getTouchPos(e);
+      
+      signatureCtx.beginPath();
+      signatureCtx.moveTo(lastX, lastY);
+      signatureCtx.lineTo(pos.x, pos.y);
+      signatureCtx.stroke();
+      
+      lastX = pos.x;
+      lastY = pos.y;
+    }
+    
+    function onTouchEnd(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      isDrawing = false;
+      console.log('✋ Touch ended');
+    }
+    
+    function clearSignature() {
+      if (!signatureCtx || !signatureCanvas) {
+        console.error('❌ Canvas not initialized!');
+        return;
+      }
+      signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+      console.log('🗑️ Signature cleared');
+    }
+
+    function switchSignMethod(method) {
+      if (method === 'type') {
+        document.getElementById('typeSignature').style.display = 'block';
+        document.getElementById('drawSignature').style.display = 'none';
+      } else {
+        document.getElementById('typeSignature').style.display = 'none';
+        document.getElementById('drawSignature').style.display = 'block';
+        initCanvas();
+      }
+    }
+
+    // STEP 6: VALIDATE CONTRACT & SIGNATURE
+    function validateStep6() {
+      console.log('🔍 Validating Step 6...');
+      
+      // Check agreement checkbox
+      const agreed = document.getElementById('agreeCheckbox').checked;
+      if (!agreed) {
+        alert('Please agree to the terms before continuing');
+        return;
+      }
+
+      // Get signature method
+      const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
+      
+      if (signMethod === 'type') {
+        const signatureName = document.getElementById('signatureName').value.trim();
+        if (!signatureName) {
+          alert('Please type your full legal name');
+          return;
+        }
+        console.log('✅ Typed signature:', signatureName);
+      } else {
+        // Check if canvas has drawing
+        if (!signatureCanvas) {
+          alert('Signature canvas not initialized');
+          return;
+        }
+        
+        const imageData = signatureCtx.getImageData(0, 0, signatureCanvas.width, signatureCanvas.height);
+        const data = imageData.data;
+        let hasDrawing = false;
+        
+        for (let i = 0; i < data.length; i += 4) {
+          if (data[i + 3] > 0) { // Check alpha channel
+            hasDrawing = true;
+            break;
+          }
+        }
+        
+        if (!hasDrawing) {
+          alert('Please draw your signature before continuing');
+          return;
+        }
+        console.log('✅ Drawn signature validated');
+      }
+
+      // Fill contract fields with booking data
+      document.getElementById('contractCompany').textContent = booking.companyName;
+      document.getElementById('contractCompany2').textContent = booking.companyName;
+      document.getElementById('contractContact').textContent = booking.contactName;
+      document.getElementById('contractTitle').textContent = booking.contactTitle;
+      document.getElementById('contractEmail').textContent = booking.contactEmail;
+      document.getElementById('contractPhone').textContent = booking.contactPhone;
+      
+      document.getElementById('contractEventName').textContent = booking.eventName;
+      document.getElementById('contractEventDate').textContent = booking.eventDate;
+      document.getElementById('contractEventType').textContent = booking.eventType;
+      document.getElementById('contractVenue').textContent = booking.location;
+      
+      // Services
+      document.getElementById('contractCoverage').textContent = booking.coverage + (booking.numberOfDays > 1 ? ` (${booking.numberOfDays} days)` : '');
+      document.getElementById('contractTeam').textContent = booking.teamSize;
+      
+      let videoText = 'None';
+      if (booking.videoPackages && booking.videoPackages.length > 0) {
+        videoText = booking.videoPackages.map(v => v.name).join(', ');
+      }
+      document.getElementById('contractVideo').textContent = videoText;
+      
+      let deliverablesText = `${booking.coverageImages} professionally edited images, online gallery`;
+      if (booking.addons && booking.addons.length > 0) {
+        deliverablesText += ', ' + booking.addons.map(a => a.name).join(', ');
+      }
+      document.getElementById('contractDeliverables').textContent = deliverablesText;
+      
+      // Total
+      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
+      document.getElementById('contractTotal').textContent = total.toLocaleString();
+      document.getElementById('contractTotal2').textContent = total.toLocaleString();
+      
+      // Set IP and Date
+      const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('signDate').textContent = today;
+      
+      // Get IP address
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('ipAddress').textContent = data.ip;
+        })
+        .catch(() => {
+          document.getElementById('ipAddress').textContent = 'Unable to retrieve';
+        });
+      
+      console.log('✅ Contract validated, moving to payment');
+      nextStep(7);
     }
 
     // PREVIEW SIDEBAR UPDATE
