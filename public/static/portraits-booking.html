@@ -592,55 +592,48 @@
             <div class="journey-dot"></div>
             <div class="journey-dot"></div>
             <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
           </div>
-          <span>Build Your Experience</span>
+          <span>Choose Your Session</span>
         </div>
-        <h1 class="step-question">Build a custom experience<br>or choose a package</h1>
+        <h1 class="step-question">Choose your portrait session</h1>
         
-        <!-- CUSTOM OPTION -->
-        <div style="margin-bottom: 48px;">
+        <!-- PACKAGE OPTIONS -->
+        <div class="options-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="option-card" onclick="selectPackage(this, '1-hour-session', 595)">
+            <div class="option-title">1-Hour Session</div>
+            <div class="option-description">Perfect for individuals<br>or couples<br>1 location<br>Digital gallery</div>
+            <div class="option-price">$595</div>
+          </div>
+          <div class="option-card" onclick="selectPackage(this, '2-hour-session', 695)">
+            <div class="option-badge">Most Popular</div>
+            <div class="option-title">2-Hour Session</div>
+            <div class="option-description">Ideal for families<br>2 locations<br>Outfit changes<br>Digital gallery</div>
+            <div class="option-price">$695</div>
+          </div>
+        </div>
+        
+        <!-- CUSTOM BUILD OPTION -->
+        <div style="margin-top: 48px;">
+          <div style="text-align: center; margin-bottom: 24px;">
+            <h3 style="font-size: 20px; color: var(--primary); margin-bottom: 8px;">Need something custom?</h3>
+            <p style="font-size: 15px; color: var(--secondary);">Build your perfect session with exactly what you need</p>
+          </div>
           <div class="option-card" onclick="selectCustom(this)" style="cursor: pointer; text-align: left; padding: 32px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-              <div class="option-title" style="margin: 0;">Build Custom</div>
-              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">Starts at $1,200</div>
+              <div class="option-title" style="margin: 0;">Build Custom Session</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">Starts at $595</div>
             </div>
-            <div class="option-description" style="text-align: left;">Choose exactly what you need, pay only for what you want. Minimum 2 hours of coverage. Full flexibility to build your perfect day.</div>
+            <div class="option-description" style="text-align: left;">Choose exactly what you need. Select your hours, add memory books, prints, and more. Full flexibility to create your perfect portrait experience.</div>
           </div>
         </div>
-
-        <!-- OR DIVIDER -->
-        <div style="text-align: center; margin: 48px 0; position: relative;">
-          <div style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--border);"></div>
-          <span style="position: relative; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); padding: 0 24px; color: var(--secondary); font-size: 15px; font-weight: 500;">OR CHOOSE A PACKAGE</span>
-        </div>
-
-        <!-- PACKAGE OPTIONS -->
-        <div class="options-grid">
-          <div class="option-card" onclick="selectPackage(this, 'essential', 2500)">
-            <div class="option-title">Essential</div>
-            <div class="option-description">6 hours<br>1 photographer<br>Digital gallery<br>300+ photos</div>
-            <div class="option-price">$2,500</div>
-          </div>
-          <div class="option-card" onclick="selectPackage(this, 'signature', 4500)">
-            <div class="option-badge">Most Popular</div>
-            <div class="option-title">Signature</div>
-            <div class="option-description">8 hours<br>2 photographers<br>Engagement session<br>500+ photos</div>
-            <div class="option-price">$4,500</div>
-          </div>
-          <div class="option-card" onclick="selectPackage(this, 'legacy', 7500)">
-            <div class="option-title">Legacy</div>
-            <div class="option-description">Full day<br>2 photographers<br>Engagement + Album<br>800+ photos</div>
-            <div class="option-price">$7,500</div>
-          </div>
-        </div>
+        
         <div class="button-group">
           <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
           <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
         </div>
       </div>
 
-      <!-- STEP 3: ADD EXTRA HOURS -->
+      <!-- STEP 3: MEMORY BOOK (GOBOOK) -->
       <div class="step" id="step3">
         <div class="step-number">
           <div class="journey-dots">
@@ -651,24 +644,57 @@
             <div class="journey-dot"></div>
             <div class="journey-dot"></div>
             <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
           </div>
-          <span>Coverage Hours</span>
+          <span>Memory Book</span>
         </div>
-        <h1 class="step-question" id="step3Question">How many hours do you need?</h1>
-        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;" id="step3Description">Minimum 2 hours coverage. Each additional hour is $400.</p>
-        <div class="hour-slider-container">
-          <div class="hour-display">
-            <div class="hour-value" id="hourValue">2</div>
-            <div class="hour-label">Hours of Coverage</div>
-            <div class="hour-price" id="hourPrice">$1,200</div>
+        <h1 class="step-question">Add a Memory Book (GoBook)?</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px; line-height: 1.7;"><strong>Handmade in Italy by Graphistudio.</strong> High-quality layflat photo book with premium leatherette covers. Perfect for portraits, families, and special moments.</p>
+        
+        <div style="margin-bottom: 32px;">
+          <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            poster="/static/prints/gobook-presentation-box.jpg"
+            style="width: 100%; max-width: 600px; border-radius: 16px; margin: 0 auto; display: block;">
+            <source src="/static/prints/gobook-video.mp4" type="video/mp4">
+            <img src="/static/prints/gobook-presentation-box.jpg" alt="Memory Book with Presentation Box" style="width: 100%; border-radius: 16px;">
+          </video>
+        </div>
+
+        <div class="options-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="option-card" onclick="selectMemoryBook(this, '8x8', 395)">
+            <div class="option-title">8×8"</div>
+            <div class="option-description">20 pages<br>Premium Leatherette<br>40 colors available</div>
+            <div class="option-price">$395</div>
           </div>
-          <input type="range" min="2" max="36" value="2" class="slider" id="hourSlider" oninput="updateCoverageHours(this.value)">
-          <div style="display: flex; justify-content: space-between; margin-top: 16px; font-size: 14px; color: var(--secondary);">
-            <span>2 hrs</span>
-            <span>36 hrs</span>
+          <div class="option-card" onclick="selectMemoryBook(this, '10x10', 445)">
+            <div class="option-badge">Popular</div>
+            <div class="option-title">10×10"</div>
+            <div class="option-description">20 pages<br>Premium Leatherette<br>40 colors available</div>
+            <div class="option-price">$445</div>
+          </div>
+          <div class="option-card" onclick="selectMemoryBook(this, '12x12', 495)">
+            <div class="option-title">12×12"</div>
+            <div class="option-description">20 pages<br>Premium Leatherette<br>40 colors available</div>
+            <div class="option-price">$495</div>
           </div>
         </div>
+        
+        <div style="margin-top: 32px; padding: 20px; background: var(--bg-gray); border-radius: 12px;">
+          <p style="font-size: 14px; color: var(--secondary); line-height: 1.7;">
+            <strong>Upgrades available:</strong> Add extra pages (+$75 for 40 pages, +$150 for 60 pages) or upgrade to Natural Linen cover (+$50). Select after booking.
+          </p>
+        </div>
+
+        <div class="options-grid" style="margin-top: 32px;">
+          <div class="option-card" onclick="selectMemoryBook(this, 'skip', 0); nextStep(4);" style="border: 2px dashed var(--border);">
+            <div class="option-title">Skip for now</div>
+            <div class="option-description">I don't need a memory book</div>
+          </div>
+        </div>
+        
         <div class="button-group">
           <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
           <button class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
