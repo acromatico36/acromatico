@@ -1167,6 +1167,15 @@
       property.bathrooms = document.getElementById(`bathrooms${index}`)?.value || property.bathrooms;
       property.notes = document.getElementById(`notes${index}`)?.value || property.notes;
       
+      // ✅ CRITICAL: Save coverage field (interior/exterior/both)
+      // This field is already set by selectPropertyCoverage() function
+      // We just need to ensure it persists in the booking object
+      if (!property.coverage) {
+        property.coverage = 'interior'; // Default to interior if not set
+      }
+      
+      console.log(`💾 Property ${index} saved:`, property);
+      
       // Save to localStorage
       localStorage.setItem('acromaticoRealEstateBooking', JSON.stringify(booking));
       console.log('💾 Saved property', index + 1);
