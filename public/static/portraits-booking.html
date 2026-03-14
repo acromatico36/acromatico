@@ -1133,7 +1133,7 @@
                 id="signatureCanvas" 
                 width="600" 
                 height="150"
-                style="display: block; width: 100%; height: 150px; cursor: crosshair; background: white; touch-action: none;"
+                style="display: block; width: 100%; height: 150px; cursor: crosshair; background: white;"
               ></canvas>
             </div>
             <button type="button" onclick="clearSignature()" style="margin-top: 16px; padding: 14px 28px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s;">🗑️ Clear Signature</button>
@@ -1625,10 +1625,10 @@
 
     // Download signed agreement as PDF with ACTUAL BEAUTIFUL CONTRACT
     function downloadAgreement() {
-      const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      const total = booking.packagePrice + booking.memoryBookPrice + booking.printsPrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
       
       // Get the actual contract HTML from the page
-      const contractDiv = document.querySelector('#step8 > div:nth-child(3)');
+      const contractDiv = document.querySelector('#step6 > div:nth-child(3)');
       const contractHTML = contractDiv ? contractDiv.innerHTML : '';
       
       // Generate PDF content with ACTUAL CONTRACT
@@ -1637,7 +1637,7 @@
         <html>
         <head>
           <meta charset="UTF-8">
-          <title>Wedding Photography Agreement - ${booking.name}</title>
+          <title>Portrait Photography Agreement - ${booking.name}</title>
           <style>
             body { 
               font-family: 'Helvetica Neue', 'Arial', sans-serif; 
@@ -2528,7 +2528,7 @@
     }
     
     function updatePaymentAmount(option) {
-      const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      const total = booking.packagePrice + booking.memoryBookPrice + booking.printsPrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
       
       if (option === 'half') {
         selectedPaymentAmount = Math.round(total / 2);
