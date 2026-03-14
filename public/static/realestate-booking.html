@@ -709,80 +709,120 @@
         </div>
       </div>
 
-      <!-- STEP 4: DELIVERABLES -->
+      <!-- STEP 4: REAL ESTATE ADD-ONS -->
       <div class="step" id="step4">
         <div class="step-number">Step 4 of 7</div>
-        <h1 class="step-question">Customize your deliverables</h1>
-        <p class="step-description">Enhance your package with premium add-ons for faster delivery, additional coverage, and professional products.</p>
+        <h1 class="step-question">Enhance your listing</h1>
+        <p class="step-description">Premium add-ons to make your properties stand out and close faster.</p>
 
-        <h3 style="font-size: 20px; margin-bottom: 20px;">Delivery Options</h3>
+        <h3 style="font-size: 20px; margin-bottom: 20px;">🚀 Fast Turnaround</h3>
 
         <div class="checkbox-option">
-          <input type="checkbox" id="rushDelivery" onchange="toggleAddon('rushDelivery', 800)">
+          <input type="checkbox" id="rushDelivery" onchange="toggleRealEstateAddon('rushDelivery', 500)">
           <div class="checkbox-content">
-            <div class="checkbox-title">Rush Delivery (7 Days)</div>
-            <div class="checkbox-description">Receive fully edited images within one week of your event</div>
+            <div class="checkbox-title">24-Hour Rush Delivery</div>
+            <div class="checkbox-description">All edited photos delivered within 24 hours for urgent listings</div>
           </div>
-          <div class="checkbox-price">+$800</div>
+          <div class="checkbox-price">+$500</div>
         </div>
 
         <div class="checkbox-option">
-          <input type="checkbox" id="sameDaySneak" onchange="toggleAddon('sameDaySneak', 1200)">
+          <input type="checkbox" id="twilightPhotos" onchange="toggleRealEstateAddon('twilightPhotos', 350)">
           <div class="checkbox-content">
-            <div class="checkbox-title">Same-Day Sneak Peek</div>
-            <div class="checkbox-description">50 edited images delivered within 4 hours for social media</div>
+            <div class="checkbox-title">Twilight Photography</div>
+            <div class="checkbox-description">Golden hour exterior shots to showcase property lighting and ambiance</div>
           </div>
-          <div class="checkbox-price">+$1,200</div>
+          <div class="checkbox-price">+$350</div>
         </div>
 
-        <h3 style="font-size: 20px; margin: 32px 0 20px;">Additional Services</h3>
+        <h3 style="font-size: 20px; margin: 32px 0 20px;">📐 Floor Plans & Virtual Staging</h3>
 
         <div class="checkbox-option">
-          <input type="checkbox" id="droneFootage" onchange="toggleAddon('droneFootage', 1500)">
+          <input type="checkbox" id="floorPlan" onchange="toggleRealEstateAddon('floorPlan', 150)">
           <div class="checkbox-content">
-            <div class="checkbox-title">Drone Aerial Photography</div>
-            <div class="checkbox-description">Stunning aerial shots of your venue and event</div>
+            <div class="checkbox-title">2D Floor Plan</div>
+            <div class="checkbox-description">Professional measured floor plan with room dimensions and labels</div>
           </div>
-          <div class="checkbox-price">+$1,500</div>
-        </div>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="liveSocial" onchange="toggleAddon('liveSocial', 900)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Live Social Media Coverage</div>
-            <div class="checkbox-description">Real-time photo posting to your social channels during the event</div>
-          </div>
-          <div class="checkbox-price">+$900</div>
+          <div class="checkbox-price">+$150</div>
         </div>
 
         <div class="checkbox-option">
-          <input type="checkbox" id="rawFiles" onchange="toggleAddon('rawFiles', 600)">
+          <input type="checkbox" id="virtualStaging" onchange="toggleRealEstateAddon('virtualStaging', 75)">
           <div class="checkbox-content">
-            <div class="checkbox-title">Raw Files Archive</div>
-            <div class="checkbox-description">Unedited RAW files delivered via secure download</div>
+            <div class="checkbox-title">Virtual Staging (per photo)</div>
+            <div class="checkbox-description">Digitally furnish empty rooms to help buyers visualize the space</div>
           </div>
-          <div class="checkbox-price">+$600</div>
+          <div class="checkbox-price">+$75/photo</div>
         </div>
 
-        <h3 style="font-size: 20px; margin: 32px 0 20px;">Physical Delivery</h3>
+        <h3 style="font-size: 20px; margin: 32px 0 20px;">✨ Premium Enhancements</h3>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="hdrEditing" onchange="toggleRealEstateAddon('hdrEditing', 200)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Advanced HDR Editing</div>
+            <div class="checkbox-description">Professional HDR bracketing for perfect exposure in every shot</div>
+          </div>
+          <div class="checkbox-price">+$200</div>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="skyReplacement" onchange="toggleRealEstateAddon('skyReplacement', 100)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Blue Sky Replacement</div>
+            <div class="checkbox-description">Replace overcast skies with beautiful blue skies in exterior shots</div>
+          </div>
+          <div class="checkbox-price">+$100</div>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="itemRemoval" onchange="toggleRealEstateAddon('itemRemoval', 150)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Object Removal</div>
+            <div class="checkbox-description">Remove clutter, power lines, trash bins, and unwanted items (up to 5 photos)</div>
+          </div>
+          <div class="checkbox-price">+$150</div>
+        </div>
+
+        <h3 style="font-size: 20px; margin: 32px 0 20px;">📦 Marketing Materials</h3>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="propertyWebsite" onchange="toggleRealEstateAddon('propertyWebsite', 400)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Single-Property Website</div>
+            <div class="checkbox-description">Branded landing page with photos, videos, virtual tour, and contact form</div>
+          </div>
+          <div class="checkbox-price">+$400</div>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="socialMediaKit" onchange="toggleRealEstateAddon('socialMediaKit', 250)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Social Media Marketing Kit</div>
+            <div class="checkbox-description">10 Instagram-ready graphics + story templates + listing carousel</div>
+          </div>
+          <div class="checkbox-price">+$250</div>
+        </div>
+
+        <h3 style="font-size: 20px; margin: 32px 0 20px;">💾 Digital Delivery Options</h3>
 
         <div style="background: white; border: 2px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
             <div>
-              <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">Custom Branded USB Drives</div>
-              <div style="font-size: 14px; color: var(--secondary);">All images on USB drives with your company logo</div>
-              <div style="font-size: 13px; color: var(--secondary); margin-top: 8px;">$150 for first drive, $50 for each additional</div>
+              <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">Custom Branded USB Drive</div>
+              <div style="font-size: 14px; color: var(--secondary);">All photos + videos on premium USB with your brokerage branding</div>
+              <div style="font-size: 13px; color: var(--secondary); margin-top: 8px;">$75 per USB drive</div>
             </div>
           </div>
           <div style="display: flex; align-items: center; gap: 16px;">
             <label style="font-size: 15px; margin: 0;">Quantity:</label>
-            <input type="number" id="usbQuantity" min="0" max="50" value="0" onchange="updateUSBQuantity()" style="width: 100px; padding: 12px; font-size: 17px; border: 2px solid var(--border); border-radius: 8px; margin: 0;">
+            <input type="number" id="usbQuantity" min="0" max="20" value="0" onchange="updateUSBQuantity()" style="width: 100px; padding: 12px; font-size: 17px; border: 2px solid var(--border); border-radius: 8px; margin: 0;">
             <span id="usbPriceDisplay" style="font-size: 18px; font-weight: 600; color: var(--accent);">$0</span>
           </div>
         </div>
 
         <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
           <button class="btn btn-primary" onclick="nextStep(5)">Continue →</button>
         </div>
       </div>
@@ -1457,7 +1497,7 @@
       }
       
       console.log('✅ Services validated:', booking.services);
-      nextStep(3);
+      nextStep(4); // Skip Step 3 (team size not needed for real estate)
     }
 
     // STEP NAVIGATION
@@ -1503,24 +1543,56 @@
       const tourPriceEl = document.querySelector('#price-3d-tour');
       if (tourPriceEl) tourPriceEl.textContent = '$' + tourPrice;
       
-      // Show average sqft
+      // Show square footage display
       let totalSqft = 0;
       let propertyCount = booking.properties.length;
+      let sqftDisplayText = '';
       
-      booking.properties.forEach(prop => {
+      if (propertyCount === 1) {
+        // Single property - show exact range or custom value
+        const prop = booking.properties[0];
         const sqft = prop.squareFootage;
-        if (sqft === '0-1500') totalSqft += 1250;
-        else if (sqft === '1501-3000') totalSqft += 2250;
-        else if (sqft === '3001-5000') totalSqft += 4000;
-        else if (sqft === '5001-8000') totalSqft += 6500;
-        else if (sqft === '8000+' && prop.customSqft) totalSqft += parseInt(prop.customSqft);
-        else if (sqft === '8000+') totalSqft += 10000;
-      });
+        
+        if (sqft === '8000+' && prop.customSqft) {
+          sqftDisplayText = `${parseInt(prop.customSqft).toLocaleString()} sq ft`;
+        } else if (sqft === '0-1500') {
+          sqftDisplayText = '0-1,500 sq ft';
+        } else if (sqft === '1501-3000') {
+          sqftDisplayText = '1,501-3,000 sq ft';
+        } else if (sqft === '3001-5000') {
+          sqftDisplayText = '3,001-5,000 sq ft';
+        } else if (sqft === '5001-8000') {
+          sqftDisplayText = '5,001-8,000 sq ft';
+        } else if (sqft === '8000+') {
+          sqftDisplayText = '8,000+ sq ft';
+        }
+        
+        // Calculate for pricing
+        if (sqft === '0-1500') totalSqft = 1250;
+        else if (sqft === '1501-3000') totalSqft = 2250;
+        else if (sqft === '3001-5000') totalSqft = 4000;
+        else if (sqft === '5001-8000') totalSqft = 6500;
+        else if (sqft === '8000+' && prop.customSqft) totalSqft = parseInt(prop.customSqft);
+        else if (sqft === '8000+') totalSqft = 10000;
+      } else {
+        // Multiple properties - show average
+        booking.properties.forEach(prop => {
+          const sqft = prop.squareFootage;
+          if (sqft === '0-1500') totalSqft += 1250;
+          else if (sqft === '1501-3000') totalSqft += 2250;
+          else if (sqft === '3001-5000') totalSqft += 4000;
+          else if (sqft === '5001-8000') totalSqft += 6500;
+          else if (sqft === '8000+' && prop.customSqft) totalSqft += parseInt(prop.customSqft);
+          else if (sqft === '8000+') totalSqft += 10000;
+        });
+        
+        const avgSqft = Math.round(totalSqft / propertyCount);
+        sqftDisplayText = `${avgSqft.toLocaleString()} sq ft average`;
+      }
       
-      const avgSqft = Math.round(totalSqft / propertyCount);
       const sqftDisplay = document.getElementById('sqft-display');
       if (sqftDisplay) {
-        sqftDisplay.textContent = avgSqft.toLocaleString() + ' sq ft';
+        sqftDisplay.textContent = sqftDisplayText;
       }
       
       console.log('💰 Step 2 Pricing Updated:');
@@ -1529,7 +1601,7 @@
       console.log(`   Lifestyle: $${lifestylePrice}`);
       console.log(`   Video: $${videoPrice}`);
       console.log(`   3D Tour: $${tourPrice}`);
-      console.log(`   Avg Sqft: ${avgSqft}`);
+      console.log(`   Display: ${sqftDisplayText}`);
     }
 
     function prevStep(step) {
@@ -1645,16 +1717,33 @@
     }
 
     // STEP 4: ADDONS
-    function toggleAddon(addonId, price) {
+    function toggleRealEstateAddon(addonId, price) {
       const checked = document.getElementById(addonId).checked;
       
+      const addonNames = {
+        'rushDelivery': '24-Hour Rush Delivery',
+        'twilightPhotos': 'Twilight Photography',
+        'floorPlan': '2D Floor Plan',
+        'virtualStaging': 'Virtual Staging',
+        'hdrEditing': 'Advanced HDR Editing',
+        'skyReplacement': 'Blue Sky Replacement',
+        'itemRemoval': 'Object Removal',
+        'propertyWebsite': 'Single-Property Website',
+        'socialMediaKit': 'Social Media Marketing Kit'
+      };
+      
       if (checked) {
-        booking.addons.push({ id: addonId, price: price });
+        booking.addons.push({ 
+          id: addonId, 
+          name: addonNames[addonId],
+          price: price 
+        });
       } else {
         booking.addons = booking.addons.filter(a => a.id !== addonId);
       }
       
       booking.addonsPrice = booking.addons.reduce((sum, a) => sum + a.price, 0);
+      console.log('📦 Add-ons:', booking.addons, 'Total:', booking.addonsPrice);
       updatePreview();
     }
 
@@ -1662,14 +1751,8 @@
       const quantity = parseInt(document.getElementById('usbQuantity').value) || 0;
       booking.usbQuantity = quantity;
       
-      if (quantity === 0) {
-        booking.usbPrice = 0;
-      } else if (quantity === 1) {
-        booking.usbPrice = 150;
-      } else {
-        // $150 for first + $50 for each additional
-        booking.usbPrice = 150 + ((quantity - 1) * 50);
-      }
+      // Real Estate pricing: $75 per USB
+      booking.usbPrice = quantity * 75;
       
       document.getElementById('usbPriceDisplay').textContent = '$' + booking.usbPrice.toLocaleString();
       updatePreview();
@@ -1728,11 +1811,8 @@
         : 'Not selected';
       document.getElementById('previewCoverage').textContent = coverageText;
 
-      // Team size
-      let teamText = 'Solo';
-      if (booking.teamSize === '2-person') teamText = '2-Person Team +$1,800';
-      if (booking.teamSize === '3-person') teamText = '3-Person Team +$3,200';
-      if (booking.teamSize === 'custom') teamText = 'Custom Team';
+      // Team size (not used for real estate, but keep for compatibility)
+      let teamText = 'Not applicable';
       document.getElementById('previewTeam').textContent = teamText;
 
       // Services & Addons
@@ -1751,6 +1831,28 @@
           `;
         });
       }
+      
+      // Show selected addons
+      if (booking.addons && booking.addons.length > 0) {
+        booking.addons.forEach(addon => {
+          addonsContainer.innerHTML += `
+            <div class="preview-item">
+              <span class="preview-label">${addon.name}</span>
+              <span class="preview-value">+$${addon.price.toLocaleString()}</span>
+            </div>
+          `;
+        });
+      }
+      
+      // Show USB drives if any
+      if (booking.usbQuantity > 0) {
+        addonsContainer.innerHTML += `
+          <div class="preview-item">
+            <span class="preview-label">USB Drives (${booking.usbQuantity})</span>
+            <span class="preview-value">+$${booking.usbPrice.toLocaleString()}</span>
+          </div>
+        `;
+      }
 
       // Calculate total
       let total = 0;
@@ -1760,9 +1862,15 @@
         total = booking.services.reduce((sum, service) => sum + service.price, 0);
       }
       
-      // Add team price
-      if (booking.teamSize === '2-person') total += 1800;
-      if (booking.teamSize === '3-person') total += 3200;
+      // Add addons price
+      if (booking.addons && booking.addons.length > 0) {
+        total += booking.addons.reduce((sum, addon) => sum + addon.price, 0);
+      }
+      
+      // Add USB price
+      if (booking.usbPrice > 0) {
+        total += booking.usbPrice;
+      }
       
       // Update display
       document.getElementById('previewTotal').textContent = total > 0 ? '$' + total.toLocaleString() : '$0';
