@@ -510,7 +510,7 @@
       <div class="logo">
         <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" style="height: 40px; filter: brightness(0) invert(1);">
       </div>
-      <a href="/realestate" class="nav-back">← Back to Real Estate</a>
+      <a href="/photography" class="nav-back">← Back to Photography</a>
     </div>
   </nav>
 
@@ -566,11 +566,6 @@
         <p class="step-description" id="propertyDetailsSubtitle">Provide details for each property you want photographed.</p>
 
         <div id="propertiesFormsContainer"></div>
-
-        <div class="button-group">
-          <button class="btn btn-secondary" onclick="backToPropertyCount()">← Back</button>
-          <button class="btn btn-primary" onclick="validateStep1b()">Continue →</button>
-        </div>
       </div>
 
       <!-- STEP 2: SERVICE SELECTION -->
@@ -950,6 +945,7 @@
     // Property form state
     let currentPropertyIndex = 0;
     let autocompleteInstances = [];
+    let saveTimeout;
 
     function generatePropertyForms() {
       const container = document.getElementById('propertiesFormsContainer');
@@ -1062,23 +1058,23 @@
           
           <div id="customSqftContainer${i}" style="display: ${property.squareFootage === '8000+' ? 'block' : 'none'}; margin-top: 16px;">
             <label>Exact Square Footage</label>
-            <input type="number" id="customSqft${i}" placeholder="e.g., 12500" min="8001" value="${property.customSqft || ''}" onchange="autoSaveProperty(${i})">
+            <input type="number" id="customSqft${i}" placeholder="e.g., 12500" min="8001" value="${property.customSqft || ''}" onblur="autoSaveProperty(${i})">
             <p style="font-size: 12px; color: var(--secondary); margin-top: 4px;">For properties over 8,000 sq ft</p>
           </div>
           
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
             <div>
               <label>Bedrooms</label>
-              <input type="number" id="bedrooms${i}" min="0" max="50" placeholder="e.g., 3" value="${property.bedrooms || ''}" onchange="autoSaveProperty(${i})">
+              <input type="number" id="bedrooms${i}" min="0" max="50" placeholder="e.g., 3" value="${property.bedrooms || ''}" onblur="autoSaveProperty(${i})">
             </div>
             <div>
               <label>Bathrooms</label>
-              <input type="number" id="bathrooms${i}" min="0" max="50" step="0.5" placeholder="e.g., 2.5" value="${property.bathrooms || ''}" onchange="autoSaveProperty(${i})">
+              <input type="number" id="bathrooms${i}" min="0" max="50" step="0.5" placeholder="e.g., 2.5" value="${property.bathrooms || ''}" onblur="autoSaveProperty(${i})">
             </div>
           </div>
           
           <label style="margin-top: 16px;">Additional Notes (Optional)</label>
-          <textarea id="notes${i}" placeholder="Any special requests, access instructions, or details we should know..." style="width: 100%; min-height: 80px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; resize: vertical;" onchange="autoSaveProperty(${i})">${property.notes || ''}</textarea>
+          <textarea id="notes${i}" placeholder="Any special requests, access instructions, or details we should know..." style="width: 100%; min-height: 80px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; resize: vertical;" onblur="autoSaveProperty(${i})">${property.notes || ''}</textarea>
           <p style="font-size: 12px; color: var(--secondary); margin-top: 4px;">e.g., "Vacant property - lockbox code 1234" or "Tenant occupied - schedule after 5pm"</p>
         </div>
         
@@ -1156,23 +1152,29 @@
     }
 
     function autoSaveProperty(index) {
-      const property = booking.properties[index];
+      // Clear existing timeout
+      if (saveTimeout) clearTimeout(saveTimeout);
       
-      // Collect all values
-      property.address = document.getElementById(`propertyAddress${index}`)?.value.trim() || property.address;
-      property.type = document.getElementById(`propertyType${index}`)?.value || property.type;
-      property.squareFootage = document.getElementById(`squareFootage${index}`)?.value || property.squareFootage;
-      property.customSqft = document.getElementById(`customSqft${index}`)?.value || property.customSqft;
-      property.bedrooms = document.getElementById(`bedrooms${index}`)?.value || property.bedrooms;
-      property.bathrooms = document.getElementById(`bathrooms${index}`)?.value || property.bathrooms;
-      property.notes = document.getElementById(`notes${index}`)?.value || property.notes;
-      
-      // Save to localStorage
-      localStorage.setItem('acromaticoRealEstateBooking', JSON.stringify(booking));
-      console.log('💾 Auto-saved property', index + 1);
-      
-      // Show brief save indicator
-      showSaveIndicator();
+      // Debounce save by 500ms to avoid blocking typing
+      saveTimeout = setTimeout(() => {
+        const property = booking.properties[index];
+        
+        // Collect all values
+        property.address = document.getElementById(`propertyAddress${index}`)?.value.trim() || property.address;
+        property.type = document.getElementById(`propertyType${index}`)?.value || property.type;
+        property.squareFootage = document.getElementById(`squareFootage${index}`)?.value || property.squareFootage;
+        property.customSqft = document.getElementById(`customSqft${index}`)?.value || property.customSqft;
+        property.bedrooms = document.getElementById(`bedrooms${index}`)?.value || property.bedrooms;
+        property.bathrooms = document.getElementById(`bathrooms${index}`)?.value || property.bathrooms;
+        property.notes = document.getElementById(`notes${index}`)?.value || property.notes;
+        
+        // Save to localStorage
+        localStorage.setItem('acromaticoRealEstateBooking', JSON.stringify(booking));
+        console.log('💾 Auto-saved property', index + 1);
+        
+        // Show brief save indicator
+        showSaveIndicator();
+      }, 500);
     }
 
     function showSaveIndicator() {
