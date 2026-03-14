@@ -1322,8 +1322,9 @@
       // Calculate price: $1,200 for 2 hours, $400 per additional hour
       booking.coverageHoursPrice = 1200 + ((hours - 2) * 400);
       
-      document.getElementById('hourValue').textContent = hours;
-      document.getElementById('hourPrice').textContent = `$${booking.coverageHoursPrice.toLocaleString()}`;
+      // These elements don't exist in portraits - they're in custom hours view
+      // document.getElementById('hourValue').textContent = hours;
+      // document.getElementById('hourPrice').textContent = `$${booking.coverageHoursPrice.toLocaleString()}`;
       
       // Update preview
       if (booking.isCustom) {
