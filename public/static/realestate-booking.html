@@ -469,7 +469,7 @@
   <nav>
     <div class="nav-container">
       <div class="logo">
-        <img src="https://acromatico.com/wp-content/uploads/2024/11/acromatico_logo.png" alt="Acromatico">
+        <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" style="height: 40px; filter: brightness(0) invert(1);">
       </div>
       <a href="/realestate" class="nav-back">← Back to Real Estate</a>
     </div>
@@ -486,44 +486,51 @@
     <!-- LEFT: STEPS -->
     <div class="steps-container">
 
-      <!-- STEP 1: PROPERTY DETAILS -->
+      <!-- STEP 1: NUMBER OF PROPERTIES -->
       <div class="step active" id="step1">
         <div class="step-number">Step 1 of 7</div>
-        <h1 class="step-question">Tell us about your property</h1>
-        <p class="step-description">We'll create a customized photography package to showcase this listing.</p>
+        <h1 class="step-question">How many properties are you looking to capture?</h1>
+        <p class="step-description">Select the number of properties you need photographed. You'll provide details for each property next.</p>
 
-        <label>Property Address *</label>
-        <input type="text" id="propertyAddress" placeholder="123 Main St, Miami, FL 33101">
+        <div class="options-grid" style="max-width: 800px; margin: 0 auto;">
+          <div class="option-card" onclick="selectPropertyCount(this, 1)" style="cursor: pointer;">
+            <div class="option-title" style="font-size: 48px; margin-bottom: 8px;">1</div>
+            <div style="font-size: 16px; font-weight: 500; margin-bottom: 4px;">Single Property</div>
+            <div class="option-description">Perfect for individual listings</div>
+          </div>
 
-        <label>Property Type *</label>
-        <select id="propertyType">
-          <option value="">Select property type...</option>
-          <option value="residential">Residential Home</option>
-          <option value="condo">Condo / Apartment</option>
-          <option value="luxury">Luxury Estate</option>
-          <option value="commercial">Commercial Property</option>
-          <option value="airbnb">Airbnb / Vacation Rental</option>
-          <option value="land">Land / Lot</option>
-        </select>
+          <div class="option-card" onclick="selectPropertyCount(this, 2)" style="cursor: pointer;">
+            <span class="option-badge">POPULAR</span>
+            <div class="option-title" style="font-size: 48px; margin-bottom: 8px;">2-3</div>
+            <div style="font-size: 16px; font-weight: 500; margin-bottom: 4px;">Multiple Properties</div>
+            <div class="option-description">Save 10% on 2+ properties</div>
+          </div>
 
-        <label>Square Footage *</label>
-        <select id="squareFootage">
-          <option value="">Select square footage...</option>
-          <option value="0-1500">0-1,500 sq ft</option>
-          <option value="1501-3000">1,501-3,000 sq ft</option>
-          <option value="3001-5000">3,001-5,000 sq ft</option>
-          <option value="5001-8000">5,001-8,000 sq ft</option>
-          <option value="8000+">8,000+ sq ft</option>
-        </select>
+          <div class="option-card" onclick="selectPropertyCount(this, 4)" style="cursor: pointer;">
+            <div class="option-title" style="font-size: 48px; margin-bottom: 8px;">4+</div>
+            <div style="font-size: 16px; font-weight: 500; margin-bottom: 4px;">Portfolio Package</div>
+            <div class="option-description">Save 15% on 4+ properties</div>
+          </div>
+        </div>
 
-        <label>Number of Bedrooms</label>
-        <input type="number" id="bedrooms" min="0" max="20" placeholder="e.g., 3">
+        <div id="propertyCountInput" style="display: none; margin-top: 32px; text-align: center;">
+          <label style="font-size: 18px; font-weight: 500; margin-bottom: 16px; display: block;">Enter exact number of properties</label>
+          <input type="number" id="exactPropertyCount" min="1" max="50" placeholder="e.g., 5" style="width: 200px; padding: 16px; font-size: 18px; text-align: center; border: 2px solid var(--border); border-radius: 8px;">
+          <button class="btn btn-primary" onclick="confirmPropertyCount()" style="margin-top: 16px; padding: 16px 32px;">Confirm →</button>
+        </div>
+      </div>
 
-        <label>Number of Bathrooms</label>
-        <input type="number" id="bathrooms" min="0" max="20" step="0.5" placeholder="e.g., 2.5">
+      <!-- STEP 1B: PROPERTY DETAILS (dynamically generated for each property) -->
+      <div class="step" id="step1b">
+        <div class="step-number">Step 1 of 7</div>
+        <h1 class="step-question" id="propertyDetailsTitle">Property Details</h1>
+        <p class="step-description" id="propertyDetailsSubtitle">Provide details for each property you want photographed.</p>
+
+        <div id="propertiesFormsContainer"></div>
 
         <div class="button-group">
-          <button class="btn btn-primary" onclick="validateStep1()">Continue →</button>
+          <button class="btn btn-secondary" onclick="backToPropertyCount()">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep1b()">Continue →</button>
         </div>
       </div>
 
@@ -575,7 +582,18 @@
               ✓ Cinematic property tour<br>
               ✓ Professional editing & music<br>
               ✓ Drone footage options<br>
-              ✓ 1-10 minute videos
+              ✓ 1-3 minute videos
+            </div>
+          </div>
+
+          <div class="option-card" onclick="toggleService(this, '3d-tour', 350)">
+            <div class="option-title">🏘️ 3D Virtual Walkthrough</div>
+            <div class="option-price">From $350</div>
+            <div class="option-description">
+              ✓ Interactive 360° tour<br>
+              ✓ Matterport-style experience<br>
+              ✓ Floor plan view included<br>
+              ✓ Shareable tour link
             </div>
           </div>
         </div>
@@ -831,33 +849,173 @@
   <script>
     // BOOKING STATE
     let booking = {
-      eventName: '',
-      eventDate: '',
-      eventType: '',
-      location: '',
-      attendance: '',
-      coverage: '',
-      coveragePrice: 0,
-      coverageHours: 0,
-      coverageImages: 0,
-      numberOfDays: 1,
-      teamSize: 'solo',
-      teamBasePrice: 0,
-      teamPrice: 0,
-      videoPackages: [],
-      videoPrice: 0,
+      propertyCount: 0,
+      properties: [],
+      services: [],
+      servicesPrice: 0,
       addons: [],
       addonsPrice: 0,
-      usbQuantity: 0,
-      usbPrice: 0,
-      companyName: '',
-      contactName: '',
-      contactTitle: '',
-      contactEmail: '',
-      contactPhone: '',
-      billingAddress: '',
-      poNumber: ''
+      realtorName: '',
+      brokerageName: '',
+      realtorEmail: '',
+      realtorPhone: '',
+      mlsNumber: ''
     };
+
+    // STEP 1: PROPERTY COUNT FUNCTIONS
+    let selectedPropertyCount = 0;
+
+    function selectPropertyCount(card, count) {
+      console.log('🏠 Property count selected:', count);
+      
+      // Remove active class from all cards
+      document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      
+      if (count === 4) {
+        // Show input for 4+ properties
+        document.getElementById('propertyCountInput').style.display = 'block';
+        document.getElementById('exactPropertyCount').value = '4';
+        document.getElementById('exactPropertyCount').focus();
+      } else if (count === 2) {
+        // Show input for 2-3 properties
+        document.getElementById('propertyCountInput').style.display = 'block';
+        document.getElementById('exactPropertyCount').value = '2';
+        document.getElementById('exactPropertyCount').focus();
+      } else {
+        // Single property - go directly to property details
+        selectedPropertyCount = count;
+        booking.propertyCount = count;
+        generatePropertyForms();
+        nextStep('1b');
+      }
+    }
+
+    function confirmPropertyCount() {
+      const input = document.getElementById('exactPropertyCount');
+      const count = parseInt(input.value);
+      
+      if (!count || count < 1 || count > 50) {
+        alert('Please enter a valid number of properties (1-50)');
+        return;
+      }
+      
+      selectedPropertyCount = count;
+      booking.propertyCount = count;
+      console.log('✅ Confirmed property count:', count);
+      
+      generatePropertyForms();
+      nextStep('1b');
+    }
+
+    function generatePropertyForms() {
+      const container = document.getElementById('propertiesFormsContainer');
+      container.innerHTML = '';
+      
+      const count = booking.propertyCount;
+      
+      // Update title
+      if (count === 1) {
+        document.getElementById('propertyDetailsTitle').textContent = 'Property Details';
+        document.getElementById('propertyDetailsSubtitle').textContent = 'Provide details for your property listing.';
+      } else {
+        document.getElementById('propertyDetailsTitle').textContent = `Details for ${count} Properties`;
+        document.getElementById('propertyDetailsSubtitle').textContent = `Provide details for each property. We'll apply bulk pricing discounts automatically.`;
+      }
+      
+      // Generate a form for each property
+      for (let i = 0; i < count; i++) {
+        const propertyNum = i + 1;
+        const formHTML = `
+          <div class="property-form" style="background: rgba(71, 148, 166, 0.03); border: 2px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+            <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 16px; color: var(--accent);">
+              ${count > 1 ? `Property ${propertyNum}` : 'Property Details'}
+            </h3>
+            
+            <label>Property Address *</label>
+            <input type="text" id="propertyAddress${i}" placeholder="123 Main St, Miami, FL 33101" required>
+            
+            <label>Property Type *</label>
+            <select id="propertyType${i}" required>
+              <option value="">Select property type...</option>
+              <option value="residential">Residential Home</option>
+              <option value="condo">Condo / Apartment</option>
+              <option value="luxury">Luxury Estate</option>
+              <option value="commercial">Commercial Property</option>
+              <option value="airbnb">Airbnb / Vacation Rental</option>
+              <option value="land">Land / Lot</option>
+            </select>
+            
+            <label>Square Footage *</label>
+            <select id="squareFootage${i}" required>
+              <option value="">Select square footage...</option>
+              <option value="0-1500">0-1,500 sq ft</option>
+              <option value="1501-3000">1,501-3,000 sq ft</option>
+              <option value="3001-5000">3,001-5,000 sq ft</option>
+              <option value="5001-8000">5,001-8,000 sq ft</option>
+              <option value="8000+">8,000+ sq ft</option>
+            </select>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label>Bedrooms</label>
+                <input type="number" id="bedrooms${i}" min="0" max="20" placeholder="e.g., 3">
+              </div>
+              <div>
+                <label>Bathrooms</label>
+                <input type="number" id="bathrooms${i}" min="0" max="20" step="0.5" placeholder="e.g., 2.5">
+              </div>
+            </div>
+          </div>
+        `;
+        container.innerHTML += formHTML;
+      }
+    }
+
+    function backToPropertyCount() {
+      document.getElementById('step1b').classList.remove('active');
+      document.getElementById('step1').classList.add('active');
+      currentStep = 1;
+      updateProgressBar();
+    }
+
+    function validateStep1b() {
+      const count = booking.propertyCount;
+      booking.properties = [];
+      
+      // Validate and collect data for each property
+      for (let i = 0; i < count; i++) {
+        const address = document.getElementById(`propertyAddress${i}`).value.trim();
+        const type = document.getElementById(`propertyType${i}`).value;
+        const sqft = document.getElementById(`squareFootage${i}`).value;
+        const beds = document.getElementById(`bedrooms${i}`).value;
+        const baths = document.getElementById(`bathrooms${i}`).value;
+        
+        if (!address) {
+          alert(`Please enter address for Property ${i + 1}`);
+          return;
+        }
+        if (!type) {
+          alert(`Please select property type for Property ${i + 1}`);
+          return;
+        }
+        if (!sqft) {
+          alert(`Please select square footage for Property ${i + 1}`);
+          return;
+        }
+        
+        booking.properties.push({
+          address,
+          type,
+          squareFootage: sqft,
+          bedrooms: beds || '0',
+          bathrooms: baths || '0'
+        });
+      }
+      
+      console.log('✅ Properties validated:', booking.properties);
+      nextStep(2);
+    }
 
     // STEP NAVIGATION
     let currentStep = 1;
