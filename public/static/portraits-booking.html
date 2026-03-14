@@ -715,25 +715,38 @@
           <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 16px;">Customize Your Memory Book</h3>
           
           <div style="display: grid; gap: 16px;">
-            <!-- Extra Pages -->
-            <label style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #fff; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
-              <input type="checkbox" id="memoryBookExtraPages40" onchange="updateMemoryBookAddons()" style="width: 20px; height: 20px; cursor: pointer;">
-              <div style="flex: 1;">
-                <div style="font-weight: 600; color: var(--primary);">40 Pages</div>
-                <div style="font-size: 13px; color: var(--secondary);">Double your pages (20 → 40)</div>
-              </div>
-              <span style="font-size: 16px; font-weight: 600; color: var(--accent);">+$75</span>
-            </label>
+            <!-- Extra Pages (Radio buttons) -->
+            <div style="background: #f9fafb; padding: 16px; border-radius: 12px; border: 1px solid var(--border);">
+              <div style="font-weight: 600; color: var(--primary); margin-bottom: 12px;">Choose Page Count:</div>
+              
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #fff; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; margin-bottom: 8px; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--border)'">
+                <input type="radio" name="memoryBookPages" id="memoryBookPages20" value="20" checked onchange="updateMemoryBookAddons()" style="width: 18px; height: 18px; cursor: pointer;">
+                <div style="flex: 1;">
+                  <div style="font-weight: 500; color: var(--primary);">20 Pages (Default)</div>
+                </div>
+                <span style="font-size: 15px; font-weight: 600; color: var(--accent);">Included</span>
+              </label>
+              
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #fff; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; margin-bottom: 8px; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--border)'">
+                <input type="radio" name="memoryBookPages" id="memoryBookPages40" value="40" onchange="updateMemoryBookAddons()" style="width: 18px; height: 18px; cursor: pointer;">
+                <div style="flex: 1;">
+                  <div style="font-weight: 500; color: var(--primary);">40 Pages</div>
+                  <div style="font-size: 13px; color: var(--secondary);">Double your pages</div>
+                </div>
+                <span style="font-size: 15px; font-weight: 600; color: var(--accent);">+$75</span>
+              </label>
+              
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #fff; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--border)'">
+                <input type="radio" name="memoryBookPages" id="memoryBookPages60" value="60" onchange="updateMemoryBookAddons()" style="width: 18px; height: 18px; cursor: pointer;">
+                <div style="flex: 1;">
+                  <div style="font-weight: 500; color: var(--primary);">60 Pages</div>
+                  <div style="font-size: 13px; color: var(--secondary);">Triple your pages</div>
+                </div>
+                <span style="font-size: 15px; font-weight: 600; color: var(--accent);">+$150</span>
+              </label>
+            </div>
             
-            <label style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #fff; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
-              <input type="checkbox" id="memoryBookExtraPages60" onchange="updateMemoryBookAddons()" style="width: 20px; height: 20px; cursor: pointer;">
-              <div style="flex: 1;">
-                <div style="font-weight: 600; color: var(--primary);">60 Pages</div>
-                <div style="font-size: 13px; color: var(--secondary);">Triple your pages (20 → 60)</div>
-              </div>
-              <span style="font-size: 16px; font-weight: 600; color: var(--accent);">+$150</span>
-            </label>
-            
+            <!-- Linen Cover (Checkbox) -->
             <label style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #fff; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
               <input type="checkbox" id="memoryBookLinenCover" onchange="updateMemoryBookAddons()" style="width: 20px; height: 20px; cursor: pointer;">
               <div style="flex: 1;">
@@ -778,7 +791,7 @@
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 32px;">
           <!-- Canvas Pro -->
           <div style="border: 2px solid var(--border); border-radius: 16px; padding: 24px; background: white;">
-            <img src="/static/prints/canvas-pro-family-living-room.jpg" alt="Canvas Pro" style="width: 100%; border-radius: 12px; margin-bottom: 16px;">
+            <img src="/static/prints/canvas-pro-family-living-room.jpg" alt="Canvas Pro" style="width: 100%; border-radius: 12px; margin-bottom: 16px; cursor: zoom-in;" onclick="openImageModal(this.src)">
             <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Canvas Pro</h3>
             <p style="font-size: 14px; color: var(--secondary); margin-bottom: 16px;">Premium Cotton Canvas • Touch Anti-Glare</p>
             <div style="display: grid; gap: 8px;">
@@ -792,12 +805,22 @@
                 <span style="flex: 1;">24×36"</span>
                 <strong>$625</strong>
               </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" onchange="togglePrint(this, 'Canvas Pro 30×40', 825)" style="width: 18px; height: 18px;">
+                <span style="flex: 1;">30×40"</span>
+                <strong>$825</strong>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" onchange="togglePrint(this, 'Canvas Pro 40×60', 1530)" style="width: 18px; height: 18px;">
+                <span style="flex: 1;">40×60"</span>
+                <strong>$1,530</strong>
+              </label>
             </div>
           </div>
           
           <!-- Metal Pro -->
           <div style="border: 2px solid var(--border); border-radius: 16px; padding: 24px; background: white;">
-            <img src="/static/prints/metal-pro-couple-bedroom.jpg" alt="Metal Pro" style="width: 100%; border-radius: 12px; margin-bottom: 16px;">
+            <img src="/static/prints/metal-pro-couple-bedroom.jpg" alt="Metal Pro" style="width: 100%; border-radius: 12px; margin-bottom: 16px; cursor: zoom-in;" onclick="openImageModal(this.src)">
             <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Metal Pro</h3>
             <p style="font-size: 14px; color: var(--secondary); margin-bottom: 16px;">ChromaLuxe Aluminum • Vibrant Colors</p>
             <div style="display: grid; gap: 8px;">
@@ -811,12 +834,22 @@
                 <span style="flex: 1;">24×36"</span>
                 <strong>$695</strong>
               </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" onchange="togglePrint(this, 'Metal Pro 30×40', 995)" style="width: 18px; height: 18px;">
+                <span style="flex: 1;">30×40"</span>
+                <strong>$995</strong>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" onchange="togglePrint(this, 'Metal Pro 40×60', 1875)" style="width: 18px; height: 18px;">
+                <span style="flex: 1;">40×60"</span>
+                <strong>$1,875</strong>
+              </label>
             </div>
           </div>
           
           <!-- Acrylic Pro -->
           <div style="border: 2px solid var(--border); border-radius: 16px; padding: 24px; background: white;">
-            <img src="/static/prints/acrylic-pro-family-dining-room.jpg" alt="Acrylic Pro" style="width: 100%; border-radius: 12px; margin-bottom: 16px;">
+            <img src="/static/prints/acrylic-pro-family-dining-room.jpg" alt="Acrylic Pro" style="width: 100%; border-radius: 12px; margin-bottom: 16px; cursor: zoom-in;" onclick="openImageModal(this.src)">
             <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Acrylic Pro</h3>
             <p style="font-size: 14px; color: var(--secondary); margin-bottom: 16px;">Ultra-Clear Acrylic • 3D Depth Effect</p>
             <div style="display: grid; gap: 8px;">
@@ -830,12 +863,22 @@
                 <span style="flex: 1;">24×36"</span>
                 <strong>$695</strong>
               </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" onchange="togglePrint(this, 'Acrylic Pro 30×40', 995)" style="width: 18px; height: 18px;">
+                <span style="flex: 1;">30×40"</span>
+                <strong>$995</strong>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" onchange="togglePrint(this, 'Acrylic Pro 40×60', 1875)" style="width: 18px; height: 18px;">
+                <span style="flex: 1;">40×60"</span>
+                <strong>$1,875</strong>
+              </label>
             </div>
           </div>
           
           <!-- Canvas Wrap -->
           <div style="border: 2px solid var(--border); border-radius: 16px; padding: 24px; background: white;">
-            <img src="/static/prints/canvas-wrap-couple-hallway.jpg" alt="Canvas Wrap" style="width: 100%; border-radius: 12px; margin-bottom: 16px;">
+            <img src="/static/prints/canvas-wrap-couple-hallway.jpg" alt="Canvas Wrap" style="width: 100%; border-radius: 12px; margin-bottom: 16px; cursor: zoom-in;" onclick="openImageModal(this.src)">
             <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Canvas Wrap</h3>
             <p style="font-size: 14px; color: var(--secondary); margin-bottom: 16px;">Traditional Gallery Wrap • Frameless</p>
             <div style="display: grid; gap: 8px;">
@@ -848,6 +891,16 @@
                 <input type="checkbox" onchange="togglePrint(this, 'Canvas Wrap 24×36', 575)" style="width: 18px; height: 18px;">
                 <span style="flex: 1;">24×36"</span>
                 <strong>$575</strong>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" onchange="togglePrint(this, 'Canvas Wrap 30×40', 850)" style="width: 18px; height: 18px;">
+                <span style="flex: 1;">30×40"</span>
+                <strong>$850</strong>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" onchange="togglePrint(this, 'Canvas Wrap 40×60', 1450)" style="width: 18px; height: 18px;">
+                <span style="flex: 1;">40×60"</span>
+                <strong>$1,450</strong>
               </label>
             </div>
           </div>
@@ -1214,6 +1267,10 @@
           <span class="preview-label">Memory Book</span>
           <span class="preview-value" id="previewMemoryBook">None</span>
         </div>
+        <div class="preview-item" id="previewPrintsSection" style="display: none;">
+          <span class="preview-label">Prints</span>
+          <div id="previewPrintsList" style="font-size: 13px; color: var(--secondary); margin-top: 8px;"></div>
+        </div>
         <div class="preview-item">
           <span class="preview-label">Album</span>
           <span class="preview-value" id="previewAlbum">Not selected</span>
@@ -1225,7 +1282,7 @@
           <span id="previewTotal">$0</span>
         </div>
         <div class="preview-item" style="opacity: 0.7; font-size: 13px; margin-top: 8px;">
-          <span class="preview-label">3 Easy Payments</span>
+          <span class="preview-label">2 Easy Payments</span>
           <span class="preview-value" id="previewPaymentPlan">$0 each</span>
         </div>
       </div>
@@ -1245,6 +1302,8 @@
       memoryBookBasePrice: 0,
       memoryBookPrice: 0,
       memoryBookAddons: [],
+      prints: [],
+      printsPrice: 0,
       albumChoice: '',
       album: '',
       albumPrice: 0,
@@ -1328,7 +1387,8 @@
       document.getElementById('step3Question').textContent = 'Want to add extra hours?';
       document.getElementById('step3Description').textContent = 'Your package includes base coverage. Add more hours if needed.';
       
-      document.getElementById('previewPackage').textContent = name.charAt(0).toUpperCase() + name.slice(1) + ' - $' + price.toLocaleString();
+      // Update preview
+      document.getElementById('previewPackage').textContent = name + ' - $' + price.toLocaleString();
       updateTotal();
     }
     
@@ -1338,6 +1398,7 @@
         booking.memoryBookPrice = 0;
         booking.memoryBookAddons = [];
         document.getElementById('previewMemoryBook').textContent = 'None';
+        updateTotal();
         return;
       }
       
@@ -1348,9 +1409,8 @@
       booking.memoryBookPrice = price;
       booking.memoryBookAddons = [];
       
-      // Uncheck all addons
-      document.getElementById('memoryBookExtraPages40').checked = false;
-      document.getElementById('memoryBookExtraPages60').checked = false;
+      // Reset page radio buttons to default (20 pages)
+      document.getElementById('memoryBookPages20').checked = true;
       document.getElementById('memoryBookLinenCover').checked = false;
       
       updateMemoryBookAddons();
@@ -1362,20 +1422,13 @@
       let totalPrice = booking.memoryBookBasePrice;
       booking.memoryBookAddons = [];
       
-      // Check if 40 pages is selected
-      if (document.getElementById('memoryBookExtraPages40').checked) {
-        totalPrice += 75;
-        booking.memoryBookAddons.push({name: '40 Pages', price: 75});
-        // Uncheck 60 pages (can't have both)
-        document.getElementById('memoryBookExtraPages60').checked = false;
-      }
-      
-      // Check if 60 pages is selected
-      if (document.getElementById('memoryBookExtraPages60').checked) {
-        totalPrice += 150;
-        booking.memoryBookAddons.push({name: '60 Pages', price: 150});
-        // Uncheck 40 pages (can't have both)
-        document.getElementById('memoryBookExtraPages40').checked = false;
+      // Get selected page count from radio buttons
+      const selectedPages = document.querySelector('input[name="memoryBookPages"]:checked');
+      if (selectedPages && selectedPages.value !== '20') {
+        const pageCount = parseInt(selectedPages.value);
+        const pagePrice = pageCount === 40 ? 75 : 150;
+        totalPrice += pagePrice;
+        booking.memoryBookAddons.push({name: `${pageCount} Pages`, price: pagePrice});
       }
       
       // Check if linen cover is selected
@@ -1433,9 +1486,46 @@
       `).join('');
     }
 
+    function togglePrint(checkbox, printName, price) {
+      if (checkbox.checked) {
+        // Add print to booking
+        booking.prints.push({name: printName, price: price});
+        booking.printsPrice += price;
+      } else {
+        // Remove print from booking
+        const index = booking.prints.findIndex(p => p.name === printName);
+        if (index !== -1) {
+          booking.printsPrice -= booking.prints[index].price;
+          booking.prints.splice(index, 1);
+        }
+      }
+      
+      // Update prints preview
+      updatePrintsPreview();
+      updateTotal();
+    }
+    
+    function updatePrintsPreview() {
+      const printsSection = document.getElementById('previewPrintsSection');
+      const printsList = document.getElementById('previewPrintsList');
+      
+      if (booking.prints.length === 0) {
+        printsSection.style.display = 'none';
+        return;
+      }
+      
+      printsSection.style.display = 'block';
+      printsList.innerHTML = booking.prints.map(p => 
+        `<div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span>${p.name}</span>
+          <span style="font-weight: 600; color: var(--accent);">$${p.price.toLocaleString()}</span>
+        </div>`
+      ).join('');
+    }
+    
     function updateTotal() {
       const upgradesTotal = booking.upgrades.reduce((sum, u) => sum + u.price, 0);
-      const total = booking.packagePrice + booking.memoryBookPrice + booking.albumPrice + upgradesTotal;
+      const total = booking.packagePrice + booking.memoryBookPrice + booking.printsPrice + booking.albumPrice + upgradesTotal;
       document.getElementById('previewTotal').textContent = `$${total.toLocaleString()}`;
       
       // Calculate 2 easy payments for portraits (not 3)
@@ -2462,7 +2552,28 @@
       
       // TODO: Implement Google Pay
     }
+    
+    // Image zoom modal functions
+    function openImageModal(imageSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      modal.style.display = 'flex';
+      modalImg.src = imageSrc;
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
   </script>
+  
+  <!-- Image Zoom Modal -->
+  <div id="imageModal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center;" onclick="closeImageModal()">
+    <span style="position: absolute; top: 30px; right: 50px; color: white; font-size: 50px; font-weight: 300; cursor: pointer; z-index: 10001;" onclick="closeImageModal()">&times;</span>
+    <img id="modalImage" style="max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+  </div>
 
 </body>
 </html>
