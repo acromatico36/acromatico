@@ -573,7 +573,7 @@
         <p class="step-description">Choose the photography and video services you need. You can select multiple services.</p>
 
         <div class="options-grid">
-          <div class="option-card" onclick="toggleService(this, 'aerial', 350)">
+          <div class="option-card" onclick="toggleRealEstateService(this, 'aerial', 350)">
             <div class="option-title">📷 Aerial Photography</div>
             <div class="option-price">From $350</div>
             <div class="option-description">
@@ -584,7 +584,7 @@
             </div>
           </div>
 
-          <div class="option-card" onclick="toggleService(this, 'indoor', 250)">
+          <div class="option-card" onclick="toggleRealEstateService(this, 'indoor', 250)">
             <span class="option-badge">POPULAR</span>
             <div class="option-title">🏠 Indoor Photography</div>
             <div class="option-price">From $250</div>
@@ -592,11 +592,12 @@
               ✓ Professional interior shots<br>
               ✓ HDR & twilight options<br>
               ✓ All rooms photographed<br>
-              ✓ 20-75+ edited images
+              ✓ 20-75+ edited images<br>
+              <small style="color: var(--accent);">Price varies by square footage</small>
             </div>
           </div>
 
-          <div class="option-card" onclick="toggleService(this, 'lifestyle', 450)">
+          <div class="option-card" onclick="toggleRealEstateService(this, 'lifestyle', 450)">
             <div class="option-title">✨ Airbnb Lifestyle</div>
             <div class="option-price">From $450</div>
             <div class="option-description">
@@ -607,7 +608,7 @@
             </div>
           </div>
 
-          <div class="option-card" onclick="toggleService(this, 'video', 500)">
+          <div class="option-card" onclick="toggleRealEstateService(this, 'video', 500)">
             <div class="option-title">🎬 Video Walkthrough</div>
             <div class="option-price">From $500</div>
             <div class="option-description">
@@ -618,7 +619,7 @@
             </div>
           </div>
 
-          <div class="option-card" onclick="toggleService(this, '3d-tour', 350)">
+          <div class="option-card" onclick="toggleRealEstateService(this, '3d-tour', 350)">
             <div class="option-title">🏘️ 3D Virtual Walkthrough</div>
             <div class="option-price">From $350</div>
             <div class="option-description">
@@ -631,8 +632,8 @@
         </div>
 
         <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
-          <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+          <button class="btn btn-secondary" onclick="backToPropertyDetails()">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep2()">Continue →</button>
         </div>
       </div>
 
@@ -1044,15 +1045,15 @@
           
           <label>What needs to be captured? *</label>
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;">
-            <div class="coverage-option ${property.coverage === 'interior' ? 'selected' : ''}" onclick="selectCoverage(${i}, 'interior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
+            <div class="coverage-option ${property.coverage === 'interior' ? 'selected' : ''}" onclick="selectPropertyCoverage(${i}, 'interior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
               <div style="font-size: 24px; margin-bottom: 4px;">🏠</div>
               <div style="font-size: 14px; font-weight: 500;">Interior Only</div>
             </div>
-            <div class="coverage-option ${property.coverage === 'exterior' ? 'selected' : ''}" onclick="selectCoverage(${i}, 'exterior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
+            <div class="coverage-option ${property.coverage === 'exterior' ? 'selected' : ''}" onclick="selectPropertyCoverage(${i}, 'exterior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
               <div style="font-size: 24px; margin-bottom: 4px;">🌳</div>
               <div style="font-size: 14px; font-weight: 500;">Exterior Only</div>
             </div>
-            <div class="coverage-option ${property.coverage === 'both' ? 'selected' : ''}" onclick="selectCoverage(${i}, 'both')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
+            <div class="coverage-option ${property.coverage === 'both' ? 'selected' : ''}" onclick="selectPropertyCoverage(${i}, 'both')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
               <div style="font-size: 24px; margin-bottom: 4px;">🏘️</div>
               <div style="font-size: 14px; font-weight: 500;">Both</div>
               <div style="font-size: 11px; color: var(--accent); margin-top: 2px;">Recommended</div>
@@ -1103,7 +1104,7 @@
       updateCoverageStyles(i);
     }
 
-    function selectCoverage(index, coverage) {
+    function selectPropertyCoverage(index, coverage) {
       booking.properties[index].coverage = coverage;
       updateCoverageStyles(index);
     }
@@ -1254,6 +1255,97 @@
       
       console.log('✅ Properties validated:', booking.properties);
       nextStep(2);
+    }
+
+    // STEP 2: REAL ESTATE SERVICE SELECTION
+    function toggleRealEstateService(card, serviceId, basePrice) {
+      // Toggle selection
+      card.classList.toggle('selected');
+      
+      const isSelected = card.classList.contains('selected');
+      
+      if (isSelected) {
+        // Calculate actual price based on square footage for indoor photography
+        let actualPrice = basePrice;
+        if (serviceId === 'indoor') {
+          actualPrice = calculateIndoorPrice();
+        }
+        
+        booking.services.push({
+          id: serviceId,
+          price: actualPrice,
+          basePrice: basePrice
+        });
+      } else {
+        // Remove service
+        booking.services = booking.services.filter(s => s.id !== serviceId);
+      }
+      
+      // Calculate total
+      booking.servicesPrice = booking.services.reduce((sum, s) => sum + s.price, 0);
+      
+      console.log('📋 Services:', booking.services, 'Total:', booking.servicesPrice);
+      updateRealEstatePreview();
+    }
+
+    function calculateIndoorPrice() {
+      // Calculate average square footage across all properties
+      let totalSqft = 0;
+      let propertyCount = booking.properties.length;
+      
+      booking.properties.forEach(prop => {
+        const sqft = prop.squareFootage;
+        if (sqft === '0-1500') totalSqft += 1250;
+        else if (sqft === '1501-3000') totalSqft += 2250;
+        else if (sqft === '3001-5000') totalSqft += 4000;
+        else if (sqft === '5001-8000') totalSqft += 6500;
+        else if (sqft === '8000+' && prop.customSqft) totalSqft += parseInt(prop.customSqft);
+        else if (sqft === '8000+') totalSqft += 10000;
+      });
+      
+      const avgSqft = totalSqft / propertyCount;
+      
+      // Pricing tiers (profitable for hiring another photographer)
+      // Market competitive rates with 40-50% margin
+      if (avgSqft <= 1500) return 250;  // Cost: ~$150, Profit: $100
+      if (avgSqft <= 3000) return 350;  // Cost: ~$210, Profit: $140
+      if (avgSqft <= 5000) return 500;  // Cost: ~$300, Profit: $200
+      if (avgSqft <= 8000) return 700;  // Cost: ~$420, Profit: $280
+      return 1000; // 8000+ sqft  // Cost: ~$600, Profit: $400
+    }
+
+    function backToPropertyDetails() {
+      nextStep('1b');
+    }
+
+    function validateStep2() {
+      if (booking.services.length === 0) {
+        alert('Please select at least one service');
+        return;
+      }
+      
+      console.log('✅ Services validated:', booking.services);
+      nextStep(3);
+    }
+
+    function updateRealEstatePreview() {
+      // Update preview sidebar with services
+      const servicesHtml = booking.services.map(s => {
+        const names = {
+          'aerial': 'Aerial Photography',
+          'indoor': 'Indoor Photography',
+          'lifestyle': 'Airbnb Lifestyle',
+          'video': 'Video Walkthrough',
+          '3d-tour': '3D Virtual Tour'
+        };
+        return `<div>${names[s.id]}: $${s.price}</div>`;
+      }).join('');
+      
+      // Update total
+      const total = booking.servicesPrice;
+      const deposit = Math.round(total / 2);
+      
+      console.log('💰 Preview Updated - Total:', total, 'Deposit:', deposit);
     }
 
     // STEP NAVIGATION
