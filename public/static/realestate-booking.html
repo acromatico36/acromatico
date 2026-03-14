@@ -575,7 +575,7 @@
         <div class="options-grid">
           <div class="option-card" onclick="toggleRealEstateService(this, 'aerial', 350)">
             <div class="option-title">📷 Aerial Photography</div>
-            <div class="option-price">From $350</div>
+            <div class="option-price" id="price-aerial">$350</div>
             <div class="option-description">
               ✓ Professional drone photography<br>
               ✓ Stunning aerial perspectives<br>
@@ -587,19 +587,19 @@
           <div class="option-card" onclick="toggleRealEstateService(this, 'indoor', 250)">
             <span class="option-badge">POPULAR</span>
             <div class="option-title">🏠 Indoor Photography</div>
-            <div class="option-price">From $250</div>
+            <div class="option-price" id="price-indoor">$<span id="indoor-price-value">250</span></div>
             <div class="option-description">
               ✓ Professional interior shots<br>
               ✓ HDR & twilight options<br>
               ✓ All rooms photographed<br>
               ✓ 20-75+ edited images<br>
-              <small style="color: var(--accent);">Price varies by square footage</small>
+              <small style="color: var(--accent);">📏 Based on <span id="sqft-display">your</span> square footage</small>
             </div>
           </div>
 
           <div class="option-card" onclick="toggleRealEstateService(this, 'lifestyle', 450)">
             <div class="option-title">✨ Airbnb Lifestyle</div>
-            <div class="option-price">From $450</div>
+            <div class="option-price" id="price-lifestyle">$450</div>
             <div class="option-description">
               ✓ Staged lifestyle photography<br>
               ✓ Guest experience focus<br>
@@ -610,7 +610,7 @@
 
           <div class="option-card" onclick="toggleRealEstateService(this, 'video', 500)">
             <div class="option-title">🎬 Video Walkthrough</div>
-            <div class="option-price">From $500</div>
+            <div class="option-price" id="price-video">$500</div>
             <div class="option-description">
               ✓ Cinematic property tour<br>
               ✓ Professional editing & music<br>
@@ -621,7 +621,7 @@
 
           <div class="option-card" onclick="toggleRealEstateService(this, '3d-tour', 350)">
             <div class="option-title">🏘️ 3D Virtual Walkthrough</div>
-            <div class="option-price">From $350</div>
+            <div class="option-price" id="price-3d-tour">$350</div>
             <div class="option-description">
               ✓ Interactive 360° tour<br>
               ✓ Matterport-style experience<br>
@@ -1045,15 +1045,15 @@
           
           <label>What needs to be captured? *</label>
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;">
-            <div class="coverage-option ${property.coverage === 'interior' ? 'selected' : ''}" onclick="selectPropertyCoverage(${i}, 'interior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
+            <div id="coverage-interior-${i}" class="coverage-option" onclick="selectPropertyCoverage(${i}, 'interior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
               <div style="font-size: 24px; margin-bottom: 4px;">🏠</div>
               <div style="font-size: 14px; font-weight: 500;">Interior Only</div>
             </div>
-            <div class="coverage-option ${property.coverage === 'exterior' ? 'selected' : ''}" onclick="selectPropertyCoverage(${i}, 'exterior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
+            <div id="coverage-exterior-${i}" class="coverage-option" onclick="selectPropertyCoverage(${i}, 'exterior')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
               <div style="font-size: 24px; margin-bottom: 4px;">🌳</div>
               <div style="font-size: 14px; font-weight: 500;">Exterior Only</div>
             </div>
-            <div class="coverage-option ${property.coverage === 'both' ? 'selected' : ''}" onclick="selectPropertyCoverage(${i}, 'both')" style="border: 2px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s;">
+            <div id="coverage-both-${i}" class="coverage-option coverage-selected" onclick="selectPropertyCoverage(${i}, 'both')" style="border: 2px solid var(--accent); border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s; background: rgba(71, 148, 166, 0.05);">
               <div style="font-size: 24px; margin-bottom: 4px;">🏘️</div>
               <div style="font-size: 14px; font-weight: 500;">Both</div>
               <div style="font-size: 11px; color: var(--accent); margin-top: 2px;">Recommended</div>
@@ -1113,18 +1113,29 @@
       // Safety check
       if (!booking.properties[index]) return;
       
-      const options = document.querySelectorAll('.coverage-option');
-      if (!options || options.length === 0) return;
-      
-      options.forEach(opt => {
-        opt.style.borderColor = 'var(--border)';
-        opt.style.background = 'white';
-      });
-      
       const coverage = booking.properties[index].coverage;
       if (!coverage) return;
       
-      const selected = document.querySelector(`.coverage-option[onclick*="${coverage}"]`);
+      // Reset all three options for this property
+      const interior = document.getElementById(`coverage-interior-${index}`);
+      const exterior = document.getElementById(`coverage-exterior-${index}`);
+      const both = document.getElementById(`coverage-both-${index}`);
+      
+      if (interior) {
+        interior.style.borderColor = 'var(--border)';
+        interior.style.background = 'white';
+      }
+      if (exterior) {
+        exterior.style.borderColor = 'var(--border)';
+        exterior.style.background = 'white';
+      }
+      if (both) {
+        both.style.borderColor = 'var(--border)';
+        both.style.background = 'white';
+      }
+      
+      // Highlight the selected one
+      const selected = document.getElementById(`coverage-${coverage}-${index}`);
       if (selected) {
         selected.style.borderColor = 'var(--accent)';
         selected.style.background = 'rgba(71, 148, 166, 0.05)';
@@ -1357,6 +1368,33 @@
       document.getElementById(`step${currentStep}`).classList.add('active');
       updateProgressBar();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // When entering Step 2, update pricing based on square footage
+      if (step === 2) {
+        updateStep2Pricing();
+      }
+    }
+
+    function updateStep2Pricing() {
+      const indoorPrice = calculateIndoorPrice();
+      document.getElementById('indoor-price-value').textContent = indoorPrice;
+      
+      // Show average sqft
+      let totalSqft = 0;
+      let propertyCount = booking.properties.length;
+      
+      booking.properties.forEach(prop => {
+        const sqft = prop.squareFootage;
+        if (sqft === '0-1500') totalSqft += 1250;
+        else if (sqft === '1501-3000') totalSqft += 2250;
+        else if (sqft === '3001-5000') totalSqft += 4000;
+        else if (sqft === '5001-8000') totalSqft += 6500;
+        else if (sqft === '8000+' && prop.customSqft) totalSqft += parseInt(prop.customSqft);
+        else if (sqft === '8000+') totalSqft += 10000;
+      });
+      
+      const avgSqft = Math.round(totalSqft / propertyCount);
+      document.getElementById('sqft-display').textContent = `${avgSqft.toLocaleString()} sq ft`;
     }
 
     function prevStep(step) {
