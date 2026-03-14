@@ -1155,13 +1155,21 @@
     }
 
     function updateCoverageStyles(index) {
+      // Safety check
+      if (!booking.properties[index]) return;
+      
       const options = document.querySelectorAll('.coverage-option');
+      if (!options || options.length === 0) return;
+      
       options.forEach(opt => {
         opt.style.borderColor = 'var(--border)';
         opt.style.background = 'white';
       });
       
-      const selected = document.querySelector(`.coverage-option[onclick*="${booking.properties[index].coverage}"]`);
+      const coverage = booking.properties[index].coverage;
+      if (!coverage) return;
+      
+      const selected = document.querySelector(`.coverage-option[onclick*="${coverage}"]`);
       if (selected) {
         selected.style.borderColor = 'var(--accent)';
         selected.style.background = 'rgba(71, 148, 166, 0.05)';
