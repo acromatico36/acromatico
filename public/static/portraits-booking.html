@@ -1377,19 +1377,35 @@
     }
 
     function selectPackage(card, name, price) {
+      console.log('🎯 selectPackage called:', name, price);
+      
       document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
       booking.package = name;
       booking.isCustom = false;
       booking.packagePrice = price;
       
+      console.log('📦 Package set:', booking.package, booking.packagePrice);
+      
       // Update step 3 for package flow
       document.getElementById('step3Question').textContent = 'Want to add extra hours?';
       document.getElementById('step3Description').textContent = 'Your package includes base coverage. Add more hours if needed.';
       
+      // Format package name for display
+      let displayName = name;
+      if (name === '1-hour-session') {
+        displayName = '1-Hour Session';
+      } else if (name === '2-hour-session') {
+        displayName = '2-Hour Session';
+      }
+      
       // Update preview
-      document.getElementById('previewPackage').textContent = name + ' - $' + price.toLocaleString();
+      const previewText = displayName + ' - $' + price.toLocaleString();
+      console.log('✅ Setting preview:', previewText);
+      document.getElementById('previewPackage').textContent = previewText;
+      
       updateTotal();
+      console.log('💰 Total updated');
     }
     
     function selectMemoryBook(card, size, price) {
