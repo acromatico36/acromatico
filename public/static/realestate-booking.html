@@ -832,117 +832,211 @@
       <!-- STEP 6: CONTRACT & SIGNATURE -->
       <div class="step" id="step6">
         <div class="step-number">Step 6 of 7</div>
-        <h1 class="step-question">Review & sign agreement</h1>
-        <p class="step-description">Please review the Real Estate Photography Service Agreement and sign electronically to proceed.</p>
-
-        <div style="background: white; border-radius: 16px; padding: 40px; margin-bottom: 32px; border: 2px solid var(--border); max-height: 500px; overflow-y: scroll;">
-          <h2 style="text-align: center; font-size: 28px; margin-bottom: 32px; color: var(--primary);">REAL ESTATE PHOTOGRAPHY SERVICE AGREEMENT</h2>
+        <h1 class="step-question">Review & sign your agreement</h1>
+        
+        <!-- FULL CONTRACT PREVIEW -->
+        <div style="background: white; border: 2px solid var(--border); border-radius: 16px; padding: 60px; margin-bottom: 32px; max-height: 600px; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
           
-          <div style="line-height: 1.8; color: var(--secondary); font-size: 14px;">
-            <p><strong>This Agreement</strong> is entered into on <strong id="contractDate"></strong> between:</p>
+          <!-- ACROMATICO LOGO -->
+          <div style="text-align: center; margin-bottom: 40px;">
+            <img src="/static/acromatico-logo-dark.png" alt="Acromatico" style="height: 50px;">
+          </div>
+          
+          <h3 style="font-size: 32px; font-weight: 300; margin-bottom: 48px; text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #4794A6;">Real Estate Photography Agreement</h3>
+          
+          <div style="font-size: 14px; line-height: 2; color: #333; font-weight: 300;">
+            <!-- CLIENT INFORMATION -->
+            <div style="background: rgba(71, 148, 166, 0.03); padding: 28px; border-radius: 12px; margin-bottom: 32px; border-left: 4px solid #4794A6;">
+              <h4 style="font-size: 13px; font-weight: 400; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6;">Client Information</h4>
+              <p style="margin-bottom: 8px; font-weight: 300;"><strong style="font-weight: 400;">Name:</strong> <span id="contractClientName">Client</span></p>
+              <p style="margin-bottom: 8px; font-weight: 300;"><strong style="font-weight: 400;">Company:</strong> <span id="contractCompanyName"></span></p>
+              <p style="margin-bottom: 0; font-weight: 300;"><strong style="font-weight: 400;">Date:</strong> <span id="contractDate"></span></p>
+            </div>
             
-            <p><strong>PHOTOGRAPHER:</strong> Acromatico Photography LLC<br>
-            <strong>CLIENT:</strong> <span id="contractClientName"></span></p>
+            <!-- SERVICES PROVIDED -->
+            <div style="margin-bottom: 40px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Services Provided</h4>
+              <p style="margin-bottom: 16px; font-weight: 300;">Acromatico will provide to Client the following real estate photography services:</p>
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 16px;">
+                <ul id="contractServices" style="margin: 0; font-weight: 300; list-style: none; padding: 0;">
+                </ul>
+              </div>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">1. SERVICES PROVIDED</h3>
-            <p>The Photographer agrees to provide the following real estate photography services:</p>
-            <ul id="contractServices" style="margin: 12px 0;">
-            </ul>
+            <!-- PROPERTIES -->
+            <div style="margin-bottom: 40px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Properties to be Photographed</h4>
+              <div id="contractProperties" style="font-weight: 300;"></div>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">2. PROPERTIES</h3>
-            <div id="contractProperties"></div>
+            <!-- PREMIUM SERVICES INCLUDED -->
+            <div style="margin-bottom: 40px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Premium Services Included</h4>
+              <p style="margin-bottom: 16px; font-weight: 300;">All packages include at no additional charge:</p>
+              <ul style="margin: 0; font-weight: 300;">
+                <li style="margin-bottom: 8px;">Professional twilight photography (golden hour exterior shots)</li>
+                <li style="margin-bottom: 8px;">Advanced HDR editing for perfect exposure</li>
+                <li style="margin-bottom: 8px;">Blue sky replacement on all exterior shots</li>
+                <li style="margin-bottom: 8px;">Object removal and cleanup (up to 20 photos)</li>
+                <li>Professional color correction and enhancement</li>
+              </ul>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">3. PREMIUM SERVICES INCLUDED</h3>
-            <p>All packages include:</p>
-            <ul style="margin: 12px 0;">
-              <li>Professional twilight photography (golden hour exterior shots)</li>
-              <li>Advanced HDR editing for perfect exposure</li>
-              <li>Blue sky replacement on all exterior shots</li>
-              <li>Object removal and cleanup (up to 20 photos)</li>
-              <li>Professional color correction and enhancement</li>
-            </ul>
+            <!-- TOTAL INVESTMENT -->
+            <div style="background: linear-gradient(135deg, rgba(71, 148, 166, 0.08) 0%, rgba(71, 148, 166, 0.03) 100%); padding: 32px; border-radius: 12px; margin-bottom: 24px; text-align: center; border: 2px solid rgba(71, 148, 166, 0.2);">
+              <h4 style="font-size: 13px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6;">Total Investment</h4>
+              <p style="font-size: 42px; font-weight: 200; margin: 0; color: #4794A6; letter-spacing: 2px;">$<span id="contractTotal">0</span></p>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">4. PRICING & PAYMENT</h3>
-            <p><strong>Total Investment:</strong> <span id="contractTotal"></span></p>
-            <p><strong>Deposit Due Today (50%):</strong> <span id="contractDeposit"></span></p>
-            <p><strong>Balance Due:</strong> Upon delivery of final edited images</p>
+            <!-- PAYMENT TERMS -->
+            <div style="background: #ffffff; padding: 28px; border-radius: 12px; margin-bottom: 40px; border: 2px solid rgba(71, 148, 166, 0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+              <h4 style="font-size: 15px; font-weight: 400; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6; text-align: center;">Payment Terms</h4>
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px; margin-bottom: 12px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Deposit Due Today (50%)</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;">Non-refundable booking deposit</p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="contractDeposit">0</span></p>
+              </div>
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Balance Due</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;">Upon delivery of final edited images</p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="contractBalance">0</span></p>
+              </div>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">5. DELIVERY TIMELINE</h3>
-            <p>• Standard delivery: <strong>5-7 business days</strong> after shoot date<br>
-            • Rush delivery (if selected): <strong>24 hours</strong> after shoot date<br>
-            • All images delivered via secure online gallery with download access</p>
+            <!-- DELIVERY TIMELINE -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Delivery Timeline</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Standard delivery: <strong style="font-weight: 400;">5-7 business days</strong> after shoot date</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Rush delivery (if selected): <strong style="font-weight: 400;">24 hours</strong> after shoot date</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">• All images delivered via secure online gallery with download access</p>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">6. USAGE RIGHTS</h3>
-            <p>• Client receives full commercial usage rights for real estate marketing purposes<br>
-            • Images may be used on MLS listings, websites, social media, print materials, and signage<br>
-            • Photographer retains copyright and may use images for portfolio and marketing<br>
-            • Images may not be resold or sublicensed to third parties</p>
+            <!-- USAGE RIGHTS -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Usage Rights</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Client receives full commercial usage rights for real estate marketing purposes. Images may be used on MLS listings, websites, social media, print materials, and signage.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Photographer retains copyright and may use images for portfolio and marketing purposes.</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Images may not be resold or sublicensed to third parties.</p>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">7. CANCELLATION POLICY</h3>
-            <p>• Cancellations made 48+ hours before shoot: <strong>Full refund of deposit</strong><br>
-            • Cancellations made 24-48 hours before: <strong>50% deposit retained</strong><br>
-            • Cancellations made less than 24 hours: <strong>Full deposit retained</strong><br>
-            • Weather-related cancellations: Rescheduled at no additional charge</p>
+            <!-- CANCELLATION POLICY -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Cancellation Policy</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;"><strong style="font-weight: 400;">All deposit fees are non-refundable.</strong></p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Cancellations made 48+ hours before shoot: <strong style="font-weight: 400;">Full refund of deposit</strong></p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Cancellations made 24-48 hours before: <strong style="font-weight: 400;">50% deposit retained</strong></p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Cancellations made less than 24 hours: <strong style="font-weight: 400;">Full deposit retained</strong></p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">• Weather-related cancellations: Rescheduled at no additional charge</p>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">8. PROPERTY ACCESS</h3>
-            <p>Client agrees to provide:</p>
-            <ul style="margin: 12px 0;">
-              <li>Safe and legal access to all properties listed above</li>
-              <li>All utilities (electricity, water) operational during shoot</li>
-              <li>Properties cleaned and staged prior to photographer arrival</li>
-              <li>Notification of any safety hazards or access restrictions</li>
-            </ul>
+            <!-- PROPERTY ACCESS -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Property Access</h4>
+              <p style="margin-bottom: 16px; font-weight: 300; line-height: 1.9;">Client agrees to provide:</p>
+              <ul style="margin: 0; font-weight: 300;">
+                <li style="margin-bottom: 8px;">Safe and legal access to all properties listed above</li>
+                <li style="margin-bottom: 8px;">All utilities (electricity, water) operational during shoot</li>
+                <li style="margin-bottom: 8px;">Properties cleaned and staged prior to photographer arrival</li>
+                <li>Notification of any safety hazards or access restrictions</li>
+              </ul>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">9. LIABILITY</h3>
-            <p>Photographer carries $2M general liability insurance. Client agrees that Photographer is not liable for any damage to property unless caused by gross negligence. Photographer is not responsible for trespassing claims if incorrect property information is provided.</p>
+            <!-- LIABILITY -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Liability</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Photographer carries $2M general liability insurance. Client agrees that Photographer is not liable for any damage to property unless caused by gross negligence. Photographer is not responsible for trespassing claims if incorrect property information is provided.</p>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">10. FORCE MAJEURE</h3>
-            <p>Neither party shall be liable for failure to perform due to causes beyond reasonable control including weather, natural disasters, equipment failure, illness, or government restrictions.</p>
+            <!-- FORCE MAJEURE -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Force Majeure</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Neither party shall be liable for failure to perform due to causes beyond reasonable control including weather, natural disasters, equipment failure, illness, or government restrictions.</p>
+            </div>
             
-            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">11. ENTIRE AGREEMENT</h3>
-            <p>This Agreement constitutes the entire agreement between parties and supersedes all prior negotiations, representations, or agreements. Any modifications must be made in writing and signed by both parties.</p>
+            <!-- ENTIRE AGREEMENT -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Entire Agreement</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">This Agreement constitutes the entire agreement between parties and supersedes all prior negotiations, representations, or agreements. Any modifications must be made in writing and signed by both parties.</p>
+            </div>
           </div>
         </div>
 
         <!-- SIGNATURE SECTION -->
-        <div style="background: white; border-radius: 16px; padding: 32px; border: 2px solid var(--border);">
-          <h3 style="font-size: 20px; margin-bottom: 24px;">Electronic Signature</h3>
+        <div style="background: rgba(71, 148, 166, 0.05); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; margin-bottom: 32px;">
+          <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 16px;">Sign Below</h4>
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">Type your full name or draw your signature. This constitutes a legally binding electronic signature.</p>
           
           <div style="margin-bottom: 24px;">
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; margin-bottom: 16px;">
+              <input type="radio" name="signMethod" value="type" checked onchange="switchSignMethod('type')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Type my name</span>
+            </label>
             <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
-              <input type="checkbox" id="agreeToTerms" style="width: 20px; height: 20px; cursor: pointer;">
-              <span style="font-size: 15px;">I have read and agree to the terms of this service agreement</span>
+              <input type="radio" name="signMethod" value="draw" onchange="switchSignMethod('draw')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Draw my signature</span>
             </label>
           </div>
-          
-          <div style="margin-bottom: 24px;">
-            <label style="font-size: 15px; font-weight: 600; display: block; margin-bottom: 8px;">Type your full name to sign:</label>
-            <input type="text" id="signatureName" placeholder="Enter your full legal name" style="width: 100%; padding: 16px; font-size: 17px; border: 2px solid var(--border); border-radius: 8px; font-family: 'Brush Script MT', cursive;">
+
+          <!-- Type Signature -->
+          <div id="typeSignature">
+            <input type="text" id="signatureName" placeholder="Type your full legal name" style="width: 100%; padding: 20px; font-size: 24px; font-family: 'Brush Script MT', cursive; border: 2px solid var(--border); border-radius: 12px;">
           </div>
-          
-          <div style="background: #f5f5f7; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-              <span style="font-size: 14px; color: var(--secondary);">Signed by:</span>
-              <strong id="signaturePreview" style="font-size: 16px; font-family: 'Brush Script MT', cursive;"></strong>
+
+          <!-- Draw Signature -->
+          <div id="drawSignature" style="display: none;">
+            <div id="canvasContainer" style="border: 3px solid #4794A6; border-radius: 12px; background: white; padding: 0; position: relative; max-width: 600px;">
+              <canvas 
+                id="signatureCanvas" 
+                width="600" 
+                height="150"
+                style="display: block; width: 100%; height: 150px; cursor: crosshair; background: white; touch-action: none;"
+              ></canvas>
             </div>
-            <div style="display: flex; justify-content: space-between;">
-              <span style="font-size: 14px; color: var(--secondary);">Date:</span>
-              <strong id="signatureDate" style="font-size: 14px;"></strong>
-            </div>
+            <button type="button" onclick="clearSignature()" style="margin-top: 16px; padding: 14px 28px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s;">🗑️ Clear Signature</button>
+            <p style="font-size: 14px; color: #4794A6; margin-top: 12px; font-weight: 500;">🖊️ <strong>CLICK AND DRAG</strong> on the white canvas above to draw your signature</p>
+          </div>
+
+          <div style="margin-top: 24px; font-size: 13px; color: var(--secondary);">
+            <p style="margin: 0;">Date: <span id="signatureDate"></span></p>
           </div>
         </div>
 
+        <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px; cursor: pointer;">
+          <input type="checkbox" id="agreeToTerms" style="width: 24px; height: 24px; cursor: pointer;">
+          <span style="font-size: 15px;">I have read and agree to the terms of this agreement</span>
+        </label>
+
         <div class="button-group" style="margin-top: 32px;">
           <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
-          <button class="btn btn-primary" onclick="validateSignature()">Continue to Payment →</button>
+          <button class="btn btn-primary" onclick="validateSignature()">Sign & Continue to Payment →</button>
         </div>
       </div>
 
       <!-- STEP 7: PAYMENT -->
       <div class="step" id="step7">
         <div class="step-number">Step 7 of 7</div>
-        <h1 class="step-question">Secure your booking</h1>
-        <p class="step-description">Choose your payment method to confirm your real estate photography session.</p>
+        <h1 class="step-question">Complete your booking</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Your contract is signed. Choose your payment method below.</p>
+        
+        <!-- AGREEMENT SIGNED CONFIRMATION -->
+        <div style="background: rgba(52, 199, 89, 0.1); border: 2px solid var(--success); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <p style="font-size: 15px; font-weight: 500; color: var(--success); margin-bottom: 8px;">✓ Agreement Signed</p>
+          <p style="font-size: 14px; color: var(--secondary);">Signed by <span id="finalSignatureName"></span> on <span id="finalSignDate"></span></p>
+          <button onclick="downloadAgreement()" style="padding: 16px 32px; background: white; border: 2px solid var(--accent); border-radius: 12px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--accent); margin-top: 16px; transition: all 0.3s;" onmouseover="this.style.background='var(--accent)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='var(--accent)';">⬇ Download Signed Agreement PDF</button>
+        </div>
+
+        <!-- DOWNLOAD AGREEMENT -->
+        <div style="background: rgba(71, 148, 166, 0.1); border: 2px solid var(--accent); border-radius: 16px; padding: 24px; margin-bottom: 32px;">
+          <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 12px;">📄 Your Signed Agreement</h4>
+          <button onclick="downloadAgreement()" style="padding: 16px 32px; background: white; border: 2px solid var(--accent); border-radius: 12px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 16px; transition: all 0.3s;" onmouseover="this.style.background='var(--accent)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='var(--accent)';">⬇ Download Signed Agreement PDF</button>
+          <p style="font-size: 13px; color: var(--secondary);">A copy will also be emailed to you after payment.</p>
+        </div>
 
         <!-- BOOKING SUMMARY -->
         <div style="background: white; border-radius: 16px; padding: 32px; margin-bottom: 32px; border: 2px solid var(--accent);">
@@ -2067,22 +2161,59 @@
     
     function validateSignature() {
       const agreed = document.getElementById('agreeToTerms').checked;
-      const signature = document.getElementById('signatureName').value.trim();
       
       if (!agreed) {
         alert('Please check the box to agree to the terms');
         return;
       }
       
-      if (!signature || signature.length < 3) {
-        alert('Please type your full legal name to sign the agreement');
-        return;
+      const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
+      let signature;
+      
+      if (signMethod === 'type') {
+        signature = document.getElementById('signatureName').value.trim();
+        if (!signature || signature.length < 3) {
+          alert('Please type your full legal name to sign the agreement');
+          return;
+        }
+      } else {
+        // Check if signature canvas exists and has been drawn on
+        const canvas = document.getElementById('signatureCanvas');
+        
+        if (!canvas) {
+          alert('Canvas not found. Please refresh the page.');
+          return;
+        }
+        
+        // Ensure canvas has proper dimensions
+        if (canvas.width === 0 || canvas.height === 0) {
+          canvas.width = 600;
+          canvas.height = 150;
+          console.log('⚠️ Canvas dimensions were 0, reset to 600x150');
+        }
+        
+        const blankCanvas = document.createElement('canvas');
+        blankCanvas.width = canvas.width;
+        blankCanvas.height = canvas.height;
+        signature = canvas.toDataURL();
+        const blankSignature = blankCanvas.toDataURL();
+        
+        if (!signature || signature === blankSignature) {
+          alert('Please draw your signature on the canvas');
+          return;
+        }
       }
       
       booking.signature = signature;
+      booking.signMethod = signMethod;
       booking.signatureDate = new Date().toISOString();
       
-      console.log('✅ Agreement signed:', signature);
+      console.log('✅ Agreement signed');
+      
+      // Update payment step with signature info
+      document.getElementById('finalSignatureName').textContent = booking.realtorName || 'Realtor';
+      document.getElementById('finalSignDate').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      
       populatePaymentSummary();
       nextStep(7);
     }
@@ -2153,6 +2284,121 @@
       document.getElementById('paymentDeposit').textContent = '$' + deposit.toLocaleString();
     }
     
+    function downloadAgreement() {
+      const total = booking.services.reduce((sum, s) => sum + s.price, 0) + 
+                   (booking.addons ? booking.addons.reduce((sum, a) => sum + a.price, 0) : 0) + 
+                   (booking.usbPrice || 0);
+      const deposit = Math.round(total * 0.5);
+      
+      // Get the actual contract HTML from the page
+      const contractDiv = document.querySelector('#step6 > div:nth-child(3)');
+      const contractHTML = contractDiv ? contractDiv.innerHTML : '';
+      
+      // Generate PDF content with ACTUAL CONTRACT
+      const agreementHTML = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Real Estate Photography Agreement - ${booking.realtorName || 'Client'}</title>
+          <style>
+            body { 
+              font-family: 'Helvetica Neue', 'Arial', sans-serif; 
+              padding: 60px; 
+              line-height: 1.9; 
+              color: #333;
+              font-weight: 300;
+            }
+            h3 { 
+              font-size: 32px; 
+              font-weight: 300; 
+              text-align: center; 
+              text-transform: uppercase; 
+              letter-spacing: 4px; 
+              color: #4794A6; 
+              margin-bottom: 48px;
+            }
+            h4 { 
+              font-size: 18px; 
+              font-weight: 300; 
+              text-transform: uppercase; 
+              letter-spacing: 3px; 
+              color: #4794A6; 
+              border-bottom: 1px solid rgba(71, 148, 166, 0.3); 
+              padding-bottom: 12px;
+              margin: 32px 0 20px 0;
+            }
+            p { 
+              margin-bottom: 12px; 
+              font-weight: 300; 
+              line-height: 1.9; 
+            }
+            strong { 
+              font-weight: 400; 
+            }
+            .logo-section {
+              text-align: center;
+              margin-bottom: 40px;
+            }
+            .signature-section {
+              margin-top: 60px;
+              padding-top: 40px;
+              border-top: 2px solid rgba(71, 148, 166, 0.2);
+            }
+            .signature-line {
+              border-bottom: 2px solid #333;
+              width: 400px;
+              margin: 24px auto;
+              padding: 12px 0;
+              text-align: center;
+              font-family: 'Brush Script MT', cursive;
+              font-size: 28px;
+            }
+            .signature-image {
+              max-width: 400px;
+              margin: 0 auto;
+              display: block;
+              border: 2px solid #4794A6;
+              border-radius: 8px;
+              padding: 12px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="logo-section">
+            <h3>ACROMATICO</h3>
+          </div>
+          
+          ${contractHTML}
+          
+          <div class="signature-section">
+            <h4 style="text-align: center; margin-bottom: 32px;">Signed Agreement</h4>
+            ${booking.signMethod === 'draw' ? 
+              `<img src="${booking.signature}" class="signature-image" alt="Signature" />` : 
+              `<div class="signature-line">${booking.signature}</div>`
+            }
+            <p style="text-align: center; font-size: 14px; color: #666; margin-top: 16px;">
+              Signed by ${booking.realtorName || 'Client'} on ${new Date(booking.signatureDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+          </div>
+        </body>
+        </html>
+      `;
+      
+      // Create a blob and download
+      const blob = new Blob([agreementHTML], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Acromatico-RealEstate-Agreement-${booking.realtorName || 'Client'}-${new Date().toISOString().split('T')[0]}.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      console.log('📥 Agreement downloaded');
+    }
+
     function selectPaymentMethod(method, element) {
       // Remove selected state from all
       document.querySelectorAll('.payment-option').forEach(opt => {
@@ -2185,6 +2431,143 @@
       // In production, this would submit to your backend
       // For now, just log the booking data
       console.log('Booking data ready for submission:', JSON.stringify(booking, null, 2));
+    }
+
+    // SIGNATURE CANVAS
+    let signatureCanvas;
+    let signatureCtx;
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    
+    function initCanvas() {
+      signatureCanvas = document.getElementById('signatureCanvas');
+      if (!signatureCanvas) {
+        console.error('❌ Canvas element not found');
+        return;
+      }
+      signatureCtx = signatureCanvas.getContext('2d');
+      
+      // Set canvas actual size
+      signatureCanvas.width = 600;
+      signatureCanvas.height = 150;
+      
+      // Set drawing style
+      signatureCtx.strokeStyle = '#000000';
+      signatureCtx.lineWidth = 2;
+      signatureCtx.lineCap = 'round';
+      signatureCtx.lineJoin = 'round';
+      
+      console.log('✅ Canvas initialized!', signatureCanvas.width, 'x', signatureCanvas.height);
+      
+      // Add event listeners
+      signatureCanvas.addEventListener('mousedown', onMouseDown);
+      signatureCanvas.addEventListener('mousemove', onMouseMove);
+      signatureCanvas.addEventListener('mouseup', onMouseUp);
+      signatureCanvas.addEventListener('mouseleave', onMouseUp);
+      
+      signatureCanvas.addEventListener('touchstart', onTouchStart);
+      signatureCanvas.addEventListener('touchmove', onTouchMove);
+      signatureCanvas.addEventListener('touchend', onTouchEnd);
+    }
+    
+    function getMousePos(e) {
+      const rect = signatureCanvas.getBoundingClientRect();
+      const scaleX = signatureCanvas.width / rect.width;
+      const scaleY = signatureCanvas.height / rect.height;
+      return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+      };
+    }
+    
+    function getTouchPos(e) {
+      const rect = signatureCanvas.getBoundingClientRect();
+      const scaleX = signatureCanvas.width / rect.width;
+      const scaleY = signatureCanvas.height / rect.height;
+      return {
+        x: (e.touches[0].clientX - rect.left) * scaleX,
+        y: (e.touches[0].clientY - rect.top) * scaleY
+      };
+    }
+    
+    function onMouseDown(e) {
+      e.preventDefault();
+      isDrawing = true;
+      const pos = getMousePos(e);
+      lastX = pos.x;
+      lastY = pos.y;
+      console.log('🖊️ Started drawing at', lastX, lastY);
+    }
+    
+    function onMouseMove(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const pos = getMousePos(e);
+      
+      signatureCtx.beginPath();
+      signatureCtx.moveTo(lastX, lastY);
+      signatureCtx.lineTo(pos.x, pos.y);
+      signatureCtx.stroke();
+      
+      lastX = pos.x;
+      lastY = pos.y;
+    }
+    
+    function onMouseUp(e) {
+      if (!isDrawing) return;
+      isDrawing = false;
+      console.log('✋ Stopped drawing');
+    }
+    
+    function onTouchStart(e) {
+      e.preventDefault();
+      isDrawing = true;
+      const pos = getTouchPos(e);
+      lastX = pos.x;
+      lastY = pos.y;
+      console.log('📱 Touch started at', lastX, lastY);
+    }
+    
+    function onTouchMove(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const pos = getTouchPos(e);
+      
+      signatureCtx.beginPath();
+      signatureCtx.moveTo(lastX, lastY);
+      signatureCtx.lineTo(pos.x, pos.y);
+      signatureCtx.stroke();
+      
+      lastX = pos.x;
+      lastY = pos.y;
+    }
+    
+    function onTouchEnd(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      isDrawing = false;
+      console.log('✋ Touch ended');
+    }
+    
+    function clearSignature() {
+      if (!signatureCtx || !signatureCanvas) {
+        console.error('❌ Canvas not initialized!');
+        return;
+      }
+      signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+      console.log('🗑️ Signature cleared');
+    }
+    
+    function switchSignMethod(method) {
+      if (method === 'type') {
+        document.getElementById('typeSignature').style.display = 'block';
+        document.getElementById('drawSignature').style.display = 'none';
+      } else {
+        document.getElementById('typeSignature').style.display = 'none';
+        document.getElementById('drawSignature').style.display = 'block';
+        initCanvas();
+      }
     }
 
     // Initialize
