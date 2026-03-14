@@ -1620,25 +1620,28 @@
 
       // Addons
       const addonsContainer = document.getElementById('previewAddons');
+      if (!addonsContainer) return; // Safety check
       addonsContainer.innerHTML = '';
 
       // Video packages
-      booking.videoPackages.forEach(pkg => {
-        const videoNames = {
-          'keynoteVideo': 'Keynote Coverage',
-          'multiCamVideo': 'Multi-Camera',
-          'bRollVideo': 'B-Roll Package'
-        };
-        const displayPrice = booking.numberOfDays > 1
-          ? `+$${(pkg.price * booking.numberOfDays).toLocaleString()} (${booking.numberOfDays} days)`
-          : `+$${pkg.price.toLocaleString()}`;
-        addonsContainer.innerHTML += `
-          <div class="preview-item">
-            <span class="preview-label">${videoNames[pkg.id]}</span>
-            <span class="preview-value">${displayPrice}</span>
-          </div>
-        `;
-      });
+      if (booking.videoPackages && Array.isArray(booking.videoPackages)) {
+        booking.videoPackages.forEach(pkg => {
+          const videoNames = {
+            'keynoteVideo': 'Keynote Coverage',
+            'multiCamVideo': 'Multi-Camera',
+            'bRollVideo': 'B-Roll Package'
+          };
+          const displayPrice = booking.numberOfDays > 1
+            ? `+$${(pkg.price * booking.numberOfDays).toLocaleString()} (${booking.numberOfDays} days)`
+            : `+$${pkg.price.toLocaleString()}`;
+          addonsContainer.innerHTML += `
+            <div class="preview-item">
+              <span class="preview-label">${videoNames[pkg.id]}</span>
+              <span class="preview-value">${displayPrice}</span>
+            </div>
+          `;
+        });
+      }
 
       // USB drives
       if (booking.usbQuantity > 0) {
@@ -1650,21 +1653,23 @@
         `;
       }
 
-      booking.addons.forEach(addon => {
-        const addonNames = {
-          'rushDelivery': 'Rush Delivery',
-          'sameDaySneak': 'Same-Day Sneak Peek',
-          'droneFootage': 'Drone Coverage',
-          'liveSocial': 'Live Social Media',
-          'rawFiles': 'Raw Files'
-        };
-        addonsContainer.innerHTML += `
-          <div class="preview-item">
-            <span class="preview-label">${addonNames[addon.id]}</span>
-            <span class="preview-value">+$${addon.price.toLocaleString()}</span>
-          </div>
-        `;
-      });
+      if (booking.addons && Array.isArray(booking.addons)) {
+        booking.addons.forEach(addon => {
+          const addonNames = {
+            'rushDelivery': 'Rush Delivery',
+            'sameDaySneak': 'Same-Day Sneak Peek',
+            'droneFootage': 'Drone Coverage',
+            'liveSocial': 'Live Social Media',
+            'rawFiles': 'Raw Files'
+          };
+          addonsContainer.innerHTML += `
+            <div class="preview-item">
+              <span class="preview-label">${addonNames[addon.id]}</span>
+              <span class="preview-value">+$${addon.price.toLocaleString()}</span>
+            </div>
+          `;
+        });
+      }
 
       // Total
       const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.usbPrice + booking.addonsPrice;
