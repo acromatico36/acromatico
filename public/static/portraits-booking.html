@@ -661,7 +661,7 @@
         </div>
       </div>
 
-      <!-- STEP 3: MEMORY BOOK (GOBOOK) -->
+      <!-- STEP 3: MEMORY BOOK -->
       <div class="step" id="step3">
         <div class="step-number">
           <div class="journey-dots">
@@ -675,7 +675,7 @@
           </div>
           <span>Memory Book</span>
         </div>
-        <h1 class="step-question">Add a Memory Book (GoBook)?</h1>
+        <h1 class="step-question">Add a Memory Book?</h1>
         <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px; line-height: 1.7;"><strong>Handmade in Italy by Graphistudio.</strong> High-quality layflat photo book with premium leatherette covers. Perfect for portraits, families, and special moments.</p>
         
         <div style="margin-bottom: 32px;">
@@ -710,10 +710,39 @@
           </div>
         </div>
         
-        <div style="margin-top: 32px; padding: 20px; background: var(--bg-gray); border-radius: 12px;">
-          <p style="font-size: 14px; color: var(--secondary); line-height: 1.7;">
-            <strong>Upgrades available:</strong> Add extra pages (+$75 for 40 pages, +$150 for 60 pages) or upgrade to Natural Linen cover (+$50). Select after booking.
-          </p>
+        <!-- ADD-ONS SECTION -->
+        <div style="margin-top: 32px;">
+          <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 16px;">Customize Your Memory Book</h3>
+          
+          <div style="display: grid; gap: 16px;">
+            <!-- Extra Pages -->
+            <label style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #fff; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+              <input type="checkbox" id="memoryBookExtraPages40" onchange="updateMemoryBookAddons()" style="width: 20px; height: 20px; cursor: pointer;">
+              <div style="flex: 1;">
+                <div style="font-weight: 600; color: var(--primary);">40 Pages</div>
+                <div style="font-size: 13px; color: var(--secondary);">Double your pages (20 → 40)</div>
+              </div>
+              <span style="font-size: 16px; font-weight: 600; color: var(--accent);">+$75</span>
+            </label>
+            
+            <label style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #fff; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+              <input type="checkbox" id="memoryBookExtraPages60" onchange="updateMemoryBookAddons()" style="width: 20px; height: 20px; cursor: pointer;">
+              <div style="flex: 1;">
+                <div style="font-weight: 600; color: var(--primary);">60 Pages</div>
+                <div style="font-size: 13px; color: var(--secondary);">Triple your pages (20 → 60)</div>
+              </div>
+              <span style="font-size: 16px; font-weight: 600; color: var(--accent);">+$150</span>
+            </label>
+            
+            <label style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #fff; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+              <input type="checkbox" id="memoryBookLinenCover" onchange="updateMemoryBookAddons()" style="width: 20px; height: 20px; cursor: pointer;">
+              <div style="flex: 1;">
+                <div style="font-weight: 600; color: var(--primary);">Natural Linen Cover</div>
+                <div style="font-size: 13px; color: var(--secondary);">Upgrade to natural linen texture</div>
+              </div>
+              <span style="font-size: 16px; font-weight: 600; color: var(--accent);">+$50</span>
+            </label>
+          </div>
         </div>
 
         <div class="options-grid" style="margin-top: 32px;">
@@ -1193,8 +1222,8 @@
           <span class="preview-value" id="previewPackage">Not selected</span>
         </div>
         <div class="preview-item">
-          <span class="preview-label">Extra Hours</span>
-          <span class="preview-value" id="previewHours">Base coverage</span>
+          <span class="preview-label">Memory Book</span>
+          <span class="preview-value" id="previewMemoryBook">None</span>
         </div>
         <div class="preview-item">
           <span class="preview-label">Album</span>
@@ -1221,8 +1250,12 @@
       location: '',
       package: '',
       packagePrice: 0,
-      coverageHours: 1, // Minimum 1 hour for custom portraits
-      coverageHoursPrice: 595, // Base $595 for 1 hour
+      coverageHours: 1,
+      coverageHoursPrice: 595,
+      memoryBook: null,
+      memoryBookBasePrice: 0,
+      memoryBookPrice: 0,
+      memoryBookAddons: [],
       albumChoice: '',
       album: '',
       albumPrice: 0,
@@ -1309,6 +1342,69 @@
       document.getElementById('previewPackage').textContent = name.charAt(0).toUpperCase() + name.slice(1) + ' - $' + price.toLocaleString();
       updateTotal();
     }
+    
+    function selectMemoryBook(card, size, price) {
+      if (size === 'skip') {
+        booking.memoryBook = null;
+        booking.memoryBookPrice = 0;
+        booking.memoryBookAddons = [];
+        document.getElementById('previewMemoryBook').textContent = 'None';
+        return;
+      }
+      
+      document.querySelectorAll('#step3 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      booking.memoryBook = size;
+      booking.memoryBookBasePrice = price;
+      booking.memoryBookPrice = price;
+      booking.memoryBookAddons = [];
+      
+      // Uncheck all addons
+      document.getElementById('memoryBookExtraPages40').checked = false;
+      document.getElementById('memoryBookExtraPages60').checked = false;
+      document.getElementById('memoryBookLinenCover').checked = false;
+      
+      updateMemoryBookAddons();
+    }
+    
+    function updateMemoryBookAddons() {
+      if (!booking.memoryBook || booking.memoryBook === 'skip') return;
+      
+      let totalPrice = booking.memoryBookBasePrice;
+      booking.memoryBookAddons = [];
+      
+      // Check if 40 pages is selected
+      if (document.getElementById('memoryBookExtraPages40').checked) {
+        totalPrice += 75;
+        booking.memoryBookAddons.push({name: '40 Pages', price: 75});
+        // Uncheck 60 pages (can't have both)
+        document.getElementById('memoryBookExtraPages60').checked = false;
+      }
+      
+      // Check if 60 pages is selected
+      if (document.getElementById('memoryBookExtraPages60').checked) {
+        totalPrice += 150;
+        booking.memoryBookAddons.push({name: '60 Pages', price: 150});
+        // Uncheck 40 pages (can't have both)
+        document.getElementById('memoryBookExtraPages40').checked = false;
+      }
+      
+      // Check if linen cover is selected
+      if (document.getElementById('memoryBookLinenCover').checked) {
+        totalPrice += 50;
+        booking.memoryBookAddons.push({name: 'Natural Linen Cover', price: 50});
+      }
+      
+      booking.memoryBookPrice = totalPrice;
+      
+      // Update preview
+      let addonText = booking.memoryBookAddons.length > 0 
+        ? ` (${booking.memoryBookAddons.map(a => a.name).join(', ')})`
+        : '';
+      document.getElementById('previewMemoryBook').textContent = `${booking.memoryBook} - $${totalPrice.toLocaleString()}${addonText}`;
+      
+      updateTotal();
+    }
 
     function selectAlbumChoice(card, choice) {
       booking.albumChoice = choice;
@@ -1350,11 +1446,11 @@
 
     function updateTotal() {
       const upgradesTotal = booking.upgrades.reduce((sum, u) => sum + u.price, 0);
-      const total = booking.packagePrice + booking.albumPrice + upgradesTotal;
+      const total = booking.packagePrice + booking.memoryBookPrice + booking.albumPrice + upgradesTotal;
       document.getElementById('previewTotal').textContent = `$${total.toLocaleString()}`;
       
-      // Calculate 3 easy payments
-      const paymentAmount = Math.round(total / 3);
+      // Calculate 2 easy payments for portraits (not 3)
+      const paymentAmount = Math.round(total / 2);
       document.getElementById('previewPaymentPlan').textContent = `$${paymentAmount.toLocaleString()} each`;
     }
 
