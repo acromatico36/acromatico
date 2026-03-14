@@ -714,6 +714,13 @@
         <div class="step-number">Step 4 of 7</div>
         <h1 class="step-question">Enhance your listing</h1>
         <p class="step-description">Premium add-ons to make your properties stand out and close faster.</p>
+        
+        <div style="background: #f0f9ff; border: 2px solid #4794A6; border-radius: 12px; padding: 20px; margin-bottom: 32px;">
+          <h4 style="color: #4794A6; margin-bottom: 8px; font-size: 16px;">✨ Included in Every Package:</h4>
+          <p style="font-size: 14px; color: var(--secondary); margin: 0;">
+            • Twilight Photography • Advanced HDR Editing • Blue Sky Replacement • Object Removal (up to 20 photos)
+          </p>
+        </div>
 
         <h3 style="font-size: 20px; margin-bottom: 20px;">🚀 Fast Turnaround</h3>
 
@@ -724,15 +731,6 @@
             <div class="checkbox-description">All edited photos delivered within 24 hours for urgent listings</div>
           </div>
           <div class="checkbox-price">+$500</div>
-        </div>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="twilightPhotos" onchange="toggleRealEstateAddon('twilightPhotos', 350)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Twilight Photography</div>
-            <div class="checkbox-description">Golden hour exterior shots to showcase property lighting and ambiance</div>
-          </div>
-          <div class="checkbox-price">+$350</div>
         </div>
 
         <h3 style="font-size: 20px; margin: 32px 0 20px;">📐 Floor Plans & Virtual Staging</h3>
@@ -755,44 +753,15 @@
           <div class="checkbox-price">+$75/photo</div>
         </div>
 
-        <h3 style="font-size: 20px; margin: 32px 0 20px;">✨ Premium Enhancements</h3>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="hdrEditing" onchange="toggleRealEstateAddon('hdrEditing', 200)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Advanced HDR Editing</div>
-            <div class="checkbox-description">Professional HDR bracketing for perfect exposure in every shot</div>
-          </div>
-          <div class="checkbox-price">+$200</div>
-        </div>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="skyReplacement" onchange="toggleRealEstateAddon('skyReplacement', 100)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Blue Sky Replacement</div>
-            <div class="checkbox-description">Replace overcast skies with beautiful blue skies in exterior shots</div>
-          </div>
-          <div class="checkbox-price">+$100</div>
-        </div>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="itemRemoval" onchange="toggleRealEstateAddon('itemRemoval', 150)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Object Removal</div>
-            <div class="checkbox-description">Remove clutter, power lines, trash bins, and unwanted items (up to 5 photos)</div>
-          </div>
-          <div class="checkbox-price">+$150</div>
-        </div>
-
         <h3 style="font-size: 20px; margin: 32px 0 20px;">📦 Marketing Materials</h3>
 
         <div class="checkbox-option">
-          <input type="checkbox" id="propertyWebsite" onchange="toggleRealEstateAddon('propertyWebsite', 400)">
+          <input type="checkbox" id="propertyWebsite" onchange="toggleRealEstateAddon('propertyWebsite', 995)">
           <div class="checkbox-content">
             <div class="checkbox-title">Single-Property Website</div>
             <div class="checkbox-description">Branded landing page with photos, videos, virtual tour, and contact form</div>
           </div>
-          <div class="checkbox-price">+$400</div>
+          <div class="checkbox-price">+$995</div>
         </div>
 
         <div class="checkbox-option">
@@ -811,7 +780,7 @@
             <div>
               <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">Custom Branded USB Drive</div>
               <div style="font-size: 14px; color: var(--secondary);">All photos + videos on premium USB with your brokerage branding</div>
-              <div style="font-size: 13px; color: var(--secondary); margin-top: 8px;">$75 per USB drive</div>
+              <div style="font-size: 13px; color: var(--secondary); margin-top: 8px;">$125 for first drive, $75 for each additional</div>
             </div>
           </div>
           <div style="display: flex; align-items: center; gap: 16px;">
@@ -860,33 +829,202 @@
         </div>
       </div>
 
-      <!-- STEP 6: CONTRACT - Will add this next -->
+      <!-- STEP 6: CONTRACT & SIGNATURE -->
       <div class="step" id="step6">
         <div class="step-number">Step 6 of 7</div>
         <h1 class="step-question">Review & sign agreement</h1>
-        <p class="step-description">Please review the service agreement below and sign electronically to proceed.</p>
+        <p class="step-description">Please review the Real Estate Photography Service Agreement and sign electronically to proceed.</p>
 
-        <div style="background: white; border-radius: 16px; padding: 40px; margin-bottom: 32px; border: 2px solid var(--border);">
-          <h2 style="text-align: center; font-size: 28px; margin-bottom: 32px;">ENTERPRISE EVENT PHOTOGRAPHY AGREEMENT</h2>
+        <div style="background: white; border-radius: 16px; padding: 40px; margin-bottom: 32px; border: 2px solid var(--border); max-height: 500px; overflow-y: scroll;">
+          <h2 style="text-align: center; font-size: 28px; margin-bottom: 32px; color: var(--primary);">REAL ESTATE PHOTOGRAPHY SERVICE AGREEMENT</h2>
           
-          <!-- CONTRACT CONTENT WILL GO HERE -->
-          <p style="text-align: center; margin-top: 40px; color: var(--secondary);">Contract content coming next...</p>
+          <div style="line-height: 1.8; color: var(--secondary); font-size: 14px;">
+            <p><strong>This Agreement</strong> is entered into on <strong id="contractDate"></strong> between:</p>
+            
+            <p><strong>PHOTOGRAPHER:</strong> Acromatico Photography LLC<br>
+            <strong>CLIENT:</strong> <span id="contractClientName"></span></p>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">1. SERVICES PROVIDED</h3>
+            <p>The Photographer agrees to provide the following real estate photography services:</p>
+            <ul id="contractServices" style="margin: 12px 0;">
+            </ul>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">2. PROPERTIES</h3>
+            <div id="contractProperties"></div>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">3. PREMIUM SERVICES INCLUDED</h3>
+            <p>All packages include:</p>
+            <ul style="margin: 12px 0;">
+              <li>Professional twilight photography (golden hour exterior shots)</li>
+              <li>Advanced HDR editing for perfect exposure</li>
+              <li>Blue sky replacement on all exterior shots</li>
+              <li>Object removal and cleanup (up to 20 photos)</li>
+              <li>Professional color correction and enhancement</li>
+            </ul>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">4. PRICING & PAYMENT</h3>
+            <p><strong>Total Investment:</strong> <span id="contractTotal"></span></p>
+            <p><strong>Deposit Due Today (50%):</strong> <span id="contractDeposit"></span></p>
+            <p><strong>Balance Due:</strong> Upon delivery of final edited images</p>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">5. DELIVERY TIMELINE</h3>
+            <p>• Standard delivery: <strong>5-7 business days</strong> after shoot date<br>
+            • Rush delivery (if selected): <strong>24 hours</strong> after shoot date<br>
+            • All images delivered via secure online gallery with download access</p>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">6. USAGE RIGHTS</h3>
+            <p>• Client receives full commercial usage rights for real estate marketing purposes<br>
+            • Images may be used on MLS listings, websites, social media, print materials, and signage<br>
+            • Photographer retains copyright and may use images for portfolio and marketing<br>
+            • Images may not be resold or sublicensed to third parties</p>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">7. CANCELLATION POLICY</h3>
+            <p>• Cancellations made 48+ hours before shoot: <strong>Full refund of deposit</strong><br>
+            • Cancellations made 24-48 hours before: <strong>50% deposit retained</strong><br>
+            • Cancellations made less than 24 hours: <strong>Full deposit retained</strong><br>
+            • Weather-related cancellations: Rescheduled at no additional charge</p>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">8. PROPERTY ACCESS</h3>
+            <p>Client agrees to provide:</p>
+            <ul style="margin: 12px 0;">
+              <li>Safe and legal access to all properties listed above</li>
+              <li>All utilities (electricity, water) operational during shoot</li>
+              <li>Properties cleaned and staged prior to photographer arrival</li>
+              <li>Notification of any safety hazards or access restrictions</li>
+            </ul>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">9. LIABILITY</h3>
+            <p>Photographer carries $2M general liability insurance. Client agrees that Photographer is not liable for any damage to property unless caused by gross negligence. Photographer is not responsible for trespassing claims if incorrect property information is provided.</p>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">10. FORCE MAJEURE</h3>
+            <p>Neither party shall be liable for failure to perform due to causes beyond reasonable control including weather, natural disasters, equipment failure, illness, or government restrictions.</p>
+            
+            <h3 style="font-size: 18px; color: var(--primary); margin: 24px 0 16px;">11. ENTIRE AGREEMENT</h3>
+            <p>This Agreement constitutes the entire agreement between parties and supersedes all prior negotiations, representations, or agreements. Any modifications must be made in writing and signed by both parties.</p>
+          </div>
         </div>
 
-        <div class="button-group">
+        <!-- SIGNATURE SECTION -->
+        <div style="background: white; border-radius: 16px; padding: 32px; border: 2px solid var(--border);">
+          <h3 style="font-size: 20px; margin-bottom: 24px;">Electronic Signature</h3>
+          
+          <div style="margin-bottom: 24px;">
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+              <input type="checkbox" id="agreeToTerms" style="width: 20px; height: 20px; cursor: pointer;">
+              <span style="font-size: 15px;">I have read and agree to the terms of this service agreement</span>
+            </label>
+          </div>
+          
+          <div style="margin-bottom: 24px;">
+            <label style="font-size: 15px; font-weight: 600; display: block; margin-bottom: 8px;">Type your full name to sign:</label>
+            <input type="text" id="signatureName" placeholder="Enter your full legal name" style="width: 100%; padding: 16px; font-size: 17px; border: 2px solid var(--border); border-radius: 8px; font-family: 'Brush Script MT', cursive;">
+          </div>
+          
+          <div style="background: #f5f5f7; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span style="font-size: 14px; color: var(--secondary);">Signed by:</span>
+              <strong id="signaturePreview" style="font-size: 16px; font-family: 'Brush Script MT', cursive;"></strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="font-size: 14px; color: var(--secondary);">Date:</span>
+              <strong id="signatureDate" style="font-size: 14px;"></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group" style="margin-top: 32px;">
           <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
-          <button class="btn btn-primary" onclick="nextStep(7)">Sign & Continue →</button>
+          <button class="btn btn-primary" onclick="validateSignature()">Continue to Payment →</button>
         </div>
       </div>
 
-      <!-- STEP 7: PAYMENT - Will add this next -->
+      <!-- STEP 7: PAYMENT -->
       <div class="step" id="step7">
         <div class="step-number">Step 7 of 7</div>
-        <h1 class="step-question">Complete your booking</h1>
-        <p class="step-description">Choose your payment option to secure your event date.</p>
+        <h1 class="step-question">Secure your booking</h1>
+        <p class="step-description">Choose your payment method to confirm your real estate photography session.</p>
 
-        <div style="text-align: center; padding: 80px 40px;">
-          <p style="font-size: 20px; color: var(--secondary);">Payment options coming next...</p>
+        <!-- BOOKING SUMMARY -->
+        <div style="background: white; border-radius: 16px; padding: 32px; margin-bottom: 32px; border: 2px solid var(--accent);">
+          <h3 style="font-size: 22px; margin-bottom: 24px; color: var(--primary);">📋 Booking Summary</h3>
+          
+          <div style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border);">
+            <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Properties:</h4>
+            <div id="paymentProperties"></div>
+          </div>
+          
+          <div style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border);">
+            <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Services:</h4>
+            <div id="paymentServices"></div>
+          </div>
+          
+          <div id="paymentAddonsSection" style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); display: none;">
+            <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Add-ons:</h4>
+            <div id="paymentAddons"></div>
+          </div>
+          
+          <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 600; margin-bottom: 12px;">
+            <span>Total Investment:</span>
+            <span id="paymentTotal" style="color: var(--accent);"></span>
+          </div>
+          
+          <div style="display: flex; justify-content: space-between; font-size: 18px; color: var(--secondary);">
+            <span>Deposit Due Today (50%):</span>
+            <strong id="paymentDeposit"></strong>
+          </div>
+        </div>
+
+        <!-- PAYMENT OPTIONS -->
+        <div style="background: white; border-radius: 16px; padding: 32px; border: 2px solid var(--border);">
+          <h3 style="font-size: 20px; margin-bottom: 24px;">💳 Payment Method</h3>
+          
+          <div class="payment-option" style="border: 2px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s;" onclick="selectPaymentMethod('card', this)">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <input type="radio" name="paymentMethod" value="card" style="width: 20px; height: 20px;">
+              <div style="flex: 1;">
+                <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">💳 Credit / Debit Card</div>
+                <div style="font-size: 14px; color: var(--secondary);">Secure payment via Stripe • Instant confirmation</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="payment-option" style="border: 2px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s;" onclick="selectPaymentMethod('ach', this)">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <input type="radio" name="paymentMethod" value="ach" style="width: 20px; height: 20px;">
+              <div style="flex: 1;">
+                <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">🏦 Bank Transfer (ACH)</div>
+                <div style="font-size: 14px; color: var(--secondary);">Lower fees • 2-3 business days to process</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="payment-option" style="border: 2px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.3s;" onclick="selectPaymentMethod('invoice', this)">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <input type="radio" name="paymentMethod" value="invoice" style="width: 20px; height: 20px;">
+              <div style="flex: 1;">
+                <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">📄 Invoice (Net 15)</div>
+                <div style="font-size: 14px; color: var(--secondary);">For established clients • Payment due within 15 days</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #f0f9ff; border: 2px solid #4794A6; border-radius: 12px; padding: 20px; margin: 24px 0;">
+          <div style="display: flex; align-items: start; gap: 12px;">
+            <span style="font-size: 24px;">🔒</span>
+            <div style="flex: 1;">
+              <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #4794A6;">Secure Payment Guarantee</h4>
+              <p style="font-size: 14px; color: var(--secondary); margin: 0;">
+                Your payment information is encrypted and secure. We never store your full payment details. 
+                All transactions are processed through Stripe with bank-level security.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
+          <button class="btn btn-primary" onclick="completeBooking()">Complete Booking →</button>
         </div>
       </div>
 
@@ -1519,6 +1657,11 @@
           card.classList.remove('selected');
         });
       }
+      
+      // When entering Step 6, populate contract
+      if (step === 6) {
+        populateContract();
+      }
     }
 
     function updateStep2Pricing() {
@@ -1751,8 +1894,14 @@
       const quantity = parseInt(document.getElementById('usbQuantity').value) || 0;
       booking.usbQuantity = quantity;
       
-      // Real Estate pricing: $75 per USB
-      booking.usbPrice = quantity * 75;
+      // Real Estate pricing: $125 first, $75 each additional
+      if (quantity === 0) {
+        booking.usbPrice = 0;
+      } else if (quantity === 1) {
+        booking.usbPrice = 125;
+      } else {
+        booking.usbPrice = 125 + ((quantity - 1) * 75);
+      }
       
       document.getElementById('usbPriceDisplay').textContent = '$' + booking.usbPrice.toLocaleString();
       updatePreview();
@@ -1877,6 +2026,165 @@
       
       const deposit = total > 0 ? Math.round(total * 0.5) : 0;
       document.getElementById('previewDeposit').textContent = '$' + deposit.toLocaleString();
+    }
+    
+    // STEP 6: CONTRACT & SIGNATURE
+    function populateContract() {
+      // Set contract date
+      const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('contractDate').textContent = today;
+      document.getElementById('signatureDate').textContent = today;
+      
+      // Set client name
+      const clientName = document.getElementById('contactName')?.value || 'Client Name';
+      const companyName = document.getElementById('companyName')?.value || '';
+      document.getElementById('contractClientName').textContent = companyName ? `${clientName} (${companyName})` : clientName;
+      
+      // Populate services list
+      const servicesHtml = booking.services.map(s => `<li>${s.name}: <strong>$${s.price.toLocaleString()}</strong></li>`).join('');
+      document.getElementById('contractServices').innerHTML = servicesHtml;
+      
+      // Populate properties list
+      const propertiesHtml = booking.properties.map((p, i) => `
+        <p style="margin: 8px 0;"><strong>Property ${i + 1}:</strong> ${p.address}<br>
+        <span style="font-size: 13px; color: var(--secondary);">Type: ${p.type} | Size: ${p.squareFootage === '8000+' && p.customSqft ? p.customSqft + ' sq ft' : p.squareFootage} | Coverage: ${p.coverage || 'interior'}</span></p>
+      `).join('');
+      document.getElementById('contractProperties').innerHTML = propertiesHtml;
+      
+      // Populate totals
+      let total = booking.services.reduce((sum, s) => sum + s.price, 0);
+      if (booking.addons && booking.addons.length > 0) {
+        total += booking.addons.reduce((sum, a) => sum + a.price, 0);
+      }
+      if (booking.usbPrice > 0) {
+        total += booking.usbPrice;
+      }
+      
+      const deposit = Math.round(total * 0.5);
+      document.getElementById('contractTotal').textContent = '$' + total.toLocaleString();
+      document.getElementById('contractDeposit').textContent = '$' + deposit.toLocaleString();
+    }
+    
+    function validateSignature() {
+      const agreed = document.getElementById('agreeToTerms').checked;
+      const signature = document.getElementById('signatureName').value.trim();
+      
+      if (!agreed) {
+        alert('Please check the box to agree to the terms');
+        return;
+      }
+      
+      if (!signature || signature.length < 3) {
+        alert('Please type your full legal name to sign the agreement');
+        return;
+      }
+      
+      booking.signature = signature;
+      booking.signatureDate = new Date().toISOString();
+      
+      console.log('✅ Agreement signed:', signature);
+      populatePaymentSummary();
+      nextStep(7);
+    }
+    
+    // Update signature preview as user types
+    document.addEventListener('DOMContentLoaded', function() {
+      const signatureInput = document.getElementById('signatureName');
+      if (signatureInput) {
+        signatureInput.addEventListener('input', function() {
+          document.getElementById('signaturePreview').textContent = this.value || 'Your Name';
+        });
+      }
+    });
+    
+    // STEP 7: PAYMENT
+    function populatePaymentSummary() {
+      // Properties
+      const propertiesHtml = booking.properties.map((p, i) => `
+        <div style="display: flex; justify-content: space-between; margin: 8px 0; font-size: 14px;">
+          <span>${i + 1}. ${p.address}</span>
+          <span style="color: var(--secondary);">${p.squareFootage === '8000+' && p.customSqft ? p.customSqft + ' sq ft' : p.squareFootage}</span>
+        </div>
+      `).join('');
+      document.getElementById('paymentProperties').innerHTML = propertiesHtml;
+      
+      // Services
+      const servicesHtml = booking.services.map(s => `
+        <div style="display: flex; justify-content: space-between; margin: 8px 0; font-size: 14px;">
+          <span>${s.name}</span>
+          <span>$${s.price.toLocaleString()}</span>
+        </div>
+      `).join('');
+      document.getElementById('paymentServices').innerHTML = servicesHtml;
+      
+      // Add-ons
+      if (booking.addons && booking.addons.length > 0) {
+        let addonsHtml = booking.addons.map(a => `
+          <div style="display: flex; justify-content: space-between; margin: 8px 0; font-size: 14px;">
+            <span>${a.name}</span>
+            <span>$${a.price.toLocaleString()}</span>
+          </div>
+        `).join('');
+        
+        if (booking.usbQuantity > 0) {
+          addonsHtml += `
+            <div style="display: flex; justify-content: space-between; margin: 8px 0; font-size: 14px;">
+              <span>USB Drives (${booking.usbQuantity})</span>
+              <span>$${booking.usbPrice.toLocaleString()}</span>
+            </div>
+          `;
+        }
+        
+        document.getElementById('paymentAddons').innerHTML = addonsHtml;
+        document.getElementById('paymentAddonsSection').style.display = 'block';
+      }
+      
+      // Calculate total
+      let total = booking.services.reduce((sum, s) => sum + s.price, 0);
+      if (booking.addons && booking.addons.length > 0) {
+        total += booking.addons.reduce((sum, a) => sum + a.price, 0);
+      }
+      if (booking.usbPrice > 0) {
+        total += booking.usbPrice;
+      }
+      
+      const deposit = Math.round(total * 0.5);
+      document.getElementById('paymentTotal').textContent = '$' + total.toLocaleString();
+      document.getElementById('paymentDeposit').textContent = '$' + deposit.toLocaleString();
+    }
+    
+    function selectPaymentMethod(method, element) {
+      // Remove selected state from all
+      document.querySelectorAll('.payment-option').forEach(opt => {
+        opt.style.borderColor = 'var(--border)';
+        opt.style.background = 'white';
+      });
+      
+      // Add selected state
+      element.style.borderColor = 'var(--accent)';
+      element.style.background = 'rgba(71, 148, 166, 0.05)';
+      
+      // Check radio
+      element.querySelector('input[type="radio"]').checked = true;
+      booking.paymentMethod = method;
+      
+      console.log('💳 Payment method selected:', method);
+    }
+    
+    function completeBooking() {
+      if (!booking.paymentMethod) {
+        alert('Please select a payment method');
+        return;
+      }
+      
+      console.log('🎉 BOOKING COMPLETE!', booking);
+      
+      // Show success message
+      alert('🎉 Booking Complete!\n\nThank you for choosing Acromatico! You will receive a confirmation email shortly with:\n\n• Booking confirmation details\n• Scheduling information\n• Payment receipt\n• Access to your client portal\n\nWe look forward to photographing your properties!');
+      
+      // In production, this would submit to your backend
+      // For now, just log the booking data
+      console.log('Booking data ready for submission:', JSON.stringify(booking, null, 2));
     }
 
     // Initialize
