@@ -495,7 +495,7 @@
   <nav>
     <div class="nav-container">
       <div class="logo">
-        <img src="/static/acromatico-logo-transparent.png" alt="Acromatico" style="height: 40px; filter: brightness(0) invert(1);">
+        <img src="/static/acromatico-logo-dark.png" alt="Acromatico" style="height: 40px;">
       </div>
       <a href="/events" class="nav-back">← Back to Events</a>
     </div>
@@ -1012,6 +1012,11 @@
           <p style="margin: 0; font-size: 14px; color: var(--secondary);">
             Signed by <strong id="finalSignatureName">Client Name</strong> on <span id="finalSignDate">Date</span>
           </p>
+          
+          <!-- Download Agreement Button -->
+          <button onclick="downloadAgreement()" style="margin-top: 20px; padding: 14px 32px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s; box-shadow: 0 4px 12px rgba(71, 148, 166, 0.3);">
+            ⬇ Download Signed Agreement PDF
+          </button>
         </div>
 
         <!-- PAYMENT OPTIONS -->
@@ -1046,22 +1051,6 @@
             <div style="font-size: 12px; color: var(--secondary); line-height: 1.6;">
               • No additional payments required<br>
               • Fully locked in and confirmed
-            </div>
-          </div>
-
-          <!-- Option 3: Net 30 (for established corporate clients) -->
-          <div class="payment-option" data-option="net30" onclick="selectPaymentOption('net30')">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <div>
-                <div style="font-size: 18px; font-weight: 500;">Net 30 Terms</div>
-                <div style="font-size: 13px; color: var(--secondary); margin-top: 4px;">Invoice payment (corporate accounts)</div>
-              </div>
-              <div style="font-size: 16px; font-weight: 500; color: var(--accent);">Invoice</div>
-            </div>
-            <div style="font-size: 12px; color: var(--secondary); line-height: 1.6;">
-              • Full payment due 30 days after event<br>
-              • Subject to credit approval<br>
-              • Requires signed agreement and PO number
             </div>
           </div>
 
@@ -1101,30 +1090,6 @@
 
               <p style="font-size: 13px; color: var(--secondary); margin-top: 16px; font-style: italic;">After sending payment, please email your receipt to info@acromatico.com</p>
             </div>
-          </div>
-
-          <!-- Net 30 Instructions (hidden by default) -->
-          <div id="net30Instructions" style="margin-top: 40px; display: none;">
-            <div style="background: rgba(71, 148, 166, 0.05); border: 2px solid var(--accent); border-radius: 12px; padding: 24px;">
-              <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 16px; color: var(--accent);">✓ Net 30 Payment Selected</h4>
-              <p style="margin-bottom: 16px; line-height: 1.8;">
-                Your signed agreement has been received. We will send you an invoice via email within 24 hours.
-              </p>
-              <div style="background: white; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
-                <div style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">Invoice Details:</div>
-                <div style="font-size: 13px; color: var(--secondary); line-height: 1.8;">
-                  • <strong>Total Amount:</strong> $<span id="net30Total">0</span><br>
-                  • <strong>Payment Terms:</strong> Net 30 from event date<br>
-                  • <strong>PO Number:</strong> <span id="net30PO">Not provided</span>
-                </div>
-              </div>
-              <p style="font-size: 13px; color: var(--secondary); line-height: 1.6; margin: 0;">
-                <strong>Next Steps:</strong> Check your email for the invoice and agreement copy. Payment is due 30 days after the event. If you need any changes to payment terms, please contact us at info@acromatico.com.
-              </p>
-            </div>
-            <button onclick="confirmNet30()" class="btn btn-primary" style="width: 100%; margin-top: 24px; padding: 18px; font-size: 16px;">
-              Confirm Booking with Net 30 Terms
-            </button>
           </div>
         </div>
 
@@ -1645,8 +1610,6 @@
       
       document.getElementById('depositAmount').textContent = deposit.toLocaleString();
       document.getElementById('fullAmount').textContent = total.toLocaleString();
-      document.getElementById('net30Total').textContent = total.toLocaleString();
-      document.getElementById('net30PO').textContent = booking.poNumber || 'Not provided';
       
       // Update all payment amount displays
       document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
@@ -1681,15 +1644,9 @@
       if (option === 'deposit') {
         selectedPaymentAmount = deposit;
         document.getElementById('paymentMethods').style.display = 'block';
-        document.getElementById('net30Instructions').style.display = 'none';
       } else if (option === 'full') {
         selectedPaymentAmount = total;
         document.getElementById('paymentMethods').style.display = 'block';
-        document.getElementById('net30Instructions').style.display = 'none';
-      } else if (option === 'net30') {
-        selectedPaymentAmount = 0;
-        document.getElementById('paymentMethods').style.display = 'none';
-        document.getElementById('net30Instructions').style.display = 'block';
       }
       
       // Update all payment amount displays
@@ -1710,15 +1667,55 @@
       console.log('📦 Full booking object:', booking);
     }
 
-    function confirmNet30() {
-      console.log('📄 Confirming Net 30 booking');
-      
+    function downloadAgreement() {
       const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
       
-      alert(`Net 30 Booking Confirmed!\n\nYour enterprise event photography booking has been confirmed with Net 30 payment terms.\n\nTotal: $${total.toLocaleString()}\nPayment Due: 30 days after event\n\nYou will receive:\n• Invoice via email within 24 hours\n• Copy of signed agreement\n• Event confirmation details\n\nThank you for choosing Acromatico!`);
+      // Get the contract HTML from Step 6
+      const contractDiv = document.querySelector('#step6 > div:nth-child(3)');
+      const contractHTML = contractDiv ? contractDiv.innerHTML : '';
       
-      console.log('📦 Full booking object:', booking);
-      console.log('✅ Net 30 booking confirmed');
+      // Build download HTML with proper styling
+      const htmlStart = '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+        '<title>Event Photography Agreement - ' + (booking.contactName || 'Client') + '</title>' +
+        '<style>' +
+        'body { font-family: "Helvetica Neue", "Arial", sans-serif; padding: 60px; line-height: 1.9; color: #333; font-weight: 300; }' +
+        'h3 { font-size: 32px; font-weight: 300; text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #4794A6; margin-bottom: 48px; }' +
+        'h4 { font-size: 18px; font-weight: 300; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px; margin: 32px 0 20px 0; }' +
+        'p { margin-bottom: 12px; font-weight: 300; line-height: 1.9; }' +
+        'strong { font-weight: 400; }' +
+        '.logo-section { text-align: center; margin-bottom: 40px; }' +
+        '.logo-section img { height: 60px; display: block; margin: 0 auto; }' +
+        '.signature-section { margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(71, 148, 166, 0.2); }' +
+        '.signature-line { border-bottom: 2px solid #333; width: 400px; margin: 24px auto; padding: 12px 0; text-align: center; font-family: "Brush Script MT", cursive; font-size: 28px; }' +
+        '.signature-image { max-width: 400px; margin: 0 auto; display: block; border: 2px solid #4794A6; border-radius: 8px; padding: 12px; }' +
+        '</style></head><body>' +
+        '<div class="logo-section"><img src="/static/acromatico-logo-dark.png" alt="Acromatico" /></div>';
+      
+      const signatureHTML = '<div class="signature-section">' +
+        '<h4 style="text-align: center; margin-bottom: 32px;">Signed Agreement</h4>' +
+        (booking.signMethod === 'draw' ? 
+          '<img src="' + booking.signature + '" class="signature-image" alt="Signature" />' : 
+          '<div class="signature-line">' + booking.signature + '</div>') +
+        '<p style="text-align: center; font-size: 14px; color: #666; margin-top: 16px;">' +
+        'Signed by ' + (booking.contactName || 'Client') + ' on ' + new Date(booking.signatureDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) +
+        '</p></div>';
+      
+      const htmlEnd = '</body></html>';
+      
+      const agreementHTML = htmlStart + contractHTML + signatureHTML + htmlEnd;
+      
+      // Create a blob and download
+      const blob = new Blob([agreementHTML], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Acromatico-Event-Agreement-${booking.companyName || 'Client'}-${new Date().toISOString().split('T')[0]}.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      console.log('📥 Agreement downloaded');
     }
 
     // PREVIEW SIDEBAR UPDATE
