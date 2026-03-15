@@ -488,6 +488,10 @@
       box-shadow: 0 4px 12px rgba(99, 91, 255, 0.2);
     }
   </style>
+  
+  <!-- PDF Generation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
@@ -1667,55 +1671,99 @@
       console.log('📦 Full booking object:', booking);
     }
 
-    function downloadAgreement() {
-      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
+    async function downloadAgreement() {
+      console.log('📄 Generating PDF agreement...');
       
-      // Get the contract HTML from Step 6
-      const contractDiv = document.querySelector('#step6 > div:nth-child(3)');
-      const contractHTML = contractDiv ? contractDiv.innerHTML : '';
+      // Create a temporary container for PDF generation
+      const pdfContainer = document.createElement('div');
+      pdfContainer.style.position = 'absolute';
+      pdfContainer.style.left = '-9999px';
+      pdfContainer.style.width = '210mm'; // A4 width
+      pdfContainer.style.background = 'white';
+      pdfContainer.style.padding = '20mm';
+      pdfContainer.style.fontFamily = '"Helvetica Neue", Arial, sans-serif';
+      pdfContainer.style.fontSize = '11px';
+      pdfContainer.style.lineHeight = '1.6';
+      pdfContainer.style.color = '#333';
       
-      // Build download HTML with proper styling
-      const htmlStart = '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
-        '<title>Event Photography Agreement - ' + (booking.contactName || 'Client') + '</title>' +
-        '<style>' +
-        'body { font-family: "Helvetica Neue", "Arial", sans-serif; padding: 60px; line-height: 1.9; color: #333; font-weight: 300; }' +
-        'h3 { font-size: 32px; font-weight: 300; text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #4794A6; margin-bottom: 48px; }' +
-        'h4 { font-size: 18px; font-weight: 300; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px; margin: 32px 0 20px 0; }' +
-        'p { margin-bottom: 12px; font-weight: 300; line-height: 1.9; }' +
-        'strong { font-weight: 400; }' +
-        '.logo-section { text-align: center; margin-bottom: 40px; }' +
-        '.logo-section img { height: 60px; display: block; margin: 0 auto; }' +
-        '.signature-section { margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(71, 148, 166, 0.2); }' +
-        '.signature-line { border-bottom: 2px solid #333; width: 400px; margin: 24px auto; padding: 12px 0; text-align: center; font-family: "Brush Script MT", cursive; font-size: 28px; }' +
-        '.signature-image { max-width: 400px; margin: 0 auto; display: block; border: 2px solid #4794A6; border-radius: 8px; padding: 12px; }' +
-        '</style></head><body>' +
-        '<div class="logo-section"><img src="/static/acromatico-logo-dark.png" alt="Acromatico" /></div>';
+      // Add logo
+      const logoImg = new Image();
+      logoImg.src = '/static/acromatico-logo-dark.png';
+      await new Promise((resolve) => {
+        logoImg.onload = resolve;
+        logoImg.onerror = resolve;
+      });
       
-      const signatureHTML = '<div class="signature-section">' +
-        '<h4 style="text-align: center; margin-bottom: 32px;">Signed Agreement</h4>' +
-        (booking.signMethod === 'draw' ? 
-          '<img src="' + booking.signature + '" class="signature-image" alt="Signature" />' : 
-          '<div class="signature-line">' + booking.signature + '</div>') +
-        '<p style="text-align: center; font-size: 14px; color: #666; margin-top: 16px;">' +
-        'Signed by ' + (booking.contactName || 'Client') + ' on ' + new Date(booking.signatureDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) +
-        '</p></div>';
+      // Build PDF content
+      pdfContainer.innerHTML = `
+        <div style="text-align: center; margin-bottom: 30px;">
+          <img src="${logoImg.src}" style="height: 40px;" />
+        </div>
+        
+        <h1 style="text-align: center; font-size: 24px; font-weight: 300; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; margin-bottom: 30px;">Event Photography Agreement</h1>
+        
+        ${document.querySelector('#step6 > div:nth-child(3)').innerHTML}
+        
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #4794A6;">
+          <h3 style="text-align: center; font-size: 16px; font-weight: 500; margin-bottom: 20px;">Signed Agreement</h3>
+          ${booking.signMethod === 'draw' ? 
+            `<div style="text-align: center;"><img src="${booking.signature}" style="max-width: 300px; border: 2px solid #4794A6; border-radius: 8px; padding: 10px;" /></div>` : 
+            `<div style="text-align: center; font-family: 'Brush Script MT', cursive; font-size: 24px; border-bottom: 2px solid #333; padding: 10px 0; max-width: 300px; margin: 0 auto;">${booking.signature}</div>`
+          }
+          <p style="text-align: center; font-size: 12px; color: #666; margin-top: 15px;">
+            Signed by <strong>${booking.contactName || 'Client'}</strong> on ${new Date(booking.signatureDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </p>
+        </div>
+      `;
       
-      const htmlEnd = '</body></html>';
+      document.body.appendChild(pdfContainer);
       
-      const agreementHTML = htmlStart + contractHTML + signatureHTML + htmlEnd;
-      
-      // Create a blob and download
-      const blob = new Blob([agreementHTML], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `Acromatico-Event-Agreement-${booking.companyName || 'Client'}-${new Date().toISOString().split('T')[0]}.html`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      
-      console.log('📥 Agreement downloaded');
+      try {
+        // Generate PDF using html2canvas + jsPDF
+        const canvas = await html2canvas(pdfContainer, {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: '#ffffff'
+        });
+        
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4'
+        });
+        
+        const imgWidth = 210; // A4 width in mm
+        const pageHeight = 297; // A4 height in mm
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        let heightLeft = imgHeight;
+        let position = 0;
+        
+        // Add first page
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+        
+        // Add additional pages if needed
+        while (heightLeft > 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+        
+        // Download PDF
+        pdf.save(`Acromatico-Event-Agreement-${booking.companyName || 'Client'}-${new Date().toISOString().split('T')[0]}.pdf`);
+        
+        console.log('✅ PDF downloaded successfully');
+      } catch (error) {
+        console.error('❌ PDF generation error:', error);
+        alert('Error generating PDF. Please try again.');
+      } finally {
+        // Clean up
+        document.body.removeChild(pdfContainer);
+      }
     }
 
     // PREVIEW SIDEBAR UPDATE
