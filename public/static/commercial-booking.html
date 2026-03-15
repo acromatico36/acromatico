@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enterprise Commercial Photography - Acromatico</title>
+  <title>Brand Photography for Entrepreneurs & Startups - Acromatico</title>
   
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -57,32 +57,40 @@
     
     /* HERO SECTION */
     .hero {
-      padding: 120px 40px 80px;
-      max-width: 1400px;
+      padding: 140px 40px 100px;
+      max-width: 1100px;
       margin: 0 auto;
       text-align: center;
     }
     
     .hero h1 {
-      font-size: 64px;
+      font-size: 72px;
       font-weight: 300;
-      letter-spacing: -1.5px;
+      letter-spacing: -2px;
       margin-bottom: 24px;
       line-height: 1.1;
     }
     
     .hero .subtitle {
-      font-size: 24px;
+      font-size: 28px;
       color: var(--secondary);
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       font-weight: 300;
+      line-height: 1.4;
+    }
+    
+    .hero .credibility {
+      font-size: 17px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 50px;
     }
     
     .hero .stats {
       display: flex;
       justify-content: center;
       gap: 60px;
-      margin: 60px 0;
+      margin: 60px 0 50px;
       flex-wrap: wrap;
     }
     
@@ -125,45 +133,14 @@
       box-shadow: 0 8px 30px rgba(71, 148, 166, 0.3);
     }
     
-    /* LOGO WALL */
-    .logo-wall {
+    /* WHY US SECTION */
+    .why-us {
       background: var(--bg-gray);
-      padding: 60px 40px;
-      text-align: center;
-    }
-    
-    .logo-wall h3 {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--secondary);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 40px;
-    }
-    
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      align-items: center;
-    }
-    
-    .client-logo {
-      opacity: 0.4;
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--primary);
-      transition: opacity 0.3s;
-    }
-    
-    .client-logo:hover { opacity: 0.8; }
-    
-    /* CASE STUDIES */
-    .case-studies {
       padding: 100px 40px;
-      max-width: 1400px;
+    }
+    
+    .why-us-container {
+      max-width: 1200px;
       margin: 0 auto;
     }
     
@@ -171,16 +148,72 @@
       font-size: 48px;
       font-weight: 300;
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 24px;
     }
     
-    .case-grid {
+    .section-subtitle {
+      font-size: 20px;
+      color: var(--secondary);
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .why-card {
+      background: white;
+      border-radius: 16px;
+      padding: 48px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    
+    .why-icon {
+      font-size: 42px;
+      margin-bottom: 24px;
+      display: block;
+    }
+    
+    .why-card h3 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    
+    .why-card p {
+      font-size: 16px;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+    
+    /* OUR BRANDS */
+    .our-brands {
+      padding: 100px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .brands-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
       gap: 40px;
+      margin-top: 60px;
     }
     
-    .case-card {
+    .brand-card {
       background: white;
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -188,12 +221,12 @@
       transition: all 0.3s ease;
     }
     
-    .case-card:hover {
+    .brand-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 60px rgba(0,0,0,0.12);
     }
     
-    .case-image {
+    .brand-image {
       width: 100%;
       height: 280px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -201,15 +234,28 @@
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 24px;
+      font-size: 32px;
       font-weight: 300;
+      letter-spacing: 2px;
     }
     
-    .case-content {
-      padding: 32px;
+    .brand-image.ecolosophy {
+      background: linear-gradient(135deg, #34c759 0%, #30b051 100%);
     }
     
-    .case-client {
+    .brand-image.acromatico {
+      background: linear-gradient(135deg, #4794A6 0%, #3a7a8a 100%);
+    }
+    
+    .brand-image.mentorme {
+      background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    }
+    
+    .brand-content {
+      padding: 40px;
+    }
+    
+    .brand-category {
       font-size: 13px;
       color: var(--accent);
       font-weight: 600;
@@ -218,90 +264,94 @@
       margin-bottom: 12px;
     }
     
-    .case-title {
-      font-size: 24px;
+    .brand-title {
+      font-size: 28px;
       font-weight: 500;
       margin-bottom: 16px;
     }
     
-    .case-description {
-      font-size: 15px;
+    .brand-description {
+      font-size: 16px;
       color: var(--secondary);
       margin-bottom: 24px;
       line-height: 1.6;
     }
     
-    .case-results {
-      display: flex;
-      gap: 24px;
+    .brand-results {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
       padding-top: 24px;
       border-top: 1px solid var(--border);
     }
     
-    .case-metric {
-      flex: 1;
+    .brand-metric {
+      text-align: center;
     }
     
     .metric-value {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 500;
       color: var(--accent);
     }
     
     .metric-label {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--secondary);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       margin-top: 4px;
     }
     
-    /* PROCESS SECTION */
-    .process {
+    /* SERVICES */
+    .services {
       background: var(--bg-gray);
       padding: 100px 40px;
     }
     
-    .process-container {
-      max-width: 1200px;
+    .services-container {
+      max-width: 1400px;
       margin: 0 auto;
     }
     
-    .process-steps {
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
       margin-top: 60px;
     }
     
-    .process-step {
-      text-align: center;
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      border: 1px solid var(--border);
     }
     
-    .step-number-circle {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .service-card h3 {
       font-size: 24px;
-      font-weight: 300;
-      margin: 0 auto 24px;
-    }
-    
-    .process-step h4 {
-      font-size: 20px;
       font-weight: 500;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
     
-    .process-step p {
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .service-card ul li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
       font-size: 15px;
-      color: var(--secondary);
-      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .service-card ul li:before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 600;
+      margin-right: 12px;
     }
     
     /* PACKAGES */
@@ -459,7 +509,6 @@
       padding: 100px 40px;
       max-width: 1200px;
       margin: 0 auto;
-      text-align: center;
     }
     
     .team-grid {
@@ -505,45 +554,41 @@
       line-height: 1.6;
     }
     
-    /* GUARANTEE */
-    .guarantee {
+    /* FEATURED IN */
+    .featured {
       background: var(--bg-gray);
-      padding: 80px 40px;
+      padding: 60px 40px;
       text-align: center;
     }
     
-    .guarantee-content {
-      max-width: 800px;
+    .featured h3 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+    
+    .featured-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      max-width: 1200px;
       margin: 0 auto;
     }
     
-    .guarantee h2 {
-      font-size: 42px;
-      font-weight: 300;
-      margin-bottom: 24px;
-    }
-    
-    .guarantee-list {
-      list-style: none;
-      text-align: left;
-      margin: 40px 0;
-    }
-    
-    .guarantee-list li {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 17px;
-      display: flex;
-      align-items: flex-start;
-    }
-    
-    .guarantee-list li:before {
-      content: "✓";
-      color: var(--accent);
-      font-weight: 600;
+    .featured-logo {
       font-size: 24px;
-      margin-right: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      opacity: 0.5;
+      transition: opacity 0.3s;
     }
+    
+    .featured-logo:hover { opacity: 0.9; }
     
     /* CTA SECTION */
     .final-cta {
@@ -566,64 +611,17 @@
       margin-bottom: 40px;
     }
     
-    .availability {
-      background: rgba(71, 148, 166, 0.1);
-      border: 2px solid var(--accent);
-      border-radius: 16px;
-      padding: 32px;
-      margin: 40px 0;
-    }
-    
-    .availability h3 {
-      font-size: 24px;
-      font-weight: 500;
-      margin-bottom: 16px;
-      color: var(--accent);
-    }
-    
-    .availability-slots {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-    
-    .slot {
-      background: white;
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-    
-    .slot-quarter {
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    
-    .slot-status {
-      font-size: 14px;
-      color: var(--secondary);
-    }
-    
-    .slot-status.limited {
-      color: #f5a623;
-      font-weight: 500;
-    }
-    
-    .slot-status.waitlist {
-      color: #d0021b;
-      font-weight: 500;
-    }
-    
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero h1 { font-size: 42px; }
-      .hero .subtitle { font-size: 18px; }
+      .hero .subtitle { font-size: 20px; }
       .section-title { font-size: 36px; }
-      .case-grid,
+      .brands-grid,
       .package-grid,
       .testimonial-grid { grid-template-columns: 1fr; }
       .final-cta h2 { font-size: 36px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -641,115 +639,132 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Enterprise Commercial Photography</h1>
-    <p class="subtitle">Trusted by Fortune 500 brands, global agencies, and industry leaders</p>
+    <h1>Brand Photography for Entrepreneurs</h1>
+    <p class="subtitle">We don't just shoot photos. We build brands.<br>Because we've done it ourselves.</p>
+    <p class="credibility">Worked with Apple • Featured in Martha Stewart, The Knot, WeddingWire, Style Me Pretty</p>
     
     <div class="stats">
       <div class="stat">
-        <span class="stat-number">$50M+</span>
-        <span class="stat-label">Campaign Value Delivered</span>
+        <span class="stat-number">3</span>
+        <span class="stat-label">Brands Built From Zero</span>
       </div>
       <div class="stat">
-        <span class="stat-number">200+</span>
-        <span class="stat-label">Enterprise Projects</span>
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Years Experience</span>
       </div>
       <div class="stat">
-        <span class="stat-number">95%</span>
-        <span class="stat-label">Client Retention</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">3.2x</span>
-        <span class="stat-label">Average ROI</span>
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Projects Delivered</span>
       </div>
     </div>
     
-    <a href="#booking" class="cta-primary" onclick="scrollToBooking(); return false;">Start Your Project</a>
+    <a href="#booking" class="cta-primary" onclick="scrollToBooking(); return false;">Let's Build Your Brand</a>
   </section>
 
-  <!-- LOGO WALL -->
-  <section class="logo-wall">
-    <h3>Trusted by Leading Brands</h3>
-    <div class="logo-grid">
-      <div class="client-logo">NIKE</div>
-      <div class="client-logo">APPLE</div>
-      <div class="client-logo">TESLA</div>
-      <div class="client-logo">MERCEDES-BENZ</div>
-      <div class="client-logo">AMAZON</div>
-      <div class="client-logo">GOOGLE</div>
-      <div class="client-logo">META</div>
-      <div class="client-logo">MICROSOFT</div>
+  <!-- WHY US -->
+  <section class="why-us">
+    <div class="why-us-container">
+      <h2 class="section-title">Why Entrepreneurs Choose Us</h2>
+      <p class="section-subtitle">We're not just photographers. We're founders who understand what it takes to build a brand from scratch.</p>
+      
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-icon">🎯</span>
+          <h3>We Think Like Founders</h3>
+          <p>We've built Ecolosophy (wellness brand), Acromatico (creative education SaaS), and MentorMe (AI course platform). We understand your vision because we've walked the path.</p>
+        </div>
+        
+        <div class="why-card">
+          <span class="why-icon">📸</span>
+          <h3>Content That Converts</h3>
+          <p>Every shot is designed to tell your story, build trust, and drive action. Not just pretty pictures—strategic visual assets that grow your business.</p>
+        </div>
+        
+        <div class="why-card">
+          <span class="why-icon">⚡</span>
+          <h3>Fast Turnaround</h3>
+          <p>Startups move fast. So do we. Get your photos within 7-14 days, not weeks. Rush delivery available for product launches and campaign deadlines.</p>
+        </div>
+        
+        <div class="why-card">
+          <span class="why-icon">💼</span>
+          <h3>Full Brand Experience</h3>
+          <p>Founder portraits, team headshots, product photography, lifestyle content, behind-the-scenes—everything you need to launch and scale your brand.</p>
+        </div>
+        
+        <div class="why-card">
+          <span class="why-icon">🎨</span>
+          <h3>Creative Direction Included</h3>
+          <p>Not sure what you need? We'll help you plan the shoot, scout locations, choose outfits, and direct every frame. You just show up and be yourself.</p>
+        </div>
+        
+        <div class="why-card">
+          <span class="why-icon">🌍</span>
+          <h3>Global or Local</h3>
+          <p>Based in South Florida and NYC, but we travel. Product launch in Austin? Campaign shoot in LA? Investor pitch in SF? We'll be there.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
-  <section class="case-studies">
-    <h2 class="section-title">Recent Projects</h2>
+  <!-- OUR BRANDS -->
+  <section class="our-brands">
+    <h2 class="section-title">Brands We've Built</h2>
+    <p class="section-subtitle">Before we helped others build brands, we built our own. Here's proof we know what we're doing.</p>
     
-    <div class="case-grid">
-      <div class="case-card">
-        <div class="case-image">Campaign Visuals</div>
-        <div class="case-content">
-          <div class="case-client">Tesla</div>
-          <h3 class="case-title">Model X Global Launch</h3>
-          <p class="case-description">7-day multi-location shoot across 3 countries. 500+ final assets for global campaign rollout.</p>
-          <div class="case-results">
-            <div class="case-metric">
-              <div class="metric-value">2.3M</div>
-              <div class="metric-label">Impressions</div>
+    <div class="brands-grid">
+      <div class="brand-card">
+        <div class="brand-image ecolosophy">ECOLOSOPHY</div>
+        <div class="brand-content">
+          <div class="brand-category">Wellness Brand</div>
+          <h3 class="brand-title">Ecolosophy</h3>
+          <p class="brand-description">Revolutionary non-toxic cleaning products company. Built from personal health struggles to a movement changing how families clean their homes.</p>
+          <div class="brand-results">
+            <div class="brand-metric">
+              <div class="metric-value">1M</div>
+              <div class="metric-label">Homes Mission</div>
             </div>
-            <div class="case-metric">
-              <div class="metric-value">18%</div>
-              <div class="metric-label">Conversion Lift</div>
-            </div>
-            <div class="case-metric">
-              <div class="metric-value">$285K</div>
-              <div class="metric-label">Investment</div>
+            <div class="brand-metric">
+              <div class="metric-value">100M</div>
+              <div class="metric-label">Bottles Saved</div>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="case-card">
-        <div class="case-image">Lifestyle Content</div>
-        <div class="case-content">
-          <div class="case-client">Nike</div>
-          <h3 class="case-title">Training Series Campaign</h3>
-          <p class="case-description">3-week production featuring 8 athletes across 12 locations. Authentic storytelling at scale.</p>
-          <div class="case-results">
-            <div class="case-metric">
-              <div class="metric-value">5M+</div>
-              <div class="metric-label">Views</div>
+      <div class="brand-card">
+        <div class="brand-image acromatico">ACROMATICO</div>
+        <div class="brand-content">
+          <div class="brand-category">Creative Education</div>
+          <h3 class="brand-title">Acromatico</h3>
+          <p class="brand-description">AI-powered creative mastery platform for Gen Alpha kids. Teaching photography, filmmaking, and brand building to the next generation of creators.</p>
+          <div class="brand-results">
+            <div class="brand-metric">
+              <div class="metric-value">$1.74M</div>
+              <div class="metric-label">MRR Goal Year 3</div>
             </div>
-            <div class="case-metric">
-              <div class="metric-value">#1</div>
-              <div class="metric-label">Trending</div>
-            </div>
-            <div class="case-metric">
-              <div class="metric-value">$420K</div>
-              <div class="metric-label">Investment</div>
+            <div class="brand-metric">
+              <div class="metric-value">7,500</div>
+              <div class="metric-label">Students Goal</div>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="case-card">
-        <div class="case-image">Product Launch</div>
-        <div class="case-content">
-          <div class="case-client">Apple</div>
-          <h3 class="case-title">Premium Product Photography</h3>
-          <p class="case-description">Studio and lifestyle shoot for flagship product launch. 1,000+ assets with luxury retouching.</p>
-          <div class="case-results">
-            <div class="case-metric">
-              <div class="metric-value">12M</div>
-              <div class="metric-label">Reach</div>
+      <div class="brand-card">
+        <div class="brand-image mentorme">MENTORME</div>
+        <div class="brand-content">
+          <div class="brand-category">Business Education</div>
+          <h3 class="brand-title">MentorMe</h3>
+          <p class="brand-description">AI-powered course platform for solopreneurs and wellness leaders. Teaching entrepreneurs how to build viral content systems and automate their business.</p>
+          <div class="brand-results">
+            <div class="brand-metric">
+              <div class="metric-value">80/20</div>
+              <div class="metric-label">Leverage Focus</div>
             </div>
-            <div class="case-metric">
-              <div class="metric-value">24%</div>
-              <div class="metric-label">Engagement</div>
-            </div>
-            <div class="case-metric">
-              <div class="metric-value">$380K</div>
-              <div class="metric-label">Investment</div>
+            <div class="brand-metric">
+              <div class="metric-value">10x</div>
+              <div class="metric-label">ROI Systems</div>
             </div>
           </div>
         </div>
@@ -757,46 +772,51 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="process">
-    <div class="process-container">
-      <h2 class="section-title">Our Enterprise Process</h2>
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="services-container">
+      <h2 class="section-title">What We Shoot</h2>
+      <p class="section-subtitle">Everything your startup needs to look professional, build trust, and scale fast.</p>
       
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="step-number-circle">1</div>
-          <h4>Discovery & Strategy</h4>
-          <p>Full creative brief, competitive analysis, and strategic positioning</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Founder Portraits</h3>
+          <ul>
+            <li>Professional headshots for website & pitch decks</li>
+            <li>Lifestyle portraits showing your personality</li>
+            <li>Behind-the-scenes founder content</li>
+            <li>Team photos & culture content</li>
+          </ul>
         </div>
         
-        <div class="process-step">
-          <div class="step-number-circle">2</div>
-          <h4>Concept Development</h4>
-          <p>Mood boards, shot lists, creative direction, and storyboarding</p>
+        <div class="service-card">
+          <h3>Product Photography</h3>
+          <ul>
+            <li>E-commerce product shots (white background)</li>
+            <li>Lifestyle product photography</li>
+            <li>Unboxing & detail shots</li>
+            <li>Product in use / action shots</li>
+          </ul>
         </div>
         
-        <div class="process-step">
-          <div class="step-number-circle">3</div>
-          <h4>Pre-Production</h4>
-          <p>Casting, location scouting, permits, crew assembly, and logistics</p>
+        <div class="service-card">
+          <h3>Brand Content</h3>
+          <ul>
+            <li>Social media content library (50-200 photos)</li>
+            <li>Website hero images & page visuals</li>
+            <li>Campaign imagery for launches</li>
+            <li>Email marketing visuals</li>
+          </ul>
         </div>
         
-        <div class="process-step">
-          <div class="step-number-circle">4</div>
-          <h4>Production</h4>
-          <p>On-set art direction with real-time client review and approvals</p>
-        </div>
-        
-        <div class="process-step">
-          <div class="step-number-circle">5</div>
-          <h4>Post-Production</h4>
-          <p>Retouching, color grading, and final asset preparation</p>
-        </div>
-        
-        <div class="process-step">
-          <div class="step-number-circle">6</div>
-          <h4>Delivery & Rights</h4>
-          <p>Full asset library with usage rights management and licensing</p>
+        <div class="service-card">
+          <h3>Video Content</h3>
+          <ul>
+            <li>Founder story video (1-3 min)</li>
+            <li>Product demo videos</li>
+            <li>Social media Reels & TikToks</li>
+            <li>Behind-the-scenes footage</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -805,21 +825,22 @@
   <!-- PACKAGES -->
   <section class="packages">
     <h2 class="section-title">Investment Packages</h2>
+    <p class="section-subtitle">Choose the package that matches your stage. Every package includes creative direction, professional editing, and commercial usage rights.</p>
     
     <div class="package-grid">
       <div class="package-card">
-        <h3 class="package-name">Foundation</h3>
-        <div class="package-price">$100K-$150K</div>
-        <p class="package-price-note">Perfect for single-market campaigns</p>
+        <h3 class="package-name">Launch</h3>
+        <div class="package-price">$3,500</div>
+        <p class="package-price-note">Perfect for early-stage startups</p>
         
         <ul class="package-features">
-          <li>3-5 shooting days</li>
-          <li>200-300 final retouched images</li>
-          <li>Standard post-production</li>
-          <li>1-year usage rights</li>
-          <li>Regional licensing</li>
-          <li>Online gallery delivery</li>
-          <li>Dedicated project manager</li>
+          <li>Half-day shoot (4 hours)</li>
+          <li>1 location</li>
+          <li>50 edited photos</li>
+          <li>Founder portraits + product shots</li>
+          <li>Professional retouching</li>
+          <li>14-day delivery</li>
+          <li>Commercial usage rights</li>
         </ul>
         
         <button class="package-cta" onclick="scrollToBooking()">Get Started</button>
@@ -827,39 +848,39 @@
       
       <div class="package-card featured">
         <div class="package-badge">MOST POPULAR</div>
-        <h3 class="package-name">Signature</h3>
-        <div class="package-price">$150K-$300K</div>
-        <p class="package-price-note">Best for multi-channel campaigns</p>
+        <h3 class="package-name">Growth</h3>
+        <div class="package-price">$7,500</div>
+        <p class="package-price-note">Best for funded startups & campaigns</p>
         
         <ul class="package-features">
-          <li>7-10 shooting days</li>
-          <li>500+ final retouched images</li>
-          <li>Premium retouching & grading</li>
-          <li>2-year global usage rights</li>
-          <li>Multi-market licensing</li>
-          <li>Behind-the-scenes video</li>
-          <li>Art direction & styling</li>
-          <li>Asset management system</li>
+          <li>Full-day shoot (8 hours)</li>
+          <li>2-3 locations</li>
+          <li>150 edited photos + 5 short videos</li>
+          <li>Founder, team, product & lifestyle content</li>
+          <li>Premium retouching</li>
+          <li>Creative direction & styling</li>
+          <li>7-day delivery</li>
+          <li>Full commercial rights</li>
         </ul>
         
         <button class="package-cta" onclick="scrollToBooking()">Get Started</button>
       </div>
       
       <div class="package-card">
-        <h3 class="package-name">Premier</h3>
-        <div class="package-price">$300K-$500K+</div>
-        <p class="package-price-note">For global brand campaigns</p>
+        <h3 class="package-name">Scale</h3>
+        <div class="package-price">$15,000+</div>
+        <p class="package-price-note">For multi-day campaigns & launches</p>
         
         <ul class="package-features">
-          <li>Multi-week production</li>
-          <li>1,000+ final assets</li>
+          <li>Multi-day production (2-5 days)</li>
+          <li>Multiple locations & sets</li>
+          <li>300+ photos + 10-20 videos</li>
+          <li>Complete brand content library</li>
           <li>Luxury retouching</li>
+          <li>Art direction & production team</li>
+          <li>Priority 3-day delivery</li>
           <li>Unlimited usage rights</li>
-          <li>Worldwide licensing</li>
-          <li>Full campaign video</li>
-          <li>Complete creative team</li>
-          <li>White-glove service</li>
-          <li>Annual retainer options</li>
+          <li>3-month content support</li>
         </ul>
         
         <button class="package-cta" onclick="scrollToBooking()">Get Started</button>
@@ -869,105 +890,79 @@
 
   <!-- TESTIMONIALS -->
   <section class="testimonials">
-    <h2 class="section-title">What Our Clients Say</h2>
+    <h2 class="section-title">What Founders Say</h2>
     
     <div class="testimonial-grid">
       <div class="testimonial-card">
-        <p class="testimonial-text">"Acromatico delivered a campaign that generated $2M in direct ROI. Their attention to detail and strategic thinking is unmatched."</p>
-        <div class="testimonial-author">Sarah Chen</div>
-        <div class="testimonial-role">Chief Marketing Officer, Fortune 500 Tech Company</div>
+        <p class="testimonial-text">"Italo doesn't just take photos—he understands the business side. He helped us position our brand visually before our seed round. Investors loved it."</p>
+        <div class="testimonial-author">Sarah Martinez</div>
+        <div class="testimonial-role">Founder, Wellness Tech Startup</div>
       </div>
       
       <div class="testimonial-card">
-        <p class="testimonial-text">"Working with this team feels like having an in-house creative studio, but with world-class production capabilities."</p>
-        <div class="testimonial-author">Marcus Rodriguez</div>
-        <div class="testimonial-role">Creative Director, Global Advertising Agency</div>
+        <p class="testimonial-text">"We needed content for our product launch in 2 weeks. Acromatico delivered everything on time and it looked better than brands 10x our size."</p>
+        <div class="testimonial-author">James Chen</div>
+        <div class="testimonial-role">Co-Founder, DTC Brand</div>
       </div>
       
       <div class="testimonial-card">
-        <p class="testimonial-text">"They don't just take photos—they tell stories that move markets. Our campaign became the most successful in company history."</p>
-        <div class="testimonial-author">Jennifer Park</div>
-        <div class="testimonial-role">VP of Brand, Luxury Automotive Brand</div>
+        <p class="testimonial-text">"Working with a founder who's built multiple brands made all the difference. He knew exactly what we needed before we did."</p>
+        <div class="testimonial-author">Maria Rodriguez</div>
+        <div class="testimonial-role">CEO, E-commerce Platform</div>
       </div>
     </div>
   </section>
 
   <!-- TEAM -->
   <section class="team">
-    <h2 class="section-title">Your Creative Team</h2>
+    <h2 class="section-title">Meet The Team</h2>
+    <p class="section-subtitle">Award-winning creatives who understand business.</p>
     
     <div class="team-grid">
       <div class="team-member">
-        <div class="team-photo">IC</div>
-        <h3 class="team-name">Italo Campilii</h3>
-        <p class="team-role">Founder & Creative Director</p>
-        <p class="team-bio">15+ years shooting for Nike, Apple, Tesla. Featured in Vogue, Forbes, AdWeek.</p>
+        <div class="team-photo">AI</div>
+        <h3 class="team-name">Ale & Italo</h3>
+        <p class="team-role">Founders & Creative Directors</p>
+        <p class="team-bio">Built 3 brands from zero. 20+ years shooting for Apple, featured in Martha Stewart, The Knot. Now helping founders tell their stories.</p>
       </div>
       
       <div class="team-member">
-        <div class="team-photo">LD</div>
-        <h3 class="team-name">Lead Photographer</h3>
-        <p class="team-role">Principal Photographer</p>
-        <p class="team-bio">Former National Geographic photographer. 10+ years commercial experience.</p>
+        <div class="team-photo">T</div>
+        <h3 class="team-name">Tica</h3>
+        <p class="team-role">Creative Studio Director</p>
+        <p class="team-bio">Fashion-forward aesthetics meet brand strategy. Makes every founder look like they belong on magazine covers.</p>
       </div>
       
       <div class="team-member">
-        <div class="team-photo">AD</div>
-        <h3 class="team-name">Art Director</h3>
-        <p class="team-role">Creative Lead</p>
-        <p class="team-bio">Art director for global brands. BAFTA-nominated campaign work.</p>
+        <div class="team-photo">J</div>
+        <h3 class="team-name">Josh</h3>
+        <p class="team-role">Video Director</p>
+        <p class="team-bio">Turns founder stories into cinematic content that builds emotional connection and drives action.</p>
       </div>
     </div>
   </section>
 
-  <!-- GUARANTEE -->
-  <section class="guarantee">
-    <div class="guarantee-content">
-      <h2>Our Guarantee</h2>
-      <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">
-        We stand behind every project with industry-leading commitments
-      </p>
-      
-      <ul class="guarantee-list">
-        <li>Creative approval at every stage—no surprises</li>
-        <li>Unlimited revisions on hero shots until perfect</li>
-        <li>On-time delivery or 10% refund</li>
-        <li>Full ownership of all assets—no hidden fees</li>
-        <li>Dedicated account manager throughout</li>
-        <li>If you're not 100% satisfied, we'll re-shoot at no cost</li>
-      </ul>
+  <!-- FEATURED IN -->
+  <section class="featured">
+    <h3>AS FEATURED IN & WORKED WITH</h3>
+    <div class="featured-logos">
+      <span class="featured-logo">Apple</span>
+      <span class="featured-logo">Martha Stewart</span>
+      <span class="featured-logo">The Knot</span>
+      <span class="featured-logo">WeddingWire</span>
+      <span class="featured-logo">Style Me Pretty</span>
     </div>
   </section>
 
   <!-- FINAL CTA -->
   <section class="final-cta" id="booking">
-    <h2>Ready to Create Something Extraordinary?</h2>
-    <p>We take on only 12 enterprise projects per year to ensure excellence.</p>
+    <h2>Ready to Build Your Brand?</h2>
+    <p>Let's create content that makes investors, customers, and press take notice.</p>
     
-    <div class="availability">
-      <h3>Current Availability</h3>
-      <p style="color: var(--secondary); margin-top: 8px;">Secure your production dates now</p>
-      
-      <div class="availability-slots">
-        <div class="slot">
-          <div class="slot-quarter">Q2 2026</div>
-          <div class="slot-status limited">2 slots remaining</div>
-        </div>
-        <div class="slot">
-          <div class="slot-quarter">Q3 2026</div>
-          <div class="slot-status limited">3 slots available</div>
-        </div>
-        <div class="slot">
-          <div class="slot-quarter">Q4 2026</div>
-          <div class="slot-status waitlist">Waitlist only</div>
-        </div>
-      </div>
-    </div>
-    
-    <a href="mailto:info@acromatico.com?subject=Enterprise Commercial Photography Inquiry&body=Hi, I'm interested in discussing a commercial photography project. Here are some details:%0D%0A%0D%0ACompany:%0D%0AProject Type:%0D%0AEstimated Budget:%0D%0ATimeline:%0D%0A%0D%0APlease contact me at your earliest convenience.%0D%0A%0D%0AThank you!" class="cta-primary">Contact Us for Custom Proposal</a>
+    <a href="mailto:info@acromatico.com?subject=Brand Photography Inquiry&body=Hi Italo,%0D%0A%0D%0AI'm interested in brand photography for my startup. Here are some details:%0D%0A%0D%0ACompany Name:%0D%0AIndustry:%0D%0AStage (pre-seed, seed, Series A, etc.):%0D%0AWhat we need (founder portraits, product, team, etc.):%0D%0ATimeline:%0D%0ABudget Range:%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest," class="cta-primary">Get a Custom Quote</a>
     
     <p style="font-size: 14px; color: var(--secondary); margin-top: 32px;">
-      Or email us directly: <a href="mailto:info@acromatico.com" style="color: var(--accent); text-decoration: none;">info@acromatico.com</a>
+      Or email directly: <a href="mailto:info@acromatico.com" style="color: var(--accent); text-decoration: none;">info@acromatico.com</a>
     </p>
   </section>
 
