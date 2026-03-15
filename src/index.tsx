@@ -587,16 +587,13 @@ app.post('/api/auth/signup', async (c) => {
       VALUES (?, ?, ?, ?, ?)
     `).bind(email, passwordHash, role, firstName, lastName).run()
     
-    // Get the inserted user ID (D1 returns it in meta.last_row_id but as a string)
+    // Get the inserted user ID
     const userId = result.meta.last_row_id
     
-    // If student, create student record
-    if (role === 'student' && age) {
-      await DB_EDUCATION.prepare(`
-        INSERT INTO students (user_id, age_group, enrollment_date)
-        VALUES (?, ?, datetime('now'))
-      `).bind(userId, age).run()
-    }
+    // NOTE: The students table is for parent-child relationships (students.parent_id -> users.id)
+    // When a user signs up as "student", they're creating a USER account with role='student'
+    // NOT inserting into the students table (that's for parents to add their children)
+    // So we skip the student record creation here
     
     return c.json({ 
       message: 'Account created successfully',
