@@ -522,6 +522,193 @@ app.get('/api/footer', (c) => {
   return c.html(footerHTML)
 })
 
+// ============================================================
+// EDUCATION PLATFORM - AUTHENTICATION API
+// ============================================================
+
+// Helper: Hash password (simple version - in production use bcrypt)
+function hashPassword(password: string): string {
+  // In production, use proper bcrypt or similar
+  // This is a simple hash for demonstration
+  return btoa(password + 'acromatico-salt-2026')
+}
+
+// Helper: Generate JWT token (simple version)
+function generateToken(user: any): string {
+  const payload = {
+    id: user.id,
+    email: user.email,
+    role: user.role,
+    exp: Date.now() + (7 * 24 * 60 * 60 * 1000) // 7 days
+  }
+  return btoa(JSON.stringify(payload))
+}
+
+// Helper: Verify JWT token
+function verifyToken(token: string): any {
+  try {
+    const payload = JSON.parse(atob(token))
+    if (payload.exp < Date.now()) {
+      return null // Expired
+    }
+    return payload
+  } catch {
+    return null
+  }
+}
+
+// POST /api/auth/signup - Create new user account
+app.post('/api/auth/signup', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const body = await c.req.json()
+    const { firstName, lastName, email, phone, password, role, age } = body
+    
+    // Validate required fields
+    if (!firstName || !lastName || !email || !password || !role) {
+      return c.json({ message: 'All fields are required' }, 400)
+    }
+    
+    // Check if email already exists
+    const existing = await DB_EDUCATION.prepare(
+      'SELECT id FROM users WHERE email = ?'
+    ).bind(email).first()
+    
+    if (existing) {
+      return c.json({ message: 'Email already registered' }, 400)
+    }
+    
+    // Hash password
+    const passwordHash = hashPassword(password)
+    
+    // Insert user
+    const result = await DB_EDUCATION.prepare(`
+      INSERT INTO users (email, password_hash, role, first_name, last_name, phone, status)
+      VALUES (?, ?, ?, ?, ?, ?, 'active')
+    `).bind(email, passwordHash, role, firstName, lastName, phone).run()
+    
+    const userId = result.meta.last_row_id
+    
+    // If student, create student record
+    if (role === 'student' && age) {
+      await DB_EDUCATION.prepare(`
+        INSERT INTO students (user_id, age_group, enrollment_date)
+        VALUES (?, ?, datetime('now'))
+      `).bind(userId, age).run()
+    }
+    
+    return c.json({ 
+      message: 'Account created successfully',
+      userId: userId
+    }, 201)
+    
+  } catch (error: any) {
+    console.error('Signup error:', error)
+    return c.json({ message: 'Signup failed: ' + error.message }, 500)
+  }
+})
+
+// POST /api/auth/login - Login user
+app.post('/api/auth/login', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const body = await c.req.json()
+    const { email, password } = body
+    
+    // Validate
+    if (!email || !password) {
+      return c.json({ message: 'Email and password required' }, 400)
+    }
+    
+    // Get user
+    const user = await DB_EDUCATION.prepare(`
+      SELECT id, email, password_hash, role, first_name, last_name, status
+      FROM users
+      WHERE email = ?
+    `).bind(email).first()
+    
+    if (!user) {
+      return c.json({ message: 'Invalid email or password' }, 401)
+    }
+    
+    // Check password
+    const passwordHash = hashPassword(password)
+    if (user.password_hash !== passwordHash) {
+      return c.json({ message: 'Invalid email or password' }, 401)
+    }
+    
+    // Check account status
+    if (user.status !== 'active') {
+      return c.json({ message: 'Account is inactive' }, 403)
+    }
+    
+    // Generate token
+    const token = generateToken(user)
+    
+    // Update last login
+    await DB_EDUCATION.prepare(
+      'UPDATE users SET last_login = datetime("now") WHERE id = ?'
+    ).bind(user.id).run()
+    
+    // Return success
+    return c.json({
+      message: 'Login successful',
+      token: token,
+      user: {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+        firstName: user.first_name,
+        lastName: user.last_name
+      }
+    })
+    
+  } catch (error: any) {
+    console.error('Login error:', error)
+    return c.json({ message: 'Login failed: ' + error.message }, 500)
+  }
+})
+
+// GET /api/auth/me - Get current user profile
+app.get('/api/auth/me', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const authHeader = c.req.header('Authorization')
+    
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ message: 'No token provided' }, 401)
+    }
+    
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    
+    if (!payload) {
+      return c.json({ message: 'Invalid or expired token' }, 401)
+    }
+    
+    // Get full user details
+    const user = await DB_EDUCATION.prepare(`
+      SELECT id, email, role, first_name, last_name, phone, status, created_at, last_login
+      FROM users
+      WHERE id = ?
+    `).bind(payload.id).first()
+    
+    if (!user) {
+      return c.json({ message: 'User not found' }, 404)
+    }
+    
+    return c.json({ user })
+    
+  } catch (error: any) {
+    console.error('Get user error:', error)
+    return c.json({ message: 'Failed to get user: ' + error.message }, 500)
+  }
+})
+
+// ============================================================
+// END AUTHENTICATION API
+// ============================================================
+
 // Stripe Checkout API
 app.post('/api/create-checkout', async (c) => {
   try {
@@ -6280,7 +6467,20 @@ app.get('/checkout', (c) => {
   )
 })
 
-app.get('/login', (c) => c.render(<div class="p-8"><h1 class="text-3xl font-bold">Login - Coming Soon</h1></div>))
+// Education Platform Routes
+app.get('/login', (c) => c.redirect('/education/login'))
+app.get('/education/login', (c) => c.redirect('/static/education-login.html'))
+app.get('/education/signup', (c) => c.redirect('/static/education-signup.html'))
+
+// Student Dashboard (protected route)
+app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
+
+// Parent Dashboard (protected route)
+app.get('/parent/dashboard', (c) => c.redirect('/static/parent-dashboard.html'))
+
+// Admin Portal (protected route)
+app.get('/admin/dashboard', (c) => c.redirect('/static/admin-dashboard.html'))
+
 // Brand Intelligence Assessment - Instant-Start AI-Powered Tool  
 app.get('/assessment', (c) => c.redirect('/static/assessment.html'))
 

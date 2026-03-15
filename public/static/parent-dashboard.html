@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Dashboard - Acromatico</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+      color: #fff;
+      min-height: 100vh;
+    }
+    
+    /* Topbar */
+    .topbar {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .user-name {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .btn-logout {
+      padding: 8px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-logout:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Main Layout */
+    .dashboard-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 32px;
+    }
+    
+    /* Welcome Section */
+    .welcome-section {
+      margin-bottom: 40px;
+    }
+    
+    .welcome-section h1 {
+      font-size: 48px;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    
+    .welcome-section p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    /* Quick Actions */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    
+    .action-btn {
+      background: rgba(71, 148, 166, 0.2);
+      border: 1px solid rgba(71, 148, 166, 0.4);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #fff;
+      display: block;
+    }
+    
+    .action-btn:hover {
+      background: rgba(71, 148, 166, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    .action-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .action-label {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    /* Student Cards */
+    .students-section {
+      margin-bottom: 48px;
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    .section-header h2 {
+      font-size: 28px;
+      font-weight: 400;
+    }
+    
+    .btn-add-student {
+      padding: 10px 24px;
+      background: #4794A6;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-add-student:hover {
+      background: #5aa5b8;
+    }
+    
+    .students-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+    }
+    
+    .student-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+    
+    .student-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(71, 148, 166, 0.5);
+      transform: translateY(-2px);
+    }
+    
+    .student-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .student-avatar {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #4794A6 0%, #2d5d6a 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+    
+    .student-info h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .student-info p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-item-value {
+      font-size: 24px;
+      font-weight: 600;
+      color: #4794A6;
+      margin-bottom: 4px;
+    }
+    
+    .stat-item-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .progress-section {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .progress-label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 8px;
+    }
+    
+    .progress-bar-container {
+      background: rgba(255, 255, 255, 0.1);
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #4794A6 0%, #5aa5b8 100%);
+      transition: width 0.3s ease;
+    }
+    
+    .btn-view-details {
+      width: 100%;
+      margin-top: 16px;
+      padding: 12px;
+      background: rgba(71, 148, 166, 0.2);
+      border: 1px solid rgba(71, 148, 166, 0.4);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-view-details:hover {
+      background: rgba(71, 148, 166, 0.3);
+    }
+    
+    /* Billing Section */
+    .billing-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .billing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    .billing-header h3 {
+      font-size: 24px;
+      font-weight: 400;
+    }
+    
+    .billing-status {
+      padding: 8px 16px;
+      background: rgba(34, 197, 94, 0.2);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      border-radius: 20px;
+      color: #86efac;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .billing-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    
+    .billing-item-label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 8px;
+    }
+    
+    .billing-item-value {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    
+    /* Loading State */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    @media (max-width: 768px) {
+      .dashboard-container {
+        padding: 24px 16px;
+      }
+      
+      .welcome-section h1 {
+        font-size: 32px;
+      }
+      
+      .students-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <a href="/education">
+      <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="logo">
+    </a>
+    <div class="user-menu">
+      <span class="user-name" id="userName">Loading...</span>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </div>
+  
+  <!-- Loading State -->
+  <div id="loadingState" class="loading">
+    Loading your dashboard...
+  </div>
+  
+  <!-- Dashboard Content -->
+  <div id="dashboardContent" class="dashboard-container" style="display: none;">
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+      <h1>Parent Dashboard 👨‍👩‍👧‍👦</h1>
+      <p>Track your child's creative journey</p>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <a href="/education/courses" class="action-btn">
+        <div class="action-icon">📚</div>
+        <div class="action-label">Browse Courses</div>
+      </a>
+      <a href="/education/billing" class="action-btn">
+        <div class="action-icon">💳</div>
+        <div class="action-label">Billing</div>
+      </a>
+      <a href="/education/messages" class="action-btn">
+        <div class="action-icon">💬</div>
+        <div class="action-label">Messages</div>
+      </a>
+      <a href="/education/support" class="action-btn">
+        <div class="action-icon">🎯</div>
+        <div class="action-label">Support</div>
+      </a>
+    </div>
+    
+    <!-- Students Section -->
+    <div class="students-section">
+      <div class="section-header">
+        <h2>Your Students</h2>
+        <button class="btn-add-student" onclick="alert('Add student feature coming soon!')">+ Add Student</button>
+      </div>
+      
+      <div class="students-grid" id="studentsGrid">
+        <!-- Students loaded dynamically -->
+      </div>
+    </div>
+    
+    <!-- Billing Section -->
+    <div class="section-header">
+      <h2>Billing Overview</h2>
+    </div>
+    
+    <div class="billing-card">
+      <div class="billing-header">
+        <h3>Current Subscription</h3>
+        <div class="billing-status">Active</div>
+      </div>
+      
+      <div class="billing-info">
+        <div>
+          <div class="billing-item-label">Plan</div>
+          <div class="billing-item-value">Mastery (10-12 years)</div>
+        </div>
+        <div>
+          <div class="billing-item-label">Monthly Payment</div>
+          <div class="billing-item-value">$49/month</div>
+        </div>
+        <div>
+          <div class="billing-item-label">Next Billing Date</div>
+          <div class="billing-item-value">April 15, 2026</div>
+        </div>
+        <div>
+          <div class="billing-item-label">Payment Method</div>
+          <div class="billing-item-value">•••• 4242</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Check authentication
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    
+    if (!token || !user.id || user.role !== 'parent') {
+      window.location.href = '/education/login';
+    }
+    
+    // Logout function
+    function logout() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = '/education/login';
+    }
+    
+    // Load dashboard data
+    async function loadDashboard() {
+      try {
+        // Set user name
+        document.getElementById('userName').textContent = user.firstName + ' ' + user.lastName;
+        
+        // Sample students data
+        const students = [
+          {
+            id: 1,
+            name: 'Emma Johnson',
+            age: '10-12 years',
+            avatar: '👧',
+            coursesEnrolled: 3,
+            lessonsCompleted: 24,
+            achievements: 8,
+            progress: 75,
+            lastActive: 'Today'
+          },
+          {
+            id: 2,
+            name: 'Jake Johnson',
+            age: '13-14 years',
+            avatar: '👦',
+            coursesEnrolled: 2,
+            lessonsCompleted: 18,
+            achievements: 5,
+            progress: 60,
+            lastActive: 'Yesterday'
+          }
+        ];
+        
+        const studentsGrid = document.getElementById('studentsGrid');
+        studentsGrid.innerHTML = students.map(student => `
+          <div class="student-card">
+            <div class="student-header">
+              <div class="student-avatar">${student.avatar}</div>
+              <div class="student-info">
+                <h3>${student.name}</h3>
+                <p>${student.age} • Last active: ${student.lastActive}</p>
+              </div>
+            </div>
+            
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-item-value">${student.coursesEnrolled}</div>
+                <div class="stat-item-label">Courses</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-item-value">${student.lessonsCompleted}</div>
+                <div class="stat-item-label">Lessons</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-item-value">${student.achievements}</div>
+                <div class="stat-item-label">Badges</div>
+              </div>
+            </div>
+            
+            <div class="progress-section">
+              <div class="progress-label">Overall Progress</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: ${student.progress}%"></div>
+              </div>
+            </div>
+            
+            <button class="btn-view-details" onclick="window.location.href='/student/${student.id}'">
+              View Full Report →
+            </button>
+          </div>
+        `).join('');
+        
+        // Hide loading, show content
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('dashboardContent').style.display = 'block';
+        
+      } catch (error) {
+        console.error('Error loading dashboard:', error);
+        alert('Failed to load dashboard. Please try again.');
+      }
+    }
+    
+    // Load on page load
+    loadDashboard();
+  </script>
+</body>
+</html>
