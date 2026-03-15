@@ -2735,7 +2735,8 @@ app.get('/weddings/booking', (c) => c.redirect(`/static/weddings-booking-new.htm
 app.get('/portraits/booking', (c) => c.redirect(`/static/portraits-booking.html?v=${Date.now()}`, 302))
 app.get('/events/booking', (c) => c.redirect('/static/events-booking.html', 302))
 app.get('/realestate/booking', (c) => c.redirect('/static/realestate-booking.html', 302))
-app.get('/commercial/booking', (c) => c.redirect('/static/weddings-booking-new.html', 302))
+app.get('/commercial', (c) => c.redirect('/static/commercial-booking.html', 302))
+app.get('/commercial/booking', (c) => c.redirect('/static/commercial-booking.html', 302))
 
 app.get('/studio-old', (c) =>
   c.html(`
