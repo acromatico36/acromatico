@@ -492,9 +492,6 @@
   <!-- PDF Generation Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  
-  <!-- Google Places Autocomplete with callback -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX8qNYgqHJl0Z5xK4rGjJ2Z8_0cN6YqZk&libraries=places&callback=initAutocomplete" async defer></script>
 </head>
 <body>
 
@@ -1855,47 +1852,8 @@
       document.getElementById('previewDeposit').textContent = '$' + deposit.toLocaleString();
     }
 
-    // Initialize Google Places Autocomplete (global function for API callback)
-    window.initAutocomplete = function() {
-      if (typeof google !== 'undefined' && google.maps && google.maps.places) {
-        const locationInput = document.getElementById('eventLocation');
-        if (!locationInput) {
-          console.log('⚠️ Location input not found, retrying...');
-          setTimeout(window.initAutocomplete, 500);
-          return;
-        }
-        
-        const autocomplete = new google.maps.places.Autocomplete(locationInput, {
-          types: ['establishment', 'geocode'],
-          fields: ['formatted_address', 'name', 'geometry']
-        });
-        
-        autocomplete.addListener('place_changed', function() {
-          const place = autocomplete.getPlace();
-          console.log('📍 Place selected:', place);
-          if (place.formatted_address) {
-            locationInput.value = place.formatted_address;
-          } else if (place.name) {
-            locationInput.value = place.name;
-          }
-        });
-        
-        console.log('✅ Google Places autocomplete initialized');
-      } else {
-        console.log('⚠️ Google Places API not loaded yet, retrying...');
-        setTimeout(window.initAutocomplete, 500);
-      }
-    }
-
     // Initialize
     updatePreview();
-    
-    // Initialize autocomplete when page loads (fallback if callback doesn't fire)
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', window.initAutocomplete);
-    } else {
-      window.initAutocomplete();
-    }
   </script>
 
 </body>
