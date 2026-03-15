@@ -3,552 +3,493 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parent Dashboard - Acromatico</title>
+  <title>Parent Dashboard - Acromatico Education</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-      color: #fff;
-      min-height: 100vh;
+    .fade-in {
+      animation: fadeIn 0.4s ease-out;
     }
-    
-    /* Topbar */
-    .topbar {
-      background: rgba(10, 10, 10, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 16px 32px;
+    .modal {
+      display: none;
+    }
+    .modal.active {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
-    
-    .logo {
-      height: 32px;
-      width: auto;
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    .user-menu {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .user-name {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.7);
-    }
-    
-    .btn-logout {
-      padding: 8px 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      color: #fff;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-logout:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-    
-    /* Main Layout */
-    .dashboard-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 40px 32px;
-    }
-    
-    /* Welcome Section */
-    .welcome-section {
-      margin-bottom: 40px;
-    }
-    
-    .welcome-section h1 {
-      font-size: 48px;
-      font-weight: 300;
-      margin-bottom: 8px;
-    }
-    
-    .welcome-section p {
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.6);
-    }
-    
-    /* Quick Actions */
-    .quick-actions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    
-    .action-btn {
-      background: rgba(71, 148, 166, 0.2);
-      border: 1px solid rgba(71, 148, 166, 0.4);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: #fff;
-      display: block;
-    }
-    
-    .action-btn:hover {
-      background: rgba(71, 148, 166, 0.3);
-      transform: translateY(-2px);
-    }
-    
-    .action-icon {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-    
-    .action-label {
-      font-size: 16px;
-      font-weight: 600;
-    }
-    
-    /* Student Cards */
-    .students-section {
-      margin-bottom: 48px;
-    }
-    
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-    
-    .section-header h2 {
-      font-size: 28px;
-      font-weight: 400;
-    }
-    
-    .btn-add-student {
-      padding: 10px 24px;
+    .btn-primary {
       background: #4794A6;
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
       transition: all 0.3s ease;
     }
-    
-    .btn-add-student:hover {
+    .btn-primary:hover {
       background: #5aa5b8;
-    }
-    
-    .students-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 24px;
-    }
-    
-    .student-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 24px;
-      transition: all 0.3s ease;
-    }
-    
-    .student-card:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(71, 148, 166, 0.5);
       transform: translateY(-2px);
-    }
-    
-    .student-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    
-    .student-avatar {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, #4794A6 0%, #2d5d6a 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-    }
-    
-    .student-info h3 {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    
-    .student-info p {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
-    }
-    
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    
-    .stat-item {
-      text-align: center;
-    }
-    
-    .stat-item-value {
-      font-size: 24px;
-      font-weight: 600;
-      color: #4794A6;
-      margin-bottom: 4px;
-    }
-    
-    .stat-item-label {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .progress-section {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .progress-label {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 8px;
-    }
-    
-    .progress-bar-container {
-      background: rgba(255, 255, 255, 0.1);
-      height: 8px;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    
-    .progress-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #4794A6 0%, #5aa5b8 100%);
-      transition: width 0.3s ease;
-    }
-    
-    .btn-view-details {
-      width: 100%;
-      margin-top: 16px;
-      padding: 12px;
-      background: rgba(71, 148, 166, 0.2);
-      border: 1px solid rgba(71, 148, 166, 0.4);
-      border-radius: 8px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-view-details:hover {
-      background: rgba(71, 148, 166, 0.3);
-    }
-    
-    /* Billing Section */
-    .billing-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 48px;
-    }
-    
-    .billing-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-    
-    .billing-header h3 {
-      font-size: 24px;
-      font-weight: 400;
-    }
-    
-    .billing-status {
-      padding: 8px 16px;
-      background: rgba(34, 197, 94, 0.2);
-      border: 1px solid rgba(34, 197, 94, 0.4);
-      border-radius: 20px;
-      color: #86efac;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    
-    .billing-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-    }
-    
-    .billing-item-label {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 8px;
-    }
-    
-    .billing-item-value {
-      font-size: 20px;
-      font-weight: 600;
-    }
-    
-    /* Loading State */
-    .loading {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 60vh;
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.6);
-    }
-    
-    @media (max-width: 768px) {
-      .dashboard-container {
-        padding: 24px 16px;
-      }
-      
-      .welcome-section h1 {
-        font-size: 32px;
-      }
-      
-      .students-grid {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+  
   <!-- Topbar -->
-  <div class="topbar">
-    <a href="/education">
-      <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="logo">
-    </a>
-    <div class="user-menu">
-      <span class="user-name" id="userName">Loading...</span>
-      <button class="btn-logout" onclick="logout()">Logout</button>
+  <div class="sticky top-0 z-50 glass border-b border-white/10 px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <h1 class="text-2xl font-bold">Acromatico Education</h1>
+      <span class="text-sm text-gray-400">Parent Portal</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-gray-400" id="parentName">Loading...</span>
+      <button onclick="logout()" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition">
+        Logout
+      </button>
     </div>
   </div>
-  
-  <!-- Loading State -->
-  <div id="loadingState" class="loading">
-    Loading your dashboard...
-  </div>
-  
-  <!-- Dashboard Content -->
-  <div id="dashboardContent" class="dashboard-container" style="display: none;">
+
+  <!-- Main Container -->
+  <div class="max-w-7xl mx-auto px-8 py-12">
+    
     <!-- Welcome Section -->
-    <div class="welcome-section">
-      <h1>Parent Dashboard 👨‍👩‍👧‍👦</h1>
-      <p>Track your child's creative journey</p>
+    <div class="mb-12 fade-in">
+      <h2 class="text-4xl font-light mb-2">Welcome back! 👋</h2>
+      <p class="text-gray-400 text-lg">Manage your children's education journey</p>
     </div>
-    
+
     <!-- Quick Actions -->
-    <div class="quick-actions">
-      <a href="/education/courses" class="action-btn">
-        <div class="action-icon">📚</div>
-        <div class="action-label">Browse Courses</div>
-      </a>
-      <a href="/education/billing" class="action-btn">
-        <div class="action-icon">💳</div>
-        <div class="action-label">Billing</div>
-      </a>
-      <a href="/education/messages" class="action-btn">
-        <div class="action-icon">💬</div>
-        <div class="action-label">Messages</div>
-      </a>
-      <a href="/education/support" class="action-btn">
-        <div class="action-icon">🎯</div>
-        <div class="action-label">Support</div>
-      </a>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12 fade-in">
+      <button onclick="showAddStudentModal()" class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
+        <div class="text-3xl mb-2">👶</div>
+        <h3 class="font-semibold mb-1">Add Student</h3>
+        <p class="text-sm text-gray-400">Add a child to your account</p>
+      </button>
+      <button onclick="showCoursesModal()" class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
+        <div class="text-3xl mb-2">📚</div>
+        <h3 class="font-semibold mb-1">Browse Courses</h3>
+        <p class="text-sm text-gray-400">Explore available programs</p>
+      </button>
+      <button onclick="loadSubscription()" class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
+        <div class="text-3xl mb-2">💳</div>
+        <h3 class="font-semibold mb-1">Billing</h3>
+        <p class="text-sm text-gray-400">Manage subscription</p>
+      </button>
+      <button class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
+        <div class="text-3xl mb-2">💬</div>
+        <h3 class="font-semibold mb-1">Support</h3>
+        <p class="text-sm text-gray-400">Get help</p>
+      </button>
     </div>
-    
-    <!-- Students Section -->
-    <div class="students-section">
-      <div class="section-header">
-        <h2>Your Students</h2>
-        <button class="btn-add-student" onclick="alert('Add student feature coming soon!')">+ Add Student</button>
+
+    <!-- My Students Section -->
+    <div class="mb-12 fade-in">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-semibold">My Students</h3>
+        <button onclick="showAddStudentModal()" class="btn-primary px-6 py-2 rounded-lg font-semibold">
+          + Add Student
+        </button>
       </div>
-      
-      <div class="students-grid" id="studentsGrid">
-        <!-- Students loaded dynamically -->
+
+      <!-- Loading State -->
+      <div id="studentsLoading" class="glass p-8 rounded-xl text-center">
+        <div class="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+        <p class="text-gray-400">Loading students...</p>
       </div>
+
+      <!-- Empty State -->
+      <div id="studentsEmpty" class="hidden glass p-12 rounded-xl text-center">
+        <div class="text-6xl mb-4">👶</div>
+        <h3 class="text-xl font-semibold mb-2">No students yet</h3>
+        <p class="text-gray-400 mb-6">Add your first student to get started!</p>
+        <button onclick="showAddStudentModal()" class="btn-primary px-8 py-3 rounded-lg font-semibold">
+          Add Student
+        </button>
+      </div>
+
+      <!-- Students Grid -->
+      <div id="studentsGrid" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
-    
+
     <!-- Billing Section -->
-    <div class="section-header">
-      <h2>Billing Overview</h2>
+    <div id="billingSection" class="hidden fade-in mb-12">
+      <h3 class="text-2xl font-semibold mb-6">Subscription & Billing</h3>
+      <div class="glass p-8 rounded-xl">
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <h4 class="text-xl font-semibold mb-1" id="subscriptionPlan">Loading...</h4>
+            <p class="text-3xl font-bold text-teal-400 mb-2" id="subscriptionPrice">$0</p>
+            <p class="text-sm text-gray-400" id="subscriptionCycle">per month</p>
+          </div>
+          <span class="px-4 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold" id="subscriptionStatus">Active</span>
+        </div>
+        <div class="border-t border-white/10 pt-6 space-y-3 text-sm">
+          <div class="flex justify-between">
+            <span class="text-gray-400">Next Billing Date</span>
+            <span id="nextBillingDate">Loading...</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-400">Students Enrolled</span>
+            <span id="studentsEnrolled">0</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-400">Payment Method</span>
+            <span id="paymentMethod">Loading...</span>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <div class="billing-card">
-      <div class="billing-header">
-        <h3>Current Subscription</h3>
-        <div class="billing-status">Active</div>
+
+  </div>
+
+  <!-- Add Student Modal -->
+  <div id="addStudentModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div class="glass rounded-2xl p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold">Add Student</h3>
+        <button onclick="closeAddStudentModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
       </div>
       
-      <div class="billing-info">
+      <form onsubmit="addStudent(event)" class="space-y-4">
         <div>
-          <div class="billing-item-label">Plan</div>
-          <div class="billing-item-value">Mastery (10-12 years)</div>
+          <label class="block text-sm font-semibold mb-2">First Name</label>
+          <input type="text" id="studentFirstName" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Emma">
         </div>
         <div>
-          <div class="billing-item-label">Monthly Payment</div>
-          <div class="billing-item-value">$49/month</div>
+          <label class="block text-sm font-semibold mb-2">Last Name</label>
+          <input type="text" id="studentLastName" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Johnson">
         </div>
         <div>
-          <div class="billing-item-label">Next Billing Date</div>
-          <div class="billing-item-value">April 15, 2026</div>
+          <label class="block text-sm font-semibold mb-2">Age</label>
+          <input type="number" id="studentAge" min="7" max="18" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="10">
         </div>
         <div>
-          <div class="billing-item-label">Payment Method</div>
-          <div class="billing-item-value">•••• 4242</div>
+          <label class="block text-sm font-semibold mb-2">Grade</label>
+          <select id="studentGrade" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <option value="">Select grade...</option>
+            <option value="1st">1st Grade</option>
+            <option value="2nd">2nd Grade</option>
+            <option value="3rd">3rd Grade</option>
+            <option value="4th">4th Grade</option>
+            <option value="5th">5th Grade</option>
+            <option value="6th">6th Grade</option>
+            <option value="7th">7th Grade</option>
+            <option value="8th">8th Grade</option>
+            <option value="9th">9th Grade</option>
+            <option value="10th">10th Grade</option>
+            <option value="11th">11th Grade</option>
+            <option value="12th">12th Grade</option>
+          </select>
         </div>
-      </div>
+        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold">
+          Add Student
+        </button>
+      </form>
     </div>
   </div>
-  
+
+  <!-- Browse Courses Modal -->
+  <div id="coursesModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div class="glass rounded-2xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold">Browse Courses</h3>
+        <button onclick="closeCoursesModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
+      </div>
+      
+      <div id="coursesLoading" class="text-center py-12">
+        <div class="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+        <p class="text-gray-400">Loading courses...</p>
+      </div>
+
+      <div id="coursesGrid" class="hidden grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </div>
+  </div>
+
+  <!-- Enroll Student Modal -->
+  <div id="enrollModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div class="glass rounded-2xl p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold">Enroll Student</h3>
+        <button onclick="closeEnrollModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
+      </div>
+      
+      <div class="mb-6">
+        <h4 class="text-lg font-semibold mb-2" id="enrollCourseName">Course Name</h4>
+        <p class="text-gray-400 text-sm" id="enrollCourseDescription">Course description</p>
+      </div>
+
+      <form onsubmit="enrollStudent(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold mb-2">Select Student</label>
+          <select id="enrollStudentSelect" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <option value="">Choose a student...</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold">
+          Enroll Now
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script>
+    const API_BASE = window.location.origin;
+    let currentCourseId = null;
+    let students = [];
+
     // Check authentication
     const token = localStorage.getItem('token');
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    
-    if (!token || !user.id || user.role !== 'parent') {
+    if (!token) {
       window.location.href = '/education/login';
     }
-    
-    // Logout function
+
+    // Logout
     function logout() {
       localStorage.removeItem('token');
-      localStorage.removeItem('user');
       window.location.href = '/education/login';
     }
-    
+
     // Load dashboard data
     async function loadDashboard() {
       try {
-        // Set user name
-        document.getElementById('userName').textContent = user.firstName + ' ' + user.lastName;
-        
-        // Fetch REAL dashboard data from API
-        const response = await fetch('/api/dashboard/parent', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          }
+        // Load user info
+        const userRes = await fetch(`${API_BASE}/api/auth/me`, {
+          headers: { 'Authorization': `Bearer ${token}` }
         });
+        if (!userRes.ok) throw new Error('Auth failed');
+        const userData = await userRes.json();
+        document.getElementById('parentName').textContent = userData.user.first_name || userData.user.email;
+
+        // Load students
+        await loadStudents();
+
+      } catch (error) {
+        console.error('Dashboard error:', error);
+        alert('Failed to load dashboard. Please refresh.');
+      }
+    }
+
+    // Load students
+    async function loadStudents() {
+      try {
+        const res = await fetch(`${API_BASE}/api/students/my-students`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) throw new Error('Failed to load students');
+        const data = await res.json();
+        students = data.students || [];
+
+        document.getElementById('studentsLoading').classList.add('hidden');
         
-        if (!response.ok) {
-          throw new Error('Failed to fetch dashboard data');
+        if (students.length === 0) {
+          document.getElementById('studentsEmpty').classList.remove('hidden');
+          document.getElementById('studentsGrid').classList.add('hidden');
+        } else {
+          document.getElementById('studentsEmpty').classList.add('hidden');
+          document.getElementById('studentsGrid').classList.remove('hidden');
+          renderStudents();
         }
+      } catch (error) {
+        console.error('Load students error:', error);
+        document.getElementById('studentsLoading').innerHTML = `
+          <p class="text-red-400">Failed to load students. Please refresh.</p>
+        `;
+      }
+    }
+
+    // Render students grid
+    function renderStudents() {
+      const grid = document.getElementById('studentsGrid');
+      grid.innerHTML = students.map(s => `
+        <div class="glass p-6 rounded-xl hover:bg-white/10 transition">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h4 class="text-xl font-semibold">${s.first_name} ${s.last_name}</h4>
+              <p class="text-sm text-gray-400">${s.age ? `Age ${s.age}` : 'Age not set'} ${s.grade ? `• ${s.grade}` : ''}</p>
+            </div>
+            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-semibold">
+              ${s.enrollment_status || 'Active'}
+            </span>
+          </div>
+          <div class="grid grid-cols-3 gap-4 text-center py-4 border-t border-white/10">
+            <div>
+              <p class="text-2xl font-bold text-teal-400">${s.courses_enrolled || 0}</p>
+              <p class="text-xs text-gray-400">Courses</p>
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-purple-400">${s.classes_attended || 0}</p>
+              <p class="text-xs text-gray-400">Classes</p>
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-yellow-400">0</p>
+              <p class="text-xs text-gray-400">Badges</p>
+            </div>
+          </div>
+          <button onclick="showCoursesForStudent('${s.id}')" class="w-full mt-4 btn-primary py-2 rounded-lg text-sm font-semibold">
+            Enroll in Course
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // Add student modal
+    function showAddStudentModal() {
+      document.getElementById('addStudentModal').classList.add('active');
+    }
+
+    function closeAddStudentModal() {
+      document.getElementById('addStudentModal').classList.remove('active');
+      document.getElementById('studentFirstName').value = '';
+      document.getElementById('studentLastName').value = '';
+      document.getElementById('studentAge').value = '';
+      document.getElementById('studentGrade').value = '';
+    }
+
+    async function addStudent(e) {
+      e.preventDefault();
+      
+      const firstName = document.getElementById('studentFirstName').value;
+      const lastName = document.getElementById('studentLastName').value;
+      const age = document.getElementById('studentAge').value;
+      const grade = document.getElementById('studentGrade').value;
+
+      try {
+        const res = await fetch(`${API_BASE}/api/students/add`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ firstName, lastName, age: age ? parseInt(age) : null, grade: grade || null })
+        });
+
+        if (!res.ok) {
+          const error = await res.json();
+          throw new Error(error.message || 'Failed to add student');
+        }
+
+        alert('Student added successfully! ✅');
+        closeAddStudentModal();
+        await loadStudents();
+      } catch (error) {
+        console.error('Add student error:', error);
+        alert('Failed to add student: ' + error.message);
+      }
+    }
+
+    // Browse courses modal
+    function showCoursesModal() {
+      document.getElementById('coursesModal').classList.add('active');
+      loadCourses();
+    }
+
+    function closeCoursesModal() {
+      document.getElementById('coursesModal').classList.remove('active');
+    }
+
+    function showCoursesForStudent(studentId) {
+      showCoursesModal();
+    }
+
+    async function loadCourses() {
+      try {
+        const res = await fetch(`${API_BASE}/api/courses/browse`);
+        if (!res.ok) throw new Error('Failed to load courses');
+        const data = await res.json();
+        const courses = data.courses || [];
+
+        document.getElementById('coursesLoading').classList.add('hidden');
         
-        const data = await response.json();
+        const grid = document.getElementById('coursesGrid');
+        grid.classList.remove('hidden');
         
-        // Display REAL students or show empty state
-        const studentsGrid = document.getElementById('studentsGrid');
-        if (data.students && data.students.length > 0) {
-          studentsGrid.innerHTML = data.students.map(student => `
-            <div class="student-card">
-              <div class="student-header">
-                <div class="student-avatar">${student.age >= 13 ? '👦' : '👧'}</div>
-                <div class="student-info">
-                  <h3>${student.first_name} ${student.last_name}</h3>
-                  <p>Age ${student.age || 'N/A'} • Grade ${student.grade || 'N/A'}</p>
-                </div>
+        if (courses.length === 0) {
+          grid.innerHTML = '<p class="text-center text-gray-400 col-span-full py-12">No courses available yet.</p>';
+        } else {
+          grid.innerHTML = courses.map(c => `
+            <div class="glass p-6 rounded-xl hover:bg-white/10 transition">
+              ${c.thumbnail_url ? `<img src="${c.thumbnail_url}" class="w-full h-40 object-cover rounded-lg mb-4" alt="${c.title}">` : '<div class="w-full h-40 bg-gradient-to-br from-teal-500 to-purple-500 rounded-lg mb-4 flex items-center justify-center text-4xl">📸</div>'}
+              <h4 class="text-lg font-semibold mb-2">${c.title}</h4>
+              <p class="text-sm text-gray-400 mb-4">${c.description || 'Learn the fundamentals of photography'}</p>
+              <div class="flex items-center justify-between mb-4 text-sm">
+                <span class="text-teal-400 font-semibold">$${c.price_monthly || 49}/month</span>
+                <span class="text-gray-400">${c.total_classes || 0} classes</span>
               </div>
-              
-              <div class="stats-row">
-                <div class="stat-item">
-                  <div class="stat-item-value">${student.courses_enrolled || 0}</div>
-                  <div class="stat-item-label">Courses</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-item-value">${student.lessons_completed || 0}</div>
-                  <div class="stat-item-label">Lessons</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-item-value">${student.badges_earned || 0}</div>
-                  <div class="stat-item-label">Badges</div>
-                </div>
-              </div>
-              
-              <div class="progress-section">
-                <div class="progress-label">Overall Progress</div>
-                <div class="progress-bar-container">
-                  <div class="progress-bar-fill" style="width: ${student.progress || 0}%"></div>
-                </div>
-              </div>
-              
-              <button class="btn-view-details" onclick="window.location.href='/student/${student.id}'">
-                View Full Report →
+              <button onclick="selectCourse('${c.id}', '${c.title.replace(/'/g, "\\'")}', '${(c.description || '').replace(/'/g, "\\'")})" class="w-full btn-primary py-2 rounded-lg text-sm font-semibold">
+                Enroll Student
               </button>
             </div>
           `).join('');
-        } else {
-          studentsGrid.innerHTML = `
-            <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.5);">
-              <div style="font-size: 64px; margin-bottom: 20px;">👨‍👩‍👧‍👦</div>
-              <h3 style="font-size: 24px; margin-bottom: 12px; color: rgba(255,255,255,0.8);">No Students Yet</h3>
-              <p style="font-size: 16px; margin-bottom: 24px;">Add your first student to start tracking their progress!</p>
-              <button style="padding: 14px 32px; background: #4794A6; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;" onclick="alert('Add student feature coming soon!')">+ Add Student</button>
-            </div>
-          `;
         }
-        
-        // Update billing info with REAL data
-        if (data.subscription) {
-          // Update subscription details
-          document.querySelector('.billing-card').style.display = 'block';
-        } else {
-          document.querySelector('.billing-card').innerHTML = `
-            <div style="text-align: center; padding: 40px 20px; color: rgba(255,255,255,0.5);">
-              <div style="font-size: 48px; margin-bottom: 16px;">💳</div>
-              <h3 style="font-size: 20px; margin-bottom: 12px; color: rgba(255,255,255,0.8);">No Active Subscription</h3>
-              <p style="font-size: 16px;">Enroll in a course to get started!</p>
-            </div>
-          `;
-        }
-        
-        // Hide loading, show content
-        document.getElementById('loadingState').style.display = 'none';
-        document.getElementById('dashboardContent').style.display = 'block';
-        
       } catch (error) {
-        console.error('Error loading dashboard:', error);
-        document.getElementById('loadingState').textContent = 'Failed to load dashboard. Please refresh.';
+        console.error('Load courses error:', error);
+        document.getElementById('coursesLoading').innerHTML = '<p class="text-red-400">Failed to load courses.</p>';
       }
     }
-    
-    // Load on page load
+
+    // Enroll modal
+    function selectCourse(courseId, courseName, courseDescription) {
+      currentCourseId = courseId;
+      document.getElementById('enrollCourseName').textContent = courseName;
+      document.getElementById('enrollCourseDescription').textContent = courseDescription;
+      
+      // Populate student dropdown
+      const select = document.getElementById('enrollStudentSelect');
+      select.innerHTML = '<option value="">Choose a student...</option>' + 
+        students.map(s => `<option value="${s.id}">${s.first_name} ${s.last_name}</option>`).join('');
+      
+      closeCoursesModal();
+      document.getElementById('enrollModal').classList.add('active');
+    }
+
+    function closeEnrollModal() {
+      document.getElementById('enrollModal').classList.remove('active');
+      currentCourseId = null;
+    }
+
+    async function enrollStudent(e) {
+      e.preventDefault();
+      
+      const studentId = document.getElementById('enrollStudentSelect').value;
+      if (!studentId || !currentCourseId) {
+        alert('Please select a student');
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API_BASE}/api/enrollments/create`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ studentId, courseId: currentCourseId })
+        });
+
+        if (!res.ok) {
+          const error = await res.json();
+          throw new Error(error.message || 'Failed to enroll');
+        }
+
+        alert('Student enrolled successfully! 🎉');
+        closeEnrollModal();
+        await loadStudents();
+      } catch (error) {
+        console.error('Enroll error:', error);
+        alert('Failed to enroll: ' + error.message);
+      }
+    }
+
+    // Load subscription
+    async function loadSubscription() {
+      // Placeholder - implement subscription fetching later
+      document.getElementById('billingSection').classList.remove('hidden');
+    }
+
+    // Initialize
     loadDashboard();
   </script>
+
 </body>
 </html>
