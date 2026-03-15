@@ -4,32 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enterprise Commercial Photography - Acromatico</title>
+  
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     :root {
       --primary: #1d1d1f;
       --secondary: #6e6e73;
       --accent: #4794A6;
+      --gold: #D4AF37;
       --bg: #ffffff;
       --bg-gray: #f5f5f7;
       --border: #d2d2d7;
-      --success: #34c759;
     }
-
+    
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+      background: var(--bg);
       color: var(--primary);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
     }
-
+    
     /* NAVIGATION */
     nav {
       position: fixed;
@@ -41,7 +37,7 @@
       z-index: 1000;
       padding: 16px 40px;
     }
-
+    
     .nav-container {
       max-width: 1400px;
       margin: 0 auto;
@@ -49,449 +45,587 @@
       justify-content: space-between;
       align-items: center;
     }
-
-    .logo img {
-      height: 40px;
-      width: auto;
-    }
-
+    
+    .logo img { height: 40px; }
+    
     .nav-back {
       color: var(--accent);
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-
-    /* PROGRESS BAR */
-    .progress-bar {
-      position: fixed;
-      top: 73px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: #e5e5e5;
-      z-index: 999;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: var(--accent);
-      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      width: 14.28%;
-    }
-
-    /* MAIN LAYOUT */
-    .booking-layout {
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 40px;
+    
+    /* HERO SECTION */
+    .hero {
+      padding: 120px 40px 80px;
       max-width: 1400px;
       margin: 0 auto;
-      padding: 120px 40px 80px;
+      text-align: center;
     }
-
-    /* LEFT: STEPS */
-    .steps-container {
-      max-width: 700px;
-    }
-
-    .step {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
-
-    .step.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .step-number {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-
-    .step-question {
-      font-size: 40px;
-      font-weight: 600;
-      margin-bottom: 16px;
+    
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 300;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
       line-height: 1.1;
     }
-
-    .step-description {
-      font-size: 17px;
+    
+    .hero .subtitle {
+      font-size: 24px;
       color: var(--secondary);
       margin-bottom: 40px;
-      line-height: 1.6;
+      font-weight: 300;
     }
-
-    /* OPTION CARDS */
-    .options-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .option-card {
-      background: white;
-      border: 2px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-
-    .option-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-      box-shadow: 0 12px 32px rgba(71, 148, 166, 0.15);
-    }
-
-    .option-card.selected {
-      border-color: var(--accent);
-      background: rgba(71, 148, 166, 0.05);
-      box-shadow: 0 8px 24px rgba(71, 148, 166, 0.2);
-    }
-
-    .option-card.selected::before {
-      content: '✓';
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: var(--accent);
-      color: white;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
+    
+    .hero .stats {
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-weight: 600;
-      font-size: 16px;
+      gap: 60px;
+      margin: 60px 0;
+      flex-wrap: wrap;
     }
-
-    .option-title {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 8px;
+    
+    .stat {
+      text-align: center;
     }
-
-    .option-price {
-      font-size: 28px;
-      font-weight: 600;
+    
+    .stat-number {
+      font-size: 48px;
+      font-weight: 200;
       color: var(--accent);
-      margin-bottom: 16px;
+      display: block;
     }
-
-    .option-description {
-      font-size: 15px;
+    
+    .stat-label {
+      font-size: 14px;
       color: var(--secondary);
-      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 8px;
     }
-
-    .option-badge {
+    
+    .cta-primary {
       display: inline-block;
       background: var(--accent);
       color: white;
-      padding: 4px 12px;
+      padding: 18px 48px;
       border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    /* FORM INPUTS */
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="date"],
-    input[type="number"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 16px 20px;
-      font-size: 17px;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 20px;
-      font-family: inherit;
-      transition: all 0.3s;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(71, 148, 166, 0.1);
-    }
-
-    label {
-      display: block;
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 8px;
-      color: var(--primary);
-    }
-
-    /* BUTTONS */
-    .button-group {
-      display: flex;
-      gap: 16px;
-      margin-top: 40px;
-    }
-
-    .btn {
-      padding: 16px 32px;
+      text-decoration: none;
       font-size: 17px;
       font-weight: 500;
-      border-radius: 12px;
+      transition: all 0.3s ease;
       border: none;
       cursor: pointer;
-      transition: all 0.3s;
-      font-family: inherit;
     }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      flex: 1;
-    }
-
-    .btn-primary:hover {
+    
+    .cta-primary:hover {
       background: #3a7a8a;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(71, 148, 166, 0.3);
+      box-shadow: 0 8px 30px rgba(71, 148, 166, 0.3);
     }
-
-    .btn-secondary {
-      background: white;
-      color: var(--accent);
-      border: 2px solid var(--accent);
+    
+    /* LOGO WALL */
+    .logo-wall {
+      background: var(--bg-gray);
+      padding: 60px 40px;
+      text-align: center;
     }
-
-    .btn-secondary:hover {
-      background: rgba(71, 148, 166, 0.1);
+    
+    .logo-wall h3 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
     }
-
-    /* RIGHT: PREVIEW SIDEBAR */
-    .preview-container {
-      position: sticky;
-      top: 120px;
-      height: fit-content;
-    }
-
-    .preview-sidebar {
-      background: white;
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    }
-
-    .preview-sidebar h3 {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 24px;
-      color: var(--primary);
-    }
-
-    .preview-item {
-      display: flex;
-      justify-content: space-between;
+    
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
       align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
     }
-
-    .preview-item:last-of-type {
-      border-bottom: none;
+    
+    .client-logo {
+      opacity: 0.4;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--primary);
+      transition: opacity 0.3s;
     }
-
-    .preview-label {
+    
+    .client-logo:hover { opacity: 0.8; }
+    
+    /* CASE STUDIES */
+    .case-studies {
+      padding: 100px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-size: 48px;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 40px;
+    }
+    
+    .case-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .case-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    
+    .case-image {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      font-weight: 300;
+    }
+    
+    .case-content {
+      padding: 32px;
+    }
+    
+    .case-client {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    
+    .case-title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    
+    .case-description {
       font-size: 15px;
       color: var(--secondary);
+      margin-bottom: 24px;
+      line-height: 1.6;
     }
-
-    .preview-value {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .preview-total {
-      margin-top: 24px;
+    
+    .case-results {
+      display: flex;
+      gap: 24px;
       padding-top: 24px;
-      border-top: 2px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      border-top: 1px solid var(--border);
     }
-
-    .preview-total span:first-child {
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .preview-total span:last-child {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    /* CHECKBOXES */
-    .checkbox-option {
-      background: white;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .checkbox-option:hover {
-      border-color: var(--accent);
-      background: rgba(71, 148, 166, 0.02);
-    }
-
-    .checkbox-option input[type="checkbox"] {
-      width: 24px;
-      height: 24px;
-      margin: 0;
-      cursor: pointer;
-    }
-
-    .checkbox-content {
+    
+    .case-metric {
       flex: 1;
     }
-
-    .checkbox-title {
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .checkbox-description {
-      font-size: 14px;
-      color: var(--secondary);
-    }
-
-    .checkbox-price {
-      font-size: 18px;
-      font-weight: 600;
+    
+    .metric-value {
+      font-size: 24px;
+      font-weight: 500;
       color: var(--accent);
     }
-
-    /* RESPONSIVE */
-    @media (max-width: 968px) {
-      .booking-layout {
-        grid-template-columns: 1fr;
-        padding: 100px 20px 60px;
-      }
-
-      .preview-container {
-        position: relative;
-        top: 0;
-      }
-
-      .step-question {
-        font-size: 32px;
-      }
-
-      .options-grid {
-        grid-template-columns: 1fr;
-      }
+    
+    .metric-label {
+      font-size: 12px;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
     }
-
-    /* TEAM SIZE SELECTOR */
-    .team-size-grid {
+    
+    /* PROCESS SECTION */
+    .process {
+      background: var(--bg-gray);
+      padding: 100px 40px;
+    }
+    
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .process-step {
+      text-align: center;
+    }
+    
+    .step-number-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 300;
+      margin: 0 auto 24px;
+    }
+    
+    .process-step h4 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    
+    .process-step p {
+      font-size: 15px;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+    
+    /* PACKAGES */
+    .packages {
+      padding: 100px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      margin-top: 60px;
+    }
+    
+    .package-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .package-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 20px 60px rgba(71, 148, 166, 0.15);
+    }
+    
+    .package-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    
+    .package-badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: var(--gold);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .package-name {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    
+    .package-price {
+      font-size: 48px;
+      font-weight: 200;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    
+    .package-price-note {
+      font-size: 14px;
+      color: var(--secondary);
+      margin-bottom: 32px;
+    }
+    
+    .package-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    
+    .package-features li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .package-features li:before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 600;
+      margin-right: 12px;
+    }
+    
+    .package-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+      background: var(--accent);
+      color: white;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .package-cta:hover {
+      background: #3a7a8a;
+    }
+    
+    /* TESTIMONIALS */
+    .testimonials {
+      background: var(--primary);
+      color: white;
+      padding: 100px 40px;
+    }
+    
+    .testimonials .section-title {
+      color: white;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 60px auto 0;
+    }
+    
+    .testimonial-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 40px;
+    }
+    
+    .testimonial-text {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    
+    .testimonial-author {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    
+    .testimonial-role {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 4px;
+    }
+    
+    /* TEAM */
+    .team {
+      padding: 100px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .team-member {
+      text-align: center;
+    }
+    
+    .team-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, #3a7a8a 100%);
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+      font-weight: 300;
+    }
+    
+    .team-name {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .team-role {
+      font-size: 15px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    
+    .team-bio {
+      font-size: 14px;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+    
+    /* GUARANTEE */
+    .guarantee {
+      background: var(--bg-gray);
+      padding: 80px 40px;
+      text-align: center;
+    }
+    
+    .guarantee-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .guarantee h2 {
+      font-size: 42px;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    
+    .guarantee-list {
+      list-style: none;
+      text-align: left;
+      margin: 40px 0;
+    }
+    
+    .guarantee-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 17px;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .guarantee-list li:before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 24px;
+      margin-right: 16px;
+    }
+    
+    /* CTA SECTION */
+    .final-cta {
+      padding: 100px 40px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .final-cta h2 {
+      font-size: 56px;
+      font-weight: 300;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    
+    .final-cta p {
+      font-size: 20px;
+      color: var(--secondary);
+      margin-bottom: 40px;
+    }
+    
+    .availability {
+      background: rgba(71, 148, 166, 0.1);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 40px 0;
+    }
+    
+    .availability h3 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+    
+    .availability-slots {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
-      margin-bottom: 32px;
+      margin-top: 24px;
     }
-
-    .team-option {
+    
+    .slot {
       background: white;
-      border: 2px solid var(--border);
+      padding: 16px;
       border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s;
+      border: 1px solid var(--border);
     }
-
-    .team-option:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .team-option.selected {
-      border-color: var(--accent);
-      background: rgba(71, 148, 166, 0.05);
-    }
-
-    .team-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .team-label {
-      font-size: 16px;
+    
+    .slot-quarter {
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
-
-    .team-price {
+    
+    .slot-status {
       font-size: 14px;
       color: var(--secondary);
     }
-
-    .payment-option {
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 16px;
-      cursor: pointer;
-      transition: all 0.3s;
-      background: white;
+    
+    .slot-status.limited {
+      color: #f5a623;
+      font-weight: 500;
     }
-
-    .payment-option:hover {
-      border-color: var(--accent);
-      box-shadow: 0 4px 12px rgba(71, 148, 166, 0.1);
+    
+    .slot-status.waitlist {
+      color: #d0021b;
+      font-weight: 500;
     }
-
-    .payment-option.active-option {
-      border: 3px solid var(--accent);
-      background: rgba(71, 148, 166, 0.05);
-    }
-
-    .payment-button:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(99, 91, 255, 0.2);
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 42px; }
+      .hero .subtitle { font-size: 18px; }
+      .section-title { font-size: 36px; }
+      .case-grid,
+      .package-grid,
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .final-cta h2 { font-size: 36px; }
     }
   </style>
-  
-  <!-- PDF Generation Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
@@ -499,1361 +633,350 @@
   <nav>
     <div class="nav-container">
       <div class="logo">
-        <img src="/static/acromatico-logo-dark.png" alt="Acromatico" style="height: 40px;">
+        <img src="/static/acromatico-logo-dark.png" alt="Acromatico">
       </div>
       <a href="/photography" class="nav-back">← Back to Photography</a>
     </div>
   </nav>
 
-  <!-- PROGRESS BAR -->
-  <div class="progress-bar">
-    <div class="progress-fill" id="progressBar"></div>
-  </div>
-
-  <!-- MAIN LAYOUT -->
-  <div class="booking-layout">
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Enterprise Commercial Photography</h1>
+    <p class="subtitle">Trusted by Fortune 500 brands, global agencies, and industry leaders</p>
     
-    <!-- LEFT: STEPS -->
-    <div class="steps-container">
-
-      <!-- STEP 1: EVENT DETAILS -->
-      <div class="step active" id="step1">
-        <div class="step-number">Step 1 of 7</div>
-        <h1 class="step-question">Tell us about your event</h1>
-        <p class="step-description">We'll use this information to create a customized photography package for your corporate event.</p>
-
-        <label>Event Name *</label>
-        <input type="text" id="eventName" placeholder="e.g., Apple Product Launch 2025">
-
-        <label>Event Date *</label>
-        <input type="date" id="eventDate">
-
-        <label>Event Type *</label>
-        <select id="eventType">
-          <option value="">Select event type...</option>
-          <option value="conference">Corporate Conference / Summit</option>
-          <option value="product-launch">Product Launch / Brand Activation</option>
-          <option value="trade-show">Trade Show / Exhibition</option>
-          <option value="gala">Gala / Award Ceremony</option>
-          <option value="team-building">Team Building / Company Retreat</option>
-          <option value="headshots">Executive Headshots / Team Photos</option>
-          <option value="sports">Sports Event / Tournament</option>
-          <option value="festival">Festival / Concert</option>
-          <option value="other">Other</option>
-        </select>
-
-        <label>Venue / Location *</label>
-        <input type="text" id="eventLocation" placeholder="e.g., Miami Convention Center">
-
-        <label>Expected Attendance</label>
-        <select id="attendance">
-          <option value="">Select attendance...</option>
-          <option value="0-50">0-50 people</option>
-          <option value="51-100">51-100 people</option>
-          <option value="101-250">101-250 people</option>
-          <option value="251-500">251-500 people</option>
-          <option value="501-1000">501-1,000 people</option>
-          <option value="1000+">1,000+ people</option>
-        </select>
-
-        <div class="button-group">
-          <button class="btn btn-primary" onclick="validateStep1()">Continue →</button>
-        </div>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-number">$50M+</span>
+        <span class="stat-label">Campaign Value Delivered</span>
       </div>
-
-      <!-- STEP 2: COVERAGE SELECTION -->
-      <div class="step" id="step2">
-        <div class="step-number">Step 2 of 7</div>
-        <h1 class="step-question">Select your coverage package</h1>
-        <p class="step-description">Choose the duration that best fits your event schedule. All packages include professional editing and high-resolution digital delivery.</p>
-
-        <div class="options-grid">
-          <div class="option-card" onclick="selectCoverage(this, 'half-day', 2400, 4, 400)">
-            <div class="option-title">Half-Day Coverage</div>
-            <div class="option-price">$2,400</div>
-            <div class="option-description">
-              ✓ Up to 4 hours of coverage<br>
-              ✓ Up to 400 professionally edited images<br>
-              ✓ Online gallery with download access<br>
-              ✓ Full commercial usage rights<br>
-              ✓ 30-day delivery
-            </div>
-          </div>
-
-          <div class="option-card" onclick="selectCoverage(this, 'full-day', 4200, 8, 800)">
-            <span class="option-badge">POPULAR</span>
-            <div class="option-title">Full-Day Coverage</div>
-            <div class="option-price">$4,200</div>
-            <div class="option-description">
-              ✓ Up to 8 hours of coverage<br>
-              ✓ Up to 800 professionally edited images<br>
-              ✓ Online gallery with download access<br>
-              ✓ Full commercial usage rights<br>
-              ✓ 30-day delivery
-            </div>
-          </div>
-
-          <div class="option-card" onclick="selectCoverage(this, 'extended', 5800, 12, 1200)">
-            <div class="option-title">Extended Coverage</div>
-            <div class="option-price">$5,800</div>
-            <div class="option-description">
-              ✓ Up to 12 hours of coverage<br>
-              ✓ Up to 1,200 professionally edited images<br>
-              ✓ Online gallery with download access<br>
-              ✓ Full commercial usage rights<br>
-              ✓ 30-day delivery
-            </div>
-          </div>
-
-          <div class="option-card" onclick="selectCoverage(this, 'multi-day', 0, 0, 0)">
-            <div class="option-title">Multi-Day Event</div>
-            <div class="option-price">Custom</div>
-            <div class="option-description">
-              ✓ 2-7 days of coverage<br>
-              ✓ Up to 800 images per day<br>
-              ✓ Full commercial usage rights<br>
-              ✓ Custom delivery timeline<br>
-              ✓ Dedicated project manager
-            </div>
-          </div>
-        </div>
-
-        <div id="multiDayOptions" style="display: none; margin-bottom: 32px;">
-          <label>Number of Event Days</label>
-          <select id="numberOfDays" onchange="calculateMultiDay()">
-            <option value="2">2 Days ($7,800)</option>
-            <option value="3">3 Days ($11,400)</option>
-            <option value="4">4 Days ($14,800)</option>
-            <option value="5">5 Days ($18,000)</option>
-            <option value="6">6 Days ($21,000)</option>
-            <option value="7">7 Days ($24,000)</option>
-          </select>
-        </div>
-
-        <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
-          <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
-        </div>
+      <div class="stat">
+        <span class="stat-number">200+</span>
+        <span class="stat-label">Enterprise Projects</span>
       </div>
-
-      <!-- STEP 3: TEAM SIZE -->
-      <div class="step" id="step3">
-        <div class="step-number">Step 3 of 7</div>
-        <h1 class="step-question">How many photographers do you need?</h1>
-        <p class="step-description">Larger teams provide comprehensive coverage from multiple angles and can capture simultaneous activities.</p>
-
-        <div class="team-size-grid">
-          <div class="team-option selected" onclick="selectTeamSize(this, 'solo', 0)">
-            <div class="team-icon">📷</div>
-            <div class="team-label">Solo Photographer</div>
-            <div class="team-price">Included</div>
-          </div>
-
-          <div class="team-option" onclick="selectTeamSize(this, '2-person', 1800)">
-            <div class="team-icon">📷📷</div>
-            <div class="team-label">2-Person Team</div>
-            <div class="team-price">+$1,800</div>
-          </div>
-
-          <div class="team-option" onclick="selectTeamSize(this, '3-person', 3200)">
-            <div class="team-icon">📷📷📷</div>
-            <div class="team-label">3-Person Team</div>
-            <div class="team-price">+$3,200</div>
-          </div>
-
-          <div class="team-option" onclick="selectTeamSize(this, 'custom', 0)">
-            <div class="team-icon">👥</div>
-            <div class="team-label">Custom Team</div>
-            <div class="team-price">Contact us</div>
-          </div>
-        </div>
-
-        <h3 style="font-size: 20px; margin-top: 40px; margin-bottom: 20px;">Add Video Coverage</h3>
-        <p style="font-size: 15px; color: var(--secondary); margin-bottom: 20px;">Select any combination of video services for comprehensive event documentation.</p>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="keynoteVideo" onchange="toggleVideoPackage('keynoteVideo', 1800)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Keynote Speaker Coverage</div>
-            <div class="checkbox-description">Dedicated videographer for main stage presentations and speeches</div>
-          </div>
-          <div class="checkbox-price">+$1,800</div>
-        </div>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="multiCamVideo" onchange="toggleVideoPackage('multiCamVideo', 2800)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Multi-Camera Video Production</div>
-            <div class="checkbox-description">2-3 camera angles with professional switching and editing (5-10 min highlight reel)</div>
-          </div>
-          <div class="checkbox-price">+$2,800</div>
-        </div>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="bRollVideo" onchange="toggleVideoPackage('bRollVideo', 1200)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">B-Roll & Atmosphere Package</div>
-            <div class="checkbox-description">Venue details, attendee interactions, and ambient footage for social media</div>
-          </div>
-          <div class="checkbox-price">+$1,200</div>
-        </div>
-
-        <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
-          <button class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
-        </div>
+      <div class="stat">
+        <span class="stat-number">95%</span>
+        <span class="stat-label">Client Retention</span>
       </div>
-
-      <!-- STEP 4: DELIVERABLES -->
-      <div class="step" id="step4">
-        <div class="step-number">Step 4 of 7</div>
-        <h1 class="step-question">Customize your deliverables</h1>
-        <p class="step-description">Enhance your package with premium add-ons for faster delivery, additional coverage, and professional products.</p>
-
-        <h3 style="font-size: 20px; margin-bottom: 20px;">Delivery Options</h3>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="rushDelivery" onchange="toggleAddon('rushDelivery', 800)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Rush Delivery (7 Days)</div>
-            <div class="checkbox-description">Receive fully edited images within one week of your event</div>
-          </div>
-          <div class="checkbox-price">+$800</div>
-        </div>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="sameDaySneak" onchange="toggleAddon('sameDaySneak', 1200)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Same-Day Sneak Peek</div>
-            <div class="checkbox-description">50 edited images delivered within 4 hours for social media</div>
-          </div>
-          <div class="checkbox-price">+$1,200</div>
-        </div>
-
-        <h3 style="font-size: 20px; margin: 32px 0 20px;">Additional Services</h3>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="droneFootage" onchange="toggleAddon('droneFootage', 1500)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Drone Aerial Photography</div>
-            <div class="checkbox-description">Stunning aerial shots of your venue and event</div>
-          </div>
-          <div class="checkbox-price">+$1,500</div>
-        </div>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="liveSocial" onchange="toggleAddon('liveSocial', 900)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Live Social Media Coverage</div>
-            <div class="checkbox-description">Real-time photo posting to your social channels during the event</div>
-          </div>
-          <div class="checkbox-price">+$900</div>
-        </div>
-
-        <div class="checkbox-option">
-          <input type="checkbox" id="rawFiles" onchange="toggleAddon('rawFiles', 600)">
-          <div class="checkbox-content">
-            <div class="checkbox-title">Raw Files Archive</div>
-            <div class="checkbox-description">Unedited RAW files delivered via secure download</div>
-          </div>
-          <div class="checkbox-price">+$600</div>
-        </div>
-
-        <h3 style="font-size: 20px; margin: 32px 0 20px;">Physical Delivery</h3>
-
-        <div style="background: white; border: 2px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-            <div>
-              <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">Custom Branded USB Drives</div>
-              <div style="font-size: 14px; color: var(--secondary);">All images on USB drives with your company logo</div>
-              <div style="font-size: 13px; color: var(--secondary); margin-top: 8px;">$150 for first drive, $50 for each additional</div>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <label style="font-size: 15px; margin: 0;">Quantity:</label>
-            <input type="number" id="usbQuantity" min="0" max="50" value="0" onchange="updateUSBQuantity()" style="width: 100px; padding: 12px; font-size: 17px; border: 2px solid var(--border); border-radius: 8px; margin: 0;">
-            <span id="usbPriceDisplay" style="font-size: 18px; font-weight: 600; color: var(--accent);">$0</span>
-          </div>
-        </div>
-
-        <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
-          <button class="btn btn-primary" onclick="nextStep(5)">Continue →</button>
-        </div>
+      <div class="stat">
+        <span class="stat-number">3.2x</span>
+        <span class="stat-label">Average ROI</span>
       </div>
-
-      <!-- STEP 5: CLIENT INFO -->
-      <div class="step" id="step5">
-        <div class="step-number">Step 5 of 7</div>
-        <h1 class="step-question">Company & contact information</h1>
-        <p class="step-description">We'll use this information for your contract and invoicing.</p>
-
-        <label>Company Name *</label>
-        <input type="text" id="companyName" placeholder="e.g., Apple Inc.">
-
-        <label>Contact Person (Full Name) *</label>
-        <input type="text" id="contactName" placeholder="John Smith">
-
-        <label>Title / Position *</label>
-        <input type="text" id="contactTitle" placeholder="e.g., Event Manager">
-
-        <label>Email Address *</label>
-        <input type="email" id="contactEmail" placeholder="john.smith@company.com">
-
-        <label>Phone Number *</label>
-        <input type="tel" id="contactPhone" placeholder="(555) 123-4567">
-
-        <label>Billing Address</label>
-        <textarea id="billingAddress" rows="3" placeholder="Street Address, City, State, ZIP"></textarea>
-
-        <label>Purchase Order Number (if applicable)</label>
-        <input type="text" id="poNumber" placeholder="Optional">
-
-        <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
-          <button class="btn btn-primary" onclick="validateStep5()">Continue →</button>
-        </div>
-      </div>
-
-      <!-- STEP 6: CONTRACT -->
-      <div class="step" id="step6">
-        <div class="step-number">Step 6 of 7</div>
-        <h1 class="step-question">Review & sign agreement</h1>
-        <p class="step-description">Please review the service agreement below and sign electronically to proceed.</p>
-
-        <div style="background: white; border-radius: 16px; padding: 40px; margin-bottom: 32px; border: 2px solid var(--border);">
-          <h2 style="text-align: center; font-size: 28px; margin-bottom: 32px; letter-spacing: 2px;">ENTERPRISE EVENT PHOTOGRAPHY AGREEMENT</h2>
-          
-          <!-- CLIENT INFO -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Client Information</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">
-              <strong style="font-weight: 400;">Company:</strong> <span id="contractCompany">Company Name</span><br>
-              <strong style="font-weight: 400;">Contact:</strong> <span id="contractContact">Contact Name</span>, <span id="contractTitle">Title</span><br>
-              <strong style="font-weight: 400;">Email:</strong> <span id="contractEmail">email@company.com</span><br>
-              <strong style="font-weight: 400;">Phone:</strong> <span id="contractPhone">(000) 000-0000</span>
-            </p>
-          </div>
-
-          <!-- EVENT DETAILS -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Event Details</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">
-              <strong style="font-weight: 400;">Event Name:</strong> <span id="contractEventName">Event Name</span><br>
-              <strong style="font-weight: 400;">Date:</strong> <span id="contractEventDate">MM/DD/YYYY</span><br>
-              <strong style="font-weight: 400;">Type:</strong> <span id="contractEventType">Conference</span><br>
-              <strong style="font-weight: 400;">Venue:</strong> <span id="contractVenue">Venue Location</span>
-            </p>
-          </div>
-
-          <!-- SERVICES PROVIDED -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Services Provided</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">
-              <strong style="font-weight: 400;">Coverage:</strong> <span id="contractCoverage">Full-Day Coverage</span><br>
-              <strong style="font-weight: 400;">Team:</strong> <span id="contractTeam">Solo Photographer</span><br>
-              <strong style="font-weight: 400;">Video:</strong> <span id="contractVideo">None</span><br>
-              <strong style="font-weight: 400;">Deliverables:</strong> <span id="contractDeliverables">Professional edited images, online gallery</span>
-            </p>
-          </div>
-
-          <!-- TOTAL INVESTMENT -->
-          <div style="margin-bottom: 32px; background: rgba(71, 148, 166, 0.08); padding: 24px; border-radius: 12px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6;">Total Investment</h4>
-            <p style="font-size: 32px; font-weight: 300; margin: 0; color: #4794A6;">$<span id="contractTotal">0</span></p>
-          </div>
-
-          <!-- PAYMENT TERMS -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Payment Terms</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Client agrees to pay Acromatico <strong style="font-weight: 400;">$<span id="contractTotal2">0</span> (Lump Sum All-Inclusive)</strong> in consideration for the professional event photography services to be rendered by Acromatico.</p>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">A <strong style="font-weight: 400;">non-refundable deposit of 50%</strong> is required to reserve the specified services and event date. The deposit will be subtracted from the total payment owed by Client upon completion of services.</p>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">The remaining balance of <strong style="font-weight: 400;">50%</strong> is due <strong style="font-weight: 400;">7 days prior to the event date</strong>. Acromatico does not begin post-production work or deliver final images until final payment is received.</p>
-          </div>
-
-          <!-- DELIVERABLES & TIMELINE -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Deliverables & Timeline</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico will provide Client with professionally edited high-resolution images via secure online gallery within <strong style="font-weight: 400;">30 business days</strong> of event completion, unless Rush Delivery or Same-Day Sneak Peek service has been purchased.</p>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">All images will be professionally color-corrected, exposure-adjusted, and optimized for both web and print use. Images will remain available for download for a minimum of <strong style="font-weight: 400;">90 days</strong> from delivery date.</p>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">If Rush Delivery (7-day) is selected, edited images will be delivered within 7 business days. If Same-Day Sneak Peek is selected, a curated selection of 20-30 edited images will be delivered within 24 hours of event conclusion.</p>
-          </div>
-
-          <!-- CANCELLATION POLICY -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Cancellation Policy</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;"><strong style="font-weight: 400;">All deposit fees are non-refundable.</strong> A minimum of 60 days notice is required for cancellation of this contract by Client. Any cancellation made with less than 60 days notice prior to the agreed upon event date will result in full payment by Client.</p>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">If cancellation is initiated by Acromatico due to circumstances beyond our control, all money paid to Acromatico from Client shall be fully refunded, including the deposit fee. Refund shall be paid out within 30 calendar days from the cancellation date.</p>
-          </div>
-
-          <!-- COPYRIGHT & USAGE RIGHTS -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Copyright & Usage Rights</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico retains copyright ownership of all images produced. Upon final payment, Client receives a <strong style="font-weight: 400;">perpetual, non-exclusive license</strong> to use the images for the following purposes:</p>
-            <p style="margin-bottom: 8px; margin-left: 20px; font-weight: 300;">• Internal company communications and presentations</p>
-            <p style="margin-bottom: 8px; margin-left: 20px; font-weight: 300;">• Social media, website, and marketing materials</p>
-            <p style="margin-bottom: 8px; margin-left: 20px; font-weight: 300;">• Press releases and media kits</p>
-            <p style="margin-bottom: 12px; margin-left: 20px; font-weight: 300;">• Annual reports and corporate publications</p>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Client agrees that Acromatico may use images from this event for portfolio, website, social media, and promotional purposes. If Client requires exclusive rights or image usage restrictions, a separate licensing agreement must be negotiated.</p>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Images may not be resold, sublicensed, or used for commercial purposes beyond Client's own business operations without written permission from Acromatico.</p>
-          </div>
-
-          <!-- PERFORMANCE OF SERVICES -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Performance of Services</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico agrees to provide professional event photography services as specified in the Services Provided section, with full artistic discretion for composition, lighting, and editing style.</p>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">If additional coverage hours are required beyond the contracted package, they will be billed at <strong style="font-weight: 400;">$400 per hour per photographer</strong>. Additional hours must be approved by Client before they are rendered.</p>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Acromatico is not responsible for missed shots due to event schedule changes, key individuals not being present, venue restrictions, or details not communicated to Acromatico in advance.</p>
-          </div>
-
-          <!-- VENUE & LOCATION REQUIREMENTS -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Venue & Location Requirements</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico is limited by venue guidelines and regulations. Client agrees to coordinate with venue management to ensure photographer access to all necessary areas. If venue restrictions prevent specific shots, Acromatico is not liable.</p>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">If the event venue is located more than 50 miles from Fort Lauderdale, FL, travel expenses (mileage at $0.65/mile or airfare, accommodations, and ground transportation) will be invoiced separately unless already included in the package price.</p>
-          </div>
-
-          <!-- FORCE MAJEURE -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Force Majeure</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">If performance of this contract is prevented by causes beyond either party's reasonable control (acts of God, fire, natural disasters, pandemics, government restrictions, illness, etc.), the affected party shall provide written notice, and obligations will be suspended.</p>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">In such cases, Acromatico will make every reasonable effort to secure a qualified replacement photographer. If a suitable replacement cannot be found, liability is limited to a full refund of payments received.</p>
-          </div>
-
-          <!-- LIMIT OF LIABILITY -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Limit of Liability</h4>
-            <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico takes the utmost care in capturing, transporting, and processing all images. However, in the unlikely event that images are lost, stolen, or destroyed for reasons within or beyond Acromatico's control, liability is limited to a full refund of all payments received.</p>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Acromatico carries professional liability insurance and equipment backup systems to minimize risk. Digital files are backed up to multiple secure locations throughout and after each event.</p>
-          </div>
-
-          <!-- INDEMNIFICATION -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Indemnification</h4>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Client agrees to indemnify and hold harmless Acromatico from any claims, damages, or legal fees that arise from litigation by Client against Acromatico resulting from the acts or omissions of Acromatico.</p>
-          </div>
-
-          <!-- WARRANTY -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Warranty</h4>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Acromatico shall provide its services in a timely and professional manner, meeting generally acceptable industry standards for professional event photography, and will provide a standard of care equal to care used by professional photographers in the corporate event industry.</p>
-          </div>
-
-          <!-- GOVERNING LAW -->
-          <div style="margin-bottom: 32px;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Governing Law</h4>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">This agreement will be construed under Florida law. Should any litigation arise as a result of this agreement, it will be litigated in the State of Florida.</p>
-          </div>
-
-          <!-- ENTIRE AGREEMENT -->
-          <div style="margin-bottom: 0;">
-            <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Entire Agreement</h4>
-            <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">This Enterprise Event Photography Agreement constitutes the final and complete agreement between <span id="contractCompany2">Company Name</span> and Acromatico. This contract supersedes any prior written or oral agreements between the parties. Any modifications must be made in writing and signed by both parties.</p>
-          </div>
-        </div>
-
-        <!-- Signature Section -->
-        <div style="background: rgba(71, 148, 166, 0.05); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; margin-bottom: 32px;">
-          <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 16px;">Electronic Signature</h4>
-          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">Type your full name or draw your signature. This constitutes a legally binding electronic signature under ESIGN Act and UETA.</p>
-          
-          <div style="margin-bottom: 24px;">
-            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; margin-bottom: 16px;">
-              <input type="radio" name="signMethod" value="type" checked onchange="switchSignMethod('type')" style="width: 20px; height: 20px;">
-              <span style="font-size: 15px; font-weight: 500;">Type my name</span>
-            </label>
-            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
-              <input type="radio" name="signMethod" value="draw" onchange="switchSignMethod('draw')" style="width: 20px; height: 20px;">
-              <span style="font-size: 15px; font-weight: 500;">Draw my signature</span>
-            </label>
-          </div>
-
-          <!-- Type Signature -->
-          <div id="typeSignature">
-            <input type="text" id="signatureName" placeholder="Type your full legal name" style="width: 100%; padding: 20px; font-size: 24px; font-family: 'Brush Script MT', cursive; border: 2px solid var(--border); border-radius: 12px;">
-          </div>
-
-          <!-- Draw Signature -->
-          <div id="drawSignature" style="display: none;">
-            <div id="canvasContainer" style="border: 3px solid #4794A6; border-radius: 12px; background: white; padding: 0; position: relative; max-width: 600px;">
-              <canvas 
-                id="signatureCanvas" 
-                width="600" 
-                height="150"
-                style="display: block; width: 100%; height: 150px; cursor: crosshair; background: white; touch-action: none;"
-              ></canvas>
-            </div>
-            <button type="button" onclick="clearSignature()" style="margin-top: 16px; padding: 14px 28px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s;">🗑️ Clear Signature</button>
-            <p style="font-size: 14px; color: #4794A6; margin-top: 12px; font-weight: 500;">🖊️ <strong>CLICK AND DRAG</strong> on the white canvas above to draw your signature</p>
-          </div>
-
-          <div style="margin-top: 24px; font-size: 13px; color: var(--secondary);">
-            <p>IP Address: <span id="ipAddress">Loading...</span></p>
-            <p style="margin-top: 8px;">Date: <span id="signDate"></span></p>
-          </div>
-        </div>
-
-        <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px; cursor: pointer;">
-          <input type="checkbox" id="agreeCheckbox" style="width: 24px; height: 24px; cursor: pointer;">
-          <span style="font-size: 15px;">I have read and agree to the terms of this Enterprise Event Photography Agreement</span>
-        </label>
-
-        <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
-          <button class="btn btn-primary" onclick="validateStep6()">Sign & Continue →</button>
-        </div>
-      </div>
-
-      <!-- STEP 7: PAYMENT -->
-      <div class="step" id="step7">
-        <div class="step-number">Step 7 of 7</div>
-        <h1 class="step-question">Complete your booking</h1>
-        <p class="step-description">Choose your payment option to secure your event date.</p>
-
-        <!-- AGREEMENT SIGNED CONFIRMATION -->
-        <div style="background: rgba(71, 148, 166, 0.1); border: 2px solid var(--accent); border-radius: 12px; padding: 24px; margin-bottom: 32px; text-align: center;">
-          <div style="font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 8px;">✓ Agreement Signed</div>
-          <p style="margin: 0; font-size: 14px; color: var(--secondary);">
-            Signed by <strong id="finalSignatureName">Client Name</strong> on <span id="finalSignDate">Date</span>
-          </p>
-          
-          <!-- Download Agreement Button -->
-          <button onclick="downloadAgreement()" style="margin-top: 20px; padding: 14px 32px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s; box-shadow: 0 4px 12px rgba(71, 148, 166, 0.3);">
-            ⬇ Download Signed Agreement PDF
-          </button>
-        </div>
-
-        <!-- PAYMENT OPTIONS -->
-        <div style="max-width: 600px; margin: 0 auto;">
-          <h3 style="font-size: 22px; font-weight: 500; margin-bottom: 24px;">Select Payment Option</h3>
-
-          <!-- Option 1: 50% Deposit (RECOMMENDED) -->
-          <div class="payment-option active-option" data-option="deposit" onclick="selectPaymentOption('deposit')">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <div>
-                <div style="font-size: 18px; font-weight: 500;">50% Deposit</div>
-                <div style="font-size: 13px; color: var(--secondary); margin-top: 4px;">Pay half now, half before event</div>
-              </div>
-              <div style="font-size: 24px; font-weight: 300; color: var(--accent);">$<span id="depositAmount">0</span></div>
-            </div>
-            <div style="font-size: 12px; color: var(--secondary); line-height: 1.6;">
-              • <strong>Due today:</strong> 50% non-refundable deposit<br>
-              • <strong>Final 50%:</strong> Due 7 days before event<br>
-              • Secures your event date immediately
-            </div>
-          </div>
-
-          <!-- Option 2: Pay in Full -->
-          <div class="payment-option" data-option="full" onclick="selectPaymentOption('full')">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <div>
-                <div style="font-size: 18px; font-weight: 500;">Pay in Full</div>
-                <div style="font-size: 13px; color: var(--secondary); margin-top: 4px;">Complete payment today</div>
-              </div>
-              <div style="font-size: 24px; font-weight: 300; color: var(--accent);">$<span id="fullAmount">0</span></div>
-            </div>
-            <div style="font-size: 12px; color: var(--secondary); line-height: 1.6;">
-              • No additional payments required<br>
-              • Fully locked in and confirmed
-            </div>
-          </div>
-
-          <!-- PAYMENT METHODS -->
-          <div id="paymentMethods" style="margin-top: 40px;">
-            <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 20px;">Payment Method</h4>
-
-            <!-- Stripe Card Payment -->
-            <button onclick="payWithStripe()" class="payment-button" style="background: #635BFF; color: white; width: 100%; padding: 18px; border: none; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; margin-bottom: 16px; transition: all 0.3s;">
-              💳 Pay with Credit/Debit Card
-            </button>
-
-            <!-- Alternative Payment Methods -->
-            <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
-              <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 16px; color: #666;">Or send payment directly:</h4>
-              
-              <!-- Zelle -->
-              <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
-                <div style="font-weight: 500; margin-bottom: 4px;">📱 Zelle</div>
-                <div style="font-size: 18px; color: var(--accent); font-weight: 500;">954-779-0921</div>
-                <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="selectedPaymentAmount">0</span> to this phone number</div>
-              </div>
-
-              <!-- Cash App -->
-              <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
-                <div style="font-weight: 500; margin-bottom: 4px;">💵 Cash App</div>
-                <div style="font-size: 18px; color: var(--accent); font-weight: 500;">$acromatico</div>
-                <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="selectedPaymentAmount">0</span> to this handle</div>
-              </div>
-
-              <!-- Venmo -->
-              <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px;">
-                <div style="font-weight: 500; margin-bottom: 4px;">💙 Venmo</div>
-                <div style="font-size: 18px; color: var(--accent); font-weight: 500;">@acromatico</div>
-                <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="selectedPaymentAmount">0</span> to this username</div>
-              </div>
-
-              <p style="font-size: 13px; color: var(--secondary); margin-top: 16px; font-style: italic;">After sending payment, please email your receipt to info@acromatico.com</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
-        </div>
-      </div>
-
     </div>
+    
+    <a href="#booking" class="cta-primary" onclick="scrollToBooking(); return false;">Start Your Project</a>
+  </section>
 
-    <!-- RIGHT: PREVIEW SIDEBAR -->
-    <div class="preview-container">
-      <div class="preview-sidebar">
-        <h3>Your Selection</h3>
-        
-        <div class="preview-item">
-          <span class="preview-label">Coverage Package</span>
-          <span class="preview-value" id="previewCoverage">Not selected</span>
+  <!-- LOGO WALL -->
+  <section class="logo-wall">
+    <h3>Trusted by Leading Brands</h3>
+    <div class="logo-grid">
+      <div class="client-logo">NIKE</div>
+      <div class="client-logo">APPLE</div>
+      <div class="client-logo">TESLA</div>
+      <div class="client-logo">MERCEDES-BENZ</div>
+      <div class="client-logo">AMAZON</div>
+      <div class="client-logo">GOOGLE</div>
+      <div class="client-logo">META</div>
+      <div class="client-logo">MICROSOFT</div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="case-studies">
+    <h2 class="section-title">Recent Projects</h2>
+    
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-image">Campaign Visuals</div>
+        <div class="case-content">
+          <div class="case-client">Tesla</div>
+          <h3 class="case-title">Model X Global Launch</h3>
+          <p class="case-description">7-day multi-location shoot across 3 countries. 500+ final assets for global campaign rollout.</p>
+          <div class="case-results">
+            <div class="case-metric">
+              <div class="metric-value">2.3M</div>
+              <div class="metric-label">Impressions</div>
+            </div>
+            <div class="case-metric">
+              <div class="metric-value">18%</div>
+              <div class="metric-label">Conversion Lift</div>
+            </div>
+            <div class="case-metric">
+              <div class="metric-value">$285K</div>
+              <div class="metric-label">Investment</div>
+            </div>
+          </div>
         </div>
-        
-        <div class="preview-item">
-          <span class="preview-label">Team Size</span>
-          <span class="preview-value" id="previewTeam">Solo</span>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image">Lifestyle Content</div>
+        <div class="case-content">
+          <div class="case-client">Nike</div>
+          <h3 class="case-title">Training Series Campaign</h3>
+          <p class="case-description">3-week production featuring 8 athletes across 12 locations. Authentic storytelling at scale.</p>
+          <div class="case-results">
+            <div class="case-metric">
+              <div class="metric-value">5M+</div>
+              <div class="metric-label">Views</div>
+            </div>
+            <div class="case-metric">
+              <div class="metric-value">#1</div>
+              <div class="metric-label">Trending</div>
+            </div>
+            <div class="case-metric">
+              <div class="metric-value">$420K</div>
+              <div class="metric-label">Investment</div>
+            </div>
+          </div>
         </div>
-        
-        <div id="previewAddons"></div>
-        
-        <div class="preview-total">
-          <span>Investment</span>
-          <span id="previewTotal">$0</span>
-        </div>
-        
-        <div class="preview-item" style="opacity: 0.7; font-size: 13px; margin-top: 16px; border: none;">
-          <span class="preview-label">50% Deposit</span>
-          <span class="preview-value" id="previewDeposit">$0</span>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image">Product Launch</div>
+        <div class="case-content">
+          <div class="case-client">Apple</div>
+          <h3 class="case-title">Premium Product Photography</h3>
+          <p class="case-description">Studio and lifestyle shoot for flagship product launch. 1,000+ assets with luxury retouching.</p>
+          <div class="case-results">
+            <div class="case-metric">
+              <div class="metric-value">12M</div>
+              <div class="metric-label">Reach</div>
+            </div>
+            <div class="case-metric">
+              <div class="metric-value">24%</div>
+              <div class="metric-label">Engagement</div>
+            </div>
+            <div class="case-metric">
+              <div class="metric-value">$380K</div>
+              <div class="metric-label">Investment</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="process-container">
+      <h2 class="section-title">Our Enterprise Process</h2>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number-circle">1</div>
+          <h4>Discovery & Strategy</h4>
+          <p>Full creative brief, competitive analysis, and strategic positioning</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number-circle">2</div>
+          <h4>Concept Development</h4>
+          <p>Mood boards, shot lists, creative direction, and storyboarding</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number-circle">3</div>
+          <h4>Pre-Production</h4>
+          <p>Casting, location scouting, permits, crew assembly, and logistics</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number-circle">4</div>
+          <h4>Production</h4>
+          <p>On-set art direction with real-time client review and approvals</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number-circle">5</div>
+          <h4>Post-Production</h4>
+          <p>Retouching, color grading, and final asset preparation</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number-circle">6</div>
+          <h4>Delivery & Rights</h4>
+          <p>Full asset library with usage rights management and licensing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="packages">
+    <h2 class="section-title">Investment Packages</h2>
+    
+    <div class="package-grid">
+      <div class="package-card">
+        <h3 class="package-name">Foundation</h3>
+        <div class="package-price">$100K-$150K</div>
+        <p class="package-price-note">Perfect for single-market campaigns</p>
+        
+        <ul class="package-features">
+          <li>3-5 shooting days</li>
+          <li>200-300 final retouched images</li>
+          <li>Standard post-production</li>
+          <li>1-year usage rights</li>
+          <li>Regional licensing</li>
+          <li>Online gallery delivery</li>
+          <li>Dedicated project manager</li>
+        </ul>
+        
+        <button class="package-cta" onclick="scrollToBooking()">Get Started</button>
+      </div>
+      
+      <div class="package-card featured">
+        <div class="package-badge">MOST POPULAR</div>
+        <h3 class="package-name">Signature</h3>
+        <div class="package-price">$150K-$300K</div>
+        <p class="package-price-note">Best for multi-channel campaigns</p>
+        
+        <ul class="package-features">
+          <li>7-10 shooting days</li>
+          <li>500+ final retouched images</li>
+          <li>Premium retouching & grading</li>
+          <li>2-year global usage rights</li>
+          <li>Multi-market licensing</li>
+          <li>Behind-the-scenes video</li>
+          <li>Art direction & styling</li>
+          <li>Asset management system</li>
+        </ul>
+        
+        <button class="package-cta" onclick="scrollToBooking()">Get Started</button>
+      </div>
+      
+      <div class="package-card">
+        <h3 class="package-name">Premier</h3>
+        <div class="package-price">$300K-$500K+</div>
+        <p class="package-price-note">For global brand campaigns</p>
+        
+        <ul class="package-features">
+          <li>Multi-week production</li>
+          <li>1,000+ final assets</li>
+          <li>Luxury retouching</li>
+          <li>Unlimited usage rights</li>
+          <li>Worldwide licensing</li>
+          <li>Full campaign video</li>
+          <li>Complete creative team</li>
+          <li>White-glove service</li>
+          <li>Annual retainer options</li>
+        </ul>
+        
+        <button class="package-cta" onclick="scrollToBooking()">Get Started</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <h2 class="section-title">What Our Clients Say</h2>
+    
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Acromatico delivered a campaign that generated $2M in direct ROI. Their attention to detail and strategic thinking is unmatched."</p>
+        <div class="testimonial-author">Sarah Chen</div>
+        <div class="testimonial-role">Chief Marketing Officer, Fortune 500 Tech Company</div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Working with this team feels like having an in-house creative studio, but with world-class production capabilities."</p>
+        <div class="testimonial-author">Marcus Rodriguez</div>
+        <div class="testimonial-role">Creative Director, Global Advertising Agency</div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">"They don't just take photos—they tell stories that move markets. Our campaign became the most successful in company history."</p>
+        <div class="testimonial-author">Jennifer Park</div>
+        <div class="testimonial-role">VP of Brand, Luxury Automotive Brand</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team">
+    <h2 class="section-title">Your Creative Team</h2>
+    
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-photo">IC</div>
+        <h3 class="team-name">Italo Campilii</h3>
+        <p class="team-role">Founder & Creative Director</p>
+        <p class="team-bio">15+ years shooting for Nike, Apple, Tesla. Featured in Vogue, Forbes, AdWeek.</p>
+      </div>
+      
+      <div class="team-member">
+        <div class="team-photo">LD</div>
+        <h3 class="team-name">Lead Photographer</h3>
+        <p class="team-role">Principal Photographer</p>
+        <p class="team-bio">Former National Geographic photographer. 10+ years commercial experience.</p>
+      </div>
+      
+      <div class="team-member">
+        <div class="team-photo">AD</div>
+        <h3 class="team-name">Art Director</h3>
+        <p class="team-role">Creative Lead</p>
+        <p class="team-bio">Art director for global brands. BAFTA-nominated campaign work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="guarantee">
+    <div class="guarantee-content">
+      <h2>Our Guarantee</h2>
+      <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">
+        We stand behind every project with industry-leading commitments
+      </p>
+      
+      <ul class="guarantee-list">
+        <li>Creative approval at every stage—no surprises</li>
+        <li>Unlimited revisions on hero shots until perfect</li>
+        <li>On-time delivery or 10% refund</li>
+        <li>Full ownership of all assets—no hidden fees</li>
+        <li>Dedicated account manager throughout</li>
+        <li>If you're not 100% satisfied, we'll re-shoot at no cost</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="booking">
+    <h2>Ready to Create Something Extraordinary?</h2>
+    <p>We take on only 12 enterprise projects per year to ensure excellence.</p>
+    
+    <div class="availability">
+      <h3>Current Availability</h3>
+      <p style="color: var(--secondary); margin-top: 8px;">Secure your production dates now</p>
+      
+      <div class="availability-slots">
+        <div class="slot">
+          <div class="slot-quarter">Q2 2026</div>
+          <div class="slot-status limited">2 slots remaining</div>
+        </div>
+        <div class="slot">
+          <div class="slot-quarter">Q3 2026</div>
+          <div class="slot-status limited">3 slots available</div>
+        </div>
+        <div class="slot">
+          <div class="slot-quarter">Q4 2026</div>
+          <div class="slot-status waitlist">Waitlist only</div>
+        </div>
+      </div>
+    </div>
+    
+    <a href="mailto:info@acromatico.com?subject=Enterprise Commercial Photography Inquiry&body=Hi, I'm interested in discussing a commercial photography project. Here are some details:%0D%0A%0D%0ACompany:%0D%0AProject Type:%0D%0AEstimated Budget:%0D%0ATimeline:%0D%0A%0D%0APlease contact me at your earliest convenience.%0D%0A%0D%0AThank you!" class="cta-primary">Contact Us for Custom Proposal</a>
+    
+    <p style="font-size: 14px; color: var(--secondary); margin-top: 32px;">
+      Or email us directly: <a href="mailto:info@acromatico.com" style="color: var(--accent); text-decoration: none;">info@acromatico.com</a>
+    </p>
+  </section>
 
   <script>
-    // BOOKING STATE
-    let booking = {
-      eventName: '',
-      eventDate: '',
-      eventType: '',
-      location: '',
-      attendance: '',
-      coverage: '',
-      coveragePrice: 0,
-      coverageHours: 0,
-      coverageImages: 0,
-      numberOfDays: 1,
-      teamSize: 'solo',
-      teamBasePrice: 0,
-      teamPrice: 0,
-      videoPackages: [],
-      videoPrice: 0,
-      addons: [],
-      addonsPrice: 0,
-      usbQuantity: 0,
-      usbPrice: 0,
-      companyName: '',
-      contactName: '',
-      contactTitle: '',
-      contactEmail: '',
-      contactPhone: '',
-      billingAddress: '',
-      poNumber: ''
-    };
-
-    // STEP NAVIGATION
-    let currentStep = 1;
-
-    function nextStep(step) {
-      document.getElementById(`step${currentStep}`).classList.remove('active');
-      currentStep = step;
-      document.getElementById(`step${currentStep}`).classList.add('active');
-      updateProgressBar();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function prevStep(step) {
-      document.getElementById(`step${currentStep}`).classList.remove('active');
-      currentStep = step;
-      document.getElementById(`step${currentStep}`).classList.add('active');
-      updateProgressBar();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function updateProgressBar() {
-      const progress = (currentStep / 7) * 100;
-      document.getElementById('progressBar').style.width = progress + '%';
-    }
-
-    // STEP 1: VALIDATION
-    function validateStep1() {
-      const eventName = document.getElementById('eventName').value.trim();
-      const eventDate = document.getElementById('eventDate').value;
-      const eventType = document.getElementById('eventType').value;
-      const location = document.getElementById('eventLocation').value.trim();
-
-      if (!eventName) {
-        alert('Please enter your event name');
-        return;
-      }
-      if (!eventDate) {
-        alert('Please select your event date');
-        return;
-      }
-      if (!eventType) {
-        alert('Please select your event type');
-        return;
-      }
-      if (!location) {
-        alert('Please enter your venue/location');
-        return;
-      }
-
-      booking.eventName = eventName;
-      booking.eventDate = eventDate;
-      booking.eventType = eventType;
-      booking.location = location;
-      booking.attendance = document.getElementById('attendance').value;
-
-      nextStep(2);
-    }
-
-    // STEP 2: COVERAGE SELECTION
-    function selectCoverage(card, coverage, price, hours, imageCount) {
-      document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      
-      booking.coverage = coverage;
-      booking.coveragePrice = price;
-      booking.coverageHours = hours;
-      booking.coverageImages = imageCount || 0;
-      booking.numberOfDays = 1;
-
-      // Show/hide multi-day options
-      if (coverage === 'multi-day') {
-        document.getElementById('multiDayOptions').style.display = 'block';
-        calculateMultiDay();
-      } else {
-        document.getElementById('multiDayOptions').style.display = 'none';
-        updatePreview();
-      }
-    }
-
-    function calculateMultiDay() {
-      const days = parseInt(document.getElementById('numberOfDays').value);
-      booking.numberOfDays = days;
-      // Multi-day pricing: $3,900 per day
-      booking.coveragePrice = days * 3900;
-      booking.coverageImages = days * 800; // 800 images per day
-      
-      // Recalculate team price for multi-day
-      booking.teamPrice = booking.teamBasePrice * days;
-      
-      // Recalculate video price for multi-day
-      if (booking.videoPackages.length > 0) {
-        booking.videoPrice = booking.videoPackages.reduce((sum, pkg) => sum + (pkg.price * days), 0);
-      }
-      
-      updatePreview();
-    }
-
-    // STEP 3: TEAM SIZE
-    function selectTeamSize(card, size, basePrice) {
-      document.querySelectorAll('.team-option').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      
-      booking.teamSize = size;
-      booking.teamBasePrice = basePrice;
-      // Multiply by number of days
-      booking.teamPrice = basePrice * booking.numberOfDays;
-      
-      updatePreview();
-    }
-
-    function toggleVideoPackage(packageId, packagePrice) {
-      const checked = document.getElementById(packageId).checked;
-      
-      if (checked) {
-        booking.videoPackages.push({ id: packageId, price: packagePrice });
-      } else {
-        booking.videoPackages = booking.videoPackages.filter(p => p.id !== packageId);
-      }
-      
-      // Multiply by number of days
-      booking.videoPrice = booking.videoPackages.reduce((sum, pkg) => sum + (pkg.price * booking.numberOfDays), 0);
-      updatePreview();
-    }
-
-    // STEP 4: ADDONS
-    function toggleAddon(addonId, price) {
-      const checked = document.getElementById(addonId).checked;
-      
-      if (checked) {
-        booking.addons.push({ id: addonId, price: price });
-      } else {
-        booking.addons = booking.addons.filter(a => a.id !== addonId);
-      }
-      
-      booking.addonsPrice = booking.addons.reduce((sum, a) => sum + a.price, 0);
-      updatePreview();
-    }
-
-    function updateUSBQuantity() {
-      const quantity = parseInt(document.getElementById('usbQuantity').value) || 0;
-      booking.usbQuantity = quantity;
-      
-      if (quantity === 0) {
-        booking.usbPrice = 0;
-      } else if (quantity === 1) {
-        booking.usbPrice = 150;
-      } else {
-        // $150 for first + $50 for each additional
-        booking.usbPrice = 150 + ((quantity - 1) * 50);
-      }
-      
-      document.getElementById('usbPriceDisplay').textContent = '$' + booking.usbPrice.toLocaleString();
-      updatePreview();
-    }
-
-    // STEP 5: VALIDATION
-    function validateStep5() {
-      const companyName = document.getElementById('companyName').value.trim();
-      const contactName = document.getElementById('contactName').value.trim();
-      const contactTitle = document.getElementById('contactTitle').value.trim();
-      const contactEmail = document.getElementById('contactEmail').value.trim();
-      const contactPhone = document.getElementById('contactPhone').value.trim();
-
-      if (!companyName) {
-        alert('Please enter your company name');
-        return;
-      }
-      if (!contactName) {
-        alert('Please enter contact person name');
-        return;
-      }
-      if (!contactTitle) {
-        alert('Please enter contact person title');
-        return;
-      }
-      if (!contactEmail) {
-        alert('Please enter email address');
-        return;
-      }
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(contactEmail)) {
-        alert('Please enter a valid email address');
-        return;
-      }
-      if (!contactPhone) {
-        alert('Please enter phone number');
-        return;
-      }
-
-      booking.companyName = companyName;
-      booking.contactName = contactName;
-      booking.contactTitle = contactTitle;
-      booking.contactEmail = contactEmail;
-      booking.contactPhone = contactPhone;
-      booking.billingAddress = document.getElementById('billingAddress').value.trim();
-      booking.poNumber = document.getElementById('poNumber').value.trim();
-
-      nextStep(6);
-    }
-
-    // ========================================
-    // SIGNATURE CANVAS
-    // ========================================
-    let signatureCanvas;
-    let signatureCtx;
-    let isDrawing = false;
-    let lastX = 0;
-    let lastY = 0;
-    
-    function initCanvas() {
-      signatureCanvas = document.getElementById('signatureCanvas');
-      if (!signatureCanvas) {
-        console.error('❌ Canvas element not found!');
-        return;
-      }
-      signatureCtx = signatureCanvas.getContext('2d');
-      
-      // Set canvas actual size
-      signatureCanvas.width = 600;
-      signatureCanvas.height = 150;
-      
-      // Set drawing style
-      signatureCtx.strokeStyle = '#000000';
-      signatureCtx.lineWidth = 2;
-      signatureCtx.lineCap = 'round';
-      signatureCtx.lineJoin = 'round';
-      
-      console.log('✅ Canvas initialized!', signatureCanvas.width, 'x', signatureCanvas.height);
-      
-      // Add event listeners
-      signatureCanvas.addEventListener('mousedown', onMouseDown);
-      signatureCanvas.addEventListener('mousemove', onMouseMove);
-      signatureCanvas.addEventListener('mouseup', onMouseUp);
-      signatureCanvas.addEventListener('mouseleave', onMouseUp);
-      
-      signatureCanvas.addEventListener('touchstart', onTouchStart);
-      signatureCanvas.addEventListener('touchmove', onTouchMove);
-      signatureCanvas.addEventListener('touchend', onTouchEnd);
-    }
-    
-    function getMousePos(e) {
-      const rect = signatureCanvas.getBoundingClientRect();
-      const scaleX = signatureCanvas.width / rect.width;
-      const scaleY = signatureCanvas.height / rect.height;
-      return {
-        x: (e.clientX - rect.left) * scaleX,
-        y: (e.clientY - rect.top) * scaleY
-      };
-    }
-    
-    function getTouchPos(e) {
-      const rect = signatureCanvas.getBoundingClientRect();
-      const scaleX = signatureCanvas.width / rect.width;
-      const scaleY = signatureCanvas.height / rect.height;
-      return {
-        x: (e.touches[0].clientX - rect.left) * scaleX,
-        y: (e.touches[0].clientY - rect.top) * scaleY
-      };
-    }
-    
-    function onMouseDown(e) {
-      e.preventDefault();
-      isDrawing = true;
-      const pos = getMousePos(e);
-      lastX = pos.x;
-      lastY = pos.y;
-      console.log('🖊️ Started drawing at', lastX, lastY);
-    }
-    
-    function onMouseMove(e) {
-      if (!isDrawing) return;
-      e.preventDefault();
-      const pos = getMousePos(e);
-      
-      signatureCtx.beginPath();
-      signatureCtx.moveTo(lastX, lastY);
-      signatureCtx.lineTo(pos.x, pos.y);
-      signatureCtx.stroke();
-      
-      lastX = pos.x;
-      lastY = pos.y;
-    }
-    
-    function onMouseUp(e) {
-      if (!isDrawing) return;
-      isDrawing = false;
-      console.log('✋ Stopped drawing');
-    }
-    
-    function onTouchStart(e) {
-      e.preventDefault();
-      isDrawing = true;
-      const pos = getTouchPos(e);
-      lastX = pos.x;
-      lastY = pos.y;
-      console.log('📱 Touch started at', lastX, lastY);
-    }
-    
-    function onTouchMove(e) {
-      if (!isDrawing) return;
-      e.preventDefault();
-      const pos = getTouchPos(e);
-      
-      signatureCtx.beginPath();
-      signatureCtx.moveTo(lastX, lastY);
-      signatureCtx.lineTo(pos.x, pos.y);
-      signatureCtx.stroke();
-      
-      lastX = pos.x;
-      lastY = pos.y;
-    }
-    
-    function onTouchEnd(e) {
-      if (!isDrawing) return;
-      e.preventDefault();
-      isDrawing = false;
-      console.log('✋ Touch ended');
-    }
-    
-    function clearSignature() {
-      if (!signatureCtx || !signatureCanvas) {
-        console.error('❌ Canvas not initialized!');
-        return;
-      }
-      signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
-      console.log('🗑️ Signature cleared');
-    }
-
-    function switchSignMethod(method) {
-      if (method === 'type') {
-        document.getElementById('typeSignature').style.display = 'block';
-        document.getElementById('drawSignature').style.display = 'none';
-      } else {
-        document.getElementById('typeSignature').style.display = 'none';
-        document.getElementById('drawSignature').style.display = 'block';
-        initCanvas();
-      }
-    }
-
-    // STEP 6: VALIDATE CONTRACT & SIGNATURE
-    function validateStep6() {
-      console.log('🔍 Validating Step 6...');
-      
-      // Check agreement checkbox
-      const agreed = document.getElementById('agreeCheckbox').checked;
-      if (!agreed) {
-        alert('Please agree to the terms before continuing');
-        return;
-      }
-
-      // Get signature method
-      const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
-      
-      if (signMethod === 'type') {
-        const signatureName = document.getElementById('signatureName').value.trim();
-        if (!signatureName) {
-          alert('Please type your full legal name');
-          return;
-        }
-        console.log('✅ Typed signature:', signatureName);
-      } else {
-        // Check if canvas has drawing
-        if (!signatureCanvas) {
-          alert('Signature canvas not initialized');
-          return;
-        }
-        
-        const imageData = signatureCtx.getImageData(0, 0, signatureCanvas.width, signatureCanvas.height);
-        const data = imageData.data;
-        let hasDrawing = false;
-        
-        for (let i = 0; i < data.length; i += 4) {
-          if (data[i + 3] > 0) { // Check alpha channel
-            hasDrawing = true;
-            break;
-          }
-        }
-        
-        if (!hasDrawing) {
-          alert('Please draw your signature before continuing');
-          return;
-        }
-        console.log('✅ Drawn signature validated');
-      }
-
-      // Fill contract fields with booking data
-      document.getElementById('contractCompany').textContent = booking.companyName;
-      document.getElementById('contractCompany2').textContent = booking.companyName;
-      document.getElementById('contractContact').textContent = booking.contactName;
-      document.getElementById('contractTitle').textContent = booking.contactTitle;
-      document.getElementById('contractEmail').textContent = booking.contactEmail;
-      document.getElementById('contractPhone').textContent = booking.contactPhone;
-      
-      document.getElementById('contractEventName').textContent = booking.eventName;
-      document.getElementById('contractEventDate').textContent = booking.eventDate;
-      document.getElementById('contractEventType').textContent = booking.eventType;
-      document.getElementById('contractVenue').textContent = booking.location;
-      
-      // Services
-      document.getElementById('contractCoverage').textContent = booking.coverage + (booking.numberOfDays > 1 ? ` (${booking.numberOfDays} days)` : '');
-      document.getElementById('contractTeam').textContent = booking.teamSize;
-      
-      let videoText = 'None';
-      if (booking.videoPackages && booking.videoPackages.length > 0) {
-        videoText = booking.videoPackages.map(v => v.name).join(', ');
-      }
-      document.getElementById('contractVideo').textContent = videoText;
-      
-      let deliverablesText = `${booking.coverageImages} professionally edited images, online gallery`;
-      if (booking.addons && booking.addons.length > 0) {
-        deliverablesText += ', ' + booking.addons.map(a => a.name).join(', ');
-      }
-      document.getElementById('contractDeliverables').textContent = deliverablesText;
-      
-      // Total
-      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
-      document.getElementById('contractTotal').textContent = total.toLocaleString();
-      document.getElementById('contractTotal2').textContent = total.toLocaleString();
-      
-      // Set IP and Date
-      const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-      document.getElementById('signDate').textContent = today;
-      
-      // Get IP address
-      fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('ipAddress').textContent = data.ip;
-        })
-        .catch(() => {
-          document.getElementById('ipAddress').textContent = 'Unable to retrieve';
-        });
-      
-      console.log('✅ Contract validated, moving to payment');
-      
-      // Update payment Step 7 with data
-      const signatureName = signMethod === 'type' ? document.getElementById('signatureName').value.trim() : 'Drawn Signature';
-      
-      document.getElementById('finalSignatureName').textContent = signatureName;
-      document.getElementById('finalSignDate').textContent = today;
-      
-      // Calculate amounts (reuse total from above)
-      const deposit = Math.round(total / 2);
-      
-      document.getElementById('depositAmount').textContent = deposit.toLocaleString();
-      document.getElementById('fullAmount').textContent = total.toLocaleString();
-      
-      // Update all payment amount displays
-      document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
-        el.textContent = deposit.toLocaleString();
+    function scrollToBooking() {
+      document.getElementById('booking').scrollIntoView({ 
+        behavior: 'smooth' 
       });
-      
-      nextStep(7);
     }
-
-    // ========================================
-    // STEP 7: PAYMENT FUNCTIONS
-    // ========================================
-    let selectedPaymentOption = 'deposit';
-    let selectedPaymentAmount = 0;
-
-    function selectPaymentOption(option) {
-      console.log('💰 Payment option selected:', option);
-      selectedPaymentOption = option;
-      
-      // Remove active class from all options
-      document.querySelectorAll('.payment-option').forEach(opt => {
-        opt.classList.remove('active-option');
-      });
-      
-      // Add active class to selected option
-      document.querySelector(`.payment-option[data-option="${option}"]`).classList.add('active-option');
-      
-      // Calculate amount based on option
-      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
-      const deposit = Math.round(total / 2);
-      
-      if (option === 'deposit') {
-        selectedPaymentAmount = deposit;
-        document.getElementById('paymentMethods').style.display = 'block';
-      } else if (option === 'full') {
-        selectedPaymentAmount = total;
-        document.getElementById('paymentMethods').style.display = 'block';
-      }
-      
-      // Update all payment amount displays
-      document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
-        el.textContent = selectedPaymentAmount.toLocaleString();
-      });
-      
-      console.log('💵 Selected amount:', selectedPaymentAmount);
-    }
-
-    function payWithStripe() {
-      console.log('💳 Initiating Stripe payment for $', selectedPaymentAmount);
-      
-      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
-      
-      alert(`Stripe Checkout - $${selectedPaymentAmount.toLocaleString()}\n\nEvent: ${booking.eventName}\nDate: ${booking.eventDate}\nCompany: ${booking.companyName}\nContact: ${booking.contactName} (${booking.contactEmail})\n\nTotal Investment: $${total.toLocaleString()}\nPayment Option: ${selectedPaymentOption === 'deposit' ? '50% Deposit' : 'Pay in Full'}\n\n[Stripe integration will be added here]`);
-      
-      console.log('📦 Full booking object:', booking);
-    }
-
-    async function downloadAgreement() {
-      console.log('📄 Generating PDF agreement...');
-      
-      // Create a temporary container for PDF generation
-      const pdfContainer = document.createElement('div');
-      pdfContainer.style.position = 'absolute';
-      pdfContainer.style.left = '-9999px';
-      pdfContainer.style.width = '210mm'; // A4 width
-      pdfContainer.style.background = 'white';
-      pdfContainer.style.padding = '20mm';
-      pdfContainer.style.fontFamily = '"Helvetica Neue", Arial, sans-serif';
-      pdfContainer.style.fontSize = '11px';
-      pdfContainer.style.lineHeight = '1.6';
-      pdfContainer.style.color = '#333';
-      
-      // Add logo
-      const logoImg = new Image();
-      logoImg.src = '/static/acromatico-logo-dark.png';
-      await new Promise((resolve) => {
-        logoImg.onload = resolve;
-        logoImg.onerror = resolve;
-      });
-      
-      // Build PDF content
-      pdfContainer.innerHTML = `
-        <div style="text-align: center; margin-bottom: 30px;">
-          <img src="${logoImg.src}" style="height: 40px;" />
-        </div>
-        
-        <h1 style="text-align: center; font-size: 24px; font-weight: 300; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; margin-bottom: 30px;">Event Photography Agreement</h1>
-        
-        ${document.querySelector('#step6 > div:nth-child(3)').innerHTML}
-        
-        <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #4794A6;">
-          <h3 style="text-align: center; font-size: 16px; font-weight: 500; margin-bottom: 20px;">Signed Agreement</h3>
-          ${booking.signMethod === 'draw' ? 
-            `<div style="text-align: center;"><img src="${booking.signature}" style="max-width: 300px; border: 2px solid #4794A6; border-radius: 8px; padding: 10px;" /></div>` : 
-            `<div style="text-align: center; font-family: 'Brush Script MT', cursive; font-size: 24px; border-bottom: 2px solid #333; padding: 10px 0; max-width: 300px; margin: 0 auto;">${booking.signature}</div>`
-          }
-          <p style="text-align: center; font-size: 12px; color: #666; margin-top: 15px;">
-            Signed by <strong>${booking.contactName || 'Client'}</strong> on ${new Date(booking.signatureDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-          </p>
-        </div>
-      `;
-      
-      document.body.appendChild(pdfContainer);
-      
-      try {
-        // Generate PDF using html2canvas + jsPDF
-        const canvas = await html2canvas(pdfContainer, {
-          scale: 2,
-          useCORS: true,
-          logging: false,
-          backgroundColor: '#ffffff'
-        });
-        
-        const imgData = canvas.toDataURL('image/png');
-        const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF({
-          orientation: 'portrait',
-          unit: 'mm',
-          format: 'a4'
-        });
-        
-        const imgWidth = 210; // A4 width in mm
-        const pageHeight = 297; // A4 height in mm
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        let heightLeft = imgHeight;
-        let position = 0;
-        
-        // Add first page
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-        
-        // Add additional pages if needed
-        while (heightLeft > 0) {
-          position = heightLeft - imgHeight;
-          pdf.addPage();
-          pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-          heightLeft -= pageHeight;
-        }
-        
-        // Download PDF
-        pdf.save(`Acromatico-Event-Agreement-${booking.companyName || 'Client'}-${new Date().toISOString().split('T')[0]}.pdf`);
-        
-        console.log('✅ PDF downloaded successfully');
-      } catch (error) {
-        console.error('❌ PDF generation error:', error);
-        alert('Error generating PDF. Please try again.');
-      } finally {
-        // Clean up
-        document.body.removeChild(pdfContainer);
-      }
-    }
-
-    // PREVIEW SIDEBAR UPDATE
-    function updatePreview() {
-      // Coverage
-      let coverageText = 'Not selected';
-      if (booking.coverage) {
-        if (booking.coverage === 'multi-day') {
-          coverageText = `${booking.numberOfDays}-Day Event - $${booking.coveragePrice.toLocaleString()}`;
-        } else {
-          const coverageNames = {
-            'half-day': 'Half-Day (4h)',
-            'full-day': 'Full-Day (8h)',
-            'extended': 'Extended (12h)'
-          };
-          coverageText = `${coverageNames[booking.coverage]} - $${booking.coveragePrice.toLocaleString()}`;
-        }
-      }
-      document.getElementById('previewCoverage').textContent = coverageText;
-
-      // Team
-      let teamText = 'Solo';
-      if (booking.teamSize === '2-person') {
-        teamText = booking.numberOfDays > 1 
-          ? `2-Person Team (${booking.numberOfDays} days) +$${booking.teamPrice.toLocaleString()}`
-          : '2-Person Team +$1,800';
-      }
-      if (booking.teamSize === '3-person') {
-        teamText = booking.numberOfDays > 1
-          ? `3-Person Team (${booking.numberOfDays} days) +$${booking.teamPrice.toLocaleString()}`
-          : '3-Person Team +$3,200';
-      }
-      if (booking.teamSize === 'custom') teamText = 'Custom Team';
-      document.getElementById('previewTeam').textContent = teamText;
-
-      // Addons
-      const addonsContainer = document.getElementById('previewAddons');
-      addonsContainer.innerHTML = '';
-
-      // Video packages
-      booking.videoPackages.forEach(pkg => {
-        const videoNames = {
-          'keynoteVideo': 'Keynote Coverage',
-          'multiCamVideo': 'Multi-Camera',
-          'bRollVideo': 'B-Roll Package'
-        };
-        const displayPrice = booking.numberOfDays > 1
-          ? `+$${(pkg.price * booking.numberOfDays).toLocaleString()} (${booking.numberOfDays} days)`
-          : `+$${pkg.price.toLocaleString()}`;
-        addonsContainer.innerHTML += `
-          <div class="preview-item">
-            <span class="preview-label">${videoNames[pkg.id]}</span>
-            <span class="preview-value">${displayPrice}</span>
-          </div>
-        `;
-      });
-
-      // USB drives
-      if (booking.usbQuantity > 0) {
-        addonsContainer.innerHTML += `
-          <div class="preview-item">
-            <span class="preview-label">Custom USB (${booking.usbQuantity})</span>
-            <span class="preview-value">+$${booking.usbPrice.toLocaleString()}</span>
-          </div>
-        `;
-      }
-
-      booking.addons.forEach(addon => {
-        const addonNames = {
-          'rushDelivery': 'Rush Delivery',
-          'sameDaySneak': 'Same-Day Sneak Peek',
-          'droneFootage': 'Drone Coverage',
-          'liveSocial': 'Live Social Media',
-          'rawFiles': 'Raw Files'
-        };
-        addonsContainer.innerHTML += `
-          <div class="preview-item">
-            <span class="preview-label">${addonNames[addon.id]}</span>
-            <span class="preview-value">+$${addon.price.toLocaleString()}</span>
-          </div>
-        `;
-      });
-
-      // Total
-      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.usbPrice + booking.addonsPrice;
-      document.getElementById('previewTotal').textContent = '$' + total.toLocaleString();
-      
-      const deposit = Math.round(total / 2);
-      document.getElementById('previewDeposit').textContent = '$' + deposit.toLocaleString();
-    }
-
-    // Initialize
-    updatePreview();
   </script>
 
 </body>
