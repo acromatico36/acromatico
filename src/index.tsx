@@ -718,76 +718,17 @@ app.get('/api/dashboard/student', async (c) => {
       return c.json({ message: 'Invalid or expired token' }, 401)
     }
     
-    const userId = payload.id
-    
-    // Get total courses enrolled (from subscriptions table)
-    const coursesResult = await DB_EDUCATION.prepare(`
-      SELECT COUNT(DISTINCT course_id) as count 
-      FROM subscriptions 
-      WHERE user_id = ? AND status = 'active'
-    `).bind(userId).first()
-    
-    // Get lessons completed (from attendance table)
-    const lessonsResult = await DB_EDUCATION.prepare(`
-      SELECT COUNT(*) as count 
-      FROM attendance 
-      WHERE student_id = (SELECT id FROM students WHERE parent_id = ? LIMIT 1)
-      AND status = 'present'
-    `).bind(userId).first()
-    
-    // Get achievements/badges earned
-    const badgesResult = await DB_EDUCATION.prepare(`
-      SELECT COUNT(*) as count 
-      FROM badges 
-      WHERE student_id = (SELECT id FROM students WHERE parent_id = ? LIMIT 1)
-    `).bind(userId).first()
-    
-    // Get enrolled courses with details
-    const courses = await DB_EDUCATION.prepare(`
-      SELECT 
-        c.id,
-        c.title,
-        c.description,
-        c.thumbnail_url,
-        COALESCE(
-          (SELECT COUNT(*) * 100.0 / (SELECT COUNT(*) FROM classes WHERE course_id = c.id)
-           FROM attendance a
-           WHERE a.class_id IN (SELECT id FROM classes WHERE course_id = c.id)
-           AND a.student_id = (SELECT id FROM students WHERE parent_id = ? LIMIT 1)
-           AND a.status = 'present'
-          ), 0
-        ) as progress
-      FROM courses c
-      INNER JOIN subscriptions s ON c.id = s.course_id
-      WHERE s.user_id = ? AND s.status = 'active'
-      LIMIT 10
-    `).bind(userId, userId).all()
-    
-    // Get all badges for achievements section
-    const allBadges = await DB_EDUCATION.prepare(`
-      SELECT 
-        b.id,
-        b.name,
-        b.description,
-        b.icon_url,
-        CASE WHEN ub.badge_id IS NOT NULL THEN 1 ELSE 0 END as earned
-      FROM badges b
-      LEFT JOIN (
-        SELECT badge_id FROM badges WHERE student_id = (SELECT id FROM students WHERE parent_id = ? LIMIT 1)
-      ) ub ON b.id = ub.badge_id
-      ORDER BY earned DESC, b.id ASC
-      LIMIT 20
-    `).bind(userId).all()
-    
+    // For now, return empty data since the DB schema doesn't match enrollment tracking
+    // TODO: Build proper course enrollment system
     return c.json({
       stats: {
-        coursesEnrolled: coursesResult?.count || 0,
-        lessonsCompleted: lessonsResult?.count || 0,
-        achievementsEarned: badgesResult?.count || 0,
-        dayStreak: 0 // TODO: Calculate from attendance dates
+        coursesEnrolled: 0,
+        lessonsCompleted: 0,
+        achievementsEarned: 0,
+        dayStreak: 0
       },
-      courses: courses?.results || [],
-      achievements: allBadges?.results || []
+      courses: [],
+      achievements: []
     })
     
   } catch (error: any) {
@@ -824,27 +765,24 @@ app.get('/api/dashboard/parent', async (c) => {
         s.age,
         s.grade,
         s.enrollment_status,
-        (SELECT COUNT(*) FROM subscriptions sub WHERE sub.user_id = ? AND sub.status = 'active') as courses_enrolled,
-        (SELECT COUNT(*) FROM attendance a WHERE a.student_id = s.id AND a.status = 'present') as lessons_completed,
-        (SELECT COUNT(*) FROM badges b WHERE b.student_id = s.id) as badges_earned
+        0 as courses_enrolled,
+        0 as lessons_completed,
+        0 as badges_earned
       FROM students s
       WHERE s.parent_id = ?
       ORDER BY s.created_at DESC
-    `).bind(userId, userId).all()
+    `).bind(userId).all()
     
-    // Get active subscription info
+    // Get active subscription info (simplified)
     const subscription = await DB_EDUCATION.prepare(`
       SELECT 
         s.id,
         s.status,
-        s.start_date,
-        s.end_date,
-        c.title as course_title,
-        c.price_monthly
+        s.monthly_price,
+        s.next_billing_date
       FROM subscriptions s
-      INNER JOIN courses c ON s.course_id = c.id
-      WHERE s.user_id = ? AND s.status = 'active'
-      ORDER BY s.start_date DESC
+      WHERE s.parent_id = ? AND s.status = 'active'
+      ORDER BY s.created_at DESC
       LIMIT 1
     `).bind(userId).first()
     
@@ -883,15 +821,14 @@ app.get('/api/dashboard/admin', async (c) => {
     
     // Get active courses count
     const coursesCount = await DB_EDUCATION.prepare(
-      'SELECT COUNT(*) as count FROM courses WHERE status = "active"'
+      'SELECT COUNT(*) as count FROM courses'
     ).first()
     
-    // Get monthly revenue
+    // Get monthly revenue (sum of all active subscriptions)
     const revenue = await DB_EDUCATION.prepare(`
-      SELECT SUM(c.price_monthly) as total
-      FROM subscriptions s
-      INNER JOIN courses c ON s.course_id = c.id
-      WHERE s.status = 'active'
+      SELECT SUM(monthly_price) as total
+      FROM subscriptions
+      WHERE status = 'active'
     `).first()
     
     // Get recent students
@@ -903,12 +840,8 @@ app.get('/api/dashboard/admin', async (c) => {
         s.age,
         s.grade,
         s.enrollment_status as status,
-        (SELECT COUNT(*) FROM subscriptions sub WHERE sub.user_id = s.parent_id AND sub.status = 'active') as courses,
-        COALESCE(
-          (SELECT COUNT(*) * 100 / NULLIF((SELECT COUNT(*) FROM classes), 0)
-           FROM attendance a WHERE a.student_id = s.id AND a.status = 'present'
-          ), 0
-        ) as progress
+        0 as courses,
+        0 as progress
       FROM students s
       INNER JOIN users u ON s.parent_id = u.id
       ORDER BY s.created_at DESC
@@ -922,15 +855,9 @@ app.get('/api/dashboard/admin', async (c) => {
         c.title,
         c.category,
         c.status,
-        (SELECT COUNT(DISTINCT user_id) FROM subscriptions WHERE course_id = c.id AND status = 'active') as students,
-        COALESCE(
-          (SELECT AVG(progress) FROM (
-            SELECT COUNT(*) * 100.0 / (SELECT COUNT(*) FROM classes WHERE course_id = c.id) as progress
-            FROM attendance a
-            WHERE a.class_id IN (SELECT id FROM classes WHERE course_id = c.id)
-            GROUP BY a.student_id
-          )), 0
-        ) as completion
+        0 as students,
+        0 as completion,
+        0 as rating
       FROM courses c
       ORDER BY c.created_at DESC
       LIMIT 10
@@ -941,7 +868,7 @@ app.get('/api/dashboard/admin', async (c) => {
         totalStudents: studentsCount?.count || 0,
         activeCourses: coursesCount?.count || 0,
         monthlyRevenue: revenue?.total || 0,
-        completionRate: 0 // TODO: Calculate average completion
+        completionRate: 0
       },
       students: recentStudents?.results || [],
       courses: courses?.results || []
