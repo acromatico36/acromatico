@@ -562,7 +562,7 @@ app.post('/api/auth/signup', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const body = await c.req.json()
-    const { firstName, lastName, email, phone, password, role, age } = body
+    const { firstName, lastName, email, password, role, age } = body
     
     // Validate required fields
     if (!firstName || !lastName || !email || !password || !role) {
@@ -581,12 +581,13 @@ app.post('/api/auth/signup', async (c) => {
     // Hash password
     const passwordHash = hashPassword(password)
     
-    // Insert user
+    // Insert user (matching ACTUAL schema: id, email, password_hash, role, first_name, last_name, stripe_customer_id, created_at, updated_at)
     const result = await DB_EDUCATION.prepare(`
-      INSERT INTO users (email, password_hash, role, first_name, last_name, phone, status)
-      VALUES (?, ?, ?, ?, ?, ?, 'active')
-    `).bind(email, passwordHash, role, firstName, lastName, phone).run()
+      INSERT INTO users (email, password_hash, role, first_name, last_name)
+      VALUES (?, ?, ?, ?, ?)
+    `).bind(email, passwordHash, role, firstName, lastName).run()
     
+    // Get the inserted user ID (D1 returns it in meta.last_row_id but as a string)
     const userId = result.meta.last_row_id
     
     // If student, create student record
@@ -620,9 +621,9 @@ app.post('/api/auth/login', async (c) => {
       return c.json({ message: 'Email and password required' }, 400)
     }
     
-    // Get user
+    // Get user (matching ACTUAL schema - no status or last_login columns)
     const user = await DB_EDUCATION.prepare(`
-      SELECT id, email, password_hash, role, first_name, last_name, status
+      SELECT id, email, password_hash, role, first_name, last_name
       FROM users
       WHERE email = ?
     `).bind(email).first()
@@ -637,18 +638,8 @@ app.post('/api/auth/login', async (c) => {
       return c.json({ message: 'Invalid email or password' }, 401)
     }
     
-    // Check account status
-    if (user.status !== 'active') {
-      return c.json({ message: 'Account is inactive' }, 403)
-    }
-    
     // Generate token
     const token = generateToken(user)
-    
-    // Update last login
-    await DB_EDUCATION.prepare(
-      'UPDATE users SET last_login = datetime("now") WHERE id = ?'
-    ).bind(user.id).run()
     
     // Return success
     return c.json({
@@ -686,9 +677,9 @@ app.get('/api/auth/me', async (c) => {
       return c.json({ message: 'Invalid or expired token' }, 401)
     }
     
-    // Get full user details
+    // Get full user details (matching ACTUAL schema)
     const user = await DB_EDUCATION.prepare(`
-      SELECT id, email, role, first_name, last_name, phone, status, created_at, last_login
+      SELECT id, email, role, first_name, last_name, created_at
       FROM users
       WHERE id = ?
     `).bind(payload.id).first()
