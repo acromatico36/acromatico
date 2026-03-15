@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Photography for Entrepreneurs & Startups - Acromatico</title>
+  <title>Brand Photography for Entrepreneurs - Acromatico</title>
+  
+  <!-- PDF Generation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,18 +16,19 @@
       --primary: #1d1d1f;
       --secondary: #6e6e73;
       --accent: #4794A6;
-      --gold: #D4AF37;
       --bg: #ffffff;
       --bg-gray: #f5f5f7;
       --border: #d2d2d7;
+      --success: #34c759;
     }
     
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
+      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
       color: var(--primary);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
     
     /* NAVIGATION */
@@ -55,573 +60,402 @@
       font-weight: 500;
     }
     
-    /* HERO SECTION */
-    .hero {
-      padding: 140px 40px 100px;
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
+    /* PROGRESS BAR */
+    .progress-bar {
+      position: fixed;
+      top: 73px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #e5e5e5;
+      z-index: 999;
     }
     
-    .hero h1 {
-      font-size: 72px;
-      font-weight: 300;
-      letter-spacing: -2px;
-      margin-bottom: 24px;
-      line-height: 1.1;
-    }
-    
-    .hero .subtitle {
-      font-size: 28px;
-      color: var(--secondary);
-      margin-bottom: 20px;
-      font-weight: 300;
-      line-height: 1.4;
-    }
-    
-    .hero .credibility {
-      font-size: 17px;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 50px;
-    }
-    
-    .hero .stats {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin: 60px 0 50px;
-      flex-wrap: wrap;
-    }
-    
-    .stat {
-      text-align: center;
-    }
-    
-    .stat-number {
-      font-size: 48px;
-      font-weight: 200;
-      color: var(--accent);
-      display: block;
-    }
-    
-    .stat-label {
-      font-size: 14px;
-      color: var(--secondary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 8px;
-    }
-    
-    .cta-primary {
-      display: inline-block;
+    .progress-fill {
+      height: 100%;
       background: var(--accent);
-      color: white;
-      padding: 18px 48px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 17px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 14.28%;
     }
     
-    .cta-primary:hover {
-      background: #3a7a8a;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(71, 148, 166, 0.3);
-    }
-    
-    /* WHY US SECTION */
-    .why-us {
-      background: var(--bg-gray);
-      padding: 100px 40px;
-    }
-    
-    .why-us-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .section-title {
-      font-size: 48px;
-      font-weight: 300;
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    
-    .section-subtitle {
-      font-size: 20px;
-      color: var(--secondary);
-      text-align: center;
-      margin-bottom: 60px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .why-grid {
+    /* MAIN LAYOUT */
+    .booking-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: 1fr 400px;
       gap: 40px;
-      margin-top: 60px;
-    }
-    
-    .why-card {
-      background: white;
-      border-radius: 16px;
-      padding: 48px;
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
-    }
-    
-    .why-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-    }
-    
-    .why-icon {
-      font-size: 42px;
-      margin-bottom: 24px;
-      display: block;
-    }
-    
-    .why-card h3 {
-      font-size: 24px;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-    
-    .why-card p {
-      font-size: 16px;
-      color: var(--secondary);
-      line-height: 1.6;
-    }
-    
-    /* OUR BRANDS */
-    .our-brands {
-      padding: 100px 40px;
       max-width: 1400px;
       margin: 0 auto;
+      padding: 120px 40px 80px;
     }
     
-    .brands-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 40px;
-      margin-top: 60px;
+    .steps-container { max-width: 700px; }
+    
+    .step {
+      display: none;
+      animation: fadeIn 0.5s ease;
     }
     
-    .brand-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.3s ease;
+    .step.active { display: block; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
-    .brand-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-    }
-    
-    .brand-image {
-      width: 100%;
-      height: 280px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 32px;
-      font-weight: 300;
-      letter-spacing: 2px;
-    }
-    
-    .brand-image.ecolosophy {
-      background: linear-gradient(135deg, #34c759 0%, #30b051 100%);
-    }
-    
-    .brand-image.acromatico {
-      background: linear-gradient(135deg, #4794A6 0%, #3a7a8a 100%);
-    }
-    
-    .brand-image.mentorme {
-      background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-    }
-    
-    .brand-content {
-      padding: 40px;
-    }
-    
-    .brand-category {
+    .step-number {
       font-size: 13px;
-      color: var(--accent);
       font-weight: 600;
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      margin-bottom: 12px;
-    }
-    
-    .brand-title {
-      font-size: 28px;
-      font-weight: 500;
       margin-bottom: 16px;
     }
     
-    .brand-description {
-      font-size: 16px;
+    .step-question {
+      font-size: 42px;
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    
+    .step-description {
+      font-size: 17px;
       color: var(--secondary);
-      margin-bottom: 24px;
+      margin-bottom: 40px;
       line-height: 1.6;
     }
     
-    .brand-results {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-    
-    .brand-metric {
-      text-align: center;
-    }
-    
-    .metric-value {
-      font-size: 28px;
-      font-weight: 500;
-      color: var(--accent);
-    }
-    
-    .metric-label {
-      font-size: 13px;
-      color: var(--secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 4px;
-    }
-    
-    /* SERVICES */
-    .services {
-      background: var(--bg-gray);
-      padding: 100px 40px;
-    }
-    
-    .services-container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      margin-top: 60px;
-    }
-    
-    .service-card {
-      background: white;
-      border-radius: 16px;
-      padding: 40px;
-      border: 1px solid var(--border);
-    }
-    
-    .service-card h3 {
-      font-size: 24px;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-    
-    .service-card ul {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .service-card ul li {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
+    label {
+      display: block;
       font-size: 15px;
-      display: flex;
-      align-items: flex-start;
+      font-weight: 500;
+      margin: 24px 0 8px;
     }
     
-    .service-card ul li:before {
-      content: "✓";
-      color: var(--accent);
-      font-weight: 600;
-      margin-right: 12px;
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      background: white;
     }
     
-    /* PACKAGES */
-    .packages {
-      padding: 100px 40px;
-      max-width: 1400px;
-      margin: 0 auto;
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(71, 148, 166, 0.1);
     }
     
-    .package-grid {
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    /* OPTION CARDS */
+    .options-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 32px;
-      margin-top: 60px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
     }
     
-    .package-card {
+    .option-card {
       background: white;
       border: 2px solid var(--border);
-      border-radius: 20px;
-      padding: 48px;
+      border-radius: 16px;
+      padding: 32px;
+      cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
     }
     
-    .package-card.featured {
+    .option-card:hover {
       border-color: var(--accent);
-      box-shadow: 0 20px 60px rgba(71, 148, 166, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
     
-    .package-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    .option-card.selected {
+      border-color: var(--accent);
+      background: rgba(71, 148, 166, 0.05);
     }
     
-    .package-badge {
+    .option-badge {
       position: absolute;
-      top: 24px;
-      right: 24px;
-      background: var(--gold);
+      top: 16px;
+      right: 16px;
+      background: var(--accent);
       color: white;
-      padding: 6px 16px;
+      padding: 4px 12px;
       border-radius: 20px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
     
-    .package-name {
-      font-size: 28px;
-      font-weight: 500;
+    .option-title {
+      font-size: 20px;
+      font-weight: 600;
       margin-bottom: 12px;
     }
     
-    .package-price {
-      font-size: 48px;
+    .option-price {
+      font-size: 32px;
       font-weight: 200;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-    
-    .package-price-note {
-      font-size: 14px;
-      color: var(--secondary);
-      margin-bottom: 32px;
-    }
-    
-    .package-features {
-      list-style: none;
-      margin-bottom: 32px;
-    }
-    
-    .package-features li {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 15px;
-      display: flex;
-      align-items: flex-start;
-    }
-    
-    .package-features li:before {
-      content: "✓";
-      color: var(--accent);
-      font-weight: 600;
-      margin-right: 12px;
-    }
-    
-    .package-cta {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 16px;
-      background: var(--accent);
-      color: white;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    
-    .package-cta:hover {
-      background: #3a7a8a;
-    }
-    
-    /* TESTIMONIALS */
-    .testimonials {
-      background: var(--primary);
-      color: white;
-      padding: 100px 40px;
-    }
-    
-    .testimonials .section-title {
-      color: white;
-    }
-    
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 40px;
-      max-width: 1400px;
-      margin: 60px auto 0;
-    }
-    
-    .testimonial-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 40px;
-    }
-    
-    .testimonial-text {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 24px;
-      font-weight: 300;
-    }
-    
-    .testimonial-author {
-      font-size: 15px;
-      font-weight: 500;
-    }
-    
-    .testimonial-role {
-      font-size: 14px;
-      color: rgba(255,255,255,0.6);
-      margin-top: 4px;
-    }
-    
-    /* TEAM */
-    .team {
-      padding: 100px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      margin-top: 60px;
-    }
-    
-    .team-member {
-      text-align: center;
-    }
-    
-    .team-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent) 0%, #3a7a8a 100%);
-      margin: 0 auto 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 48px;
-      font-weight: 300;
-    }
-    
-    .team-name {
-      font-size: 24px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-    
-    .team-role {
-      font-size: 15px;
       color: var(--accent);
       margin-bottom: 16px;
     }
     
-    .team-bio {
+    .option-description {
       font-size: 14px;
       color: var(--secondary);
+      line-height: 1.8;
+    }
+    
+    /* BUTTONS */
+    .button-group {
+      display: flex;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    
+    .btn {
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      flex: 1;
+    }
+    
+    .btn-primary:hover {
+      background: #3a7a8a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(71, 148, 166, 0.3);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--border);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--accent);
+    }
+    
+    /* PREVIEW SIDEBAR */
+    .preview-container {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      height: fit-content;
+      position: sticky;
+      top: 120px;
+    }
+    
+    .preview-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .preview-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--bg-gray);
+    }
+    
+    .preview-label {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+    
+    .preview-value {
+      font-size: 14px;
+      font-weight: 500;
+      text-align: right;
+    }
+    
+    .preview-total {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+    }
+    
+    .preview-total-label {
+      font-size: 14px;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .preview-total-amount {
+      font-size: 36px;
+      font-weight: 200;
+      color: var(--accent);
+    }
+    
+    /* CHECKBOX */
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 24px 0;
+      padding: 20px;
+      background: var(--bg-gray);
+      border-radius: 12px;
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+    }
+    
+    .checkbox-group label {
+      margin: 0;
+      font-size: 14px;
       line-height: 1.6;
     }
     
-    /* FEATURED IN */
-    .featured {
-      background: var(--bg-gray);
-      padding: 60px 40px;
-      text-align: center;
+    /* SIGNATURE */
+    .signature-section {
+      margin: 32px 0;
+      padding: 32px;
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
     }
     
-    .featured h3 {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--secondary);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 40px;
-    }
-    
-    .featured-logos {
+    .signature-options {
       display: flex;
-      justify-content: center;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    
+    .signature-options input[type="radio"] {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .signature-options label {
+      display: flex;
       align-items: center;
-      gap: 60px;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
+      gap: 8px;
+      margin: 0;
+      cursor: pointer;
     }
     
-    .featured-logo {
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--primary);
-      opacity: 0.5;
-      transition: opacity 0.3s;
+    #signatureNameInput {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 28px;
     }
     
-    .featured-logo:hover { opacity: 0.9; }
+    #signatureCanvas {
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      cursor: crosshair;
+      background: white;
+      display: block;
+      width: 100%;
+      max-width: 600px;
+    }
     
-    /* CTA SECTION */
-    .final-cta {
-      padding: 100px 40px;
+    .canvas-instructions {
+      font-size: 12px;
+      color: var(--secondary);
       text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     
-    .final-cta h2 {
-      font-size: 56px;
+    /* CONTRACT */
+    .contract-section {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 32px 0;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    
+    .contract-section h3 {
+      font-size: 24px;
       font-weight: 300;
       margin-bottom: 24px;
-      line-height: 1.2;
+      text-align: center;
     }
     
-    .final-cta p {
-      font-size: 20px;
+    .contract-section p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 16px;
       color: var(--secondary);
-      margin-bottom: 40px;
+    }
+    
+    .contract-section strong {
+      color: var(--primary);
+    }
+    
+    /* PAYMENT */
+    .payment-option {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: white;
+    }
+    
+    .payment-option:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(71, 148, 166, 0.1);
+    }
+    
+    .payment-option.active-option {
+      border: 3px solid var(--accent);
+      background: rgba(71, 148, 166, 0.05);
     }
     
     /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+      .preview-container {
+        position: relative;
+        top: 0;
+      }
+    }
+    
     @media (max-width: 768px) {
-      .hero h1 { font-size: 42px; }
-      .hero .subtitle { font-size: 20px; }
-      .section-title { font-size: 36px; }
-      .brands-grid,
-      .package-grid,
-      .testimonial-grid { grid-template-columns: 1fr; }
-      .final-cta h2 { font-size: 36px; }
-      .why-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
+      .step-question { font-size: 32px; }
+      .options-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -637,342 +471,932 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Brand Photography for Entrepreneurs</h1>
-    <p class="subtitle">We don't just shoot photos. We build brands.<br>Because we've done it ourselves.</p>
-    <p class="credibility">Worked with Apple • Featured in Martha Stewart, The Knot, WeddingWire, Style Me Pretty</p>
-    
-    <div class="stats">
-      <div class="stat">
-        <span class="stat-number">3</span>
-        <span class="stat-label">Brands Built From Zero</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">20+</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">500+</span>
-        <span class="stat-label">Projects Delivered</span>
-      </div>
-    </div>
-    
-    <a href="#booking" class="cta-primary" onclick="scrollToBooking(); return false;">Let's Build Your Brand</a>
-  </section>
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressBar"></div>
+  </div>
 
-  <!-- WHY US -->
-  <section class="why-us">
-    <div class="why-us-container">
-      <h2 class="section-title">Why Entrepreneurs Choose Us</h2>
-      <p class="section-subtitle">We're not just photographers. We're founders who understand what it takes to build a brand from scratch.</p>
-      
-      <div class="why-grid">
-        <div class="why-card">
-          <span class="why-icon">🎯</span>
-          <h3>We Think Like Founders</h3>
-          <p>We've built Ecolosophy (wellness brand), Acromatico (creative education SaaS), and MentorMe (AI course platform). We understand your vision because we've walked the path.</p>
-        </div>
-        
-        <div class="why-card">
-          <span class="why-icon">📸</span>
-          <h3>Content That Converts</h3>
-          <p>Every shot is designed to tell your story, build trust, and drive action. Not just pretty pictures—strategic visual assets that grow your business.</p>
-        </div>
-        
-        <div class="why-card">
-          <span class="why-icon">⚡</span>
-          <h3>Fast Turnaround</h3>
-          <p>Startups move fast. So do we. Get your photos within 7-14 days, not weeks. Rush delivery available for product launches and campaign deadlines.</p>
-        </div>
-        
-        <div class="why-card">
-          <span class="why-icon">💼</span>
-          <h3>Full Brand Experience</h3>
-          <p>Founder portraits, team headshots, product photography, lifestyle content, behind-the-scenes—everything you need to launch and scale your brand.</p>
-        </div>
-        
-        <div class="why-card">
-          <span class="why-icon">🎨</span>
-          <h3>Creative Direction Included</h3>
-          <p>Not sure what you need? We'll help you plan the shoot, scout locations, choose outfits, and direct every frame. You just show up and be yourself.</p>
-        </div>
-        
-        <div class="why-card">
-          <span class="why-icon">🌍</span>
-          <h3>Global or Local</h3>
-          <p>Based in South Florida and NYC, but we travel. Product launch in Austin? Campaign shoot in LA? Investor pitch in SF? We'll be there.</p>
+  <!-- MAIN LAYOUT -->
+  <div class="booking-layout">
+    
+    <!-- LEFT: STEPS -->
+    <div class="steps-container">
+
+      <!-- STEP 1: COMPANY INFO -->
+      <div class="step active" id="step1">
+        <div class="step-number">Step 1 of 7</div>
+        <h1 class="step-question">Tell us about your company</h1>
+        <p class="step-description">We'll create a custom brand photography package for your business.</p>
+
+        <label>Company Name *</label>
+        <input type="text" id="companyName" placeholder="e.g., Acme Startup Inc.">
+
+        <label>Your Name *</label>
+        <input type="text" id="contactName" placeholder="e.g., Jane Smith">
+
+        <label>Email *</label>
+        <input type="email" id="email" placeholder="e.g., jane@acme.com">
+
+        <label>Phone *</label>
+        <input type="tel" id="phone" placeholder="e.g., (305) 555-1234">
+
+        <label>Industry *</label>
+        <select id="industry">
+          <option value="">Select industry...</option>
+          <option value="tech">Technology / SaaS</option>
+          <option value="ecommerce">E-commerce / DTC</option>
+          <option value="wellness">Wellness / Health</option>
+          <option value="finance">Finance / Fintech</option>
+          <option value="food">Food & Beverage</option>
+          <option value="fashion">Fashion / Beauty</option>
+          <option value="real-estate">Real Estate</option>
+          <option value="consulting">Consulting / Services</option>
+          <option value="nonprofit">Nonprofit</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label>Website (optional)</label>
+        <input type="text" id="website" placeholder="e.g., acme.com">
+
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="validateStep1()">Continue →</button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- OUR BRANDS -->
-  <section class="our-brands">
-    <h2 class="section-title">Brands We've Built</h2>
-    <p class="section-subtitle">Before we helped others build brands, we built our own. Here's proof we know what we're doing.</p>
-    
-    <div class="brands-grid">
-      <div class="brand-card">
-        <div class="brand-image ecolosophy">ECOLOSOPHY</div>
-        <div class="brand-content">
-          <div class="brand-category">Wellness Brand</div>
-          <h3 class="brand-title">Ecolosophy</h3>
-          <p class="brand-description">Revolutionary non-toxic cleaning products company. Built from personal health struggles to a movement changing how families clean their homes.</p>
-          <div class="brand-results">
-            <div class="brand-metric">
-              <div class="metric-value">1M</div>
-              <div class="metric-label">Homes Mission</div>
+      <!-- STEP 2: PROJECT TYPE -->
+      <div class="step" id="step2">
+        <div class="step-number">Step 2 of 7</div>
+        <h1 class="step-question">What type of content do you need?</h1>
+        <p class="step-description">Choose the package that matches your brand photography needs.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="selectPackage(this, 'foundation', 20000)">
+            <div class="option-title">Foundation</div>
+            <div class="option-price">$20,000</div>
+            <div class="option-description">
+              ✓ 2-day shoot<br>
+              ✓ 2-3 locations<br>
+              ✓ 100+ edited photos<br>
+              ✓ Founder portraits, team, product<br>
+              ✓ Professional retouching<br>
+              ✓ 14-day delivery
             </div>
-            <div class="brand-metric">
-              <div class="metric-value">100M</div>
-              <div class="metric-label">Bottles Saved</div>
+          </div>
+
+          <div class="option-card" onclick="selectPackage(this, 'growth', 50000)">
+            <span class="option-badge">POPULAR</span>
+            <div class="option-title">Growth</div>
+            <div class="option-price">$50,000</div>
+            <div class="option-description">
+              ✓ 5-day production<br>
+              ✓ Multiple locations<br>
+              ✓ 300+ photos + 10 videos<br>
+              ✓ Complete brand content system<br>
+              ✓ Premium retouching & grading<br>
+              ✓ 7-day priority delivery
+            </div>
+          </div>
+
+          <div class="option-card" onclick="selectPackage(this, 'scale', 100000)">
+            <div class="option-title">Scale</div>
+            <div class="option-price">$100,000+</div>
+            <div class="option-description">
+              ✓ Multi-week production<br>
+              ✓ Multiple cities & locations<br>
+              ✓ 500+ photos + 20+ videos<br>
+              ✓ Complete brand content library<br>
+              ✓ Luxury retouching<br>
+              ✓ 3-day priority delivery
             </div>
           </div>
         </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep2()">Continue →</button>
+        </div>
       </div>
-      
-      <div class="brand-card">
-        <div class="brand-image acromatico">ACROMATICO</div>
-        <div class="brand-content">
-          <div class="brand-category">Creative Education</div>
-          <h3 class="brand-title">Acromatico</h3>
-          <p class="brand-description">AI-powered creative mastery platform for Gen Alpha kids. Teaching photography, filmmaking, and brand building to the next generation of creators.</p>
-          <div class="brand-results">
-            <div class="brand-metric">
-              <div class="metric-value">Gen Alpha</div>
-              <div class="metric-label">Target Market</div>
+
+      <!-- STEP 3: SHOOT DETAILS -->
+      <div class="step" id="step3">
+        <div class="step-number">Step 3 of 7</div>
+        <h1 class="step-question">Shoot details</h1>
+        <p class="step-description">Help us plan the perfect shoot for your brand.</p>
+
+        <label>Preferred shoot date *</label>
+        <input type="date" id="shootDate">
+
+        <label>Primary location *</label>
+        <input type="text" id="location" placeholder="e.g., Miami, FL">
+
+        <label>What do you need most? (select all that apply)</label>
+        <div style="margin: 16px 0;">
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needFounder" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Founder portraits & headshots</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needTeam" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Team photos</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needProduct" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Product photography</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needLifestyle" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Lifestyle & brand content</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needBTS" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Behind-the-scenes content</span>
+          </label>
+        </div>
+
+        <label>Additional details (optional)</label>
+        <textarea id="additionalDetails" placeholder="Tell us about your brand, vision, specific shots you need, etc."></textarea>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep3()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: VIDEO ADD-ONS -->
+      <div class="step" id="step4">
+        <div class="step-number">Step 4 of 7</div>
+        <h1 class="step-question">Video add-ons</h1>
+        <p class="step-description">Enhance your package with professional video content.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="selectVideo(this, 'none', 0)">
+            <div class="option-title">No Video</div>
+            <div class="option-price">$0</div>
+            <div class="option-description">
+              Photos only
             </div>
-            <div class="brand-metric">
-              <div class="metric-value">AI-Powered</div>
-              <div class="metric-label">Creative Education</div>
+          </div>
+
+          <div class="option-card" onclick="selectVideo(this, 'social', 5000)">
+            <div class="option-title">Social Video Pack</div>
+            <div class="option-price">+$5,000</div>
+            <div class="option-description">
+              ✓ 5-10 short-form videos<br>
+              ✓ Reels, TikToks, Stories<br>
+              ✓ 15-30 seconds each<br>
+              ✓ Optimized for social platforms
+            </div>
+          </div>
+
+          <div class="option-card" onclick="selectVideo(this, 'founder', 12000)">
+            <span class="option-badge">POPULAR</span>
+            <div class="option-title">Founder Story Video</div>
+            <div class="option-price">+$12,000</div>
+            <div class="option-description">
+              ✓ 2-3 minute founder story<br>
+              ✓ Cinematic production<br>
+              ✓ Includes social cutdowns<br>
+              ✓ Perfect for website & pitch decks
+            </div>
+          </div>
+
+          <div class="option-card" onclick="selectVideo(this, 'complete', 25000)">
+            <div class="option-title">Complete Video Suite</div>
+            <div class="option-price">+$25,000</div>
+            <div class="option-description">
+              ✓ Founder story video<br>
+              ✓ Product demo videos<br>
+              ✓ 15-20 social videos<br>
+              ✓ Behind-the-scenes footage<br>
+              ✓ Full video content library
             </div>
           </div>
         </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep4()">Continue →</button>
+        </div>
       </div>
-      
-      <div class="brand-card">
-        <div class="brand-image mentorme">MENTORME</div>
-        <div class="brand-content">
-          <div class="brand-category">Business Education</div>
-          <h3 class="brand-title">MentorMe</h3>
-          <p class="brand-description">AI-powered course platform for solopreneurs and wellness leaders. Teaching entrepreneurs how to build viral content systems and automate their business.</p>
-          <div class="brand-results">
-            <div class="brand-metric">
-              <div class="metric-value">80/20</div>
-              <div class="metric-label">Leverage Focus</div>
+
+      <!-- STEP 5: REVIEW -->
+      <div class="step" id="step5">
+        <div class="step-number">Step 5 of 7</div>
+        <h1 class="step-question">Review your booking</h1>
+        <p class="step-description">Please confirm all details before proceeding.</p>
+
+        <div style="background: white; border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin: 24px 0;">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--border);">Booking Summary</h3>
+          
+          <div style="display: grid; gap: 16px;">
+            <div>
+              <strong>Company:</strong> <span id="summaryCompany">—</span>
             </div>
-            <div class="brand-metric">
-              <div class="metric-value">10x</div>
-              <div class="metric-label">ROI Systems</div>
+            <div>
+              <strong>Contact:</strong> <span id="summaryContact">—</span>
+            </div>
+            <div>
+              <strong>Email:</strong> <span id="summaryEmail">—</span>
+            </div>
+            <div>
+              <strong>Phone:</strong> <span id="summaryPhone">—</span>
+            </div>
+            <div>
+              <strong>Package:</strong> <span id="summaryPackage">—</span>
+            </div>
+            <div>
+              <strong>Shoot Date:</strong> <span id="summaryDate">—</span>
+            </div>
+            <div>
+              <strong>Location:</strong> <span id="summaryLocation">—</span>
+            </div>
+            <div>
+              <strong>Video Add-on:</strong> <span id="summaryVideo">—</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 32px; padding-top: 32px; border-top: 2px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 18px; font-weight: 500;">Total Investment:</span>
+              <span style="font-size: 36px; font-weight: 200; color: var(--accent);" id="summaryTotal">$0</span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- SERVICES -->
-  <section class="services">
-    <div class="services-container">
-      <h2 class="section-title">What We Shoot</h2>
-      <p class="section-subtitle">Everything your startup needs to look professional, build trust, and scale fast.</p>
-      
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Founder Portraits</h3>
-          <ul>
-            <li>Professional headshots for website & pitch decks</li>
-            <li>Lifestyle portraits showing your personality</li>
-            <li>Behind-the-scenes founder content</li>
-            <li>Team photos & culture content</li>
-          </ul>
-        </div>
-        
-        <div class="service-card">
-          <h3>Product Photography</h3>
-          <ul>
-            <li>E-commerce product shots (white background)</li>
-            <li>Lifestyle product photography</li>
-            <li>Unboxing & detail shots</li>
-            <li>Product in use / action shots</li>
-          </ul>
-        </div>
-        
-        <div class="service-card">
-          <h3>Brand Content</h3>
-          <ul>
-            <li>Social media content library (50-200 photos)</li>
-            <li>Website hero images & page visuals</li>
-            <li>Campaign imagery for launches</li>
-            <li>Email marketing visuals</li>
-          </ul>
-        </div>
-        
-        <div class="service-card">
-          <h3>Video Content</h3>
-          <ul>
-            <li>Founder story video (1-3 min)</li>
-            <li>Product demo videos</li>
-            <li>Social media Reels & TikToks</li>
-            <li>Behind-the-scenes footage</li>
-          </ul>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(6)">Continue to Contract →</button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- PACKAGES -->
-  <section class="packages">
-    <h2 class="section-title">Investment Packages</h2>
-    <p class="section-subtitle">Choose the package that matches your stage. Every package includes creative direction, professional editing, and commercial usage rights.</p>
-    
-    <div class="package-grid">
-      <div class="package-card">
-        <h3 class="package-name">Foundation</h3>
-        <div class="package-price">$20K</div>
-        <p class="package-price-note">Essential brand photography</p>
-        
-        <ul class="package-features">
-          <li>2-day shoot</li>
-          <li>2-3 locations</li>
-          <li>100+ edited photos</li>
-          <li>Founder portraits, team, product</li>
-          <li>Professional retouching</li>
-          <li>Creative direction</li>
-          <li>14-day delivery</li>
-          <li>Commercial usage rights</li>
-        </ul>
-        
-        <button class="package-cta" onclick="scrollToBooking()">Get Started</button>
+      <!-- STEP 6: CONTRACT & SIGNATURE -->
+      <div class="step" id="step6">
+        <div class="step-number">Step 6 of 7</div>
+        <h1 class="step-question">Contract & Signature</h1>
+        <p class="step-description">Please review and sign the photography agreement.</p>
+
+        <!-- CONTRACT -->
+        <div class="contract-section">
+          <h3>BRAND PHOTOGRAPHY AGREEMENT</h3>
+          
+          <p><strong>This Agreement</strong> is made between <strong>Acromatico</strong> ("Photographer") and <strong><span id="contractCompany">Client</span></strong> ("Client").</p>
+          
+          <p><strong>Services:</strong> Photographer agrees to provide brand photography services as outlined in the booking summary above.</p>
+          
+          <p><strong>Package:</strong> <span id="contractPackage">—</span></p>
+          <p><strong>Shoot Date:</strong> <span id="contractDate">—</span></p>
+          <p><strong>Location:</strong> <span id="contractLocation">—</span></p>
+          
+          <p><strong>Total Investment:</strong> $<span id="contractTotal">0</span></p>
+          <p><strong>50% Deposit Due Today:</strong> $<span id="contractDeposit">0</span></p>
+          <p><strong>Balance Due 7 Days Before Shoot:</strong> $<span id="contractBalance">0</span></p>
+          
+          <p><strong>Payment Terms:</strong> A non-refundable 50% deposit is required to secure your booking. The remaining 50% balance is due 7 days prior to the shoot date. Late payments may result in rescheduling.</p>
+          
+          <p><strong>Cancellation Policy:</strong> Deposits are non-refundable. If Client cancels within 14 days of the shoot date, the full balance becomes due. Rescheduling is permitted with 14+ days notice.</p>
+          
+          <p><strong>Usage Rights:</strong> Client receives full commercial usage rights to all delivered images for their own business purposes. Images may not be resold or sublicensed without written permission from Photographer.</p>
+          
+          <p><strong>Delivery:</strong> Final edited images will be delivered via online gallery within the timeframe specified in the selected package. Raw/unedited files are not included.</p>
+          
+          <p><strong>Model Release:</strong> Client represents that all persons appearing in the photographs have consented to being photographed and to the use of their likeness.</p>
+          
+          <p><strong>Force Majeure:</strong> Neither party shall be liable for failure to perform due to circumstances beyond their reasonable control including weather, illness, or emergency.</p>
+          
+          <p style="margin-top: 32px;"><strong>By signing below, Client agrees to all terms and conditions outlined in this agreement.</strong></p>
+        </div>
+
+        <!-- SIGNATURE -->
+        <div class="signature-section">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 16px;">Electronic Signature</h3>
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">Please sign below to accept the agreement.</p>
+          
+          <div class="signature-options">
+            <label>
+              <input type="radio" name="signMethod" value="type" checked onchange="toggleSignatureMethod()">
+              <span>Type my name</span>
+            </label>
+            <label>
+              <input type="radio" name="signMethod" value="draw" onchange="toggleSignatureMethod()">
+              <span>Draw my signature</span>
+            </label>
+          </div>
+
+          <div id="signatureTypeSection">
+            <label>Full Legal Name *</label>
+            <input type="text" id="signatureName" placeholder="Enter your full legal name" style="font-family: 'Brush Script MT', cursive; font-size: 28px;">
+          </div>
+
+          <div id="signatureDrawSection" style="display: none;">
+            <canvas id="signatureCanvas" width="600" height="150"></canvas>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+              <button class="btn btn-secondary" onclick="clearSignature()" style="padding: 12px 24px; font-size: 14px;">Clear Signature</button>
+              <p class="canvas-instructions">CLICK AND DRAG TO SIGN</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; padding: 16px; background: var(--bg-gray); border-radius: 12px;">
+            <p style="font-size: 13px; color: var(--secondary);">
+              <strong>Signed by:</strong> <span id="signerName">—</span><br>
+              <strong>Date:</strong> <span id="signatureDate">—</span><br>
+              <strong>IP Address:</strong> <span id="ipAddress">—</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="agreeTerms">
+          <label for="agreeTerms">I have read and agree to the terms and conditions outlined in this Brand Photography Agreement.</label>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep6()">Sign & Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: PAYMENT -->
+      <div class="step" id="step7">
+        <div class="step-number">Step 7 of 7</div>
+        <h1 class="step-question">Payment</h1>
+        <p class="step-description">Choose your payment option to secure your brand photography shoot.</p>
+
+        <!-- AGREEMENT SIGNED CONFIRMATION -->
+        <div style="background: rgba(71, 148, 166, 0.1); border: 2px solid var(--accent); border-radius: 12px; padding: 24px; margin-bottom: 32px; text-align: center;">
+          <h3 style="font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 12px;">✓ Agreement Signed</h3>
+          <p style="font-size: 14px; color: var(--secondary);">
+            Signed by <strong id="finalSignatureName">Client Name</strong> on <span id="finalSignDate">Date</span>
+          </p>
+          <button class="btn btn-primary" onclick="downloadAgreement()" style="margin-top: 16px; padding: 12px 24px; font-size: 14px; background: var(--accent);">
+            ⬇ Download Signed Agreement PDF
+          </button>
+        </div>
+
+        <!-- PAYMENT OPTIONS -->
+        <div style="max-width: 600px;">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px;">Select Payment Option</h3>
+          
+          <div class="payment-option active-option" onclick="selectPaymentMethod('deposit')">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h4 style="font-size: 18px; font-weight: 500;">50% Deposit</h4>
+              <span style="background: var(--accent); color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase;">RECOMMENDED</span>
+            </div>
+            <p style="font-size: 32px; font-weight: 200; color: var(--accent); margin-bottom: 12px;">$<span id="depositAmount">0</span></p>
+            <p style="font-size: 14px; color: var(--secondary);">
+              • Non-refundable deposit due today<br>
+              • Remaining 50% due 7 days before shoot<br>
+              • Secures your shoot date
+            </p>
+          </div>
+
+          <div class="payment-option" onclick="selectPaymentMethod('full')">
+            <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 12px;">Pay in Full</h4>
+            <p style="font-size: 32px; font-weight: 200; color: var(--accent); margin-bottom: 12px;">$<span id="fullAmount">0</span></p>
+            <p style="font-size: 14px; color: var(--secondary);">
+              • Pay 100% today<br>
+              • Shoot date secured immediately
+            </p>
+          </div>
+        </div>
+
+        <!-- PAYMENT METHODS -->
+        <div style="margin-top: 40px; padding: 32px; background: white; border: 1px solid var(--border); border-radius: 16px;">
+          <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 24px;">Payment Method</h3>
+          
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">
+            Please send payment via one of the following methods. Amount to pay: <strong style="color: var(--accent); font-size: 20px;">$<span class="selectedPaymentAmount">0</span></strong>
+          </p>
+
+          <div style="display: grid; gap: 16px;">
+            <div style="padding: 16px; border: 1px solid var(--border); border-radius: 12px;">
+              <strong>Zelle:</strong> 954-779-0921
+            </div>
+            <div style="padding: 16px; border: 1px solid var(--border); border-radius: 12px;">
+              <strong>Cash App:</strong> $acromatico
+            </div>
+            <div style="padding: 16px; border: 1px solid var(--border); border-radius: 12px;">
+              <strong>Venmo:</strong> @acromatico
+            </div>
+            <div style="padding: 16px; border: 1px solid var(--border); border-radius: 12px;">
+              <strong>Wire Transfer:</strong> Contact info@acromatico.com for details
+            </div>
+          </div>
+
+          <p style="font-size: 13px; color: var(--secondary); margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+            After payment, please send your receipt to <strong>info@acromatico.com</strong> to confirm your booking. We'll send you a confirmation email within 24 hours.
+          </p>
+        </div>
+
+        <div class="button-group" style="margin-top: 40px;">
+          <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
+          <button class="btn btn-primary" onclick="completeBooking()">Complete Booking →</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: PREVIEW SIDEBAR -->
+    <div class="preview-container">
+      <h3 class="preview-title">Your Project</h3>
+      
+      <div class="preview-row">
+        <span class="preview-label">Company</span>
+        <span class="preview-value" id="previewCompany">—</span>
       </div>
       
-      <div class="package-card featured">
-        <div class="package-badge">MOST POPULAR</div>
-        <h3 class="package-name">Growth</h3>
-        <div class="package-price">$50K</div>
-        <p class="package-price-note">Complete brand content system</p>
-        
-        <ul class="package-features">
-          <li>5-day production</li>
-          <li>Multiple locations</li>
-          <li>300+ photos + 10 videos</li>
-          <li>Founder, team, product & lifestyle</li>
-          <li>Premium retouching & grading</li>
-          <li>Full creative direction & styling</li>
-          <li>7-day priority delivery</li>
-          <li>Full commercial rights</li>
-        </ul>
-        
-        <button class="package-cta" onclick="scrollToBooking()">Get Started</button>
+      <div class="preview-row">
+        <span class="preview-label">Package</span>
+        <span class="preview-value" id="previewPackage">Not selected</span>
       </div>
       
-      <div class="package-card">
-        <h3 class="package-name">Scale</h3>
-        <div class="package-price">$100K+</div>
-        <p class="package-price-note">Multi-market campaigns</p>
-        
-        <ul class="package-features">
-          <li>Multi-week production</li>
-          <li>Multiple cities & locations</li>
-          <li>500+ photos + 20+ videos</li>
-          <li>Complete brand content library</li>
-          <li>Luxury retouching</li>
-          <li>Full art direction & production team</li>
-          <li>Priority 3-day delivery</li>
-          <li>Unlimited usage rights</li>
-          <li>6-month content support</li>
-        </ul>
-        
-        <button class="package-cta" onclick="scrollToBooking()">Get Started</button>
+      <div class="preview-row">
+        <span class="preview-label">Video Add-on</span>
+        <span class="preview-value" id="previewVideo">None</span>
+      </div>
+      
+      <div class="preview-total">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <span class="preview-total-label">Total Investment</span>
+          <span class="preview-total-amount" id="previewTotal">$0</span>
+        </div>
+        <p style="font-size: 12px; color: var(--secondary); margin-top: 8px;">
+          50% deposit required today
+        </p>
       </div>
     </div>
-  </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <h2 class="section-title">What Founders Say</h2>
-    
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <p class="testimonial-text">"Italo doesn't just take photos—he understands the business side. He helped us position our brand visually before our seed round. Investors loved it."</p>
-        <div class="testimonial-author">Sarah Martinez</div>
-        <div class="testimonial-role">Founder, Wellness Tech Startup</div>
-      </div>
-      
-      <div class="testimonial-card">
-        <p class="testimonial-text">"We needed content for our product launch in 2 weeks. Acromatico delivered everything on time and it looked better than brands 10x our size."</p>
-        <div class="testimonial-author">James Chen</div>
-        <div class="testimonial-role">Co-Founder, DTC Brand</div>
-      </div>
-      
-      <div class="testimonial-card">
-        <p class="testimonial-text">"Working with a founder who's built multiple brands made all the difference. He knew exactly what we needed before we did."</p>
-        <div class="testimonial-author">Maria Rodriguez</div>
-        <div class="testimonial-role">CEO, E-commerce Platform</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section class="team">
-    <h2 class="section-title">Meet The Team</h2>
-    <p class="section-subtitle">Award-winning creatives who understand business.</p>
-    
-    <div class="team-grid">
-      <div class="team-member">
-        <div class="team-photo">AI</div>
-        <h3 class="team-name">Ale & Italo</h3>
-        <p class="team-role">Founders & Creative Directors</p>
-        <p class="team-bio">Built 3 brands from zero. 20+ years shooting for Apple, featured in Martha Stewart, The Knot. Now helping founders tell their stories.</p>
-      </div>
-      
-      <div class="team-member">
-        <div class="team-photo">T</div>
-        <h3 class="team-name">Tica</h3>
-        <p class="team-role">Creative Studio Director</p>
-        <p class="team-bio">Fashion-forward aesthetics meet brand strategy. Makes every founder look like they belong on magazine covers.</p>
-      </div>
-      
-      <div class="team-member">
-        <div class="team-photo">J</div>
-        <h3 class="team-name">Josh</h3>
-        <p class="team-role">Video Director</p>
-        <p class="team-bio">Turns founder stories into cinematic content that builds emotional connection and drives action.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED IN -->
-  <section class="featured">
-    <h3>AS FEATURED IN & WORKED WITH</h3>
-    <div class="featured-logos">
-      <span class="featured-logo">Apple</span>
-      <span class="featured-logo">Martha Stewart</span>
-      <span class="featured-logo">The Knot</span>
-      <span class="featured-logo">WeddingWire</span>
-      <span class="featured-logo">Style Me Pretty</span>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="final-cta" id="booking">
-    <h2>Ready to Build Your Brand?</h2>
-    <p>Let's create content that makes investors, customers, and press take notice.</p>
-    
-    <a href="mailto:info@acromatico.com?subject=Brand Photography Inquiry&body=Hi Italo,%0D%0A%0D%0AI'm interested in brand photography for my startup. Here are some details:%0D%0A%0D%0ACompany Name:%0D%0AIndustry:%0D%0AStage (pre-seed, seed, Series A, etc.):%0D%0AWhat we need (founder portraits, product, team, etc.):%0D%0ATimeline:%0D%0ABudget Range:%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest," class="cta-primary">Get a Custom Quote</a>
-    
-    <p style="font-size: 14px; color: var(--secondary); margin-top: 32px;">
-      Or email directly: <a href="mailto:info@acromatico.com" style="color: var(--accent); text-decoration: none;">info@acromatico.com</a>
-    </p>
-  </section>
+  </div>
 
   <script>
-    function scrollToBooking() {
-      document.getElementById('booking').scrollIntoView({ 
-        behavior: 'smooth' 
+    // Booking state
+    let currentStep = 1;
+    let booking = {
+      companyName: '',
+      contactName: '',
+      email: '',
+      phone: '',
+      industry: '',
+      website: '',
+      packageType: '',
+      packagePrice: 0,
+      shootDate: '',
+      location: '',
+      needsFounder: false,
+      needsTeam: false,
+      needsProduct: false,
+      needsLifestyle: false,
+      needsBTS: false,
+      additionalDetails: '',
+      videoType: 'none',
+      videoPrice: 0,
+      signatureMethod: 'type',
+      signatureName: '',
+      signatureData: '',
+      agreedToTerms: false,
+      paymentMethod: 'deposit',
+      signatureDate: new Date().toLocaleDateString(),
+      ipAddress: ''
+    };
+
+    // Navigation
+    function nextStep(step) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step' + step).classList.add('active');
+      currentStep = step;
+      updateProgressBar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevStep(step) {
+      nextStep(step);
+    }
+
+    function updateProgressBar() {
+      const progress = (currentStep / 7) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    // Step 1: Company Info
+    function validateStep1() {
+      const companyName = document.getElementById('companyName').value.trim();
+      const contactName = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const industry = document.getElementById('industry').value;
+
+      if (!companyName) {
+        alert('Please enter your company name');
+        return;
+      }
+      if (!contactName) {
+        alert('Please enter your name');
+        return;
+      }
+      if (!email) {
+        alert('Please enter your email');
+        return;
+      }
+      if (!phone) {
+        alert('Please enter your phone number');
+        return;
+      }
+      if (!industry) {
+        alert('Please select your industry');
+        return;
+      }
+
+      booking.companyName = companyName;
+      booking.contactName = contactName;
+      booking.email = email;
+      booking.phone = phone;
+      booking.industry = industry;
+      booking.website = document.getElementById('website').value.trim();
+
+      document.getElementById('previewCompany').textContent = companyName;
+      
+      nextStep(2);
+    }
+
+    // Step 2: Package Selection
+    function selectPackage(card, type, price) {
+      document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      
+      booking.packageType = type;
+      booking.packagePrice = price;
+
+      const packageNames = {
+        'foundation': 'Foundation ($20K)',
+        'growth': 'Growth ($50K)',
+        'scale': 'Scale ($100K+)'
+      };
+
+      document.getElementById('previewPackage').textContent = packageNames[type];
+      updateTotal();
+    }
+
+    function validateStep2() {
+      if (!booking.packageType) {
+        alert('Please select a package');
+        return;
+      }
+      nextStep(3);
+    }
+
+    // Step 3: Shoot Details
+    function validateStep3() {
+      const shootDate = document.getElementById('shootDate').value;
+      const location = document.getElementById('location').value.trim();
+
+      if (!shootDate) {
+        alert('Please select a shoot date');
+        return;
+      }
+      if (!location) {
+        alert('Please enter the shoot location');
+        return;
+      }
+
+      booking.shootDate = shootDate;
+      booking.location = location;
+      booking.needsFounder = document.getElementById('needFounder').checked;
+      booking.needsTeam = document.getElementById('needTeam').checked;
+      booking.needsProduct = document.getElementById('needProduct').checked;
+      booking.needsLifestyle = document.getElementById('needLifestyle').checked;
+      booking.needsBTS = document.getElementById('needsBTS').checked;
+      booking.additionalDetails = document.getElementById('additionalDetails').value.trim();
+
+      nextStep(4);
+    }
+
+    // Step 4: Video Add-ons
+    function selectVideo(card, type, price) {
+      document.querySelectorAll('#step4 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      
+      booking.videoType = type;
+      booking.videoPrice = price;
+
+      const videoNames = {
+        'none': 'None',
+        'social': 'Social Video Pack (+$5K)',
+        'founder': 'Founder Story (+$12K)',
+        'complete': 'Complete Suite (+$25K)'
+      };
+
+      document.getElementById('previewVideo').textContent = videoNames[type];
+      updateTotal();
+    }
+
+    function validateStep4() {
+      if (!booking.videoType) {
+        booking.videoType = 'none';
+        booking.videoPrice = 0;
+      }
+      updateSummary();
+      nextStep(5);
+    }
+
+    // Update total
+    function updateTotal() {
+      const total = booking.packagePrice + booking.videoPrice;
+      document.getElementById('previewTotal').textContent = '$' + total.toLocaleString();
+    }
+
+    // Step 5: Summary
+    function updateSummary() {
+      document.getElementById('summaryCompany').textContent = booking.companyName;
+      document.getElementById('summaryContact').textContent = booking.contactName;
+      document.getElementById('summaryEmail').textContent = booking.email;
+      document.getElementById('summaryPhone').textContent = booking.phone;
+      
+      const packageNames = {
+        'foundation': 'Foundation ($20,000)',
+        'growth': 'Growth ($50,000)',
+        'scale': 'Scale ($100,000+)'
+      };
+      document.getElementById('summaryPackage').textContent = packageNames[booking.packageType];
+      
+      document.getElementById('summaryDate').textContent = new Date(booking.shootDate).toLocaleDateString();
+      document.getElementById('summaryLocation').textContent = booking.location;
+      
+      const videoNames = {
+        'none': 'None',
+        'social': 'Social Video Pack (+$5,000)',
+        'founder': 'Founder Story Video (+$12,000)',
+        'complete': 'Complete Video Suite (+$25,000)'
+      };
+      document.getElementById('summaryVideo').textContent = videoNames[booking.videoType];
+      
+      const total = booking.packagePrice + booking.videoPrice;
+      document.getElementById('summaryTotal').textContent = '$' + total.toLocaleString();
+    }
+
+    // Step 6: Signature
+    let canvas, ctx, isDrawing = false;
+
+    function toggleSignatureMethod() {
+      const method = document.querySelector('input[name="signMethod"]:checked').value;
+      booking.signatureMethod = method;
+      
+      if (method === 'type') {
+        document.getElementById('signatureTypeSection').style.display = 'block';
+        document.getElementById('signatureDrawSection').style.display = 'none';
+      } else {
+        document.getElementById('signatureTypeSection').style.display = 'none';
+        document.getElementById('signatureDrawSection').style.display = 'block';
+        initCanvas();
+      }
+    }
+
+    function initCanvas() {
+      if (!canvas) {
+        canvas = document.getElementById('signatureCanvas');
+        ctx = canvas.getContext('2d');
+        ctx.strokeStyle = '#1d1d1f';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        canvas.addEventListener('touchstart', handleTouch);
+        canvas.addEventListener('touchmove', handleTouch);
+        canvas.addEventListener('touchend', stopDrawing);
+      }
+    }
+
+    function startDrawing(e) {
+      isDrawing = true;
+      const rect = canvas.getBoundingClientRect();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    function handleTouch(e) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      canvas.dispatchEvent(mouseEvent);
+    }
+
+    function clearSignature() {
+      if (canvas && ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    function validateStep6() {
+      const agreed = document.getElementById('agreeTerms').checked;
+      if (!agreed) {
+        alert('Please agree to the terms and conditions');
+        return;
+      }
+
+      const method = document.querySelector('input[name="signMethod"]:checked').value;
+      
+      if (method === 'type') {
+        const signatureName = document.getElementById('signatureName').value.trim();
+        if (!signatureName) {
+          alert('Please enter your full legal name');
+          return;
+        }
+        booking.signatureName = signatureName;
+      } else {
+        if (canvas) {
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          let hasDrawing = false;
+          for (let i = 0; i < imageData.data.length; i += 4) {
+            if (imageData.data[i + 3] !== 0) {
+              hasDrawing = true;
+              break;
+            }
+          }
+          if (!hasDrawing) {
+            alert('Please draw your signature');
+            return;
+          }
+          booking.signatureData = canvas.toDataURL();
+        }
+      }
+
+      // Populate contract
+      const total = booking.packagePrice + booking.videoPrice;
+      const deposit = Math.round(total * 0.5);
+      const balance = total - deposit;
+
+      document.getElementById('contractCompany').textContent = booking.companyName;
+      
+      const packageNames = {
+        'foundation': 'Foundation Package ($20,000)',
+        'growth': 'Growth Package ($50,000)',
+        'scale': 'Scale Package ($100,000+)'
+      };
+      document.getElementById('contractPackage').textContent = packageNames[booking.packageType];
+      
+      document.getElementById('contractDate').textContent = new Date(booking.shootDate).toLocaleDateString();
+      document.getElementById('contractLocation').textContent = booking.location;
+      document.getElementById('contractTotal').textContent = total.toLocaleString();
+      document.getElementById('contractDeposit').textContent = deposit.toLocaleString();
+      document.getElementById('contractBalance').textContent = balance.toLocaleString();
+
+      document.getElementById('signerName').textContent = booking.signatureMethod === 'type' ? booking.signatureName : 'Drawn Signature';
+      document.getElementById('signatureDate').textContent = booking.signatureDate;
+
+      // Get IP
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          booking.ipAddress = data.ip;
+          document.getElementById('ipAddress').textContent = data.ip;
+        })
+        .catch(() => {
+          document.getElementById('ipAddress').textContent = 'Unable to fetch';
+        });
+
+      // Update Step 7
+      document.getElementById('finalSignatureName').textContent = booking.signatureMethod === 'type' ? booking.signatureName : 'Drawn Signature';
+      document.getElementById('finalSignDate').textContent = booking.signatureDate;
+      document.getElementById('depositAmount').textContent = deposit.toLocaleString();
+      document.getElementById('fullAmount').textContent = total.toLocaleString();
+      document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
+        el.textContent = deposit.toLocaleString();
+      });
+
+      nextStep(7);
+    }
+
+    // Step 7: Payment
+    function selectPaymentMethod(method) {
+      booking.paymentMethod = method;
+      
+      document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('active-option'));
+      event.currentTarget.classList.add('active-option');
+
+      const total = booking.packagePrice + booking.videoPrice;
+      const deposit = Math.round(total * 0.5);
+      const amount = method === 'deposit' ? deposit : total;
+
+      document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
+        el.textContent = amount.toLocaleString();
       });
     }
+
+    function completeBooking() {
+      if (!booking.paymentMethod) {
+        alert('Please select a payment method');
+        return;
+      }
+
+      console.log('Booking completed:', booking);
+      
+      alert('Thank you for your booking!\n\nPlease send your payment and receipt to info@acromatico.com\n\nWe\'ll confirm your booking within 24 hours.');
+    }
+
+    // Download Agreement
+    function downloadAgreement() {
+      const total = booking.packagePrice + booking.videoPrice;
+      const deposit = Math.round(total * 0.5);
+      const balance = total - deposit;
+
+      const contractHTML = `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif; padding: 40px; max-width: 800px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 32px; font-weight: 300; margin-bottom: 16px;">BRAND PHOTOGRAPHY AGREEMENT</h1>
+            <p style="font-size: 18px; color: #4794A6; font-weight: 500;">Acromatico</p>
+          </div>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>This Agreement</strong> is made between <strong>Acromatico</strong> ("Photographer") and <strong>${booking.companyName}</strong> ("Client").</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Contact:</strong> ${booking.contactName}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Email:</strong> ${booking.email}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Phone:</strong> ${booking.phone}</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Services:</strong> Photographer agrees to provide brand photography services as outlined below.</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Package:</strong> ${booking.packageType.charAt(0).toUpperCase() + booking.packageType.slice(1)} Package</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Shoot Date:</strong> ${new Date(booking.shootDate).toLocaleDateString()}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Location:</strong> ${booking.location}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Video Add-on:</strong> ${booking.videoType}</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8; font-size: 20px; color: #4794A6;"><strong>Total Investment:</strong> $${total.toLocaleString()}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>50% Deposit:</strong> $${deposit.toLocaleString()}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Balance:</strong> $${balance.toLocaleString()}</p>
+          
+          <p style="margin-top: 32px; margin-bottom: 16px; line-height: 1.8;"><strong>Payment Terms:</strong> A non-refundable 50% deposit is required to secure your booking. The remaining 50% balance is due 7 days prior to the shoot date.</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Cancellation Policy:</strong> Deposits are non-refundable. If Client cancels within 14 days of the shoot date, the full balance becomes due.</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Usage Rights:</strong> Client receives full commercial usage rights to all delivered images for their own business purposes.</p>
+          
+          <div style="margin-top: 48px; padding-top: 32px; border-top: 2px solid #4794A6;">
+            <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px;">Electronic Signature</h3>
+            ${booking.signatureMethod === 'type' 
+              ? `<p style="font-family: 'Brush Script MT', cursive; font-size: 36px; margin-bottom: 16px;">${booking.signatureName}</p>`
+              : `<img src="${booking.signatureData}" style="max-width: 400px; border: 1px solid #d2d2d7; border-radius: 8px; margin-bottom: 16px;">`
+            }
+            <p style="font-size: 14px; color: #6e6e73;">Signed by: ${booking.signatureMethod === 'type' ? booking.signatureName : 'Drawn Signature'}</p>
+            <p style="font-size: 14px; color: #6e6e73;">Date: ${booking.signatureDate}</p>
+            <p style="font-size: 14px; color: #6e6e73;">IP: ${booking.ipAddress}</p>
+          </div>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = contractHTML;
+      document.body.appendChild(element);
+
+      html2canvas(element, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        logging: false
+      }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+        const imgWidth = 210;
+        const pageHeight = 297;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        let heightLeft = imgHeight;
+        let position = 0;
+
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+
+        while (heightLeft >= 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+
+        pdf.save(`Acromatico-Brand-Photography-Agreement-${booking.companyName}-${new Date().toISOString().split('T')[0]}.pdf`);
+        
+        document.body.removeChild(element);
+      }).catch(error => {
+        console.error('PDF generation error:', error);
+        alert('Error generating PDF. Please try again or contact support.');
+        document.body.removeChild(element);
+      });
+    }
+
+    // Initialize
+    updateProgressBar();
   </script>
 
 </body>
