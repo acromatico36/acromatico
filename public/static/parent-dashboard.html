@@ -457,70 +457,85 @@
         // Set user name
         document.getElementById('userName').textContent = user.firstName + ' ' + user.lastName;
         
-        // Sample students data
-        const students = [
-          {
-            id: 1,
-            name: 'Emma Johnson',
-            age: '10-12 years',
-            avatar: '👧',
-            coursesEnrolled: 3,
-            lessonsCompleted: 24,
-            achievements: 8,
-            progress: 75,
-            lastActive: 'Today'
-          },
-          {
-            id: 2,
-            name: 'Jake Johnson',
-            age: '13-14 years',
-            avatar: '👦',
-            coursesEnrolled: 2,
-            lessonsCompleted: 18,
-            achievements: 5,
-            progress: 60,
-            lastActive: 'Yesterday'
+        // Fetch REAL dashboard data from API
+        const response = await fetch('/api/dashboard/parent', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
           }
-        ];
+        });
         
+        if (!response.ok) {
+          throw new Error('Failed to fetch dashboard data');
+        }
+        
+        const data = await response.json();
+        
+        // Display REAL students or show empty state
         const studentsGrid = document.getElementById('studentsGrid');
-        studentsGrid.innerHTML = students.map(student => `
-          <div class="student-card">
-            <div class="student-header">
-              <div class="student-avatar">${student.avatar}</div>
-              <div class="student-info">
-                <h3>${student.name}</h3>
-                <p>${student.age} • Last active: ${student.lastActive}</p>
+        if (data.students && data.students.length > 0) {
+          studentsGrid.innerHTML = data.students.map(student => `
+            <div class="student-card">
+              <div class="student-header">
+                <div class="student-avatar">${student.age >= 13 ? '👦' : '👧'}</div>
+                <div class="student-info">
+                  <h3>${student.first_name} ${student.last_name}</h3>
+                  <p>Age ${student.age || 'N/A'} • Grade ${student.grade || 'N/A'}</p>
+                </div>
               </div>
+              
+              <div class="stats-row">
+                <div class="stat-item">
+                  <div class="stat-item-value">${student.courses_enrolled || 0}</div>
+                  <div class="stat-item-label">Courses</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-item-value">${student.lessons_completed || 0}</div>
+                  <div class="stat-item-label">Lessons</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-item-value">${student.badges_earned || 0}</div>
+                  <div class="stat-item-label">Badges</div>
+                </div>
+              </div>
+              
+              <div class="progress-section">
+                <div class="progress-label">Overall Progress</div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: ${student.progress || 0}%"></div>
+                </div>
+              </div>
+              
+              <button class="btn-view-details" onclick="window.location.href='/student/${student.id}'">
+                View Full Report →
+              </button>
             </div>
-            
-            <div class="stats-row">
-              <div class="stat-item">
-                <div class="stat-item-value">${student.coursesEnrolled}</div>
-                <div class="stat-item-label">Courses</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-item-value">${student.lessonsCompleted}</div>
-                <div class="stat-item-label">Lessons</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-item-value">${student.achievements}</div>
-                <div class="stat-item-label">Badges</div>
-              </div>
+          `).join('');
+        } else {
+          studentsGrid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.5);">
+              <div style="font-size: 64px; margin-bottom: 20px;">👨‍👩‍👧‍👦</div>
+              <h3 style="font-size: 24px; margin-bottom: 12px; color: rgba(255,255,255,0.8);">No Students Yet</h3>
+              <p style="font-size: 16px; margin-bottom: 24px;">Add your first student to start tracking their progress!</p>
+              <button style="padding: 14px 32px; background: #4794A6; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;" onclick="alert('Add student feature coming soon!')">+ Add Student</button>
             </div>
-            
-            <div class="progress-section">
-              <div class="progress-label">Overall Progress</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar-fill" style="width: ${student.progress}%"></div>
-              </div>
+          `;
+        }
+        
+        // Update billing info with REAL data
+        if (data.subscription) {
+          // Update subscription details
+          document.querySelector('.billing-card').style.display = 'block';
+        } else {
+          document.querySelector('.billing-card').innerHTML = `
+            <div style="text-align: center; padding: 40px 20px; color: rgba(255,255,255,0.5);">
+              <div style="font-size: 48px; margin-bottom: 16px;">💳</div>
+              <h3 style="font-size: 20px; margin-bottom: 12px; color: rgba(255,255,255,0.8);">No Active Subscription</h3>
+              <p style="font-size: 16px;">Enroll in a course to get started!</p>
             </div>
-            
-            <button class="btn-view-details" onclick="window.location.href='/student/${student.id}'">
-              View Full Report →
-            </button>
-          </div>
-        `).join('');
+          `;
+        }
         
         // Hide loading, show content
         document.getElementById('loadingState').style.display = 'none';
@@ -528,7 +543,7 @@
         
       } catch (error) {
         console.error('Error loading dashboard:', error);
-        alert('Failed to load dashboard. Please try again.');
+        document.getElementById('loadingState').textContent = 'Failed to load dashboard. Please refresh.';
       }
     }
     

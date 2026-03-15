@@ -697,6 +697,266 @@ app.get('/api/auth/me', async (c) => {
 // END AUTHENTICATION API
 // ============================================================
 
+// ============================================================
+// DASHBOARD DATA API - REAL DATABASE QUERIES
+// ============================================================
+
+// GET /api/dashboard/student - Get student dashboard data
+app.get('/api/dashboard/student', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const authHeader = c.req.header('Authorization')
+    
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ message: 'No token provided' }, 401)
+    }
+    
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    
+    if (!payload) {
+      return c.json({ message: 'Invalid or expired token' }, 401)
+    }
+    
+    const userId = payload.id
+    
+    // Get total courses enrolled (from subscriptions table)
+    const coursesResult = await DB_EDUCATION.prepare(`
+      SELECT COUNT(DISTINCT course_id) as count 
+      FROM subscriptions 
+      WHERE user_id = ? AND status = 'active'
+    `).bind(userId).first()
+    
+    // Get lessons completed (from attendance table)
+    const lessonsResult = await DB_EDUCATION.prepare(`
+      SELECT COUNT(*) as count 
+      FROM attendance 
+      WHERE student_id = (SELECT id FROM students WHERE parent_id = ? LIMIT 1)
+      AND status = 'present'
+    `).bind(userId).first()
+    
+    // Get achievements/badges earned
+    const badgesResult = await DB_EDUCATION.prepare(`
+      SELECT COUNT(*) as count 
+      FROM badges 
+      WHERE student_id = (SELECT id FROM students WHERE parent_id = ? LIMIT 1)
+    `).bind(userId).first()
+    
+    // Get enrolled courses with details
+    const courses = await DB_EDUCATION.prepare(`
+      SELECT 
+        c.id,
+        c.title,
+        c.description,
+        c.thumbnail_url,
+        COALESCE(
+          (SELECT COUNT(*) * 100.0 / (SELECT COUNT(*) FROM classes WHERE course_id = c.id)
+           FROM attendance a
+           WHERE a.class_id IN (SELECT id FROM classes WHERE course_id = c.id)
+           AND a.student_id = (SELECT id FROM students WHERE parent_id = ? LIMIT 1)
+           AND a.status = 'present'
+          ), 0
+        ) as progress
+      FROM courses c
+      INNER JOIN subscriptions s ON c.id = s.course_id
+      WHERE s.user_id = ? AND s.status = 'active'
+      LIMIT 10
+    `).bind(userId, userId).all()
+    
+    // Get all badges for achievements section
+    const allBadges = await DB_EDUCATION.prepare(`
+      SELECT 
+        b.id,
+        b.name,
+        b.description,
+        b.icon_url,
+        CASE WHEN ub.badge_id IS NOT NULL THEN 1 ELSE 0 END as earned
+      FROM badges b
+      LEFT JOIN (
+        SELECT badge_id FROM badges WHERE student_id = (SELECT id FROM students WHERE parent_id = ? LIMIT 1)
+      ) ub ON b.id = ub.badge_id
+      ORDER BY earned DESC, b.id ASC
+      LIMIT 20
+    `).bind(userId).all()
+    
+    return c.json({
+      stats: {
+        coursesEnrolled: coursesResult?.count || 0,
+        lessonsCompleted: lessonsResult?.count || 0,
+        achievementsEarned: badgesResult?.count || 0,
+        dayStreak: 0 // TODO: Calculate from attendance dates
+      },
+      courses: courses?.results || [],
+      achievements: allBadges?.results || []
+    })
+    
+  } catch (error: any) {
+    console.error('Dashboard error:', error)
+    return c.json({ message: 'Failed to load dashboard: ' + error.message }, 500)
+  }
+})
+
+// GET /api/dashboard/parent - Get parent dashboard data
+app.get('/api/dashboard/parent', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const authHeader = c.req.header('Authorization')
+    
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ message: 'No token provided' }, 401)
+    }
+    
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    
+    if (!payload) {
+      return c.json({ message: 'Invalid or expired token' }, 401)
+    }
+    
+    const userId = payload.id
+    
+    // Get all students for this parent
+    const students = await DB_EDUCATION.prepare(`
+      SELECT 
+        s.id,
+        s.first_name,
+        s.last_name,
+        s.age,
+        s.grade,
+        s.enrollment_status,
+        (SELECT COUNT(*) FROM subscriptions sub WHERE sub.user_id = ? AND sub.status = 'active') as courses_enrolled,
+        (SELECT COUNT(*) FROM attendance a WHERE a.student_id = s.id AND a.status = 'present') as lessons_completed,
+        (SELECT COUNT(*) FROM badges b WHERE b.student_id = s.id) as badges_earned
+      FROM students s
+      WHERE s.parent_id = ?
+      ORDER BY s.created_at DESC
+    `).bind(userId, userId).all()
+    
+    // Get active subscription info
+    const subscription = await DB_EDUCATION.prepare(`
+      SELECT 
+        s.id,
+        s.status,
+        s.start_date,
+        s.end_date,
+        c.title as course_title,
+        c.price_monthly
+      FROM subscriptions s
+      INNER JOIN courses c ON s.course_id = c.id
+      WHERE s.user_id = ? AND s.status = 'active'
+      ORDER BY s.start_date DESC
+      LIMIT 1
+    `).bind(userId).first()
+    
+    return c.json({
+      students: students?.results || [],
+      subscription: subscription || null
+    })
+    
+  } catch (error: any) {
+    console.error('Parent dashboard error:', error)
+    return c.json({ message: 'Failed to load dashboard: ' + error.message }, 500)
+  }
+})
+
+// GET /api/dashboard/admin - Get admin dashboard data
+app.get('/api/dashboard/admin', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const authHeader = c.req.header('Authorization')
+    
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ message: 'No token provided' }, 401)
+    }
+    
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    
+    if (!payload || payload.role !== 'admin') {
+      return c.json({ message: 'Unauthorized' }, 403)
+    }
+    
+    // Get total students count
+    const studentsCount = await DB_EDUCATION.prepare(
+      'SELECT COUNT(*) as count FROM students WHERE enrollment_status = "active"'
+    ).first()
+    
+    // Get active courses count
+    const coursesCount = await DB_EDUCATION.prepare(
+      'SELECT COUNT(*) as count FROM courses WHERE status = "active"'
+    ).first()
+    
+    // Get monthly revenue
+    const revenue = await DB_EDUCATION.prepare(`
+      SELECT SUM(c.price_monthly) as total
+      FROM subscriptions s
+      INNER JOIN courses c ON s.course_id = c.id
+      WHERE s.status = 'active'
+    `).first()
+    
+    // Get recent students
+    const recentStudents = await DB_EDUCATION.prepare(`
+      SELECT 
+        s.id,
+        s.first_name || ' ' || s.last_name as name,
+        u.email,
+        s.age,
+        s.grade,
+        s.enrollment_status as status,
+        (SELECT COUNT(*) FROM subscriptions sub WHERE sub.user_id = s.parent_id AND sub.status = 'active') as courses,
+        COALESCE(
+          (SELECT COUNT(*) * 100 / NULLIF((SELECT COUNT(*) FROM classes), 0)
+           FROM attendance a WHERE a.student_id = s.id AND a.status = 'present'
+          ), 0
+        ) as progress
+      FROM students s
+      INNER JOIN users u ON s.parent_id = u.id
+      ORDER BY s.created_at DESC
+      LIMIT 10
+    `).all()
+    
+    // Get all courses
+    const courses = await DB_EDUCATION.prepare(`
+      SELECT 
+        c.id,
+        c.title,
+        c.category,
+        c.status,
+        (SELECT COUNT(DISTINCT user_id) FROM subscriptions WHERE course_id = c.id AND status = 'active') as students,
+        COALESCE(
+          (SELECT AVG(progress) FROM (
+            SELECT COUNT(*) * 100.0 / (SELECT COUNT(*) FROM classes WHERE course_id = c.id) as progress
+            FROM attendance a
+            WHERE a.class_id IN (SELECT id FROM classes WHERE course_id = c.id)
+            GROUP BY a.student_id
+          )), 0
+        ) as completion
+      FROM courses c
+      ORDER BY c.created_at DESC
+      LIMIT 10
+    `).all()
+    
+    return c.json({
+      stats: {
+        totalStudents: studentsCount?.count || 0,
+        activeCourses: coursesCount?.count || 0,
+        monthlyRevenue: revenue?.total || 0,
+        completionRate: 0 // TODO: Calculate average completion
+      },
+      students: recentStudents?.results || [],
+      courses: courses?.results || []
+    })
+    
+  } catch (error: any) {
+    console.error('Admin dashboard error:', error)
+    return c.json({ message: 'Failed to load dashboard: ' + error.message }, 500)
+  }
+})
+
+// ============================================================
+// END DASHBOARD DATA API
+// ============================================================
+
 // Stripe Checkout API
 app.post('/api/create-checkout', async (c) => {
   try {

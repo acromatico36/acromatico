@@ -508,67 +508,86 @@
         // Set user name
         document.getElementById('userName').textContent = user.firstName + ' ' + user.lastName;
         
-        // Sample stats
-        document.getElementById('totalStudents').textContent = '247';
-        document.getElementById('activeCourses').textContent = '12';
-        document.getElementById('monthlyRevenue').textContent = '$12,103';
-        document.getElementById('completionRate').textContent = '68%';
+        // Fetch REAL dashboard data from API
+        const response = await fetch('/api/dashboard/admin', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
         
-        // Sample students data
-        const students = [
-          { name: 'Emma Johnson', email: 'emma@example.com', age: '10-12', courses: 3, progress: 75, status: 'active' },
-          { name: 'Jake Smith', email: 'jake@example.com', age: '13-14', courses: 2, progress: 60, status: 'active' },
-          { name: 'Sophia Lee', email: 'sophia@example.com', age: '7-9', courses: 1, progress: 40, status: 'active' },
-          { name: 'Liam Brown', email: 'liam@example.com', age: '10-12', courses: 4, progress: 85, status: 'active' },
-          { name: 'Olivia Davis', email: 'olivia@example.com', age: '13-14', courses: 2, progress: 30, status: 'pending' }
-        ];
+        if (!response.ok) {
+          throw new Error('Failed to fetch dashboard data');
+        }
         
+        const data = await response.json();
+        
+        // Update stats with REAL data
+        document.getElementById('totalStudents').textContent = data.stats.totalStudents;
+        document.getElementById('activeCourses').textContent = data.stats.activeCourses;
+        document.getElementById('monthlyRevenue').textContent = '$' + (data.stats.monthlyRevenue || 0).toLocaleString();
+        document.getElementById('completionRate').textContent = Math.round(data.stats.completionRate) + '%';
+        
+        // Display REAL students data
         const studentsTable = document.getElementById('studentsTable');
-        studentsTable.innerHTML = students.map(student => `
-          <tr>
-            <td>${student.name}</td>
-            <td style="color: rgba(255,255,255,0.6);">${student.email}</td>
-            <td>${student.age}</td>
-            <td>${student.courses}</td>
-            <td>${student.progress}%</td>
-            <td><span class="badge ${student.status}">${student.status}</span></td>
-            <td>
-              <button class="btn-icon" title="View">👁️</button>
-              <button class="btn-icon" title="Edit">✏️</button>
-              <button class="btn-icon" title="Delete">🗑️</button>
-            </td>
-          </tr>
-        `).join('');
+        if (data.students && data.students.length > 0) {
+          studentsTable.innerHTML = data.students.map(student => `
+            <tr>
+              <td>${student.name}</td>
+              <td style="color: rgba(255,255,255,0.6);">${student.email}</td>
+              <td>${student.age || 'N/A'}</td>
+              <td>${student.courses || 0}</td>
+              <td>${Math.round(student.progress || 0)}%</td>
+              <td><span class="badge ${student.status}">${student.status}</span></td>
+              <td>
+                <button class="btn-icon" title="View">👁️</button>
+                <button class="btn-icon" title="Edit">✏️</button>
+                <button class="btn-icon" title="Delete">🗑️</button>
+              </td>
+            </tr>
+          `).join('');
+        } else {
+          studentsTable.innerHTML = `
+            <tr>
+              <td colspan="7" style="text-align: center; padding: 40px; color: rgba(255,255,255,0.5);">
+                No students found
+              </td>
+            </tr>
+          `;
+        }
         
-        // Sample courses data
-        const courses = [
-          { name: 'Photography Fundamentals', category: 'Foundation', students: 45, completion: 72, rating: 4.8, status: 'active' },
-          { name: 'Mobile Photography', category: 'Mastery', students: 38, completion: 65, rating: 4.9, status: 'active' },
-          { name: 'Portrait Basics', category: 'Foundation', students: 52, completion: 68, rating: 4.7, status: 'active' },
-          { name: 'Advanced Lighting', category: 'Pro', students: 28, completion: 55, rating: 4.9, status: 'active' },
-          { name: 'Video Creation', category: 'Pro', students: 31, completion: 48, rating: 4.6, status: 'pending' }
-        ];
-        
+        // Display REAL courses data
         const coursesTable = document.getElementById('coursesTable');
-        coursesTable.innerHTML = courses.map(course => `
-          <tr>
-            <td>${course.name}</td>
-            <td>${course.category}</td>
-            <td>${course.students}</td>
-            <td>${course.completion}%</td>
-            <td>⭐ ${course.rating}</td>
-            <td><span class="badge ${course.status}">${course.status}</span></td>
-            <td>
-              <button class="btn-icon" title="View">👁️</button>
-              <button class="btn-icon" title="Edit">✏️</button>
-              <button class="btn-icon" title="Delete">🗑️</button>
-            </td>
-          </tr>
-        `).join('');
+        if (data.courses && data.courses.length > 0) {
+          coursesTable.innerHTML = data.courses.map(course => `
+            <tr>
+              <td>${course.title}</td>
+              <td>${course.category || 'N/A'}</td>
+              <td>${course.students || 0}</td>
+              <td>${Math.round(course.completion || 0)}%</td>
+              <td>⭐ ${(course.rating || 0).toFixed(1)}</td>
+              <td><span class="badge ${course.status}">${course.status}</span></td>
+              <td>
+                <button class="btn-icon" title="View">👁️</button>
+                <button class="btn-icon" title="Edit">✏️</button>
+                <button class="btn-icon" title="Delete">🗑️</button>
+              </td>
+            </tr>
+          `).join('');
+        } else {
+          coursesTable.innerHTML = `
+            <tr>
+              <td colspan="7" style="text-align: center; padding: 40px; color: rgba(255,255,255,0.5);">
+                No courses found
+              </td>
+            </tr>
+          `;
+        }
         
       } catch (error) {
         console.error('Error loading dashboard:', error);
-        alert('Failed to load dashboard. Please try again.');
+        alert('Failed to load dashboard: ' + error.message);
       }
     }
     

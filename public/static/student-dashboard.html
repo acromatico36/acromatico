@@ -394,75 +394,72 @@
         document.getElementById('userName').textContent = user.firstName + ' ' + user.lastName;
         document.getElementById('studentName').textContent = user.firstName;
         
-        // Fetch dashboard data from API (to be implemented)
-        // For now, show sample data
-        
-        // Sample stats
-        document.getElementById('coursesEnrolled').textContent = '3';
-        document.getElementById('lessonsCompleted').textContent = '12';
-        document.getElementById('achievementsEarned').textContent = '5';
-        document.getElementById('dayStreak').textContent = '7';
-        
-        // Sample courses
-        const courses = [
-          {
-            id: 1,
-            title: 'Photography Fundamentals',
-            description: 'Master the basics of photography composition and lighting',
-            progress: 65,
-            thumbnail: '📷'
-          },
-          {
-            id: 2,
-            title: 'Mobile Photography',
-            description: 'Create stunning images with your smartphone',
-            progress: 40,
-            thumbnail: '📱'
-          },
-          {
-            id: 3,
-            title: 'Portrait Basics',
-            description: 'Learn how to capture amazing portraits',
-            progress: 20,
-            thumbnail: '🎭'
+        // Fetch REAL dashboard data from API
+        const response = await fetch('/api/dashboard/student', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
           }
-        ];
+        });
         
+        if (!response.ok) {
+          throw new Error('Failed to fetch dashboard data');
+        }
+        
+        const data = await response.json();
+        
+        // Update stats with REAL data
+        document.getElementById('coursesEnrolled').textContent = data.stats.coursesEnrolled;
+        document.getElementById('lessonsCompleted').textContent = data.stats.lessonsCompleted;
+        document.getElementById('achievementsEarned').textContent = data.stats.achievementsEarned;
+        document.getElementById('dayStreak').textContent = data.stats.dayStreak;
+        
+        // Display REAL courses or show empty state
         const coursesGrid = document.getElementById('coursesGrid');
-        coursesGrid.innerHTML = courses.map(course => `
-          <div class="course-card" onclick="window.location.href='/course/${course.id}'">
-            <div class="course-thumbnail">${course.thumbnail}</div>
-            <div class="course-content">
-              <div class="course-title">${course.title}</div>
-              <div class="course-description">${course.description}</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar-fill" style="width: ${course.progress}%"></div>
+        if (data.courses && data.courses.length > 0) {
+          coursesGrid.innerHTML = data.courses.map(course => `
+            <div class="course-card" onclick="window.location.href='/course/${course.id}'">
+              <div class="course-thumbnail">${course.thumbnail_url || '📚'}</div>
+              <div class="course-content">
+                <div class="course-title">${course.title}</div>
+                <div class="course-description">${course.description || 'No description available'}</div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: ${Math.round(course.progress || 0)}%"></div>
+                </div>
+                <div class="progress-text">${Math.round(course.progress || 0)}% complete</div>
               </div>
-              <div class="progress-text">${course.progress}% complete</div>
             </div>
-          </div>
-        `).join('');
+          `).join('');
+        } else {
+          coursesGrid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.5);">
+              <div style="font-size: 64px; margin-bottom: 20px;">📚</div>
+              <h3 style="font-size: 24px; margin-bottom: 12px; color: rgba(255,255,255,0.8);">No Courses Yet</h3>
+              <p style="font-size: 16px; margin-bottom: 24px;">Start your creative journey by enrolling in a course!</p>
+              <a href="/education/courses" style="display: inline-block; padding: 14px 32px; background: #4794A6; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Browse Courses</a>
+            </div>
+          `;
+        }
         
-        // Sample achievements
-        const achievements = [
-          { icon: '🎖️', name: 'First Steps', description: 'Complete first lesson', locked: false },
-          { icon: '🔥', name: 'On Fire', description: '7-day streak', locked: false },
-          { icon: '📸', name: 'Shutterbug', description: 'Upload 10 photos', locked: false },
-          { icon: '⭐', name: 'Rising Star', description: 'Get 50 likes', locked: false },
-          { icon: '🏆', name: 'Master', description: 'Complete 5 courses', locked: false },
-          { icon: '🎯', name: 'Perfectionist', description: '100% on 3 quizzes', locked: true },
-          { icon: '👑', name: 'Legend', description: 'Complete all courses', locked: true },
-          { icon: '💎', name: 'Diamond', description: 'Top 10 leaderboard', locked: true }
-        ];
-        
+        // Display REAL achievements
         const achievementsGrid = document.getElementById('achievementsGrid');
-        achievementsGrid.innerHTML = achievements.map(achievement => `
-          <div class="achievement-card ${achievement.locked ? 'locked' : ''}">
-            <div class="achievement-icon">${achievement.icon}</div>
-            <div class="achievement-name">${achievement.name}</div>
-            <div class="achievement-description">${achievement.description}</div>
-          </div>
-        `).join('');
+        if (data.achievements && data.achievements.length > 0) {
+          achievementsGrid.innerHTML = data.achievements.map(achievement => `
+            <div class="achievement-card ${achievement.earned ? '' : 'locked'}">
+              <div class="achievement-icon">${achievement.icon_url || '🏆'}</div>
+              <div class="achievement-name">${achievement.name}</div>
+              <div class="achievement-description">${achievement.description}</div>
+            </div>
+          `).join('');
+        } else {
+          achievementsGrid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px 20px; color: rgba(255,255,255,0.5);">
+              <div style="font-size: 48px; margin-bottom: 16px;">🏆</div>
+              <p style="font-size: 16px;">Complete lessons to earn achievements!</p>
+            </div>
+          `;
+        }
         
         // Hide loading, show content
         document.getElementById('loadingState').style.display = 'none';
@@ -470,7 +467,7 @@
         
       } catch (error) {
         console.error('Error loading dashboard:', error);
-        alert('Failed to load dashboard. Please try again.');
+        document.getElementById('loadingState').textContent = 'Failed to load dashboard. Please refresh.';
       }
     }
     
