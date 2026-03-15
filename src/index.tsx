@@ -6,6 +6,7 @@ import Stripe from 'stripe'
 import blog from './blog-page'
 import { footerHTML } from './components/footer'
 import { mobileMenuHTML } from './components/mobile-menu'
+import * as liveClassesAPI from './api/live-classes'
 
 // Shared Header Component
 const Header = () => (
@@ -882,6 +883,43 @@ app.get('/api/dashboard/admin', async (c) => {
 
 // ============================================================
 // END DASHBOARD DATA API
+// ============================================================
+
+// ============================================================
+// LIVE CLASSES API - Complete Backend
+// ============================================================
+
+// Parent APIs - Managing Students & Enrollments
+app.post('/api/students/add', liveClassesAPI.addStudent)
+app.post('/api/enrollments/create', liveClassesAPI.createEnrollment)
+app.get('/api/students/my-students', liveClassesAPI.getMyStudents)
+
+// Course Browsing
+app.get('/api/courses/browse', liveClassesAPI.browseCourses)
+
+// Student APIs - View Enrolled Courses & Classes
+app.get('/api/enrollments/my-courses', liveClassesAPI.getStudentCourses)
+app.get('/api/classes/upcoming', liveClassesAPI.getUpcomingClasses)
+app.get('/api/classes/completed', liveClassesAPI.getCompletedClasses)
+
+// Assignments
+app.get('/api/assignments/my-assignments', liveClassesAPI.getStudentAssignments)
+app.post('/api/assignments/submit', liveClassesAPI.submitAssignment)
+
+// Achievements
+app.get('/api/achievements/my-achievements', liveClassesAPI.getStudentAchievements)
+
+// Admin APIs - Course & Class Management
+app.post('/api/admin/courses/create', liveClassesAPI.createCourse)
+app.post('/api/admin/classes/schedule', liveClassesAPI.scheduleClass)
+app.post('/api/admin/attendance/mark', liveClassesAPI.markAttendance)
+app.post('/api/admin/assignments/create', liveClassesAPI.createAssignment)
+app.post('/api/admin/assignments/grade', liveClassesAPI.gradeAssignment)
+app.post('/api/admin/achievements/award', liveClassesAPI.awardAchievement)
+app.post('/api/admin/notifications/send', liveClassesAPI.sendNotification)
+
+// ============================================================
+// END LIVE CLASSES API
 // ============================================================
 
 // Stripe Checkout API
