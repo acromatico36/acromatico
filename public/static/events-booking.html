@@ -492,6 +492,9 @@
   <!-- PDF Generation Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <!-- Google Places Autocomplete -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX8qNYgqHJl0Z5xK4rGjJ2Z8_0cN6YqZk&libraries=places" async defer></script>
 </head>
 <body>
 
@@ -1601,7 +1604,6 @@
       console.log('✅ Contract validated, moving to payment');
       
       // Update payment Step 7 with data
-      const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
       const signatureName = signMethod === 'type' ? document.getElementById('signatureName').value.trim() : 'Drawn Signature';
       const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
       
@@ -1855,8 +1857,40 @@
       document.getElementById('previewDeposit').textContent = '$' + deposit.toLocaleString();
     }
 
+    // Initialize Google Places Autocomplete
+    function initAutocomplete() {
+      if (typeof google !== 'undefined' && google.maps && google.maps.places) {
+        const locationInput = document.getElementById('eventLocation');
+        const autocomplete = new google.maps.places.Autocomplete(locationInput, {
+          types: ['establishment', 'geocode'],
+          fields: ['formatted_address', 'name']
+        });
+        
+        autocomplete.addListener('place_changed', function() {
+          const place = autocomplete.getPlace();
+          if (place.formatted_address) {
+            locationInput.value = place.formatted_address;
+          } else if (place.name) {
+            locationInput.value = place.name;
+          }
+        });
+        
+        console.log('✅ Google Places autocomplete initialized');
+      } else {
+        console.log('⚠️ Google Places API not loaded yet, retrying...');
+        setTimeout(initAutocomplete, 500);
+      }
+    }
+
     // Initialize
     updatePreview();
+    
+    // Initialize autocomplete when page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAutocomplete);
+    } else {
+      initAutocomplete();
+    }
   </script>
 
 </body>
