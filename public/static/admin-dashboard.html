@@ -3,596 +3,525 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard - Acromatico</title>
+  <title>Admin Dashboard - Acromatico Education</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    .modal {
+      display: none;
     }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-      color: #fff;
-      min-height: 100vh;
+    .modal.active {
       display: flex;
     }
-    
-    /* Sidebar */
-    .sidebar {
-      width: 260px;
-      background: rgba(10, 10, 10, 0.95);
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 24px;
-      position: fixed;
-      height: 100vh;
-      overflow-y: auto;
-    }
-    
-    .logo-container {
-      margin-bottom: 32px;
-      text-align: center;
-    }
-    
-    .logo {
-      height: 40px;
-      width: auto;
-    }
-    
-    .nav-section {
-      margin-bottom: 32px;
-    }
-    
-    .nav-section-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.4);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-    
-    .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      border-radius: 8px;
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      margin-bottom: 4px;
-      cursor: pointer;
-    }
-    
-    .nav-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
-    
-    .nav-item.active {
-      background: rgba(71, 148, 166, 0.2);
-      color: #4794A6;
-      font-weight: 600;
-    }
-    
-    .nav-icon {
-      font-size: 20px;
-    }
-    
-    /* Main Content */
-    .main-content {
-      margin-left: 260px;
-      flex: 1;
-      padding: 32px 40px;
-    }
-    
-    /* Header */
-    .content-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-    }
-    
-    .content-header h1 {
-      font-size: 36px;
-      font-weight: 300;
-    }
-    
-    .user-menu {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .btn-logout {
-      padding: 10px 24px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      color: #fff;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-logout:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-    
-    /* Stats Grid */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-    
-    .stat-card {
+    .glass {
       background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 24px;
-      transition: all 0.3s ease;
     }
-    
-    .stat-card:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateY(-2px);
-    }
-    
-    .stat-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    
-    .stat-icon {
-      font-size: 32px;
-    }
-    
-    .stat-trend {
-      padding: 4px 12px;
-      background: rgba(34, 197, 94, 0.2);
-      border-radius: 12px;
-      color: #86efac;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    
-    .stat-trend.down {
-      background: rgba(220, 38, 38, 0.2);
-      color: #fca5a5;
-    }
-    
-    .stat-value {
-      font-size: 36px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #4794A6;
-    }
-    
-    .stat-label {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.6);
-    }
-    
-    /* Section */
-    .section {
-      margin-bottom: 40px;
-    }
-    
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-    
-    .section-header h2 {
-      font-size: 24px;
-      font-weight: 400;
-    }
-    
     .btn-primary {
-      padding: 10px 24px;
       background: #4794A6;
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
       transition: all 0.3s ease;
     }
-    
     .btn-primary:hover {
       background: #5aa5b8;
+      transform: translateY(-2px);
     }
-    
-    /* Table */
-    .table-container {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      overflow: hidden;
+    .sidebar-link {
+      transition: all 0.3s ease;
     }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    .sidebar-link:hover {
+      background: rgba(71, 148, 166, 0.2);
     }
-    
-    thead {
-      background: rgba(255, 255, 255, 0.05);
-    }
-    
-    th {
-      padding: 16px 20px;
-      text-align: left;
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.7);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    td {
-      padding: 16px 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 14px;
-    }
-    
-    tbody tr {
-      transition: background 0.2s ease;
-    }
-    
-    tbody tr:hover {
-      background: rgba(255, 255, 255, 0.03);
-    }
-    
-    .badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    
-    .badge.active {
-      background: rgba(34, 197, 94, 0.2);
-      color: #86efac;
-    }
-    
-    .badge.inactive {
-      background: rgba(107, 114, 128, 0.2);
-      color: #d1d5db;
-    }
-    
-    .badge.pending {
-      background: rgba(251, 191, 36, 0.2);
-      color: #fcd34d;
-    }
-    
-    .btn-icon {
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 18px;
-      cursor: pointer;
-      padding: 8px;
-      transition: color 0.3s ease;
-    }
-    
-    .btn-icon:hover {
-      color: #4794A6;
-    }
-    
-    /* Loading */
-    .loading {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 60vh;
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.6);
-    }
-    
-    @media (max-width: 1024px) {
-      .sidebar {
-        width: 80px;
-      }
-      
-      .nav-item span {
-        display: none;
-      }
-      
-      .main-content {
-        margin-left: 80px;
-      }
+    .sidebar-link.active {
+      background: rgba(71, 148, 166, 0.3);
+      border-left: 3px solid #4794A6;
     }
   </style>
 </head>
-<body>
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="logo-container">
-      <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="logo">
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+  
+  <!-- Top Bar -->
+  <div class="sticky top-0 z-50 glass border-b border-white/10 px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <h1 class="text-2xl font-bold">Acromatico Admin</h1>
+      <span class="text-xs px-3 py-1 bg-red-500/20 text-red-400 rounded-full font-semibold">ADMIN PORTAL</span>
     </div>
-    
-    <div class="nav-section">
-      <div class="nav-section-title">Overview</div>
-      <a href="#" class="nav-item active" onclick="showSection('dashboard')">
-        <div class="nav-icon">📊</div>
-        <span>Dashboard</span>
-      </a>
-      <a href="#" class="nav-item" onclick="showSection('students')">
-        <div class="nav-icon">👨‍🎓</div>
-        <span>Students</span>
-      </a>
-      <a href="#" class="nav-item" onclick="showSection('courses')">
-        <div class="nav-icon">📚</div>
-        <span>Courses</span>
-      </a>
-      <a href="#" class="nav-item" onclick="showSection('billing')">
-        <div class="nav-icon">💳</div>
-        <span>Billing</span>
-      </a>
-    </div>
-    
-    <div class="nav-section">
-      <div class="nav-section-title">Content</div>
-      <a href="#" class="nav-item">
-        <div class="nav-icon">📹</div>
-        <span>Lessons</span>
-      </a>
-      <a href="#" class="nav-item">
-        <div class="nav-icon">📝</div>
-        <span>Assignments</span>
-      </a>
-      <a href="#" class="nav-item">
-        <div class="nav-icon">🏆</div>
-        <span>Achievements</span>
-      </a>
-    </div>
-    
-    <div class="nav-section">
-      <div class="nav-section-title">System</div>
-      <a href="#" class="nav-item">
-        <div class="nav-icon">⚙️</div>
-        <span>Settings</span>
-      </a>
-      <a href="#" class="nav-item">
-        <div class="nav-icon">👥</div>
-        <span>Admins</span>
-      </a>
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-gray-400" id="adminName">Admin</span>
+      <button onclick="logout()" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition text-sm">
+        Logout
+      </button>
     </div>
   </div>
-  
-  <!-- Main Content -->
-  <div class="main-content">
-    <!-- Header -->
-    <div class="content-header">
-      <h1>Admin Dashboard</h1>
-      <div class="user-menu">
-        <span id="userName">Admin</span>
-        <button class="btn-logout" onclick="logout()">Logout</button>
-      </div>
+
+  <div class="flex">
+    <!-- Sidebar -->
+    <div class="w-64 glass border-r border-white/10 min-h-screen p-6">
+      <nav class="space-y-2">
+        <button onclick="showSection('overview')" class="sidebar-link active w-full text-left px-4 py-3 rounded-lg" data-section="overview">
+          📊 Overview
+        </button>
+        <button onclick="showSection('courses')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg" data-section="courses">
+          📚 Courses
+        </button>
+        <button onclick="showSection('classes')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg" data-section="classes">
+          📹 Live Classes
+        </button>
+        <button onclick="showSection('students')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg" data-section="students">
+          👥 Students
+        </button>
+        <button onclick="showSection('assignments')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg" data-section="assignments">
+          📝 Assignments
+        </button>
+        <button onclick="showSection('achievements')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg" data-section="achievements">
+          🏆 Achievements
+        </button>
+      </nav>
     </div>
-    
-    <!-- Stats Grid -->
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-header">
-          <div class="stat-icon">👨‍🎓</div>
-          <div class="stat-trend">↑ 12%</div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-8">
+      
+      <!-- Overview Section -->
+      <div id="overview-section" class="section active">
+        <h2 class="text-3xl font-bold mb-8">Dashboard Overview</h2>
+        
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <div class="glass p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-3xl">👥</div>
+              <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">+12%</span>
+            </div>
+            <p class="text-3xl font-bold" id="totalStudents">0</p>
+            <p class="text-sm text-gray-400">Total Students</p>
+          </div>
+          <div class="glass p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-3xl">📚</div>
+              <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">+8%</span>
+            </div>
+            <p class="text-3xl font-bold" id="activeCourses">0</p>
+            <p class="text-sm text-gray-400">Active Courses</p>
+          </div>
+          <div class="glass p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-3xl">💰</div>
+              <span class="text-xs px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">+24%</span>
+            </div>
+            <p class="text-3xl font-bold" id="monthlyRevenue">$0</p>
+            <p class="text-sm text-gray-400">Monthly Revenue</p>
+          </div>
+          <div class="glass p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-3xl">📈</div>
+              <span class="text-xs px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full">+15%</span>
+            </div>
+            <p class="text-3xl font-bold" id="completionRate">0%</p>
+            <p class="text-sm text-gray-400">Completion Rate</p>
+          </div>
         </div>
-        <div class="stat-value" id="totalStudents">0</div>
-        <div class="stat-label">Total Students</div>
-      </div>
-      
-      <div class="stat-card">
-        <div class="stat-header">
-          <div class="stat-icon">📚</div>
-          <div class="stat-trend">↑ 8%</div>
+
+        <!-- Recent Activity -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="glass p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-4">Recent Students</h3>
+            <div id="recentStudents" class="space-y-3">
+              <p class="text-gray-400 text-sm">Loading...</p>
+            </div>
+          </div>
+          <div class="glass p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-4">Recent Courses</h3>
+            <div id="recentCourses" class="space-y-3">
+              <p class="text-gray-400 text-sm">Loading...</p>
+            </div>
+          </div>
         </div>
-        <div class="stat-value" id="activeCourses">0</div>
-        <div class="stat-label">Active Courses</div>
       </div>
-      
-      <div class="stat-card">
-        <div class="stat-header">
-          <div class="stat-icon">💰</div>
-          <div class="stat-trend">↑ 24%</div>
+
+      <!-- Courses Section -->
+      <div id="courses-section" class="section hidden">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-bold">Courses Management</h2>
+          <button onclick="showCreateCourseModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+            + Create Course
+          </button>
         </div>
-        <div class="stat-value" id="monthlyRevenue">$0</div>
-        <div class="stat-label">Monthly Revenue</div>
-      </div>
-      
-      <div class="stat-card">
-        <div class="stat-header">
-          <div class="stat-icon">📈</div>
-          <div class="stat-trend">↑ 15%</div>
+        <div id="coursesList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <p class="text-gray-400">Loading courses...</p>
         </div>
-        <div class="stat-value" id="completionRate">0%</div>
-        <div class="stat-label">Completion Rate</div>
       </div>
-    </div>
-    
-    <!-- Students Section -->
-    <div class="section">
-      <div class="section-header">
-        <h2>Recent Students</h2>
-        <button class="btn-primary" onclick="alert('Add student feature')">+ Add Student</button>
+
+      <!-- Live Classes Section -->
+      <div id="classes-section" class="section hidden">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-bold">Live Classes Schedule</h2>
+          <button onclick="showScheduleClassModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+            + Schedule Class
+          </button>
+        </div>
+        <div id="classesList" class="space-y-4">
+          <p class="text-gray-400">Loading classes...</p>
+        </div>
       </div>
-      
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Student</th>
-              <th>Email</th>
-              <th>Age Group</th>
-              <th>Courses</th>
-              <th>Progress</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="studentsTable">
-            <!-- Students loaded dynamically -->
-          </tbody>
-        </table>
+
+      <!-- Students Section -->
+      <div id="students-section" class="section hidden">
+        <h2 class="text-3xl font-bold mb-8">Students Management</h2>
+        <div id="studentsList" class="glass p-6 rounded-xl">
+          <p class="text-gray-400">Loading students...</p>
+        </div>
       </div>
-    </div>
-    
-    <!-- Courses Section -->
-    <div class="section">
-      <div class="section-header">
-        <h2>Course Management</h2>
-        <button class="btn-primary" onclick="alert('Create course feature')">+ Create Course</button>
+
+      <!-- Assignments Section -->
+      <div id="assignments-section" class="section hidden">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-bold">Assignments</h2>
+          <button onclick="showCreateAssignmentModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+            + Create Assignment
+          </button>
+        </div>
+        <div id="assignmentsList" class="space-y-4">
+          <p class="text-gray-400">Loading assignments...</p>
+        </div>
       </div>
-      
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Course</th>
-              <th>Category</th>
-              <th>Students</th>
-              <th>Completion</th>
-              <th>Rating</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="coursesTable">
-            <!-- Courses loaded dynamically -->
-          </tbody>
-        </table>
+
+      <!-- Achievements Section -->
+      <div id="achievements-section" class="section hidden">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-bold">Achievements</h2>
+          <button onclick="showCreateAchievementModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+            + Create Achievement
+          </button>
+        </div>
+        <div id="achievementsList" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <p class="text-gray-400">Loading achievements...</p>
+        </div>
       </div>
+
     </div>
   </div>
-  
+
+  <!-- Create Course Modal -->
+  <div id="createCourseModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold">Create New Course</h3>
+        <button onclick="closeCreateCourseModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
+      </div>
+      <form onsubmit="createCourse(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold mb-2">Course Title *</label>
+          <input type="text" id="courseTitle" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Photography Fundamentals">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Description</label>
+          <textarea id="courseDescription" rows="4" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Learn the basics of photography..."></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Category</label>
+            <select id="courseCategory" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+              <option value="Foundation">Foundation (Ages 7-9)</option>
+              <option value="Mastery">Mastery (Ages 10-12)</option>
+              <option value="Pro">Pro (Ages 13-14)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Monthly Price ($)</label>
+            <input type="number" id="coursePrice" min="0" step="0.01" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="49.00">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Thumbnail URL (optional)</label>
+          <input type="url" id="courseThumbnail" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="https://...">
+        </div>
+        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold">
+          Create Course
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Schedule Class Modal -->
+  <div id="scheduleClassModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold">Schedule Live Class</h3>
+        <button onclick="closeScheduleClassModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
+      </div>
+      <form onsubmit="scheduleClass(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold mb-2">Select Course *</label>
+          <select id="classC ourseId" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <option value="">Choose a course...</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Class Title *</label>
+          <input type="text" id="classTitle" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Introduction to Composition">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Description</label>
+          <textarea id="classDescription" rows="3" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="In this class we'll cover..."></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Date *</label>
+            <input type="date" id="classDate" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Time *</label>
+            <input type="time" id="classTime" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Duration (minutes)</label>
+          <input type="number" id="classDuration" min="15" step="15" value="60" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Zoom/Meet Link *</label>
+          <input type="url" id="classMeetingLink" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="https://zoom.us/j/...">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Meeting Password (optional)</label>
+          <input type="text" id="classMeetingPassword" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Enter password">
+        </div>
+        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold">
+          Schedule Class
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script>
-    // Check authentication
+    const API_BASE = window.location.origin;
     const token = localStorage.getItem('token');
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    
-    if (!token || !user.id || user.role !== 'admin') {
+    let allCourses = [];
+
+    if (!token) {
       window.location.href = '/education/login';
     }
-    
-    // Logout function
+
     function logout() {
       localStorage.removeItem('token');
-      localStorage.removeItem('user');
       window.location.href = '/education/login';
     }
-    
-    // Show section
+
+    // Section navigation
     function showSection(section) {
-      const navItems = document.querySelectorAll('.nav-item');
-      navItems.forEach(item => item.classList.remove('active'));
-      event.target.closest('.nav-item').classList.add('active');
+      // Hide all sections
+      document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+      // Remove active from all links
+      document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
       
-      alert('Section: ' + section + ' - Full implementation coming soon!');
+      // Show selected section
+      document.getElementById(`${section}-section`).classList.remove('hidden');
+      // Add active to selected link
+      document.querySelector(`[data-section="${section}"]`).classList.add('active');
+
+      // Load section data
+      if (section === 'overview') loadOverview();
+      if (section === 'courses') loadCourses();
+      if (section === 'classes') loadClasses();
+      if (section === 'students') loadStudents();
     }
-    
-    // Load dashboard data
-    async function loadDashboard() {
+
+    // Load overview
+    async function loadOverview() {
       try {
-        // Set user name
-        document.getElementById('userName').textContent = user.firstName + ' ' + user.lastName;
-        
-        // Fetch REAL dashboard data from API
-        const response = await fetch('/api/dashboard/admin', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          }
+        const res = await fetch(`${API_BASE}/api/dashboard/admin`, {
+          headers: { 'Authorization': `Bearer ${token}` }
         });
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch dashboard data');
-        }
-        
-        const data = await response.json();
-        
-        // Update stats with REAL data
-        document.getElementById('totalStudents').textContent = data.stats.totalStudents;
-        document.getElementById('activeCourses').textContent = data.stats.activeCourses;
-        document.getElementById('monthlyRevenue').textContent = '$' + (data.stats.monthlyRevenue || 0).toLocaleString();
-        document.getElementById('completionRate').textContent = Math.round(data.stats.completionRate) + '%';
-        
-        // Display REAL students data
-        const studentsTable = document.getElementById('studentsTable');
-        if (data.students && data.students.length > 0) {
-          studentsTable.innerHTML = data.students.map(student => `
-            <tr>
-              <td>${student.name}</td>
-              <td style="color: rgba(255,255,255,0.6);">${student.email}</td>
-              <td>${student.age || 'N/A'}</td>
-              <td>${student.courses || 0}</td>
-              <td>${Math.round(student.progress || 0)}%</td>
-              <td><span class="badge ${student.status}">${student.status}</span></td>
-              <td>
-                <button class="btn-icon" title="View">👁️</button>
-                <button class="btn-icon" title="Edit">✏️</button>
-                <button class="btn-icon" title="Delete">🗑️</button>
-              </td>
-            </tr>
-          `).join('');
-        } else {
-          studentsTable.innerHTML = `
-            <tr>
-              <td colspan="7" style="text-align: center; padding: 40px; color: rgba(255,255,255,0.5);">
-                No students found
-              </td>
-            </tr>
-          `;
-        }
-        
-        // Display REAL courses data
-        const coursesTable = document.getElementById('coursesTable');
-        if (data.courses && data.courses.length > 0) {
-          coursesTable.innerHTML = data.courses.map(course => `
-            <tr>
-              <td>${course.title}</td>
-              <td>${course.category || 'N/A'}</td>
-              <td>${course.students || 0}</td>
-              <td>${Math.round(course.completion || 0)}%</td>
-              <td>⭐ ${(course.rating || 0).toFixed(1)}</td>
-              <td><span class="badge ${course.status}">${course.status}</span></td>
-              <td>
-                <button class="btn-icon" title="View">👁️</button>
-                <button class="btn-icon" title="Edit">✏️</button>
-                <button class="btn-icon" title="Delete">🗑️</button>
-              </td>
-            </tr>
-          `).join('');
-        } else {
-          coursesTable.innerHTML = `
-            <tr>
-              <td colspan="7" style="text-align: center; padding: 40px; color: rgba(255,255,255,0.5);">
-                No courses found
-              </td>
-            </tr>
-          `;
-        }
-        
+        if (!res.ok) throw new Error('Failed to load overview');
+        const data = await res.json();
+
+        document.getElementById('totalStudents').textContent = data.stats.totalStudents || 0;
+        document.getElementById('activeCourses').textContent = data.stats.activeCourses || 0;
+        document.getElementById('monthlyRevenue').textContent = `$${(data.stats.monthlyRevenue || 0).toFixed(0)}`;
+        document.getElementById('completionRate').textContent = `${data.stats.completionRate || 0}%`;
+
+        // Recent students
+        const studentsHTML = (data.students || []).slice(0, 5).map(s => `
+          <div class="flex items-center justify-between p-3 glass rounded-lg">
+            <div>
+              <p class="font-semibold">${s.email || 'Student'}</p>
+              <p class="text-xs text-gray-400">${s.age_range || 'N/A'}</p>
+            </div>
+            <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">${s.status || 'active'}</span>
+          </div>
+        `).join('') || '<p class="text-gray-400 text-sm">No students yet</p>';
+        document.getElementById('recentStudents').innerHTML = studentsHTML;
+
+        // Recent courses
+        const coursesHTML = (data.courses || []).slice(0, 5).map(c => `
+          <div class="flex items-center justify-between p-3 glass rounded-lg">
+            <div>
+              <p class="font-semibold">${c.title || 'Course'}</p>
+              <p class="text-xs text-gray-400">${c.category || 'N/A'} • ${c.students_enrolled || 0} students</p>
+            </div>
+            <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">${c.completion_rate || 0}%</span>
+          </div>
+        `).join('') || '<p class="text-gray-400 text-sm">No courses yet</p>';
+        document.getElementById('recentCourses').innerHTML = coursesHTML;
+
       } catch (error) {
-        console.error('Error loading dashboard:', error);
-        alert('Failed to load dashboard: ' + error.message);
+        console.error('Load overview error:', error);
       }
     }
-    
-    // Load on page load
-    loadDashboard();
+
+    // Load courses
+    async function loadCourses() {
+      try {
+        const res = await fetch(`${API_BASE}/api/courses/browse`);
+        if (!res.ok) throw new Error('Failed');
+        const data = await res.json();
+        allCourses = data.courses || [];
+
+        const coursesHTML = allCourses.map(c => `
+          <div class="glass p-6 rounded-xl">
+            ${c.thumbnail_url ? `<img src="${c.thumbnail_url}" class="w-full h-40 object-cover rounded-lg mb-4">` : '<div class="w-full h-40 bg-gradient-to-br from-teal-500 to-purple-500 rounded-lg mb-4 flex items-center justify-center text-4xl">📚</div>'}
+            <h4 class="text-lg font-semibold mb-2">${c.title}</h4>
+            <p class="text-sm text-gray-400 mb-4">${c.description || 'No description'}</p>
+            <div class="flex items-center justify-between text-sm mb-4">
+              <span class="text-teal-400 font-semibold">$${c.price_monthly || 0}/mo</span>
+              <span class="text-gray-400">${c.total_classes || 0} classes</span>
+            </div>
+            <button onclick="showScheduleClassModal('${c.id}')" class="w-full btn-primary py-2 rounded-lg text-sm font-semibold">
+              + Schedule Class
+            </button>
+          </div>
+        `).join('') || '<p class="text-gray-400 col-span-full">No courses yet. Create one!</p>';
+        
+        document.getElementById('coursesList').innerHTML = coursesHTML;
+      } catch (error) {
+        console.error('Load courses error:', error);
+        document.getElementById('coursesList').innerHTML = '<p class="text-red-400">Failed to load</p>';
+      }
+    }
+
+    // Load classes
+    async function loadClasses() {
+      // Placeholder - we'll add this in next step
+      document.getElementById('classesList').innerHTML = '<p class="text-gray-400">Coming soon: View all scheduled classes</p>';
+    }
+
+    // Load students
+    async function loadStudents() {
+      // Placeholder
+      document.getElementById('studentsList').innerHTML = '<p class="text-gray-400">Coming soon: Manage all students</p>';
+    }
+
+    // Create course modal
+    function showCreateCourseModal() {
+      document.getElementById('createCourseModal').classList.add('active');
+    }
+
+    function closeCreateCourseModal() {
+      document.getElementById('createCourseModal').classList.remove('active');
+    }
+
+    async function createCourse(e) {
+      e.preventDefault();
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/courses/create`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            title: document.getElementById('courseTitle').value,
+            description: document.getElementById('courseDescription').value,
+            category: document.getElementById('courseCategory').value,
+            priceMonthly: parseFloat(document.getElementById('coursePrice').value) || 49,
+            thumbnailUrl: document.getElementById('courseThumbnail').value || null
+          })
+        });
+
+        if (!res.ok) throw new Error('Failed to create course');
+        
+        alert('Course created successfully! 🎉');
+        closeCreateCourseModal();
+        await loadCourses();
+      } catch (error) {
+        console.error('Create course error:', error);
+        alert('Failed to create course: ' + error.message);
+      }
+    }
+
+    // Schedule class modal
+    function showScheduleClassModal(courseId = null) {
+      const modal = document.getElementById('scheduleClassModal');
+      const select = document.getElementById('classCourseId');
+      
+      // Populate course dropdown
+      select.innerHTML = '<option value="">Choose a course...</option>' + 
+        allCourses.map(c => `<option value="${c.id}"${courseId === c.id ? ' selected' : ''}>${c.title}</option>`).join('');
+      
+      modal.classList.add('active');
+    }
+
+    function closeScheduleClassModal() {
+      document.getElementById('scheduleClassModal').classList.remove('active');
+    }
+
+    async function scheduleClass(e) {
+      e.preventDefault();
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/classes/schedule`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            courseId: document.getElementById('classCourseId').value,
+            title: document.getElementById('classTitle').value,
+            description: document.getElementById('classDescription').value,
+            scheduledDate: document.getElementById('classDate').value,
+            scheduledTime: document.getElementById('classTime').value,
+            durationMinutes: parseInt(document.getElementById('classDuration').value) || 60,
+            meetingLink: document.getElementById('classMeetingLink').value,
+            meetingPassword: document.getElementById('classMeetingPassword').value || null
+          })
+        });
+
+        if (!res.ok) throw new Error('Failed to schedule class');
+        
+        alert('Class scheduled successfully! 🎉 All enrolled students will see it!');
+        closeScheduleClassModal();
+      } catch (error) {
+        console.error('Schedule class error:', error);
+        alert('Failed to schedule class: ' + error.message);
+      }
+    }
+
+    // Initialize
+    async function init() {
+      try {
+        const res = await fetch(`${API_BASE}/api/auth/me`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) throw new Error('Auth failed');
+        const data = await res.json();
+        
+        if (data.user.role !== 'admin') {
+          alert('Access denied. Admin only.');
+          window.location.href = '/education/login';
+          return;
+        }
+
+        document.getElementById('adminName').textContent = data.user.first_name || data.user.email;
+        await loadOverview();
+      } catch (error) {
+        console.error('Init error:', error);
+        alert('Failed to initialize. Please login again.');
+        window.location.href = '/education/login';
+      }
+    }
+
+    init();
   </script>
+
 </body>
 </html>
