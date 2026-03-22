@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
-// import { serveStatic } from 'hono/cloudflare-workers'
+// import { serveStatic } from 'hono/cloudflare-workers'  // Not needed for wrangler pages dev
 import { renderer } from './renderer'
 import Stripe from 'stripe'
 import blog from './blog-page'
@@ -1349,6 +1349,9 @@ app.get('/api/stripe-key', (c) => {
   return c.json({ publishableKey: c.env.STRIPE_PUBLISHABLE_KEY })
 })
 
+// Static files are automatically served by wrangler pages dev from public/
+// No serveStatic middleware needed
+
 // Middleware to disable caching for development
 app.use('/static/*', async (c, next) => {
   await next()
@@ -1356,10 +1359,6 @@ app.use('/static/*', async (c, next) => {
   c.header('Pragma', 'no-cache')
   c.header('Expires', '0')
 })
-
-// Serve static files from public directory
-// wrangler pages dev automatically serves files from dist/
-// No need for serveStatic middleware
 
 // Use JSX renderer
 app.use(renderer)
@@ -6947,9 +6946,9 @@ app.get('/checkout', (c) => {
 // Education Platform Routes
 app.get('/login', (c) => c.redirect('/education/login'))
 // Education pages
-app.get('/education/login', (c) => c.redirect('/static/education-login.html'))
-app.get('/education/signup', (c) => c.redirect('/static/education-signup.html'))
-app.get('/education/reset-password', (c) => c.redirect('/static/education-reset-password.html'))
+app.get('/education/login', (c) => c.redirect('/education-login.html'))
+app.get('/education/signup', (c) => c.redirect('/education-signup.html'))
+app.get('/education/reset-password', (c) => c.redirect('/education-reset-password.html'))
 
 // Dashboards
 app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
