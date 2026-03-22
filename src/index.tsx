@@ -1423,6 +1423,35 @@ app.get('/education', (c) => {
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
+        
+        @keyframes kenBurnsZoom {
+          0% { transform: scale(1.0) translate(0, 0); }
+          100% { transform: scale(1.15) translate(-2%, -5%); }
+        }
+        
+        @keyframes lensFlare {
+          0%, 100% { 
+            top: 20%; left: 30%; 
+            opacity: 0.6;
+          }
+          50% { 
+            top: 40%; left: 60%; 
+            opacity: 0.3;
+          }
+        }
+        
+        @keyframes filmGrain {
+          0%, 100% { transform: translate(0, 0); }
+          10% { transform: translate(-5%, -5%); }
+          20% { transform: translate(-10%, 5%); }
+          30% { transform: translate(5%, -10%); }
+          40% { transform: translate(-5%, 15%); }
+          50% { transform: translate(-10%, 5%); }
+          60% { transform: translate(15%, 0); }
+          70% { transform: translate(0, 10%); }
+          80% { transform: translate(-15%, 0); }
+          90% { transform: translate(10%, 5%); }
+        }
       `}</style>
 
       {/* Navigation */}
@@ -1430,15 +1459,15 @@ app.get('/education', (c) => {
 
       {/* Hero Section - Apple-Style Full-Screen Impact */}
       <section class="relative h-screen flex items-start justify-end overflow-hidden">
-        {/* Hero Image - Freedom on High Hill */}
-        <div class="absolute inset-0">
-          <img 
-            src="/static/images/hero-freedom-hill.jpg" 
-            alt="Young photographer on hilltop" 
-            class="w-full h-full object-cover"
-            style="filter: brightness(0.9) saturate(1.3);"
-          />
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
+        {/* Hero Image - Kids with Mountain Lake */}
+        <div class="absolute inset-0 hero-bg" style="background: url('/static/images/hero-education-kids-mountains.jpg') center top/cover; animation: kenBurnsZoom 20s ease-in-out infinite alternate; filter: brightness(0.8) saturate(1.2);">
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
+          
+          {/* Lens Flare Effect */}
+          <div style="position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,200,100,0.2) 20%, transparent 70%); pointer-events: none; mix-blend-mode: screen; animation: lensFlare 15s ease-in-out infinite; filter: blur(40px); top: 20%; left: 30%; z-index: 2;"></div>
+          
+          {/* Film Grain */}
+          <div style="position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0px, rgba(255,255,255,0.03) 2px, transparent 4px); opacity: 0.4; animation: filmGrain 0.2s steps(10) infinite; pointer-events: none; z-index: 3;"></div>
         </div>
         
         {/* Text Positioned in Bottom - Safe Area */}
