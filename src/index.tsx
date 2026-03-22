@@ -1369,24 +1369,98 @@ app.use(renderer)
 // ============================================
 
 app.get('/', (c) => {
-  // Simple landing page
+  // Landing page with embedded styles
   return c.html(`
     <!DOCTYPE html>
     <html>
     <head>
       <title>Acromatico Education Platform</title>
-      <link rel="stylesheet" href="/static/acromatico-brand.css">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+      <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+          font-family: 'Inter', -apple-system, sans-serif;
+          background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+          color: #fff;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+        }
+        .container {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 24px;
+          padding: 64px 48px;
+          max-width: 600px;
+          text-align: center;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+          font-size: 48px;
+          font-weight: 200;
+          margin-bottom: 16px;
+          letter-spacing: -0.02em;
+        }
+        p {
+          font-size: 18px;
+          color: rgba(255, 255, 255, 0.7);
+          margin-bottom: 32px;
+          font-weight: 300;
+        }
+        .btn {
+          display: inline-block;
+          background: #4794A6;
+          color: #fff;
+          padding: 16px 32px;
+          text-decoration: none;
+          border-radius: 12px;
+          font-size: 16px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+        }
+        .btn:hover {
+          background: #5aa5b8;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(71, 148, 166, 0.4);
+        }
+        .link {
+          margin-top: 24px;
+        }
+        .link a {
+          color: #4794A6;
+          text-decoration: none;
+          font-weight: 400;
+        }
+        .link a:hover {
+          color: #5aa5b8;
+          text-decoration: underline;
+        }
+        .logo {
+          width: 200px;
+          height: 60px;
+          background: rgba(255,255,255,0.1);
+          border-radius: 12px;
+          margin: 0 auto 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          font-weight: 200;
+          letter-spacing: 2px;
+        }
+      </style>
     </head>
-    <body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center;">
-      <div class="glass-container" style="padding: 48px; max-width: 600px;">
-        <img src="/static/acromatico-logo-white.png" style="width: 200px; margin: 0 auto 32px; display: block;">
-        <h1 style="font-size: 48px; font-weight: 200; margin-bottom: 16px;">Welcome to Acromatico</h1>
-        <p style="font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 32px;">The Creative Mastery Platform for Kids 7-14</p>
-        <a href="/education/login" class="btn-primary" style="display: inline-block; padding: 16px 32px; text-decoration: none; border-radius: 12px;">
-          Sign In to Platform →
-        </a>
-        <div style="margin-top: 24px;">
-          <a href="/education/signup" style="color: #4794A6; text-decoration: none;">Create Account</a>
+    <body>
+      <div class="container">
+        <div class="logo">ACROMATICO</div>
+        <h1>Welcome to Acromatico</h1>
+        <p>The Creative Mastery Platform for Kids 7-14</p>
+        <a href="/education/login" class="btn">Sign In to Platform →</a>
+        <div class="link">
+          <a href="/education/signup">Create Account</a>
         </div>
       </div>
     </body>
