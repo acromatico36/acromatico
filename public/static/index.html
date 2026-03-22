@@ -48,69 +48,24 @@
             z-index: 1;
         }
         
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            inset: -10%;
-            background: var(--hero-image, url('https://acromatico.com/wp-content/uploads/2018/09/Loft20Photoshoot-105.jpg') 50% 30%/cover);
-            animation: kenBurnsZoom 20s ease-in-out infinite alternate;
-            filter: brightness(0.5) saturate(1.1);
-            z-index: 1;
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4) saturate(0.8);
+            animation: slowZoom 20s ease-in-out infinite alternate;
         }
         
-        /* Lens Flare */
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,200,100,0.3) 20%, transparent 70%);
-            pointer-events: none;
-            mix-blend-mode: screen;
-            animation: lensFlare 15s ease-in-out infinite;
-            filter: blur(40px);
-            z-index: 2;
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
-        
-        @keyframes kenBurnsZoom {
-            0% { transform: scale(1) translate(0, 0); }
-            100% { transform: scale(1.15) translate(-3%, -2%); }
-        }
-        
-        @keyframes lensFlare {
-            0% { top: -20%; left: -20%; opacity: 0; }
-            15% { opacity: 0.6; }
-            50% { top: 50%; left: 50%; opacity: 0.8; }
-            85% { opacity: 0.6; }
-            100% { top: 120%; left: 120%; opacity: 0; }
-        }
-        
-
         
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
-            z-index: 3;
-        }
-        
-        /* Film Grain */
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(0deg, transparent 0px, rgba(0,0,0,0.03) 2px, transparent 4px);
-            opacity: 0.4;
-            z-index: 4;
-            animation: filmGrain 0.2s steps(10) infinite;
-            pointer-events: none;
-        }
-        
-        @keyframes filmGrain {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(-1%, -1%); }
-            100% { transform: translate(1%, 1%); }
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 2;
         }
         
         .hero-content {
@@ -358,93 +313,16 @@
 <body>
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero-bg" id="heroBackground" style="opacity: 1;"></div>
+        <div class="hero-bg">
+            <img src="/static/images/hero-freedom-hill.jpg" alt="Freedom">
+        </div>
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <h1 class="hero-title">See differently.</h1>
+            <h1 class="hero-title">We help people<br/>see differently.</h1>
             <p class="hero-subtitle">Photography. Education. Art. Brand Building.</p>
             <a href="#services" class="hero-cta">Explore Our Work</a>
         </div>
-        
-        <!-- HERO IMAGE CAROUSEL DOTS -->
-        <div style="position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); z-index: 99; display: flex; gap: 12px;">
-            <button onclick="setHeroSlide(0)" id="dot0" style="cursor: pointer; width: 32px; height: 12px; border-radius: 6px; background: rgb(255,255,255); transition: 0.3s; border: 2px solid rgba(255,255,255,0.3);"></button>
-            <button onclick="setHeroSlide(1)" id="dot1" style="all: unset; cursor: pointer; width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); transition: all 0.3s; border: 2px solid rgba(255,255,255,0.3);"></button>
-            <button onclick="setHeroSlide(2)" id="dot2" style="all: unset; cursor: pointer; width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); transition: all 0.3s; border: 2px solid rgba(255,255,255,0.3);"></button>
-            <button onclick="setHeroSlide(3)" id="dot3" style="all: unset; cursor: pointer; width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); transition: all 0.3s; border: 2px solid rgba(255,255,255,0.3);"></button>
-            <button onclick="setHeroSlide(4)" id="dot4" style="all: unset; cursor: pointer; width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); transition: all 0.3s; border: 2px solid rgba(255,255,255,0.3);"></button>
-        </div>
-        
-        <!-- HERO CAROUSEL AUTO-ROTATE -->
-        <script>
-            const heroImages = [
-                { url: 'https://acromatico.com/wp-content/uploads/2018/09/Loft20Photoshoot-105.jpg', position: '50% 30%', name: 'Loft 105' },
-                { url: 'https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-223.jpg', position: 'center', name: 'Nessa 223' },
-                { url: 'https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-1020.jpg', position: 'center', name: 'Jane 1020' },
-                { url: 'https://acromatico.com/wp-content/uploads/2018/09/Nessa-Torry-W-646.jpg', position: 'center', name: 'Nessa 646' },
-                { url: 'https://acromatico.com/wp-content/uploads/2018/09/KH-Ritz-262.jpg', position: 'center', name: 'Key West Ritz 262' }
-            ];
-            
-            let currentSlide = 0;
-            let autoRotateInterval;
-            
-            function setHeroSlide(index) {
-                currentSlide = index;
-                const img = heroImages[index];
-                const heroBg = document.getElementById('heroBackground');
-                
-                // Update background with fade effect
-                heroBg.style.opacity = '0';
-                
-                setTimeout(() => {
-                    const bgValue = `url('${img.url}') ${img.position}/cover`;
-                    const style = document.createElement('style');
-                    style.id = 'hero-style-' + index;
-                    // Remove old styles
-                    document.querySelectorAll('[id^="hero-style-"]').forEach(s => s.remove());
-                    
-                    style.innerHTML = `
-                        .hero-bg::before {
-                            background: ${bgValue} !important;
-                        }
-                    `;
-                    document.head.appendChild(style);
-                    
-                    heroBg.style.opacity = '1';
-                    
-                    // Update dots
-                    document.querySelectorAll('[id^="dot"]').forEach((dot, i) => {
-                        if (i === index) {
-                            dot.style.background = '#fff';
-                            dot.style.width = '32px';
-                            dot.style.borderRadius = '6px';
-                        } else {
-                            dot.style.background = 'rgba(255,255,255,0.5)';
-                            dot.style.width = '12px';
-                            dot.style.borderRadius = '50%';
-                        }
-                    });
-                }, 300);
-                
-                // Reset auto-rotate timer
-                clearInterval(autoRotateInterval);
-                startAutoRotate();
-            }
-            
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % heroImages.length;
-                setHeroSlide(currentSlide);
-            }
-            
-            function startAutoRotate() {
-                autoRotateInterval = setInterval(nextSlide, 8000); // Change every 8 seconds
-            }
-            
-            // Initialize first slide
-            setHeroSlide(0);
-            startAutoRotate();
-        </script>
         
         <div class="scroll-indicator">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
