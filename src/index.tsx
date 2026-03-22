@@ -1459,8 +1459,8 @@ app.get('/education', (c) => {
 
       {/* Hero Section - Apple-Style Full-Screen Impact */}
       <section class="relative h-screen flex items-start justify-end overflow-hidden">
-        {/* Hero Image - Kids with Mountain Lake */}
-        <div class="absolute inset-0 hero-bg" style="background: url('/static/images/hero-education-kids-mountains-4k.jpg') center top/cover; animation: kenBurnsZoom 20s ease-in-out infinite alternate; filter: brightness(0.8) saturate(1.2);">
+        {/* Hero Image - Kids Photographing Torres del Paine */}
+        <div class="absolute inset-0 hero-bg" style="background: url('/static/images/hero-education-torres-del-paine-4k.jpg') center top/cover; animation: kenBurnsZoom 20s ease-in-out infinite alternate; filter: brightness(0.8) saturate(1.2);">
           <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
           
           {/* Lens Flare Effect */}
