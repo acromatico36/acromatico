@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin CRM - Acromatico Education</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+    
+    * {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .btn-primary {
+      background: #4794A6;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background: #5aa5b8;
+      transform: translateY(-2px);
+    }
+    
+    .tab-btn {
+      transition: all 0.3s ease;
+      font-weight: 300;
+    }
+    
+    .tab-btn.active {
+      background: rgba(71, 148, 166, 0.2);
+      border-bottom: 2px solid #4794A6;
+      font-weight: 400;
+    }
+    
+    .modal {
+      display: none;
+    }
+    
+    .modal.active {
+      display: flex;
+    }
+    
+    table {
+      font-weight: 300;
+    }
+    
+    th {
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    
+    h1, h2, h3 {
+      font-weight: 300;
+    }
+    
+    .stat-card {
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #4794A6;
+      box-shadow: 0 0 0 3px rgba(71, 148, 166, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+  
+  <!-- Top Bar -->
+  <div class="sticky top-0 z-50 glass border-b border-white/10 px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8 w-auto opacity-90">
+      <span class="text-xs px-3 py-1 bg-red-500/20 text-red-400 rounded-full font-light uppercase tracking-wider">Admin CRM</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-gray-400 font-light" id="adminName">Admin</span>
+      <button onclick="logout()" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition text-sm font-light">
+        Logout
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs Navigation -->
+  <div class="border-b border-white/10 glass">
+    <div class="max-w-7xl mx-auto px-8">
+      <nav class="flex gap-1 overflow-x-auto">
+        <button onclick="showTab('overview')" class="tab-btn active px-6 py-4 text-sm" data-tab="overview">
+          <i class="fas fa-chart-line mr-2"></i> Overview
+        </button>
+        <button onclick="showTab('students')" class="tab-btn px-6 py-4 text-sm" data-tab="students">
+          <i class="fas fa-users mr-2"></i> Students CRM
+        </button>
+        <button onclick="showTab('courses')" class="tab-btn px-6 py-4 text-sm" data-tab="courses">
+          <i class="fas fa-book mr-2"></i> Courses Management
+        </button>
+        <button onclick="showTab('classes')" class="tab-btn px-6 py-4 text-sm" data-tab="classes">
+          <i class="fas fa-video mr-2"></i> Live Classes
+        </button>
+        <button onclick="showTab('revenue')" class="tab-btn px-6 py-4 text-sm" data-tab="revenue">
+          <i class="fas fa-dollar-sign mr-2"></i> Revenue
+        </button>
+        <button onclick="showTab('database')" class="tab-btn px-6 py-4 text-sm" data-tab="database">
+          <i class="fas fa-database mr-2"></i> Database Console
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-8 py-8">
+    
+    <!-- Overview Tab -->
+    <div id="overview-tab" class="tab-content">
+      <h2 class="text-3xl mb-8">Dashboard Overview</h2>
+      
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+        <div class="stat-card glass p-6 rounded-xl">
+          <div class="flex items-center justify-between mb-4">
+            <div class="text-3xl"><i class="fas fa-users text-teal-400"></i></div>
+            <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full font-light">+12%</span>
+          </div>
+          <p class="text-3xl font-light mb-1" id="totalStudents">0</p>
+          <p class="text-sm text-gray-400 font-light">Total Students</p>
+        </div>
+        <div class="stat-card glass p-6 rounded-xl">
+          <div class="flex items-center justify-between mb-4">
+            <div class="text-3xl"><i class="fas fa-book text-purple-400"></i></div>
+            <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full font-light">+8%</span>
+          </div>
+          <p class="text-3xl font-light mb-1" id="activeCourses">0</p>
+          <p class="text-sm text-gray-400 font-light">Active Courses</p>
+        </div>
+        <div class="stat-card glass p-6 rounded-xl">
+          <div class="flex items-center justify-between mb-4">
+            <div class="text-3xl"><i class="fas fa-dollar-sign text-yellow-400"></i></div>
+            <span class="text-xs px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full font-light">+24%</span>
+          </div>
+          <p class="text-3xl font-light mb-1" id="monthlyRevenue">$0</p>
+          <p class="text-sm text-gray-400 font-light">Monthly Revenue</p>
+        </div>
+        <div class="stat-card glass p-6 rounded-xl">
+          <div class="flex items-center justify-between mb-4">
+            <div class="text-3xl"><i class="fas fa-video text-orange-400"></i></div>
+            <span class="text-xs px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full font-light">Live</span>
+          </div>
+          <p class="text-3xl font-light mb-1" id="upcomingClasses">0</p>
+          <p class="text-sm text-gray-400 font-light">Upcoming Classes</p>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <button onclick="showTab('courses'); showCreateCourseModal()" class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
+          <div class="text-3xl mb-3"><i class="fas fa-plus-circle text-teal-400"></i></div>
+          <h3 class="text-lg font-normal mb-1">Create Course</h3>
+          <p class="text-sm text-gray-400 font-light">Add new photography course</p>
+        </button>
+        <button onclick="showTab('classes'); showScheduleClassModal()" class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
+          <div class="text-3xl mb-3"><i class="fas fa-calendar-plus text-purple-400"></i></div>
+          <h3 class="text-lg font-normal mb-1">Schedule Class</h3>
+          <p class="text-sm text-gray-400 font-light">Add live Zoom session</p>
+        </button>
+        <button onclick="showTab('students')" class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
+          <div class="text-3xl mb-3"><i class="fas fa-user-friends text-yellow-400"></i></div>
+          <h3 class="text-lg font-normal mb-1">Manage Students</h3>
+          <p class="text-sm text-gray-400 font-light">View all enrolled students</p>
+        </button>
+      </div>
+    </div>
+
+    <!-- Students CRM Tab -->
+    <div id="students-tab" class="tab-content hidden">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl">Students Management</h2>
+        <div class="flex gap-3">
+          <input type="text" id="studentSearch" placeholder="Search students..." class="px-4 py-2 glass rounded-lg text-sm font-light" onkeyup="filterStudents()">
+          <button onclick="exportStudentsCSV()" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition text-sm font-light">
+            <i class="fas fa-download mr-2"></i> Export CSV
+          </button>
+          <button onclick="loadStudentsCRM()" class="btn-primary px-4 py-2 rounded-lg text-sm font-light">
+            <i class="fas fa-sync mr-2"></i> Refresh
+          </button>
+        </div>
+      </div>
+
+      <div class="glass rounded-xl p-6">
+        <div id="studentsTableLoading" class="text-center py-12">
+          <i class="fas fa-spinner fa-spin text-4xl text-teal-400 mb-4"></i>
+          <p class="text-gray-400 font-light">Loading students...</p>
+        </div>
+
+        <div id="studentsTableContent" class="hidden overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-white/10">
+                <th class="text-left py-3 px-4 text-gray-400">Student Name</th>
+                <th class="text-left py-3 px-4 text-gray-400">Age</th>
+                <th class="text-left py-3 px-4 text-gray-400">Grade</th>
+                <th class="text-left py-3 px-4 text-gray-400">Parent Email</th>
+                <th class="text-left py-3 px-4 text-gray-400">Courses</th>
+                <th class="text-left py-3 px-4 text-gray-400">Status</th>
+                <th class="text-left py-3 px-4 text-gray-400">Enrolled</th>
+                <th class="text-right py-3 px-4 text-gray-400">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTableBody" class="text-sm">
+              <!-- Students will be loaded here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Courses Management Tab -->
+    <div id="courses-tab" class="tab-content hidden">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl">Courses Management</h2>
+        <button onclick="showCreateCourseModal()" class="btn-primary px-6 py-3 rounded-lg font-light">
+          <i class="fas fa-plus mr-2"></i> Create Course
+        </button>
+      </div>
+
+      <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Courses will be loaded here -->
+      </div>
+    </div>
+
+    <!-- Live Classes Tab -->
+    <div id="classes-tab" class="tab-content hidden">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl">Live Classes Schedule</h2>
+        <button onclick="showScheduleClassModal()" class="btn-primary px-6 py-3 rounded-lg font-light">
+          <i class="fas fa-calendar-plus mr-2"></i> Schedule Class
+        </button>
+      </div>
+
+      <div id="classesCalendar" class="space-y-4">
+        <!-- Classes will be loaded here -->
+      </div>
+    </div>
+
+    <!-- Revenue Tab -->
+    <div id="revenue-tab" class="tab-content hidden">
+      <h2 class="text-3xl mb-8">Revenue & Analytics</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="glass p-6 rounded-xl">
+          <p class="text-sm text-gray-400 font-light mb-2">Total Revenue (All Time)</p>
+          <p class="text-4xl font-light text-teal-400" id="totalRevenue">$0</p>
+        </div>
+        <div class="glass p-6 rounded-xl">
+          <p class="text-sm text-gray-400 font-light mb-2">Active Subscriptions</p>
+          <p class="text-4xl font-light text-purple-400" id="activeSubscriptions">0</p>
+        </div>
+        <div class="glass p-6 rounded-xl">
+          <p class="text-sm text-gray-400 font-light mb-2">Avg. Student Value</p>
+          <p class="text-4xl font-light text-yellow-400" id="avgStudentValue">$0</p>
+        </div>
+      </div>
+
+      <div class="glass p-6 rounded-xl">
+        <h3 class="text-xl font-light mb-4">Subscription Breakdown</h3>
+        <div id="subscriptionsList" class="space-y-3">
+          <!-- Subscriptions will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Database Console Tab -->
+    <div id="database-tab" class="tab-content hidden">
+      <h2 class="text-3xl mb-8">Database Console</h2>
+      
+      <div class="glass p-6 rounded-xl mb-6">
+        <div class="mb-4">
+          <label class="block text-sm font-light mb-2 text-gray-400">SQL Query</label>
+          <textarea id="sqlQuery" rows="6" class="w-full px-4 py-3 glass rounded-lg text-sm font-mono" placeholder="SELECT * FROM students LIMIT 10"></textarea>
+        </div>
+        <div class="flex gap-3">
+          <button onclick="executeSQLQuery()" class="btn-primary px-6 py-3 rounded-lg font-light">
+            <i class="fas fa-play mr-2"></i> Execute Query
+          </button>
+          <button onclick="showQuickQueries()" class="px-6 py-3 glass rounded-lg hover:bg-white/10 transition font-light">
+            <i class="fas fa-list mr-2"></i> Quick Queries
+          </button>
+        </div>
+      </div>
+
+      <div id="queryResults" class="glass p-6 rounded-xl hidden">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-light">Query Results</h3>
+          <button onclick="exportQueryResults()" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition text-sm font-light">
+            <i class="fas fa-download mr-2"></i> Export
+          </button>
+        </div>
+        <div id="queryResultsContent" class="overflow-x-auto">
+          <!-- Results will be shown here -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Create Course Modal -->
+  <div id="createCourseModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-light">Create New Course</h3>
+        <button onclick="closeCreateCourseModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
+      </div>
+      <form onsubmit="createCourse(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-light mb-2 text-gray-400">Course Title *</label>
+          <input type="text" id="courseTitle" required class="w-full px-4 py-3 glass rounded-lg font-light" placeholder="Photography Fundamentals">
+        </div>
+        <div>
+          <label class="block text-sm font-light mb-2 text-gray-400">Description</label>
+          <textarea id="courseDescription" rows="4" class="w-full px-4 py-3 glass rounded-lg font-light" placeholder="Learn the basics of photography..."></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-light mb-2 text-gray-400">Category</label>
+            <select id="courseCategory" class="w-full px-4 py-3 glass rounded-lg font-light">
+              <option value="Foundation">Foundation (Ages 7-9)</option>
+              <option value="Mastery">Mastery (Ages 10-12)</option>
+              <option value="Pro">Pro (Ages 13-14)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-light mb-2 text-gray-400">Monthly Price ($)</label>
+            <input type="number" id="coursePrice" min="0" step="0.01" class="w-full px-4 py-3 glass rounded-lg font-light" placeholder="49.00">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-light mb-2 text-gray-400">Thumbnail URL (optional)</label>
+          <input type="url" id="courseThumbnail" class="w-full px-4 py-3 glass rounded-lg font-light" placeholder="https://...">
+        </div>
+        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-light">
+          Create Course
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Schedule Class Modal -->
+  <div id="scheduleClassModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-light">Schedule Live Class</h3>
+        <button onclick="closeScheduleClassModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
+      </div>
+      <form onsubmit="scheduleClass(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-light mb-2 text-gray-400">Select Course *</label>
+          <select id="classCourseId" required class="w-full px-4 py-3 glass rounded-lg font-light">
+            <option value="">Choose a course...</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-light mb-2 text-gray-400">Class Title *</label>
+          <input type="text" id="classTitle" required class="w-full px-4 py-3 glass rounded-lg font-light" placeholder="Introduction to Composition">
+        </div>
+        <div>
+          <label class="block text-sm font-light mb-2 text-gray-400">Description</label>
+          <textarea id="classDescription" rows="3" class="w-full px-4 py-3 glass rounded-lg font-light" placeholder="In this class we'll cover..."></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-light mb-2 text-gray-400">Date *</label>
+            <input type="date" id="classDate" required class="w-full px-4 py-3 glass rounded-lg font-light">
+          </div>
+          <div>
+            <label class="block text-sm font-light mb-2 text-gray-400">Time *</label>
+            <input type="time" id="classTime" required class="w-full px-4 py-3 glass rounded-lg font-light">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-light mb-2 text-gray-400">Duration (minutes)</label>
+          <input type="number" id="classDuration" min="15" step="15" value="60" class="w-full px-4 py-3 glass rounded-lg font-light">
+        </div>
+        <div>
+          <label class="block text-sm font-light mb-2 text-gray-400">Zoom/Meet Link *</label>
+          <input type="url" id="classMeetingLink" required class="w-full px-4 py-3 glass rounded-lg font-light" placeholder="https://zoom.us/j/...">
+        </div>
+        <div>
+          <label class="block text-sm font-light mb-2 text-gray-400">Meeting Password (optional)</label>
+          <input type="text" id="classMeetingPassword" class="w-full px-4 py-3 glass rounded-lg font-light" placeholder="Enter password">
+        </div>
+        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-light">
+          Schedule Class
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/admin-crm.js"></script>
+
+</body>
+</html>

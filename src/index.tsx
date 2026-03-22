@@ -961,6 +961,234 @@ app.post('/api/admin/notifications/send', liveClassesAPI.sendNotification)
 // END LIVE CLASSES API
 // ============================================================
 
+// ============================================================
+// ADMIN CRM API - Complete Database Management
+// ============================================================
+
+// GET /api/admin/students/all - Get all students with parent info
+app.get('/api/admin/students/all', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const authHeader = c.req.header('Authorization')
+    
+    if (!authHeader?.startsWith('Bearer ')) {
+      return c.json({ message: 'No token provided' }, 401)
+    }
+    
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    
+    if (!payload || payload.role !== 'admin') {
+      return c.json({ message: 'Unauthorized' }, 403)
+    }
+    
+    const students = await DB_EDUCATION.prepare(`
+      SELECT 
+        s.id,
+        s.parent_id,
+        s.first_name,
+        s.last_name,
+        s.age,
+        s.grade,
+        s.enrollment_status,
+        s.created_at,
+        u.email as parent_email,
+        COUNT(DISTINCT e.course_id) as courses_enrolled
+      FROM students s
+      LEFT JOIN users u ON s.parent_id = u.id
+      LEFT JOIN enrollments e ON s.id = e.student_id AND e.status = 'active'
+      GROUP BY s.id
+      ORDER BY s.created_at DESC
+    `).all()
+    
+    return c.json({ students: students?.results || [] })
+    
+  } catch (error: any) {
+    console.error('Get all students error:', error)
+    return c.json({ message: 'Failed to load students: ' + error.message }, 500)
+  }
+})
+
+// GET /api/admin/classes/all - Get all live classes
+app.get('/api/admin/classes/all', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const authHeader = c.req.header('Authorization')
+    
+    if (!authHeader?.startsWith('Bearer ')) {
+      return c.json({ message: 'No token provided' }, 401)
+    }
+    
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    
+    if (!payload || payload.role !== 'admin') {
+      return c.json({ message: 'Unauthorized' }, 403)
+    }
+    
+    const classes = await DB_EDUCATION.prepare(`
+      SELECT 
+        lc.id,
+        lc.course_id,
+        lc.title,
+        lc.description,
+        lc.scheduled_date,
+        lc.scheduled_time,
+        lc.duration_minutes,
+        lc.meeting_link,
+        lc.meeting_password,
+        lc.status,
+        c.title as course_title
+      FROM live_classes lc
+      LEFT JOIN courses c ON lc.course_id = c.id
+      ORDER BY lc.scheduled_date DESC, lc.scheduled_time DESC
+    `).all()
+    
+    return c.json({ classes: classes?.results || [] })
+    
+  } catch (error: any) {
+    console.error('Get all classes error:', error)
+    return c.json({ message: 'Failed to load classes: ' + error.message }, 500)
+  }
+})
+
+// GET /api/admin/classes/upcoming - Get upcoming classes only
+app.get('/api/admin/classes/upcoming', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const authHeader = c.req.header('Authorization')
+    
+    if (!authHeader?.startsWith('Bearer ')) {
+      return c.json({ message: 'No token provided' }, 401)
+    }
+    
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    
+    if (!payload || payload.role !== 'admin') {
+      return c.json({ message: 'Unauthorized' }, 403)
+    }
+    
+    const classes = await DB_EDUCATION.prepare(`
+      SELECT 
+        lc.id,
+        lc.course_id,
+        lc.title,
+        lc.scheduled_date,
+        lc.scheduled_time,
+        c.title as course_title
+      FROM live_classes lc
+      LEFT JOIN courses c ON lc.course_id = c.id
+      WHERE datetime(lc.scheduled_date || ' ' || lc.scheduled_time) >= datetime('now')
+      ORDER BY lc.scheduled_date ASC, lc.scheduled_time ASC
+    `).all()
+    
+    return c.json({ classes: classes?.results || [] })
+    
+  } catch (error: any) {
+    console.error('Get upcoming classes error:', error)
+    return c.json({ message: 'Failed to load classes: ' + error.message }, 500)
+  }
+})
+
+// GET /api/admin/revenue/stats - Get revenue statistics
+app.get('/api/admin/revenue/stats', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const authHeader = c.req.header('Authorization')
+    
+    if (!authHeader?.startsWith('Bearer ')) {
+      return c.json({ message: 'No token provided' }, 401)
+    }
+    
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    
+    if (!payload || payload.role !== 'admin') {
+      return c.json({ message: 'Unauthorized' }, 403)
+    }
+    
+    // Get total revenue (sum of all monthly prices)
+    const revenue = await DB_EDUCATION.prepare(`
+      SELECT SUM(monthly_price) as total FROM subscriptions WHERE status = 'active'
+    `).first()
+    
+    // Get active subscriptions count
+    const subsCount = await DB_EDUCATION.prepare(`
+      SELECT COUNT(*) as count FROM subscriptions WHERE status = 'active'
+    `).first()
+    
+    // Get all subscriptions with parent info
+    const subscriptions = await DB_EDUCATION.prepare(`
+      SELECT 
+        s.id,
+        s.num_students,
+        s.monthly_price,
+        s.billing_cycle,
+        s.status,
+        s.next_billing_date,
+        u.email as parent_email
+      FROM subscriptions s
+      LEFT JOIN users u ON s.parent_id = u.id
+      WHERE s.status = 'active'
+      ORDER BY s.created_at DESC
+    `).all()
+    
+    const totalRevenue = revenue?.total || 0
+    const activeSubscriptions = subsCount?.count || 0
+    const avgStudentValue = activeSubscriptions > 0 ? totalRevenue / activeSubscriptions : 0
+    
+    return c.json({ 
+      totalRevenue,
+      activeSubscriptions,
+      avgStudentValue,
+      subscriptions: subscriptions?.results || []
+    })
+    
+  } catch (error: any) {
+    console.error('Get revenue stats error:', error)
+    return c.json({ message: 'Failed to load revenue: ' + error.message }, 500)
+  }
+})
+
+// POST /api/admin/database/query - Execute custom SQL query
+app.post('/api/admin/database/query', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const authHeader = c.req.header('Authorization')
+    
+    if (!authHeader?.startsWith('Bearer ')) {
+      return c.json({ message: 'No token provided' }, 401)
+    }
+    
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    
+    if (!payload || payload.role !== 'admin') {
+      return c.json({ message: 'Unauthorized' }, 403)
+    }
+    
+    const { query } = await c.req.json()
+    
+    if (!query) {
+      return c.json({ message: 'Query is required' }, 400)
+    }
+    
+    // Execute the query
+    const result = await DB_EDUCATION.prepare(query).all()
+    
+    return c.json({ results: result?.results || [] })
+    
+  } catch (error: any) {
+    console.error('Database query error:', error)
+    return c.json({ message: 'Query failed: ' + error.message }, 500)
+  }
+})
+
+// ============================================================
+// END ADMIN CRM API
+// ============================================================
+
 // Stripe Checkout API
 app.post('/api/create-checkout', async (c) => {
   try {
@@ -6727,6 +6955,7 @@ app.get('/education/reset-password', (c) => c.redirect('/static/education-reset-
 app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
 app.get('/parent/dashboard', (c) => c.redirect('/static/parent-dashboard.html'))
 app.get('/admin/dashboard', (c) => c.redirect('/static/admin-dashboard.html'))
+app.get('/admin/crm', (c) => c.redirect('/static/admin-crm.html'))
 
 // Brand Intelligence Assessment - Instant-Start AI-Powered Tool  
 app.get('/assessment', (c) => c.redirect('/static/assessment.html'))
