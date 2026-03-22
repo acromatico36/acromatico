@@ -694,6 +694,45 @@ app.get('/api/auth/me', async (c) => {
   }
 })
 
+// POST /api/auth/reset-password - Send password reset email (placeholder)
+app.post('/api/auth/reset-password', async (c) => {
+  try {
+    const { email } = await c.req.json()
+    
+    if (!email) {
+      return c.json({ message: 'Email is required' }, 400)
+    }
+    
+    const { DB_EDUCATION } = c.env
+    
+    // Check if user exists
+    const user = await DB_EDUCATION.prepare(
+      'SELECT id, email FROM users WHERE email = ?'
+    ).bind(email).first()
+    
+    if (!user) {
+      // Don't reveal if user exists or not (security best practice)
+      return c.json({ 
+        message: 'If an account with that email exists, a reset link has been sent.' 
+      })
+    }
+    
+    // TODO: In production, generate reset token and send email
+    // For now, just return success (placeholder)
+    // You would integrate with SendGrid, Mailgun, or similar
+    
+    console.log(`Password reset requested for: ${email}`)
+    
+    return c.json({ 
+      message: 'If an account with that email exists, a reset link has been sent.' 
+    })
+    
+  } catch (error: any) {
+    console.error('Reset password error:', error)
+    return c.json({ message: 'Failed to process request: ' + error.message }, 500)
+  }
+})
+
 // ============================================================
 // END AUTHENTICATION API
 // ============================================================
@@ -6682,6 +6721,7 @@ app.get('/login', (c) => c.redirect('/education/login'))
 // Education pages
 app.get('/education/login', (c) => c.redirect('/static/education-login.html'))
 app.get('/education/signup', (c) => c.redirect('/static/education-signup.html'))
+app.get('/education/reset-password', (c) => c.redirect('/static/education-reset-password.html'))
 
 // Dashboards
 app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
