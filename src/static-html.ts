@@ -167,7 +167,7 @@ export const loginHTML = `<!DOCTYPE html>
 </head>
 <body>
   <div class="login-container glass-container">
-    <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="logo">
+    <img src="/static/acromatico-logo-white-best.png" alt="Acromatico" class="logo" style="width: 200px; height: auto;">
     <h1>Welcome Back</h1>
     <p class="subtitle text-muted">Sign in to continue your creative journey</p>
     
