@@ -7,6 +7,7 @@ import blog from './blog-page'
 import { footerHTML } from './components/footer'
 import { mobileMenuHTML } from './components/mobile-menu'
 import * as liveClassesAPI from './api/live-classes'
+import { loginHTML } from './static-html'
 
 // Shared Header Component
 const Header = () => (
@@ -6946,7 +6947,10 @@ app.get('/checkout', (c) => {
 // Education Platform Routes
 app.get('/login', (c) => c.redirect('/education/login'))
 // Education pages
-app.get('/education/login', (c) => c.redirect('/education-login.html'))
+// EDUCATION AUTH ROUTES - Serve HTML directly
+app.get('/education/login', (c) => {
+  return c.html(loginHTML)
+})
 app.get('/education/signup', (c) => c.redirect('/education-signup.html'))
 app.get('/education/reset-password', (c) => c.redirect('/education-reset-password.html'))
 
