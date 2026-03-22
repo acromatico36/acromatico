@@ -1369,8 +1369,29 @@ app.use(renderer)
 // ============================================
 
 app.get('/', (c) => {
-  // Redirect to splash page with 4 services
-  return c.redirect('/static/index.html')
+  // Simple landing page
+  return c.html(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Acromatico Education Platform</title>
+      <link rel="stylesheet" href="/static/acromatico-brand.css">
+    </head>
+    <body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center;">
+      <div class="glass-container" style="padding: 48px; max-width: 600px;">
+        <img src="/static/acromatico-logo-white.png" style="width: 200px; margin: 0 auto 32px; display: block;">
+        <h1 style="font-size: 48px; font-weight: 200; margin-bottom: 16px;">Welcome to Acromatico</h1>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 32px;">The Creative Mastery Platform for Kids 7-14</p>
+        <a href="/education/login" class="btn-primary" style="display: inline-block; padding: 16px 32px; text-decoration: none; border-radius: 12px;">
+          Sign In to Platform →
+        </a>
+        <div style="margin-top: 24px;">
+          <a href="/education/signup" style="color: #4794A6; text-decoration: none;">Create Account</a>
+        </div>
+      </div>
+    </body>
+    </html>
+  `)
 })
 
 // EDUCATION LANDING PAGE - Educators Profile
