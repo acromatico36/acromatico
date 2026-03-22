@@ -6682,17 +6682,14 @@ app.get('/checkout', (c) => {
 
 // Education Platform Routes
 app.get('/login', (c) => c.redirect('/education/login'))
-app.get('/education/login', serveStatic({ path: '/static/education-login.html' }))
-app.get('/education/signup', serveStatic({ path: '/static/education-signup.html' }))
+// Education pages
+app.get('/education/login', (c) => c.redirect('/static/education-login.html'))
+app.get('/education/signup', (c) => c.redirect('/static/education-signup.html'))
 
-// Student Dashboard (protected route)
-app.get('/student/dashboard', serveStatic({ path: '/static/student-dashboard.html' }))
-
-// Parent Dashboard (protected route)
-app.get('/parent/dashboard', serveStatic({ path: '/static/parent-dashboard.html' }))
-
-// Admin Portal (protected route)
-app.get('/admin/dashboard', serveStatic({ path: '/static/admin-dashboard.html' }))
+// Dashboards
+app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
+app.get('/parent/dashboard', (c) => c.redirect('/static/parent-dashboard.html'))
+app.get('/admin/dashboard', (c) => c.redirect('/static/admin-dashboard.html'))
 
 // Brand Intelligence Assessment - Instant-Start AI-Powered Tool  
 app.get('/assessment', (c) => c.redirect('/static/assessment.html'))
