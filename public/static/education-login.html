@@ -4,55 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign In - Acromatico Education</title>
+  <link rel="stylesheet" href="/static/acromatico-brand.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
       padding: 20px;
     }
     
     .login-container {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
       padding: 48px;
       width: 100%;
       max-width: 440px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
     
     .logo {
-      width: 180px;
-      height: auto;
       margin: 0 auto 32px;
-      display: block;
+      filter: brightness(1.1);
     }
     
     h1 {
       font-size: 32px;
-      font-weight: 300;
+      font-weight: 200;
       text-align: center;
       margin-bottom: 8px;
-      color: #fff;
+      letter-spacing: -0.02em;
     }
     
     .subtitle {
       text-align: center;
-      color: rgba(255, 255, 255, 0.6);
       margin-bottom: 32px;
-      font-size: 14px;
     }
     
     .form-group {
@@ -63,41 +46,15 @@
       display: block;
       margin-bottom: 8px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 300;
       color: rgba(255, 255, 255, 0.8);
-    }
-    
-    input {
-      width: 100%;
-      padding: 14px 16px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      color: #fff;
-      font-size: 15px;
-      transition: all 0.3s ease;
-    }
-    
-    input:focus {
-      outline: none;
-      border-color: #4794A6;
-      background: rgba(255, 255, 255, 0.12);
-    }
-    
-    input::placeholder {
-      color: rgba(255, 255, 255, 0.4);
     }
     
     .btn {
       width: 100%;
       padding: 16px;
-      background: #4794A6;
-      color: #fff;
-      border: none;
-      border-radius: 12px;
       font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
+      font-weight: 400;
       transition: all 0.3s ease;
       margin-top: 8px;
     }
@@ -206,8 +163,8 @@
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <img src="/static/acromatico-logo-dark.png" alt="Acromatico" class="logo">
+  <div class="login-container glass-container">
+    <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="logo">
     <h1>Welcome Back</h1>
     <p class="subtitle">Sign in to continue your creative journey</p>
     
