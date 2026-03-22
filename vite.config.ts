@@ -5,7 +5,10 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [
-    build(),
+    build({
+      outputDir: 'dist',
+      excludeRoutes: ['/static/*', '/blog_posts_data/*']
+    }),
     devServer({
       adapter,
       entry: 'src/index.tsx'

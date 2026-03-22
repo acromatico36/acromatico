@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
-import { serveStatic } from 'hono/cloudflare-workers'
+// import { serveStatic } from 'hono/cloudflare-workers'
 import { renderer } from './renderer'
 import Stripe from 'stripe'
 import blog from './blog-page'
@@ -1091,11 +1091,8 @@ app.use('/static/*', async (c, next) => {
 })
 
 // Serve static files from public directory
-app.use('/static/*', serveStatic({ root: './' }))
-app.use('/*.html', serveStatic({ root: './public' }))
-
-// Explicitly serve blog_posts_data
-app.use('/blog_posts_data/*', serveStatic({ root: './' }))
+// wrangler pages dev automatically serves files from dist/
+// No need for serveStatic middleware
 
 // Use JSX renderer
 app.use(renderer)
