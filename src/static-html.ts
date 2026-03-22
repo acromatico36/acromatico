@@ -230,17 +230,17 @@ export const loginHTML = `<!DOCTYPE html>
         
         if (response.ok) {
           localStorage.setItem('auth_token', data.token);
-          localStorage.setItem('user_role', data.role);
+          localStorage.setItem('user_role', data.user.role);
           
           successMessage.textContent = 'Login successful! Redirecting...';
           successMessage.style.display = 'block';
           
           setTimeout(() => {
-            if (data.role === 'admin') {
+            if (data.user.role === 'admin') {
               window.location.href = '/admin/dashboard';
-            } else if (data.role === 'parent') {
+            } else if (data.user.role === 'parent') {
               window.location.href = '/parent/dashboard';
-            } else if (data.role === 'student') {
+            } else if (data.user.role === 'student') {
               window.location.href = '/student/dashboard';
             }
           }, 1000);
