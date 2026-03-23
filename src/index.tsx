@@ -898,7 +898,7 @@ app.get('/api/student/progress/:lessonId', async (c) => {
     if (!payload) {
       return c.json({ success: false, error: 'Invalid token' }, 401)
     }
-    const userId = payload.userId
+    const userId = payload.userId || payload.id // Handle both old and new tokens
     
     const progress = await DB_EDUCATION.prepare(`
       SELECT * FROM curriculum_progress 
@@ -930,7 +930,7 @@ app.post('/api/student/progress', async (c) => {
     if (!payload) {
       return c.json({ success: false, error: 'Invalid token' }, 401)
     }
-    const userId = payload.userId
+    const userId = payload.userId || payload.id // Handle both old and new tokens
     const body = await c.req.json()
     const { lesson_id, module_id, week_id, watch_time_seconds, progress_percent, status } = body
     
@@ -1002,7 +1002,7 @@ app.get('/api/student/progress/all', async (c) => {
     if (!payload) {
       return c.json({ success: false, error: 'Invalid token' }, 401)
     }
-    const userId = payload.userId
+    const userId = payload.userId || payload.id // Handle both old and new tokens
     
     const { results } = await DB_EDUCATION.prepare(`
       SELECT * FROM curriculum_progress 
@@ -1040,7 +1040,7 @@ app.get('/api/student/submissions/:moduleId', async (c) => {
     if (!payload) {
       return c.json({ success: false, error: 'Invalid token' }, 401)
     }
-    const userId = payload.userId
+    const userId = payload.userId || payload.id // Handle both old and new tokens || payload.id // Handle both old and new tokens
     
     const { results } = await DB_EDUCATION.prepare(`
       SELECT * FROM curriculum_submissions 
@@ -1073,7 +1073,7 @@ app.post('/api/student/submissions', async (c) => {
     if (!payload) {
       return c.json({ success: false, error: 'Invalid token' }, 401)
     }
-    const userId = payload.userId
+    const userId = payload.userId || payload.id // Handle both old and new tokens
     
     const body = await c.req.json()
     const { module_id, project_title, caption, media_url, media_type } = body
@@ -1121,7 +1121,7 @@ app.put('/api/student/submissions/:id', async (c) => {
     if (!payload) {
       return c.json({ success: false, error: 'Invalid token' }, 401)
     }
-    const userId = payload.userId
+    const userId = payload.userId || payload.id // Handle both old and new tokens
     
     const body = await c.req.json()
     const { project_title, caption } = body
@@ -1158,7 +1158,7 @@ app.delete('/api/student/submissions/:id', async (c) => {
     if (!payload) {
       return c.json({ success: false, error: 'Invalid token' }, 401)
     }
-    const userId = payload.userId
+    const userId = payload.userId || payload.id // Handle both old and new tokens
     
     await DB_EDUCATION.prepare(`
       DELETE FROM curriculum_submissions 
