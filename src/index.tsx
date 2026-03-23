@@ -986,6 +986,115 @@ app.get('/api/student/progress/all', async (c) => {
   }
 })
 
+// ============================================================================
+// PROJECT SUBMISSION API ENDPOINTS
+// ============================================================================
+
+// GET /api/student/submissions/:moduleId - Get submissions for a module
+app.get('/api/student/submissions/:moduleId', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const moduleId = c.req.param('moduleId')
+    const userId = c.get('userId')
+    
+    const { results } = await DB_EDUCATION.prepare(`
+      SELECT * FROM curriculum_submissions 
+      WHERE user_id = ? AND module_id = ?
+      ORDER BY submitted_at DESC
+    `).bind(userId, moduleId).all()
+    
+    return c.json({
+      success: true,
+      data: results
+    })
+  } catch (error: any) {
+    console.error('Get submissions error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// POST /api/student/submissions - Create new submission
+app.post('/api/student/submissions', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const userId = c.get('userId')
+    const body = await c.req.json()
+    const { module_id, project_title, caption, media_url, media_type } = body
+    
+    const submissionId = `sub-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`
+    
+    await DB_EDUCATION.prepare(`
+      INSERT INTO curriculum_submissions 
+      (id, user_id, module_id, project_title, caption, media_url, media_type)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `).bind(
+      submissionId,
+      userId,
+      module_id,
+      project_title,
+      caption || '',
+      media_url,
+      media_type || 'image'
+    ).run()
+    
+    return c.json({
+      success: true,
+      message: 'Submission created successfully',
+      data: { id: submissionId }
+    })
+  } catch (error: any) {
+    console.error('Create submission error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// PUT /api/student/submissions/:id - Update submission
+app.put('/api/student/submissions/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const submissionId = c.req.param('id')
+    const userId = c.get('userId')
+    const body = await c.req.json()
+    const { project_title, caption } = body
+    
+    await DB_EDUCATION.prepare(`
+      UPDATE curriculum_submissions 
+      SET project_title = ?, caption = ?
+      WHERE id = ? AND user_id = ?
+    `).bind(project_title, caption, submissionId, userId).run()
+    
+    return c.json({
+      success: true,
+      message: 'Submission updated successfully'
+    })
+  } catch (error: any) {
+    console.error('Update submission error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// DELETE /api/student/submissions/:id - Delete submission
+app.delete('/api/student/submissions/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const submissionId = c.req.param('id')
+    const userId = c.get('userId')
+    
+    await DB_EDUCATION.prepare(`
+      DELETE FROM curriculum_submissions 
+      WHERE id = ? AND user_id = ?
+    `).bind(submissionId, userId).run()
+    
+    return c.json({
+      success: true,
+      message: 'Submission deleted successfully'
+    })
+  } catch (error: any) {
+    console.error('Delete submission error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
 // GET /api/admin/curriculum/stats - Get curriculum statistics
 app.get('/api/admin/curriculum/stats', async (c) => {
   try {
@@ -7240,6 +7349,7 @@ app.get('/education/reset-password', (c) => c.redirect('/education-reset-passwor
 
 // Dashboards
 app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
+app.get('/student/projects', (c) => c.redirect('/static/student-projects.html'))
 app.get('/parent/dashboard', (c) => c.redirect('/static/parent-dashboard.html'))
 app.get('/admin/dashboard', (c) => c.redirect('/static/admin-dashboard.html'))
 app.get('/admin/curriculum', (c) => c.redirect('/static/admin-curriculum-v2.html'))
