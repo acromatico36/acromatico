@@ -6969,7 +6969,7 @@ app.get('/login', (c) => c.redirect('/education/login'))
 app.get('/education/login', (c) => {
   return c.html(loginHTML)
 })
-app.get('/education/signup', (c) => c.redirect('/education-signup.html'))
+app.get('/education/signup', (c) => c.redirect('/static/education-signup.html'))
 app.get('/education/reset-password', (c) => c.redirect('/education-reset-password.html'))
 
 // Dashboards
