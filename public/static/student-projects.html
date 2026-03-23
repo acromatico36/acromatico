@@ -270,20 +270,34 @@
         // Load user submissions
         async function loadSubmissions() {
             try {
+                if (!currentModule || !currentModule.id) {
+                    console.error('❌ No current module set yet');
+                    return;
+                }
+                
+                console.log('📚 Loading submissions for module:', currentModule.id);
+                
                 const response = await fetch(`${API_BASE}/api/student/submissions/${currentModule.id}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 
+                console.log('📡 Submissions response status:', response.status);
+                
                 const data = await response.json();
+                console.log('📦 Submissions data:', data);
+                
                 if (data.success) {
                     renderSubmissions(data.data);
+                } else {
+                    throw new Error(data.error || 'Failed to load submissions');
                 }
             } catch (error) {
-                console.error('Load submissions error:', error);
+                console.error('💥 Load submissions error:', error);
                 document.getElementById('submissionsGallery').innerHTML = `
                     <div class="text-center py-12 col-span-full">
                         <i class="fas fa-exclamation-triangle text-4xl text-red-400 mb-4"></i>
                         <p class="text-gray-400">Failed to load projects</p>
+                        <p class="text-xs text-gray-500 mt-2">${error.message}</p>
                     </div>
                 `;
             }
