@@ -742,24 +742,29 @@ app.post('/api/auth/reset-password', async (c) => {
 // CURRICULUM DATABASE SEEDER
 // ============================================================
 
-// POST /api/admin/curriculum/seed - Populate 12-month curriculum database
+// POST /api/admin/curriculum/seed - Populate 12-month curriculum database + admin users
 app.post('/api/admin/curriculum/seed', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     
-    // Import the seeder function
+    // Import the seeder functions
     const { seedCurriculum } = await import('./api/curriculum-seed')
+    const { seedAdminUsers } = await import('./api/seed-admin-users')
     
-    // Run the seeder
-    const result = await seedCurriculum(DB_EDUCATION)
+    // Seed admin users first (so Italo can always log in!)
+    const adminResult = await seedAdminUsers(DB_EDUCATION)
+    
+    // Run the curriculum seeder
+    const curriculumResult = await seedCurriculum(DB_EDUCATION)
     
     return c.json({
       success: true,
-      message: '✅ Curriculum database seeded successfully!',
+      message: '✅ Database seeded successfully! Curriculum + Admin users created.',
       data: {
-        modules: result.modules,
-        weeks: result.weeks,
-        total: result.modules + result.weeks
+        adminUsers: adminResult.users,
+        modules: curriculumResult.modules,
+        weeks: curriculumResult.weeks,
+        total: adminResult.users + curriculumResult.modules + curriculumResult.weeks
       }
     })
     
@@ -767,7 +772,7 @@ app.post('/api/admin/curriculum/seed', async (c) => {
     console.error('Seed error:', error)
     return c.json({ 
       success: false,
-      message: 'Failed to seed curriculum: ' + error.message 
+      message: 'Failed to seed database: ' + error.message 
     }, 500)
   }
 })
