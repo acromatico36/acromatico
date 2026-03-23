@@ -12,6 +12,11 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: #ffffff;
         }
+        .logo-text {
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
         .adventure-card {
             background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
             border: 2px solid rgba(20, 184, 166, 0.3);
@@ -32,7 +37,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.2s;
         }
-        .lesson-item:hover {
+        .lesson-item:hover:not(.locked) {
             background: rgba(20, 184, 166, 0.1);
             border-color: rgba(20, 184, 166, 0.3);
         }
@@ -44,66 +49,87 @@
             opacity: 0.5;
             cursor: not-allowed;
         }
-        .progress-ring {
-            transform: rotate(-90deg);
+        .lesson-item.locked:hover {
+            transform: none;
+            background: rgba(15, 23, 42, 0.5);
         }
-        .badge {
-            animation: bounce 2s infinite;
+        .btn-primary {
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            transition: all 0.3s;
         }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .shimmer {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 2s infinite;
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0d9488, #0f766e);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(20, 184, 166, 0.4);
         }
     </style>
 </head>
 <body class="p-4 md:p-8">
-    <!-- Header -->
+    <!-- Header with Acromatico Branding -->
     <div class="max-w-6xl mx-auto mb-8">
-        <div class="flex items-center justify-between">
-            <div>
-                <h1 class="text-3xl md:text-5xl font-bold mb-2">🎨 My Learning Journey</h1>
-                <p class="text-gray-400 text-sm md:text-base">Welcome back, <strong id="studentName">Creator</strong>! Ready to level up?</p>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <!-- Acromatico Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">A</span>
+                    </div>
+                    <div>
+                        <h1 class="logo-text text-2xl text-teal-400">ACROMATICO</h1>
+                        <p class="text-xs text-gray-400">Creator Academy</p>
+                    </div>
+                </div>
             </div>
-            <button onclick="logout()" class="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 text-sm">
-                <i class="fas fa-sign-out-alt mr-2"></i>Logout
-            </button>
+            
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden md:block">
+                    <p class="text-sm text-gray-400">Welcome back,</p>
+                    <p class="text-lg font-bold text-white" id="studentName">Creator</p>
+                </div>
+                <button onclick="logout()" class="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 border border-red-500/30 transition-all">
+                    <i class="fas fa-sign-out-alt mr-2"></i><span class="hidden md:inline">Logout</span>
+                </button>
+            </div>
         </div>
+    </div>
+
+    <!-- Page Title -->
+    <div class="max-w-6xl mx-auto mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-2">🎨 My Learning Journey</h2>
+        <p class="text-gray-400">Your path to becoming an amazing creator!</p>
     </div>
 
     <!-- Current Adventure Banner -->
     <div class="max-w-6xl mx-auto mb-8">
         <div id="currentAdventure" class="adventure-card rounded-2xl p-6 md:p-8">
-            <!-- Current month adventure will load here -->
+            <div class="text-center py-8">
+                <div class="animate-pulse">
+                    <i class="fas fa-spinner fa-spin text-4xl text-teal-400 mb-4"></i>
+                    <p class="text-gray-400">Loading your adventure...</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Quick Stats -->
     <div class="max-w-6xl mx-auto mb-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="text-center p-4 rounded-xl bg-teal-500/10 border border-teal-500/30">
+            <div class="text-center p-4 rounded-xl bg-teal-500/10 border border-teal-500/30 cursor-pointer hover:bg-teal-500/20 transition-all">
                 <div class="text-3xl mb-2">🎯</div>
                 <div class="text-2xl font-bold text-white" id="lessonsCompleted">0</div>
                 <div class="text-xs text-gray-400">Lessons Done</div>
             </div>
-            <div class="text-center p-4 rounded-xl bg-purple-500/10 border border-purple-500/30">
+            <div class="text-center p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 cursor-pointer hover:bg-purple-500/20 transition-all">
                 <div class="text-3xl mb-2">🔥</div>
                 <div class="text-2xl font-bold text-white" id="currentStreak">0</div>
                 <div class="text-xs text-gray-400">Day Streak</div>
             </div>
-            <div class="text-center p-4 rounded-xl bg-amber-500/10 border border-amber-500/30">
+            <div class="text-center p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 cursor-pointer hover:bg-amber-500/20 transition-all">
                 <div class="text-3xl mb-2">⭐</div>
                 <div class="text-2xl font-bold text-white" id="pointsEarned">0</div>
                 <div class="text-xs text-gray-400">XP Points</div>
             </div>
-            <div class="text-center p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30">
+            <div class="text-center p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 cursor-pointer hover:bg-cyan-500/20 transition-all">
                 <div class="text-3xl mb-2">🏆</div>
                 <div class="text-2xl font-bold text-white" id="badgesEarned">0</div>
                 <div class="text-xs text-gray-400">Badges</div>
@@ -115,13 +141,18 @@
     <div class="max-w-6xl mx-auto mb-8">
         <div class="flex items-center justify-between mb-6">
             <h2 class="text-2xl md:text-3xl font-bold">📅 This Month's Journey</h2>
-            <button onclick="viewAllMonths()" class="px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg hover:bg-gray-700 text-sm">
+            <button onclick="viewAllMonths()" class="px-4 py-2 btn-primary text-white rounded-lg font-medium">
                 <i class="fas fa-th-large mr-2"></i>View All Months
             </button>
         </div>
         
         <div id="currentWeeks" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Current month's 4 weeks will load here -->
+            <div class="text-center py-12 col-span-full">
+                <div class="animate-pulse">
+                    <i class="fas fa-spinner fa-spin text-3xl text-teal-400 mb-3"></i>
+                    <p class="text-gray-400">Loading weeks...</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -129,17 +160,48 @@
     <div class="max-w-6xl mx-auto mb-8">
         <h2 class="text-2xl md:text-3xl font-bold mb-6">▶️ Continue Learning</h2>
         <div id="nextLesson" class="bg-gradient-to-r from-teal-500/20 to-cyan-500/20 border-2 border-teal-500/50 rounded-2xl p-6">
-            <!-- Next lesson will load here -->
+            <div class="text-center py-8">
+                <div class="animate-pulse">
+                    <i class="fas fa-spinner fa-spin text-3xl text-teal-400 mb-3"></i>
+                    <p class="text-gray-400">Finding your next lesson...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+                <span class="logo-text text-teal-400">ACROMATICO</span>
+                <span>•</span>
+                <span>Creator Academy</span>
+                <span>•</span>
+                <span>© 2026</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/curriculum" class="hover:text-teal-400 transition-colors">View Curriculum</a>
+                <a href="#" onclick="alert('Help coming soon!'); return false;" class="hover:text-teal-400 transition-colors">Help & Support</a>
+            </div>
         </div>
     </div>
 
     <!-- Lesson Detail Modal -->
-    <div id="lessonModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-        <div class="bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <div id="lessonModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-teal-500/30">
             <div class="p-6">
-                <div class="flex items-center justify-between mb-6">
-                    <h2 id="lessonTitle" class="text-2xl md:text-3xl font-bold"></h2>
-                    <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center">
+                                <span class="text-xl font-bold text-white">A</span>
+                            </div>
+                            <span class="text-sm text-gray-400 logo-text">ACROMATICO</span>
+                        </div>
+                        <h2 id="lessonTitle" class="text-2xl md:text-3xl font-bold text-white"></h2>
+                        <p id="lessonMeta" class="text-sm text-gray-400 mt-1"></p>
+                    </div>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl ml-4 transition-colors">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
@@ -160,6 +222,7 @@
         let userProgress = {};
 
         if (!token) {
+            console.log('❌ No auth token found, redirecting to login...');
             window.location.href = '/education/login';
         }
 
@@ -180,16 +243,21 @@
                 const userData = await userResponse.json();
                 currentUser = userData.user;
                 
-                document.getElementById('studentName').textContent = currentUser.first_name || currentUser.email;
+                console.log('✅ User loaded:', currentUser.first_name);
                 
-                // Load current month (we'll use January for now, later add logic to get actual current month)
+                document.getElementById('studentName').textContent = currentUser.first_name || currentUser.email.split('@')[0];
+                
+                // Load current month (January for now)
                 await loadCurrentMonth('mod-jan');
                 await loadStats();
                 await loadNextLesson();
                 
+                console.log('✅ Dashboard loaded successfully!');
+                
             } catch (error) {
-                console.error('Init error:', error);
+                console.error('💥 Init error:', error);
                 alert('Failed to load dashboard. Please login again.');
+                localStorage.removeItem('auth_token');
                 window.location.href = '/education/login';
             }
         }
@@ -197,6 +265,8 @@
         // Load current month module and weeks
         async function loadCurrentMonth(moduleId) {
             try {
+                console.log('📚 Loading module:', moduleId);
+                
                 const response = await fetch(`${API_BASE}/api/admin/curriculum/module/${moduleId}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
@@ -209,14 +279,24 @@
                     allWeeks = weeks;
                     allLessons = lessons;
                     
+                    console.log('✅ Loaded:', weeks.length, 'weeks,', lessons.length, 'lessons');
+                    
                     // Render adventure banner
                     renderAdventureBanner(module);
                     
                     // Render weeks
                     renderWeeks(weeks, lessons);
+                } else {
+                    throw new Error(data.error || 'Failed to load module');
                 }
             } catch (error) {
-                console.error('Load month error:', error);
+                console.error('💥 Load month error:', error);
+                document.getElementById('currentAdventure').innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-exclamation-triangle text-4xl text-red-400 mb-4"></i>
+                        <p class="text-gray-400">Failed to load content. Please try refreshing the page.</p>
+                    </div>
+                `;
             }
         }
 
@@ -248,7 +328,7 @@
                         <div class="text-sm text-teal-400 font-semibold mb-2">${module.month_name.toUpperCase()} ADVENTURE</div>
                         <h2 class="text-3xl md:text-4xl font-bold mb-3">${module.adventure_title}</h2>
                         <p class="text-gray-300 text-lg mb-4">${module.adventure_desc}</p>
-                        <div class="flex items-center justify-center md:justify-start gap-4 text-sm">
+                        <div class="flex items-center justify-center md:justify-start gap-4 text-sm flex-wrap">
                             <span class="text-gray-400">
                                 <i class="fas fa-calendar mr-2"></i>${allWeeks.length} weeks
                             </span>
@@ -304,7 +384,7 @@
                                 
                                 return `
                                     <div class="lesson-item ${isCompleted ? 'completed' : ''} ${isLocked ? 'locked' : ''} 
-                                                rounded-lg p-3 flex items-center justify-between cursor-pointer"
+                                                rounded-lg p-3 flex items-center justify-between ${!isLocked ? 'cursor-pointer' : ''}"
                                          onclick="${isLocked ? '' : `openLesson('${lesson.id}')`}">
                                         <div class="flex items-center gap-3 flex-1">
                                             <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -314,14 +394,14 @@
                                             <div class="flex-1 min-w-0">
                                                 <p class="text-white font-medium text-sm truncate">${lesson.title}</p>
                                                 <p class="text-xs text-gray-400">
-                                                    ${lesson.duration_min > 0 ? `${lesson.duration_min} min` : 'New lesson'}
-                                                    ${lesson.video_url ? ' • Video' : ''}
-                                                    ${lesson.pdf_url ? ' • PDF' : ''}
+                                                    ${lesson.duration_min > 0 ? `${lesson.duration_min} min` : 'New'}
+                                                    ${lesson.video_url ? ' • 🎥 Video' : ''}
+                                                    ${lesson.pdf_url ? ' • 📄 PDF' : ''}
                                                 </p>
                                             </div>
                                         </div>
                                         ${!isLocked && !isCompleted ? `
-                                            <button class="px-3 py-1 rounded-lg text-xs font-semibold"
+                                            <button class="px-3 py-1 rounded-lg text-xs font-semibold transition-all hover:scale-105"
                                                     style="background: ${quarterColor}20; color: ${quarterColor}">
                                                 Start
                                             </button>
@@ -337,11 +417,11 @@
 
         // Load stats
         async function loadStats() {
-            // For now, mock stats - will connect to real API later
-            document.getElementById('lessonsCompleted').textContent = Object.keys(userProgress).filter(k => userProgress[k] === 'completed').length;
+            const completedCount = Object.keys(userProgress).filter(k => userProgress[k] === 'completed').length;
+            document.getElementById('lessonsCompleted').textContent = completedCount;
             document.getElementById('currentStreak').textContent = '0';
-            document.getElementById('pointsEarned').textContent = '0';
-            document.getElementById('badgesEarned').textContent = '0';
+            document.getElementById('pointsEarned').textContent = completedCount * 10;
+            document.getElementById('badgesEarned').textContent = Math.floor(completedCount / 5);
         }
 
         // Load next lesson
@@ -350,18 +430,19 @@
             
             if (nextLesson) {
                 document.getElementById('nextLesson').innerHTML = `
-                    <div class="flex items-center gap-6">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
                         <div class="flex-shrink-0">
-                            <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"
+                                 onclick="openLesson('${nextLesson.id}')">
                                 <i class="fas fa-play text-white text-2xl"></i>
                             </div>
                         </div>
-                        <div class="flex-1">
+                        <div class="flex-1 text-center md:text-left">
                             <div class="text-sm text-teal-400 font-semibold mb-1">UP NEXT</div>
                             <h3 class="text-xl md:text-2xl font-bold mb-2">${nextLesson.title}</h3>
                             <p class="text-gray-400 text-sm mb-3">${nextLesson.description || 'Continue your creative journey!'}</p>
                             <button onclick="openLesson('${nextLesson.id}')" 
-                                    class="px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg">
+                                    class="px-6 py-3 btn-primary text-white font-semibold rounded-lg">
                                 <i class="fas fa-play mr-2"></i>Start Lesson
                             </button>
                         </div>
@@ -372,58 +453,82 @@
                     <div class="text-center py-8">
                         <div class="text-6xl mb-4">🎉</div>
                         <h3 class="text-2xl font-bold mb-2">Amazing Work!</h3>
-                        <p class="text-gray-400">You've completed all available lessons for this month!</p>
+                        <p class="text-gray-400 mb-4">You've completed all available lessons for this month!</p>
+                        <button onclick="viewAllMonths()" class="px-6 py-3 btn-primary text-white font-semibold rounded-lg">
+                            <i class="fas fa-th-large mr-2"></i>Explore Other Months
+                        </button>
                     </div>
                 `;
             }
         }
 
-        // Open lesson
+        // Open lesson modal
         function openLesson(lessonId) {
             const lesson = allLessons.find(l => l.id === lessonId);
-            if (!lesson) return;
+            if (!lesson) {
+                alert('Lesson not found!');
+                return;
+            }
+            
+            const week = allWeeks.find(w => w.id === lesson.week_id);
             
             document.getElementById('lessonTitle').textContent = lesson.title;
+            document.getElementById('lessonMeta').textContent = `Week ${week.week_number}: ${week.title} • ${lesson.duration_min || 0} min`;
+            
+            const quarterColor = getQuarterColor(currentModule.quarter);
             
             document.getElementById('lessonContent').innerHTML = `
                 <div class="space-y-6">
                     ${lesson.video_url ? `
-                        <div class="aspect-video bg-black rounded-xl overflow-hidden">
-                            <div class="flex items-center justify-center h-full">
-                                <div class="text-center">
-                                    <i class="fas fa-play-circle text-6xl text-teal-400 mb-4"></i>
-                                    <p class="text-gray-400">Video player coming soon!</p>
-                                    <p class="text-sm text-gray-500 mt-2">${lesson.video_url}</p>
-                                </div>
+                        <div class="aspect-video bg-black rounded-xl overflow-hidden border border-teal-500/30">
+                            <div class="flex flex-col items-center justify-center h-full p-8 text-center">
+                                <i class="fas fa-play-circle text-6xl text-teal-400 mb-6 animate-pulse"></i>
+                                <h4 class="text-xl font-bold mb-2">Video Player Coming Soon!</h4>
+                                <p class="text-gray-400 mb-4">We're building an amazing video experience for you.</p>
+                                <p class="text-sm text-gray-500 mt-4 font-mono">${lesson.video_url}</p>
                             </div>
                         </div>
-                    ` : ''}
+                    ` : `
+                        <div class="aspect-video bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-teal-500/30">
+                            <div class="text-center">
+                                <div class="text-6xl mb-4">${currentModule.emoji}</div>
+                                <h4 class="text-2xl font-bold mb-2">${lesson.title}</h4>
+                                <p class="text-gray-400">Video content will be added soon!</p>
+                            </div>
+                        </div>
+                    `}
                     
                     ${lesson.description ? `
-                        <div class="bg-slate-800 rounded-xl p-6">
-                            <h4 class="text-lg font-semibold mb-3">📝 About This Lesson</h4>
-                            <p class="text-gray-300">${lesson.description}</p>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-gray-700">
+                            <h4 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                                <i class="fas fa-info-circle text-teal-400"></i>
+                                About This Lesson
+                            </h4>
+                            <p class="text-gray-300 leading-relaxed">${lesson.description}</p>
                         </div>
                     ` : ''}
                     
                     ${lesson.pdf_url ? `
-                        <div class="bg-slate-800 rounded-xl p-6">
-                            <h4 class="text-lg font-semibold mb-3">📄 Resources</h4>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-gray-700">
+                            <h4 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                                <i class="fas fa-file-pdf text-red-400"></i>
+                                Resources
+                            </h4>
                             <a href="${lesson.pdf_url}" target="_blank" 
-                               class="inline-flex items-center px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30">
-                                <i class="fas fa-file-pdf mr-2"></i>Download PDF Guide
+                               class="inline-flex items-center px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 border border-red-500/30 transition-all">
+                                <i class="fas fa-download mr-2"></i>Download PDF Guide
                             </a>
                         </div>
                     ` : ''}
                     
-                    <div class="flex gap-4">
+                    <div class="flex flex-col sm:flex-row gap-4">
                         <button onclick="markComplete('${lessonId}')" 
-                                class="flex-1 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg">
+                                class="flex-1 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all hover:scale-105">
                             <i class="fas fa-check mr-2"></i>Mark as Complete
                         </button>
                         <button onclick="closeModal()" 
-                                class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg">
-                            Close
+                                class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg transition-all">
+                            <i class="fas fa-times mr-2"></i>Close
                         </button>
                     </div>
                 </div>
@@ -438,24 +543,36 @@
 
         // Mark lesson complete
         async function markComplete(lessonId) {
-            // For now, just update locally - will add API later
-            userProgress[lessonId] = 'completed';
-            closeModal();
-            await loadCurrentMonth(currentModule.id);
-            await loadStats();
-            await loadNextLesson();
-            
-            // Show celebration
-            alert('🎉 Awesome! Lesson completed!');
+            try {
+                // Update local state
+                userProgress[lessonId] = 'completed';
+                
+                // Show celebration
+                alert('🎉 Awesome! Lesson completed! You earned 10 XP!');
+                
+                closeModal();
+                
+                // Reload everything
+                await loadCurrentMonth(currentModule.id);
+                await loadStats();
+                await loadNextLesson();
+                
+                console.log('✅ Lesson marked complete:', lessonId);
+            } catch (error) {
+                console.error('💥 Mark complete error:', error);
+                alert('Failed to mark lesson complete. Please try again.');
+            }
         }
 
         function viewAllMonths() {
-            window.location.href = '/student/curriculum';
+            window.location.href = '/curriculum';
         }
 
         function logout() {
-            localStorage.removeItem('auth_token');
-            window.location.href = '/education/login';
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('auth_token');
+                window.location.href = '/education/login';
+            }
         }
 
         function getQuarterColor(quarter) {
