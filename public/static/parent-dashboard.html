@@ -240,7 +240,7 @@
     let students = [];
 
     // Check authentication
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('auth_token');
     if (!token) {
       window.location.href = '/education/login';
     }
