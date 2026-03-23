@@ -1,535 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Dashboard - Acromatico Education</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in {
-      animation: fadeIn 0.4s ease-out;
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .btn-primary {
-      background: #4794A6;
-      transition: all 0.3s ease;
-    }
-    .btn-primary:hover {
-      background: #5aa5b8;
-      transform: translateY(-2px);
-    }
-    .btn-join {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-    }
-    .countdown {
-      font-variant-numeric: tabular-nums;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning Journey - Acromatico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+        }
+        .glass {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary {
+            background: #4794A6;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #5aa5b8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(71, 148, 166, 0.5);
+        }
+        .week-card {
+            background: rgba(40, 40, 40, 0.5);
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .week-card:hover {
+            background: rgba(50, 50, 50, 0.7);
+            transform: translateX(5px);
+        }
+        .week-card.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform-origin: 50% 50%;
+        }
+        .badge {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            animation: celebrate 1s ease-out;
+        }
+        @keyframes celebrate {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
-  
-  <!-- Topbar -->
-  <div class="sticky top-0 z-50 glass border-b border-white/10 px-8 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-4">
-      <img src="/static/acromatico-logo-white-best.png" alt="Acromatico" style="height: 32px; width: auto;">
-      <h1 class="text-2xl font-bold">Acromatico Education</h1>
-      <span class="text-sm text-gray-400">Student Portal</span>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-sm text-gray-400" id="studentName">Loading...</span>
-      <button onclick="logout()" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition">
-        Logout
-      </button>
-    </div>
-  </div>
+<body class="min-h-screen">
 
-  <!-- Main Container -->
-  <div class="max-w-7xl mx-auto px-8 py-12">
-    
-    <!-- Welcome Section -->
-    <div class="mb-12 fade-in">
-      <h2 class="text-4xl font-light mb-2">Welcome, <span id="welcomeName">Student</span>! 👋</h2>
-      <p class="text-gray-400 text-lg">Ready to learn today?</p>
-    </div>
-
-    <!-- Stats Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 fade-in">
-      <div class="glass p-6 rounded-xl text-center">
-        <div class="text-3xl mb-2">📚</div>
-        <p class="text-3xl font-bold text-teal-400" id="coursesEnrolled">0</p>
-        <p class="text-sm text-gray-400">Courses</p>
-      </div>
-      <div class="glass p-6 rounded-xl text-center">
-        <div class="text-3xl mb-2">✅</div>
-        <p class="text-3xl font-bold text-purple-400" id="lessonsCompleted">0</p>
-        <p class="text-sm text-gray-400">Lessons</p>
-      </div>
-      <div class="glass p-6 rounded-xl text-center">
-        <div class="text-3xl mb-2">🏆</div>
-        <p class="text-3xl font-bold text-yellow-400" id="achievementsEarned">0</p>
-        <p class="text-sm text-gray-400">Achievements</p>
-      </div>
-      <div class="glass p-6 rounded-xl text-center">
-        <div class="text-3xl mb-2">🔥</div>
-        <p class="text-3xl font-bold text-orange-400" id="dayStreak">0</p>
-        <p class="text-sm text-gray-400">Day Streak</p>
-      </div>
-    </div>
-
-    <!-- Upcoming Live Classes Section -->
-    <div class="mb-12 fade-in">
-      <div class="flex justify-between items-center mb-6">
-        <h3 class="text-2xl font-semibold">📹 Upcoming Live Classes</h3>
-        <button onclick="loadUpcomingClasses()" class="text-teal-400 hover:text-teal-300 text-sm">
-          Refresh
-        </button>
-      </div>
-
-      <!-- Loading State -->
-      <div id="upcomingLoading" class="glass p-8 rounded-xl text-center">
-        <div class="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-        <p class="text-gray-400">Loading upcoming classes...</p>
-      </div>
-
-      <!-- Empty State -->
-      <div id="upcomingEmpty" class="hidden glass p-12 rounded-xl text-center">
-        <div class="text-6xl mb-4">📅</div>
-        <h3 class="text-xl font-semibold mb-2">No upcoming classes</h3>
-        <p class="text-gray-400 mb-6">Check back soon for new live sessions!</p>
-      </div>
-
-      <!-- Classes Grid -->
-      <div id="upcomingClassesGrid" class="hidden space-y-4"></div>
-    </div>
-
-    <!-- My Courses Section -->
-    <div class="mb-12 fade-in">
-      <h3 class="text-2xl font-semibold mb-6">My Courses</h3>
-
-      <!-- Loading State -->
-      <div id="coursesLoading" class="glass p-8 rounded-xl text-center">
-        <div class="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-        <p class="text-gray-400">Loading courses...</p>
-      </div>
-
-      <!-- Empty State -->
-      <div id="coursesEmpty" class="hidden glass p-12 rounded-xl text-center">
-        <div class="text-6xl mb-4">📚</div>
-        <h3 class="text-xl font-semibold mb-2">No courses yet</h3>
-        <p class="text-gray-400 mb-6">Ask your parent to enroll you in a course!</p>
-      </div>
-
-      <!-- Courses Grid -->
-      <div id="coursesGrid" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </div>
-
-    <!-- Completed Classes Section -->
-    <div class="mb-12 fade-in">
-      <h3 class="text-2xl font-semibold mb-6">📖 Completed Classes</h3>
-
-      <!-- Loading State -->
-      <div id="completedLoading" class="glass p-8 rounded-xl text-center">
-        <div class="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-        <p class="text-gray-400">Loading completed classes...</p>
-      </div>
-
-      <!-- Empty State -->
-      <div id="completedEmpty" class="hidden glass p-12 rounded-xl text-center">
-        <div class="text-6xl mb-4">🎯</div>
-        <h3 class="text-xl font-semibold mb-2">No completed classes yet</h3>
-        <p class="text-gray-400">Attend your first live class to see it here!</p>
-      </div>
-
-      <!-- Completed Classes Grid -->
-      <div id="completedClassesGrid" class="hidden space-y-3"></div>
-    </div>
-
-    <!-- Achievements Section -->
-    <div class="mb-12 fade-in">
-      <h3 class="text-2xl font-semibold mb-6">🏆 Achievements</h3>
-
-      <!-- Loading State -->
-      <div id="achievementsLoading" class="glass p-8 rounded-xl text-center">
-        <div class="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-        <p class="text-gray-400">Loading achievements...</p>
-      </div>
-
-      <!-- Empty State -->
-      <div id="achievementsEmpty" class="hidden glass p-12 rounded-xl text-center">
-        <div class="text-6xl mb-4">⭐</div>
-        <h3 class="text-xl font-semibold mb-2">No achievements yet</h3>
-        <p class="text-gray-400">Keep learning to earn your first badge!</p>
-      </div>
-
-      <!-- Achievements Grid -->
-      <div id="achievementsGrid" class="hidden grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
-    </div>
-
-  </div>
-
-  <script>
-    const API_BASE = window.location.origin;
-    let countdownIntervals = [];
-
-    // Check authentication
-    const token = localStorage.getItem('auth_token');
-    if (!token) {
-      window.location.href = '/education/login';
-    }
-
-    // Logout
-    function logout() {
-      localStorage.removeItem('token');
-      window.location.href = '/education/login';
-    }
-
-    // Calculate time until class
-    function getTimeUntil(dateStr, timeStr) {
-      const classDateTime = new Date(`${dateStr}T${timeStr}`);
-      const now = new Date();
-      const diff = classDateTime - now;
-      
-      if (diff < 0) return null;
-      
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      
-      if (days > 0) return `${days}d ${hours}h ${minutes}m`;
-      if (hours > 0) return `${hours}h ${minutes}m`;
-      return `${minutes}m`;
-    }
-
-    // Format date nicely
-    function formatDate(dateStr, timeStr) {
-      const date = new Date(`${dateStr}T${timeStr}`);
-      const options = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' };
-      return date.toLocaleDateString('en-US', options);
-    }
-
-    // Load dashboard data
-    async function loadDashboard() {
-      try {
-        // Load user info
-        const userRes = await fetch(`${API_BASE}/api/auth/me`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        if (!userRes.ok) throw new Error('Auth failed');
-        const userData = await userRes.json();
-        
-        const firstName = userData.user.first_name || 'Student';
-        document.getElementById('studentName').textContent = firstName;
-        document.getElementById('welcomeName').textContent = firstName;
-
-        // Load dashboard stats
-        const dashRes = await fetch(`${API_BASE}/api/dashboard/student`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        if (dashRes.ok) {
-          const dashData = await dashRes.json();
-          document.getElementById('coursesEnrolled').textContent = dashData.stats.coursesEnrolled || 0;
-          document.getElementById('lessonsCompleted').textContent = dashData.stats.lessonsCompleted || 0;
-          document.getElementById('achievementsEarned').textContent = dashData.stats.achievementsEarned || 0;
-          document.getElementById('dayStreak').textContent = dashData.stats.dayStreak || 0;
-        }
-
-        // Load all sections
-        await Promise.all([
-          loadUpcomingClasses(),
-          loadCourses(),
-          loadCompletedClasses(),
-          loadAchievements()
-        ]);
-
-      } catch (error) {
-        console.error('Dashboard error:', error);
-        alert('Failed to load dashboard. Please refresh.');
-      }
-    }
-
-    // Load upcoming classes
-    async function loadUpcomingClasses() {
-      try {
-        const res = await fetch(`${API_BASE}/api/classes/upcoming`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        
-        if (!res.ok) throw new Error('Failed to load classes');
-        const data = await res.json();
-        const classes = data.classes || [];
-
-        document.getElementById('upcomingLoading').classList.add('hidden');
-        
-        if (classes.length === 0) {
-          document.getElementById('upcomingEmpty').classList.remove('hidden');
-          document.getElementById('upcomingClassesGrid').classList.add('hidden');
-        } else {
-          document.getElementById('upcomingEmpty').classList.add('hidden');
-          document.getElementById('upcomingClassesGrid').classList.remove('hidden');
-          renderUpcomingClasses(classes);
-        }
-      } catch (error) {
-        console.error('Load upcoming classes error:', error);
-        document.getElementById('upcomingLoading').innerHTML = `
-          <p class="text-red-400">Failed to load classes. Please refresh.</p>
-        `;
-      }
-    }
-
-    // Render upcoming classes
-    function renderUpcomingClasses(classes) {
-      // Clear existing countdown intervals
-      countdownIntervals.forEach(id => clearInterval(id));
-      countdownIntervals = [];
-
-      const grid = document.getElementById('upcomingClassesGrid');
-      grid.innerHTML = classes.map((cls, index) => {
-        const countdownId = `countdown-${index}`;
-        const timeUntil = getTimeUntil(cls.scheduled_date, cls.scheduled_time);
-        const canJoin = timeUntil && timeUntil.includes('m') && !timeUntil.includes('d') && !timeUntil.includes('h');
-        
-        return `
-          <div class="glass p-6 rounded-xl hover:bg-white/10 transition">
-            <div class="flex items-start justify-between mb-4">
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-2">
-                  <span class="text-xs font-semibold px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full">
-                    ${cls.course_title || 'Course'}
-                  </span>
-                  ${canJoin ? '<span class="text-xs font-semibold px-3 py-1 bg-green-500/20 text-green-400 rounded-full animate-pulse">🔴 LIVE SOON</span>' : ''}
+    <!-- Top Bar -->
+    <div class="glass sticky top-0 z-50 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <img src="/static/acromatico-logo-white-best.png" alt="Acromatico" class="h-8">
+                    <span class="text-2xl">🎓</span>
                 </div>
-                <h4 class="text-xl font-semibold mb-1">${cls.title}</h4>
-                <p class="text-sm text-gray-400 mb-3">${cls.description || 'Live class session'}</p>
-              </div>
-              <div class="text-4xl">${cls.class_number ? '📹' : '🎥'}</div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-gray-400">Hey, <span id="studentName" class="text-white font-semibold">Creator</span>!</span>
+                    <button onclick="logout()" class="px-4 py-2 text-sm font-medium text-white bg-gray-700 hover:bg-gray-600 rounded-lg transition">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                    </button>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <div class="space-y-2 mb-4 text-sm">
-              <div class="flex items-center gap-2 text-gray-400">
-                <span>📅</span>
-                <span>${formatDate(cls.scheduled_date, cls.scheduled_time)}</span>
-              </div>
-              <div class="flex items-center gap-2 text-gray-400">
-                <span>⏱️</span>
-                <span>${cls.duration_minutes || 60} minutes</span>
-              </div>
-              <div class="flex items-center gap-2 font-semibold">
-                <span>⏰</span>
-                <span class="countdown text-teal-400" id="${countdownId}">${timeUntil || 'Starting soon'}</span>
-              </div>
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Hero Section -->
+        <div class="glass rounded-2xl p-8 mb-8" id="heroSection">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-4xl font-bold mb-2">
+                        <span id="currentMonth">Loading</span> Adventure 
+                        <span id="monthEmoji" class="text-5xl ml-3">📷</span>
+                    </h1>
+                    <p id="monthSubtitle" class="text-xl text-gray-300 mb-4">Learning to See Like a Pro</p>
+                    <p id="monthDescription" class="text-gray-400 max-w-2xl">
+                        Transform from snapshot-taker to visual storyteller.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle
+                            class="text-gray-700"
+                            stroke-width="8"
+                            stroke="currentColor"
+                            fill="transparent"
+                            r="52"
+                            cx="60"
+                            cy="60"
+                        />
+                        <circle
+                            class="progress-ring-circle text-teal-400"
+                            stroke-width="8"
+                            stroke="currentColor"
+                            fill="transparent"
+                            r="52"
+                            cx="60"
+                            cy="60"
+                            id="progressCircle"
+                        />
+                    </svg>
+                    <p class="text-3xl font-bold mt-2" id="progressPercent">0%</p>
+                    <p class="text-sm text-gray-400">Complete</p>
+                </div>
             </div>
+        </div>
 
-            ${cls.meeting_link ? `
-              <button onclick="joinClass('${cls.meeting_link}')" class="w-full ${canJoin ? 'btn-join' : 'btn-primary'} py-3 rounded-lg font-semibold flex items-center justify-center gap-2">
-                <span>🎥</span>
-                <span>${canJoin ? 'Join Now!' : 'Join Class'}</span>
-              </button>
-            ` : `
-              <div class="w-full glass py-3 rounded-lg text-center text-sm text-gray-400">
-                Meeting link not available yet
-              </div>
-            `}
-          </div>
-        `;
-      }).join('');
+        <!-- Weeks Grid -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <i class="fas fa-calendar-week text-teal-400 mr-3"></i>
+                Your 4-Week Journey
+            </h2>
+            <div id="weeksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Weeks will be loaded here -->
+            </div>
+        </div>
 
-      // Start countdown timers
-      classes.forEach((cls, index) => {
-        const intervalId = setInterval(() => {
-          const countdownEl = document.getElementById(`countdown-${index}`);
-          if (countdownEl) {
-            const timeUntil = getTimeUntil(cls.scheduled_date, cls.scheduled_time);
-            if (timeUntil) {
-              countdownEl.textContent = timeUntil;
-            } else {
-              countdownEl.textContent = 'Class started';
-              clearInterval(intervalId);
+        <!-- My Projects Section -->
+        <div class="glass rounded-2xl p-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold flex items-center">
+                    <i class="fas fa-camera text-teal-400 mr-3"></i>
+                    My Adventure Projects
+                </h2>
+                <button onclick="showUploadModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+                    <i class="fas fa-plus mr-2"></i>Upload Project
+                </button>
+            </div>
+            <div id="projectsGallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Projects will be loaded here -->
+                <p class="text-gray-500 col-span-full text-center py-8">No projects yet! Start your first adventure! 🎨</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Video Player Modal -->
+    <div id="videoModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50">
+        <div class="w-full max-w-5xl p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 id="videoTitle" class="text-2xl font-bold text-white">Lesson Video</h3>
+                <button onclick="closeVideoModal()" class="text-white hover:text-teal-400 text-3xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="bg-gray-900 rounded-xl overflow-hidden">
+                <video id="videoPlayer" class="w-full" controls>
+                    <source src="" type="video/mp4">
+                    Your browser doesn't support video playback.
+                </video>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <button onclick="changeSpeed(0.75)" class="px-3 py-2 glass rounded-lg hover:bg-gray-700">0.75x</button>
+                    <button onclick="changeSpeed(1.0)" class="px-3 py-2 glass rounded-lg hover:bg-gray-700">1.0x</button>
+                    <button onclick="changeSpeed(1.25)" class="px-3 py-2 glass rounded-lg hover:bg-gray-700">1.25x</button>
+                </div>
+                <button onclick="markComplete()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+                    <i class="fas fa-check mr-2"></i>Mark Complete
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Project Modal -->
+    <div id="uploadModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50">
+        <div class="glass w-full max-w-2xl p-8 rounded-2xl">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-white">Upload Your Project 🎨</h3>
+                <button onclick="closeUploadModal()" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form onsubmit="uploadProject(event)">
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2">Project Photo/Video</label>
+                    <div class="border-2 border-dashed border-teal-400/50 rounded-xl p-8 text-center hover:border-teal-400 transition cursor-pointer" onclick="document.getElementById('fileInput').click()">
+                        <i class="fas fa-cloud-upload-alt text-5xl text-teal-400 mb-4"></i>
+                        <p class="text-gray-300">Click to upload or drag and drop</p>
+                        <p class="text-sm text-gray-500 mt-2">PNG, JPG, MP4 up to 10MB</p>
+                        <input type="file" id="fileInput" class="hidden" accept="image/*,video/*">
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2">Tell us about your project!</label>
+                    <textarea id="projectCaption" rows="4" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-400" placeholder="What did you create? What did you learn?"></textarea>
+                </div>
+                <div class="flex gap-4">
+                    <button type="button" onclick="closeUploadModal()" class="flex-1 px-6 py-3 glass rounded-lg font-semibold hover:bg-gray-700">
+                        Cancel
+                    </button>
+                    <button type="submit" class="flex-1 btn-primary px-6 py-3 rounded-lg font-semibold">
+                        <i class="fas fa-upload mr-2"></i>Upload Project
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        const token = localStorage.getItem('auth_token');
+
+        if (!token) {
+            window.location.href = '/education/login';
+        }
+
+        let currentLessonId = null;
+
+        // Initialize
+        async function init() {
+            try {
+                const response = await fetch(`${API_BASE}/api/auth/me`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!response.ok) throw new Error('Auth failed');
+                
+                const data = await response.json();
+                
+                if (!data.user || data.user.role !== 'student') {
+                    alert('This page is for students only');
+                    window.location.href = '/education/login';
+                    return;
+                }
+                
+                document.getElementById('studentName').textContent = data.user.first_name || 'Creator';
+                
+                // Load student data
+                await loadCurrentMonth();
+                await loadProjects();
+                
+            } catch (error) {
+                console.error('Init error:', error);
+                alert('Failed to load. Please login again.');
+                window.location.href = '/education/login';
             }
-          }
-        }, 60000); // Update every minute
-        countdownIntervals.push(intervalId);
-      });
-    }
-
-    // Join class
-    function joinClass(meetingLink) {
-      if (!meetingLink) {
-        alert('Meeting link not available yet');
-        return;
-      }
-      window.open(meetingLink, '_blank');
-    }
-
-    // Load courses
-    async function loadCourses() {
-      try {
-        const res = await fetch(`${API_BASE}/api/enrollments/my-courses`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        
-        if (!res.ok) throw new Error('Failed to load courses');
-        const data = await res.json();
-        const courses = data.courses || [];
-
-        document.getElementById('coursesLoading').classList.add('hidden');
-        
-        if (courses.length === 0) {
-          document.getElementById('coursesEmpty').classList.remove('hidden');
-          document.getElementById('coursesGrid').classList.add('hidden');
-        } else {
-          document.getElementById('coursesEmpty').classList.add('hidden');
-          document.getElementById('coursesGrid').classList.remove('hidden');
-          renderCourses(courses);
         }
-      } catch (error) {
-        console.error('Load courses error:', error);
-        document.getElementById('coursesLoading').innerHTML = `
-          <p class="text-red-400">Failed to load courses. Please refresh.</p>
-        `;
-      }
-    }
 
-    // Render courses
-    function renderCourses(courses) {
-      const grid = document.getElementById('coursesGrid');
-      grid.innerHTML = courses.map(c => `
-        <div class="glass p-6 rounded-xl hover:bg-white/10 transition">
-          ${c.thumbnail_url ? `<img src="${c.thumbnail_url}" class="w-full h-40 object-cover rounded-lg mb-4" alt="${c.title}">` : '<div class="w-full h-40 bg-gradient-to-br from-teal-500 to-purple-500 rounded-lg mb-4 flex items-center justify-center text-4xl">📸</div>'}
-          <h4 class="text-lg font-semibold mb-2">${c.title}</h4>
-          <p class="text-sm text-gray-400 mb-4">${c.description || 'Learn photography fundamentals'}</p>
-          
-          <div class="mb-4">
-            <div class="flex justify-between text-sm mb-2">
-              <span class="text-gray-400">Progress</span>
-              <span class="font-semibold">${c.progress || 0}%</span>
-            </div>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div class="bg-gradient-to-r from-teal-500 to-purple-500 h-2 rounded-full transition-all duration-500" style="width: ${c.progress || 0}%"></div>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-gray-400">${c.attended_classes || 0}/${c.total_classes || 0} classes</span>
-            <span class="px-3 py-1 ${c.status === 'active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'} rounded-full text-xs font-semibold">
-              ${c.status || 'active'}
-            </span>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    // Load completed classes
-    async function loadCompletedClasses() {
-      try {
-        const res = await fetch(`${API_BASE}/api/classes/completed`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        
-        if (!res.ok) throw new Error('Failed to load completed classes');
-        const data = await res.json();
-        const classes = data.classes || [];
-
-        document.getElementById('completedLoading').classList.add('hidden');
-        
-        if (classes.length === 0) {
-          document.getElementById('completedEmpty').classList.remove('hidden');
-          document.getElementById('completedClassesGrid').classList.add('hidden');
-        } else {
-          document.getElementById('completedEmpty').classList.add('hidden');
-          document.getElementById('completedClassesGrid').classList.remove('hidden');
-          renderCompletedClasses(classes);
+        async function loadCurrentMonth() {
+            // TODO: Get enrolled month from backend
+            // For now, show January as demo
+            const demoMonth = {
+                id: 'mod-jan',
+                month_name: 'January',
+                title: 'Visual Foundations',
+                subtitle: 'Learning to See Like a Pro',
+                description: 'Transform from snapshot-taker to visual storyteller. Master the Rule of Thirds, leading lines, and perspective magic.',
+                emoji: '📷',
+                theme_color: '#4794A6'
+            };
+            
+            document.getElementById('currentMonth').textContent = demoMonth.month_name;
+            document.getElementById('monthEmoji').textContent = demoMonth.emoji;
+            document.getElementById('monthSubtitle').textContent = demoMonth.subtitle;
+            document.getElementById('monthDescription').textContent = demoMonth.description;
+            
+            // Load weeks
+            const demoWeeks = [
+                { id: 'week-1', number: 1, title: 'The Eye', emoji: '👁️', subtitle: 'Composition & Visual Design', locked: false, completed: false, color: demoMonth.theme_color },
+                { id: 'week-2', number: 2, title: 'The Light', emoji: '💡', subtitle: 'Timing & Atmosphere', locked: false, completed: false, color: demoMonth.theme_color },
+                { id: 'week-3', number: 3, title: 'The Story', emoji: '📖', subtitle: 'Motion & Narrative', locked: true, completed: false, color: '#666' },
+                { id: 'week-4', number: 4, title: 'The Share', emoji: '🎬', subtitle: 'Editing & Presentation', locked: true, completed: false, color: '#666' }
+            ];
+            
+            document.getElementById('weeksGrid').innerHTML = demoWeeks.map(week => `
+                <div class="week-card rounded-xl p-6 ${week.locked ? 'locked' : ''}" 
+                     style="border-color: ${week.color}"
+                     onclick="${week.locked ? '' : `openWeek('${week.id}')`}">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-4xl">${week.emoji}</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Week ${week.number}: ${week.title}</h3>
+                                <p class="text-sm text-gray-400">${week.subtitle}</p>
+                            </div>
+                        </div>
+                        ${week.completed ? '<i class="fas fa-check-circle text-green-400 text-2xl"></i>' : ''}
+                        ${week.locked ? '<i class="fas fa-lock text-gray-600 text-2xl"></i>' : ''}
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-400">
+                            <i class="fas fa-video mr-2"></i>3 Videos
+                        </span>
+                        <span class="text-teal-400 font-medium">
+                            ${week.locked ? 'Complete previous week' : 'Start Learning →'}
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+            
+            updateProgress(25); // Demo: 25% complete
         }
-      } catch (error) {
-        console.error('Load completed classes error:', error);
-        document.getElementById('completedLoading').innerHTML = `
-          <p class="text-red-400">Failed to load completed classes. Please refresh.</p>
-        `;
-      }
-    }
 
-    // Render completed classes
-    function renderCompletedClasses(classes) {
-      const grid = document.getElementById('completedClassesGrid');
-      grid.innerHTML = classes.map(cls => `
-        <div class="glass p-4 rounded-xl hover:bg-white/10 transition flex items-center justify-between">
-          <div class="flex items-center gap-4">
-            <div class="text-3xl">✅</div>
-            <div>
-              <h5 class="font-semibold">${cls.title}</h5>
-              <p class="text-sm text-gray-400">${cls.course_title || 'Course'}</p>
-            </div>
-          </div>
-          <div class="text-right">
-            <p class="text-sm text-gray-400">${formatDate(cls.scheduled_date, cls.scheduled_time)}</p>
-            ${cls.attendance_minutes ? `<p class="text-xs text-teal-400">${cls.attendance_minutes} mins attended</p>` : ''}
-          </div>
-        </div>
-      `).join('');
-    }
-
-    // Load achievements
-    async function loadAchievements() {
-      try {
-        const res = await fetch(`${API_BASE}/api/achievements/my-achievements`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        
-        if (!res.ok) throw new Error('Failed to load achievements');
-        const data = await res.json();
-        const achievements = data.achievements || [];
-
-        document.getElementById('achievementsLoading').classList.add('hidden');
-        
-        if (achievements.length === 0) {
-          document.getElementById('achievementsEmpty').classList.remove('hidden');
-          document.getElementById('achievementsGrid').classList.add('hidden');
-        } else {
-          document.getElementById('achievementsEmpty').classList.add('hidden');
-          document.getElementById('achievementsGrid').classList.remove('hidden');
-          renderAchievements(achievements);
+        function openWeek(weekId) {
+            alert(`Opening Week ${weekId}!\n\nThis will show:\n• Welcome video\n• Skill lessons\n• Adventure missions\n• Weekly challenge\n\nComing soon! 🎬`);
         }
-      } catch (error) {
-        console.error('Load achievements error:', error);
-        document.getElementById('achievementsLoading').innerHTML = `
-          <p class="text-red-400">Failed to load achievements. Please refresh.</p>
-        `;
-      }
-    }
 
-    // Render achievements
-    function renderAchievements(achievements) {
-      const grid = document.getElementById('achievementsGrid');
-      grid.innerHTML = achievements.map(a => `
-        <div class="glass p-4 rounded-xl text-center hover:bg-white/10 transition">
-          <div class="text-4xl mb-2">${a.icon || '🏆'}</div>
-          <h5 class="font-semibold text-sm mb-1">${a.name}</h5>
-          <p class="text-xs text-gray-400">${a.description || 'Achievement earned'}</p>
-          ${a.earned_at ? `<p class="text-xs text-teal-400 mt-2">${new Date(a.earned_at).toLocaleDateString()}</p>` : ''}
-        </div>
-      `).join('');
-    }
+        function updateProgress(percent) {
+            document.getElementById('progressPercent').textContent = percent + '%';
+            const circle = document.getElementById('progressCircle');
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            const offset = circumference - (percent / 100) * circumference;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            circle.style.strokeDashoffset = offset;
+        }
 
-    // Initialize
-    loadDashboard();
+        async function loadProjects() {
+            // TODO: Load from backend
+            // For now, show placeholder
+        }
 
-    // Cleanup on page unload
-    window.addEventListener('beforeunload', () => {
-      countdownIntervals.forEach(id => clearInterval(id));
-    });
-  </script>
+        function showUploadModal() {
+            document.getElementById('uploadModal').classList.remove('hidden');
+            document.getElementById('uploadModal').classList.add('flex');
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').classList.add('hidden');
+            document.getElementById('uploadModal').classList.remove('flex');
+        }
+
+        function openVideoModal(lessonId, title, videoUrl) {
+            currentLessonId = lessonId;
+            document.getElementById('videoTitle').textContent = title;
+            document.getElementById('videoPlayer').src = videoUrl;
+            document.getElementById('videoModal').classList.remove('hidden');
+            document.getElementById('videoModal').classList.add('flex');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoPlayer').pause();
+            document.getElementById('videoModal').classList.add('hidden');
+            document.getElementById('videoModal').classList.remove('flex');
+        }
+
+        function changeSpeed(speed) {
+            document.getElementById('videoPlayer').playbackRate = speed;
+        }
+
+        function markComplete() {
+            alert('Lesson marked complete! 🎉\n\nKeep up the awesome work!');
+            closeVideoModal();
+            // TODO: Update progress in backend
+        }
+
+        function uploadProject(event) {
+            event.preventDefault();
+            const caption = document.getElementById('projectCaption').value;
+            alert(`Project uploaded! 🎨✨\n\nYour caption: "${caption}"\n\nGreat work, keep creating!`);
+            closeUploadModal();
+            // TODO: Upload to backend
+        }
+
+        function logout() {
+            localStorage.removeItem('auth_token');
+            localStorage.removeItem('user_role');
+            window.location.href = '/education/login';
+        }
+
+        // Initialize
+        init();
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Debug - Acromatico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+            padding: 2rem;
+        }
+        .card {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+        pre {
+            background: #000;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .warning { color: #f59e0b; }
+    </style>
+</head>
+<body>
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-6">🔍 Authentication Debug Tool</h1>
+        
+        <div class="card">
+            <h2 class="text-2xl font-bold mb-4">📦 LocalStorage Status</h2>
+            <div id="localStorageStatus"></div>
+        </div>
+
+        <div class="card">
+            <h2 class="text-2xl font-bold mb-4">🔐 Token Validation</h2>
+            <div id="tokenStatus"></div>
+        </div>
+
+        <div class="card">
+            <h2 class="text-2xl font-bold mb-4">👤 User Info</h2>
+            <div id="userInfo"></div>
+        </div>
+
+        <div class="card">
+            <h2 class="text-2xl font-bold mb-4">🎓 Curriculum API Test</h2>
+            <div id="apiTest"></div>
+        </div>
+
+        <div class="card">
+            <h2 class="text-2xl font-bold mb-4">🔄 Actions</h2>
+            <button onclick="clearAuth()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded mr-2">
+                Clear Auth & Reload
+            </button>
+            <button onclick="testLogin()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded mr-2">
+                Test Login
+            </button>
+            <button onclick="location.href='/admin/curriculum'" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded">
+                Go to Curriculum
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+
+        async function checkLocalStorage() {
+            const token = localStorage.getItem('auth_token');
+            const html = `
+                <div class="space-y-2">
+                    <p><strong>Token exists:</strong> <span class="${token ? 'success' : 'error'}">${token ? 'YES ✅' : 'NO ❌'}</span></p>
+                    ${token ? `
+                        <p><strong>Token value:</strong></p>
+                        <pre>${token.substring(0, 50)}...${token.substring(token.length - 20)}</pre>
+                    ` : ''}
+                    <p><strong>All localStorage keys:</strong></p>
+                    <pre>${JSON.stringify(Object.keys(localStorage), null, 2)}</pre>
+                </div>
+            `;
+            document.getElementById('localStorageStatus').innerHTML = html;
+            return token;
+        }
+
+        async function validateToken(token) {
+            if (!token) {
+                document.getElementById('tokenStatus').innerHTML = `<p class="error">❌ No token found in localStorage</p>`;
+                return null;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/api/auth/me`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                const status = response.status;
+                let html = `<p><strong>Response status:</strong> <span class="${response.ok ? 'success' : 'error'}">${status}</span></p>`;
+
+                if (response.ok) {
+                    const data = await response.json();
+                    html += `
+                        <p class="success">✅ Token is valid!</p>
+                        <p><strong>Response structure:</strong></p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                    document.getElementById('tokenStatus').innerHTML = html;
+                    return data;
+                } else {
+                    const errorText = await response.text();
+                    html += `
+                        <p class="error">❌ Token validation failed</p>
+                        <p><strong>Error:</strong></p>
+                        <pre>${errorText}</pre>
+                    `;
+                    document.getElementById('tokenStatus').innerHTML = html;
+                    return null;
+                }
+            } catch (error) {
+                document.getElementById('tokenStatus').innerHTML = `
+                    <p class="error">❌ Network error: ${error.message}</p>
+                `;
+                return null;
+            }
+        }
+
+        async function displayUserInfo(userData) {
+            if (!userData || !userData.user) {
+                document.getElementById('userInfo').innerHTML = `<p class="error">❌ No user data available</p>`;
+                return;
+            }
+
+            const user = userData.user;
+            const html = `
+                <div class="space-y-2">
+                    <p><strong>ID:</strong> ${user.id}</p>
+                    <p><strong>Email:</strong> ${user.email}</p>
+                    <p><strong>Role:</strong> <span class="${user.role === 'admin' ? 'success' : 'warning'}">${user.role}</span></p>
+                    <p><strong>Name:</strong> ${user.first_name} ${user.last_name}</p>
+                    <p><strong>Created:</strong> ${user.created_at}</p>
+                    ${user.role === 'admin' ? 
+                        '<p class="success">✅ You have admin access!</p>' : 
+                        '<p class="error">❌ You do NOT have admin access</p>'
+                    }
+                </div>
+            `;
+            document.getElementById('userInfo').innerHTML = html;
+        }
+
+        async function testCurriculumAPI(token) {
+            if (!token) {
+                document.getElementById('apiTest').innerHTML = `<p class="error">❌ Cannot test without token</p>`;
+                return;
+            }
+
+            try {
+                // Test stats endpoint
+                const statsResponse = await fetch(`${API_BASE}/api/admin/curriculum/stats`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                const statsData = await statsResponse.json();
+
+                // Test modules endpoint
+                const modulesResponse = await fetch(`${API_BASE}/api/admin/curriculum/modules`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                const modulesData = await modulesResponse.json();
+
+                const html = `
+                    <div class="space-y-4">
+                        <div>
+                            <p><strong>Stats API:</strong> <span class="${statsResponse.ok ? 'success' : 'error'}">${statsResponse.status}</span></p>
+                            <pre>${JSON.stringify(statsData, null, 2)}</pre>
+                        </div>
+                        <div>
+                            <p><strong>Modules API:</strong> <span class="${modulesResponse.ok ? 'success' : 'error'}">${modulesResponse.status}</span></p>
+                            <p>Total modules: ${modulesData.data ? modulesData.data.length : 0}</p>
+                            ${modulesData.data && modulesData.data.length > 0 ? `
+                                <p>First module:</p>
+                                <pre>${JSON.stringify(modulesData.data[0], null, 2)}</pre>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+                document.getElementById('apiTest').innerHTML = html;
+            } catch (error) {
+                document.getElementById('apiTest').innerHTML = `
+                    <p class="error">❌ API test failed: ${error.message}</p>
+                `;
+            }
+        }
+
+        async function testLogin() {
+            try {
+                const response = await fetch(`${API_BASE}/api/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: 'italo@acromatico.com',
+                        password: 'admin123'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.token) {
+                    localStorage.setItem('auth_token', data.token);
+                    alert('✅ Login successful! Token saved. Reloading...');
+                    location.reload();
+                } else {
+                    alert('❌ Login failed: ' + JSON.stringify(data));
+                }
+            } catch (error) {
+                alert('❌ Login error: ' + error.message);
+            }
+        }
+
+        function clearAuth() {
+            localStorage.clear();
+            alert('🗑️ LocalStorage cleared! Reloading...');
+            location.reload();
+        }
+
+        // Run all checks on page load
+        async function runAllChecks() {
+            const token = await checkLocalStorage();
+            const userData = await validateToken(token);
+            await displayUserInfo(userData);
+            await testCurriculumAPI(token);
+        }
+
+        runAllChecks();
+    </script>
+</body>
+</html>
