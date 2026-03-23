@@ -1841,6 +1841,106 @@ function calculateLevel(totalXP: number): { newLevel: number, newRank: string, x
   return { newLevel: 1, newRank: 'Beginner Creator', xpToNext: 100 - totalXP }
 }
 
+// GET /api/curriculum/download-pdf - Generate curriculum overview PDF
+app.get('/api/curriculum/download-pdf', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    // Get all curriculum modules
+    const { results: modules } = await DB_EDUCATION.prepare(`
+      SELECT * FROM curriculum_modules ORDER BY sort_order
+    `).all()
+    
+    // Generate a simple text-based curriculum overview
+    let content = `
+ACROMATICO CREATOR ACADEMY
+12-Month Visual Storytelling Curriculum
+© 2026 Acromatico • Ages 7-14
+═══════════════════════════════════════════════════════════
+
+📚 CURRICULUM OVERVIEW
+
+Transform your child into a creative storyteller with our comprehensive 
+12-month journey covering photography, videography, and visual storytelling.
+
+═══════════════════════════════════════════════════════════
+
+📅 COMPLETE CURRICULUM BREAKDOWN
+
+`
+    
+    modules.forEach((module, index) => {
+      content += `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+${module.emoji} MONTH ${module.month_number}: ${module.month_name.toUpperCase()}
+${module.title}
+${module.subtitle}
+
+Quarter: Q${module.quarter}
+Theme Color: ${module.theme_color}
+
+📖 Description:
+${module.description}
+
+🗺️ Adventure Project: ${module.adventure_title}
+${module.adventure_desc}
+
+`
+    })
+    
+    content += `
+═══════════════════════════════════════════════════════════
+
+✨ WHAT'S INCLUDED
+
+✓ 120+ HD Video Lessons
+✓ 48 Weekly Learning Cycles
+✓ 12 Monthly Adventure Projects
+✓ 15 Achievement Badges to Earn
+✓ XP & Level Progression System
+✓ Parent Progress Dashboard
+✓ Project Submission Portal
+✓ Lifetime Access to Content
+
+═══════════════════════════════════════════════════════════
+
+💰 PRICING
+
+Full Year Access: $297/year
+That's just $24.75/month - less than a single art class!
+
+✓ 30-Day Money-Back Guarantee
+✓ Covers Entire Family (Multiple Children)
+✓ Self-Paced Learning
+✓ Professional Creator Instruction
+
+═══════════════════════════════════════════════════════════
+
+🚀 GET STARTED TODAY
+
+Visit: https://acromatico.com/pricing
+Email: hello@acromatico.com
+
+Transform your child's creativity into professional skills!
+
+═══════════════════════════════════════════════════════════
+`
+    
+    // Return as downloadable text file (simpler than PDF for Cloudflare Workers)
+    return new Response(content, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Content-Disposition': 'attachment; filename="Acromatico-Creator-Academy-Curriculum-2026.txt"',
+        'Cache-Control': 'public, max-age=3600'
+      }
+    })
+  } catch (error: any) {
+    console.error('PDF generation error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
 // GET /api/admin/curriculum/stats - Get curriculum statistics
 app.get('/api/admin/curriculum/stats', async (c) => {
   try {
@@ -8092,6 +8192,8 @@ app.get('/education/login', (c) => {
 })
 app.get('/education/signup', (c) => c.redirect('/static/education-signup.html'))
 app.get('/education/reset-password', (c) => c.redirect('/education-reset-password.html'))
+app.get('/pricing', (c) => c.redirect('/static/pricing.html'))
+app.get('/enroll', (c) => c.redirect('/static/pricing.html'))
 
 // Dashboards
 app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
