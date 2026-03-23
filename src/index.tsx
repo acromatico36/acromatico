@@ -7133,7 +7133,8 @@ app.get('/education/reset-password', (c) => c.redirect('/education-reset-passwor
 app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
 app.get('/parent/dashboard', (c) => c.redirect('/static/parent-dashboard.html'))
 app.get('/admin/dashboard', (c) => c.redirect('/static/admin-dashboard.html'))
-app.get('/admin/curriculum', (c) => c.redirect('/static/admin-curriculum.html'))
+app.get('/admin/curriculum', (c) => c.redirect('/static/admin-curriculum-v2.html'))
+app.get('/admin/curriculum/old', (c) => c.redirect('/static/admin-curriculum.html'))
 app.get('/debug/auth', (c) => c.redirect('/static/debug-auth.html'))
 app.get('/admin/crm', (c) => c.redirect('/static/admin-crm.html'))
 
