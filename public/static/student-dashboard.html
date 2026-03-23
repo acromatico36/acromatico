@@ -79,6 +79,7 @@
                 <div class="text-right hidden md:block">
                     <p class="text-sm text-gray-400">Welcome back,</p>
                     <p class="text-lg font-bold text-white" id="studentName">Creator</p>
+                    <p class="text-xs text-amber-400 font-semibold" id="studentRank">Beginner Creator</p>
                 </div>
                 <button onclick="logout()" class="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 border border-red-500/30 transition-all">
                     <i class="fas fa-sign-out-alt mr-2"></i><span class="hidden md:inline">Logout</span>
@@ -138,6 +139,9 @@
             <div class="flex items-center gap-3">
                 <button onclick="window.location.href='/student/projects'" class="px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg font-medium transition-all">
                     <i class="fas fa-camera mr-2"></i>My Projects
+                </button>
+                <button onclick="openAchievementsModal()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-medium transition-all">
+                    <i class="fas fa-trophy mr-2"></i>My Badges
                 </button>
                 <button onclick="viewAllMonths()" class="px-4 py-2 btn-primary text-white rounded-lg font-medium">
                     <i class="fas fa-th-large mr-2"></i>View All Months
@@ -438,11 +442,63 @@
 
         // Load stats
         async function loadStats() {
-            const completedCount = Object.keys(userProgress).filter(k => userProgress[k] === 'completed').length;
-            document.getElementById('lessonsCompleted').textContent = completedCount;
-            document.getElementById('currentStreak').textContent = '0';
-            document.getElementById('pointsEarned').textContent = completedCount * 10;
-            document.getElementById('badgesEarned').textContent = Math.floor(completedCount / 5);
+            try {
+                // Load XP data
+                const xpResponse = await fetch(`${API_BASE}/api/student/xp`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const xpData = await xpResponse.json();
+                
+                if (xpData.success) {
+                    document.getElementById('pointsEarned').textContent = xpData.data.total_xp || 0;
+                    document.getElementById('studentRank').textContent = xpData.data.rank_title || 'Beginner Creator';
+                }
+                
+                // Load streak data
+                const streakResponse = await fetch(`${API_BASE}/api/student/streak`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const streakData = await streakResponse.json();
+                
+                if (streakData.success) {
+                    document.getElementById('currentStreak').textContent = streakData.data.current_streak || 0;
+                }
+                
+                // Load achievements
+                const achievementsResponse = await fetch(`${API_BASE}/api/student/achievements`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const achievementsData = await achievementsResponse.json();
+                
+                if (achievementsData.success) {
+                    document.getElementById('badgesEarned').textContent = achievementsData.data.total_earned || 0;
+                }
+                
+                // Load progress count (keep existing logic)
+                const progressResponse = await fetch(`${API_BASE}/api/student/progress/all`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const progressData = await progressResponse.json();
+                
+                if (progressData.success) {
+                    const completedCount = progressData.data.filter(p => p.status === 'completed').length;
+                    document.getElementById('lessonsCompleted').textContent = completedCount;
+                }
+                
+                // Track today's activity for streak
+                await fetch(`${API_BASE}/api/student/track-activity`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+            } catch (error) {
+                console.error('Load stats error:', error);
+                // Show placeholder values on error
+                document.getElementById('lessonsCompleted').textContent = '0';
+                document.getElementById('currentStreak').textContent = '0';
+                document.getElementById('pointsEarned').textContent = '0';
+                document.getElementById('badgesEarned').textContent = '0';
+            }
         }
 
         // Load next lesson
@@ -893,9 +949,156 @@
             };
             return colors[quarter] || '#14b8a6';
         }
+        
+        // Open achievements modal
+        async function openAchievementsModal() {
+            document.getElementById('achievementsModal').classList.add('active');
+            await loadAchievements();
+        }
+        
+        // Close achievements modal
+        function closeAchievementsModal() {
+            document.getElementById('achievementsModal').classList.remove('active');
+        }
+        
+        // Load and display achievements
+        async function loadAchievements() {
+            try {
+                const response = await fetch(`${API_BASE}/api/student/achievements`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderAchievements(data.data);
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('Load achievements error:', error);
+                document.getElementById('achievementsContent').innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-exclamation-triangle text-3xl text-red-400 mb-3"></i>
+                        <p class="text-gray-400">Failed to load achievements</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Render achievements grid
+        function renderAchievements(data) {
+            const { earned, available } = data;
+            const earnedIds = new Set(earned.map(a => a.achievement_id));
+            
+            // Group by category
+            const categories = {
+                'milestone': { title: '🎯 Milestones', badges: [] },
+                'streak': { title: '🔥 Streaks', badges: [] },
+                'mastery': { title: '📚 Mastery', badges: [] },
+                'creative': { title: '🎨 Creative', badges: [] },
+                'special': { title: '✨ Special', badges: [] }
+            };
+            
+            available.forEach(badge => {
+                const isEarned = earnedIds.has(badge.id);
+                const earnedDate = earned.find(e => e.achievement_id === badge.id)?.earned_at;
+                
+                categories[badge.category].badges.push({
+                    ...badge,
+                    isEarned,
+                    earnedDate
+                });
+            });
+            
+            let html = `
+                <div class="mb-6 text-center">
+                    <div class="inline-flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-full">
+                        <div class="text-2xl">🏆</div>
+                        <div>
+                            <div class="text-sm text-gray-400">You've Earned</div>
+                            <div class="text-2xl font-bold text-amber-400">${data.total_earned} / ${data.total_available}</div>
+                        </div>
+                        <div class="text-2xl">🎖️</div>
+                    </div>
+                </div>
+            `;
+            
+            Object.entries(categories).forEach(([key, cat]) => {
+                if (cat.badges.length > 0) {
+                    html += `
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-3">${cat.title}</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    `;
+                    
+                    cat.badges.forEach(badge => {
+                        const earned = badge.isEarned;
+                        const opacity = earned ? 'opacity-100' : 'opacity-30';
+                        const bgColor = earned ? 'bg-teal-500/20 border-teal-500/50' : 'bg-gray-700/30 border-gray-600/30';
+                        const earnedText = earned && badge.earnedDate 
+                            ? `<div class="text-xs text-teal-400 mt-1">Earned ${new Date(badge.earnedDate).toLocaleDateString()}</div>`
+                            : '';
+                        
+                        html += `
+                            <div class="p-4 rounded-lg ${bgColor} border ${opacity} transition-all hover:scale-105">
+                                <div class="text-4xl mb-2 text-center">${badge.icon}</div>
+                                <div class="text-sm font-bold text-center mb-1">${badge.name}</div>
+                                <div class="text-xs text-gray-400 text-center">${badge.description}</div>
+                                ${earnedText}
+                                <div class="text-xs text-amber-400 text-center mt-2">+${badge.xp_reward} XP</div>
+                            </div>
+                        `;
+                    });
+                    
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            
+            document.getElementById('achievementsContent').innerHTML = html;
+        }
 
         // Start the app
         init();
     </script>
+    
+    <!-- Achievements Modal -->
+    <div id="achievementsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 md:p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-amber-500/30 shadow-2xl transform scale-95 transition-all duration-300">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between mb-6 sticky top-0 bg-slate-900/95 backdrop-blur-sm pb-4 -mt-2 pt-2">
+                <div>
+                    <h3 class="text-3xl font-bold mb-1">🏆 My Achievements</h3>
+                    <p class="text-gray-400 text-sm">Collect badges as you learn and grow!</p>
+                </div>
+                <button onclick="closeAchievementsModal()" class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Achievements Content -->
+            <div id="achievementsContent">
+                <div class="text-center py-12">
+                    <div class="animate-pulse">
+                        <i class="fas fa-spinner fa-spin text-4xl text-amber-400 mb-3"></i>
+                        <p class="text-gray-400">Loading achievements...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        #achievementsModal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #achievementsModal.active > div {
+            transform: scale(1);
+        }
+    </style>
 </body>
 </html>

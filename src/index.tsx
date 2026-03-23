@@ -977,6 +977,56 @@ app.post('/api/student/progress', async (c) => {
       ).run()
     }
     
+    // Check for "First Lesson" achievement if just completed
+    if (status === 'completed') {
+      const { results: completedCount } = await DB_EDUCATION.prepare(`
+        SELECT COUNT(*) as count FROM curriculum_progress WHERE user_id = ? AND status = 'completed'
+      `).bind(userId).all()
+      
+      const count = completedCount[0]?.count || 0
+      
+      // Award milestone badges based on lesson count
+      const lessonBadges = [
+        { id: 'ach-first-lesson', count: 1 },
+        { id: 'ach-5-lessons', count: 5 },
+        { id: 'ach-10-lessons', count: 10 },
+        { id: 'ach-25-lessons', count: 25 },
+        { id: 'ach-50-lessons', count: 50 }
+      ]
+      
+      for (const badge of lessonBadges) {
+        if (count === badge.count) {
+          // Check if already earned
+          const { results: existing } = await DB_EDUCATION.prepare(`
+            SELECT id FROM user_achievements WHERE user_id = ? AND achievement_id = ?
+          `).bind(userId, badge.id).all()
+          
+          if (existing.length === 0) {
+            // Award badge
+            await DB_EDUCATION.prepare(`
+              INSERT INTO user_achievements (user_id, achievement_id)
+              VALUES (?, ?)
+            `).bind(userId, badge.id).run()
+            
+            // Add XP
+            const { results: achievement } = await DB_EDUCATION.prepare(`
+              SELECT xp_reward FROM achievements WHERE id = ?
+            `).bind(badge.id).all()
+            
+            if (achievement.length > 0) {
+              await DB_EDUCATION.prepare(`
+                INSERT INTO user_xp (user_id, total_xp, current_level, xp_to_next_level, rank_title)
+                VALUES (?, ?, 1, 100, 'Beginner Creator')
+                ON CONFLICT(user_id) DO UPDATE SET
+                  total_xp = total_xp + ?,
+                  updated_at = CURRENT_TIMESTAMP
+              `).bind(userId, achievement[0].xp_reward, achievement[0].xp_reward).run()
+            }
+          }
+        }
+      }
+    }
+    
     return c.json({
       success: true,
       message: 'Progress saved successfully'
@@ -1093,6 +1143,51 @@ app.post('/api/student/submissions', async (c) => {
       media_url,
       media_type || 'image'
     ).run()
+    
+    // Check for project submission achievements
+    const { results: submissionCount } = await DB_EDUCATION.prepare(`
+      SELECT COUNT(*) as count FROM curriculum_submissions WHERE user_id = ?
+    `).bind(userId).all()
+    
+    const count = submissionCount[0]?.count || 0
+    
+    const projectBadges = [
+      { id: 'ach-first-project', count: 1 },
+      { id: 'ach-5-projects', count: 5 },
+      { id: 'ach-10-projects', count: 10 }
+    ]
+    
+    for (const badge of projectBadges) {
+      if (count === badge.count) {
+        // Check if already earned
+        const { results: existing } = await DB_EDUCATION.prepare(`
+          SELECT id FROM user_achievements WHERE user_id = ? AND achievement_id = ?
+        `).bind(userId, badge.id).all()
+        
+        if (existing.length === 0) {
+          // Award badge
+          await DB_EDUCATION.prepare(`
+            INSERT INTO user_achievements (user_id, achievement_id)
+            VALUES (?, ?)
+          `).bind(userId, badge.id).run()
+          
+          // Add XP
+          const { results: achievement } = await DB_EDUCATION.prepare(`
+            SELECT xp_reward FROM achievements WHERE id = ?
+          `).bind(badge.id).all()
+          
+          if (achievement.length > 0) {
+            await DB_EDUCATION.prepare(`
+              INSERT INTO user_xp (user_id, total_xp, current_level, xp_to_next_level, rank_title)
+              VALUES (?, ?, 1, 100, 'Beginner Creator')
+              ON CONFLICT(user_id) DO UPDATE SET
+                total_xp = total_xp + ?,
+                updated_at = CURRENT_TIMESTAMP
+            `).bind(userId, achievement[0].xp_reward, achievement[0].xp_reward).run()
+          }
+        }
+      }
+    }
     
     return c.json({
       success: true,
@@ -1366,6 +1461,385 @@ app.get('/api/parent/child/:id/progress', async (c) => {
     return c.json({ success: false, error: error.message }, 500)
   }
 })
+
+// ==========================================
+// ACHIEVEMENT & GAMIFICATION API ROUTES
+// ==========================================
+
+// GET /api/student/achievements - Get all earned achievements
+app.get('/api/student/achievements', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId || payload.id
+    
+    // Get earned achievements with details
+    const { results: earned } = await DB_EDUCATION.prepare(`
+      SELECT 
+        ua.*,
+        a.name,
+        a.description,
+        a.category,
+        a.icon,
+        a.xp_reward
+      FROM user_achievements ua
+      JOIN achievements a ON ua.achievement_id = a.id
+      WHERE ua.user_id = ?
+      ORDER BY ua.earned_at DESC
+    `).bind(userId).all()
+    
+    // Get all available achievements
+    const { results: all } = await DB_EDUCATION.prepare(`
+      SELECT * FROM achievements WHERE is_active = 1 ORDER BY sort_order
+    `).all()
+    
+    return c.json({
+      success: true,
+      data: {
+        earned: earned,
+        available: all,
+        total_earned: earned.length,
+        total_available: all.length
+      }
+    })
+  } catch (error: any) {
+    console.error('Get achievements error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// GET /api/student/xp - Get XP and level info
+app.get('/api/student/xp', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId || payload.id
+    
+    // Get or create XP record
+    let { results: xpData } = await DB_EDUCATION.prepare(`
+      SELECT * FROM user_xp WHERE user_id = ?
+    `).bind(userId).all()
+    
+    if (xpData.length === 0) {
+      // Create initial XP record
+      await DB_EDUCATION.prepare(`
+        INSERT INTO user_xp (user_id, total_xp, current_level, xp_to_next_level, rank_title)
+        VALUES (?, 0, 1, 100, 'Beginner Creator')
+      `).bind(userId).run()
+      
+      xpData = [{
+        user_id: userId,
+        total_xp: 0,
+        current_level: 1,
+        xp_to_next_level: 100,
+        rank_title: 'Beginner Creator'
+      }]
+    }
+    
+    return c.json({
+      success: true,
+      data: xpData[0]
+    })
+  } catch (error: any) {
+    console.error('Get XP error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// GET /api/student/streak - Get current streak info
+app.get('/api/student/streak', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId || payload.id
+    
+    // Get or create streak stats
+    let { results: streakData } = await DB_EDUCATION.prepare(`
+      SELECT * FROM streak_stats WHERE user_id = ?
+    `).bind(userId).all()
+    
+    if (streakData.length === 0) {
+      // Create initial streak record
+      await DB_EDUCATION.prepare(`
+        INSERT INTO streak_stats (user_id, current_streak, longest_streak, last_activity_date)
+        VALUES (?, 0, 0, NULL)
+      `).bind(userId).run()
+      
+      streakData = [{
+        user_id: userId,
+        current_streak: 0,
+        longest_streak: 0,
+        last_activity_date: null
+      }]
+    }
+    
+    return c.json({
+      success: true,
+      data: streakData[0]
+    })
+  } catch (error: any) {
+    console.error('Get streak error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// POST /api/student/track-activity - Track daily activity for streak
+app.post('/api/student/track-activity', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId || payload.id
+    
+    const today = new Date().toISOString().split('T')[0] // YYYY-MM-DD
+    
+    // Insert or update today's activity
+    await DB_EDUCATION.prepare(`
+      INSERT INTO daily_streaks (user_id, activity_date, lessons_completed, time_spent_minutes)
+      VALUES (?, ?, 1, 0)
+      ON CONFLICT(user_id, activity_date) DO UPDATE SET
+        lessons_completed = lessons_completed + 1,
+        time_spent_minutes = time_spent_minutes + 1
+    `).bind(userId, today).run()
+    
+    // Calculate streak
+    const { results: recentDays } = await DB_EDUCATION.prepare(`
+      SELECT activity_date FROM daily_streaks 
+      WHERE user_id = ?
+      ORDER BY activity_date DESC
+      LIMIT 100
+    `).bind(userId).all()
+    
+    let currentStreak = 0
+    if (recentDays.length > 0) {
+      const dates = recentDays.map(d => d.activity_date).sort().reverse()
+      currentStreak = 1
+      
+      for (let i = 1; i < dates.length; i++) {
+        const prevDate = new Date(dates[i-1])
+        const currDate = new Date(dates[i])
+        const dayDiff = Math.floor((prevDate - currDate) / (1000 * 60 * 60 * 24))
+        
+        if (dayDiff === 1) {
+          currentStreak++
+        } else {
+          break
+        }
+      }
+    }
+    
+    // Update streak stats
+    await DB_EDUCATION.prepare(`
+      INSERT INTO streak_stats (user_id, current_streak, longest_streak, last_activity_date)
+      VALUES (?, ?, ?, ?)
+      ON CONFLICT(user_id) DO UPDATE SET
+        current_streak = ?,
+        longest_streak = MAX(longest_streak, ?),
+        last_activity_date = ?,
+        updated_at = CURRENT_TIMESTAMP
+    `).bind(userId, currentStreak, currentStreak, today, currentStreak, currentStreak, today).run()
+    
+    // Check for streak achievements
+    const streakBadges = [
+      { id: 'ach-streak-3', days: 3 },
+      { id: 'ach-streak-7', days: 7 },
+      { id: 'ach-streak-14', days: 14 },
+      { id: 'ach-streak-30', days: 30 }
+    ]
+    
+    for (const badge of streakBadges) {
+      if (currentStreak >= badge.days) {
+        // Check if already earned
+        const { results: existing } = await DB_EDUCATION.prepare(`
+          SELECT id FROM user_achievements WHERE user_id = ? AND achievement_id = ?
+        `).bind(userId, badge.id).all()
+        
+        if (existing.length === 0) {
+          // Award badge
+          await DB_EDUCATION.prepare(`
+            INSERT INTO user_achievements (user_id, achievement_id)
+            VALUES (?, ?)
+          `).bind(userId, badge.id).run()
+          
+          // Add XP
+          const { results: achievement } = await DB_EDUCATION.prepare(`
+            SELECT xp_reward FROM achievements WHERE id = ?
+          `).bind(badge.id).all()
+          
+          if (achievement.length > 0) {
+            await DB_EDUCATION.prepare(`
+              UPDATE user_xp SET 
+                total_xp = total_xp + ?,
+                updated_at = CURRENT_TIMESTAMP
+              WHERE user_id = ?
+            `).bind(achievement[0].xp_reward, userId).run()
+          }
+        }
+      }
+    }
+    
+    return c.json({
+      success: true,
+      data: { currentStreak, today }
+    })
+  } catch (error: any) {
+    console.error('Track activity error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// POST /api/student/award-achievement - Manually award achievement
+app.post('/api/student/award-achievement', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const body = await c.req.json()
+    const { achievementId } = body
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId || payload.id
+    
+    // Check if already earned
+    const { results: existing } = await DB_EDUCATION.prepare(`
+      SELECT id FROM user_achievements WHERE user_id = ? AND achievement_id = ?
+    `).bind(userId, achievementId).all()
+    
+    if (existing.length > 0) {
+      return c.json({ success: false, error: 'Achievement already earned' })
+    }
+    
+    // Get achievement details
+    const { results: achievement } = await DB_EDUCATION.prepare(`
+      SELECT * FROM achievements WHERE id = ?
+    `).bind(achievementId).all()
+    
+    if (achievement.length === 0) {
+      return c.json({ success: false, error: 'Achievement not found' }, 404)
+    }
+    
+    // Award achievement
+    await DB_EDUCATION.prepare(`
+      INSERT INTO user_achievements (user_id, achievement_id)
+      VALUES (?, ?)
+    `).bind(userId, achievementId).run()
+    
+    // Add XP
+    const xpReward = achievement[0].xp_reward
+    await DB_EDUCATION.prepare(`
+      INSERT INTO user_xp (user_id, total_xp, current_level, xp_to_next_level, rank_title)
+      VALUES (?, ?, 1, 100, 'Beginner Creator')
+      ON CONFLICT(user_id) DO UPDATE SET
+        total_xp = total_xp + ?,
+        updated_at = CURRENT_TIMESTAMP
+    `).bind(userId, xpReward, xpReward).run()
+    
+    // Calculate new level
+    const { results: xpData } = await DB_EDUCATION.prepare(`
+      SELECT * FROM user_xp WHERE user_id = ?
+    `).bind(userId).all()
+    
+    const xp = xpData[0]
+    const { newLevel, newRank, xpToNext } = calculateLevel(xp.total_xp)
+    
+    if (newLevel > xp.current_level) {
+      // Level up!
+      await DB_EDUCATION.prepare(`
+        UPDATE user_xp SET
+          current_level = ?,
+          rank_title = ?,
+          xp_to_next_level = ?,
+          updated_at = CURRENT_TIMESTAMP
+        WHERE user_id = ?
+      `).bind(newLevel, newRank, xpToNext, userId).run()
+    }
+    
+    return c.json({
+      success: true,
+      data: {
+        achievement: achievement[0],
+        xp_earned: xpReward,
+        level_up: newLevel > xp.current_level,
+        new_level: newLevel
+      }
+    })
+  } catch (error: any) {
+    console.error('Award achievement error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// Helper function: Calculate level from XP
+function calculateLevel(totalXP: number): { newLevel: number, newRank: string, xpToNext: number } {
+  const levels = [
+    { level: 1, xp: 0, rank: 'Beginner Creator', next: 100 },
+    { level: 2, xp: 100, rank: 'Explorer', next: 200 },
+    { level: 3, xp: 300, rank: 'Adventurer', next: 300 },
+    { level: 4, xp: 600, rank: 'Storyteller', next: 400 },
+    { level: 5, xp: 1000, rank: 'Filmmaker', next: 500 },
+    { level: 6, xp: 1500, rank: 'Creative Pro', next: 700 },
+    { level: 7, xp: 2200, rank: 'Visual Master', next: 800 },
+    { level: 8, xp: 3000, rank: 'Legend', next: 1000 }
+  ]
+  
+  for (let i = levels.length - 1; i >= 0; i--) {
+    if (totalXP >= levels[i].xp) {
+      return {
+        newLevel: levels[i].level,
+        newRank: levels[i].rank,
+        xpToNext: i < levels.length - 1 ? levels[i+1].xp - totalXP : 0
+      }
+    }
+  }
+  
+  return { newLevel: 1, newRank: 'Beginner Creator', xpToNext: 100 - totalXP }
+}
 
 // GET /api/admin/curriculum/stats - Get curriculum statistics
 app.get('/api/admin/curriculum/stats', async (c) => {
