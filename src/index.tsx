@@ -1175,6 +1175,198 @@ app.delete('/api/student/submissions/:id', async (c) => {
   }
 })
 
+// ==========================================
+// PARENT API ROUTES
+// ==========================================
+
+// GET /api/parent/children - Get all children for parent
+app.get('/api/parent/children', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId || payload.id
+    
+    // Get all children for this parent
+    const { results: children } = await DB_EDUCATION.prepare(`
+      SELECT s.*, 
+        COUNT(DISTINCT cp.id) as lessons_completed,
+        COALESCE(AVG(cp.progress_percent), 0) as overall_progress
+      FROM students s
+      LEFT JOIN curriculum_progress cp ON cp.user_id = s.id AND cp.status = 'completed'
+      WHERE s.parent_id = ?
+      GROUP BY s.id
+      ORDER BY s.created_at DESC
+    `).bind(userId).all()
+    
+    return c.json({
+      success: true,
+      data: children
+    })
+  } catch (error: any) {
+    console.error('Get children error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// POST /api/parent/child - Add new child
+app.post('/api/parent/child', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const body = await c.req.json()
+    const { firstName, lastName, age, grade } = body
+    
+    // Validate required fields
+    if (!firstName || !lastName) {
+      return c.json({ success: false, error: 'First name and last name are required' }, 400)
+    }
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const parentId = payload.userId || payload.id
+    
+    // Generate unique student ID
+    const studentId = `stu-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`
+    
+    // Insert child
+    await DB_EDUCATION.prepare(`
+      INSERT INTO students (id, parent_id, first_name, last_name, age, grade, enrollment_status)
+      VALUES (?, ?, ?, ?, ?, ?, 'active')
+    `).bind(studentId, parentId, firstName, lastName, age || null, grade || null).run()
+    
+    return c.json({
+      success: true,
+      data: { id: studentId, firstName, lastName, age, grade }
+    })
+  } catch (error: any) {
+    console.error('Add child error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// PUT /api/parent/child/:id - Update child info
+app.put('/api/parent/child/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const childId = c.req.param('id')
+    const body = await c.req.json()
+    const { firstName, lastName, age, grade, enrollmentStatus } = body
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const parentId = payload.userId || payload.id
+    
+    // Verify parent owns this child
+    const { results: children } = await DB_EDUCATION.prepare(`
+      SELECT id FROM students WHERE id = ? AND parent_id = ?
+    `).bind(childId, parentId).all()
+    
+    if (children.length === 0) {
+      return c.json({ success: false, error: 'Child not found or access denied' }, 404)
+    }
+    
+    // Update child
+    await DB_EDUCATION.prepare(`
+      UPDATE students 
+      SET first_name = ?, last_name = ?, age = ?, grade = ?, enrollment_status = ?, updated_at = CURRENT_TIMESTAMP
+      WHERE id = ? AND parent_id = ?
+    `).bind(firstName, lastName, age, grade, enrollmentStatus, childId, parentId).run()
+    
+    return c.json({
+      success: true,
+      message: 'Child updated successfully'
+    })
+  } catch (error: any) {
+    console.error('Update child error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// GET /api/parent/child/:id/progress - Get detailed progress for one child
+app.get('/api/parent/child/:id/progress', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const childId = c.req.param('id')
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const parentId = payload.userId || payload.id
+    
+    // Verify parent owns this child
+    const { results: children } = await DB_EDUCATION.prepare(`
+      SELECT * FROM students WHERE id = ? AND parent_id = ?
+    `).bind(childId, parentId).all()
+    
+    if (children.length === 0) {
+      return c.json({ success: false, error: 'Child not found or access denied' }, 404)
+    }
+    
+    // Get detailed progress
+    const { results: progress } = await DB_EDUCATION.prepare(`
+      SELECT 
+        cp.*,
+        cm.month_name,
+        cm.title as module_title,
+        cw.title as week_title
+      FROM curriculum_progress cp
+      JOIN curriculum_modules cm ON cp.module_id = cm.id
+      LEFT JOIN curriculum_weeks cw ON cp.week_id = cw.id
+      WHERE cp.user_id = ?
+      ORDER BY cp.created_at DESC
+    `).bind(childId).all()
+    
+    // Get submissions count
+    const { results: submissions } = await DB_EDUCATION.prepare(`
+      SELECT COUNT(*) as count FROM curriculum_submissions WHERE user_id = ?
+    `).bind(childId).all()
+    
+    return c.json({
+      success: true,
+      data: {
+        child: children[0],
+        progress: progress,
+        submissions_count: submissions[0]?.count || 0
+      }
+    })
+  } catch (error: any) {
+    console.error('Get child progress error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
 // GET /api/admin/curriculum/stats - Get curriculum statistics
 app.get('/api/admin/curriculum/stats', async (c) => {
   try {
