@@ -1,496 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parent Dashboard - Acromatico Education</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in {
-      animation: fadeIn 0.4s ease-out;
-    }
-    .modal {
-      display: none;
-    }
-    .modal.active {
-      display: flex;
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .btn-primary {
-      background: #4794A6;
-      transition: all 0.3s ease;
-    }
-    .btn-primary:hover {
-      background: #5aa5b8;
-      transform: translateY(-2px);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard - Acromatico Creator Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+        }
+        .child-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        .child-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+            border-color: rgba(20, 184, 166, 0.5);
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
-  
-  <!-- Topbar -->
-  <div class="sticky top-0 z-50 glass border-b border-white/10 px-8 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-4">
-      <img src="/static/acromatico-logo-white-best.png" alt="Acromatico" style="height: 32px; width: auto;">
-      <h1 class="text-2xl font-bold">Acromatico Education</h1>
-      <span class="text-sm text-gray-400">Parent Portal</span>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-sm text-gray-400" id="parentName">Loading...</span>
-      <button onclick="logout()" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition">
-        Logout
-      </button>
-    </div>
-  </div>
-
-  <!-- Main Container -->
-  <div class="max-w-7xl mx-auto px-8 py-12">
-    
-    <!-- Welcome Section -->
-    <div class="mb-12 fade-in">
-      <h2 class="text-4xl font-light mb-2">Welcome back! 👋</h2>
-      <p class="text-gray-400 text-lg">Manage your children's education journey</p>
-    </div>
-
-    <!-- Quick Actions -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12 fade-in">
-      <button onclick="showAddStudentModal()" class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
-        <div class="text-3xl mb-2">👶</div>
-        <h3 class="font-semibold mb-1">Add Student</h3>
-        <p class="text-sm text-gray-400">Add a child to your account</p>
-      </button>
-      <button onclick="showCoursesModal()" class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
-        <div class="text-3xl mb-2">📚</div>
-        <h3 class="font-semibold mb-1">Browse Courses</h3>
-        <p class="text-sm text-gray-400">Explore available programs</p>
-      </button>
-      <button onclick="loadSubscription()" class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
-        <div class="text-3xl mb-2">💳</div>
-        <h3 class="font-semibold mb-1">Billing</h3>
-        <p class="text-sm text-gray-400">Manage subscription</p>
-      </button>
-      <button class="glass p-6 rounded-xl hover:bg-white/10 transition text-left">
-        <div class="text-3xl mb-2">💬</div>
-        <h3 class="font-semibold mb-1">Support</h3>
-        <p class="text-sm text-gray-400">Get help</p>
-      </button>
-    </div>
-
-    <!-- My Students Section -->
-    <div class="mb-12 fade-in">
-      <div class="flex justify-between items-center mb-6">
-        <h3 class="text-2xl font-semibold">My Students</h3>
-        <button onclick="showAddStudentModal()" class="btn-primary px-6 py-2 rounded-lg font-semibold">
-          + Add Student
-        </button>
-      </div>
-
-      <!-- Loading State -->
-      <div id="studentsLoading" class="glass p-8 rounded-xl text-center">
-        <div class="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-        <p class="text-gray-400">Loading students...</p>
-      </div>
-
-      <!-- Empty State -->
-      <div id="studentsEmpty" class="hidden glass p-12 rounded-xl text-center">
-        <div class="text-6xl mb-4">👶</div>
-        <h3 class="text-xl font-semibold mb-2">No students yet</h3>
-        <p class="text-gray-400 mb-6">Add your first student to get started!</p>
-        <button onclick="showAddStudentModal()" class="btn-primary px-8 py-3 rounded-lg font-semibold">
-          Add Student
-        </button>
-      </div>
-
-      <!-- Students Grid -->
-      <div id="studentsGrid" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </div>
-
-    <!-- Billing Section -->
-    <div id="billingSection" class="hidden fade-in mb-12">
-      <h3 class="text-2xl font-semibold mb-6">Subscription & Billing</h3>
-      <div class="glass p-8 rounded-xl">
-        <div class="flex justify-between items-start mb-6">
-          <div>
-            <h4 class="text-xl font-semibold mb-1" id="subscriptionPlan">Loading...</h4>
-            <p class="text-3xl font-bold text-teal-400 mb-2" id="subscriptionPrice">$0</p>
-            <p class="text-sm text-gray-400" id="subscriptionCycle">per month</p>
-          </div>
-          <span class="px-4 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold" id="subscriptionStatus">Active</span>
+<body class="p-4 md:p-8">
+    <!-- Header -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-10 md:h-12">
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden md:block">
+                    <p class="text-sm text-gray-400">Parent Account</p>
+                    <p class="text-lg font-bold text-white" id="parentName">Loading...</p>
+                </div>
+                <button onclick="logout()" class="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 border border-red-500/30 transition-all">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                </button>
+            </div>
         </div>
-        <div class="border-t border-white/10 pt-6 space-y-3 text-sm">
-          <div class="flex justify-between">
-            <span class="text-gray-400">Next Billing Date</span>
-            <span id="nextBillingDate">Loading...</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-gray-400">Students Enrolled</span>
-            <span id="studentsEnrolled">0</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-gray-400">Payment Method</span>
-            <span id="paymentMethod">Loading...</span>
-          </div>
-        </div>
-      </div>
     </div>
 
-  </div>
-
-  <!-- Add Student Modal -->
-  <div id="addStudentModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
-    <div class="glass rounded-2xl p-8 max-w-md w-full mx-4">
-      <div class="flex justify-between items-center mb-6">
-        <h3 class="text-2xl font-bold">Add Student</h3>
-        <button onclick="closeAddStudentModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
-      </div>
-      
-      <form onsubmit="addStudent(event)" class="space-y-4">
-        <div>
-          <label class="block text-sm font-semibold mb-2">First Name</label>
-          <input type="text" id="studentFirstName" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Emma">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold mb-2">Last Name</label>
-          <input type="text" id="studentLastName" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Johnson">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold mb-2">Age</label>
-          <input type="number" id="studentAge" min="7" max="18" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="10">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold mb-2">Grade</label>
-          <select id="studentGrade" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
-            <option value="">Select grade...</option>
-            <option value="1st">1st Grade</option>
-            <option value="2nd">2nd Grade</option>
-            <option value="3rd">3rd Grade</option>
-            <option value="4th">4th Grade</option>
-            <option value="5th">5th Grade</option>
-            <option value="6th">6th Grade</option>
-            <option value="7th">7th Grade</option>
-            <option value="8th">8th Grade</option>
-            <option value="9th">9th Grade</option>
-            <option value="10th">10th Grade</option>
-            <option value="11th">11th Grade</option>
-            <option value="12th">12th Grade</option>
-          </select>
-        </div>
-        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold">
-          Add Student
-        </button>
-      </form>
+    <!-- Page Title -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold mb-2">👨‍👩‍👧‍👦 Parent Dashboard</h1>
+        <p class="text-gray-400">Monitor your children's creative learning journey</p>
     </div>
-  </div>
 
-  <!-- Browse Courses Modal -->
-  <div id="coursesModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
-    <div class="glass rounded-2xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-      <div class="flex justify-between items-center mb-6">
-        <h3 class="text-2xl font-bold">Browse Courses</h3>
-        <button onclick="closeCoursesModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
-      </div>
-      
-      <div id="coursesLoading" class="text-center py-12">
-        <div class="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-        <p class="text-gray-400">Loading courses...</p>
-      </div>
-
-      <div id="coursesGrid" class="hidden grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-    </div>
-  </div>
-
-  <!-- Enroll Student Modal -->
-  <div id="enrollModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
-    <div class="glass rounded-2xl p-8 max-w-md w-full mx-4">
-      <div class="flex justify-between items-center mb-6">
-        <h3 class="text-2xl font-bold">Enroll Student</h3>
-        <button onclick="closeEnrollModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
-      </div>
-      
-      <div class="mb-6">
-        <h4 class="text-lg font-semibold mb-2" id="enrollCourseName">Course Name</h4>
-        <p class="text-gray-400 text-sm" id="enrollCourseDescription">Course description</p>
-      </div>
-
-      <form onsubmit="enrollStudent(event)" class="space-y-4">
-        <div>
-          <label class="block text-sm font-semibold mb-2">Select Student</label>
-          <select id="enrollStudentSelect" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
-            <option value="">Choose a student...</option>
-          </select>
+    <!-- Children's Progress -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold">Your Children</h2>
+            <button onclick="alert('Add child feature coming soon!')" class="px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg font-medium transition-all">
+                <i class="fas fa-plus mr-2"></i>Add Child
+            </button>
         </div>
-        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold">
-          Enroll Now
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    const API_BASE = window.location.origin;
-    let currentCourseId = null;
-    let students = [];
-
-    // Check authentication
-    const token = localStorage.getItem('auth_token');
-    if (!token) {
-      window.location.href = '/education/login';
-    }
-
-    // Logout
-    function logout() {
-      localStorage.removeItem('token');
-      window.location.href = '/education/login';
-    }
-
-    // Load dashboard data
-    async function loadDashboard() {
-      try {
-        // Load user info
-        const userRes = await fetch(`${API_BASE}/api/auth/me`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        if (!userRes.ok) throw new Error('Auth failed');
-        const userData = await userRes.json();
-        document.getElementById('parentName').textContent = userData.user.first_name || userData.user.email;
-
-        // Load students
-        await loadStudents();
-
-      } catch (error) {
-        console.error('Dashboard error:', error);
-        alert('Failed to load dashboard. Please refresh.');
-      }
-    }
-
-    // Load students
-    async function loadStudents() {
-      try {
-        const res = await fetch(`${API_BASE}/api/students/my-students`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        if (!res.ok) throw new Error('Failed to load students');
-        const data = await res.json();
-        students = data.students || [];
-
-        document.getElementById('studentsLoading').classList.add('hidden');
         
-        if (students.length === 0) {
-          document.getElementById('studentsEmpty').classList.remove('hidden');
-          document.getElementById('studentsGrid').classList.add('hidden');
-        } else {
-          document.getElementById('studentsEmpty').classList.add('hidden');
-          document.getElementById('studentsGrid').classList.remove('hidden');
-          renderStudents();
-        }
-      } catch (error) {
-        console.error('Load students error:', error);
-        document.getElementById('studentsLoading').innerHTML = `
-          <p class="text-red-400">Failed to load students. Please refresh.</p>
-        `;
-      }
-    }
-
-    // Render students grid
-    function renderStudents() {
-      const grid = document.getElementById('studentsGrid');
-      grid.innerHTML = students.map(s => `
-        <div class="glass p-6 rounded-xl hover:bg-white/10 transition">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h4 class="text-xl font-semibold">${s.first_name} ${s.last_name}</h4>
-              <p class="text-sm text-gray-400">${s.age ? `Age ${s.age}` : 'Age not set'} ${s.grade ? `• ${s.grade}` : ''}</p>
+        <div id="childrenGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="text-center py-12 col-span-full">
+                <div class="animate-pulse">
+                    <i class="fas fa-spinner fa-spin text-3xl text-teal-400 mb-3"></i>
+                    <p class="text-gray-400">Loading children...</p>
+                </div>
             </div>
-            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-semibold">
-              ${s.enrollment_status || 'Active'}
-            </span>
-          </div>
-          <div class="grid grid-cols-3 gap-4 text-center py-4 border-t border-white/10">
-            <div>
-              <p class="text-2xl font-bold text-teal-400">${s.courses_enrolled || 0}</p>
-              <p class="text-xs text-gray-400">Courses</p>
-            </div>
-            <div>
-              <p class="text-2xl font-bold text-purple-400">${s.classes_attended || 0}</p>
-              <p class="text-xs text-gray-400">Classes</p>
-            </div>
-            <div>
-              <p class="text-2xl font-bold text-yellow-400">0</p>
-              <p class="text-xs text-gray-400">Badges</p>
-            </div>
-          </div>
-          <button onclick="showCoursesForStudent('${s.id}')" class="w-full mt-4 btn-primary py-2 rounded-lg text-sm font-semibold">
-            Enroll in Course
-          </button>
         </div>
-      `).join('');
-    }
+    </div>
 
-    // Add student modal
-    function showAddStudentModal() {
-      document.getElementById('addStudentModal').classList.add('active');
-    }
-
-    function closeAddStudentModal() {
-      document.getElementById('addStudentModal').classList.remove('active');
-      document.getElementById('studentFirstName').value = '';
-      document.getElementById('studentLastName').value = '';
-      document.getElementById('studentAge').value = '';
-      document.getElementById('studentGrade').value = '';
-    }
-
-    async function addStudent(e) {
-      e.preventDefault();
-      
-      const firstName = document.getElementById('studentFirstName').value;
-      const lastName = document.getElementById('studentLastName').value;
-      const age = document.getElementById('studentAge').value;
-      const grade = document.getElementById('studentGrade').value;
-
-      try {
-        const res = await fetch(`${API_BASE}/api/students/add`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify({ firstName, lastName, age: age ? parseInt(age) : null, grade: grade || null })
-        });
-
-        if (!res.ok) {
-          const error = await res.json();
-          throw new Error(error.message || 'Failed to add student');
-        }
-
-        alert('Student added successfully! ✅');
-        closeAddStudentModal();
-        await loadStudents();
-      } catch (error) {
-        console.error('Add student error:', error);
-        alert('Failed to add student: ' + error.message);
-      }
-    }
-
-    // Browse courses modal
-    function showCoursesModal() {
-      document.getElementById('coursesModal').classList.add('active');
-      loadCourses();
-    }
-
-    function closeCoursesModal() {
-      document.getElementById('coursesModal').classList.remove('active');
-    }
-
-    function showCoursesForStudent(studentId) {
-      showCoursesModal();
-    }
-
-    async function loadCourses() {
-      try {
-        const res = await fetch(`${API_BASE}/api/courses/browse`);
-        if (!res.ok) throw new Error('Failed to load courses');
-        const data = await res.json();
-        const courses = data.courses || [];
-
-        document.getElementById('coursesLoading').classList.add('hidden');
-        
-        const grid = document.getElementById('coursesGrid');
-        grid.classList.remove('hidden');
-        
-        if (courses.length === 0) {
-          grid.innerHTML = '<p class="text-center text-gray-400 col-span-full py-12">No courses available yet.</p>';
-        } else {
-          grid.innerHTML = courses.map(c => `
-            <div class="glass p-6 rounded-xl hover:bg-white/10 transition">
-              ${c.thumbnail_url ? `<img src="${c.thumbnail_url}" class="w-full h-40 object-cover rounded-lg mb-4" alt="${c.title}">` : '<div class="w-full h-40 bg-gradient-to-br from-teal-500 to-purple-500 rounded-lg mb-4 flex items-center justify-center text-4xl">📸</div>'}
-              <h4 class="text-lg font-semibold mb-2">${c.title}</h4>
-              <p class="text-sm text-gray-400 mb-4">${c.description || 'Learn the fundamentals of photography'}</p>
-              <div class="flex items-center justify-between mb-4 text-sm">
-                <span class="text-teal-400 font-semibold">$${c.price_monthly || 49}/month</span>
-                <span class="text-gray-400">${c.total_classes || 0} classes</span>
-              </div>
-              <button onclick="selectCourse('${c.id}', '${c.title.replace(/'/g, "\\'")}', '${(c.description || '').replace(/'/g, "\\'")})" class="w-full btn-primary py-2 rounded-lg text-sm font-semibold">
-                Enroll Student
-              </button>
+    <!-- Footer -->
+    <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-3">
+                <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-6">
+                <span>•</span>
+                <span>Creator Academy</span>
+                <span>•</span>
+                <span>© 2026</span>
             </div>
-          `).join('');
-        }
-      } catch (error) {
-        console.error('Load courses error:', error);
-        document.getElementById('coursesLoading').innerHTML = '<p class="text-red-400">Failed to load courses.</p>';
-      }
-    }
+            <div class="flex items-center gap-4">
+                <a href="/curriculum" class="hover:text-teal-400 transition-colors">View Curriculum</a>
+            </div>
+        </div>
+    </div>
 
-    // Enroll modal
-    function selectCourse(courseId, courseName, courseDescription) {
-      currentCourseId = courseId;
-      document.getElementById('enrollCourseName').textContent = courseName;
-      document.getElementById('enrollCourseDescription').textContent = courseDescription;
-      
-      // Populate student dropdown
-      const select = document.getElementById('enrollStudentSelect');
-      select.innerHTML = '<option value="">Choose a student...</option>' + 
-        students.map(s => `<option value="${s.id}">${s.first_name} ${s.last_name}</option>`).join('');
-      
-      closeCoursesModal();
-      document.getElementById('enrollModal').classList.add('active');
-    }
+    <script>
+        const API_BASE = window.location.origin;
+        const token = localStorage.getItem('auth_token');
+        let currentUser = null;
 
-    function closeEnrollModal() {
-      document.getElementById('enrollModal').classList.remove('active');
-      currentCourseId = null;
-    }
-
-    async function enrollStudent(e) {
-      e.preventDefault();
-      
-      const studentId = document.getElementById('enrollStudentSelect').value;
-      if (!studentId || !currentCourseId) {
-        alert('Please select a student');
-        return;
-      }
-
-      try {
-        const res = await fetch(`${API_BASE}/api/enrollments/create`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify({ studentId, courseId: currentCourseId })
-        });
-
-        if (!res.ok) {
-          const error = await res.json();
-          throw new Error(error.message || 'Failed to enroll');
+        if (!token) {
+            window.location.href = '/education/login';
         }
 
-        alert('Student enrolled successfully! 🎉');
-        closeEnrollModal();
-        await loadStudents();
-      } catch (error) {
-        console.error('Enroll error:', error);
-        alert('Failed to enroll: ' + error.message);
-      }
-    }
+        // Initialize
+        async function init() {
+            try {
+                const userResponse = await fetch(`${API_BASE}/api/auth/me`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!userResponse.ok) throw new Error('Auth failed');
+                
+                const userData = await userResponse.json();
+                currentUser = userData.user;
+                
+                if (currentUser.role !== 'parent') {
+                    alert('Access denied: Parent accounts only');
+                    window.location.href = '/education/login';
+                    return;
+                }
+                
+                document.getElementById('parentName').textContent = currentUser.first_name || currentUser.email;
+                
+                await loadChildren();
+                
+            } catch (error) {
+                console.error('Init error:', error);
+                alert('Failed to load dashboard. Please login again.');
+                window.location.href = '/education/login';
+            }
+        }
 
-    // Load subscription
-    async function loadSubscription() {
-      // Placeholder - implement subscription fetching later
-      document.getElementById('billingSection').classList.remove('hidden');
-    }
+        // Load children (simplified - shows message for MVP)
+        async function loadChildren() {
+            // For MVP, show coming soon message
+            document.getElementById('childrenGrid').innerHTML = `
+                <div class="text-center py-12 col-span-full">
+                    <div class="text-6xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-bold mb-2">Parent Portal Coming Soon!</h3>
+                    <p class="text-gray-400 mb-6">We're building an amazing parent dashboard where you can:</p>
+                    <div class="max-w-md mx-auto text-left space-y-2 mb-6">
+                        <p class="text-gray-400"><i class="fas fa-check text-teal-400 mr-2"></i>Monitor your child's progress</p>
+                        <p class="text-gray-400"><i class="fas fa-check text-teal-400 mr-2"></i>View completed lessons and projects</p>
+                        <p class="text-gray-400"><i class="fas fa-check text-teal-400 mr-2"></i>Track achievements and badges</p>
+                        <p class="text-gray-400"><i class="fas fa-check text-teal-400 mr-2"></i>Manage multiple children</p>
+                        <p class="text-gray-400"><i class="fas fa-check text-teal-400 mr-2"></i>Download progress reports</p>
+                    </div>
+                    <p class="text-sm text-gray-500">For now, your children can access their learning through their own accounts.</p>
+                </div>
+            `;
+        }
 
-    // Initialize
-    loadDashboard();
-  </script>
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('auth_token');
+                window.location.href = '/education/login';
+            }
+        }
 
+        init();
+    </script>
 </body>
 </html>
