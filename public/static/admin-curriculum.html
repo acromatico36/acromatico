@@ -176,14 +176,20 @@
                 const data = await response.json();
                 console.log('✅ User data:', data);
                 
-                if (data.role !== 'admin') {
-                    console.error('❌ Wrong role:', data.role);
-                    alert('Access denied: Admin only. Your role: ' + data.role);
+                // Check if user exists
+                if (!data.user) {
+                    console.error('❌ No user object in response');
+                    throw new Error('Invalid response from server');
+                }
+                
+                if (data.user.role !== 'admin') {
+                    console.error('❌ Wrong role:', data.user.role);
+                    alert('Access denied: Admin only. Your role: ' + data.user.role);
                     window.location.href = '/education/login';
                     return;
                 }
                 
-                document.getElementById('adminName').textContent = data.first_name || data.email;
+                document.getElementById('adminName').textContent = data.user.first_name || data.user.email;
                 
                 // Load data
                 await loadStats();
