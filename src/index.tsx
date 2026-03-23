@@ -778,6 +778,124 @@ app.post('/api/admin/curriculum/seed', async (c) => {
 })
 
 // ============================================================
+// ADMIN CURRICULUM MANAGEMENT API
+// ============================================================
+
+// GET /api/admin/curriculum/modules - Get all modules overview
+app.get('/api/admin/curriculum/modules', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const { getAllModules } = await import('./api/curriculum-admin')
+    
+    const modules = await getAllModules(DB_EDUCATION)
+    
+    return c.json({
+      success: true,
+      data: modules
+    })
+  } catch (error: any) {
+    console.error('Get modules error:', error)
+    return c.json({ success: false, message: error.message }, 500)
+  }
+})
+
+// GET /api/admin/curriculum/module/:id - Get module detail with weeks and lessons
+app.get('/api/admin/curriculum/module/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const moduleId = c.req.param('id')
+    const { getModuleDetail } = await import('./api/curriculum-admin')
+    
+    const detail = await getModuleDetail(DB_EDUCATION, moduleId)
+    
+    return c.json({
+      success: true,
+      data: detail
+    })
+  } catch (error: any) {
+    console.error('Get module detail error:', error)
+    return c.json({ success: false, message: error.message }, 500)
+  }
+})
+
+// POST /api/admin/curriculum/lesson - Create new lesson placeholder
+app.post('/api/admin/curriculum/lesson', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const lessonData = await c.req.json()
+    const { createLessonPlaceholder } = await import('./api/curriculum-admin')
+    
+    const lessonId = await createLessonPlaceholder(DB_EDUCATION, lessonData)
+    
+    return c.json({
+      success: true,
+      message: 'Lesson placeholder created',
+      lessonId
+    })
+  } catch (error: any) {
+    console.error('Create lesson error:', error)
+    return c.json({ success: false, message: error.message }, 500)
+  }
+})
+
+// PUT /api/admin/curriculum/lesson/:id - Update lesson (upload video/PDF)
+app.put('/api/admin/curriculum/lesson/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const lessonId = c.req.param('id')
+    const updates = await c.req.json()
+    const { updateLesson } = await import('./api/curriculum-admin')
+    
+    await updateLesson(DB_EDUCATION, lessonId, updates)
+    
+    return c.json({
+      success: true,
+      message: 'Lesson updated successfully'
+    })
+  } catch (error: any) {
+    console.error('Update lesson error:', error)
+    return c.json({ success: false, message: error.message }, 500)
+  }
+})
+
+// DELETE /api/admin/curriculum/lesson/:id - Delete lesson
+app.delete('/api/admin/curriculum/lesson/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const lessonId = c.req.param('id')
+    const { deleteLesson } = await import('./api/curriculum-admin')
+    
+    await deleteLesson(DB_EDUCATION, lessonId)
+    
+    return c.json({
+      success: true,
+      message: 'Lesson deleted successfully'
+    })
+  } catch (error: any) {
+    console.error('Delete lesson error:', error)
+    return c.json({ success: false, message: error.message }, 500)
+  }
+})
+
+// GET /api/admin/curriculum/stats - Get curriculum statistics
+app.get('/api/admin/curriculum/stats', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const { getCurriculumStats } = await import('./api/curriculum-admin')
+    
+    const stats = await getCurriculumStats(DB_EDUCATION)
+    
+    return c.json({
+      success: true,
+      data: stats
+    })
+  } catch (error: any) {
+    console.error('Get stats error:', error)
+    return c.json({ success: false, message: error.message }, 500)
+  }
+})
+
+// ============================================================
 // DASHBOARD DATA API - REAL DATABASE QUERIES
 // ============================================================
 
@@ -7015,6 +7133,7 @@ app.get('/education/reset-password', (c) => c.redirect('/education-reset-passwor
 app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
 app.get('/parent/dashboard', (c) => c.redirect('/static/parent-dashboard.html'))
 app.get('/admin/dashboard', (c) => c.redirect('/static/admin-dashboard.html'))
+app.get('/admin/curriculum', (c) => c.redirect('/static/admin-curriculum.html'))
 app.get('/admin/crm', (c) => c.redirect('/static/admin-crm.html'))
 
 // Brand Intelligence Assessment - Instant-Start AI-Powered Tool  

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Manager - Acromatico Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+        }
+        .glass {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary {
+            background: #4794A6;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #5aa5b8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(71, 148, 166, 0.5);
+        }
+        .module-card {
+            background: rgba(40, 40, 40, 0.5);
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+        .module-card:hover {
+            background: rgba(50, 50, 50, 0.7);
+            transform: translateX(5px);
+        }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(71, 148, 166, 0.2) 0%, rgba(71, 148, 166, 0.05) 100%);
+            border: 1px solid rgba(71, 148, 166, 0.3);
+        }
+        .lesson-placeholder {
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .lesson-placeholder:hover {
+            border-color: #4794A6;
+            background: rgba(40, 40, 40, 0.9);
+        }
+        .upload-zone {
+            border: 2px dashed rgba(71, 148, 166, 0.5);
+            background: rgba(71, 148, 166, 0.1);
+            transition: all 0.3s ease;
+        }
+        .upload-zone:hover {
+            border-color: #4794A6;
+            background: rgba(71, 148, 166, 0.2);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border: 1px solid rgba(71, 148, 166, 0.3);
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Top Bar -->
+    <div class="glass sticky top-0 z-50 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <img src="/static/acromatico-logo-white-best.png" alt="Acromatico" class="h-8">
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full" style="background: #4794A6; color: white;">
+                        CURRICULUM MANAGER
+                    </span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-gray-400">Admin: <span id="adminName" class="text-white font-semibold">Loading...</span></span>
+                    <button onclick="window.location.href='/admin/dashboard'" class="px-4 py-2 text-sm font-medium text-white bg-gray-700 hover:bg-gray-600 rounded-lg transition">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Stats Overview -->
+        <div id="statsOverview" class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <!-- Stats will be loaded here -->
+        </div>
+
+        <!-- Modules Grid -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-white">
+                    <i class="fas fa-graduation-cap text-teal-400 mr-2"></i>
+                    12-Month Curriculum
+                </h2>
+                <button onclick="window.location.reload()" class="px-4 py-2 text-sm font-medium text-white glass rounded-lg hover:bg-gray-700 transition">
+                    <i class="fas fa-sync-alt mr-2"></i>Refresh
+                </button>
+            </div>
+            
+            <div id="modulesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Modules will be loaded here -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Module Detail Modal -->
+    <div id="moduleModal" class="modal">
+        <div class="modal-content rounded-xl p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-6">
+                <h3 id="modalTitle" class="text-2xl font-bold text-white"></h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="modalContent" class="space-y-6">
+                <!-- Module detail content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        const token = localStorage.getItem('auth_token');
+
+        if (!token) {
+            window.location.href = '/education/login';
+        }
+
+        // Fetch user info
+        async function init() {
+            try {
+                const response = await fetch(`${API_BASE}/api/auth/me`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!response.ok) throw new Error('Auth failed');
+                
+                const data = await response.json();
+                
+                if (data.role !== 'admin') {
+                    alert('Access denied: Admin only');
+                    window.location.href = '/education/login';
+                    return;
+                }
+                
+                document.getElementById('adminName').textContent = data.first_name || data.email;
+                
+                // Load data
+                await loadStats();
+                await loadModules();
+                
+            } catch (error) {
+                console.error('Init error:', error);
+                alert('Failed to initialize. Please login again.');
+                window.location.href = '/education/login';
+            }
+        }
+
+        // Load curriculum stats
+        async function loadStats() {
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/stats`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const stats = data.data;
+                    document.getElementById('statsOverview').innerHTML = `
+                        <div class="stat-card rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-400 text-sm mb-1">Total Modules</p>
+                                    <p class="text-3xl font-bold text-white">${stats.total_modules || 12}</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center">
+                                    <i class="fas fa-book text-teal-400 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-400 text-sm mb-1">Total Weeks</p>
+                                    <p class="text-3xl font-bold text-white">${stats.total_weeks || 48}</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                                    <i class="fas fa-calendar-week text-purple-400 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-400 text-sm mb-1">Uploaded Lessons</p>
+                                    <p class="text-3xl font-bold text-white">${stats.uploaded_lessons || 0}</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+                                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-400 text-sm mb-1">Awaiting Content</p>
+                                    <p class="text-3xl font-bold text-white">${stats.awaiting_lessons || 0}</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center">
+                                    <i class="fas fa-clock text-orange-400 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Load stats error:', error);
+            }
+        }
+
+        // Load all modules
+        async function loadModules() {
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/modules`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const modules = data.data;
+                    document.getElementById('modulesGrid').innerHTML = modules.map(module => `
+                        <div class="module-card rounded-xl p-6 cursor-pointer" 
+                             style="border-color: ${module.theme_color}"
+                             onclick="openModuleDetail('${module.id}')">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <div class="text-3xl mb-2">${module.emoji}</div>
+                                    <h3 class="text-lg font-bold text-white mb-1">${module.title}</h3>
+                                    <p class="text-sm text-gray-400">${module.subtitle}</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-gray-700 text-gray-300">
+                                    Q${module.quarter}
+                                </span>
+                            </div>
+                            
+                            <div class="pt-4 border-t border-gray-700">
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-gray-400">
+                                        <i class="fas fa-calendar-week mr-2"></i>${module.week_count} weeks
+                                    </span>
+                                    <button class="text-teal-400 hover:text-teal-300 font-medium">
+                                        Manage <i class="fas fa-arrow-right ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Load modules error:', error);
+            }
+        }
+
+        // Open module detail modal
+        async function openModuleDetail(moduleId) {
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/module/${moduleId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const { module, weeks, lessons } = data.data;
+                    
+                    document.getElementById('modalTitle').innerHTML = `
+                        ${module.emoji} ${module.title}
+                        <span class="text-sm font-normal text-gray-400 ml-3">${module.month_name}</span>
+                    `;
+                    
+                    document.getElementById('modalContent').innerHTML = `
+                        <div class="bg-gray-800/50 rounded-lg p-6 mb-6">
+                            <h4 class="text-lg font-semibold text-white mb-2">${module.adventure_title}</h4>
+                            <p class="text-gray-300 mb-4">${module.adventure_desc}</p>
+                            <p class="text-sm text-gray-400">${module.description}</p>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            ${weeks.map(week => `
+                                <div class="glass rounded-lg p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-2xl">${week.emoji}</span>
+                                            <div>
+                                                <h5 class="text-lg font-semibold text-white">Week ${week.week_number}: ${week.title}</h5>
+                                                <p class="text-sm text-gray-400">${week.subtitle}</p>
+                                            </div>
+                                        </div>
+                                        <button onclick="addLesson('${module.id}', '${week.id}')" 
+                                                class="px-4 py-2 btn-primary text-white text-sm rounded-lg font-medium">
+                                            <i class="fas fa-plus mr-2"></i>Add Lesson
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 gap-3 mt-4">
+                                        ${lessons.filter(l => l.week_id === week.id).map(lesson => `
+                                            <div class="lesson-placeholder rounded-lg p-4">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3">
+                                                        <div class="w-10 h-10 rounded-lg bg-gray-700 flex items-center justify-center">
+                                                            <i class="fas fa-video text-teal-400"></i>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-white font-medium">${lesson.title}</p>
+                                                            <p class="text-xs text-gray-400">
+                                                                <span class="px-2 py-1 rounded-full ${
+                                                                    lesson.upload_status === 'uploaded' ? 'bg-green-500/20 text-green-400' : 
+                                                                    lesson.upload_status === 'processing' ? 'bg-yellow-500/20 text-yellow-400' : 
+                                                                    'bg-gray-700 text-gray-400'
+                                                                }">
+                                                                    ${lesson.upload_status}
+                                                                </span>
+                                                                <span class="ml-2">${lesson.duration_min} min</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <button onclick="editLesson('${lesson.id}')" 
+                                                                class="px-3 py-1 text-sm text-teal-400 hover:text-teal-300">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button onclick="deleteLesson('${lesson.id}')" 
+                                                                class="px-3 py-1 text-sm text-red-400 hover:text-red-300">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        `).join('') || '<p class="text-gray-500 text-sm italic py-4">No lessons yet. Click "Add Lesson" to create video/PDF placeholders.</p>'}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    
+                    document.getElementById('moduleModal').classList.add('active');
+                }
+            } catch (error) {
+                console.error('Load module detail error:', error);
+                alert('Failed to load module details');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('moduleModal').classList.remove('active');
+        }
+
+        function addLesson(moduleId, weekId) {
+            alert(`Add lesson functionality coming soon!\nModule: ${moduleId}\nWeek: ${weekId}`);
+            // TODO: Implement lesson creation form
+        }
+
+        function editLesson(lessonId) {
+            alert(`Edit lesson functionality coming soon!\nLesson ID: ${lessonId}`);
+            // TODO: Implement lesson edit/upload form
+        }
+
+        async function deleteLesson(lessonId) {
+            if (!confirm('Delete this lesson?')) return;
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/lesson/${lessonId}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('Lesson deleted successfully!');
+                    location.reload();
+                } else {
+                    alert('Failed to delete lesson: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Delete lesson error:', error);
+                alert('Failed to delete lesson');
+            }
+        }
+
+        // Close modal on outside click
+        document.getElementById('moduleModal').addEventListener('click', (e) => {
+            if (e.target.id === 'moduleModal') {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        init();
+    </script>
+
+</body>
+</html>
