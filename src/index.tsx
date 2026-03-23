@@ -886,7 +886,18 @@ app.get('/api/student/progress/:lessonId', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const lessonId = c.req.param('lessonId')
-    const userId = c.get('userId') // From auth middleware
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId
     
     const progress = await DB_EDUCATION.prepare(`
       SELECT * FROM curriculum_progress 
@@ -907,7 +918,18 @@ app.get('/api/student/progress/:lessonId', async (c) => {
 app.post('/api/student/progress', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
-    const userId = c.get('userId') // From auth middleware
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId
     const body = await c.req.json()
     const { lesson_id, module_id, week_id, watch_time_seconds, progress_percent, status } = body
     
@@ -968,7 +990,18 @@ app.post('/api/student/progress', async (c) => {
 app.get('/api/student/progress/all', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
-    const userId = c.get('userId') // From auth middleware
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId
     
     const { results } = await DB_EDUCATION.prepare(`
       SELECT * FROM curriculum_progress 
@@ -995,7 +1028,18 @@ app.get('/api/student/submissions/:moduleId', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const moduleId = c.req.param('moduleId')
-    const userId = c.get('userId')
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId
     
     const { results } = await DB_EDUCATION.prepare(`
       SELECT * FROM curriculum_submissions 
@@ -1017,7 +1061,19 @@ app.get('/api/student/submissions/:moduleId', async (c) => {
 app.post('/api/student/submissions', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
-    const userId = c.get('userId')
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId
+    
     const body = await c.req.json()
     const { module_id, project_title, caption, media_url, media_type } = body
     
@@ -1053,7 +1109,19 @@ app.put('/api/student/submissions/:id', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const submissionId = c.req.param('id')
-    const userId = c.get('userId')
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId
+    
     const body = await c.req.json()
     const { project_title, caption } = body
     
@@ -1078,7 +1146,18 @@ app.delete('/api/student/submissions/:id', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const submissionId = c.req.param('id')
-    const userId = c.get('userId')
+    
+    // Get userId from token
+    const authHeader = c.req.header('Authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ success: false, error: 'No token provided' }, 401)
+    }
+    const token = authHeader.substring(7)
+    const payload = verifyToken(token)
+    if (!payload) {
+      return c.json({ success: false, error: 'Invalid token' }, 401)
+    }
+    const userId = payload.userId
     
     await DB_EDUCATION.prepare(`
       DELETE FROM curriculum_submissions 
