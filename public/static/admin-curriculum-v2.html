@@ -365,6 +365,14 @@
             }
         }
 
+        // Quarter brand colors - Acromatico style
+        const quarterColors = {
+            1: '#14b8a6', // Q1 - Teal (Acromatico primary)
+            2: '#f59e0b', // Q2 - Amber/Gold
+            3: '#8b5cf6', // Q3 - Purple
+            4: '#06b6d4'  // Q4 - Cyan
+        };
+
         // Load all modules
         async function loadModules() {
             try {
@@ -375,9 +383,11 @@
                 const data = await response.json();
                 if (data.success) {
                     const modules = data.data;
-                    document.getElementById('modulesGrid').innerHTML = modules.map(module => `
+                    document.getElementById('modulesGrid').innerHTML = modules.map(module => {
+                        const borderColor = quarterColors[module.quarter] || '#14b8a6';
+                        return `
                         <div class="module-card rounded-xl p-6 cursor-pointer" 
-                             style="border-color: ${module.theme_color}"
+                             style="border-color: ${borderColor}"
                              onclick="openModuleDetail('${module.id}')">
                             <div class="flex items-start justify-between mb-4">
                                 <div>
@@ -385,7 +395,8 @@
                                     <h3 class="text-lg font-bold text-white mb-1">${module.title}</h3>
                                     <p class="text-sm text-gray-400">${module.subtitle}</p>
                                 </div>
-                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-gray-700 text-gray-300">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full" 
+                                      style="background-color: ${borderColor}20; color: ${borderColor}">
                                     Q${module.quarter}
                                 </span>
                             </div>
@@ -394,11 +405,12 @@
                                     <span class="text-gray-400">
                                         <i class="fas fa-calendar mr-1"></i>${module.week_count || 4} weeks
                                     </span>
-                                    <span class="text-teal-400 font-medium">Manage →</span>
+                                    <span class="font-medium" style="color: ${borderColor}">Manage →</span>
                                 </div>
                             </div>
                         </div>
-                    `).join('');
+                        `;
+                    }).join('');
                 }
             } catch (error) {
                 console.error('Load modules error:', error);
