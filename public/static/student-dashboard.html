@@ -241,6 +241,11 @@
                 
                 console.log('✅ User loaded:', currentUser.first_name);
                 
+                // Check enrollment status (if user is a student profile linked to parent)
+                if (currentUser.role === 'student') {
+                    await checkEnrollmentStatus();
+                }
+                
                 document.getElementById('studentName').textContent = currentUser.first_name || currentUser.email.split('@')[0];
                 
                 // Load current month (January for now)
@@ -255,6 +260,26 @@
                 alert('Failed to load dashboard. Please login again.');
                 localStorage.removeItem('auth_token');
                 window.location.href = '/education/login';
+            }
+        }
+        
+        // Check enrollment status (for student accounts linked to parents)
+        async function checkEnrollmentStatus() {
+            try {
+                // For MVP, we'll assume all students have access
+                // In production, you'd check the students table enrollment_status
+                // and show a message if status is 'paused' or 'inactive'
+                
+                // TODO: Add API endpoint to check student enrollment status
+                // const response = await fetch(`${API_BASE}/api/student/enrollment-status`, {
+                //     headers: { 'Authorization': `Bearer ${token}` }
+                // });
+                // const data = await response.json();
+                // if (data.status === 'inactive' || data.status === 'paused') {
+                //     showEnrollmentWarning(data.status);
+                // }
+            } catch (error) {
+                console.log('Enrollment check skipped (not a child account)');
             }
         }
 
