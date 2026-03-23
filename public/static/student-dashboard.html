@@ -453,14 +453,20 @@
             }
         }
 
-        // Open lesson modal
-        function openLesson(lessonId) {
+        // Video player state
+        let currentVideo = null;
+        let videoProgressInterval = null;
+        let currentLessonId = null;
+
+        // Open lesson modal with video player
+        async function openLesson(lessonId) {
             const lesson = allLessons.find(l => l.id === lessonId);
             if (!lesson) {
                 alert('Lesson not found!');
                 return;
             }
             
+            currentLessonId = lessonId;
             const week = allWeeks.find(w => w.id === lesson.week_id);
             
             document.getElementById('lessonTitle').textContent = lesson.title;
@@ -468,23 +474,105 @@
             
             const quarterColor = getQuarterColor(currentModule.quarter);
             
+            // Load saved progress
+            let savedProgress = null;
+            try {
+                const progressResponse = await fetch(`${API_BASE}/api/student/progress/${lessonId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const progressData = await progressResponse.json();
+                if (progressData.success && progressData.data) {
+                    savedProgress = progressData.data;
+                }
+            } catch (error) {
+                console.log('No saved progress found');
+            }
+            
             document.getElementById('lessonContent').innerHTML = `
                 <div class="space-y-6">
                     ${lesson.video_url ? `
-                        <div class="aspect-video bg-black rounded-xl overflow-hidden border border-teal-500/30">
-                            <div class="flex flex-col items-center justify-center h-full p-8 text-center">
-                                <i class="fas fa-play-circle text-6xl text-teal-400 mb-6 animate-pulse"></i>
-                                <h4 class="text-xl font-bold mb-2">Video Player Coming Soon!</h4>
-                                <p class="text-gray-400 mb-4">We're building an amazing video experience for you.</p>
-                                <p class="text-sm text-gray-500 mt-4 font-mono">${lesson.video_url}</p>
+                        <div class="relative">
+                            <!-- Video Player -->
+                            <div class="aspect-video bg-black rounded-xl overflow-hidden border border-teal-500/30 relative group">
+                                <video id="lessonVideo" class="w-full h-full" preload="metadata">
+                                    <source src="${lesson.video_url}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <!-- Custom Controls -->
+                                <div id="videoControls" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <!-- Progress Bar -->
+                                    <div class="mb-3">
+                                        <input type="range" id="videoProgress" min="0" max="100" value="0" 
+                                               class="w-full h-1 rounded-lg appearance-none cursor-pointer bg-gray-600"
+                                               style="accent-color: ${quarterColor}">
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between gap-4">
+                                        <!-- Left Controls -->
+                                        <div class="flex items-center gap-3">
+                                            <button id="playPauseBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                <i class="fas fa-play text-2xl"></i>
+                                            </button>
+                                            <button id="skipBackBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                <i class="fas fa-backward text-lg"></i>
+                                            </button>
+                                            <button id="skipForwardBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                <i class="fas fa-forward text-lg"></i>
+                                            </button>
+                                            <div class="flex items-center gap-2">
+                                                <button id="volumeBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                    <i class="fas fa-volume-up"></i>
+                                                </button>
+                                                <input type="range" id="volumeSlider" min="0" max="100" value="100" 
+                                                       class="w-20 h-1 rounded-lg appearance-none cursor-pointer bg-gray-600"
+                                                       style="accent-color: ${quarterColor}">
+                                            </div>
+                                            <span id="videoTime" class="text-white text-sm font-mono">0:00 / 0:00</span>
+                                        </div>
+                                        
+                                        <!-- Right Controls -->
+                                        <div class="flex items-center gap-3">
+                                            <select id="speedControl" class="bg-gray-800 text-white text-sm rounded px-2 py-1 border border-gray-600">
+                                                <option value="0.5">0.5x</option>
+                                                <option value="0.75">0.75x</option>
+                                                <option value="1" selected>1x</option>
+                                                <option value="1.25">1.25x</option>
+                                                <option value="1.5">1.5x</option>
+                                                <option value="2">2x</option>
+                                            </select>
+                                            <button id="fullscreenBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                <i class="fas fa-expand"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Center Play Button -->
+                                <div id="centerPlayBtn" class="absolute inset-0 flex items-center justify-center cursor-pointer">
+                                    <div class="w-20 h-20 rounded-full bg-teal-500/80 hover:bg-teal-500 flex items-center justify-center transition-all hover:scale-110">
+                                        <i class="fas fa-play text-white text-3xl ml-1"></i>
+                                    </div>
+                                </div>
                             </div>
+                            
+                            <!-- Progress Indicator -->
+                            ${savedProgress ? `
+                                <div class="mt-3 p-3 bg-teal-500/20 border border-teal-500/30 rounded-lg">
+                                    <p class="text-sm text-teal-400">
+                                        <i class="fas fa-history mr-2"></i>
+                                        Resume from ${Math.floor(savedProgress.watch_time_seconds / 60)}:${String(savedProgress.watch_time_seconds % 60).padStart(2, '0')} 
+                                        (${savedProgress.progress_percent}% complete)
+                                    </p>
+                                </div>
+                            ` : ''}
                         </div>
                     ` : `
                         <div class="aspect-video bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-teal-500/30">
                             <div class="text-center">
                                 <div class="text-6xl mb-4">${currentModule.emoji}</div>
                                 <h4 class="text-2xl font-bold mb-2">${lesson.title}</h4>
-                                <p class="text-gray-400">Video content will be added soon!</p>
+                                <p class="text-gray-400">Video content coming soon!</p>
                             </div>
                         </div>
                     `}
@@ -526,10 +614,210 @@
             `;
             
             document.getElementById('lessonModal').classList.remove('hidden');
+            
+            // Initialize video player if video exists
+            if (lesson.video_url) {
+                setTimeout(() => initVideoPlayer(savedProgress), 100);
+            }
         }
 
         function closeModal() {
             document.getElementById('lessonModal').classList.add('hidden');
+            
+            // Stop video and clear progress tracking
+            if (currentVideo) {
+                currentVideo.pause();
+                currentVideo = null;
+            }
+            if (videoProgressInterval) {
+                clearInterval(videoProgressInterval);
+                videoProgressInterval = null;
+            }
+        }
+
+        // Initialize video player with all controls
+        function initVideoPlayer(savedProgress) {
+            currentVideo = document.getElementById('lessonVideo');
+            if (!currentVideo) return;
+            
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const centerPlayBtn = document.getElementById('centerPlayBtn');
+            const skipBackBtn = document.getElementById('skipBackBtn');
+            const skipForwardBtn = document.getElementById('skipForwardBtn');
+            const volumeBtn = document.getElementById('volumeBtn');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const videoProgress = document.getElementById('videoProgress');
+            const videoTime = document.getElementById('videoTime');
+            const speedControl = document.getElementById('speedControl');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            
+            // Resume from saved progress
+            if (savedProgress && savedProgress.watch_time_seconds) {
+                currentVideo.currentTime = savedProgress.watch_time_seconds;
+            }
+            
+            // Play/Pause
+            function togglePlayPause() {
+                if (currentVideo.paused) {
+                    currentVideo.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause text-2xl"></i>';
+                    centerPlayBtn.style.display = 'none';
+                } else {
+                    currentVideo.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play text-2xl"></i>';
+                    centerPlayBtn.style.display = 'flex';
+                }
+            }
+            
+            playPauseBtn.addEventListener('click', togglePlayPause);
+            centerPlayBtn.addEventListener('click', togglePlayPause);
+            currentVideo.addEventListener('click', togglePlayPause);
+            
+            // Skip controls
+            skipBackBtn.addEventListener('click', () => {
+                currentVideo.currentTime = Math.max(0, currentVideo.currentTime - 10);
+            });
+            
+            skipForwardBtn.addEventListener('click', () => {
+                currentVideo.currentTime = Math.min(currentVideo.duration, currentVideo.currentTime + 10);
+            });
+            
+            // Volume controls
+            volumeSlider.addEventListener('input', (e) => {
+                currentVideo.volume = e.target.value / 100;
+                updateVolumeIcon();
+            });
+            
+            volumeBtn.addEventListener('click', () => {
+                currentVideo.muted = !currentVideo.muted;
+                updateVolumeIcon();
+            });
+            
+            function updateVolumeIcon() {
+                if (currentVideo.muted || currentVideo.volume === 0) {
+                    volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                } else if (currentVideo.volume < 0.5) {
+                    volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+                } else {
+                    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                }
+            }
+            
+            // Progress bar
+            currentVideo.addEventListener('timeupdate', () => {
+                const percent = (currentVideo.currentTime / currentVideo.duration) * 100;
+                videoProgress.value = percent;
+                
+                const currentMin = Math.floor(currentVideo.currentTime / 60);
+                const currentSec = Math.floor(currentVideo.currentTime % 60);
+                const durationMin = Math.floor(currentVideo.duration / 60);
+                const durationSec = Math.floor(currentVideo.duration % 60);
+                
+                videoTime.textContent = `${currentMin}:${String(currentSec).padStart(2, '0')} / ${durationMin}:${String(durationSec).padStart(2, '0')}`;
+            });
+            
+            videoProgress.addEventListener('input', (e) => {
+                const time = (e.target.value / 100) * currentVideo.duration;
+                currentVideo.currentTime = time;
+            });
+            
+            // Speed control
+            speedControl.addEventListener('change', (e) => {
+                currentVideo.playbackRate = parseFloat(e.target.value);
+            });
+            
+            // Fullscreen
+            fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    currentVideo.parentElement.requestFullscreen();
+                    fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                } else {
+                    document.exitFullscreen();
+                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                }
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (!currentVideo || document.getElementById('lessonModal').classList.contains('hidden')) return;
+                
+                switch(e.key) {
+                    case ' ':
+                        e.preventDefault();
+                        togglePlayPause();
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        currentVideo.currentTime = Math.max(0, currentVideo.currentTime - 5);
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        currentVideo.currentTime = Math.min(currentVideo.duration, currentVideo.currentTime + 5);
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        currentVideo.volume = Math.min(1, currentVideo.volume + 0.1);
+                        volumeSlider.value = currentVideo.volume * 100;
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        currentVideo.volume = Math.max(0, currentVideo.volume - 0.1);
+                        volumeSlider.value = currentVideo.volume * 100;
+                        break;
+                    case 'f':
+                        e.preventDefault();
+                        fullscreenBtn.click();
+                        break;
+                }
+            });
+            
+            // Auto-save progress every 5 seconds
+            videoProgressInterval = setInterval(() => {
+                if (!currentVideo.paused && currentLessonId) {
+                    saveVideoProgress();
+                }
+            }, 5000);
+            
+            // Auto-complete at 90%
+            currentVideo.addEventListener('timeupdate', () => {
+                const percent = (currentVideo.currentTime / currentVideo.duration) * 100;
+                if (percent >= 90 && !userProgress[currentLessonId]) {
+                    markComplete(currentLessonId);
+                }
+            });
+        }
+
+        // Save video progress to database
+        async function saveVideoProgress() {
+            if (!currentVideo || !currentLessonId) return;
+            
+            const lesson = allLessons.find(l => l.id === currentLessonId);
+            if (!lesson) return;
+            
+            const watchTime = Math.floor(currentVideo.currentTime);
+            const progressPercent = Math.floor((currentVideo.currentTime / currentVideo.duration) * 100);
+            
+            try {
+                await fetch(`${API_BASE}/api/student/progress`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        lesson_id: currentLessonId,
+                        module_id: lesson.module_id,
+                        week_id: lesson.week_id,
+                        watch_time_seconds: watchTime,
+                        progress_percent: progressPercent,
+                        status: progressPercent >= 90 ? 'completed' : 'in_progress'
+                    })
+                });
+                
+                console.log('✅ Progress saved:', watchTime, 'seconds,', progressPercent, '%');
+            } catch (error) {
+                console.error('💥 Save progress error:', error);
+            }
         }
 
         // Mark lesson complete

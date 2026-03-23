@@ -877,6 +877,115 @@ app.delete('/api/admin/curriculum/lesson/:id', async (c) => {
   }
 })
 
+// ============================================================================
+// STUDENT PROGRESS TRACKING API ENDPOINTS
+// ============================================================================
+
+// GET /api/student/progress/:lessonId - Get lesson progress
+app.get('/api/student/progress/:lessonId', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const lessonId = c.req.param('lessonId')
+    const userId = c.get('userId') // From auth middleware
+    
+    const progress = await DB_EDUCATION.prepare(`
+      SELECT * FROM curriculum_progress 
+      WHERE user_id = ? AND lesson_id = ?
+    `).bind(userId, lessonId).first()
+    
+    return c.json({
+      success: true,
+      data: progress || null
+    })
+  } catch (error: any) {
+    console.error('Get progress error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// POST /api/student/progress - Save/update lesson progress
+app.post('/api/student/progress', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const userId = c.get('userId') // From auth middleware
+    const body = await c.req.json()
+    const { lesson_id, module_id, week_id, watch_time_seconds, progress_percent, status } = body
+    
+    // Check if progress exists
+    const existing = await DB_EDUCATION.prepare(`
+      SELECT id FROM curriculum_progress 
+      WHERE user_id = ? AND lesson_id = ?
+    `).bind(userId, lesson_id).first()
+    
+    if (existing) {
+      // Update existing progress
+      await DB_EDUCATION.prepare(`
+        UPDATE curriculum_progress 
+        SET watch_time_seconds = ?, 
+            progress_percent = ?, 
+            status = ?,
+            completed_at = CASE WHEN ? = 'completed' THEN datetime('now') ELSE completed_at END
+        WHERE user_id = ? AND lesson_id = ?
+      `).bind(
+        watch_time_seconds, 
+        progress_percent, 
+        status || 'in_progress',
+        status || 'in_progress',
+        userId, 
+        lesson_id
+      ).run()
+    } else {
+      // Create new progress record
+      const progressId = `prog-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`
+      await DB_EDUCATION.prepare(`
+        INSERT INTO curriculum_progress 
+        (id, user_id, lesson_id, module_id, week_id, watch_time_seconds, progress_percent, status, completed_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, CASE WHEN ? = 'completed' THEN datetime('now') ELSE NULL END)
+      `).bind(
+        progressId,
+        userId,
+        lesson_id,
+        module_id,
+        week_id,
+        watch_time_seconds,
+        progress_percent,
+        status || 'in_progress',
+        status || 'in_progress'
+      ).run()
+    }
+    
+    return c.json({
+      success: true,
+      message: 'Progress saved successfully'
+    })
+  } catch (error: any) {
+    console.error('Save progress error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// GET /api/student/progress/all - Get all user progress
+app.get('/api/student/progress/all', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const userId = c.get('userId') // From auth middleware
+    
+    const { results } = await DB_EDUCATION.prepare(`
+      SELECT * FROM curriculum_progress 
+      WHERE user_id = ?
+      ORDER BY created_at DESC
+    `).bind(userId).all()
+    
+    return c.json({
+      success: true,
+      data: results
+    })
+  } catch (error: any) {
+    console.error('Get all progress error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
 // GET /api/admin/curriculum/stats - Get curriculum statistics
 app.get('/api/admin/curriculum/stats', async (c) => {
   try {
