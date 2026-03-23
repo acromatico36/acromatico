@@ -3,49 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Learning Journey - Acromatico</title>
+    <title>My Learning Journey - Acromatico Creator Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: #ffffff;
         }
-        .glass {
-            background: rgba(30, 30, 30, 0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .btn-primary {
-            background: #4794A6;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background: #5aa5b8;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(71, 148, 166, 0.5);
+        .adventure-card {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border: 2px solid rgba(20, 184, 166, 0.3);
+            backdrop-filter: blur(10px);
         }
         .week-card {
-            background: rgba(40, 40, 40, 0.5);
-            border-left: 4px solid;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
         }
         .week-card:hover {
-            background: rgba(50, 50, 50, 0.7);
-            transform: translateX(5px);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+            border-color: rgba(20, 184, 166, 0.5);
         }
-        .week-card.locked {
+        .lesson-item {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s;
+        }
+        .lesson-item:hover {
+            background: rgba(20, 184, 166, 0.1);
+            border-color: rgba(20, 184, 166, 0.3);
+        }
+        .lesson-item.completed {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        .lesson-item.locked {
             opacity: 0.5;
             cursor: not-allowed;
         }
         .progress-ring {
             transform: rotate(-90deg);
-        }
-        .progress-ring-circle {
-            transition: stroke-dashoffset 0.35s;
-            transform-origin: 50% 50%;
         }
         .badge {
             animation: bounce 2s infinite;
@@ -54,343 +54,422 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
-        .celebration {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-            animation: celebrate 1s ease-out;
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 2s infinite;
         }
-        @keyframes celebrate {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="p-4 md:p-8">
+    <!-- Header -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex items-center justify-between">
+            <div>
+                <h1 class="text-3xl md:text-5xl font-bold mb-2">🎨 My Learning Journey</h1>
+                <p class="text-gray-400 text-sm md:text-base">Welcome back, <strong id="studentName">Creator</strong>! Ready to level up?</p>
+            </div>
+            <button onclick="logout()" class="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 text-sm">
+                <i class="fas fa-sign-out-alt mr-2"></i>Logout
+            </button>
+        </div>
+    </div>
 
-    <!-- Top Bar -->
-    <div class="glass sticky top-0 z-50 border-b border-gray-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-4">
-                    <img src="/static/acromatico-logo-white-best.png" alt="Acromatico" class="h-8">
-                    <span class="text-2xl">🎓</span>
-                </div>
-                <div class="flex items-center gap-4">
-                    <span class="text-sm text-gray-400">Hey, <span id="studentName" class="text-white font-semibold">Creator</span>!</span>
-                    <button onclick="logout()" class="px-4 py-2 text-sm font-medium text-white bg-gray-700 hover:bg-gray-600 rounded-lg transition">
-                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
-                    </button>
-                </div>
+    <!-- Current Adventure Banner -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div id="currentAdventure" class="adventure-card rounded-2xl p-6 md:p-8">
+            <!-- Current month adventure will load here -->
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="text-center p-4 rounded-xl bg-teal-500/10 border border-teal-500/30">
+                <div class="text-3xl mb-2">🎯</div>
+                <div class="text-2xl font-bold text-white" id="lessonsCompleted">0</div>
+                <div class="text-xs text-gray-400">Lessons Done</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-purple-500/10 border border-purple-500/30">
+                <div class="text-3xl mb-2">🔥</div>
+                <div class="text-2xl font-bold text-white" id="currentStreak">0</div>
+                <div class="text-xs text-gray-400">Day Streak</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-amber-500/10 border border-amber-500/30">
+                <div class="text-3xl mb-2">⭐</div>
+                <div class="text-2xl font-bold text-white" id="pointsEarned">0</div>
+                <div class="text-xs text-gray-400">XP Points</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30">
+                <div class="text-3xl mb-2">🏆</div>
+                <div class="text-2xl font-bold text-white" id="badgesEarned">0</div>
+                <div class="text-xs text-gray-400">Badges</div>
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- This Month's Journey -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl md:text-3xl font-bold">📅 This Month's Journey</h2>
+            <button onclick="viewAllMonths()" class="px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg hover:bg-gray-700 text-sm">
+                <i class="fas fa-th-large mr-2"></i>View All Months
+            </button>
+        </div>
         
-        <!-- Hero Section -->
-        <div class="glass rounded-2xl p-8 mb-8" id="heroSection">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h1 class="text-4xl font-bold mb-2">
-                        <span id="currentMonth">Loading</span> Adventure 
-                        <span id="monthEmoji" class="text-5xl ml-3">📷</span>
-                    </h1>
-                    <p id="monthSubtitle" class="text-xl text-gray-300 mb-4">Learning to See Like a Pro</p>
-                    <p id="monthDescription" class="text-gray-400 max-w-2xl">
-                        Transform from snapshot-taker to visual storyteller.
-                    </p>
-                </div>
-                <div class="text-center">
-                    <svg class="progress-ring" width="120" height="120">
-                        <circle
-                            class="text-gray-700"
-                            stroke-width="8"
-                            stroke="currentColor"
-                            fill="transparent"
-                            r="52"
-                            cx="60"
-                            cy="60"
-                        />
-                        <circle
-                            class="progress-ring-circle text-teal-400"
-                            stroke-width="8"
-                            stroke="currentColor"
-                            fill="transparent"
-                            r="52"
-                            cx="60"
-                            cy="60"
-                            id="progressCircle"
-                        />
-                    </svg>
-                    <p class="text-3xl font-bold mt-2" id="progressPercent">0%</p>
-                    <p class="text-sm text-gray-400">Complete</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Weeks Grid -->
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-6 flex items-center">
-                <i class="fas fa-calendar-week text-teal-400 mr-3"></i>
-                Your 4-Week Journey
-            </h2>
-            <div id="weeksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Weeks will be loaded here -->
-            </div>
-        </div>
-
-        <!-- My Projects Section -->
-        <div class="glass rounded-2xl p-8">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold flex items-center">
-                    <i class="fas fa-camera text-teal-400 mr-3"></i>
-                    My Adventure Projects
-                </h2>
-                <button onclick="showUploadModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
-                    <i class="fas fa-plus mr-2"></i>Upload Project
-                </button>
-            </div>
-            <div id="projectsGallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Projects will be loaded here -->
-                <p class="text-gray-500 col-span-full text-center py-8">No projects yet! Start your first adventure! 🎨</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Video Player Modal -->
-    <div id="videoModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50">
-        <div class="w-full max-w-5xl p-6">
-            <div class="flex items-center justify-between mb-4">
-                <h3 id="videoTitle" class="text-2xl font-bold text-white">Lesson Video</h3>
-                <button onclick="closeVideoModal()" class="text-white hover:text-teal-400 text-3xl">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="bg-gray-900 rounded-xl overflow-hidden">
-                <video id="videoPlayer" class="w-full" controls>
-                    <source src="" type="video/mp4">
-                    Your browser doesn't support video playback.
-                </video>
-            </div>
-            <div class="mt-4 flex items-center justify-between">
-                <div class="flex items-center gap-4">
-                    <button onclick="changeSpeed(0.75)" class="px-3 py-2 glass rounded-lg hover:bg-gray-700">0.75x</button>
-                    <button onclick="changeSpeed(1.0)" class="px-3 py-2 glass rounded-lg hover:bg-gray-700">1.0x</button>
-                    <button onclick="changeSpeed(1.25)" class="px-3 py-2 glass rounded-lg hover:bg-gray-700">1.25x</button>
-                </div>
-                <button onclick="markComplete()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
-                    <i class="fas fa-check mr-2"></i>Mark Complete
-                </button>
-            </div>
+        <div id="currentWeeks" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Current month's 4 weeks will load here -->
         </div>
     </div>
 
-    <!-- Upload Project Modal -->
-    <div id="uploadModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50">
-        <div class="glass w-full max-w-2xl p-8 rounded-2xl">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold text-white">Upload Your Project 🎨</h3>
-                <button onclick="closeUploadModal()" class="text-gray-400 hover:text-white text-2xl">
-                    <i class="fas fa-times"></i>
-                </button>
+    <!-- Continue Learning -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">▶️ Continue Learning</h2>
+        <div id="nextLesson" class="bg-gradient-to-r from-teal-500/20 to-cyan-500/20 border-2 border-teal-500/50 rounded-2xl p-6">
+            <!-- Next lesson will load here -->
+        </div>
+    </div>
+
+    <!-- Lesson Detail Modal -->
+    <div id="lessonModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 id="lessonTitle" class="text-2xl md:text-3xl font-bold"></h2>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="lessonContent">
+                    <!-- Lesson video player and content will load here -->
+                </div>
             </div>
-            <form onsubmit="uploadProject(event)">
-                <div class="mb-6">
-                    <label class="block text-sm font-medium mb-2">Project Photo/Video</label>
-                    <div class="border-2 border-dashed border-teal-400/50 rounded-xl p-8 text-center hover:border-teal-400 transition cursor-pointer" onclick="document.getElementById('fileInput').click()">
-                        <i class="fas fa-cloud-upload-alt text-5xl text-teal-400 mb-4"></i>
-                        <p class="text-gray-300">Click to upload or drag and drop</p>
-                        <p class="text-sm text-gray-500 mt-2">PNG, JPG, MP4 up to 10MB</p>
-                        <input type="file" id="fileInput" class="hidden" accept="image/*,video/*">
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <label class="block text-sm font-medium mb-2">Tell us about your project!</label>
-                    <textarea id="projectCaption" rows="4" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-400" placeholder="What did you create? What did you learn?"></textarea>
-                </div>
-                <div class="flex gap-4">
-                    <button type="button" onclick="closeUploadModal()" class="flex-1 px-6 py-3 glass rounded-lg font-semibold hover:bg-gray-700">
-                        Cancel
-                    </button>
-                    <button type="submit" class="flex-1 btn-primary px-6 py-3 rounded-lg font-semibold">
-                        <i class="fas fa-upload mr-2"></i>Upload Project
-                    </button>
-                </div>
-            </form>
         </div>
     </div>
 
     <script>
         const API_BASE = window.location.origin;
         const token = localStorage.getItem('auth_token');
+        let currentUser = null;
+        let currentModule = null;
+        let allWeeks = [];
+        let allLessons = [];
+        let userProgress = {};
 
         if (!token) {
             window.location.href = '/education/login';
         }
 
-        let currentLessonId = null;
-
-        // Initialize
+        // Initialize dashboard
         async function init() {
             try {
-                const response = await fetch(`${API_BASE}/api/auth/me`, {
+                console.log('🎨 Loading student dashboard...');
+                
+                // Get user info
+                const userResponse = await fetch(`${API_BASE}/api/auth/me`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 
-                if (!response.ok) throw new Error('Auth failed');
-                
-                const data = await response.json();
-                
-                if (!data.user || data.user.role !== 'student') {
-                    alert('This page is for students only');
-                    window.location.href = '/education/login';
-                    return;
+                if (!userResponse.ok) {
+                    throw new Error('Auth failed');
                 }
                 
-                document.getElementById('studentName').textContent = data.user.first_name || 'Creator';
+                const userData = await userResponse.json();
+                currentUser = userData.user;
                 
-                // Load student data
-                await loadCurrentMonth();
-                await loadProjects();
+                document.getElementById('studentName').textContent = currentUser.first_name || currentUser.email;
+                
+                // Load current month (we'll use January for now, later add logic to get actual current month)
+                await loadCurrentMonth('mod-jan');
+                await loadStats();
+                await loadNextLesson();
                 
             } catch (error) {
                 console.error('Init error:', error);
-                alert('Failed to load. Please login again.');
+                alert('Failed to load dashboard. Please login again.');
                 window.location.href = '/education/login';
             }
         }
 
-        async function loadCurrentMonth() {
-            // TODO: Get enrolled month from backend
-            // For now, show January as demo
-            const demoMonth = {
-                id: 'mod-jan',
-                month_name: 'January',
-                title: 'Visual Foundations',
-                subtitle: 'Learning to See Like a Pro',
-                description: 'Transform from snapshot-taker to visual storyteller. Master the Rule of Thirds, leading lines, and perspective magic.',
-                emoji: '📷',
-                theme_color: '#4794A6'
-            };
+        // Load current month module and weeks
+        async function loadCurrentMonth(moduleId) {
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/module/${moduleId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const { module, weeks, lessons } = data.data;
+                    currentModule = module;
+                    allWeeks = weeks;
+                    allLessons = lessons;
+                    
+                    // Render adventure banner
+                    renderAdventureBanner(module);
+                    
+                    // Render weeks
+                    renderWeeks(weeks, lessons);
+                }
+            } catch (error) {
+                console.error('Load month error:', error);
+            }
+        }
+
+        // Render adventure banner
+        function renderAdventureBanner(module) {
+            const totalLessons = allLessons.length;
+            const completedLessons = allLessons.filter(l => userProgress[l.id] === 'completed').length;
+            const progressPercent = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
             
-            document.getElementById('currentMonth').textContent = demoMonth.month_name;
-            document.getElementById('monthEmoji').textContent = demoMonth.emoji;
-            document.getElementById('monthSubtitle').textContent = demoMonth.subtitle;
-            document.getElementById('monthDescription').textContent = demoMonth.description;
-            
-            // Load weeks
-            const demoWeeks = [
-                { id: 'week-1', number: 1, title: 'The Eye', emoji: '👁️', subtitle: 'Composition & Visual Design', locked: false, completed: false, color: demoMonth.theme_color },
-                { id: 'week-2', number: 2, title: 'The Light', emoji: '💡', subtitle: 'Timing & Atmosphere', locked: false, completed: false, color: demoMonth.theme_color },
-                { id: 'week-3', number: 3, title: 'The Story', emoji: '📖', subtitle: 'Motion & Narrative', locked: true, completed: false, color: '#666' },
-                { id: 'week-4', number: 4, title: 'The Share', emoji: '🎬', subtitle: 'Editing & Presentation', locked: true, completed: false, color: '#666' }
-            ];
-            
-            document.getElementById('weeksGrid').innerHTML = demoWeeks.map(week => `
-                <div class="week-card rounded-xl p-6 ${week.locked ? 'locked' : ''}" 
-                     style="border-color: ${week.color}"
-                     onclick="${week.locked ? '' : `openWeek('${week.id}')`}">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center gap-3">
-                            <span class="text-4xl">${week.emoji}</span>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Week ${week.number}: ${week.title}</h3>
-                                <p class="text-sm text-gray-400">${week.subtitle}</p>
+            document.getElementById('currentAdventure').innerHTML = `
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="relative">
+                            <svg width="120" height="120" class="transform -rotate-90">
+                                <circle cx="60" cy="60" r="54" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none" />
+                                <circle cx="60" cy="60" r="54" stroke="#14b8a6" stroke-width="8" fill="none"
+                                        stroke-dasharray="339.292" stroke-dashoffset="${339.292 - (339.292 * progressPercent / 100)}"
+                                        stroke-linecap="round" />
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-4xl mb-1">${module.emoji}</div>
+                                    <div class="text-2xl font-bold">${progressPercent}%</div>
+                                </div>
                             </div>
                         </div>
-                        ${week.completed ? '<i class="fas fa-check-circle text-green-400 text-2xl"></i>' : ''}
-                        ${week.locked ? '<i class="fas fa-lock text-gray-600 text-2xl"></i>' : ''}
                     </div>
-                    <div class="flex items-center justify-between text-sm">
-                        <span class="text-gray-400">
-                            <i class="fas fa-video mr-2"></i>3 Videos
-                        </span>
-                        <span class="text-teal-400 font-medium">
-                            ${week.locked ? 'Complete previous week' : 'Start Learning →'}
-                        </span>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="text-sm text-teal-400 font-semibold mb-2">${module.month_name.toUpperCase()} ADVENTURE</div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-3">${module.adventure_title}</h2>
+                        <p class="text-gray-300 text-lg mb-4">${module.adventure_desc}</p>
+                        <div class="flex items-center justify-center md:justify-start gap-4 text-sm">
+                            <span class="text-gray-400">
+                                <i class="fas fa-calendar mr-2"></i>${allWeeks.length} weeks
+                            </span>
+                            <span class="text-gray-400">
+                                <i class="fas fa-video mr-2"></i>${totalLessons} lessons
+                            </span>
+                            <span class="text-teal-400 font-semibold">
+                                <i class="fas fa-check-circle mr-2"></i>${completedLessons} completed
+                            </span>
+                        </div>
                     </div>
                 </div>
-            `).join('');
+            `;
+        }
+
+        // Render weeks
+        function renderWeeks(weeks, lessons) {
+            const quarterColor = getQuarterColor(currentModule.quarter);
             
-            updateProgress(25); // Demo: 25% complete
+            document.getElementById('currentWeeks').innerHTML = weeks.map(week => {
+                const weekLessons = lessons.filter(l => l.week_id === week.id);
+                const completedCount = weekLessons.filter(l => userProgress[l.id] === 'completed').length;
+                const totalCount = weekLessons.length;
+                const progressPercent = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+                
+                return `
+                    <div class="week-card rounded-xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="text-4xl">${week.emoji}</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Week ${week.week_number}</h3>
+                                    <p class="text-sm text-gray-400">${week.title}</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold" style="color: ${quarterColor}">${completedCount}/${totalCount}</div>
+                                <div class="text-xs text-gray-400">Done</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div class="h-full transition-all duration-500" 
+                                     style="width: ${progressPercent}%; background: ${quarterColor}"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            ${weekLessons.length > 0 ? weekLessons.map((lesson, idx) => {
+                                const isCompleted = userProgress[lesson.id] === 'completed';
+                                const isLocked = idx > 0 && !userProgress[weekLessons[idx - 1].id];
+                                
+                                return `
+                                    <div class="lesson-item ${isCompleted ? 'completed' : ''} ${isLocked ? 'locked' : ''} 
+                                                rounded-lg p-3 flex items-center justify-between cursor-pointer"
+                                         onclick="${isLocked ? '' : `openLesson('${lesson.id}')`}">
+                                        <div class="flex items-center gap-3 flex-1">
+                                            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                                                 style="background: ${isCompleted ? 'rgba(34, 197, 94, 0.2)' : isLocked ? 'rgba(100, 100, 100, 0.2)' : 'rgba(20, 184, 166, 0.2)'}">
+                                                <i class="fas ${isCompleted ? 'fa-check-circle text-green-400' : isLocked ? 'fa-lock text-gray-500' : 'fa-play text-teal-400'}"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-white font-medium text-sm truncate">${lesson.title}</p>
+                                                <p class="text-xs text-gray-400">
+                                                    ${lesson.duration_min > 0 ? `${lesson.duration_min} min` : 'New lesson'}
+                                                    ${lesson.video_url ? ' • Video' : ''}
+                                                    ${lesson.pdf_url ? ' • PDF' : ''}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        ${!isLocked && !isCompleted ? `
+                                            <button class="px-3 py-1 rounded-lg text-xs font-semibold"
+                                                    style="background: ${quarterColor}20; color: ${quarterColor}">
+                                                Start
+                                            </button>
+                                        ` : ''}
+                                    </div>
+                                `;
+                            }).join('') : '<p class="text-gray-500 text-sm italic py-4 text-center">No lessons available yet. Check back soon!</p>'}
+                        </div>
+                    </div>
+                `;
+            }).join('');
         }
 
-        function openWeek(weekId) {
-            alert(`Opening Week ${weekId}!\n\nThis will show:\n• Welcome video\n• Skill lessons\n• Adventure missions\n• Weekly challenge\n\nComing soon! 🎬`);
+        // Load stats
+        async function loadStats() {
+            // For now, mock stats - will connect to real API later
+            document.getElementById('lessonsCompleted').textContent = Object.keys(userProgress).filter(k => userProgress[k] === 'completed').length;
+            document.getElementById('currentStreak').textContent = '0';
+            document.getElementById('pointsEarned').textContent = '0';
+            document.getElementById('badgesEarned').textContent = '0';
         }
 
-        function updateProgress(percent) {
-            document.getElementById('progressPercent').textContent = percent + '%';
-            const circle = document.getElementById('progressCircle');
-            const radius = circle.r.baseVal.value;
-            const circumference = radius * 2 * Math.PI;
-            const offset = circumference - (percent / 100) * circumference;
-            circle.style.strokeDasharray = `${circumference} ${circumference}`;
-            circle.style.strokeDashoffset = offset;
+        // Load next lesson
+        function loadNextLesson() {
+            const nextLesson = allLessons.find(l => !userProgress[l.id]);
+            
+            if (nextLesson) {
+                document.getElementById('nextLesson').innerHTML = `
+                    <div class="flex items-center gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center">
+                                <i class="fas fa-play text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-sm text-teal-400 font-semibold mb-1">UP NEXT</div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-2">${nextLesson.title}</h3>
+                            <p class="text-gray-400 text-sm mb-3">${nextLesson.description || 'Continue your creative journey!'}</p>
+                            <button onclick="openLesson('${nextLesson.id}')" 
+                                    class="px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg">
+                                <i class="fas fa-play mr-2"></i>Start Lesson
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                document.getElementById('nextLesson').innerHTML = `
+                    <div class="text-center py-8">
+                        <div class="text-6xl mb-4">🎉</div>
+                        <h3 class="text-2xl font-bold mb-2">Amazing Work!</h3>
+                        <p class="text-gray-400">You've completed all available lessons for this month!</p>
+                    </div>
+                `;
+            }
         }
 
-        async function loadProjects() {
-            // TODO: Load from backend
-            // For now, show placeholder
+        // Open lesson
+        function openLesson(lessonId) {
+            const lesson = allLessons.find(l => l.id === lessonId);
+            if (!lesson) return;
+            
+            document.getElementById('lessonTitle').textContent = lesson.title;
+            
+            document.getElementById('lessonContent').innerHTML = `
+                <div class="space-y-6">
+                    ${lesson.video_url ? `
+                        <div class="aspect-video bg-black rounded-xl overflow-hidden">
+                            <div class="flex items-center justify-center h-full">
+                                <div class="text-center">
+                                    <i class="fas fa-play-circle text-6xl text-teal-400 mb-4"></i>
+                                    <p class="text-gray-400">Video player coming soon!</p>
+                                    <p class="text-sm text-gray-500 mt-2">${lesson.video_url}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ` : ''}
+                    
+                    ${lesson.description ? `
+                        <div class="bg-slate-800 rounded-xl p-6">
+                            <h4 class="text-lg font-semibold mb-3">📝 About This Lesson</h4>
+                            <p class="text-gray-300">${lesson.description}</p>
+                        </div>
+                    ` : ''}
+                    
+                    ${lesson.pdf_url ? `
+                        <div class="bg-slate-800 rounded-xl p-6">
+                            <h4 class="text-lg font-semibold mb-3">📄 Resources</h4>
+                            <a href="${lesson.pdf_url}" target="_blank" 
+                               class="inline-flex items-center px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30">
+                                <i class="fas fa-file-pdf mr-2"></i>Download PDF Guide
+                            </a>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="flex gap-4">
+                        <button onclick="markComplete('${lessonId}')" 
+                                class="flex-1 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg">
+                            <i class="fas fa-check mr-2"></i>Mark as Complete
+                        </button>
+                        <button onclick="closeModal()" 
+                                class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('lessonModal').classList.remove('hidden');
         }
 
-        function showUploadModal() {
-            document.getElementById('uploadModal').classList.remove('hidden');
-            document.getElementById('uploadModal').classList.add('flex');
+        function closeModal() {
+            document.getElementById('lessonModal').classList.add('hidden');
         }
 
-        function closeUploadModal() {
-            document.getElementById('uploadModal').classList.add('hidden');
-            document.getElementById('uploadModal').classList.remove('flex');
+        // Mark lesson complete
+        async function markComplete(lessonId) {
+            // For now, just update locally - will add API later
+            userProgress[lessonId] = 'completed';
+            closeModal();
+            await loadCurrentMonth(currentModule.id);
+            await loadStats();
+            await loadNextLesson();
+            
+            // Show celebration
+            alert('🎉 Awesome! Lesson completed!');
         }
 
-        function openVideoModal(lessonId, title, videoUrl) {
-            currentLessonId = lessonId;
-            document.getElementById('videoTitle').textContent = title;
-            document.getElementById('videoPlayer').src = videoUrl;
-            document.getElementById('videoModal').classList.remove('hidden');
-            document.getElementById('videoModal').classList.add('flex');
-        }
-
-        function closeVideoModal() {
-            document.getElementById('videoPlayer').pause();
-            document.getElementById('videoModal').classList.add('hidden');
-            document.getElementById('videoModal').classList.remove('flex');
-        }
-
-        function changeSpeed(speed) {
-            document.getElementById('videoPlayer').playbackRate = speed;
-        }
-
-        function markComplete() {
-            alert('Lesson marked complete! 🎉\n\nKeep up the awesome work!');
-            closeVideoModal();
-            // TODO: Update progress in backend
-        }
-
-        function uploadProject(event) {
-            event.preventDefault();
-            const caption = document.getElementById('projectCaption').value;
-            alert(`Project uploaded! 🎨✨\n\nYour caption: "${caption}"\n\nGreat work, keep creating!`);
-            closeUploadModal();
-            // TODO: Upload to backend
+        function viewAllMonths() {
+            window.location.href = '/student/curriculum';
         }
 
         function logout() {
             localStorage.removeItem('auth_token');
-            localStorage.removeItem('user_role');
             window.location.href = '/education/login';
         }
 
-        // Initialize
+        function getQuarterColor(quarter) {
+            const colors = {
+                1: '#14b8a6',
+                2: '#f59e0b',
+                3: '#8b5cf6',
+                4: '#06b6d4'
+            };
+            return colors[quarter] || '#14b8a6';
+        }
+
+        // Start the app
         init();
     </script>
-
 </body>
 </html>
