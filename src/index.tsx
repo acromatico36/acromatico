@@ -7932,7 +7932,7 @@ app.get('/faq', (c) =>
 
 // Curriculum Page - Epic Storytelling
 // Redirect /curriculum to /academy
-app.get('/curriculum', (c) => c.redirect('/academy'))
+app.get('/curriculum', (c) => c.redirect('/static/curriculum.html'))
 
 
 export default app
