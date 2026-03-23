@@ -159,16 +159,26 @@
         // Fetch user info
         async function init() {
             try {
+                console.log('🔐 Checking auth with token:', token ? 'Token exists' : 'NO TOKEN!');
+                
                 const response = await fetch(`${API_BASE}/api/auth/me`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 
-                if (!response.ok) throw new Error('Auth failed');
+                console.log('📡 Auth response status:', response.status);
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('❌ Auth failed:', errorText);
+                    throw new Error('Auth failed: ' + response.status);
+                }
                 
                 const data = await response.json();
+                console.log('✅ User data:', data);
                 
                 if (data.role !== 'admin') {
-                    alert('Access denied: Admin only');
+                    console.error('❌ Wrong role:', data.role);
+                    alert('Access denied: Admin only. Your role: ' + data.role);
                     window.location.href = '/education/login';
                     return;
                 }
@@ -180,8 +190,8 @@
                 await loadModules();
                 
             } catch (error) {
-                console.error('Init error:', error);
-                alert('Failed to initialize. Please login again.');
+                console.error('💥 Init error:', error);
+                alert('Failed to initialize. Please login again. Error: ' + error.message);
                 window.location.href = '/education/login';
             }
         }
