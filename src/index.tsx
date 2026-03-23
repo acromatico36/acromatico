@@ -538,7 +538,8 @@ function hashPassword(password: string): string {
 // Helper: Generate JWT token (simple version)
 function generateToken(user: any): string {
   const payload = {
-    id: user.id,
+    userId: user.id, // Use userId consistently throughout app
+    id: user.id, // Keep id for backwards compatibility
     email: user.email,
     role: user.role,
     exp: Date.now() + (7 * 24 * 60 * 60 * 1000) // 7 days
