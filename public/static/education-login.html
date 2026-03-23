@@ -228,8 +228,8 @@
         const data = await response.json();
         
         if (response.ok) {
-          // Store token and user info
-          localStorage.setItem('token', data.token);
+          // Store token and user info (use 'auth_token' for consistency)
+          localStorage.setItem('auth_token', data.token);
           localStorage.setItem('user', JSON.stringify(data.user));
           
           successMessage.textContent = 'Login successful! Redirecting...';
@@ -238,11 +238,14 @@
           // Redirect based on role
           setTimeout(() => {
             if (data.user.role === 'admin') {
-              window.location.href = '/admin/dashboard';
+              window.location.href = '/admin/curriculum';
             } else if (data.user.role === 'parent') {
               window.location.href = '/parent/dashboard';
-            } else {
+            } else if (data.user.role === 'student') {
               window.location.href = '/student/dashboard';
+            } else {
+              // Default fallback for any other roles
+              window.location.href = '/education';
             }
           }, 1000);
         } else {
