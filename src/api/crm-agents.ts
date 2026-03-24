@@ -9,10 +9,10 @@
  */
 
 // ==============================================
-// GENSPARK API CLIENT
+// GENSPARK API CLIENT (OpenAI-Compatible)
 // ==============================================
 
-const GENSPARK_API_URL = 'https://api.genspark.ai/v1/chat/completions'
+const GENSPARK_API_URL = 'https://www.genspark.ai/api/llm_proxy/v1/chat/completions'
 
 interface GensparkMessage {
   role: 'system' | 'user' | 'assistant'
@@ -28,12 +28,12 @@ interface GensparkResponse {
 }
 
 /**
- * Call Genspark API with retry logic and error handling
+ * Call Genspark API (OpenAI-compatible) with retry logic and error handling
  */
 async function callGensparkAPI(
   messages: GensparkMessage[],
   gensparkApiKey: string,
-  model: string = 'genspark-pro',
+  model: string = 'genspark-pro',  // Use Genspark's model name
   maxRetries: number = 3
 ): Promise<string> {
   let lastError: Error | null = null
@@ -55,7 +55,8 @@ async function callGensparkAPI(
       })
 
       if (!response.ok) {
-        throw new Error(`Genspark API error: ${response.status} ${response.statusText}`)
+        const errorText = await response.text()
+        throw new Error(`Genspark API error: ${response.status} ${response.statusText} - ${errorText}`)
       }
 
       const data: GensparkResponse = await response.json()
@@ -118,11 +119,32 @@ export interface Agent1Output {
 
 /**
  * Agent 1: Classify incoming client message
+ * 
+ * DEMO MODE: If API key is missing/invalid, returns intelligent mock classification
+ * based on keyword analysis (for demo purposes only)
  */
 export async function classifyMessage(
   input: Agent1Input,
   gensparkApiKey: string
 ): Promise<Agent1Output> {
+  // Demo fallback: basic keyword-based classification
+  if (!gensparkApiKey || gensparkApiKey === '$GENSPARK_TOKEN') {
+    const msg = input.rawMessage.toLowerCase()
+    const isBug = /not working|broken|error|issue|problem|bug|fail/i.test(input.rawMessage)
+    const isUrgent = /asap|urgent|critical|immediately|now|emergency/i.test(input.rawMessage)
+    const isFrustrated = /!{2,}|losing|can't|won't/i.test(input.rawMessage)
+    
+    return {
+      messageType: isBug ? 'bug-report' : 'question',
+      category: isBug ? 'technical' : 'business',
+      urgency: isUrgent ? 'high' : 'medium',
+      sentiment: isFrustrated ? 'frustrated' : 'neutral',
+      requiresAction: isBug || isUrgent,
+      projectId: input.projectName ? null : null,
+      confidence: 0.65,
+      reasoning: '[DEMO MODE] Basic keyword analysis used (configure GENSPARK_API_KEY for full AI classification)'
+    }
+  }
   const systemPrompt = `You are an Executive Assistant for Acromatico, a premium branding and web/app development agency.
 
 Your task: Analyze client messages and classify them for the operations team with surgical precision.
@@ -230,6 +252,24 @@ export async function generateTask(
   input: Agent2Input,
   gensparkApiKey: string
 ): Promise<Agent2Output> {
+  // Demo fallback: basic task generation from message
+  if (!gensparkApiKey || gensparkApiKey === '$GENSPARK_TOKEN') {
+    const msg = input.rawMessage
+    const titleText = msg.length > 50 ? msg.substring(0, 47) + '...' : msg
+    
+    return {
+      taskTitle: `[DEMO] ${titleText}`,
+      description: `CLIENT REQUEST:\n${msg}\n\n[DEMO MODE] Configure GENSPARK_API_KEY for full AI task generation`,
+      acceptanceCriteria: ['[DEMO] Full criteria will be AI-generated'],
+      estimatedEffort: input.classification.urgency === 'critical' ? '4hr' : '2hr',
+      priority: input.classification.urgency === 'critical' ? 'critical' : 'medium',
+      tags: ['demo', 'needs-ai-config'],
+      suggestedResponse: 'Thanks for reaching out! We received your message and will get back to you within 2 hours. - Team Acromatico',
+      scopeFlag: input.classification.category === 'scope-change',
+      clientApprovalRequired: input.classification.category === 'scope-change'
+    }
+  }
+  
   const systemPrompt = `You are a Senior Project Manager at Acromatico, a premium branding and web/app development agency.
 
 Your task: Convert client requests into detailed technical specifications that developers can execute immediately.
@@ -383,6 +423,24 @@ export async function calculateClientHealth(
   input: Agent3Input,
   gensparkApiKey: string
 ): Promise<Agent3Output> {
+  // Demo fallback: basic health calculation
+  if (!gensparkApiKey || gensparkApiKey === '$GENSPARK_TOKEN') {
+    const negCount = input.recentMessages.filter(m => 
+      m.sentiment === 'negative' || m.sentiment === 'frustrated'
+    ).length
+    const baseScore = 75 - (negCount * 10)
+    
+    return {
+      healthScore: Math.max(20, Math.min(100, baseScore)),
+      churnRisk: negCount > 2 ? 'high' : 'low',
+      sentimentTrend: negCount > 1 ? 'declining' : 'stable',
+      upsellOpportunities: [],
+      concerns: negCount > 0 ? ['[DEMO] Multiple negative messages detected'] : [],
+      strengths: ['[DEMO] Configure GENSPARK_API_KEY for full health analysis'],
+      reasoning: '[DEMO MODE] Basic scoring used'
+    }
+  }
+  
   const systemPrompt = `You are an Account Manager at Acromatico analyzing client relationship health with data-driven precision.
 
 Your task: Calculate health score and identify risks/opportunities.
@@ -559,6 +617,40 @@ export async function analyzePatterns(
   input: Agent4Input,
   gensparkApiKey: string
 ): Promise<Agent4Output> {
+  // Demo fallback: basic pattern analysis
+  if (!gensparkApiKey || gensparkApiKey === '$GENSPARK_TOKEN') {
+    return {
+      commonPatterns: [
+        {
+          pattern: '[DEMO] Form submission issues',
+          frequency: 3,
+          affectedClients: ['client-joes-pizza'],
+          potentialRevenue: 5000,
+          recommendation: 'Create reusable form validation component'
+        }
+      ],
+      productizationOpportunities: [
+        {
+          opportunity: '[DEMO] Restaurant Website Starter Kit',
+          estimatedRevenue: 15000,
+          developmentCost: 40,
+          roi: 375,
+          confidence: 0.6,
+          description: 'Configure GENSPARK_API_KEY for full pattern analysis'
+        }
+      ],
+      operationalInsights: {
+        avgResponseTime: 12,
+        taskVelocity: 8,
+        estimationAccuracy: 0.85,
+        bottlenecks: ['[DEMO] API key needed for real insights']
+      },
+      strategicRecommendations: [
+        '[DEMO] Configure GENSPARK_API_KEY to unlock full business intelligence'
+      ]
+    }
+  }
+  
   const systemPrompt = `You are a McKinsey-level Business Analyst at Acromatico identifying patterns and strategic opportunities.
 
 Your task: Analyze client data to generate executive intelligence for 10x growth decisions.

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acromatico CRM - Client Intelligence Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></script>
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .urgency-critical { border-left: 4px solid #DC2626; }
+        .urgency-high { border-left: 4px solid #F59E0B; }
+        .urgency-medium { border-left: 4px solid #3B82F6; }
+        .urgency-low { border-left: 4px solid #10B981; }
+        .health-critical { color: #DC2626; }
+        .health-high { color: #F59E0B; }
+        .health-medium { color: #3B82F6; }
+        .health-low { color: #10B981; }
+        .animate-pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
+    
+    <!-- Top Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <h1 class="text-2xl font-bold text-gray-900">
+                        <i class="fas fa-brain text-indigo-600 mr-2"></i>
+                        Acromatico CRM
+                    </h1>
+                    <div class="hidden md:flex space-x-4">
+                        <a href="/admin/crm/dashboard" class="text-indigo-600 font-medium border-b-2 border-indigo-600 px-3 py-2">
+                            <i class="fas fa-inbox mr-1"></i> Inbox
+                        </a>
+                        <a href="/admin/crm/analytics" class="text-gray-600 hover:text-indigo-600 px-3 py-2 transition">
+                            <i class="fas fa-chart-line mr-1"></i> Analytics
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600" id="last-updated">Updated just now</span>
+                    <button onclick="refreshData()" class="p-2 text-gray-600 hover:text-indigo-600 transition">
+                        <i class="fas fa-sync-alt" id="refresh-icon"></i>
+                    </button>
+                    <a href="/admin/dashboard" class="text-gray-600 hover:text-indigo-600">
+                        <i class="fas fa-home mr-1"></i> Academy
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <!-- Messages Today -->
+            <div class="glass-card rounded-lg p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-600">Messages Today</p>
+                        <p class="text-2xl font-bold text-gray-900" id="stat-messages">0</p>
+                    </div>
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-envelope text-indigo-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open Tasks -->
+            <div class="glass-card rounded-lg p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-600">Open Tasks</p>
+                        <p class="text-2xl font-bold text-gray-900" id="stat-tasks">0</p>
+                    </div>
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-tasks text-amber-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clients at Risk -->
+            <div class="glass-card rounded-lg p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-600">Clients at Risk</p>
+                        <p class="text-2xl font-bold text-red-600" id="stat-risk">0</p>
+                    </div>
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time Saved -->
+            <div class="glass-card rounded-lg p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-600">Time Saved (Week)</p>
+                        <p class="text-2xl font-bold text-green-600" id="stat-time-saved">$0</p>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-dollar-sign text-green-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Layout: Sidebar + Content + Details -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- LEFT SIDEBAR: Filters & Quick Actions -->
+            <div class="lg:col-span-3">
+                <div class="glass-card rounded-lg p-4 shadow-sm mb-4">
+                    <h3 class="font-bold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-filter mr-2 text-indigo-600"></i>
+                        Filters
+                    </h3>
+                    <div class="space-y-2">
+                        <button onclick="filterView('all')" id="filter-all" class="w-full text-left px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium transition">
+                            <i class="fas fa-inbox mr-2"></i> All Messages
+                            <span class="float-right bg-indigo-600 text-white text-xs px-2 py-1 rounded-full" id="count-all">0</span>
+                        </button>
+                        <button onclick="filterView('actionable')" id="filter-actionable" class="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-700 transition">
+                            <i class="fas fa-bolt mr-2"></i> Actionable
+                            <span class="float-right bg-amber-600 text-white text-xs px-2 py-1 rounded-full" id="count-actionable">0</span>
+                        </button>
+                        <button onclick="filterView('critical')" id="filter-critical" class="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-700 transition">
+                            <i class="fas fa-fire mr-2"></i> Critical
+                            <span class="float-right bg-red-600 text-white text-xs px-2 py-1 rounded-full" id="count-critical">0</span>
+                        </button>
+                        <button onclick="filterView('personal')" id="filter-personal" class="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-700 transition">
+                            <i class="fas fa-heart mr-2"></i> Personal
+                            <span class="float-right bg-gray-400 text-white text-xs px-2 py-1 rounded-full" id="count-personal">0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="glass-card rounded-lg p-4 shadow-sm">
+                    <h3 class="font-bold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-rocket mr-2 text-indigo-600"></i>
+                        Quick Actions
+                    </h3>
+                    <button onclick="openManualInput()" class="w-full bg-indigo-600 text-white px-4 py-3 rounded-lg hover:bg-indigo-700 transition font-medium mb-2">
+                        <i class="fas fa-plus-circle mr-2"></i> Add Message
+                    </button>
+                    <button onclick="openNewClient()" class="w-full bg-gray-100 text-gray-700 px-4 py-3 rounded-lg hover:bg-gray-200 transition font-medium">
+                        <i class="fas fa-user-plus mr-2"></i> New Client
+                    </button>
+                </div>
+            </div>
+
+            <!-- CENTER: Message Inbox -->
+            <div class="lg:col-span-6">
+                <div class="glass-card rounded-lg shadow-sm">
+                    <div class="border-b border-gray-200 p-4">
+                        <h2 class="text-xl font-bold text-gray-900">
+                            <i class="fas fa-inbox mr-2 text-indigo-600"></i>
+                            Client Messages
+                        </h2>
+                        <p class="text-sm text-gray-600 mt-1">AI-powered triage and task generation</p>
+                    </div>
+
+                    <!-- Messages List -->
+                    <div id="messages-container" class="divide-y divide-gray-200 max-h-[calc(100vh-320px)] overflow-y-auto">
+                        <!-- Messages will be loaded here via JavaScript -->
+                        <div class="p-8 text-center text-gray-500">
+                            <i class="fas fa-spinner fa-spin text-4xl mb-4"></i>
+                            <p>Loading messages...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDEBAR: Details & Actions -->
+            <div class="lg:col-span-3">
+                <div id="detail-panel" class="glass-card rounded-lg p-4 shadow-sm">
+                    <div class="text-center text-gray-500 py-12">
+                        <i class="fas fa-mouse-pointer text-4xl mb-3"></i>
+                        <p class="text-sm">Select a message to see details</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Manual Input Modal -->
+    <div id="manual-input-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6">
+            <h3 class="text-2xl font-bold mb-4">
+                <i class="fas fa-paper-plane mr-2 text-indigo-600"></i>
+                Process Client Message
+            </h3>
+            <form id="manual-message-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Client</label>
+                    <select id="input-client" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required>
+                        <option value="">Select client...</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Project (optional)</label>
+                    <select id="input-project" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        <option value="">Select project...</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Source</label>
+                    <select id="input-source" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required>
+                        <option value="email">Email</option>
+                        <option value="sms">SMS</option>
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="portal">Client Portal</option>
+                        <option value="manual">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Message Content</label>
+                    <textarea id="input-content" rows="6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Paste the client's message here..." required></textarea>
+                </div>
+                <div class="flex space-x-3">
+                    <button type="submit" class="flex-1 bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition font-medium">
+                        <i class="fas fa-magic mr-2"></i> Process with AI
+                    </button>
+                    <button type="button" onclick="closeManualInput()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let allMessages = [];
+        let allTasks = [];
+        let allClients = [];
+        let currentFilter = 'all';
+        let selectedMessage = null;
+
+        // Get auth token
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            window.location.href = '/education/login';
+        }
+
+        // Configure axios
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+        // Initialize dashboard
+        async function initDashboard() {
+            try {
+                await Promise.all([
+                    loadClients(),
+                    loadMessages(),
+                    loadTasks(),
+                    loadAnalytics()
+                ]);
+                renderMessages();
+                updateLastUpdated();
+            } catch (error) {
+                console.error('Dashboard init error:', error);
+                showError('Failed to load dashboard data');
+            }
+        }
+
+        // Load clients for dropdown and display
+        async function loadClients() {
+            try {
+                const response = await axios.get('/api/crm/clients');
+                allClients = response.data.clients || [];
+                
+                // Populate client dropdown
+                const clientSelect = document.getElementById('input-client');
+                clientSelect.innerHTML = '<option value="">Select client...</option>';
+                allClients.forEach(client => {
+                    const option = document.createElement('option');
+                    option.value = client.id;
+                    option.textContent = `${client.name}${client.company ? ' - ' + client.company : ''}`;
+                    clientSelect.appendChild(option);
+                });
+
+            } catch (error) {
+                console.error('Load clients error:', error);
+            }
+        }
+
+        // Load messages (we'll get them via tasks that have message_id)
+        async function loadMessages() {
+            try {
+                const response = await axios.get('/api/crm/tasks');
+                allTasks = response.data.tasks || [];
+                
+                // Extract unique messages
+                const messageMap = new Map();
+                allTasks.forEach(task => {
+                    if (task.message_id && task.original_message) {
+                        messageMap.set(task.message_id, {
+                            id: task.message_id,
+                            content: task.original_message,
+                            client_name: task.client_name,
+                            client_company: task.client_company,
+                            project_name: task.project_name,
+                            priority: task.priority,
+                            sentiment: task.message_sentiment,
+                            created_at: task.created_at,
+                            task_id: task.id,
+                            task_title: task.title,
+                            task_status: task.status
+                        });
+                    }
+                });
+                allMessages = Array.from(messageMap.values());
+
+            } catch (error) {
+                console.error('Load messages error:', error);
+            }
+        }
+
+        // Load tasks
+        async function loadTasks() {
+            // Already loaded in loadMessages()
+        }
+
+        // Load analytics stats
+        async function loadAnalytics() {
+            try {
+                const response = await axios.get('/api/crm/analytics/dashboard');
+                const data = response.data.data;
+
+                document.getElementById('stat-messages').textContent = data.timeSaved.messagesProcessed;
+                document.getElementById('stat-tasks').textContent = data.taskMetrics.backlog + data.taskMetrics.inProgress;
+                document.getElementById('stat-risk').textContent = data.clientHealth.atRisk + data.clientHealth.critical;
+                document.getElementById('stat-time-saved').textContent = '$' + data.timeSaved.dollarValue.toLocaleString();
+
+                // Update filter counts
+                document.getElementById('count-all').textContent = allMessages.length;
+                document.getElementById('count-actionable').textContent = allTasks.filter(t => t.status === 'open').length;
+                document.getElementById('count-critical').textContent = allTasks.filter(t => t.priority === 'critical').length;
+                document.getElementById('count-personal').textContent = allMessages.filter(m => m.sentiment === 'positive').length;
+
+            } catch (error) {
+                console.error('Load analytics error:', error);
+            }
+        }
+
+        // Render messages based on current filter
+        function renderMessages() {
+            const container = document.getElementById('messages-container');
+            
+            let filteredMessages = allMessages;
+            if (currentFilter === 'actionable') {
+                filteredMessages = allMessages.filter(m => m.task_status === 'open');
+            } else if (currentFilter === 'critical') {
+                filteredMessages = allMessages.filter(m => m.priority === 'critical');
+            } else if (currentFilter === 'personal') {
+                filteredMessages = allMessages.filter(m => m.sentiment === 'positive');
+            }
+
+            if (filteredMessages.length === 0) {
+                container.innerHTML = `
+                    <div class="p-8 text-center text-gray-500">
+                        <i class="fas fa-check-circle text-4xl mb-3 text-green-500"></i>
+                        <p class="font-medium">Inbox Zero! 🎉</p>
+                        <p class="text-sm mt-1">All caught up. Great work!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filteredMessages.map(msg => {
+                const urgencyClass = msg.priority === 'critical' ? 'urgency-critical' : 
+                                   msg.priority === 'high' ? 'urgency-high' : 
+                                   msg.priority === 'medium' ? 'urgency-medium' : 'urgency-low';
+                
+                const urgencyIcon = msg.priority === 'critical' ? '🔴' : 
+                                   msg.priority === 'high' ? '🟠' : 
+                                   msg.priority === 'medium' ? '🟡' : '⚪';
+
+                const timeAgo = getTimeAgo(msg.created_at);
+
+                return `
+                    <div class="p-4 hover:bg-gray-50 cursor-pointer transition ${urgencyClass}" onclick='selectMessage(${JSON.stringify(msg).replace(/'/g, "&apos;")})'>
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-2 mb-1">
+                                    <span class="text-lg">${urgencyIcon}</span>
+                                    <span class="font-bold text-gray-900">${msg.client_name || 'Unknown'}</span>
+                                    ${msg.client_company ? `<span class="text-sm text-gray-500">• ${msg.client_company}</span>` : ''}
+                                </div>
+                                <p class="text-sm text-gray-600 line-clamp-2">"${msg.content.substring(0, 100)}${msg.content.length > 100 ? '...' : ''}"</p>
+                                ${msg.project_name ? `<p class="text-xs text-indigo-600 mt-1"><i class="fas fa-project-diagram mr-1"></i>${msg.project_name}</p>` : ''}
+                            </div>
+                            <span class="text-xs text-gray-500 whitespace-nowrap ml-2">${timeAgo}</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs px-2 py-1 bg-indigo-100 text-indigo-700 rounded-full">
+                                <i class="fas fa-check-circle mr-1"></i>${msg.task_title}
+                            </span>
+                            ${msg.task_status === 'open' ? '<span class="text-xs px-2 py-1 bg-amber-100 text-amber-700 rounded-full">Open</span>' : ''}
+                            ${msg.task_status === 'in_progress' ? '<span class="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">In Progress</span>' : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Select message and show detail panel
+        function selectMessage(msg) {
+            selectedMessage = msg;
+            
+            const detailPanel = document.getElementById('detail-panel');
+            
+            const urgencyColor = msg.priority === 'critical' ? 'text-red-600' : 
+                                msg.priority === 'high' ? 'text-amber-600' : 
+                                msg.priority === 'medium' ? 'text-blue-600' : 'text-green-600';
+
+            detailPanel.innerHTML = `
+                <div class="space-y-4">
+                    <!-- Client Info -->
+                    <div>
+                        <h3 class="font-bold text-gray-900 mb-2 flex items-center">
+                            <i class="fas fa-user-circle mr-2 text-indigo-600"></i>
+                            ${msg.client_name}
+                        </h3>
+                        ${msg.client_company ? `<p class="text-sm text-gray-600">${msg.client_company}</p>` : ''}
+                        ${msg.project_name ? `<p class="text-xs text-indigo-600 mt-1"><i class="fas fa-project-diagram mr-1"></i>${msg.project_name}</p>` : ''}
+                    </div>
+
+                    <!-- Original Message -->
+                    <div>
+                        <p class="text-xs font-medium text-gray-500 mb-1">ORIGINAL MESSAGE</p>
+                        <p class="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">"${msg.content}"</p>
+                    </div>
+
+                    <!-- Priority -->
+                    <div>
+                        <p class="text-xs font-medium text-gray-500 mb-1">PRIORITY</p>
+                        <span class="text-sm font-bold ${urgencyColor}">
+                            <i class="fas fa-flag mr-1"></i>${msg.priority.toUpperCase()}
+                        </span>
+                    </div>
+
+                    <!-- Task Generated -->
+                    <div>
+                        <p class="text-xs font-medium text-gray-500 mb-1">GENERATED TASK</p>
+                        <p class="text-sm font-medium text-gray-900">${msg.task_title}</p>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="space-y-2 pt-4 border-t">
+                        <button onclick="updateTaskStatus('${msg.task_id}', 'in_progress')" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm font-medium">
+                            <i class="fas fa-play mr-2"></i> Start Task
+                        </button>
+                        <button onclick="updateTaskStatus('${msg.task_id}', 'completed')" class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition text-sm font-medium">
+                            <i class="fas fa-check mr-2"></i> Mark Complete
+                        </button>
+                        <button onclick="viewTaskDetail('${msg.task_id}')" class="w-full bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition text-sm font-medium">
+                            <i class="fas fa-eye mr-2"></i> View Full Task
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Filter view
+        function filterView(filter) {
+            currentFilter = filter;
+            
+            // Update button styles
+            document.querySelectorAll('[id^="filter-"]').forEach(btn => {
+                btn.classList.remove('bg-indigo-50', 'text-indigo-700', 'font-medium');
+                btn.classList.add('hover:bg-gray-100', 'text-gray-700');
+            });
+            
+            document.getElementById(`filter-${filter}`).classList.add('bg-indigo-50', 'text-indigo-700', 'font-medium');
+            document.getElementById(`filter-${filter}`).classList.remove('hover:bg-gray-100', 'text-gray-700');
+
+            renderMessages();
+        }
+
+        // Update task status
+        async function updateTaskStatus(taskId, newStatus) {
+            try {
+                await axios.put(`/api/crm/tasks/${taskId}`, { status: newStatus });
+                showSuccess(`Task ${newStatus === 'completed' ? 'completed' : 'updated'}!`);
+                await refreshData();
+            } catch (error) {
+                console.error('Update task error:', error);
+                showError('Failed to update task');
+            }
+        }
+
+        // View full task detail
+        function viewTaskDetail(taskId) {
+            // TODO: Open modal with full acceptance criteria, tech notes, etc.
+            alert('Full task view coming soon!');
+        }
+
+        // Open manual input modal
+        function openManualInput() {
+            document.getElementById('manual-input-modal').classList.remove('hidden');
+        }
+
+        // Close manual input modal
+        function closeManualInput() {
+            document.getElementById('manual-input-modal').classList.add('hidden');
+            document.getElementById('manual-message-form').reset();
+        }
+
+        // Handle manual message form submission
+        document.getElementById('manual-message-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const clientId = document.getElementById('input-client').value;
+            const projectId = document.getElementById('input-project').value;
+            const source = document.getElementById('input-source').value;
+            const content = document.getElementById('input-content').value;
+
+            if (!clientId || !content) {
+                showError('Client and message content are required');
+                return;
+            }
+
+            try {
+                const response = await axios.post('/api/crm/process-message', {
+                    clientId,
+                    projectId: projectId || null,
+                    source,
+                    content
+                });
+
+                if (response.data.success) {
+                    showSuccess('Message processed! ' + (response.data.message.taskCreated ? 'Task created.' : 'No task needed.'));
+                    closeManualInput();
+                    await refreshData();
+                } else {
+                    showError(response.data.error || 'Failed to process message');
+                }
+
+            } catch (error) {
+                console.error('Process message error:', error);
+                showError('Failed to process message');
+            }
+        });
+
+        // Refresh all data
+        async function refreshData() {
+            const icon = document.getElementById('refresh-icon');
+            icon.classList.add('fa-spin');
+            
+            await initDashboard();
+            
+            setTimeout(() => {
+                icon.classList.remove('fa-spin');
+            }, 500);
+        }
+
+        // Auto-refresh every 30 seconds
+        setInterval(refreshData, 30000);
+
+        // Update last updated timestamp
+        function updateLastUpdated() {
+            document.getElementById('last-updated').textContent = 'Updated just now';
+        }
+
+        // Helper: Calculate time ago
+        function getTimeAgo(timestamp) {
+            const seconds = Math.floor((Date.now() - new Date(timestamp).getTime()) / 1000);
+            if (seconds < 60) return 'Just now';
+            if (seconds < 3600) return Math.floor(seconds / 60) + ' min ago';
+            if (seconds < 86400) return Math.floor(seconds / 3600) + ' hr ago';
+            return Math.floor(seconds / 86400) + ' days ago';
+        }
+
+        // Show success toast
+        function showSuccess(message) {
+            alert('✅ ' + message);  // TODO: Replace with toast notification
+        }
+
+        // Show error toast
+        function showError(message) {
+            alert('❌ ' + message);  // TODO: Replace with toast notification
+        }
+
+        // Open new client modal
+        function openNewClient() {
+            alert('New client form coming soon!');
+        }
+
+        // Initialize on page load
+        initDashboard();
+    </script>
+
+</body>
+</html>

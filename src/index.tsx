@@ -8,6 +8,21 @@ import { footerHTML } from './components/footer'
 import { mobileMenuHTML } from './components/mobile-menu'
 import * as liveClassesAPI from './api/live-classes'
 import { loginHTML } from './static-html'
+import { 
+  classifyMessage, 
+  generateTask, 
+  calculateClientHealth, 
+  analyzePatterns,
+  generateCRMId,
+  formatPhoneNumber,
+  daysSinceLastContact,
+  effortToHours,
+  formatDollars,
+  type Agent1Output,
+  type Agent2Output,
+  type Agent3Output,
+  type Agent4Output
+} from './api/crm-agents'
 
 // Shared Header Component
 const Header = () => (
@@ -9172,22 +9187,6 @@ app.get('/curriculum', (c) => c.redirect('/static/curriculum.html'))
 // AI-Powered Client Intelligence & Task Management
 // ==============================================
 
-import { 
-  classifyMessage, 
-  generateTask, 
-  calculateClientHealth, 
-  analyzePatterns,
-  generateCRMId,
-  formatPhoneNumber,
-  daysSinceLastContact,
-  effortToHours,
-  formatDollars,
-  type Agent1Output,
-  type Agent2Output,
-  type Agent3Output,
-  type Agent4Output
-} from './api/crm-agents'
-
 // Protect all /admin/crm/* dashboard pages
 app.use('/admin/crm/*', requireAdmin)
 
@@ -9198,6 +9197,61 @@ app.use('/api/crm/tasks/*', requireAdmin)
 app.use('/api/crm/clients', requireAdmin)
 app.use('/api/crm/clients/*', requireAdmin)
 app.use('/api/crm/analytics/*', requireAdmin)
+
+// ==============================================
+// CRM HELPER FUNCTIONS
+// ==============================================
+
+/**
+ * Map Agent 1 classification to database enum values
+ */
+function mapMessageTypeToDBEnum(agentType: string): string {
+  const mapping: Record<string, string> = {
+    'bug-report': 'BUSINESS_PROJECT',
+    'feature-request': 'BUSINESS_PROJECT',
+    'scope-change': 'BUSINESS_PROJECT',
+    'question': 'BUSINESS_PROJECT',
+    'payment': 'BUSINESS_ADMIN',
+    'feedback': 'PERSONAL',
+    'personal': 'PERSONAL',
+    'spam': 'SPAM'
+  }
+  return mapping[agentType] || 'UNKNOWN'
+}
+
+function mapSentimentToDBEnum(agentSentiment: string): string {
+  const mapping: Record<string, string> = {
+    'positive': 'POSITIVE',
+    'neutral': 'NEUTRAL',
+    'negative': 'FRUSTRATED',
+    'frustrated': 'ANGRY'
+  }
+  return mapping[agentSentiment] || 'UNKNOWN'
+}
+
+function mapPriorityToDBEnum(agentPriority: string): string {
+  const mapping: Record<string, string> = {
+    'critical': 'P1',
+    'high': 'P2',
+    'medium': 'P3',
+    'low': 'P4'
+  }
+  return mapping[agentPriority] || 'P3'
+}
+
+function mapEffortToDBEnum(agentEffort: string): { effort: string; hours: number } {
+  const mapping: Record<string, { effort: string; hours: number }> = {
+    '15min': { effort: 'XS', hours: 0.25 },
+    '30min': { effort: 'XS', hours: 0.5 },
+    '1hr': { effort: 'S', hours: 1 },
+    '2hr': { effort: 'S', hours: 2 },
+    '4hr': { effort: 'M', hours: 4 },
+    '8hr': { effort: 'L', hours: 8 },
+    '16hr': { effort: 'XL', hours: 16 },
+    'unknown': { effort: 'M', hours: 4 }
+  }
+  return mapping[agentEffort] || { effort: 'M', hours: 4 }
+}
 
 // ==============================================
 // CRM DASHBOARD PAGES
@@ -9303,10 +9357,10 @@ app.post('/api/crm/message-webhook', async (c) => {
       'sms',
       formattedPhone,
       messageBody,
-      classification.messageType,
-      classification.category,
-      classification.urgency,
-      classification.sentiment,
+      mapMessageTypeToDBEnum(classification.messageType),  // Map to DB enum
+      classification.category.toUpperCase(),  // Map category to uppercase
+      classification.urgency.toUpperCase(),  // Map urgency to uppercase
+      mapSentimentToDBEnum(classification.sentiment),  // Map sentiment to DB enum
       classification.requiresAction ? 'create_task' : 'auto_resolve',
       classification.confidence
     ).run()
@@ -9347,12 +9401,14 @@ app.post('/api/crm/message-webhook', async (c) => {
 
       // Create task in database
       taskId = generateCRMId('task')
+      const effortMap = mapEffortToDBEnum(taskSpec.estimatedEffort)
+      
       await DB_EDUCATION.prepare(`
         INSERT INTO crm_tasks (
           id, message_id, client_id, project_id,
           title, description, acceptance_criteria,
-          estimated_effort, priority, status, scope_flag, client_approval_required
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          effort, estimated_hours, priority, status, scope_flag, client_approval_required
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `).bind(
         taskId,
         messageId,
@@ -9361,8 +9417,9 @@ app.post('/api/crm/message-webhook', async (c) => {
         taskSpec.taskTitle,
         taskSpec.description,
         JSON.stringify(taskSpec.acceptanceCriteria),
-        taskSpec.estimatedEffort,
-        taskSpec.priority,
+        effortMap.effort,
+        effortMap.hours,
+        mapPriorityToDBEnum(taskSpec.priority),
         'open',
         taskSpec.scopeFlag ? 1 : 0,
         taskSpec.clientApprovalRequired ? 1 : 0
@@ -9468,10 +9525,10 @@ app.post('/api/crm/process-message', async (c) => {
       ...(fromEmail ? [fromEmail] : []),
       ...(fromPhone ? [formatPhoneNumber(fromPhone)] : []),
       content,
-      classification.messageType,
-      classification.category,
-      classification.urgency,
-      classification.sentiment,
+      mapMessageTypeToDBEnum(classification.messageType),  // Map to DB enum
+      classification.category.toUpperCase(),  // Map to uppercase
+      classification.urgency.toUpperCase(),  // Map to uppercase
+      mapSentimentToDBEnum(classification.sentiment),  // Map sentiment to DB enum
       classification.requiresAction ? 'create_task' : 'auto_resolve',
       classification.confidence
     ).run()
@@ -9495,12 +9552,14 @@ app.post('/api/crm/process-message', async (c) => {
       }, gensparkApiKey)
 
       taskId = generateCRMId('task')
+      const effortMap = mapEffortToDBEnum(taskSpec.estimatedEffort)
+      
       await DB_EDUCATION.prepare(`
         INSERT INTO crm_tasks (
           id, message_id, client_id, project_id,
           title, description, acceptance_criteria,
-          estimated_effort, priority, status, scope_flag, client_approval_required
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          effort, estimated_hours, priority, status, scope_flag, client_approval_required
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `).bind(
         taskId,
         messageId,
@@ -9509,8 +9568,9 @@ app.post('/api/crm/process-message', async (c) => {
         taskSpec.taskTitle,
         taskSpec.description,
         JSON.stringify(taskSpec.acceptanceCriteria),
-        taskSpec.estimatedEffort,
-        taskSpec.priority,
+        effortMap.effort,
+        effortMap.hours,
+        mapPriorityToDBEnum(taskSpec.priority),
         'open',
         taskSpec.scopeFlag ? 1 : 0,
         taskSpec.clientApprovalRequired ? 1 : 0
