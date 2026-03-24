@@ -560,6 +560,44 @@ function verifyToken(token: string): any {
   }
 }
 
+// Helper: Verify token AND role
+function verifyTokenWithRole(token: string, requiredRole: string): any {
+  const payload = verifyToken(token)
+  if (!payload) return null
+  if (payload.role !== requiredRole) return null
+  return payload
+}
+
+// Middleware: Require Admin Role
+const requireAdmin = async (c: any, next: any) => {
+  const authHeader = c.req.header('Authorization')
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return c.json({ success: false, error: 'No token provided' }, 401)
+  }
+  const token = authHeader.substring(7)
+  const payload = verifyTokenWithRole(token, 'admin')
+  if (!payload) {
+    return c.json({ success: false, error: 'Unauthorized: Admin role required' }, 403)
+  }
+  c.set('user', payload) // Store user in context
+  await next()
+}
+
+// Middleware: Require Parent Role
+const requireParent = async (c: any, next: any) => {
+  const authHeader = c.req.header('Authorization')
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return c.json({ success: false, error: 'No token provided' }, 401)
+  }
+  const token = authHeader.substring(7)
+  const payload = verifyTokenWithRole(token, 'parent')
+  if (!payload) {
+    return c.json({ success: false, error: 'Unauthorized: Parent role required' }, 403)
+  }
+  c.set('user', payload) // Store user in context
+  await next()
+}
+
 // POST /api/auth/signup - Create new user account
 app.post('/api/auth/signup', async (c) => {
   try {
@@ -744,7 +782,7 @@ app.post('/api/auth/reset-password', async (c) => {
 // ============================================================
 
 // POST /api/admin/curriculum/seed - Populate 12-month curriculum database + admin users
-app.post('/api/admin/curriculum/seed', async (c) => {
+app.post('/api/admin/curriculum/seed', requireAdmin, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     
@@ -783,7 +821,7 @@ app.post('/api/admin/curriculum/seed', async (c) => {
 // ============================================================
 
 // GET /api/admin/curriculum/modules - Get all modules overview
-app.get('/api/admin/curriculum/modules', async (c) => {
+app.get('/api/admin/curriculum/modules', requireAdmin, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const { getAllModules } = await import('./api/curriculum-admin')
@@ -801,7 +839,7 @@ app.get('/api/admin/curriculum/modules', async (c) => {
 })
 
 // GET /api/admin/curriculum/module/:id - Get module detail with weeks and lessons
-app.get('/api/admin/curriculum/module/:id', async (c) => {
+app.get('/api/admin/curriculum/module/:id', requireAdmin, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const moduleId = c.req.param('id')
@@ -820,7 +858,7 @@ app.get('/api/admin/curriculum/module/:id', async (c) => {
 })
 
 // POST /api/admin/curriculum/lesson - Create new lesson placeholder
-app.post('/api/admin/curriculum/lesson', async (c) => {
+app.post('/api/admin/curriculum/lesson', requireAdmin, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const lessonData = await c.req.json()
@@ -840,7 +878,7 @@ app.post('/api/admin/curriculum/lesson', async (c) => {
 })
 
 // PUT /api/admin/curriculum/lesson/:id - Update lesson (upload video/PDF)
-app.put('/api/admin/curriculum/lesson/:id', async (c) => {
+app.put('/api/admin/curriculum/lesson/:id', requireAdmin, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const lessonId = c.req.param('id')
@@ -860,7 +898,7 @@ app.put('/api/admin/curriculum/lesson/:id', async (c) => {
 })
 
 // DELETE /api/admin/curriculum/lesson/:id - Delete lesson
-app.delete('/api/admin/curriculum/lesson/:id', async (c) => {
+app.delete('/api/admin/curriculum/lesson/:id', requireAdmin, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const lessonId = c.req.param('id')
@@ -1275,20 +1313,12 @@ app.delete('/api/student/submissions/:id', async (c) => {
 // ==========================================
 
 // GET /api/parent/children - Get all children for parent
-app.get('/api/parent/children', async (c) => {
+app.get('/api/parent/children', requireParent, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     
-    // Get userId from token
-    const authHeader = c.req.header('Authorization')
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return c.json({ success: false, error: 'No token provided' }, 401)
-    }
-    const token = authHeader.substring(7)
-    const payload = verifyToken(token)
-    if (!payload) {
-      return c.json({ success: false, error: 'Invalid token' }, 401)
-    }
+    // Get userId from context (set by middleware)
+    const payload = c.get('user')
     const userId = payload.userId || payload.id
     
     // Get all children for this parent
@@ -1314,7 +1344,7 @@ app.get('/api/parent/children', async (c) => {
 })
 
 // POST /api/parent/child - Add new child
-app.post('/api/parent/child', async (c) => {
+app.post('/api/parent/child', requireParent, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const body = await c.req.json()
@@ -1325,16 +1355,8 @@ app.post('/api/parent/child', async (c) => {
       return c.json({ success: false, error: 'First name and last name are required' }, 400)
     }
     
-    // Get userId from token
-    const authHeader = c.req.header('Authorization')
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return c.json({ success: false, error: 'No token provided' }, 401)
-    }
-    const token = authHeader.substring(7)
-    const payload = verifyToken(token)
-    if (!payload) {
-      return c.json({ success: false, error: 'Invalid token' }, 401)
-    }
+    // Get userId from context (set by middleware)
+    const payload = c.get('user')
     const parentId = payload.userId || payload.id
     
     // Generate unique student ID
@@ -1357,23 +1379,15 @@ app.post('/api/parent/child', async (c) => {
 })
 
 // PUT /api/parent/child/:id - Update child info
-app.put('/api/parent/child/:id', async (c) => {
+app.put('/api/parent/child/:id', requireParent, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const childId = c.req.param('id')
     const body = await c.req.json()
     const { firstName, lastName, age, grade, enrollmentStatus } = body
     
-    // Get userId from token
-    const authHeader = c.req.header('Authorization')
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return c.json({ success: false, error: 'No token provided' }, 401)
-    }
-    const token = authHeader.substring(7)
-    const payload = verifyToken(token)
-    if (!payload) {
-      return c.json({ success: false, error: 'Invalid token' }, 401)
-    }
+    // Get userId from context (set by middleware)
+    const payload = c.get('user')
     const parentId = payload.userId || payload.id
     
     // Verify parent owns this child
@@ -1403,21 +1417,13 @@ app.put('/api/parent/child/:id', async (c) => {
 })
 
 // GET /api/parent/child/:id/progress - Get detailed progress for one child
-app.get('/api/parent/child/:id/progress', async (c) => {
+app.get('/api/parent/child/:id/progress', requireParent, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const childId = c.req.param('id')
     
-    // Get userId from token
-    const authHeader = c.req.header('Authorization')
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return c.json({ success: false, error: 'No token provided' }, 401)
-    }
-    const token = authHeader.substring(7)
-    const payload = verifyToken(token)
-    if (!payload) {
-      return c.json({ success: false, error: 'Invalid token' }, 401)
-    }
+    // Get userId from context (set by middleware)
+    const payload = c.get('user')
     const parentId = payload.userId || payload.id
     
     // Verify parent owns this child
@@ -1942,7 +1948,7 @@ Transform your child's creativity into professional skills!
 })
 
 // GET /api/admin/curriculum/stats - Get curriculum statistics
-app.get('/api/admin/curriculum/stats', async (c) => {
+app.get('/api/admin/curriculum/stats', requireAdmin, async (c) => {
   try {
     const { DB_EDUCATION } = c.env
     const { getCurriculumStats } = await import('./api/curriculum-admin')
