@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Admin Login - Acromatico CRM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* iPhone Safari specific optimizations */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
+        
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-field {
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .error-shake {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Loading spinner */
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+    <div class="glass-card rounded-2xl p-8 w-full max-w-md fade-in">
+        <!-- Logo & Title -->
+        <div class="text-center mb-8">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <i class="fas fa-brain text-white text-2xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Acromatico CRM</h1>
+            <p class="text-gray-600 text-sm">AI-Powered Client Intelligence</p>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="space-y-6">
+            <!-- Token Input -->
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-key mr-2 text-purple-600"></i>Admin Token
+                </label>
+                <textarea
+                    id="tokenInput"
+                    rows="4"
+                    class="input-field w-full px-4 py-3 border-2 border-gray-200 rounded-xl resize-none font-mono text-sm"
+                    placeholder="Paste your JWT token here..."
+                    required
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                ></textarea>
+                <p class="text-xs text-gray-500 mt-2">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    Your secure access token from the admin team
+                </p>
+            </div>
+
+            <!-- Error Alert -->
+            <div id="errorAlert" class="hidden p-4 bg-red-50 border-l-4 border-red-500 rounded-lg">
+                <div class="flex items-center">
+                    <i class="fas fa-exclamation-triangle text-red-500 mr-3"></i>
+                    <div>
+                        <p class="font-semibold text-red-800">Authentication Failed</p>
+                        <p id="errorMessage" class="text-sm text-red-600 mt-1"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Alert -->
+            <div id="successAlert" class="hidden p-4 bg-green-50 border-l-4 border-green-500 rounded-lg">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                    <p class="font-semibold text-green-800">Access Granted - Redirecting...</p>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+                type="submit"
+                id="submitBtn"
+                class="btn-primary w-full py-4 text-white font-bold rounded-xl flex items-center justify-center"
+            >
+                <span id="btnText">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Access Dashboard
+                </span>
+                <span id="btnSpinner" class="hidden">
+                    <div class="spinner mr-3"></div>Processing...
+                </span>
+            </button>
+        </form>
+
+        <!-- Help Text -->
+        <div class="mt-6 text-center text-sm text-gray-600">
+            <i class="fas fa-shield-alt mr-1"></i>
+            Secured with JWT Authentication
+        </div>
+
+        <!-- Quick Stats Preview -->
+        <div class="mt-8 pt-6 border-t border-gray-200">
+            <p class="text-xs text-gray-500 text-center mb-3">System Status</p>
+            <div class="grid grid-cols-3 gap-3 text-center">
+                <div>
+                    <div class="text-lg font-bold text-purple-600">🤖</div>
+                    <div class="text-xs text-gray-600 mt-1">4 AI Agents</div>
+                </div>
+                <div>
+                    <div class="text-lg font-bold text-green-600">⚡</div>
+                    <div class="text-xs text-gray-600 mt-1">15s Response</div>
+                </div>
+                <div>
+                    <div class="text-lg font-bold text-blue-600">📊</div>
+                    <div class="text-xs text-gray-600 mt-1">Real-time BI</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // iPhone Safari viewport fix
+        function setViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+
+        const form = document.getElementById('loginForm');
+        const tokenInput = document.getElementById('tokenInput');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnSpinner = document.getElementById('btnSpinner');
+        const errorAlert = document.getElementById('errorAlert');
+        const successAlert = document.getElementById('successAlert');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Check if already logged in
+        const existingToken = localStorage.getItem('admin_token');
+        if (existingToken) {
+            // Validate existing token
+            validateAndRedirect(existingToken);
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const token = tokenInput.value.trim();
+            
+            // Clear previous alerts
+            errorAlert.classList.add('hidden');
+            successAlert.classList.add('hidden');
+            
+            // Validate token format (basic check)
+            if (!token || token.length < 20) {
+                showError('Invalid token format. Please paste the complete token.');
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnSpinner.classList.remove('hidden');
+
+            try {
+                await validateAndRedirect(token);
+            } catch (error) {
+                showError(error.message || 'Authentication failed. Please check your token and try again.');
+                submitBtn.disabled = false;
+                btnText.classList.remove('hidden');
+                btnSpinner.classList.add('hidden');
+            }
+        });
+
+        async function validateAndRedirect(token) {
+            try {
+                // Validate token by making a test API call
+                const response = await fetch('/api/crm/clients', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.status === 401) {
+                    throw new Error('Invalid or expired token');
+                }
+
+                if (response.status === 403) {
+                    throw new Error('Unauthorized: Admin role required');
+                }
+
+                if (!response.ok) {
+                    throw new Error(`Authentication failed (${response.status})`);
+                }
+
+                // Token is valid - store and redirect
+                localStorage.setItem('admin_token', token);
+                
+                // Show success
+                successAlert.classList.remove('hidden');
+                
+                // Redirect after brief delay
+                setTimeout(() => {
+                    window.location.href = '/admin/crm/dashboard';
+                }, 800);
+
+            } catch (error) {
+                // If validation fails, clear stored token
+                localStorage.removeItem('admin_token');
+                throw error;
+            }
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorAlert.classList.remove('hidden');
+            errorAlert.classList.add('error-shake');
+            
+            // Remove shake animation after it completes
+            setTimeout(() => {
+                errorAlert.classList.remove('error-shake');
+            }, 500);
+        }
+
+        // Auto-focus on input (with delay for iPhone Safari)
+        setTimeout(() => {
+            tokenInput.focus();
+        }, 300);
+    </script>
+</body>
+</html>

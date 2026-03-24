@@ -33,6 +33,9 @@
                 <button onclick="refreshAll()" class="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700">
                     <i class="fas fa-sync-alt" id="refresh-icon"></i>
                 </button>
+                <button onclick="logout()" class="px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -301,9 +304,31 @@
 </div>
 
 <script>
-// Admin JWT
-const ADMIN_TOKEN = 'eyJ1c2VySWQiOiJpdGFsby1hZG1pbiIsImVtYWlsIjoiaXRhbG9AYWNyb21hdGljby5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE4MDU4NTA5OTM2ODR9'
+// ============================================
+// AUTHENTICATION CHECK
+// ============================================
+const ADMIN_TOKEN = localStorage.getItem('admin_token')
+
+// Redirect to login if no token
+if (!ADMIN_TOKEN) {
+    window.location.href = '/admin/crm/login'
+}
+
+// Axios defaults
 axios.defaults.headers.common['Authorization'] = `Bearer ${ADMIN_TOKEN}`
+
+// Handle 401/403 responses (invalid token)
+axios.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+            // Token invalid - clear and redirect
+            localStorage.removeItem('admin_token')
+            window.location.href = '/admin/crm/login'
+        }
+        return Promise.reject(error)
+    }
+)
 
 let roiTrendChart = null
 
@@ -516,6 +541,14 @@ async function refreshAll() {
 
 // Auto-refresh every 60 seconds
 setInterval(refreshAll, 60000)
+
+// Logout Function
+function logout() {
+    if (confirm('Logout from CRM Analytics?')) {
+        localStorage.removeItem('admin_token')
+        window.location.href = '/admin/crm/login'
+    }
+}
 
 // Initial load
 refreshAll()
