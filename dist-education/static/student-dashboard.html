@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning Journey - Acromatico Creator Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+        }
+        .logo-text {
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .adventure-card {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border: 2px solid rgba(20, 184, 166, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .week-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        .week-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+            border-color: rgba(20, 184, 166, 0.5);
+        }
+        .lesson-item {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s;
+        }
+        .lesson-item:hover:not(.locked) {
+            background: rgba(20, 184, 166, 0.1);
+            border-color: rgba(20, 184, 166, 0.3);
+        }
+        .lesson-item.completed {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        .lesson-item.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .lesson-item.locked:hover {
+            transform: none;
+            background: rgba(15, 23, 42, 0.5);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0d9488, #0f766e);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(20, 184, 166, 0.4);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <!-- Header with Acromatico Branding -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <!-- Acromatico Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-10 md:h-12">
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden md:block">
+                    <p class="text-sm text-gray-400">Welcome back,</p>
+                    <p class="text-lg font-bold text-white" id="studentName">Creator</p>
+                    <p class="text-xs text-amber-400 font-semibold" id="studentRank">Beginner Creator</p>
+                </div>
+                <button onclick="logout()" class="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 border border-red-500/30 transition-all">
+                    <i class="fas fa-sign-out-alt mr-2"></i><span class="hidden md:inline">Logout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <div class="max-w-6xl mx-auto mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-2">🎨 My Learning Journey</h2>
+        <p class="text-gray-400">Your path to becoming an amazing creator!</p>
+    </div>
+
+    <!-- Current Adventure Banner -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div id="currentAdventure" class="adventure-card rounded-2xl p-6 md:p-8">
+            <div class="text-center py-8">
+                <div class="animate-pulse">
+                    <i class="fas fa-spinner fa-spin text-4xl text-teal-400 mb-4"></i>
+                    <p class="text-gray-400">Loading your adventure...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="text-center p-4 rounded-xl bg-teal-500/10 border border-teal-500/30 cursor-pointer hover:bg-teal-500/20 transition-all">
+                <div class="text-3xl mb-2">🎯</div>
+                <div class="text-2xl font-bold text-white" id="lessonsCompleted">0</div>
+                <div class="text-xs text-gray-400">Lessons Done</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 cursor-pointer hover:bg-purple-500/20 transition-all">
+                <div class="text-3xl mb-2">🔥</div>
+                <div class="text-2xl font-bold text-white" id="currentStreak">0</div>
+                <div class="text-xs text-gray-400">Day Streak</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 cursor-pointer hover:bg-amber-500/20 transition-all">
+                <div class="text-3xl mb-2">⭐</div>
+                <div class="text-2xl font-bold text-white" id="pointsEarned">0</div>
+                <div class="text-xs text-gray-400">XP Points</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 cursor-pointer hover:bg-cyan-500/20 transition-all">
+                <div class="text-3xl mb-2">🏆</div>
+                <div class="text-2xl font-bold text-white" id="badgesEarned">0</div>
+                <div class="text-xs text-gray-400">Badges</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This Month's Journey -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl md:text-3xl font-bold">📅 This Month's Journey</h2>
+            <div class="flex items-center gap-3">
+                <button onclick="window.location.href='/student/projects'" class="px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg font-medium transition-all">
+                    <i class="fas fa-camera mr-2"></i>My Projects
+                </button>
+                <button onclick="openAchievementsModal()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-medium transition-all">
+                    <i class="fas fa-trophy mr-2"></i>My Badges
+                </button>
+                <button onclick="viewAllMonths()" class="px-4 py-2 btn-primary text-white rounded-lg font-medium">
+                    <i class="fas fa-th-large mr-2"></i>View All Months
+                </button>
+            </div>
+        </div>
+        
+        <div id="currentWeeks" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="text-center py-12 col-span-full">
+                <div class="animate-pulse">
+                    <i class="fas fa-spinner fa-spin text-3xl text-teal-400 mb-3"></i>
+                    <p class="text-gray-400">Loading weeks...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Continue Learning -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">▶️ Continue Learning</h2>
+        <div id="nextLesson" class="bg-gradient-to-r from-teal-500/20 to-cyan-500/20 border-2 border-teal-500/50 rounded-2xl p-6">
+            <div class="text-center py-8">
+                <div class="animate-pulse">
+                    <i class="fas fa-spinner fa-spin text-3xl text-teal-400 mb-3"></i>
+                    <p class="text-gray-400">Finding your next lesson...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-3">
+                <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-6">
+                <span>•</span>
+                <span>Creator Academy</span>
+                <span>•</span>
+                <span>© 2026</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/curriculum" class="hover:text-teal-400 transition-colors">View Curriculum</a>
+                <a href="#" onclick="alert('Help coming soon!'); return false;" class="hover:text-teal-400 transition-colors">Help & Support</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Detail Modal -->
+    <div id="lessonModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-teal-500/30">
+            <div class="p-6">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-8">
+                        </div>
+                        <h2 id="lessonTitle" class="text-2xl md:text-3xl font-bold text-white"></h2>
+                        <p id="lessonMeta" class="text-sm text-gray-400 mt-1"></p>
+                    </div>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl ml-4 transition-colors">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="lessonContent">
+                    <!-- Lesson video player and content will load here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        const token = localStorage.getItem('auth_token');
+        let currentUser = null;
+        let currentModule = null;
+        let allWeeks = [];
+        let allLessons = [];
+        let userProgress = {};
+
+        if (!token) {
+            console.log('❌ No auth token found, redirecting to login...');
+            window.location.href = '/education/login';
+        }
+
+        // Initialize dashboard
+        async function init() {
+            try {
+                console.log('🎨 Loading student dashboard...');
+                
+                // Get user info
+                const userResponse = await fetch(`${API_BASE}/api/auth/me`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!userResponse.ok) {
+                    throw new Error('Auth failed');
+                }
+                
+                const userData = await userResponse.json();
+                currentUser = userData.user;
+                
+                console.log('✅ User loaded:', currentUser.first_name);
+                
+                // Check enrollment status (if user is a student profile linked to parent)
+                if (currentUser.role === 'student') {
+                    await checkEnrollmentStatus();
+                }
+                
+                document.getElementById('studentName').textContent = currentUser.first_name || currentUser.email.split('@')[0];
+                
+                // Load current month (January for now)
+                await loadCurrentMonth('mod-jan');
+                await loadStats();
+                await loadNextLesson();
+                
+                console.log('✅ Dashboard loaded successfully!');
+                
+            } catch (error) {
+                console.error('💥 Init error:', error);
+                alert('Failed to load dashboard. Please login again.');
+                localStorage.removeItem('auth_token');
+                window.location.href = '/education/login';
+            }
+        }
+        
+        // Check enrollment status (for student accounts linked to parents)
+        async function checkEnrollmentStatus() {
+            try {
+                // For MVP, we'll assume all students have access
+                // In production, you'd check the students table enrollment_status
+                // and show a message if status is 'paused' or 'inactive'
+                
+                // TODO: Add API endpoint to check student enrollment status
+                // const response = await fetch(`${API_BASE}/api/student/enrollment-status`, {
+                //     headers: { 'Authorization': `Bearer ${token}` }
+                // });
+                // const data = await response.json();
+                // if (data.status === 'inactive' || data.status === 'paused') {
+                //     showEnrollmentWarning(data.status);
+                // }
+            } catch (error) {
+                console.log('Enrollment check skipped (not a child account)');
+            }
+        }
+
+        // Load current month module and weeks
+        async function loadCurrentMonth(moduleId) {
+            try {
+                console.log('📚 Loading module:', moduleId);
+                
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/module/${moduleId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const { module, weeks, lessons } = data.data;
+                    currentModule = module;
+                    allWeeks = weeks;
+                    allLessons = lessons;
+                    
+                    console.log('✅ Loaded:', weeks.length, 'weeks,', lessons.length, 'lessons');
+                    
+                    // Render adventure banner
+                    renderAdventureBanner(module);
+                    
+                    // Render weeks
+                    renderWeeks(weeks, lessons);
+                } else {
+                    throw new Error(data.error || 'Failed to load module');
+                }
+            } catch (error) {
+                console.error('💥 Load month error:', error);
+                document.getElementById('currentAdventure').innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-exclamation-triangle text-4xl text-red-400 mb-4"></i>
+                        <p class="text-gray-400">Failed to load content. Please try refreshing the page.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Render adventure banner
+        function renderAdventureBanner(module) {
+            const totalLessons = allLessons.length;
+            const completedLessons = allLessons.filter(l => userProgress[l.id] === 'completed').length;
+            const progressPercent = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
+            
+            document.getElementById('currentAdventure').innerHTML = `
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="relative">
+                            <svg width="120" height="120" class="transform -rotate-90">
+                                <circle cx="60" cy="60" r="54" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none" />
+                                <circle cx="60" cy="60" r="54" stroke="#14b8a6" stroke-width="8" fill="none"
+                                        stroke-dasharray="339.292" stroke-dashoffset="${339.292 - (339.292 * progressPercent / 100)}"
+                                        stroke-linecap="round" />
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-4xl mb-1">${module.emoji}</div>
+                                    <div class="text-2xl font-bold">${progressPercent}%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="text-sm text-teal-400 font-semibold mb-2">${module.month_name.toUpperCase()} ADVENTURE</div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-3">${module.adventure_title}</h2>
+                        <p class="text-gray-300 text-lg mb-4">${module.adventure_desc}</p>
+                        <div class="flex items-center justify-center md:justify-start gap-4 text-sm flex-wrap">
+                            <span class="text-gray-400">
+                                <i class="fas fa-calendar mr-2"></i>${allWeeks.length} weeks
+                            </span>
+                            <span class="text-gray-400">
+                                <i class="fas fa-video mr-2"></i>${totalLessons} lessons
+                            </span>
+                            <span class="text-teal-400 font-semibold">
+                                <i class="fas fa-check-circle mr-2"></i>${completedLessons} completed
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render weeks
+        function renderWeeks(weeks, lessons) {
+            const quarterColor = getQuarterColor(currentModule.quarter);
+            
+            document.getElementById('currentWeeks').innerHTML = weeks.map(week => {
+                const weekLessons = lessons.filter(l => l.week_id === week.id);
+                const completedCount = weekLessons.filter(l => userProgress[l.id] === 'completed').length;
+                const totalCount = weekLessons.length;
+                const progressPercent = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+                
+                return `
+                    <div class="week-card rounded-xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="text-4xl">${week.emoji}</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Week ${week.week_number}</h3>
+                                    <p class="text-sm text-gray-400">${week.title}</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold" style="color: ${quarterColor}">${completedCount}/${totalCount}</div>
+                                <div class="text-xs text-gray-400">Done</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div class="h-full transition-all duration-500" 
+                                     style="width: ${progressPercent}%; background: ${quarterColor}"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            ${weekLessons.length > 0 ? weekLessons.map((lesson, idx) => {
+                                const isCompleted = userProgress[lesson.id] === 'completed';
+                                const isLocked = idx > 0 && !userProgress[weekLessons[idx - 1].id];
+                                
+                                return `
+                                    <div class="lesson-item ${isCompleted ? 'completed' : ''} ${isLocked ? 'locked' : ''} 
+                                                rounded-lg p-3 flex items-center justify-between ${!isLocked ? 'cursor-pointer' : ''}"
+                                         onclick="${isLocked ? '' : `openLesson('${lesson.id}')`}">
+                                        <div class="flex items-center gap-3 flex-1">
+                                            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                                                 style="background: ${isCompleted ? 'rgba(34, 197, 94, 0.2)' : isLocked ? 'rgba(100, 100, 100, 0.2)' : 'rgba(20, 184, 166, 0.2)'}">
+                                                <i class="fas ${isCompleted ? 'fa-check-circle text-green-400' : isLocked ? 'fa-lock text-gray-500' : 'fa-play text-teal-400'}"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-white font-medium text-sm truncate">${lesson.title}</p>
+                                                <p class="text-xs text-gray-400">
+                                                    ${lesson.duration_min > 0 ? `${lesson.duration_min} min` : 'New'}
+                                                    ${lesson.video_url ? ' • 🎥 Video' : ''}
+                                                    ${lesson.pdf_url ? ' • 📄 PDF' : ''}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        ${!isLocked && !isCompleted ? `
+                                            <button class="px-3 py-1 rounded-lg text-xs font-semibold transition-all hover:scale-105"
+                                                    style="background: ${quarterColor}20; color: ${quarterColor}">
+                                                Start
+                                            </button>
+                                        ` : ''}
+                                    </div>
+                                `;
+                            }).join('') : '<p class="text-gray-500 text-sm italic py-4 text-center">No lessons available yet. Check back soon!</p>'}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Load stats
+        async function loadStats() {
+            try {
+                // Load XP data
+                const xpResponse = await fetch(`${API_BASE}/api/student/xp`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const xpData = await xpResponse.json();
+                
+                if (xpData.success) {
+                    document.getElementById('pointsEarned').textContent = xpData.data.total_xp || 0;
+                    document.getElementById('studentRank').textContent = xpData.data.rank_title || 'Beginner Creator';
+                }
+                
+                // Load streak data
+                const streakResponse = await fetch(`${API_BASE}/api/student/streak`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const streakData = await streakResponse.json();
+                
+                if (streakData.success) {
+                    document.getElementById('currentStreak').textContent = streakData.data.current_streak || 0;
+                }
+                
+                // Load achievements
+                const achievementsResponse = await fetch(`${API_BASE}/api/student/achievements`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const achievementsData = await achievementsResponse.json();
+                
+                if (achievementsData.success) {
+                    document.getElementById('badgesEarned').textContent = achievementsData.data.total_earned || 0;
+                }
+                
+                // Load progress count (keep existing logic)
+                const progressResponse = await fetch(`${API_BASE}/api/student/progress/all`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const progressData = await progressResponse.json();
+                
+                if (progressData.success) {
+                    const completedCount = progressData.data.filter(p => p.status === 'completed').length;
+                    document.getElementById('lessonsCompleted').textContent = completedCount;
+                }
+                
+                // Track today's activity for streak
+                await fetch(`${API_BASE}/api/student/track-activity`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+            } catch (error) {
+                console.error('Load stats error:', error);
+                // Show placeholder values on error
+                document.getElementById('lessonsCompleted').textContent = '0';
+                document.getElementById('currentStreak').textContent = '0';
+                document.getElementById('pointsEarned').textContent = '0';
+                document.getElementById('badgesEarned').textContent = '0';
+            }
+        }
+
+        // Load next lesson
+        function loadNextLesson() {
+            const nextLesson = allLessons.find(l => !userProgress[l.id]);
+            
+            if (nextLesson) {
+                document.getElementById('nextLesson').innerHTML = `
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"
+                                 onclick="openLesson('${nextLesson.id}')">
+                                <i class="fas fa-play text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="text-sm text-teal-400 font-semibold mb-1">UP NEXT</div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-2">${nextLesson.title}</h3>
+                            <p class="text-gray-400 text-sm mb-3">${nextLesson.description || 'Continue your creative journey!'}</p>
+                            <button onclick="openLesson('${nextLesson.id}')" 
+                                    class="px-6 py-3 btn-primary text-white font-semibold rounded-lg">
+                                <i class="fas fa-play mr-2"></i>Start Lesson
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                document.getElementById('nextLesson').innerHTML = `
+                    <div class="text-center py-8">
+                        <div class="text-6xl mb-4">🎉</div>
+                        <h3 class="text-2xl font-bold mb-2">Amazing Work!</h3>
+                        <p class="text-gray-400 mb-4">You've completed all available lessons for this month!</p>
+                        <button onclick="viewAllMonths()" class="px-6 py-3 btn-primary text-white font-semibold rounded-lg">
+                            <i class="fas fa-th-large mr-2"></i>Explore Other Months
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Video player state
+        let currentVideo = null;
+        let videoProgressInterval = null;
+        let currentLessonId = null;
+
+        // Open lesson modal with video player
+        async function openLesson(lessonId) {
+            const lesson = allLessons.find(l => l.id === lessonId);
+            if (!lesson) {
+                alert('Lesson not found!');
+                return;
+            }
+            
+            currentLessonId = lessonId;
+            const week = allWeeks.find(w => w.id === lesson.week_id);
+            
+            document.getElementById('lessonTitle').textContent = lesson.title;
+            document.getElementById('lessonMeta').textContent = `Week ${week.week_number}: ${week.title} • ${lesson.duration_min || 0} min`;
+            
+            const quarterColor = getQuarterColor(currentModule.quarter);
+            
+            // Load saved progress
+            let savedProgress = null;
+            try {
+                const progressResponse = await fetch(`${API_BASE}/api/student/progress/${lessonId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const progressData = await progressResponse.json();
+                if (progressData.success && progressData.data) {
+                    savedProgress = progressData.data;
+                }
+            } catch (error) {
+                console.log('No saved progress found');
+            }
+            
+            document.getElementById('lessonContent').innerHTML = `
+                <div class="space-y-6">
+                    ${lesson.video_url ? `
+                        <div class="relative">
+                            <!-- Video Player -->
+                            <div class="aspect-video bg-black rounded-xl overflow-hidden border border-teal-500/30 relative group">
+                                <video id="lessonVideo" class="w-full h-full" preload="metadata">
+                                    <source src="${lesson.video_url}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <!-- Custom Controls -->
+                                <div id="videoControls" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <!-- Progress Bar -->
+                                    <div class="mb-3">
+                                        <input type="range" id="videoProgress" min="0" max="100" value="0" 
+                                               class="w-full h-1 rounded-lg appearance-none cursor-pointer bg-gray-600"
+                                               style="accent-color: ${quarterColor}">
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between gap-4">
+                                        <!-- Left Controls -->
+                                        <div class="flex items-center gap-3">
+                                            <button id="playPauseBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                <i class="fas fa-play text-2xl"></i>
+                                            </button>
+                                            <button id="skipBackBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                <i class="fas fa-backward text-lg"></i>
+                                            </button>
+                                            <button id="skipForwardBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                <i class="fas fa-forward text-lg"></i>
+                                            </button>
+                                            <div class="flex items-center gap-2">
+                                                <button id="volumeBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                    <i class="fas fa-volume-up"></i>
+                                                </button>
+                                                <input type="range" id="volumeSlider" min="0" max="100" value="100" 
+                                                       class="w-20 h-1 rounded-lg appearance-none cursor-pointer bg-gray-600"
+                                                       style="accent-color: ${quarterColor}">
+                                            </div>
+                                            <span id="videoTime" class="text-white text-sm font-mono">0:00 / 0:00</span>
+                                        </div>
+                                        
+                                        <!-- Right Controls -->
+                                        <div class="flex items-center gap-3">
+                                            <select id="speedControl" class="bg-gray-800 text-white text-sm rounded px-2 py-1 border border-gray-600">
+                                                <option value="0.5">0.5x</option>
+                                                <option value="0.75">0.75x</option>
+                                                <option value="1" selected>1x</option>
+                                                <option value="1.25">1.25x</option>
+                                                <option value="1.5">1.5x</option>
+                                                <option value="2">2x</option>
+                                            </select>
+                                            <button id="fullscreenBtn" class="text-white hover:text-teal-400 transition-colors">
+                                                <i class="fas fa-expand"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Center Play Button -->
+                                <div id="centerPlayBtn" class="absolute inset-0 flex items-center justify-center cursor-pointer">
+                                    <div class="w-20 h-20 rounded-full bg-teal-500/80 hover:bg-teal-500 flex items-center justify-center transition-all hover:scale-110">
+                                        <i class="fas fa-play text-white text-3xl ml-1"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Progress Indicator -->
+                            ${savedProgress ? `
+                                <div class="mt-3 p-3 bg-teal-500/20 border border-teal-500/30 rounded-lg">
+                                    <p class="text-sm text-teal-400">
+                                        <i class="fas fa-history mr-2"></i>
+                                        Resume from ${Math.floor(savedProgress.watch_time_seconds / 60)}:${String(savedProgress.watch_time_seconds % 60).padStart(2, '0')} 
+                                        (${savedProgress.progress_percent}% complete)
+                                    </p>
+                                </div>
+                            ` : ''}
+                        </div>
+                    ` : `
+                        <div class="aspect-video bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-teal-500/30">
+                            <div class="text-center">
+                                <div class="text-6xl mb-4">${currentModule.emoji}</div>
+                                <h4 class="text-2xl font-bold mb-2">${lesson.title}</h4>
+                                <p class="text-gray-400">Video content coming soon!</p>
+                            </div>
+                        </div>
+                    `}
+                    
+                    ${lesson.description ? `
+                        <div class="bg-slate-800 rounded-xl p-6 border border-gray-700">
+                            <h4 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                                <i class="fas fa-info-circle text-teal-400"></i>
+                                About This Lesson
+                            </h4>
+                            <p class="text-gray-300 leading-relaxed">${lesson.description}</p>
+                        </div>
+                    ` : ''}
+                    
+                    ${lesson.pdf_url ? `
+                        <div class="bg-slate-800 rounded-xl p-6 border border-gray-700">
+                            <h4 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                                <i class="fas fa-file-pdf text-red-400"></i>
+                                Resources
+                            </h4>
+                            <a href="${lesson.pdf_url}" target="_blank" 
+                               class="inline-flex items-center px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 border border-red-500/30 transition-all">
+                                <i class="fas fa-download mr-2"></i>Download PDF Guide
+                            </a>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="markComplete('${lessonId}')" 
+                                class="flex-1 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all hover:scale-105">
+                            <i class="fas fa-check mr-2"></i>Mark as Complete
+                        </button>
+                        <button onclick="closeModal()" 
+                                class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg transition-all">
+                            <i class="fas fa-times mr-2"></i>Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('lessonModal').classList.remove('hidden');
+            
+            // Initialize video player if video exists
+            if (lesson.video_url) {
+                setTimeout(() => initVideoPlayer(savedProgress), 100);
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('lessonModal').classList.add('hidden');
+            
+            // Stop video and clear progress tracking
+            if (currentVideo) {
+                currentVideo.pause();
+                currentVideo = null;
+            }
+            if (videoProgressInterval) {
+                clearInterval(videoProgressInterval);
+                videoProgressInterval = null;
+            }
+        }
+
+        // Initialize video player with all controls
+        function initVideoPlayer(savedProgress) {
+            currentVideo = document.getElementById('lessonVideo');
+            if (!currentVideo) return;
+            
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const centerPlayBtn = document.getElementById('centerPlayBtn');
+            const skipBackBtn = document.getElementById('skipBackBtn');
+            const skipForwardBtn = document.getElementById('skipForwardBtn');
+            const volumeBtn = document.getElementById('volumeBtn');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const videoProgress = document.getElementById('videoProgress');
+            const videoTime = document.getElementById('videoTime');
+            const speedControl = document.getElementById('speedControl');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            
+            // Resume from saved progress
+            if (savedProgress && savedProgress.watch_time_seconds) {
+                currentVideo.currentTime = savedProgress.watch_time_seconds;
+            }
+            
+            // Play/Pause
+            function togglePlayPause() {
+                if (currentVideo.paused) {
+                    currentVideo.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause text-2xl"></i>';
+                    centerPlayBtn.style.display = 'none';
+                } else {
+                    currentVideo.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play text-2xl"></i>';
+                    centerPlayBtn.style.display = 'flex';
+                }
+            }
+            
+            playPauseBtn.addEventListener('click', togglePlayPause);
+            centerPlayBtn.addEventListener('click', togglePlayPause);
+            currentVideo.addEventListener('click', togglePlayPause);
+            
+            // Skip controls
+            skipBackBtn.addEventListener('click', () => {
+                currentVideo.currentTime = Math.max(0, currentVideo.currentTime - 10);
+            });
+            
+            skipForwardBtn.addEventListener('click', () => {
+                currentVideo.currentTime = Math.min(currentVideo.duration, currentVideo.currentTime + 10);
+            });
+            
+            // Volume controls
+            volumeSlider.addEventListener('input', (e) => {
+                currentVideo.volume = e.target.value / 100;
+                updateVolumeIcon();
+            });
+            
+            volumeBtn.addEventListener('click', () => {
+                currentVideo.muted = !currentVideo.muted;
+                updateVolumeIcon();
+            });
+            
+            function updateVolumeIcon() {
+                if (currentVideo.muted || currentVideo.volume === 0) {
+                    volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                } else if (currentVideo.volume < 0.5) {
+                    volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+                } else {
+                    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                }
+            }
+            
+            // Progress bar
+            currentVideo.addEventListener('timeupdate', () => {
+                const percent = (currentVideo.currentTime / currentVideo.duration) * 100;
+                videoProgress.value = percent;
+                
+                const currentMin = Math.floor(currentVideo.currentTime / 60);
+                const currentSec = Math.floor(currentVideo.currentTime % 60);
+                const durationMin = Math.floor(currentVideo.duration / 60);
+                const durationSec = Math.floor(currentVideo.duration % 60);
+                
+                videoTime.textContent = `${currentMin}:${String(currentSec).padStart(2, '0')} / ${durationMin}:${String(durationSec).padStart(2, '0')}`;
+            });
+            
+            videoProgress.addEventListener('input', (e) => {
+                const time = (e.target.value / 100) * currentVideo.duration;
+                currentVideo.currentTime = time;
+            });
+            
+            // Speed control
+            speedControl.addEventListener('change', (e) => {
+                currentVideo.playbackRate = parseFloat(e.target.value);
+            });
+            
+            // Fullscreen
+            fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    currentVideo.parentElement.requestFullscreen();
+                    fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                } else {
+                    document.exitFullscreen();
+                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                }
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (!currentVideo || document.getElementById('lessonModal').classList.contains('hidden')) return;
+                
+                switch(e.key) {
+                    case ' ':
+                        e.preventDefault();
+                        togglePlayPause();
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        currentVideo.currentTime = Math.max(0, currentVideo.currentTime - 5);
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        currentVideo.currentTime = Math.min(currentVideo.duration, currentVideo.currentTime + 5);
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        currentVideo.volume = Math.min(1, currentVideo.volume + 0.1);
+                        volumeSlider.value = currentVideo.volume * 100;
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        currentVideo.volume = Math.max(0, currentVideo.volume - 0.1);
+                        volumeSlider.value = currentVideo.volume * 100;
+                        break;
+                    case 'f':
+                        e.preventDefault();
+                        fullscreenBtn.click();
+                        break;
+                }
+            });
+            
+            // Auto-save progress every 5 seconds
+            videoProgressInterval = setInterval(() => {
+                if (!currentVideo.paused && currentLessonId) {
+                    saveVideoProgress();
+                }
+            }, 5000);
+            
+            // Auto-complete at 90%
+            currentVideo.addEventListener('timeupdate', () => {
+                const percent = (currentVideo.currentTime / currentVideo.duration) * 100;
+                if (percent >= 90 && !userProgress[currentLessonId]) {
+                    markComplete(currentLessonId);
+                }
+            });
+        }
+
+        // Save video progress to database
+        async function saveVideoProgress() {
+            if (!currentVideo || !currentLessonId) return;
+            
+            const lesson = allLessons.find(l => l.id === currentLessonId);
+            if (!lesson) return;
+            
+            const watchTime = Math.floor(currentVideo.currentTime);
+            const progressPercent = Math.floor((currentVideo.currentTime / currentVideo.duration) * 100);
+            
+            try {
+                await fetch(`${API_BASE}/api/student/progress`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        lesson_id: currentLessonId,
+                        module_id: lesson.module_id,
+                        week_id: lesson.week_id,
+                        watch_time_seconds: watchTime,
+                        progress_percent: progressPercent,
+                        status: progressPercent >= 90 ? 'completed' : 'in_progress'
+                    })
+                });
+                
+                console.log('✅ Progress saved:', watchTime, 'seconds,', progressPercent, '%');
+            } catch (error) {
+                console.error('💥 Save progress error:', error);
+            }
+        }
+
+        // Mark lesson complete
+        async function markComplete(lessonId) {
+            try {
+                // Update local state
+                userProgress[lessonId] = 'completed';
+                
+                // Show celebration
+                alert('🎉 Awesome! Lesson completed! You earned 10 XP!');
+                
+                closeModal();
+                
+                // Reload everything
+                await loadCurrentMonth(currentModule.id);
+                await loadStats();
+                await loadNextLesson();
+                
+                console.log('✅ Lesson marked complete:', lessonId);
+            } catch (error) {
+                console.error('💥 Mark complete error:', error);
+                alert('Failed to mark lesson complete. Please try again.');
+            }
+        }
+
+        function viewAllMonths() {
+            window.location.href = '/curriculum';
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('auth_token');
+                window.location.href = '/education/login';
+            }
+        }
+
+        function getQuarterColor(quarter) {
+            const colors = {
+                1: '#14b8a6',
+                2: '#f59e0b',
+                3: '#8b5cf6',
+                4: '#06b6d4'
+            };
+            return colors[quarter] || '#14b8a6';
+        }
+        
+        // Open achievements modal
+        async function openAchievementsModal() {
+            document.getElementById('achievementsModal').classList.add('active');
+            await loadAchievements();
+        }
+        
+        // Close achievements modal
+        function closeAchievementsModal() {
+            document.getElementById('achievementsModal').classList.remove('active');
+        }
+        
+        // Load and display achievements
+        async function loadAchievements() {
+            try {
+                const response = await fetch(`${API_BASE}/api/student/achievements`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderAchievements(data.data);
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('Load achievements error:', error);
+                document.getElementById('achievementsContent').innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-exclamation-triangle text-3xl text-red-400 mb-3"></i>
+                        <p class="text-gray-400">Failed to load achievements</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Render achievements grid
+        function renderAchievements(data) {
+            const { earned, available } = data;
+            const earnedIds = new Set(earned.map(a => a.achievement_id));
+            
+            // Group by category
+            const categories = {
+                'milestone': { title: '🎯 Milestones', badges: [] },
+                'streak': { title: '🔥 Streaks', badges: [] },
+                'mastery': { title: '📚 Mastery', badges: [] },
+                'creative': { title: '🎨 Creative', badges: [] },
+                'special': { title: '✨ Special', badges: [] }
+            };
+            
+            available.forEach(badge => {
+                const isEarned = earnedIds.has(badge.id);
+                const earnedDate = earned.find(e => e.achievement_id === badge.id)?.earned_at;
+                
+                categories[badge.category].badges.push({
+                    ...badge,
+                    isEarned,
+                    earnedDate
+                });
+            });
+            
+            let html = `
+                <div class="mb-6 text-center">
+                    <div class="inline-flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-full">
+                        <div class="text-2xl">🏆</div>
+                        <div>
+                            <div class="text-sm text-gray-400">You've Earned</div>
+                            <div class="text-2xl font-bold text-amber-400">${data.total_earned} / ${data.total_available}</div>
+                        </div>
+                        <div class="text-2xl">🎖️</div>
+                    </div>
+                </div>
+            `;
+            
+            Object.entries(categories).forEach(([key, cat]) => {
+                if (cat.badges.length > 0) {
+                    html += `
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-3">${cat.title}</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    `;
+                    
+                    cat.badges.forEach(badge => {
+                        const earned = badge.isEarned;
+                        const opacity = earned ? 'opacity-100' : 'opacity-30';
+                        const bgColor = earned ? 'bg-teal-500/20 border-teal-500/50' : 'bg-gray-700/30 border-gray-600/30';
+                        const earnedText = earned && badge.earnedDate 
+                            ? `<div class="text-xs text-teal-400 mt-1">Earned ${new Date(badge.earnedDate).toLocaleDateString()}</div>`
+                            : '';
+                        
+                        html += `
+                            <div class="p-4 rounded-lg ${bgColor} border ${opacity} transition-all hover:scale-105">
+                                <div class="text-4xl mb-2 text-center">${badge.icon}</div>
+                                <div class="text-sm font-bold text-center mb-1">${badge.name}</div>
+                                <div class="text-xs text-gray-400 text-center">${badge.description}</div>
+                                ${earnedText}
+                                <div class="text-xs text-amber-400 text-center mt-2">+${badge.xp_reward} XP</div>
+                            </div>
+                        `;
+                    });
+                    
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            
+            document.getElementById('achievementsContent').innerHTML = html;
+        }
+
+        // Start the app
+        init();
+    </script>
+    
+    <!-- Achievements Modal -->
+    <div id="achievementsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 md:p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-amber-500/30 shadow-2xl transform scale-95 transition-all duration-300">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between mb-6 sticky top-0 bg-slate-900/95 backdrop-blur-sm pb-4 -mt-2 pt-2">
+                <div>
+                    <h3 class="text-3xl font-bold mb-1">🏆 My Achievements</h3>
+                    <p class="text-gray-400 text-sm">Collect badges as you learn and grow!</p>
+                </div>
+                <button onclick="closeAchievementsModal()" class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Achievements Content -->
+            <div id="achievementsContent">
+                <div class="text-center py-12">
+                    <div class="animate-pulse">
+                        <i class="fas fa-spinner fa-spin text-4xl text-amber-400 mb-3"></i>
+                        <p class="text-gray-400">Loading achievements...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        #achievementsModal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #achievementsModal.active > div {
+            transform: scale(1);
+        }
+    </style>
+</body>
+</html>

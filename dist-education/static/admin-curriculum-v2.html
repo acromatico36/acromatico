@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Manager - Acromatico Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+        }
+        .glass {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0d9488, #0f766e);
+        }
+        .stat-card {
+            background: rgba(20, 184, 166, 0.1);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+        }
+        .module-card {
+            background: rgba(30, 30, 30, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        .module-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(20, 184, 166, 0.5);
+        }
+        .lesson-placeholder {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .upload-zone {
+            border: 2px dashed rgba(20, 184, 166, 0.5);
+            background: rgba(20, 184, 166, 0.05);
+            transition: all 0.3s;
+        }
+        .upload-zone:hover {
+            border-color: rgba(20, 184, 166, 0.8);
+            background: rgba(20, 184, 166, 0.1);
+        }
+        .upload-zone.dragging {
+            border-color: #14b8a6;
+            background: rgba(20, 184, 166, 0.2);
+        }
+        .progress-bar {
+            height: 4px;
+            background: #14b8a6;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto mb-8">
+        <div class="flex items-center justify-between">
+            <div>
+                <h1 class="text-4xl font-bold mb-2">🎓 Curriculum Manager</h1>
+                <p class="text-gray-400">Manage 12-month Creator Academy content</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-gray-400">Hello, <strong id="adminName">Admin</strong></span>
+                <a href="/admin/dashboard" class="px-4 py-2 glass rounded-lg hover:bg-gray-700/50">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Overview -->
+    <div class="max-w-7xl mx-auto mb-8">
+        <div id="statsOverview" class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Stats will load here -->
+        </div>
+    </div>
+
+    <!-- Modules Grid -->
+    <div class="max-w-7xl mx-auto">
+        <div id="modulesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Modules will load here -->
+        </div>
+    </div>
+
+    <!-- Module Detail Modal -->
+    <div id="moduleModal" class="modal">
+        <div class="modal-content">
+            <div class="flex items-center justify-between mb-6">
+                <h2 id="modalTitle" class="text-2xl font-bold"></h2>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="space-y-6">
+                <!-- Module detail content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Lesson Modal -->
+    <div id="lessonModal" class="modal">
+        <div class="modal-content">
+            <div class="flex items-center justify-between mb-6">
+                <h2 id="lessonModalTitle" class="text-2xl font-bold"></h2>
+                <button onclick="closeLessonModal()" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="lessonForm" class="space-y-6">
+                <input type="hidden" id="lessonId">
+                <input type="hidden" id="lessonModuleId">
+                <input type="hidden" id="lessonWeekId">
+                
+                <!-- Lesson Title -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Lesson Title *</label>
+                    <input type="text" id="lessonTitle" required
+                           class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-teal-500 focus:outline-none"
+                           placeholder="e.g., Introduction to Composition">
+                </div>
+
+                <!-- Lesson Type -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Lesson Type *</label>
+                    <select id="lessonType" required
+                            class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-teal-500 focus:outline-none">
+                        <option value="video">Video Lesson</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="challenge">Challenge</option>
+                        <option value="review">Review Session</option>
+                    </select>
+                </div>
+
+                <!-- Duration -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Duration (minutes)</label>
+                    <input type="number" id="lessonDuration" min="0" value="0"
+                           class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-teal-500 focus:outline-none"
+                           placeholder="e.g., 15">
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Description</label>
+                    <textarea id="lessonDescription" rows="3"
+                              class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-teal-500 focus:outline-none"
+                              placeholder="Brief description of this lesson..."></textarea>
+                </div>
+
+                <!-- Video Upload -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">
+                        <i class="fas fa-video mr-2"></i>Video File
+                    </label>
+                    <div id="videoUploadZone" class="upload-zone rounded-lg p-8 text-center cursor-pointer">
+                        <i class="fas fa-cloud-upload-alt text-4xl text-teal-400 mb-3"></i>
+                        <p class="text-white font-medium mb-1">Drop video file here or click to browse</p>
+                        <p class="text-sm text-gray-400">MP4, MOV, AVI (max 500MB)</p>
+                        <input type="file" id="videoFileInput" accept="video/*" class="hidden">
+                    </div>
+                    <div id="videoPreview" class="hidden mt-4 p-4 glass rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-file-video text-2xl text-teal-400"></i>
+                                <div>
+                                    <p id="videoFileName" class="text-white font-medium"></p>
+                                    <p id="videoFileSize" class="text-sm text-gray-400"></p>
+                                </div>
+                            </div>
+                            <button type="button" onclick="clearVideo()" class="text-red-400 hover:text-red-300">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div id="videoProgress" class="hidden mt-3">
+                            <div class="bg-gray-700 rounded-full overflow-hidden">
+                                <div id="videoProgressBar" class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <p id="videoProgressText" class="text-sm text-gray-400 mt-1">Uploading...</p>
+                        </div>
+                    </div>
+                    <p id="existingVideoUrl" class="text-sm text-gray-400 mt-2 hidden"></p>
+                </div>
+
+                <!-- PDF Upload -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">
+                        <i class="fas fa-file-pdf mr-2"></i>PDF Resource (Optional)
+                    </label>
+                    <div id="pdfUploadZone" class="upload-zone rounded-lg p-8 text-center cursor-pointer">
+                        <i class="fas fa-file-pdf text-4xl text-red-400 mb-3"></i>
+                        <p class="text-white font-medium mb-1">Drop PDF file here or click to browse</p>
+                        <p class="text-sm text-gray-400">PDF only (max 50MB)</p>
+                        <input type="file" id="pdfFileInput" accept="application/pdf" class="hidden">
+                    </div>
+                    <div id="pdfPreview" class="hidden mt-4 p-4 glass rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-file-pdf text-2xl text-red-400"></i>
+                                <div>
+                                    <p id="pdfFileName" class="text-white font-medium"></p>
+                                    <p id="pdfFileSize" class="text-sm text-gray-400"></p>
+                                </div>
+                            </div>
+                            <button type="button" onclick="clearPdf()" class="text-red-400 hover:text-red-300">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div id="pdfProgress" class="hidden mt-3">
+                            <div class="bg-gray-700 rounded-full overflow-hidden">
+                                <div id="pdfProgressBar" class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <p id="pdfProgressText" class="text-sm text-gray-400 mt-1">Uploading...</p>
+                        </div>
+                    </div>
+                    <p id="existingPdfUrl" class="text-sm text-gray-400 mt-2 hidden"></p>
+                </div>
+
+                <!-- Submit Buttons -->
+                <div class="flex items-center gap-4">
+                    <button type="submit" class="flex-1 px-6 py-3 btn-primary text-white font-medium rounded-lg">
+                        <i class="fas fa-save mr-2"></i>
+                        <span id="submitBtnText">Save Lesson</span>
+                    </button>
+                    <button type="button" onclick="closeLessonModal()" 
+                            class="px-6 py-3 glass text-gray-300 font-medium rounded-lg hover:bg-gray-700/50">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        const token = localStorage.getItem('auth_token');
+        let currentModuleId = null;
+        let selectedVideoFile = null;
+        let selectedPdfFile = null;
+
+        if (!token) {
+            window.location.href = '/education/login';
+        }
+
+        // Initialize
+        async function init() {
+            try {
+                console.log('🔐 Checking auth...');
+                const response = await fetch(`${API_BASE}/api/auth/me`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!response.ok) throw new Error('Auth failed');
+                
+                const data = await response.json();
+                if (!data.user || data.user.role !== 'admin') {
+                    alert('Access denied: Admin only');
+                    window.location.href = '/education/login';
+                    return;
+                }
+                
+                document.getElementById('adminName').textContent = data.user.first_name || data.user.email;
+                await loadStats();
+                await loadModules();
+            } catch (error) {
+                console.error('Init error:', error);
+                alert('Failed to initialize. Please login again.');
+                window.location.href = '/education/login';
+            }
+        }
+
+        // Load curriculum stats
+        async function loadStats() {
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/stats`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    const stats = data.data;
+                    document.getElementById('statsOverview').innerHTML = `
+                        <div class="stat-card rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-400 text-sm mb-1">Total Modules</p>
+                                    <p class="text-3xl font-bold text-white">${stats.total_modules}</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center">
+                                    <i class="fas fa-book text-teal-400 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-400 text-sm mb-1">Total Weeks</p>
+                                    <p class="text-3xl font-bold text-white">${stats.total_weeks}</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                    <i class="fas fa-calendar text-blue-400 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-400 text-sm mb-1">Lessons Created</p>
+                                    <p class="text-3xl font-bold text-white">${stats.total_lessons || 0}</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+                                    <i class="fas fa-video text-green-400 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card rounded-xl p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-400 text-sm mb-1">Content Uploaded</p>
+                                    <p class="text-3xl font-bold text-white">${stats.uploaded_lessons || 0}</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                                    <i class="fas fa-check-circle text-purple-400 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Load stats error:', error);
+            }
+        }
+
+        // Quarter brand colors - Acromatico style
+        const quarterColors = {
+            1: '#14b8a6', // Q1 - Teal (Acromatico primary)
+            2: '#f59e0b', // Q2 - Amber/Gold
+            3: '#8b5cf6', // Q3 - Purple
+            4: '#06b6d4'  // Q4 - Cyan
+        };
+
+        // Load all modules
+        async function loadModules() {
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/modules`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    const modules = data.data;
+                    document.getElementById('modulesGrid').innerHTML = modules.map(module => {
+                        const borderColor = quarterColors[module.quarter] || '#14b8a6';
+                        return `
+                        <div class="module-card rounded-xl p-6 cursor-pointer" 
+                             style="border-color: ${borderColor}"
+                             onclick="openModuleDetail('${module.id}')">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <div class="text-3xl mb-2">${module.emoji}</div>
+                                    <h3 class="text-lg font-bold text-white mb-1">${module.title}</h3>
+                                    <p class="text-sm text-gray-400">${module.subtitle}</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full" 
+                                      style="background-color: ${borderColor}20; color: ${borderColor}">
+                                    Q${module.quarter}
+                                </span>
+                            </div>
+                            <div class="pt-4 border-t border-gray-700">
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-gray-400">
+                                        <i class="fas fa-calendar mr-1"></i>${module.week_count || 4} weeks
+                                    </span>
+                                    <span class="font-medium" style="color: ${borderColor}">Manage →</span>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                    }).join('');
+                }
+            } catch (error) {
+                console.error('Load modules error:', error);
+            }
+        }
+
+        // Open module detail modal
+        async function openModuleDetail(moduleId) {
+            currentModuleId = moduleId;
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/module/${moduleId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    const { module, weeks, lessons } = data.data;
+                    
+                    document.getElementById('modalTitle').innerHTML = `
+                        ${module.emoji} ${module.title}
+                        <span class="text-sm font-normal text-gray-400 ml-3">${module.month_name}</span>
+                    `;
+                    
+                    document.getElementById('modalContent').innerHTML = `
+                        <div class="bg-gray-800/50 rounded-lg p-6 mb-6">
+                            <h4 class="text-lg font-semibold text-white mb-2">${module.adventure_title}</h4>
+                            <p class="text-gray-300 mb-4">${module.adventure_desc}</p>
+                            <p class="text-sm text-gray-400">${module.description}</p>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            ${weeks.map(week => `
+                                <div class="glass rounded-lg p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-2xl">${week.emoji}</span>
+                                            <div>
+                                                <h5 class="text-lg font-semibold text-white">Week ${week.week_number}: ${week.title}</h5>
+                                                <p class="text-sm text-gray-400">${week.subtitle}</p>
+                                            </div>
+                                        </div>
+                                        <button onclick="addLesson('${module.id}', '${week.id}')" 
+                                                class="px-4 py-2 btn-primary text-white text-sm rounded-lg font-medium">
+                                            <i class="fas fa-plus mr-2"></i>Add Lesson
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 gap-3 mt-4">
+                                        ${lessons.filter(l => l.week_id === week.id).map(lesson => `
+                                            <div class="lesson-placeholder rounded-lg p-4">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center gap-3 flex-1">
+                                                        <div class="w-10 h-10 rounded-lg bg-gray-700 flex items-center justify-center flex-shrink-0">
+                                                            <i class="fas fa-video text-teal-400"></i>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <p class="text-white font-medium">${lesson.title}</p>
+                                                            <div class="flex items-center gap-3 mt-1">
+                                                                <span class="text-xs px-2 py-1 rounded-full ${
+                                                                    lesson.upload_status === 'uploaded' ? 'bg-green-500/20 text-green-400' : 
+                                                                    lesson.upload_status === 'processing' ? 'bg-yellow-500/20 text-yellow-400' : 
+                                                                    'bg-gray-700 text-gray-400'
+                                                                }">
+                                                                    ${lesson.upload_status}
+                                                                </span>
+                                                                ${lesson.duration_min > 0 ? `<span class="text-xs text-gray-400">${lesson.duration_min} min</span>` : ''}
+                                                                ${lesson.video_url ? '<span class="text-xs text-teal-400"><i class="fas fa-video mr-1"></i>Video</span>' : ''}
+                                                                ${lesson.pdf_url ? '<span class="text-xs text-red-400"><i class="fas fa-file-pdf mr-1"></i>PDF</span>' : ''}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <button onclick="editLesson('${lesson.id}')" 
+                                                                class="px-3 py-1 text-sm text-teal-400 hover:text-teal-300">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button onclick="deleteLesson('${lesson.id}', '${week.id}')" 
+                                                                class="px-3 py-1 text-sm text-red-400 hover:text-red-300">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        `).join('') || '<p class="text-gray-500 text-sm italic py-4">No lessons yet. Click "Add Lesson" to create video/PDF placeholders.</p>'}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    
+                    document.getElementById('moduleModal').classList.add('active');
+                }
+            } catch (error) {
+                console.error('Load module detail error:', error);
+                alert('Failed to load module details');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('moduleModal').classList.remove('active');
+        }
+
+        // Add new lesson
+        function addLesson(moduleId, weekId) {
+            document.getElementById('lessonModalTitle').textContent = '➕ Add New Lesson';
+            document.getElementById('lessonForm').reset();
+            document.getElementById('lessonId').value = '';
+            document.getElementById('lessonModuleId').value = moduleId;
+            document.getElementById('lessonWeekId').value = weekId;
+            document.getElementById('submitBtnText').textContent = 'Create Lesson';
+            
+            // Hide existing file indicators
+            document.getElementById('existingVideoUrl').classList.add('hidden');
+            document.getElementById('existingPdfUrl').classList.add('hidden');
+            
+            selectedVideoFile = null;
+            selectedPdfFile = null;
+            
+            document.getElementById('lessonModal').classList.add('active');
+        }
+
+        // Edit existing lesson
+        async function editLesson(lessonId) {
+            try {
+                // First get lesson details
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/module/${currentModuleId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    const lesson = data.data.lessons.find(l => l.id === lessonId);
+                    if (!lesson) {
+                        alert('Lesson not found');
+                        return;
+                    }
+                    
+                    document.getElementById('lessonModalTitle').textContent = '✏️ Edit Lesson';
+                    document.getElementById('lessonId').value = lesson.id;
+                    document.getElementById('lessonModuleId').value = lesson.module_id;
+                    document.getElementById('lessonWeekId').value = lesson.week_id;
+                    document.getElementById('lessonTitle').value = lesson.title;
+                    document.getElementById('lessonType').value = lesson.lesson_type || 'video';
+                    document.getElementById('lessonDuration').value = lesson.duration_min || 0;
+                    document.getElementById('lessonDescription').value = lesson.description || '';
+                    document.getElementById('submitBtnText').textContent = 'Update Lesson';
+                    
+                    // Show existing video URL if exists
+                    if (lesson.video_url) {
+                        const videoEl = document.getElementById('existingVideoUrl');
+                        videoEl.textContent = `Current video: ${lesson.video_url}`;
+                        videoEl.classList.remove('hidden');
+                    }
+                    
+                    // Show existing PDF URL if exists
+                    if (lesson.pdf_url) {
+                        const pdfEl = document.getElementById('existingPdfUrl');
+                        pdfEl.textContent = `Current PDF: ${lesson.pdf_url}`;
+                        pdfEl.classList.remove('hidden');
+                    }
+                    
+                    selectedVideoFile = null;
+                    selectedPdfFile = null;
+                    
+                    document.getElementById('lessonModal').classList.add('active');
+                }
+            } catch (error) {
+                console.error('Load lesson error:', error);
+                alert('Failed to load lesson details');
+            }
+        }
+
+        // Delete lesson
+        async function deleteLesson(lessonId, weekId) {
+            if (!confirm('Are you sure you want to delete this lesson? This cannot be undone.')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/lesson/${lessonId}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    alert('✅ Lesson deleted successfully!');
+                    await openModuleDetail(currentModuleId); // Reload module details
+                    await loadStats(); // Refresh stats
+                } else {
+                    alert('❌ Failed to delete lesson: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Delete lesson error:', error);
+                alert('Failed to delete lesson');
+            }
+        }
+
+        function closeLessonModal() {
+            document.getElementById('lessonModal').classList.remove('active');
+            document.getElementById('videoPreview').classList.add('hidden');
+            document.getElementById('pdfPreview').classList.add('hidden');
+        }
+
+        // File upload handling
+        function setupFileUpload() {
+            const videoZone = document.getElementById('videoUploadZone');
+            const videoInput = document.getElementById('videoFileInput');
+            const pdfZone = document.getElementById('pdfUploadZone');
+            const pdfInput = document.getElementById('pdfFileInput');
+            
+            // Video upload
+            videoZone.addEventListener('click', () => videoInput.click());
+            videoZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                videoZone.classList.add('dragging');
+            });
+            videoZone.addEventListener('dragleave', () => {
+                videoZone.classList.remove('dragging');
+            });
+            videoZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                videoZone.classList.remove('dragging');
+                if (e.dataTransfer.files.length > 0) {
+                    handleVideoFile(e.dataTransfer.files[0]);
+                }
+            });
+            videoInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleVideoFile(e.target.files[0]);
+                }
+            });
+            
+            // PDF upload
+            pdfZone.addEventListener('click', () => pdfInput.click());
+            pdfZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                pdfZone.classList.add('dragging');
+            });
+            pdfZone.addEventListener('dragleave', () => {
+                pdfZone.classList.remove('dragging');
+            });
+            pdfZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                pdfZone.classList.remove('dragging');
+                if (e.dataTransfer.files.length > 0) {
+                    handlePdfFile(e.dataTransfer.files[0]);
+                }
+            });
+            pdfInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handlePdfFile(e.target.files[0]);
+                }
+            });
+        }
+
+        function handleVideoFile(file) {
+            if (!file.type.startsWith('video/')) {
+                alert('Please select a valid video file');
+                return;
+            }
+            if (file.size > 500 * 1024 * 1024) { // 500MB
+                alert('Video file is too large. Maximum size is 500MB.');
+                return;
+            }
+            
+            selectedVideoFile = file;
+            document.getElementById('videoFileName').textContent = file.name;
+            document.getElementById('videoFileSize').textContent = formatFileSize(file.size);
+            document.getElementById('videoPreview').classList.remove('hidden');
+        }
+
+        function handlePdfFile(file) {
+            if (file.type !== 'application/pdf') {
+                alert('Please select a valid PDF file');
+                return;
+            }
+            if (file.size > 50 * 1024 * 1024) { // 50MB
+                alert('PDF file is too large. Maximum size is 50MB.');
+                return;
+            }
+            
+            selectedPdfFile = file;
+            document.getElementById('pdfFileName').textContent = file.name;
+            document.getElementById('pdfFileSize').textContent = formatFileSize(file.size);
+            document.getElementById('pdfPreview').classList.remove('hidden');
+        }
+
+        function clearVideo() {
+            selectedVideoFile = null;
+            document.getElementById('videoFileInput').value = '';
+            document.getElementById('videoPreview').classList.add('hidden');
+        }
+
+        function clearPdf() {
+            selectedPdfFile = null;
+            document.getElementById('pdfFileInput').value = '';
+            document.getElementById('pdfPreview').classList.add('hidden');
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        // Handle form submission
+        document.getElementById('lessonForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const lessonId = document.getElementById('lessonId').value;
+            const isEdit = lessonId !== '';
+            
+            const lessonData = {
+                module_id: document.getElementById('lessonModuleId').value,
+                week_id: document.getElementById('lessonWeekId').value,
+                title: document.getElementById('lessonTitle').value,
+                lesson_type: document.getElementById('lessonType').value,
+                duration_min: parseInt(document.getElementById('lessonDuration').value) || 0,
+                description: document.getElementById('lessonDescription').value,
+                sort_order: 1 // Auto-increment based on existing lessons
+            };
+            
+            try {
+                // For now, just save the lesson metadata
+                // File uploads will be handled via Cloudflare R2 in production
+                // For MVP, we'll store placeholder URLs
+                
+                if (selectedVideoFile) {
+                    lessonData.video_url = `/videos/${selectedVideoFile.name}`;
+                    lessonData.upload_status = 'uploaded';
+                }
+                
+                if (selectedPdfFile) {
+                    lessonData.pdf_url = `/pdfs/${selectedPdfFile.name}`;
+                }
+                
+                const url = isEdit 
+                    ? `${API_BASE}/api/admin/curriculum/lesson/${lessonId}`
+                    : `${API_BASE}/api/admin/curriculum/lesson`;
+                
+                const method = isEdit ? 'PUT' : 'POST';
+                
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(lessonData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert(`✅ Lesson ${isEdit ? 'updated' : 'created'} successfully!`);
+                    closeLessonModal();
+                    await openModuleDetail(currentModuleId); // Reload module details
+                    await loadStats(); // Refresh stats
+                } else {
+                    alert(`❌ Failed to ${isEdit ? 'update' : 'create'} lesson: ` + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Save lesson error:', error);
+                alert('Failed to save lesson');
+            }
+        });
+
+        // Initialize file upload handlers
+        setupFileUpload();
+        
+        // Start the app
+        init();
+    </script>
+</body>
+</html>

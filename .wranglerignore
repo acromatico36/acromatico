@@ -1,0 +1,39 @@
+# Exclude large media files (photography portfolio)
+/dist/static/images/portfolio/**
+/dist/static/images/prints/**
+/dist/static/images/commercial/**
+/dist/static/images/events/**
+/dist/static/images/weddings/**
+/dist/static/images/realestate/**
+
+# Exclude blog data
+/dist/blog/**
+/dist/blog_posts_data/**
+
+# Exclude photography pages (not part of education platform)
+/dist/photography*.html
+/dist/commercial*.html
+/dist/events*.html
+/dist/weddings*.html
+/dist/realestate*.html
+/dist/portraits*.html
+/dist/prints*.html
+/dist/studio*.html
+
+# Exclude test and backup files
+/dist/*backup*
+/dist/*old*
+/dist/*test*
+/dist/debug*.html
+/dist/compare*.html
+/dist/logo-test.html
+
+# Exclude large headshots
+/dist/*-headshot.jpg
+
+# Exclude hero video
+/dist/hero-video.mp4
+
+# Exclude large sitemaps
+/dist/sitemap-images.xml
+/dist/sitemap-blog.xml

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard - Acromatico Creator Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+        }
+        .child-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        .child-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+            border-color: rgba(20, 184, 166, 0.5);
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <!-- Header -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-10 md:h-12">
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden md:block">
+                    <p class="text-sm text-gray-400">Parent Account</p>
+                    <p class="text-lg font-bold text-white" id="parentName">Loading...</p>
+                </div>
+                <button onclick="logout()" class="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 border border-red-500/30 transition-all">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold mb-2">👨‍👩‍👧‍👦 Parent Dashboard</h1>
+        <p class="text-gray-400">Monitor your children's creative learning journey</p>
+    </div>
+
+    <!-- Children's Progress -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold">Your Children</h2>
+            <button onclick="openAddChildModal()" class="px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg font-medium transition-all">
+                <i class="fas fa-plus mr-2"></i>Add Child
+            </button>
+        </div>
+        
+        <div id="childrenGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="text-center py-12 col-span-full">
+                <div class="animate-pulse">
+                    <i class="fas fa-spinner fa-spin text-3xl text-teal-400 mb-3"></i>
+                    <p class="text-gray-400">Loading children...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-3">
+                <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-6">
+                <span>•</span>
+                <span>Creator Academy</span>
+                <span>•</span>
+                <span>© 2026</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/curriculum" class="hover:text-teal-400 transition-colors">View Curriculum</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        const token = localStorage.getItem('auth_token');
+        let currentUser = null;
+
+        if (!token) {
+            window.location.href = '/education/login';
+        }
+
+        // Initialize
+        async function init() {
+            try {
+                const userResponse = await fetch(`${API_BASE}/api/auth/me`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!userResponse.ok) throw new Error('Auth failed');
+                
+                const userData = await userResponse.json();
+                currentUser = userData.user;
+                
+                if (currentUser.role !== 'parent') {
+                    alert('Access denied: Parent accounts only');
+                    window.location.href = '/education/login';
+                    return;
+                }
+                
+                document.getElementById('parentName').textContent = currentUser.first_name || currentUser.email;
+                
+                await loadChildren();
+                
+            } catch (error) {
+                console.error('Init error:', error);
+                alert('Failed to load dashboard. Please login again.');
+                window.location.href = '/education/login';
+            }
+        }
+
+        // Load children
+        async function loadChildren() {
+            try {
+                const response = await fetch(`${API_BASE}/api/parent/children`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderChildren(data.data);
+                } else {
+                    throw new Error(data.error || 'Failed to load children');
+                }
+            } catch (error) {
+                console.error('Load children error:', error);
+                document.getElementById('childrenGrid').innerHTML = `
+                    <div class="text-center py-12 col-span-full">
+                        <i class="fas fa-exclamation-triangle text-4xl text-red-400 mb-4"></i>
+                        <p class="text-gray-400">Failed to load children</p>
+                        <p class="text-xs text-gray-500 mt-2">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Render children cards
+        function renderChildren(children) {
+            if (children.length === 0) {
+                document.getElementById('childrenGrid').innerHTML = `
+                    <div class="text-center py-12 col-span-full">
+                        <div class="text-6xl mb-4">👶</div>
+                        <h3 class="text-2xl font-bold mb-2">No Children Added Yet</h3>
+                        <p class="text-gray-400 mb-6">Add your first child to start tracking their learning journey</p>
+                        <button onclick="openAddChildModal()" class="px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg transition-all">
+                            <i class="fas fa-plus mr-2"></i>Add Your First Child
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            const html = children.map(child => {
+                const statusColor = {
+                    'active': 'bg-green-500/20 text-green-400 border-green-500/30',
+                    'paused': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+                    'inactive': 'bg-gray-500/20 text-gray-400 border-gray-500/30'
+                }[child.enrollment_status] || 'bg-gray-500/20 text-gray-400 border-gray-500/30';
+                
+                const progress = Math.round(child.overall_progress || 0);
+                const radius = 40;
+                const circumference = 2 * Math.PI * radius;
+                const offset = circumference - (progress / 100) * circumference;
+                
+                return `
+                    <div class="child-card rounded-xl p-6 cursor-pointer" onclick="viewChildDetails('${child.id}')">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-1">${child.first_name} ${child.last_name}</h3>
+                                <div class="flex items-center gap-2 text-sm text-gray-400">
+                                    ${child.age ? `<span><i class="fas fa-birthday-cake mr-1"></i>${child.age} years</span>` : ''}
+                                    ${child.grade ? `<span class="ml-2"><i class="fas fa-graduation-cap mr-1"></i>${child.grade}</span>` : ''}
+                                </div>
+                            </div>
+                            <div class="relative w-20 h-20">
+                                <svg class="progress-ring" width="80" height="80">
+                                    <circle cx="40" cy="40" r="${radius}" stroke="rgba(255,255,255,0.1)" stroke-width="6" fill="none"/>
+                                    <circle cx="40" cy="40" r="${radius}" stroke="#14b8a6" stroke-width="6" fill="none"
+                                            stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"
+                                            stroke-linecap="round" class="transition-all duration-500"/>
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="text-lg font-bold text-teal-400">${progress}%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-gray-400"><i class="fas fa-check-circle mr-2"></i>Lessons Completed</span>
+                                <span class="text-white font-semibold">${child.lessons_completed || 0}</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-gray-400"><i class="fas fa-trophy mr-2"></i>Badges Earned</span>
+                                <span class="text-white font-semibold">0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                            <span class="px-3 py-1 ${statusColor} text-xs font-semibold rounded-full border">
+                                ${child.enrollment_status.toUpperCase()}
+                            </span>
+                            <button class="text-teal-400 hover:text-teal-300 text-sm font-medium">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('childrenGrid').innerHTML = html;
+        }
+        
+        // View child details
+        function viewChildDetails(childId) {
+            // For now, show alert - will build detailed view next
+            alert(`Opening detailed view for child: ${childId}\n\nThis will show:\n- Full progress breakdown\n- Completed lessons\n- Project submissions\n- Achievement badges\n- Learning streaks`);
+        }
+        
+        // Open add child modal
+        function openAddChildModal() {
+            document.getElementById('addChildModal').classList.add('active');
+            document.getElementById('addChildForm').reset();
+        }
+        
+        // Close add child modal
+        function closeAddChildModal() {
+            document.getElementById('addChildModal').classList.remove('active');
+        }
+        
+        // Submit new child
+        async function submitNewChild(event) {
+            event.preventDefault();
+            
+            const firstName = document.getElementById('childFirstName').value.trim();
+            const lastName = document.getElementById('childLastName').value.trim();
+            const age = document.getElementById('childAge').value;
+            const grade = document.getElementById('childGrade').value;
+            
+            if (!firstName || !lastName) {
+                alert('Please enter first and last name');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/parent/child`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ firstName, lastName, age: age || null, grade: grade || null })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    closeAddChildModal();
+                    await loadChildren(); // Refresh the list
+                    alert(`✅ ${firstName} has been added successfully!`);
+                } else {
+                    alert(`Error: ${data.error}`);
+                }
+            } catch (error) {
+                console.error('Add child error:', error);
+                alert('Failed to add child. Please try again.');
+            }
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('auth_token');
+                window.location.href = '/education/login';
+            }
+        }
+
+        init();
+    </script>
+    
+    <!-- Add Child Modal -->
+    <div id="addChildModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 max-w-md w-full border border-teal-500/30 shadow-2xl transform scale-95 transition-all duration-300">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h3 class="text-2xl font-bold mb-1">👶 Add Child</h3>
+                    <p class="text-gray-400 text-sm">Create a profile for your child</p>
+                </div>
+                <button onclick="closeAddChildModal()" class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Form -->
+            <form id="addChildForm" onsubmit="submitNewChild(event)">
+                <div class="space-y-4">
+                    <!-- First Name -->
+                    <div>
+                        <label class="block text-sm font-medium mb-2">First Name *</label>
+                        <input type="text" id="childFirstName" required
+                               class="w-full px-4 py-3 bg-slate-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
+                               placeholder="e.g., Emma">
+                    </div>
+                    
+                    <!-- Last Name -->
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Last Name *</label>
+                        <input type="text" id="childLastName" required
+                               class="w-full px-4 py-3 bg-slate-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
+                               placeholder="e.g., Johnson">
+                    </div>
+                    
+                    <!-- Age (Optional) -->
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Age (Optional)</label>
+                        <input type="number" id="childAge" min="5" max="18"
+                               class="w-full px-4 py-3 bg-slate-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
+                               placeholder="e.g., 12">
+                    </div>
+                    
+                    <!-- Grade (Optional) -->
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Grade (Optional)</label>
+                        <select id="childGrade"
+                                class="w-full px-4 py-3 bg-slate-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all">
+                            <option value="">Select grade...</option>
+                            <option value="K">Kindergarten</option>
+                            <option value="1">1st Grade</option>
+                            <option value="2">2nd Grade</option>
+                            <option value="3">3rd Grade</option>
+                            <option value="4">4th Grade</option>
+                            <option value="5">5th Grade</option>
+                            <option value="6">6th Grade</option>
+                            <option value="7">7th Grade</option>
+                            <option value="8">8th Grade</option>
+                            <option value="9">9th Grade</option>
+                            <option value="10">10th Grade</option>
+                            <option value="11">11th Grade</option>
+                            <option value="12">12th Grade</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Actions -->
+                <div class="flex gap-3 mt-6">
+                    <button type="button" onclick="closeAddChildModal()"
+                            class="flex-1 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg transition-all">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                            class="flex-1 px-6 py-3 bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-semibold rounded-lg transition-all shadow-lg">
+                        <i class="fas fa-plus mr-2"></i>Add Child
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <style>
+        #addChildModal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #addChildModal.active > div {
+            transform: scale(1);
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Acromatico Creator Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+        }
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border: 2px solid rgba(20, 184, 166, 0.3);
+            transition: all 0.4s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(20, 184, 166, 0.4);
+            border-color: rgba(20, 184, 166, 0.6);
+        }
+        .feature-checkmark {
+            color: #14b8a6;
+            font-size: 1.2em;
+        }
+        .btn-cta {
+            background: linear-gradient(135deg, #14b8a6, #06b6d4);
+            transition: all 0.3s;
+        }
+        .btn-cta:hover {
+            background: linear-gradient(135deg, #0d9488, #0891b2);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.5);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <!-- Header with Logo -->
+    <div class="max-w-7xl mx-auto mb-12">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <a href="/">
+                <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-12 md:h-16 cursor-pointer hover:opacity-80 transition-opacity">
+            </a>
+            
+            <div class="flex items-center gap-4">
+                <a href="/curriculum" class="px-4 py-2 text-white hover:text-teal-400 transition-colors">
+                    <i class="fas fa-book mr-2"></i>View Curriculum
+                </a>
+                <a href="/education/login" class="px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg font-semibold transition-all">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="max-w-5xl mx-auto text-center mb-16">
+        <div class="inline-block px-4 py-2 bg-teal-500/20 border border-teal-500/30 rounded-full mb-6">
+            <span class="text-teal-400 font-semibold">🎓 12-Month Creator Academy</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            Transform Your Child Into a 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+                Creative Storyteller
+            </span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            A complete year-long journey teaching photography, videography, and visual storytelling 
+            to kids ages 7-14. Designed by professional creators, perfect for homeschool families.
+        </p>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="max-w-5xl mx-auto mb-16">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="text-center p-6 bg-teal-500/10 border border-teal-500/30 rounded-xl">
+                <div class="text-4xl font-bold text-teal-400 mb-2">12</div>
+                <div class="text-sm text-gray-400">Months of Content</div>
+            </div>
+            <div class="text-center p-6 bg-purple-500/10 border border-purple-500/30 rounded-xl">
+                <div class="text-4xl font-bold text-purple-400 mb-2">48</div>
+                <div class="text-sm text-gray-400">Weekly Lessons</div>
+            </div>
+            <div class="text-center p-6 bg-amber-500/10 border border-amber-500/30 rounded-xl">
+                <div class="text-4xl font-bold text-amber-400 mb-2">120+</div>
+                <div class="text-sm text-gray-400">Video Tutorials</div>
+            </div>
+            <div class="text-center p-6 bg-cyan-500/10 border border-cyan-500/30 rounded-xl">
+                <div class="text-4xl font-bold text-cyan-400 mb-2">15</div>
+                <div class="text-sm text-gray-400">Achievement Badges</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Card -->
+    <div class="max-w-2xl mx-auto mb-16">
+        <div class="pricing-card rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <!-- Popular Badge -->
+            <div class="absolute top-6 right-6 px-4 py-2 bg-amber-500 text-white text-sm font-bold rounded-full">
+                🌟 MOST POPULAR
+            </div>
+            
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Full Year Access</h2>
+                <div class="flex items-baseline justify-center gap-2 mb-4">
+                    <span class="text-5xl md:text-7xl font-bold text-teal-400">$297</span>
+                    <span class="text-xl text-gray-400">/year</span>
+                </div>
+                <p class="text-gray-300">Just $24.75/month - Less than a single art class!</p>
+            </div>
+            
+            <!-- Features -->
+            <div class="space-y-4 mb-8">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle feature-checkmark mt-1"></i>
+                    <div>
+                        <div class="font-semibold">Complete 12-Month Curriculum</div>
+                        <div class="text-sm text-gray-400">From Visual Foundations to Portfolio Building</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle feature-checkmark mt-1"></i>
+                    <div>
+                        <div class="font-semibold">120+ HD Video Lessons</div>
+                        <div class="text-sm text-gray-400">Professional tutorials with real-world projects</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle feature-checkmark mt-1"></i>
+                    <div>
+                        <div class="font-semibold">Monthly Adventure Projects</div>
+                        <div class="text-sm text-gray-400">Hands-on challenges to build their portfolio</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle feature-checkmark mt-1"></i>
+                    <div>
+                        <div class="font-semibold">Gamified Learning Experience</div>
+                        <div class="text-sm text-gray-400">Badges, XP points, and achievement tracking</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle feature-checkmark mt-1"></i>
+                    <div>
+                        <div class="font-semibold">Parent Dashboard</div>
+                        <div class="text-sm text-gray-400">Monitor progress and celebrate achievements</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle feature-checkmark mt-1"></i>
+                    <div>
+                        <div class="font-semibold">Downloadable Curriculum Guide</div>
+                        <div class="text-sm text-gray-400">Complete PDF overview of the entire year</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle feature-checkmark mt-1"></i>
+                    <div>
+                        <div class="font-semibold">Lifetime Access</div>
+                        <div class="text-sm text-gray-400">Learn at your own pace, revisit anytime</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="space-y-3">
+                <button onclick="window.location.href='/education/signup'" 
+                        class="w-full px-8 py-4 btn-cta text-white text-lg font-bold rounded-xl shadow-lg">
+                    <i class="fas fa-rocket mr-2"></i>Start Your Creative Journey
+                </button>
+                <button onclick="downloadCurriculumPDF()" 
+                        class="w-full px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-xl transition-all border border-slate-600">
+                    <i class="fas fa-file-pdf mr-2"></i>Download Free Curriculum Overview
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- What's Included Section -->
+    <div class="max-w-6xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">📚 What's Inside the 12-Month Journey</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Q1 -->
+            <div class="p-6 bg-gradient-to-br from-teal-500/10 to-teal-600/10 border border-teal-500/30 rounded-2xl">
+                <div class="text-sm font-bold text-teal-400 mb-2">QUARTER 1</div>
+                <h3 class="text-xl font-bold mb-4">🎯 Visual Foundations</h3>
+                <div class="space-y-2 text-sm text-gray-300">
+                    <p><span class="font-semibold">📷 January:</span> Visual Foundations</p>
+                    <p><span class="font-semibold">🎬 February:</span> Motion Basics</p>
+                    <p><span class="font-semibold">💡 March:</span> Light & Shadow</p>
+                </div>
+            </div>
+            
+            <!-- Q2 -->
+            <div class="p-6 bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/30 rounded-2xl">
+                <div class="text-sm font-bold text-amber-400 mb-2">QUARTER 2</div>
+                <h3 class="text-xl font-bold mb-4">🎨 Creative Expression</h3>
+                <div class="space-y-2 text-sm text-gray-300">
+                    <p><span class="font-semibold">🌈 April:</span> Color Theory</p>
+                    <p><span class="font-semibold">📖 May:</span> Storytelling Fundamentals</p>
+                    <p><span class="font-semibold">🎭 June:</span> Character & Emotion</p>
+                </div>
+            </div>
+            
+            <!-- Q3 -->
+            <div class="p-6 bg-gradient-to-br from-purple-500/10 to-violet-500/10 border border-purple-500/30 rounded-2xl">
+                <div class="text-sm font-bold text-purple-400 mb-2">QUARTER 3</div>
+                <h3 class="text-xl font-bold mb-4">🎬 Advanced Techniques</h3>
+                <div class="space-y-2 text-sm text-gray-300">
+                    <p><span class="font-semibold">✂️ July:</span> Editing Mastery</p>
+                    <p><span class="font-semibold">🎵 August:</span> Sound Design</p>
+                    <p><span class="font-semibold">🎨 September:</span> Visual Effects</p>
+                </div>
+            </div>
+            
+            <!-- Q4 -->
+            <div class="p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-2xl col-span-full md:col-span-3">
+                <div class="text-sm font-bold text-cyan-400 mb-2">QUARTER 4</div>
+                <h3 class="text-xl font-bold mb-4">🚀 Professional Portfolio</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
+                    <p><span class="font-semibold">📱 October:</span> Social Media Content</p>
+                    <p><span class="font-semibold">🎯 November:</span> Brand Development</p>
+                    <p><span class="font-semibold">🌟 December:</span> Portfolio Showcase</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">❓ Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+            <details class="group bg-slate-800/50 border border-slate-700 rounded-xl p-6 cursor-pointer">
+                <summary class="font-bold text-lg list-none flex items-center justify-between">
+                    <span>What age is this curriculum designed for?</span>
+                    <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <p class="text-gray-400 mt-4">
+                    The Acromatico Creator Academy is designed for kids ages 7-14. The curriculum progressively builds skills 
+                    from basic visual concepts to advanced portfolio creation, making it perfect for homeschool families.
+                </p>
+            </details>
+            
+            <details class="group bg-slate-800/50 border border-slate-700 rounded-xl p-6 cursor-pointer">
+                <summary class="font-bold text-lg list-none flex items-center justify-between">
+                    <span>Do students need any equipment to start?</span>
+                    <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <p class="text-gray-400 mt-4">
+                    Students can start with just a smartphone camera! As they progress, we recommend a basic digital camera 
+                    or DSLR, but it's not required to begin the journey.
+                </p>
+            </details>
+            
+            <details class="group bg-slate-800/50 border border-slate-700 rounded-xl p-6 cursor-pointer">
+                <summary class="font-bold text-lg list-none flex items-center justify-between">
+                    <span>Can my child learn at their own pace?</span>
+                    <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <p class="text-gray-400 mt-4">
+                    Absolutely! While the curriculum is structured month-by-month, students have lifetime access and can 
+                    move faster or slower based on their interest and schedule. There's no pressure!
+                </p>
+            </details>
+            
+            <details class="group bg-slate-800/50 border border-slate-700 rounded-xl p-6 cursor-pointer">
+                <summary class="font-bold text-lg list-none flex items-center justify-between">
+                    <span>Is there a refund policy?</span>
+                    <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <p class="text-gray-400 mt-4">
+                    Yes! We offer a 30-day money-back guarantee. If you're not satisfied with the curriculum within the 
+                    first 30 days, we'll refund your payment in full, no questions asked.
+                </p>
+            </details>
+            
+            <details class="group bg-slate-800/50 border border-slate-700 rounded-xl p-6 cursor-pointer">
+                <summary class="font-bold text-lg list-none flex items-center justify-between">
+                    <span>Can I enroll multiple children?</span>
+                    <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <p class="text-gray-400 mt-4">
+                    Yes! One subscription covers your entire family. Create separate student profiles for each child 
+                    from your parent dashboard, and track their individual progress.
+                </p>
+            </details>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="max-w-4xl mx-auto text-center mb-16">
+        <div class="p-12 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 border-2 border-teal-500/50 rounded-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Start?</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Join hundreds of families empowering their kids to become creative storytellers
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="window.location.href='/education/signup'" 
+                        class="px-8 py-4 btn-cta text-white text-lg font-bold rounded-xl shadow-lg">
+                    <i class="fas fa-rocket mr-2"></i>Enroll Now - $297/year
+                </button>
+                <button onclick="downloadCurriculumPDF()" 
+                        class="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-xl transition-all border border-slate-600">
+                    <i class="fas fa-download mr-2"></i>Download Curriculum PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="max-w-6xl mx-auto pt-12 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-3">
+                <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-8 opacity-70">
+                <span>•</span>
+                <span>Creator Academy</span>
+                <span>•</span>
+                <span>© 2026</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/curriculum" class="hover:text-teal-400 transition-colors">Curriculum</a>
+                <a href="/education/login" class="hover:text-teal-400 transition-colors">Sign In</a>
+                <a href="mailto:hello@acromatico.com" class="hover:text-teal-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function downloadCurriculumPDF() {
+            try {
+                // Show loading state
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating PDF...';
+                button.disabled = true;
+                
+                // Call PDF generator API
+                const response = await fetch('/api/curriculum/download-pdf');
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'Acromatico-Creator-Academy-Curriculum-2026.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                    
+                    // Success feedback
+                    button.innerHTML = '<i class="fas fa-check mr-2"></i>Downloaded!';
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                    }, 2000);
+                } else {
+                    throw new Error('PDF generation failed');
+                }
+            } catch (error) {
+                console.error('Download error:', error);
+                alert('PDF download temporarily unavailable. Please try again later or contact support.');
+                
+                // Reset button
+                const button = event.target;
+                button.innerHTML = '<i class="fas fa-download mr-2"></i>Download Curriculum PDF';
+                button.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
