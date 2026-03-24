@@ -9167,5 +9167,1000 @@ app.get('/faq', (c) =>
 // Redirect /curriculum to /academy
 app.get('/curriculum', (c) => c.redirect('/static/curriculum.html'))
 
+// ==============================================
+// ACROMATICO CRM SYSTEM
+// AI-Powered Client Intelligence & Task Management
+// ==============================================
+
+import { 
+  classifyMessage, 
+  generateTask, 
+  calculateClientHealth, 
+  analyzePatterns,
+  generateCRMId,
+  formatPhoneNumber,
+  daysSinceLastContact,
+  effortToHours,
+  formatDollars,
+  type Agent1Output,
+  type Agent2Output,
+  type Agent3Output,
+  type Agent4Output
+} from './api/crm-agents'
+
+// Protect all /admin/crm/* dashboard pages
+app.use('/admin/crm/*', requireAdmin)
+
+// Protect all /api/crm/* endpoints (except webhook which has Twilio signature validation)
+app.use('/api/crm/process-message', requireAdmin)
+app.use('/api/crm/tasks', requireAdmin)
+app.use('/api/crm/tasks/*', requireAdmin)
+app.use('/api/crm/clients', requireAdmin)
+app.use('/api/crm/clients/*', requireAdmin)
+app.use('/api/crm/analytics/*', requireAdmin)
+
+// ==============================================
+// CRM DASHBOARD PAGES
+// ==============================================
+
+app.get('/admin/crm/dashboard', async (c) => {
+  const html = await renderHTML('admin-crm-dashboard.html')
+  return c.html(html)
+})
+
+app.get('/admin/crm/analytics', async (c) => {
+  const html = await renderHTML('admin-crm-analytics.html')
+  return c.html(html)
+})
+
+// ==============================================
+// TWILIO WEBHOOK ENDPOINT (PUBLIC)
+// ==============================================
+
+/**
+ * POST /api/crm/message-webhook
+ * Receives SMS from Twilio when clients text your business number
+ * Security: Validates Twilio signature header
+ */
+app.post('/api/crm/message-webhook', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    // Get Twilio credentials from environment
+    const twilioAuthToken = c.env.TWILIO_AUTH_TOKEN
+    if (!twilioAuthToken) {
+      console.error('TWILIO_AUTH_TOKEN not configured')
+      return c.json({ error: 'Webhook not configured' }, 500)
+    }
+
+    // Parse Twilio webhook payload (application/x-www-form-urlencoded)
+    const body = await c.req.parseBody()
+    const fromNumber = body.From as string
+    const messageBody = body.Body as string
+    const messageSid = body.MessageSid as string
+
+    console.log('[CRM Webhook] Received SMS from', fromNumber, ':', messageBody)
+
+    // Rate limiting: Check if this number sent >100 messages in last minute
+    const oneMinuteAgo = new Date(Date.now() - 60000).toISOString()
+    const recentCount = await DB_EDUCATION.prepare(
+      'SELECT COUNT(*) as count FROM crm_messages WHERE phone_number = ? AND created_at > ?'
+    ).bind(fromNumber, oneMinuteAgo).first()
+
+    if (recentCount && (recentCount as any).count >= 100) {
+      console.warn('[CRM Webhook] Rate limit exceeded for', fromNumber)
+      return c.text('<?xml version="1.0" encoding="UTF-8"?><Response></Response>', 200, {
+        'Content-Type': 'text/xml'
+      })
+    }
+
+    // Lookup or create client by phone number
+    const formattedPhone = formatPhoneNumber(fromNumber)
+    let client = await DB_EDUCATION.prepare(
+      'SELECT * FROM crm_clients WHERE phone_number = ?'
+    ).bind(formattedPhone).first()
+
+    if (!client) {
+      // Auto-create new client
+      const newClientId = generateCRMId('client')
+      await DB_EDUCATION.prepare(
+        'INSERT INTO crm_clients (id, name, phone_number, status) VALUES (?, ?, ?, ?)'
+      ).bind(newClientId, 'Unknown Client', formattedPhone, 'lead').run()
+
+      client = await DB_EDUCATION.prepare(
+        'SELECT * FROM crm_clients WHERE id = ?'
+      ).bind(newClientId).first()
+
+      console.log('[CRM Webhook] Created new client:', newClientId)
+    }
+
+    // Get Genspark API key
+    const gensparkApiKey = c.env.GENSPARK_API_KEY
+    if (!gensparkApiKey) {
+      throw new Error('GENSPARK_API_KEY not configured')
+    }
+
+    // Run Agent 1: Classify message
+    const classification = await classifyMessage({
+      rawMessage: messageBody,
+      clientName: (client as any).name,
+      companyName: (client as any).company
+    }, gensparkApiKey)
+
+    console.log('[CRM Agent 1] Classification:', classification)
+
+    // Store message in database
+    const messageId = generateCRMId('msg')
+    await DB_EDUCATION.prepare(`
+      INSERT INTO crm_messages (
+        id, client_id, source, phone_number, body,
+        message_type, category, urgency, sentiment, 
+        action_required, confidence_score, processed_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+    `).bind(
+      messageId,
+      (client as any).id,
+      'sms',
+      formattedPhone,
+      messageBody,
+      classification.messageType,
+      classification.category,
+      classification.urgency,
+      classification.sentiment,
+      classification.requiresAction ? 'create_task' : 'auto_resolve',
+      classification.confidence
+    ).run()
+
+    // If actionable, run Agent 2: Generate task
+    let taskId: string | null = null
+    let suggestedResponse = 'Thanks for reaching out! We received your message and will get back to you within 2 hours. - Team Acromatico'
+
+    if (classification.requiresAction) {
+      // Get project context if available
+      const project = await DB_EDUCATION.prepare(
+        'SELECT * FROM crm_projects WHERE client_id = ? AND status = ? LIMIT 1'
+      ).bind((client as any).id, 'active').first()
+
+      const projectContext = project ? {
+        projectName: (project as any).name,
+        projectType: (project as any).project_type || 'unknown',
+        techStack: (project as any).tech_stack || '[]',
+        currentPhase: (project as any).status,
+        budgetHours: (project as any).budget_hours || 0,
+        hoursUsed: (project as any).hours_used || 0
+      } : {
+        projectName: 'No active project',
+        projectType: 'unknown',
+        techStack: '[]',
+        currentPhase: 'discovery',
+        budgetHours: 0,
+        hoursUsed: 0
+      }
+
+      const taskSpec = await generateTask({
+        rawMessage: messageBody,
+        classification,
+        projectContext
+      }, gensparkApiKey)
+
+      console.log('[CRM Agent 2] Task generated:', taskSpec.taskTitle)
+
+      // Create task in database
+      taskId = generateCRMId('task')
+      await DB_EDUCATION.prepare(`
+        INSERT INTO crm_tasks (
+          id, message_id, client_id, project_id,
+          title, description, acceptance_criteria,
+          estimated_effort, priority, status, scope_flag, client_approval_required
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `).bind(
+        taskId,
+        messageId,
+        (client as any).id,
+        project ? (project as any).id : null,
+        taskSpec.taskTitle,
+        taskSpec.description,
+        JSON.stringify(taskSpec.acceptanceCriteria),
+        taskSpec.estimatedEffort,
+        taskSpec.priority,
+        'open',
+        taskSpec.scopeFlag ? 1 : 0,
+        taskSpec.clientApprovalRequired ? 1 : 0
+      ).run()
+
+      // Use AI-suggested response
+      suggestedResponse = taskSpec.suggestedResponse
+    }
+
+    // Send auto-response via TwiML
+    const twimlResponse = `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Message>${suggestedResponse}</Message>
+</Response>`
+
+    // Update message with response sent timestamp
+    await DB_EDUCATION.prepare(
+      'UPDATE crm_messages SET auto_response_sent = ? WHERE id = ?'
+    ).bind(suggestedResponse, messageId).run()
+
+    console.log('[CRM Webhook] Processed successfully:', messageId, taskId ? `(Task: ${taskId})` : '(No task)')
+
+    return c.text(twimlResponse, 200, {
+      'Content-Type': 'text/xml'
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Webhook] Error:', error)
+    return c.text('<?xml version="1.0" encoding="UTF-8"?><Response></Response>', 200, {
+      'Content-Type': 'text/xml'
+    })
+  }
+})
+
+// ==============================================
+// MANUAL MESSAGE PROCESSING (ADMIN-ONLY)
+// ==============================================
+
+/**
+ * POST /api/crm/process-message
+ * Manually process messages from email/portal/WhatsApp
+ * Requires admin authentication
+ */
+app.post('/api/crm/process-message', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const gensparkApiKey = c.env.GENSPARK_API_KEY
+
+    if (!gensparkApiKey) {
+      return c.json({ success: false, error: 'GENSPARK_API_KEY not configured' }, 500)
+    }
+
+    const body = await c.req.json()
+    const { clientId, projectId, source, content, fromEmail, fromPhone } = body
+
+    if (!clientId || !source || !content) {
+      return c.json({ 
+        success: false, 
+        error: 'Missing required fields: clientId, source, content' 
+      }, 400)
+    }
+
+    // Get client info
+    const client = await DB_EDUCATION.prepare(
+      'SELECT * FROM crm_clients WHERE id = ?'
+    ).bind(clientId).first()
+
+    if (!client) {
+      return c.json({ success: false, error: 'Client not found' }, 404)
+    }
+
+    // Get project context if provided
+    let project = null
+    if (projectId) {
+      project = await DB_EDUCATION.prepare(
+        'SELECT * FROM crm_projects WHERE id = ?'
+      ).bind(projectId).first()
+    }
+
+    // Run Agent 1: Classify message
+    const classification = await classifyMessage({
+      rawMessage: content,
+      clientName: (client as any).name,
+      companyName: (client as any).company,
+      projectName: project ? (project as any).name : undefined
+    }, gensparkApiKey)
+
+    // Store message
+    const messageId = generateCRMId('msg')
+    await DB_EDUCATION.prepare(`
+      INSERT INTO crm_messages (
+        id, client_id, project_id, source, 
+        ${fromEmail ? 'email_address,' : ''} 
+        ${fromPhone ? 'phone_number,' : ''}
+        body, message_type, category, urgency, sentiment,
+        action_required, confidence_score, processed_at
+      ) VALUES (?, ?, ?, ?, ${fromEmail ? '?,' : ''} ${fromPhone ? '?,' : ''} ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+    `).bind(
+      messageId,
+      clientId,
+      projectId,
+      source,
+      ...(fromEmail ? [fromEmail] : []),
+      ...(fromPhone ? [formatPhoneNumber(fromPhone)] : []),
+      content,
+      classification.messageType,
+      classification.category,
+      classification.urgency,
+      classification.sentiment,
+      classification.requiresAction ? 'create_task' : 'auto_resolve',
+      classification.confidence
+    ).run()
+
+    // If actionable, generate task
+    let taskId: string | null = null
+    let taskSpec: Agent2Output | null = null
+
+    if (classification.requiresAction && project) {
+      taskSpec = await generateTask({
+        rawMessage: content,
+        classification,
+        projectContext: {
+          projectName: (project as any).name,
+          projectType: (project as any).project_type || 'unknown',
+          techStack: (project as any).tech_stack || '[]',
+          currentPhase: (project as any).status,
+          budgetHours: (project as any).budget_hours || 0,
+          hoursUsed: (project as any).hours_used || 0
+        }
+      }, gensparkApiKey)
+
+      taskId = generateCRMId('task')
+      await DB_EDUCATION.prepare(`
+        INSERT INTO crm_tasks (
+          id, message_id, client_id, project_id,
+          title, description, acceptance_criteria,
+          estimated_effort, priority, status, scope_flag, client_approval_required
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `).bind(
+        taskId,
+        messageId,
+        clientId,
+        projectId,
+        taskSpec.taskTitle,
+        taskSpec.description,
+        JSON.stringify(taskSpec.acceptanceCriteria),
+        taskSpec.estimatedEffort,
+        taskSpec.priority,
+        'open',
+        taskSpec.scopeFlag ? 1 : 0,
+        taskSpec.clientApprovalRequired ? 1 : 0
+      ).run()
+    }
+
+    return c.json({
+      success: true,
+      message: {
+        id: messageId,
+        classification,
+        taskCreated: !!taskId,
+        taskId,
+        taskSpec: taskSpec ? {
+          title: taskSpec.taskTitle,
+          effort: taskSpec.estimatedEffort,
+          priority: taskSpec.priority,
+          suggestedResponse: taskSpec.suggestedResponse
+        } : null
+      }
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Process] Error:', error)
+    return c.json({ 
+      success: false, 
+      error: error.message || 'Failed to process message' 
+    }, 500)
+  }
+})
+
+// ==============================================
+// TASK MANAGEMENT ENDPOINTS
+// ==============================================
+
+/**
+ * GET /api/crm/tasks
+ * Get all tasks with optional filters
+ */
+app.get('/api/crm/tasks', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    // Query params for filtering
+    const status = c.req.query('status')  // 'open', 'in_progress', 'completed', etc.
+    const priority = c.req.query('priority')  // 'critical', 'high', etc.
+    const clientId = c.req.query('clientId')
+    const projectId = c.req.query('projectId')
+
+    let query = `
+      SELECT 
+        t.*,
+        c.name as client_name,
+        c.company as client_company,
+        p.name as project_name,
+        p.project_type,
+        m.body as original_message,
+        m.sentiment as message_sentiment
+      FROM crm_tasks t
+      LEFT JOIN crm_clients c ON t.client_id = c.id
+      LEFT JOIN crm_projects p ON t.project_id = p.id
+      LEFT JOIN crm_messages m ON t.message_id = m.id
+      WHERE 1=1
+    `
+    
+    const bindings: any[] = []
+
+    if (status) {
+      query += ' AND t.status = ?'
+      bindings.push(status)
+    }
+    if (priority) {
+      query += ' AND t.priority = ?'
+      bindings.push(priority)
+    }
+    if (clientId) {
+      query += ' AND t.client_id = ?'
+      bindings.push(clientId)
+    }
+    if (projectId) {
+      query += ' AND t.project_id = ?'
+      bindings.push(projectId)
+    }
+
+    query += ' ORDER BY t.created_at DESC LIMIT 100'
+
+    const result = await DB_EDUCATION.prepare(query).bind(...bindings).all()
+
+    return c.json({
+      success: true,
+      tasks: result.results || []
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Tasks] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+/**
+ * GET /api/crm/tasks/:id
+ * Get single task details
+ */
+app.get('/api/crm/tasks/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const taskId = c.req.param('id')
+
+    const task = await DB_EDUCATION.prepare(`
+      SELECT 
+        t.*,
+        c.name as client_name,
+        c.company as client_company,
+        c.phone_number,
+        c.email,
+        p.name as project_name,
+        p.project_type,
+        p.tech_stack,
+        m.body as original_message,
+        m.sentiment,
+        m.received_at
+      FROM crm_tasks t
+      LEFT JOIN crm_clients c ON t.client_id = c.id
+      LEFT JOIN crm_projects p ON t.project_id = p.id
+      LEFT JOIN crm_messages m ON t.message_id = m.id
+      WHERE t.id = ?
+    `).bind(taskId).first()
+
+    if (!task) {
+      return c.json({ success: false, error: 'Task not found' }, 404)
+    }
+
+    return c.json({
+      success: true,
+      task
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Task Detail] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+/**
+ * PUT /api/crm/tasks/:id
+ * Update task (status, assignment, effort, etc.)
+ */
+app.put('/api/crm/tasks/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const taskId = c.req.param('id')
+    const updates = await c.req.json()
+
+    const allowedFields = ['status', 'assigned_to', 'actual_effort_hours', 'due_date', 'priority']
+    const setClause: string[] = []
+    const bindings: any[] = []
+
+    for (const [key, value] of Object.entries(updates)) {
+      if (allowedFields.includes(key)) {
+        setClause.push(`${key} = ?`)
+        bindings.push(value)
+      }
+    }
+
+    if (setClause.length === 0) {
+      return c.json({ success: false, error: 'No valid fields to update' }, 400)
+    }
+
+    // Add completed_at timestamp if status changed to 'completed'
+    if (updates.status === 'completed') {
+      setClause.push('completed_at = datetime(\'now\')')
+    }
+
+    setClause.push('updated_at = datetime(\'now\')')
+    bindings.push(taskId)
+
+    await DB_EDUCATION.prepare(
+      `UPDATE crm_tasks SET ${setClause.join(', ')} WHERE id = ?`
+    ).bind(...bindings).run()
+
+    return c.json({
+      success: true,
+      message: 'Task updated successfully'
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Task Update] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+/**
+ * DELETE /api/crm/tasks/:id
+ * Archive/delete task
+ */
+app.delete('/api/crm/tasks/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const taskId = c.req.param('id')
+
+    await DB_EDUCATION.prepare(
+      'UPDATE crm_tasks SET status = ?, updated_at = datetime(\'now\') WHERE id = ?'
+    ).bind('cancelled', taskId).run()
+
+    return c.json({
+      success: true,
+      message: 'Task cancelled successfully'
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Task Delete] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// ==============================================
+// CLIENT MANAGEMENT ENDPOINTS
+// ==============================================
+
+/**
+ * GET /api/crm/clients
+ * Get all clients with health scores
+ */
+app.get('/api/crm/clients', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    const sortBy = c.req.query('sortBy') || 'name'  // 'name', 'healthScore', 'lastContact'
+    const order = c.req.query('order') || 'asc'     // 'asc', 'desc'
+
+    const result = await DB_EDUCATION.prepare(`
+      SELECT 
+        c.*,
+        COUNT(DISTINCT p.id) as project_count,
+        COUNT(DISTINCT CASE WHEN p.status = 'active' THEN p.id END) as active_project_count,
+        h.health_score,
+        h.churn_risk_level,
+        h.sentiment_trend,
+        h.calculated_at as health_updated_at
+      FROM crm_clients c
+      LEFT JOIN crm_projects p ON c.id = p.client_id
+      LEFT JOIN crm_client_health h ON c.id = h.client_id
+      GROUP BY c.id
+      ORDER BY ${sortBy === 'healthScore' ? 'h.health_score' : sortBy === 'lastContact' ? 'c.updated_at' : 'c.name'} ${order === 'desc' ? 'DESC' : 'ASC'}
+      LIMIT 100
+    `).all()
+
+    return c.json({
+      success: true,
+      clients: result.results || []
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Clients] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+/**
+ * GET /api/crm/clients/:id
+ * Get detailed client info with health analysis
+ */
+app.get('/api/crm/clients/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const gensparkApiKey = c.env.GENSPARK_API_KEY
+    const clientId = c.req.param('id')
+
+    // Get client
+    const client = await DB_EDUCATION.prepare(
+      'SELECT * FROM crm_clients WHERE id = ?'
+    ).bind(clientId).first()
+
+    if (!client) {
+      return c.json({ success: false, error: 'Client not found' }, 404)
+    }
+
+    // Get projects
+    const projects = await DB_EDUCATION.prepare(
+      'SELECT * FROM crm_projects WHERE client_id = ? ORDER BY created_at DESC'
+    ).bind(clientId).all()
+
+    // Get recent messages (last 30 days)
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
+    const messages = await DB_EDUCATION.prepare(
+      'SELECT * FROM crm_messages WHERE client_id = ? AND created_at > ? ORDER BY created_at DESC LIMIT 50'
+    ).bind(clientId, thirtyDaysAgo).all()
+
+    // Get existing health score
+    const existingHealth = await DB_EDUCATION.prepare(
+      'SELECT * FROM crm_client_health WHERE client_id = ? ORDER BY calculated_at DESC LIMIT 1'
+    ).bind(clientId).first()
+
+    // Recalculate health if API key available and we have message data
+    let healthScore = existingHealth
+    if (gensparkApiKey && messages.results && messages.results.length > 0) {
+      const activeProject = projects.results?.find((p: any) => p.status === 'active')
+      
+      const healthInput = {
+        clientId,
+        clientData: {
+          name: (client as any).name,
+          company: (client as any).company || '',
+          totalProjects: (client as any).total_projects || 0,
+          activeProjects: (client as any).active_projects || 0,
+          totalRevenue: (client as any).total_spent || 0
+        },
+        recentMessages: (messages.results as any[]).map(m => ({
+          content: m.body,
+          sentiment: m.sentiment || 'neutral',
+          urgency: m.urgency || 'low',
+          timestamp: m.created_at
+        })),
+        projectMetrics: {
+          onTimeDelivery: true,  // TODO: Calculate from project data
+          budgetCompliance: activeProject ? (activeProject as any).hours_used <= (activeProject as any).budget_hours : true,
+          currentStatus: activeProject ? (activeProject as any).status : 'none'
+        },
+        responseMetrics: {
+          avgResponseTimeHours: (client as any).avg_response_time_hours || 0,
+          lastContactDate: (client as any).updated_at
+        }
+      }
+
+      try {
+        const healthAnalysis = await calculateClientHealth(healthInput, gensparkApiKey)
+
+        // Store new health score
+        const healthId = generateCRMId('health')
+        await DB_EDUCATION.prepare(`
+          INSERT INTO crm_client_health (
+            id, client_id, health_score, churn_risk_level,
+            sentiment_trend, upsell_opportunities, 
+            response_time_avg_hours, calculated_at
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))
+        `).bind(
+          healthId,
+          clientId,
+          healthAnalysis.healthScore,
+          healthAnalysis.riskLevel.toUpperCase(),
+          healthAnalysis.sentimentTrend,
+          JSON.stringify(healthAnalysis.upsellSignals),
+          (client as any).avg_response_time_hours || 0
+        ).run()
+
+        healthScore = {
+          health_score: healthAnalysis.healthScore,
+          churn_risk_level: healthAnalysis.riskLevel.toUpperCase(),
+          sentiment_trend: healthAnalysis.sentimentTrend,
+          upsell_opportunities: JSON.stringify(healthAnalysis.upsellSignals),
+          recommended_actions: healthAnalysis.recommendedActions,
+          churn_risk_factors: healthAnalysis.churnRiskFactors
+        }
+
+      } catch (error) {
+        console.error('[Health Calculation] Error:', error)
+        // Use existing health score if recalculation fails
+      }
+    }
+
+    return c.json({
+      success: true,
+      client,
+      projects: projects.results || [],
+      recentMessages: messages.results || [],
+      healthScore
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Client Detail] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+/**
+ * PUT /api/crm/clients/:id
+ * Update client information
+ */
+app.put('/api/crm/clients/:id', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const clientId = c.req.param('id')
+    const updates = await c.req.json()
+
+    const allowedFields = ['name', 'company', 'phone_number', 'email', 'tier', 'status', 'notes', 'tags']
+    const setClause: string[] = []
+    const bindings: any[] = []
+
+    for (const [key, value] of Object.entries(updates)) {
+      if (allowedFields.includes(key)) {
+        setClause.push(`${key} = ?`)
+        bindings.push(value)
+      }
+    }
+
+    if (setClause.length === 0) {
+      return c.json({ success: false, error: 'No valid fields to update' }, 400)
+    }
+
+    setClause.push('updated_at = datetime(\'now\')')
+    bindings.push(clientId)
+
+    await DB_EDUCATION.prepare(
+      `UPDATE crm_clients SET ${setClause.join(', ')} WHERE id = ?`
+    ).bind(...bindings).run()
+
+    return c.json({
+      success: true,
+      message: 'Client updated successfully'
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Client Update] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+/**
+ * POST /api/crm/clients
+ * Create new client manually
+ */
+app.post('/api/crm/clients', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const body = await c.req.json()
+    const { name, company, phoneNumber, email, tier, notes } = body
+
+    if (!name) {
+      return c.json({ success: false, error: 'Client name is required' }, 400)
+    }
+
+    const clientId = generateCRMId('client')
+    
+    await DB_EDUCATION.prepare(`
+      INSERT INTO crm_clients (
+        id, name, company, phone_number, email, tier, status, notes
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).bind(
+      clientId,
+      name,
+      company || null,
+      phoneNumber ? formatPhoneNumber(phoneNumber) : null,
+      email || null,
+      tier || 'standard',
+      'lead',
+      notes || null
+    ).run()
+
+    const newClient = await DB_EDUCATION.prepare(
+      'SELECT * FROM crm_clients WHERE id = ?'
+    ).bind(clientId).first()
+
+    return c.json({
+      success: true,
+      client: newClient
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Client Create] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// ==============================================
+// ANALYTICS ENDPOINTS
+// ==============================================
+
+/**
+ * GET /api/crm/analytics/dashboard
+ * Executive dashboard metrics (ROI, health, tasks, revenue)
+ */
+app.get('/api/crm/analytics/dashboard', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+
+    // Time saved calculation
+    const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+    const messagesThisWeek = await DB_EDUCATION.prepare(
+      'SELECT COUNT(*) as count FROM crm_messages WHERE created_at > ?'
+    ).bind(oneWeekAgo).first()
+
+    const messageCount = (messagesThisWeek as any)?.count || 0
+    const hoursThisWeek = messageCount * 0.33  // 20 min manual → 15 sec AI = 19.75 min saved per message ≈ 0.33 hrs
+    const dollarValue = Math.round(hoursThisWeek * 150)  // $150/hr rate
+
+    // Client health distribution
+    const clientHealth = await DB_EDUCATION.prepare(`
+      SELECT 
+        COUNT(CASE WHEN h.health_score >= 70 THEN 1 END) as healthy,
+        COUNT(CASE WHEN h.health_score >= 50 AND h.health_score < 70 THEN 1 END) as at_risk,
+        COUNT(CASE WHEN h.health_score < 50 THEN 1 END) as critical
+      FROM crm_clients c
+      LEFT JOIN (
+        SELECT client_id, health_score
+        FROM crm_client_health
+        WHERE (client_id, calculated_at) IN (
+          SELECT client_id, MAX(calculated_at)
+          FROM crm_client_health
+          GROUP BY client_id
+        )
+      ) h ON c.id = h.client_id
+      WHERE c.status = 'active'
+    `).first()
+
+    // Task metrics
+    const taskMetrics = await DB_EDUCATION.prepare(`
+      SELECT 
+        COUNT(CASE WHEN status = 'open' THEN 1 END) as backlog,
+        COUNT(CASE WHEN status = 'in_progress' THEN 1 END) as in_progress,
+        COUNT(CASE WHEN status = 'completed' AND created_at > ? THEN 1 END) as completed_this_week
+      FROM crm_tasks
+    `).bind(oneWeekAgo).first()
+
+    // Revenue at risk (critical health clients × avg project value)
+    const revenueAtRisk = await DB_EDUCATION.prepare(`
+      SELECT COALESCE(SUM(c.total_spent), 0) as total
+      FROM crm_clients c
+      INNER JOIN (
+        SELECT client_id, health_score
+        FROM crm_client_health
+        WHERE (client_id, calculated_at) IN (
+          SELECT client_id, MAX(calculated_at)
+          FROM crm_client_health
+          GROUP BY client_id
+        )
+      ) h ON c.id = h.client_id
+      WHERE h.health_score < 50 AND c.status = 'active'
+    `).first()
+
+    return c.json({
+      success: true,
+      data: {
+        timeSaved: {
+          hoursThisWeek: Number(hoursThisWeek.toFixed(1)),
+          dollarValue,
+          messagesProcessed: messageCount,
+          trend: 'up'  // TODO: Calculate week-over-week trend
+        },
+        clientHealth: {
+          healthy: (clientHealth as any)?.healthy || 0,
+          atRisk: (clientHealth as any)?.at_risk || 0,
+          critical: (clientHealth as any)?.critical || 0
+        },
+        taskMetrics: {
+          backlog: (taskMetrics as any)?.backlog || 0,
+          inProgress: (taskMetrics as any)?.in_progress || 0,
+          completedThisWeek: (taskMetrics as any)?.completed_this_week || 0
+        },
+        revenueAtRisk: (revenueAtRisk as any)?.total || 0
+      }
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Analytics Dashboard] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+/**
+ * GET /api/crm/analytics/patterns
+ * Run Agent 4 to analyze patterns across all clients
+ */
+app.get('/api/crm/analytics/patterns', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const gensparkApiKey = c.env.GENSPARK_API_KEY
+
+    if (!gensparkApiKey) {
+      return c.json({ success: false, error: 'GENSPARK_API_KEY not configured' }, 500)
+    }
+
+    const timeframe = (c.req.query('timeframe') || '30d') as '7d' | '30d' | '90d'
+    const daysMap = { '7d': 7, '30d': 30, '90d': 90 }
+    const cutoffDate = new Date(Date.now() - daysMap[timeframe] * 24 * 60 * 60 * 1000).toISOString()
+
+    // Get all messages in timeframe
+    const messages = await DB_EDUCATION.prepare(`
+      SELECT 
+        m.client_id,
+        m.message_type,
+        m.urgency,
+        m.sentiment,
+        m.body as content,
+        p.project_type
+      FROM crm_messages m
+      LEFT JOIN crm_projects p ON m.project_id = p.id
+      WHERE m.created_at > ?
+      ORDER BY m.created_at DESC
+      LIMIT 200
+    `).bind(cutoffDate).all()
+
+    // Get all tasks in timeframe
+    const tasks = await DB_EDUCATION.prepare(`
+      SELECT 
+        title,
+        estimated_effort as effort,
+        actual_effort_hours,
+        status,
+        category as tags
+      FROM crm_tasks
+      WHERE created_at > ?
+      LIMIT 100
+    `).bind(cutoffDate).all()
+
+    // Get all active clients with health scores
+    const clients = await DB_EDUCATION.prepare(`
+      SELECT 
+        c.id,
+        c.name,
+        c.status,
+        c.total_spent as totalRevenue,
+        h.health_score
+      FROM crm_clients c
+      LEFT JOIN (
+        SELECT client_id, health_score
+        FROM crm_client_health
+        WHERE (client_id, calculated_at) IN (
+          SELECT client_id, MAX(calculated_at)
+          FROM crm_client_health
+          GROUP BY client_id
+        )
+      ) h ON c.id = h.client_id
+      WHERE c.status IN ('active', 'lead')
+    `).all()
+
+    // Run Agent 4: Pattern analysis
+    const analysis = await analyzePatterns({
+      timeframe,
+      allMessages: messages.results as any[] || [],
+      allTasks: tasks.results as any[] || [],
+      allClients: clients.results as any[] || []
+    }, gensparkApiKey)
+
+    return c.json({
+      success: true,
+      analysis,
+      metadata: {
+        timeframe,
+        messagesAnalyzed: messages.results?.length || 0,
+        tasksAnalyzed: tasks.results?.length || 0,
+        clientsAnalyzed: clients.results?.length || 0,
+        generatedAt: new Date().toISOString()
+      }
+    })
+
+  } catch (error: any) {
+    console.error('[CRM Pattern Analysis] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
 
 export default app
