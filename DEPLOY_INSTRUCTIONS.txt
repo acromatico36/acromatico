@@ -1,0 +1,100 @@
+ACROMATICO CRM - LOCAL DEPLOYMENT INSTRUCTIONS
+===============================================
+
+STEP 1: EXTRACT PROJECT
+------------------------
+tar -xzf acromatico-crm.tar.gz
+cd home/user/webapp
+
+STEP 2: INSTALL DEPENDENCIES
+-----------------------------
+npm install
+
+STEP 3: CREATE PRODUCTION DATABASE
+-----------------------------------
+npx wrangler d1 create acromatico-education
+
+OUTPUT WILL SHOW:
+[[d1_databases]]
+binding = "DB_EDUCATION"
+database_name = "acromatico-education"
+database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+COPY THE DATABASE_ID
+
+STEP 4: UPDATE CONFIGURATION
+-----------------------------
+Edit wrangler.jsonc and replace:
+"database_id": "local-education-db"
+
+WITH:
+"database_id": "PASTE_YOUR_DATABASE_ID_HERE"
+
+STEP 5: APPLY MIGRATIONS
+-------------------------
+npx wrangler d1 migrations apply acromatico-education
+
+This creates 5 CRM tables:
+- crm_clients
+- crm_projects  
+- crm_messages
+- crm_tasks
+- crm_client_health
+
+STEP 6: BUILD PROJECT
+---------------------
+npm run build
+
+STEP 7: DEPLOY TO CLOUDFLARE PAGES
+-----------------------------------
+npx wrangler pages deploy dist --project-name acromatico
+
+OUTPUT WILL SHOW:
+✨ Deployment complete!
+https://xxxxxxxx.acromatico.pages.dev
+
+STEP 8: CONFIGURE ENVIRONMENT VARIABLES
+----------------------------------------
+In Cloudflare Dashboard:
+1. Go to: https://dash.cloudflare.com/
+2. Navigate: Workers & Pages → acromatico → Settings → Environment variables
+3. Add these under "Production":
+
+GENSPARK_API_KEY=your_genspark_api_key_here
+TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+TWILIO_AUTH_TOKEN=your_twilio_auth_token_here
+TWILIO_PHONE_NUMBER=+1234567890
+
+4. Click "Save"
+5. Go to "Deployments" tab
+6. Click "Retry deployment" on latest deployment
+
+STEP 9: CONFIGURE TWILIO WEBHOOK
+---------------------------------
+In Twilio Console (https://console.twilio.com/):
+1. Phone Numbers → Manage → Active Numbers
+2. Click your business number
+3. Messaging Configuration:
+   Webhook URL: https://acromatico.pages.dev/api/crm/message-webhook
+   Method: POST
+4. Save
+
+STEP 10: VALIDATE DEPLOYMENT
+-----------------------------
+Run these 3 commands:
+
+ADMIN_TOKEN="eyJ1c2VySWQiOiJpdGFsby1hZG1pbiIsImVtYWlsIjoiaXRhbG9AYWNyb21hdGljby5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE4MDU4NTA5OTM2ODR9"
+
+curl -X POST https://acromatico.pages.dev/api/crm/process-message -H "Authorization: Bearer $ADMIN_TOKEN" -H "Content-Type: application/json" -d '{"clientId":"client-joes-pizza","projectId":"proj-joes-website","source":"email","content":"URGENT! Checkout broken!","emailAddress":"joe@test.com"}'
+
+curl https://acromatico.pages.dev/api/crm/tasks?status=open -H "Authorization: Bearer $ADMIN_TOKEN"
+
+curl https://acromatico.pages.dev/api/crm/analytics/dashboard -H "Authorization: Bearer $ADMIN_TOKEN"
+
+STEP 11: ACCESS YOUR LIVE SYSTEM
+---------------------------------
+Open in browser: https://acromatico.pages.dev/admin/crm/login
+Paste admin token
+Access dashboard
+
+TOTAL TIME: 22 MINUTES

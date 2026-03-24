@@ -1,0 +1,36 @@
+ACROMATICO CRM - PRODUCTION URLS
+=================================
+
+LOGIN PAGE
+----------
+https://acromatico.pages.dev/admin/crm/login
+
+ADMIN TOKEN (Valid until 2057)
+-------------------------------
+eyJ1c2VySWQiOiJpdGFsby1hZG1pbiIsImVtYWlsIjoiaXRhbG9AYWNyb21hdGljby5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE4MDU4NTA5OTM2ODR9
+
+MAIN DASHBOARD
+--------------
+https://acromatico.pages.dev/admin/crm/dashboard
+
+ANALYTICS DASHBOARD
+-------------------
+https://acromatico.pages.dev/admin/crm/analytics
+
+TWILIO WEBHOOK URL
+------------------
+https://acromatico.pages.dev/api/crm/message-webhook
+Method: POST
+Content-Type: application/x-www-form-urlencoded
+
+API ENDPOINTS
+-------------
+POST /api/crm/process-message
+GET  /api/crm/tasks
+PUT  /api/crm/tasks/:id
+GET  /api/crm/clients
+GET  /api/crm/analytics/dashboard
+GET  /api/crm/analytics/patterns
+
+All API endpoints require:
+Authorization: Bearer [ADMIN_TOKEN]
