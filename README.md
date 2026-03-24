@@ -1,8 +1,8 @@
-# 🎓 ACROMATICO CREATOR ACADEMY
+# 🎓 ACROMATICO PLATFORM
 
-**A Complete 12-Month Visual Storytelling Curriculum Platform for Kids (Ages 7-14)**
+**Multi-Division Platform: Creator Academy + Agency CRM Intelligence System**
 
-Built with Hono + Cloudflare Workers + D1 Database + Gamification System
+Built with Hono + Cloudflare Workers + D1 Database + AI Agents
 
 ---
 
@@ -10,7 +10,7 @@ Built with Hono + Cloudflare Workers + D1 Database + Gamification System
 
 **Production**: https://3000-i49aua0ijjil4k3yd5ptd-82b888ba.sandbox.novita.ai
 
-### **Key Pages**:
+### **Creator Academy Pages**:
 - **Public Curriculum**: `/curriculum` - 12-month adventure overview
 - **Pricing**: `/pricing` - $297/year enrollment page
 - **Login**: `/education/login` - Multi-role authentication
@@ -19,9 +19,79 @@ Built with Hono + Cloudflare Workers + D1 Database + Gamification System
 - **Parent Dashboard**: `/parent/dashboard` - Monitor children's progress
 - **Admin Curriculum Manager**: `/admin/curriculum` - CRUD for 120 lessons
 
+### **🤖 Agency CRM Intelligence Pages** ⚡NEW:
+- **CRM Dashboard**: `/admin/crm/dashboard` - Team inbox (Inbox Zero), task pipeline, client health
+- **Executive Analytics**: `/admin/crm/analytics` - ROI metrics, 4 intelligence panels (ROI, health, operations, strategy)
+
+### **🔌 CRM API Endpoints**:
+- **Public Webhook**: `POST /api/crm/message-webhook` - Twilio SMS receiver
+- **Manual Input**: `POST /api/crm/process-message` - Process email/portal messages (admin-only)
+- **Task Management**: `GET/PUT/DELETE /api/crm/tasks` - Task CRUD operations (admin-only)
+- **Client Management**: `GET/POST/PUT /api/crm/clients` - Client CRUD operations (admin-only)
+- **Analytics**: `GET /api/crm/analytics/dashboard` - ROI metrics (admin-only)
+- **Patterns**: `GET /api/crm/analytics/patterns` - Business intelligence (admin-only)
+
 ---
 
-## ✅ **COMPLETED FEATURES (100%)**
+## 🤖 **ACROMATICO AGENCY CRM INTELLIGENCE SYSTEM**
+
+**Lightweight AI-Powered CRM Backend for Branding & Web/App Development Division**
+
+### **🎯 Purpose**
+Automate client message triage, auto-generate dev tasks, track client health, identify upsell opportunities, and save 5+ hours/week on manual admin work.
+
+### **✨ Key Features**
+- **4 AI Agents** (Executive Assistant, Project Manager, Account Manager, Business Analyst)
+- **Intelligent Message Classification** (type, urgency, sentiment, action detection)
+- **Auto-Task Generation** (with acceptance criteria, effort estimation, priority assignment)
+- **Client Health Scoring** (0-100 scale, churn risk detection)
+- **Pattern Analysis** (productization opportunities, operational insights, revenue forecasting)
+- **Team Inbox (Inbox Zero)** - Unified message processing dashboard
+- **Task Kanban Pipeline** - Open → In Progress → Completed
+- **Executive Analytics** - ROI calculator, 4 intelligence panels, trend forecasting
+
+### **💾 Database Schema**
+- **crm_clients**: Client info, tier, status, health scores
+- **crm_projects**: Project tracking, tech stack, budget vs. actual hours
+- **crm_messages**: All inbound messages with AI classification
+- **crm_tasks**: Auto-generated tasks with effort estimates & acceptance criteria
+- **crm_client_health**: Historical health scores with churn risk levels
+
+### **🧠 AI Agents (Demo Mode)**
+Currently running in **DEMO MODE** with keyword-based fallbacks. Add `GENSPARK_API_KEY` to `.dev.vars` for full AI intelligence:
+- **Agent 1 (Executive Assistant)**: Classifies message type, urgency, sentiment, action detection
+- **Agent 2 (Project Manager)**: Generates task specs with acceptance criteria & effort estimates
+- **Agent 3 (Account Manager)**: Calculates client health score (0-100), identifies churn risks
+- **Agent 4 (Business Analyst)**: Analyzes patterns, finds productization opportunities, forecasts revenue
+
+### **📊 Analytics Dashboard Features**
+1. **ROI Metrics Panel**: Time saved (hours), dollar value ($150/hr), 30-day trend chart, annual projection
+2. **Client Health Intelligence**: Healthy/warning/critical distribution, revenue at risk, upsell pipeline
+3. **Operational Intelligence**: Task velocity, estimation accuracy, productivity score (0-100), bottlenecks
+4. **Strategic Intelligence**: Top 3 productization opportunities, growth recommendations, revenue forecasts
+
+### **🔐 Security**
+- All `/admin/crm/*` pages require admin JWT authentication
+- All `/api/crm/*` endpoints require admin role (except webhook)
+- Twilio webhook uses signature validation (when configured)
+- Rate limiting: 100 requests/min per phone number
+- Input sanitization via prepared statements
+
+### **💰 Cost Analysis**
+- **Development**: 4 hours × $150/hr = $600 one-time
+- **Monthly Operating**: $0 (Cloudflare D1 free tier + Genspark API free tier)
+- **Optional**: Twilio SMS ≈$1/month + usage
+- **Annual Savings**: ~$39,000 (5 hrs/week × $150/hr × 52 weeks)
+- **ROI**: >6,400% (first year)
+
+### **🎨 Test Admin JWT** (Valid until 2057):
+```
+eyJ1c2VySWQiOiJpdGFsby1hZG1pbiIsImVtYWlsIjoiaXRhbG9AYWNyb21hdGljby5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE4MDU4NTA5OTM2ODR9
+```
+
+---
+
+## ✅ **CREATOR ACADEMY - COMPLETED FEATURES (100%)**
 
 ### **1. Public-Facing Pages**
 - ✅ Adventure-themed curriculum page (12 months, quarter color-coding)
@@ -163,6 +233,29 @@ DELETE /api/admin/curriculum/lesson/:id   # Delete lesson
 POST /api/admin/curriculum/seed           # Seed 12-month curriculum
 ```
 
+### **🤖 CRM Intelligence APIs** (Admin-Only)
+```
+# Message Processing (AI Pipeline)
+POST /api/crm/message-webhook             # Twilio SMS webhook (PUBLIC)
+POST /api/crm/process-message             # Manual message input (email/portal)
+
+# Task Management (Auto-generated from messages)
+GET  /api/crm/tasks                       # List tasks (filter by status/priority/client/project)
+GET  /api/crm/tasks/:id                   # Get single task detail
+PUT  /api/crm/tasks/:id                   # Update task (status, assignment, effort)
+DELETE /api/crm/tasks/:id                 # Archive task
+
+# Client Management
+GET  /api/crm/clients                     # List all clients with health scores
+GET  /api/crm/clients/:id                 # Get client detail + recalculate health
+POST /api/crm/clients                     # Create new client
+PUT  /api/crm/clients/:id                 # Update client info
+
+# Analytics & Intelligence
+GET  /api/crm/analytics/dashboard         # ROI metrics (time saved, revenue, health)
+GET  /api/crm/analytics/patterns          # Pattern analysis (productization opportunities)
+```
+
 ### **Public APIs**
 ```
 GET  /api/curriculum/download-pdf         # Download curriculum overview
@@ -175,8 +268,9 @@ GET  /api/curriculum/download-pdf         # Download curriculum overview
 ```
 webapp/
 ├── src/
-│   ├── index.tsx                      # Main Hono application (8,000+ lines)
+│   ├── index.tsx                      # Main Hono application (9,700+ lines)
 │   └── api/
+│       ├── crm-agents.ts              # 🤖 4 AI Agents (classification, task gen, health, patterns)
 │       ├── curriculum-admin.ts        # Admin curriculum helpers
 │       ├── curriculum-seed.ts         # Database seeding
 │       └── seed-admin-users.ts        # Admin account seeder
@@ -199,13 +293,18 @@ webapp/
 │       ├── parent-dashboard.html      # Parent monitoring dashboard
 │       │
 │       ├── admin-curriculum-v2.html   # Admin curriculum manager
-│       └── admin-dashboard.html       # Admin stats dashboard
+│       ├── admin-dashboard.html       # Admin stats dashboard
+│       │
+│       ├── admin-crm-dashboard.html   # 🤖 CRM: Team inbox, task kanban, client health
+│       └── admin-crm-analytics.html   # 🤖 CRM: Executive analytics (4 intelligence panels)
 │
 ├── migrations/
 │   ├── 0001_initial_schema.sql        # Core tables (users, students, subscriptions)
 │   ├── 0002_education_schema.sql      # Education platform tables
 │   ├── 0006_curriculum_simple.sql     # 12-month curriculum structure
-│   └── 0007_achievements_gamification.sql  # Achievement system
+│   ├── 0007_achievements_gamification.sql  # Achievement system
+│   ├── 0008_crm_system.sql            # 🤖 CRM tables (5 tables)
+│   └── 0009_add_task_updated_at.sql   # 🤖 CRM: Add updated_at column
 │
 ├── .git/                              # Version control
 ├── .gitignore                         # Comprehensive ignore rules
