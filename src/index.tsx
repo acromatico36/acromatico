@@ -585,11 +585,20 @@ function verifyTokenWithRole(token: string, requiredRole: string): any {
 
 // Middleware: Require Admin Role
 const requireAdmin = async (c: any, next: any) => {
-  const authHeader = c.req.header('Authorization')
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+  // Try Authorization header first
+  let token = c.req.header('Authorization')?.replace('Bearer ', '')
+  
+  // Fallback to cookie if no header
+  if (!token) {
+    const cookies = c.req.header('Cookie') || ''
+    const match = cookies.match(/admin_token=([^;]+)/)
+    token = match ? match[1] : null
+  }
+  
+  if (!token) {
     return c.json({ success: false, error: 'No token provided' }, 401)
   }
-  const token = authHeader.substring(7)
+  
   const payload = verifyTokenWithRole(token, 'admin')
   if (!payload) {
     return c.json({ success: false, error: 'Unauthorized: Admin role required' }, 403)
@@ -2601,7 +2610,8 @@ app.use(renderer)
 // ============================================
 
 app.get('/', (c) => {
-  return c.redirect('/static/index.html')
+  // Redirect to CRM login if no specific page requested
+  return c.redirect('/admin/crm/login')
 })
 
 // EDUCATION LANDING PAGE - Educators Profile
@@ -9362,13 +9372,22 @@ app.get('/admin/crm/login', (c) => {
             const token = tokenInput.value.trim();
             errorAlert.classList.add('hidden');
             successAlert.classList.add('hidden');
-            if (!token || token.length < 20) { showError('Invalid token format. Please paste the complete token.'); return; }
+            
+            console.log('Login attempt with token length:', token.length);
+            
+            if (!token || token.length < 20) { 
+                showError('Invalid token format. Please paste the complete token.'); 
+                return; 
+            }
+            
             submitBtn.disabled = true;
             btnText.classList.add('hidden');
             btnSpinner.classList.remove('hidden');
+            
             try {
                 await validateAndRedirect(token);
             } catch (error) {
+                console.error('Login error:', error);
                 showError(error.message || 'Authentication failed. Please check your token and try again.');
                 submitBtn.disabled = false;
                 btnText.classList.remove('hidden');
@@ -9380,12 +9399,18 @@ app.get('/admin/crm/login', (c) => {
             try {
                 const response = await fetch('/api/crm/clients', {
                     method: 'GET',
-                    headers: { 'Authorization': \`Bearer \${token}\`, 'Content-Type': 'application/json' }
+                    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' }
                 });
                 if (response.status === 401) throw new Error('Invalid or expired token');
                 if (response.status === 403) throw new Error('Unauthorized: Admin role required');
                 if (!response.ok) throw new Error(\`Authentication failed (\${response.status})\`);
+                
+                // Set cookie for server-side auth (browser navigation)
+                document.cookie = 'admin_token=' + token + '; path=/; max-age=86400; SameSite=Lax';
+                
+                // Keep localStorage for JS access
                 localStorage.setItem('admin_token', token);
+                
                 successAlert.classList.remove('hidden');
                 setTimeout(() => { window.location.href = '/admin/crm/dashboard'; }, 800);
             } catch (error) {

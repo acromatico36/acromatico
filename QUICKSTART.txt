@@ -1,0 +1,47 @@
+=======================================================
+ACROMATICO CRM - 22-MINUTE DEPLOYMENT QUICKSTART
+=======================================================
+
+DOWNLOAD & EXTRACT
+------------------
+curl -L https://www.genspark.ai/api/files/s/A0O1gOfe -o acromatico-crm.tar.gz
+tar -xzf acromatico-crm.tar.gz
+cd home/user/webapp
+npm install
+
+DEPLOY (Follow these commands in order)
+---------------------------------------
+1. npx wrangler d1 create acromatico-education
+   → Copy database_id from output
+
+2. Edit wrangler.jsonc, replace "local-education-db" with your database_id
+
+3. npx wrangler d1 migrations apply acromatico-education
+
+4. npm run build
+
+5. npx wrangler pages deploy dist --project-name acromatico
+
+6. Configure environment variables in Cloudflare dashboard:
+   - GENSPARK_API_KEY
+   - TWILIO_ACCOUNT_SID
+   - TWILIO_AUTH_TOKEN
+   - TWILIO_PHONE_NUMBER
+
+7. Configure Twilio webhook:
+   https://acromatico.pages.dev/api/crm/message-webhook
+
+VALIDATION
+----------
+ADMIN_TOKEN="eyJ1c2VySWQiOiJpdGFsby1hZG1pbiIsImVtYWlsIjoiaXRhbG9AYWNyb21hdGljby5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE4MDU4NTA5OTM2ODR9"
+
+curl -X POST https://acromatico.pages.dev/api/crm/process-message -H "Authorization: Bearer $ADMIN_TOKEN" -H "Content-Type: application/json" -d '{"clientId":"client-joes-pizza","projectId":"proj-joes-website","source":"email","content":"URGENT! Checkout broken!","emailAddress":"joe@test.com"}'
+
+curl https://acromatico.pages.dev/api/crm/tasks?status=open -H "Authorization: Bearer $ADMIN_TOKEN"
+
+curl https://acromatico.pages.dev/api/crm/analytics/dashboard -H "Authorization: Bearer $ADMIN_TOKEN"
+
+ACCESS
+------
+Login: https://acromatico.pages.dev/admin/crm/login
+Token: eyJ1c2VySWQiOiJpdGFsby1hZG1pbiIsImVtYWlsIjoiaXRhbG9AYWNyb21hdGljby5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE4MDU4NTA5OTM2ODR9
