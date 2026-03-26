@@ -6,12 +6,23 @@
     <title>CRM Dashboard | Acromatico</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/relativeTime.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        
+        /* Acromatico Brand Colors */
+        :root {
+            --acro-primary: #4794A6;
+            --acro-primary-hover: #5aa5b8;
+            --acro-primary-light: rgba(71, 148, 166, 0.1);
+            --acro-dark: #0f172a;
+            --acro-surface: #1e293b;
+            --acro-border: rgba(71, 148, 166, 0.2);
+        }
         
         /* Health Score Colors */
         .health-excellent { background: #10b981; color: white; }
@@ -43,15 +54,15 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-slate-900">
 
 <!-- Top Navigation -->
-<nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+<nav class="bg-slate-800 shadow-lg border-b border-slate-700 sticky top-0 z-50" style="backdrop-filter: blur(10px); background: rgba(30, 41, 59, 0.95);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <div class="flex items-center space-x-4">
-                <h1 class="text-xl font-bold text-gray-900">
-                    <i class="fas fa-robot text-blue-600"></i>
+                <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-8" />
+                <h1 class="text-xl font-semibold text-white" style="font-family: 'Inter', sans-serif; letter-spacing: -0.02em;">
                     CRM Intelligence
                 </h1>
                 <span id="demo-badge" class="hidden px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-semibold rounded-full">
@@ -59,16 +70,16 @@
                 </span>
             </div>
             <div class="flex items-center space-x-4">
-                <button onclick="window.location.href='/admin/crm/analytics'" class="desktop-only px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                <button onclick="window.location.href='/admin/crm/analytics'" class="desktop-only px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700 rounded-lg transition-all">
                     <i class="fas fa-chart-line mr-2"></i>Analytics
                 </button>
-                <button onclick="window.location.href='/admin/curriculum'" class="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                <button onclick="window.location.href='/admin/curriculum'" class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700 rounded-lg transition-all">
                     <i class="fas fa-graduation-cap mr-2"></i>Academy
                 </button>
-                <button onclick="refreshAll()" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700">
+                <button onclick="refreshAll()" class="px-4 py-2 text-white text-sm font-medium rounded-lg transition-all" style="background: var(--acro-primary); box-shadow: 0 4px 14px 0 rgba(71, 148, 166, 0.39);" onmouseover="this.style.background='var(--acro-primary-hover)'" onmouseout="this.style.background='var(--acro-primary)'">
                     <i class="fas fa-sync-alt" id="refresh-icon"></i>
                 </button>
-                <button onclick="logout()" class="px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg" title="Logout">
+                <button onclick="logout()" class="px-4 py-2 text-sm font-medium text-red-400 hover:text-red-300 hover:bg-slate-700 rounded-lg transition-all" title="Logout">
                     <i class="fas fa-sign-out-alt"></i>
                 </button>
             </div>
@@ -81,50 +92,50 @@
     
     <!-- Quick Stats Row -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-700 hover:border-opacity-60 transition-all" style="border-color: var(--acro-border);">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-sm font-medium text-gray-600">Inbox</p>
-                    <p class="text-3xl font-bold text-gray-900" id="stat-inbox">0</p>
+                    <p class="text-sm font-medium text-slate-400">Inbox</p>
+                    <p class="text-3xl font-bold text-white" id="stat-inbox">0</p>
                 </div>
-                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <i class="fas fa-inbox text-blue-600 text-xl"></i>
+                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--acro-primary-light);">
+                    <i class="fas fa-inbox text-xl" style="color: var(--acro-primary);"></i>
                 </div>
             </div>
         </div>
         
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-700 hover:border-opacity-60 transition-all" style="border-color: var(--acro-border);">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-sm font-medium text-gray-600">Open Tasks</p>
-                    <p class="text-3xl font-bold text-gray-900" id="stat-tasks">0</p>
+                    <p class="text-sm font-medium text-slate-400">Open Tasks</p>
+                    <p class="text-3xl font-bold text-white" id="stat-tasks">0</p>
                 </div>
-                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                    <i class="fas fa-tasks text-purple-600 text-xl"></i>
+                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--acro-primary-light);">
+                    <i class="fas fa-tasks text-xl" style="color: var(--acro-primary);"></i>
                 </div>
             </div>
         </div>
         
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-700 hover:border-opacity-60 transition-all" style="border-color: var(--acro-border);">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-sm font-medium text-gray-600">At Risk</p>
-                    <p class="text-3xl font-bold text-gray-900" id="stat-risk">0</p>
+                    <p class="text-sm font-medium text-slate-400">At Risk</p>
+                    <p class="text-3xl font-bold text-white" id="stat-risk">0</p>
                 </div>
-                <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                    <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+                <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center">
+                    <i class="fas fa-exclamation-triangle text-red-400 text-xl"></i>
                 </div>
             </div>
         </div>
         
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-700 hover:border-opacity-60 transition-all" style="border-color: var(--acro-border);">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-sm font-medium text-gray-600">Saved Today</p>
-                    <p class="text-3xl font-bold text-green-600" id="stat-saved">$0</p>
+                    <p class="text-sm font-medium text-slate-400">Saved Today</p>
+                    <p class="text-3xl font-bold" style="color: var(--acro-primary);" id="stat-saved">$0</p>
                 </div>
-                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <i class="fas fa-dollar-sign text-green-600 text-xl"></i>
+                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--acro-primary-light);">
+                    <i class="fas fa-dollar-sign text-xl" style="color: var(--acro-primary);"></i>
                 </div>
             </div>
         </div>
@@ -132,23 +143,23 @@
 
     <!-- Tabs -->
     <div class="mb-6">
-        <div class="border-b border-gray-200">
+        <div class="border-b border-slate-700">
             <nav class="-mb-px flex space-x-8">
-                <button onclick="switchTab('team')" id="tab-team" class="tab-button border-b-2 border-blue-600 py-4 px-1 text-sm font-medium text-blue-600">
+                <button onclick="switchTab('team')" id="tab-team" class="tab-button border-b-2 py-4 px-1 text-sm font-medium transition-all" style="border-color: var(--acro-primary); color: var(--acro-primary);">
                     <i class="fas fa-users mr-2"></i>Team Inbox
-                    <span id="badge-team" class="ml-2 bg-blue-100 text-blue-600 py-1 px-2 rounded-full text-xs">0</span>
+                    <span id="badge-team" class="ml-2 py-1 px-2 rounded-full text-xs" style="background: var(--acro-primary-light); color: var(--acro-primary);">0</span>
                 </button>
-                <button onclick="switchTab('tasks')" id="tab-tasks" class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                <button onclick="switchTab('tasks')" id="tab-tasks" class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-400 hover:text-white transition-all" style="hover:border-color: var(--acro-border);">
                     <i class="fas fa-check-square mr-2"></i>Task Pipeline
-                    <span id="badge-tasks" class="ml-2 bg-gray-100 text-gray-600 py-1 px-2 rounded-full text-xs">0</span>
+                    <span id="badge-tasks" class="ml-2 bg-slate-700 text-slate-300 py-1 px-2 rounded-full text-xs">0</span>
                 </button>
-                <button onclick="switchTab('clients')" id="tab-clients" class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                <button onclick="switchTab('clients')" id="tab-clients" class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-400 hover:text-white transition-all" style="hover:border-color: var(--acro-border);">
                     <i class="fas fa-heart mr-2"></i>Client Health
-                    <span id="badge-clients" class="ml-2 bg-gray-100 text-gray-600 py-1 px-2 rounded-full text-xs">0</span>
+                    <span id="badge-clients" class="ml-2 bg-slate-700 text-slate-300 py-1 px-2 rounded-full text-xs">0</span>
                 </button>
-                <button onclick="switchTab('personal')" id="tab-personal" class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                <button onclick="switchTab('personal')" id="tab-personal" class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-400 hover:text-white transition-all" style="hover:border-color: var(--acro-border);">
                     <i class="fas fa-comment mr-2"></i>Personal
-                    <span id="badge-personal" class="ml-2 bg-gray-100 text-gray-600 py-1 px-2 rounded-full text-xs">0</span>
+                    <span id="badge-personal" class="ml-2 bg-slate-700 text-slate-300 py-1 px-2 rounded-full text-xs">0</span>
                 </button>
             </nav>
         </div>
@@ -156,11 +167,11 @@
 
     <!-- Team Inbox Tab -->
     <div id="content-team" class="tab-content">
-        <div class="bg-white rounded-lg shadow">
-            <div class="p-6 border-b border-gray-200">
+        <div class="bg-slate-800 rounded-xl shadow-lg border border-slate-700">
+            <div class="p-6 border-b border-slate-700">
                 <div class="flex items-center justify-between">
-                    <h2 class="text-lg font-semibold text-gray-900">
-                        <i class="fas fa-inbox text-blue-600 mr-2"></i>
+                    <h2 class="text-lg font-semibold text-white">
+                        <i class="fas fa-inbox text-slate-300 mr-2"></i>
                         Unprocessed Messages
                     </h2>
                     <button onclick="testMessage()" class="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700">
@@ -178,9 +189,9 @@
     <div id="content-tasks" class="tab-content hidden">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Open Column -->
-            <div class="bg-white rounded-lg shadow">
-                <div class="p-4 bg-gray-50 border-b border-gray-200">
-                    <h3 class="font-semibold text-gray-900">
+            <div class="bg-slate-800 rounded-lg shadow">
+                <div class="p-4 bg-gray-50 border-b border-slate-700">
+                    <h3 class="font-semibold text-white">
                         <i class="fas fa-circle text-blue-500 mr-2 text-xs"></i>
                         Open (<span id="count-open">0</span>)
                     </h3>
@@ -191,9 +202,9 @@
             </div>
             
             <!-- In Progress Column -->
-            <div class="bg-white rounded-lg shadow">
+            <div class="bg-slate-800 rounded-lg shadow">
                 <div class="p-4 bg-yellow-50 border-b border-yellow-200">
-                    <h3 class="font-semibold text-gray-900">
+                    <h3 class="font-semibold text-white">
                         <i class="fas fa-circle text-yellow-500 mr-2 text-xs"></i>
                         In Progress (<span id="count-progress">0</span>)
                     </h3>
@@ -204,9 +215,9 @@
             </div>
             
             <!-- Completed Column -->
-            <div class="bg-white rounded-lg shadow">
+            <div class="bg-slate-800 rounded-lg shadow">
                 <div class="p-4 bg-green-50 border-b border-green-200">
-                    <h3 class="font-semibold text-gray-900">
+                    <h3 class="font-semibold text-white">
                         <i class="fas fa-check-circle text-green-500 mr-2"></i>
                         Completed (<span id="count-completed">0</span>)
                     </h3>
@@ -220,9 +231,9 @@
 
     <!-- Client Health Tab -->
     <div id="content-clients" class="tab-content hidden">
-        <div class="bg-white rounded-lg shadow">
-            <div class="p-6 border-b border-gray-200">
-                <h2 class="text-lg font-semibold text-gray-900">
+        <div class="bg-slate-800 rounded-lg shadow">
+            <div class="p-6 border-b border-slate-700">
+                <h2 class="text-lg font-semibold text-white">
                     <i class="fas fa-heart-pulse text-red-600 mr-2"></i>
                     Client Health Monitor
                 </h2>
@@ -235,10 +246,10 @@
 
     <!-- Personal Messages Tab -->
     <div id="content-personal" class="tab-content hidden">
-        <div class="bg-white rounded-lg shadow">
-            <div class="p-6 border-b border-gray-200">
-                <h2 class="text-lg font-semibold text-gray-900">
-                    <i class="fas fa-comment-dots text-purple-600 mr-2"></i>
+        <div class="bg-slate-800 rounded-lg shadow">
+            <div class="p-6 border-b border-slate-700">
+                <h2 class="text-lg font-semibold text-white">
+                    <i class="fas fa-comment-dots text-slate-300 mr-2"></i>
                     Personal & Relationship Messages
                 </h2>
             </div>
@@ -289,13 +300,14 @@ let clientsData = []
 function switchTab(tab) {
     currentTab = tab
     
-    // Update tab buttons
+    // Update tab buttons - Acromatico brand colors
     document.querySelectorAll('.tab-button').forEach(btn => {
-        btn.classList.remove('border-blue-600', 'text-blue-600')
-        btn.classList.add('border-transparent', 'text-gray-500')
+        btn.style.borderColor = 'transparent'
+        btn.style.color = 'rgb(148 163 184)' // slate-400
     })
-    document.getElementById(`tab-${tab}`).classList.remove('border-transparent', 'text-gray-500')
-    document.getElementById(`tab-${tab}`).classList.add('border-blue-600', 'text-blue-600')
+    const activeTab = document.getElementById(`tab-${tab}`)
+    activeTab.style.borderColor = 'var(--acro-primary)'
+    activeTab.style.color = 'var(--acro-primary)'
     
     // Show/hide content
     document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'))
@@ -321,8 +333,8 @@ async function loadInbox() {
         const html = unprocessed.length === 0 
             ? `<div class="p-12 text-center">
                 <i class="fas fa-check-circle text-green-500 text-6xl mb-4"></i>
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">Inbox Zero Achieved! 🎉</h3>
-                <p class="text-gray-600">All messages have been processed.</p>
+                <h3 class="text-xl font-semibold text-white mb-2">Inbox Zero Achieved! 🎉</h3>
+                <p class="text-slate-400">All messages have been processed.</p>
                </div>`
             : unprocessed.map(task => `
                 <div class="p-6 hover:bg-gray-50 cursor-pointer task-card priority-${task.priority}" onclick="viewTask('${task.id}')">
@@ -335,21 +347,21 @@ async function loadInbox() {
                                 <span class="px-2 py-1 rounded text-xs font-semibold ${
                                     task.priority === 'P1' ? 'bg-red-100 text-red-700' :
                                     task.priority === 'P2' ? 'bg-orange-100 text-orange-700' :
-                                    task.priority === 'P3' ? 'bg-blue-100 text-blue-700' :
-                                    'bg-gray-100 text-gray-700'
+                                    task.priority === 'P3' ? 'bg-slate-700 text-blue-700' :
+                                    'bg-slate-700 text-slate-300'
                                 }">
                                     ${task.priority} - ${task.effort} (${task.estimated_hours}h)
                                 </span>
                             </div>
-                            <h4 class="font-semibold text-gray-900 mb-1">${task.title}</h4>
-                            <p class="text-sm text-gray-600 mb-2 line-clamp-2">${task.original_message}</p>
+                            <h4 class="font-semibold text-white mb-1">${task.title}</h4>
+                            <p class="text-sm text-slate-400 mb-2 line-clamp-2">${task.original_message}</p>
                             <div class="flex items-center space-x-4 text-xs text-gray-500">
                                 <span><i class="fas fa-user mr-1"></i>${task.client_name}</span>
                                 <span><i class="fas fa-briefcase mr-1"></i>${task.project_name}</span>
                                 <span><i class="fas fa-clock mr-1"></i>${dayjs(task.created_at).fromNow()}</span>
                             </div>
                         </div>
-                        <button onclick="event.stopPropagation(); claimTask('${task.id}')" class="ml-4 px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">
+                        <button onclick="event.stopPropagation(); claimTask('${task.id}')" class="ml-4 px-3 py-1 bg-slate-700 text-white text-sm rounded hover:bg-blue-700">
                             Claim
                         </button>
                     </div>
@@ -398,18 +410,18 @@ function renderTaskColumn(elementId, tasks) {
     const html = tasks.length === 0
         ? '<p class="text-sm text-gray-400 text-center py-8">No tasks</p>'
         : tasks.map(task => `
-            <div class="task-card bg-white border border-gray-200 rounded-lg p-4 priority-${task.priority}" onclick="viewTask('${task.id}')">
+            <div class="task-card bg-slate-800 border border-slate-700 rounded-lg p-4 priority-${task.priority}" onclick="viewTask('${task.id}')">
                 <div class="flex items-start justify-between mb-2">
-                    <h4 class="font-semibold text-sm text-gray-900 flex-1">${task.title}</h4>
+                    <h4 class="font-semibold text-sm text-white flex-1">${task.title}</h4>
                     <span class="ml-2 px-2 py-1 text-xs font-semibold rounded ${
                         task.priority === 'P1' ? 'bg-red-100 text-red-700' :
                         task.priority === 'P2' ? 'bg-orange-100 text-orange-700' :
-                        'bg-blue-100 text-blue-700'
+                        'bg-slate-700 text-blue-700'
                     }">
                         ${task.priority}
                     </span>
                 </div>
-                <p class="text-xs text-gray-600 mb-2 line-clamp-2">${task.description.substring(0, 100)}...</p>
+                <p class="text-xs text-slate-400 mb-2 line-clamp-2">${task.description.substring(0, 100)}...</p>
                 <div class="flex items-center justify-between text-xs text-gray-500">
                     <span><i class="fas fa-user mr-1"></i>${task.client_name}</span>
                     <span>${task.effort} • ${task.estimated_hours}h</span>
@@ -447,19 +459,19 @@ async function loadClients() {
                     <div class="flex items-start justify-between">
                         <div class="flex-1">
                             <div class="flex items-center space-x-3 mb-2">
-                                <h4 class="font-semibold text-gray-900">${client.name}</h4>
+                                <h4 class="font-semibold text-white">${client.name}</h4>
                                 <span class="${healthClass} px-3 py-1 rounded-full text-sm font-semibold">
                                     ${healthScore}
                                 </span>
                             </div>
-                            <p class="text-sm text-gray-600 mb-2">${client.company}</p>
+                            <p class="text-sm text-slate-400 mb-2">${client.company}</p>
                             <div class="flex items-center space-x-4 text-xs text-gray-500">
                                 <span><i class="fas fa-phone mr-1"></i>${client.phone_number}</span>
                                 <span><i class="fas fa-envelope mr-1"></i>${client.email}</span>
                                 <span><i class="fas fa-crown mr-1"></i>${client.tier.toUpperCase()}</span>
                             </div>
                             <div class="mt-3 flex items-center space-x-4 text-xs">
-                                <span class="text-gray-700">
+                                <span class="text-slate-300">
                                     <i class="fas fa-project-diagram mr-1"></i>
                                     ${client.active_projects} active, ${client.total_projects} total
                                 </span>
@@ -469,7 +481,7 @@ async function loadClients() {
                                 </span>
                             </div>
                         </div>
-                        <button onclick="viewClient('${client.id}')" class="ml-4 px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">
+                        <button onclick="viewClient('${client.id}')" class="ml-4 px-3 py-1 bg-slate-700 text-white text-sm rounded hover:bg-blue-700">
                             View
                         </button>
                     </div>
@@ -492,8 +504,8 @@ async function loadPersonalMessages() {
         document.getElementById('personal-list').innerHTML = `
             <div class="p-12 text-center">
                 <i class="fas fa-heart text-purple-500 text-6xl mb-4"></i>
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">Relationship Messages</h3>
-                <p class="text-gray-600">Personal check-ins, feedback, and relationship-building messages appear here.</p>
+                <h3 class="text-xl font-semibold text-white mb-2">Relationship Messages</h3>
+                <p class="text-slate-400">Personal check-ins, feedback, and relationship-building messages appear here.</p>
             </div>
         `
     } catch (error) {
@@ -598,7 +610,7 @@ function showToast(message, type = 'info') {
     const colors = {
         success: 'bg-green-600',
         error: 'bg-red-600',
-        info: 'bg-blue-600'
+        info: 'bg-slate-700'
     }
     
     const toast = document.createElement('div')

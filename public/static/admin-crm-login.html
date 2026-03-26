@@ -6,6 +6,7 @@
     <title>Admin Login - Acromatico CRM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* iPhone Safari specific optimizations */
         * {
@@ -16,16 +17,22 @@
         body {
             min-height: 100vh;
             min-height: -webkit-fill-available;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f172a;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        /* Acromatico Brand Colors */
+        :root {
+            --acro-primary: #4794A6;
+            --acro-primary-hover: #5aa5b8;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(30, 41, 59, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(71, 148, 166, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
         }
 
         .input-field {
@@ -36,18 +43,20 @@
 
         .input-field:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: var(--acro-primary);
+            box-shadow: 0 0 0 3px rgba(71, 148, 166, 0.2);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--acro-primary);
             transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(71, 148, 166, 0.39);
         }
 
         .btn-primary:hover {
+            background: var(--acro-primary-hover);
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(71, 148, 166, 0.5);
         }
 
         .btn-primary:active {
@@ -75,8 +84,8 @@
 
         /* Loading spinner */
         .spinner {
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top-color: #667eea;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--acro-primary);
             border-radius: 50%;
             width: 24px;
             height: 24px;
@@ -92,24 +101,25 @@
     <div class="glass-card rounded-2xl p-8 w-full max-w-md fade-in">
         <!-- Logo & Title -->
         <div class="text-center mb-8">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+            <img src="/static/acromatico-logo-white.png" alt="Acromatico" class="h-16 mx-auto mb-4" />
+            <div class="hidden w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center shadow-lg" style="background: var(--acro-primary);">
                 <i class="fas fa-brain text-white text-2xl"></i>
             </div>
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">Acromatico CRM</h1>
-            <p class="text-gray-600 text-sm">AI-Powered Client Intelligence</p>
+            <h1 class="text-3xl font-bold text-white mb-2">Acromatico CRM</h1>
+            <p class="text-slate-400 text-sm">AI-Powered Client Intelligence</p>
         </div>
 
         <!-- Login Form -->
         <form id="loginForm" class="space-y-6">
             <!-- Token Input -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                    <i class="fas fa-key mr-2 text-purple-600"></i>Admin Token
+                <label class="block text-sm font-semibold text-slate-300 mb-2">
+                    <i class="fas fa-key mr-2 text-slate-300"></i>Admin Token
                 </label>
                 <textarea
                     id="tokenInput"
                     rows="4"
-                    class="input-field w-full px-4 py-3 border-2 border-gray-200 rounded-xl resize-none font-mono text-sm"
+                    class="input-field w-full px-4 py-3 border-2 border-slate-600 rounded-xl resize-none font-mono text-sm"
                     placeholder="Paste your JWT token here..."
                     required
                     autocomplete="off"
@@ -117,7 +127,7 @@
                     autocapitalize="off"
                     spellcheck="false"
                 ></textarea>
-                <p class="text-xs text-gray-500 mt-2">
+                <p class="text-xs text-slate-400 mt-2">
                     <i class="fas fa-info-circle mr-1"></i>
                     Your secure access token from the admin team
                 </p>
@@ -158,26 +168,26 @@
         </form>
 
         <!-- Help Text -->
-        <div class="mt-6 text-center text-sm text-gray-600">
+        <div class="mt-6 text-center text-sm text-slate-400">
             <i class="fas fa-shield-alt mr-1"></i>
             Secured with JWT Authentication
         </div>
 
         <!-- Quick Stats Preview -->
-        <div class="mt-8 pt-6 border-t border-gray-200">
-            <p class="text-xs text-gray-500 text-center mb-3">System Status</p>
+        <div class="mt-8 pt-6 border-t border-slate-600">
+            <p class="text-xs text-slate-400 text-center mb-3">System Status</p>
             <div class="grid grid-cols-3 gap-3 text-center">
                 <div>
-                    <div class="text-lg font-bold text-purple-600">🤖</div>
-                    <div class="text-xs text-gray-600 mt-1">4 AI Agents</div>
+                    <div class="text-lg font-bold text-slate-300">🤖</div>
+                    <div class="text-xs text-slate-400 mt-1">4 AI Agents</div>
                 </div>
                 <div>
                     <div class="text-lg font-bold text-green-600">⚡</div>
-                    <div class="text-xs text-gray-600 mt-1">15s Response</div>
+                    <div class="text-xs text-slate-400 mt-1">15s Response</div>
                 </div>
                 <div>
                     <div class="text-lg font-bold text-blue-600">📊</div>
-                    <div class="text-xs text-gray-600 mt-1">Real-time BI</div>
+                    <div class="text-xs text-slate-400 mt-1">Real-time BI</div>
                 </div>
             </div>
         </div>
