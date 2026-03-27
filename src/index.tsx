@@ -9439,6 +9439,8 @@ app.get('/admin/crm/analytics', (c) => c.redirect('/static/admin-crm-analytics.h
 
 app.get('/admin/crm/projects', (c) => c.redirect('/static/admin-project-pipeline.html'))
 
+app.get('/admin/crm/roadmap', (c) => c.redirect('/static/project-roadmap.html'))
+
 // ==============================================
 // TWILIO WEBHOOK ENDPOINT (PUBLIC)
 // ==============================================
