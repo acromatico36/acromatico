@@ -9437,8 +9437,138 @@ app.get('/admin/crm/dashboard', (c) => c.redirect('/static/admin-crm-dashboard.h
 
 app.get('/admin/crm/analytics', (c) => c.redirect('/static/admin-crm-analytics.html'))
 
+app.get('/admin/crm/projects', (c) => c.redirect('/static/admin-project-pipeline.html'))
+
 // ==============================================
 // TWILIO WEBHOOK ENDPOINT (PUBLIC)
+// ==============================================
+
+// ==============================================
+// PROJECT PIPELINE API
+// Creative Agency Project Management
+// ==============================================
+
+// GET /api/projects - List all projects
+app.get('/api/projects', requireAdmin, async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const { status, client_id, limit = 50 } = c.req.query()
+    
+    let query = 'SELECT * FROM projects'
+    const conditions = []
+    
+    if (status) conditions.push(`status = '${status}'`)
+    if (client_id) conditions.push(`client_id = '${client_id}'`)
+    
+    if (conditions.length > 0) {
+      query += ' WHERE ' + conditions.join(' AND ')
+    }
+    
+    query += ' ORDER BY created_at DESC LIMIT ?'
+    
+    const result = await DB_EDUCATION.prepare(query).bind(parseInt(limit)).all()
+    
+    return c.json({ success: true, projects: result.results || [] })
+  } catch (error: any) {
+    console.error('Error fetching projects:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// POST /api/projects - Create new project
+app.post('/api/projects', requireAdmin, async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const body = await c.req.json()
+    
+    const projectId = `proj-${Date.now()}-${Math.random().toString(36).substring(7)}`
+    
+    const {
+      client_id,
+      project_name,
+      project_type,
+      priority = 'P2',
+      start_date,
+      target_delivery,
+      project_lead,
+      estimated_hours,
+      budget_dollars
+    } = body
+    
+    await DB_EDUCATION.prepare(`
+      INSERT INTO projects (
+        id, client_id, project_name, project_type, status, priority,
+        start_date, target_delivery, project_lead, estimated_hours, budget_dollars
+      ) VALUES (?, ?, ?, ?, 'discovery', ?, ?, ?, ?, ?, ?)
+    `).bind(
+      projectId,
+      client_id,
+      project_name,
+      project_type,
+      priority,
+      start_date,
+      target_delivery,
+      project_lead,
+      estimated_hours,
+      budget_dollars
+    ).run()
+    
+    return c.json({ success: true, project_id: projectId })
+  } catch (error: any) {
+    console.error('Error creating project:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// GET /api/pipeline/overview - Pipeline dashboard overview
+app.get('/api/pipeline/overview', requireAdmin, async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    
+    // Count projects by status
+    const statusCounts = await DB_EDUCATION.prepare(`
+      SELECT status, COUNT(*) as count FROM projects GROUP BY status
+    `).all()
+    
+    // Active projects (not delivered/cancelled)
+    const activeProjects = await DB_EDUCATION.prepare(`
+      SELECT COUNT(*) as count FROM projects 
+      WHERE status NOT IN ('delivered', 'cancelled')
+    `).first()
+    
+    // Upcoming deadlines
+    const upcomingDeadlines = await DB_EDUCATION.prepare(`
+      SELECT id, project_name, target_delivery, days_remaining, status, priority
+      FROM projects 
+      WHERE status NOT IN ('delivered', 'cancelled')
+      AND target_delivery IS NOT NULL
+      ORDER BY target_delivery ASC
+      LIMIT 10
+    `).all()
+    
+    // At-risk projects (behind schedule)
+    const atRisk = await DB_EDUCATION.prepare(`
+      SELECT COUNT(*) as count FROM projects 
+      WHERE days_remaining < 7 AND status NOT IN ('delivered', 'cancelled')
+    `).first()
+    
+    return c.json({
+      success: true,
+      stats: {
+        active: activeProjects?.count || 0,
+        at_risk: atRisk?.count || 0,
+        by_status: statusCounts.results || []
+      },
+      upcoming_deadlines: upcomingDeadlines.results || []
+    })
+  } catch (error: any) {
+    console.error('Error fetching pipeline overview:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
+// ==============================================
+// CRM WEBHOOK
 // ==============================================
 
 /**
