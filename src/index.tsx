@@ -622,6 +622,251 @@ const requireParent = async (c: any, next: any) => {
   await next()
 }
 
+// ==============================================
+// STRIPE PAYMENT API
+// Photography Shop + Education Enrollment
+// ==============================================
+
+// POST /api/payments/create-checkout-session - Create Stripe checkout
+app.post('/api/payments/create-checkout-session', async (c) => {
+  try {
+    const { STRIPE_SECRET_KEY, STRIPE_PUBLISHABLE_KEY } = c.env
+    
+    if (!STRIPE_SECRET_KEY) {
+      return c.json({ error: 'Stripe not configured' }, 500)
+    }
+    
+    const body = await c.req.json()
+    const { priceId, quantity = 1, mode = 'payment', successUrl, cancelUrl, customerEmail, metadata } = body
+    
+    // Create Stripe checkout session
+    const session = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${STRIPE_SECRET_KEY}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({
+        'mode': mode,
+        'line_items[0][price]': priceId,
+        'line_items[0][quantity]': quantity.toString(),
+        'success_url': successUrl || `${c.req.url.replace('/api/payments/create-checkout-session', '')}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
+        'cancel_url': cancelUrl || `${c.req.url.replace('/api/payments/create-checkout-session', '')}/payment-cancel`,
+        ...(customerEmail && { 'customer_email': customerEmail }),
+        ...(metadata && Object.keys(metadata).reduce((acc, key, index) => ({
+          ...acc,
+          [`metadata[${key}]`]: metadata[key]
+        }), {}))
+      })
+    })
+    
+    const sessionData = await session.json()
+    
+    if (!session.ok) {
+      console.error('Stripe API error:', sessionData)
+      return c.json({ error: sessionData.error?.message || 'Failed to create checkout session' }, 500)
+    }
+    
+    return c.json({ 
+      sessionId: sessionData.id,
+      url: sessionData.url,
+      publishableKey: STRIPE_PUBLISHABLE_KEY
+    })
+    
+  } catch (error: any) {
+    console.error('Payment creation error:', error)
+    return c.json({ error: error.message }, 500)
+  }
+})
+
+// POST /api/payments/webhook - Stripe webhook handler
+app.post('/api/payments/webhook', async (c) => {
+  try {
+    const { DB_EDUCATION, STRIPE_WEBHOOK_SECRET } = c.env
+    
+    if (!STRIPE_WEBHOOK_SECRET) {
+      return c.json({ error: 'Webhook secret not configured' }, 500)
+    }
+    
+    const signature = c.req.header('stripe-signature')
+    const rawBody = await c.req.text()
+    
+    // Verify webhook signature
+    const timestamp = signature?.split(',').find(s => s.startsWith('t='))?.split('=')[1]
+    const signatureHash = signature?.split(',').find(s => s.startsWith('v1='))?.split('=')[1]
+    
+    // Parse event
+    const event = JSON.parse(rawBody)
+    
+    console.log('Stripe webhook received:', event.type)
+    
+    // Handle different event types
+    switch (event.type) {
+      case 'checkout.session.completed':
+        const session = event.data.object
+        console.log('Payment successful:', session.id)
+        
+        // TODO: Fulfill order (grant course access, send photography booking confirmation, etc.)
+        // Store payment in database
+        await DB_EDUCATION.prepare(`
+          INSERT INTO payments (id, session_id, customer_email, amount, status, created_at)
+          VALUES (?, ?, ?, ?, 'succeeded', datetime('now'))
+        `).bind(
+          `pay-${Date.now()}`,
+          session.id,
+          session.customer_email,
+          session.amount_total,
+        ).run()
+        
+        break
+        
+      case 'payment_intent.succeeded':
+        console.log('PaymentIntent succeeded:', event.data.object.id)
+        break
+        
+      case 'payment_intent.payment_failed':
+        console.log('Payment failed:', event.data.object.id)
+        break
+        
+      case 'customer.subscription.created':
+      case 'customer.subscription.updated':
+        console.log('Subscription updated:', event.data.object.id)
+        break
+        
+      case 'customer.subscription.deleted':
+        console.log('Subscription cancelled:', event.data.object.id)
+        break
+        
+      default:
+        console.log('Unhandled event type:', event.type)
+    }
+    
+    return c.json({ received: true })
+    
+  } catch (error: any) {
+    console.error('Webhook error:', error)
+    return c.json({ error: error.message }, 500)
+  }
+})
+
+// GET /api/payments/success - Payment success page
+app.get('/payment-success', (c) => {
+  const sessionId = c.req.query('session_id')
+  return c.html(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Payment Successful | Acromatico</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+      <style>
+        body { font-family: 'Inter', sans-serif; background: #0f172a; }
+        .checkmark {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          display: block;
+          stroke-width: 3;
+          stroke: #4ade80;
+          stroke-miterlimit: 10;
+          box-shadow: inset 0px 0px 0px #4ade80;
+          animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+        .checkmark__circle {
+          stroke-dasharray: 166;
+          stroke-dashoffset: 166;
+          stroke-width: 3;
+          stroke-miterlimit: 10;
+          stroke: #4ade80;
+          fill: none;
+          animation: stroke .6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+        .checkmark__check {
+          transform-origin: 50% 50%;
+          stroke-dasharray: 48;
+          stroke-dashoffset: 48;
+          animation: stroke .3s cubic-bezier(0.65, 0, 0.45, 1) .8s forwards;
+        }
+        @keyframes stroke {
+          100% { stroke-dashoffset: 0; }
+        }
+        @keyframes scale {
+          0%, 100% { transform: none; }
+          50% { transform: scale3d(1.1, 1.1, 1); }
+        }
+        @keyframes fill {
+          100% { box-shadow: inset 0px 0px 0px 40px #4ade80; }
+        }
+      </style>
+    </head>
+    <body class="flex items-center justify-center min-h-screen">
+      <div class="bg-slate-800 rounded-2xl p-12 text-center max-w-md border border-slate-700">
+        <svg class="checkmark mx-auto mb-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        <h1 class="text-3xl font-bold text-white mb-4">Payment Successful!</h1>
+        <p class="text-slate-300 mb-6">
+          Thank you for your purchase. You'll receive a confirmation email shortly.
+        </p>
+        <div class="text-sm text-slate-400 mb-8">
+          Session ID: <span class="font-mono text-xs">${sessionId}</span>
+        </div>
+        <a href="/" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all">
+          Return Home
+        </a>
+      </div>
+    </body>
+    </html>
+  `)
+})
+
+// GET /api/payments/cancel - Payment cancelled page
+app.get('/payment-cancel', (c) => {
+  return c.html(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Payment Cancelled | Acromatico</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+      <style>
+        body { font-family: 'Inter', sans-serif; background: #0f172a; }
+      </style>
+    </head>
+    <body class="flex items-center justify-center min-h-screen">
+      <div class="bg-slate-800 rounded-2xl p-12 text-center max-w-md border border-slate-700">
+        <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-yellow-500/20 flex items-center justify-center">
+          <svg class="w-10 h-10 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+          </svg>
+        </div>
+        <h1 class="text-3xl font-bold text-white mb-4">Payment Cancelled</h1>
+        <p class="text-slate-300 mb-8">
+          Your payment was cancelled. No charges were made to your account.
+        </p>
+        <div class="flex gap-4">
+          <a href="/" class="flex-1 bg-slate-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all">
+            Return Home
+          </a>
+          <button onclick="history.back()" class="flex-1 bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all">
+            Try Again
+          </button>
+        </div>
+      </div>
+    </body>
+    </html>
+  `)
+})
+
+// ==============================================
+// AUTHENTICATION API
+// ==============================================
+
 // POST /api/auth/signup - Create new user account
 app.post('/api/auth/signup', async (c) => {
   try {
