@@ -2855,8 +2855,8 @@ app.use(renderer)
 // ============================================
 
 app.get('/', (c) => {
-  // Redirect to CRM login if no specific page requested
-  return c.redirect('/admin/crm/login')
+  // Serve the main Acromatico photography homepage
+  return c.redirect('/static/index.html')
 })
 
 // EDUCATION LANDING PAGE - Educators Profile
