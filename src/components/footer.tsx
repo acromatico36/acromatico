@@ -5,7 +5,7 @@
 export const footerHTML = `
 <footer class="bg-black border-t border-white/10 py-16">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-12 mb-12">
       <div>
         <h4 class="font-bold mb-4" style="color: white;">Academy</h4>
         <ul class="space-y-2 text-gray-400 text-sm">
@@ -39,6 +39,12 @@ export const footerHTML = `
         <ul class="space-y-2 text-gray-400 text-sm">
           <li><a href="/privacy" class="hover:text-white transition">Privacy</a></li>
           <li><a href="/terms" class="hover:text-white transition">Terms</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4" style="color: white;">Admin</h4>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="/admin/crm/login" class="hover:text-white transition">🔒 CRM Login</a></li>
         </ul>
       </div>
     </div>
