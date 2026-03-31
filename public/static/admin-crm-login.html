@@ -263,8 +263,11 @@
                     throw new Error(data.error || 'Login failed');
                 }
 
-                // Store token
+                // Store token in localStorage
                 localStorage.setItem('admin_token', data.token);
+                
+                // ALSO set cookie for server-side navigation
+                document.cookie = `admin_token=${data.token}; path=/; max-age=604800; SameSite=Lax`;
                 
                 // Show success
                 successAlert.classList.remove('hidden');
