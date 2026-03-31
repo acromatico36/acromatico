@@ -9562,8 +9562,13 @@ function mapEffortToDBEnum(agentEffort: string): { effort: string; hours: number
 // CRM DASHBOARD PAGES
 // ==============================================
 
-// Login Page (Public - served directly to avoid wrangler dev quirks)
+// Login Page (Public - redirect to static HTML with email/password form)
 app.get('/admin/crm/login', (c) => {
+  return c.redirect('/static/admin-crm-login.html')
+})
+
+// OLD TOKEN-BASED LOGIN (DEPRECATED - keeping for reference)
+app.get('/admin/crm/login-old', (c) => {
   return c.html(`<!DOCTYPE html>
 <html lang="en">
 <head>
