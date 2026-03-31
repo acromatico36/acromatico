@@ -9485,12 +9485,25 @@ app.post('/api/admin/login', async (c) => {
   }
 })
 
-// Protect all /admin/crm/* dashboard pages EXCEPT login
+// Protect all /admin/crm/* dashboard pages EXCEPT login and static HTML pages
+// Static HTML pages (dashboard, analytics, projects) protect themselves with client-side JS
 app.use('/admin/crm/*', async (c, next) => {
-  // Allow login page without auth
-  if (c.req.path === '/admin/crm/login') {
+  const path = c.req.path
+  
+  // Allow these pages without server-side auth (they use client-side JS auth)
+  const publicPaths = [
+    '/admin/crm/login',
+    '/admin/crm/dashboard', 
+    '/admin/crm/analytics',
+    '/admin/crm/projects',
+    '/admin/crm/projects/traveldrd',
+    '/admin/crm/roadmap'
+  ]
+  
+  if (publicPaths.includes(path)) {
     return next()
   }
+  
   // All other /admin/crm/* pages require admin auth
   return requireAdmin(c, next)
 })
