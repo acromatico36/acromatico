@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* iPhone Safari specific optimizations */
         * {
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
@@ -21,7 +20,6 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
-        /* Acromatico Brand Colors */
         :root {
             --acro-primary: #4794A6;
             --acro-primary-hover: #5aa5b8;
@@ -39,12 +37,16 @@
             transition: all 0.3s ease;
             -webkit-appearance: none;
             appearance: none;
+            background: rgba(15, 23, 42, 0.5);
+            border: 2px solid rgba(71, 148, 166, 0.3);
+            color: white;
         }
 
         .input-field:focus {
             outline: none;
             border-color: var(--acro-primary);
             box-shadow: 0 0 0 3px rgba(71, 148, 166, 0.2);
+            background: rgba(15, 23, 42, 0.8);
         }
 
         .btn-primary {
@@ -53,14 +55,15 @@
             box-shadow: 0 4px 14px 0 rgba(71, 148, 166, 0.39);
         }
 
-        .btn-primary:hover {
+        .btn-primary:hover:not(:disabled) {
             background: var(--acro-primary-hover);
             transform: translateY(-1px);
             box-shadow: 0 6px 20px rgba(71, 148, 166, 0.5);
         }
 
-        .btn-primary:active {
-            transform: translateY(0);
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
         .error-shake {
@@ -82,7 +85,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Loading spinner */
         .spinner {
             border: 3px solid rgba(255, 255, 255, 0.2);
             border-top-color: var(--acro-primary);
@@ -102,35 +104,40 @@
         <!-- Logo & Title -->
         <div class="text-center mb-8">
             <img src="/static/acromatico-logo-correct.png" alt="Acromatico" class="h-16 mx-auto mb-4" />
-            <div class="hidden w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center shadow-lg" style="background: var(--acro-primary);">
-                <i class="fas fa-brain text-white text-2xl"></i>
-            </div>
             <h1 class="text-3xl font-bold text-white mb-2">Acromatico CRM</h1>
             <p class="text-slate-400 text-sm">AI-Powered Client Intelligence</p>
         </div>
 
         <!-- Login Form -->
         <form id="loginForm" class="space-y-6">
-            <!-- Token Input -->
+            <!-- Email Input -->
             <div>
                 <label class="block text-sm font-semibold text-slate-300 mb-2">
-                    <i class="fas fa-key mr-2 text-slate-300"></i>Admin Token
+                    <i class="fas fa-envelope mr-2 text-slate-300"></i>Email
                 </label>
-                <textarea
-                    id="tokenInput"
-                    rows="4"
-                    class="input-field w-full px-4 py-3 border-2 border-slate-600 rounded-xl resize-none font-mono text-sm"
-                    placeholder="Paste your JWT token here..."
+                <input
+                    type="email"
+                    id="emailInput"
+                    class="input-field w-full px-4 py-3 rounded-xl"
+                    placeholder="italo@acromatico.com"
                     required
-                    autocomplete="off"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                ></textarea>
-                <p class="text-xs text-slate-400 mt-2">
-                    <i class="fas fa-info-circle mr-1"></i>
-                    Your secure access token from the admin team
-                </p>
+                    autocomplete="email"
+                />
+            </div>
+
+            <!-- Password Input -->
+            <div>
+                <label class="block text-sm font-semibold text-slate-300 mb-2">
+                    <i class="fas fa-lock mr-2 text-slate-300"></i>Password
+                </label>
+                <input
+                    type="password"
+                    id="passwordInput"
+                    class="input-field w-full px-4 py-3 rounded-xl"
+                    placeholder="Enter your password"
+                    required
+                    autocomplete="current-password"
+                />
             </div>
 
             <!-- Error Alert -->
@@ -170,7 +177,7 @@
         <!-- Help Text -->
         <div class="mt-6 text-center text-sm text-slate-400">
             <i class="fas fa-shield-alt mr-1"></i>
-            Secured with JWT Authentication
+            Secured with Email/Password Authentication
         </div>
 
         <!-- Quick Stats Preview -->
@@ -203,7 +210,8 @@
         window.addEventListener('resize', setViewportHeight);
 
         const form = document.getElementById('loginForm');
-        const tokenInput = document.getElementById('tokenInput');
+        const emailInput = document.getElementById('emailInput');
+        const passwordInput = document.getElementById('passwordInput');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
         const btnSpinner = document.getElementById('btnSpinner');
@@ -214,22 +222,23 @@
         // Check if already logged in
         const existingToken = localStorage.getItem('admin_token');
         if (existingToken) {
-            // Validate existing token
-            validateAndRedirect(existingToken);
+            // Redirect to dashboard immediately
+            window.location.href = '/admin/crm/dashboard';
         }
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const token = tokenInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
             
             // Clear previous alerts
             errorAlert.classList.add('hidden');
             successAlert.classList.add('hidden');
             
-            // Validate token format (basic check)
-            if (!token || token.length < 20) {
-                showError('Invalid token format. Please paste the complete token.');
+            // Basic validation
+            if (!email || !password) {
+                showError('Please enter both email and password');
                 return;
             }
 
@@ -239,40 +248,23 @@
             btnSpinner.classList.remove('hidden');
 
             try {
-                await validateAndRedirect(token);
-            } catch (error) {
-                showError(error.message || 'Authentication failed. Please check your token and try again.');
-                submitBtn.disabled = false;
-                btnText.classList.remove('hidden');
-                btnSpinner.classList.add('hidden');
-            }
-        });
-
-        async function validateAndRedirect(token) {
-            try {
-                // Validate token by making a test API call
-                const response = await fetch('/api/crm/clients', {
-                    method: 'GET',
+                // Call login API
+                const response = await fetch('/api/admin/login', {
+                    method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
-                    }
+                    },
+                    body: JSON.stringify({ email, password })
                 });
 
-                if (response.status === 401) {
-                    throw new Error('Invalid or expired token');
+                const data = await response.json();
+
+                if (!response.ok || !data.success) {
+                    throw new Error(data.error || 'Login failed');
                 }
 
-                if (response.status === 403) {
-                    throw new Error('Unauthorized: Admin role required');
-                }
-
-                if (!response.ok) {
-                    throw new Error(`Authentication failed (${response.status})`);
-                }
-
-                // Token is valid - store and redirect
-                localStorage.setItem('admin_token', token);
+                // Store token
+                localStorage.setItem('admin_token', data.token);
                 
                 // Show success
                 successAlert.classList.remove('hidden');
@@ -283,11 +275,12 @@
                 }, 800);
 
             } catch (error) {
-                // If validation fails, clear stored token
-                localStorage.removeItem('admin_token');
-                throw error;
+                showError(error.message || 'Authentication failed. Please check your credentials and try again.');
+                submitBtn.disabled = false;
+                btnText.classList.remove('hidden');
+                btnSpinner.classList.add('hidden');
             }
-        }
+        });
 
         function showError(message) {
             errorMessage.textContent = message;
@@ -300,9 +293,9 @@
             }, 500);
         }
 
-        // Auto-focus on input (with delay for iPhone Safari)
+        // Auto-focus on email input (with delay for iPhone Safari)
         setTimeout(() => {
-            tokenInput.focus();
+            emailInput.focus();
         }, 300);
     </script>
 </body>

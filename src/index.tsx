@@ -9442,6 +9442,49 @@ app.get('/curriculum', (c) => c.redirect('/static/curriculum.html'))
 // AI-Powered Client Intelligence & Task Management
 // ==============================================
 
+// Admin Login API - Simple email/password authentication
+app.post('/api/admin/login', async (c) => {
+  try {
+    const { email, password } = await c.req.json()
+    
+    // Hardcoded admin credentials (simple and robust)
+    const ADMIN_EMAIL = 'italo@acromatico.com'
+    const ADMIN_PASSWORD = 'Acromatico2026!'
+    
+    // Validate credentials
+    if (email !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
+      return c.json({ 
+        success: false, 
+        error: 'Invalid email or password' 
+      }, 401)
+    }
+    
+    // Generate token
+    const user = {
+      id: 'admin-italo',
+      email: ADMIN_EMAIL,
+      role: 'admin',
+      name: 'Italo Campilii'
+    }
+    
+    const token = generateToken(user)
+    
+    return c.json({
+      success: true,
+      token,
+      user: {
+        name: user.name,
+        email: user.email,
+        role: user.role
+      }
+    })
+    
+  } catch (error: any) {
+    console.error('[Admin Login] Error:', error)
+    return c.json({ success: false, error: error.message }, 500)
+  }
+})
+
 // Protect all /admin/crm/* dashboard pages EXCEPT login
 app.use('/admin/crm/*', async (c, next) => {
   // Allow login page without auth
