@@ -1050,12 +1050,10 @@
 
       if (!shootDate) {
         alert('Please select a shoot date');
-        document.getElementById('shootDate').focus();
         return;
       }
       if (!location) {
         alert('Please enter the shoot location');
-        document.getElementById('location').focus();
         return;
       }
 
@@ -1068,7 +1066,6 @@
       booking.needsBTS = document.getElementById('needsBTS').checked;
       booking.additionalDetails = document.getElementById('additionalDetails').value.trim();
 
-      console.log('Step 3 validated:', booking);
       nextStep(4);
     }
 
