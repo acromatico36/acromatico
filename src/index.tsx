@@ -2875,7 +2875,7 @@ app.use(renderer)
 
 app.get('/', (c) => {
   // Serve the main Acromatico photography homepage
-  return c.redirect('/static/index.html')
+  return c.redirect('/static/index')
 })
 
 // EDUCATION LANDING PAGE - Educators Profile
@@ -4925,18 +4925,18 @@ app.get('/academy', (c) =>
   )
 )
 
-app.get('/studio', (c) => c.redirect('/static/studio.html', 302))
-app.get('/prints', (c) => c.redirect('/static/prints.html', 302))
+app.get('/studio', (c) => c.redirect('/static/studio', 302))
+app.get('/prints', (c) => c.redirect('/static/prints', 302))
 // Photography routes - CLEAN PAGE WITH ROTATING HERO
-app.get('/photography', (c) => c.redirect('/static/photography-main.html', 302))
+app.get('/photography', (c) => c.redirect('/static/photography-main', 302))
 
 // Photography Booking Pages - Stripe Checkout Connected
-app.get('/weddings/booking', (c) => c.redirect('/static/weddings-booking.html', 302))
-app.get('/portraits/booking', (c) => c.redirect('/static/portraits-booking.html', 302))
-app.get('/events/booking', (c) => c.redirect('/static/events-booking.html', 302))
-app.get('/realestate/booking', (c) => c.redirect('/static/realestate-booking.html', 302))
-app.get('/commercial', (c) => c.redirect('/static/commercial-booking.html', 302))
-app.get('/commercial/booking', (c) => c.redirect('/static/commercial-booking.html', 302))
+app.get('/weddings/booking', (c) => c.redirect('/static/weddings-booking', 302))
+app.get('/portraits/booking', (c) => c.redirect('/static/portraits-booking', 302))
+app.get('/events/booking', (c) => c.redirect('/static/events-booking', 302))
+app.get('/realestate/booking', (c) => c.redirect('/static/realestate-booking', 302))
+app.get('/commercial', (c) => c.redirect('/static/commercial-booking', 302))
+app.get('/commercial/booking', (c) => c.redirect('/static/commercial-booking', 302))
 
 app.get('/studio-old', (c) =>
   c.html(`
@@ -8487,10 +8487,10 @@ app.get('/login', (c) => c.redirect('/education/login'))
 app.get('/education/login', (c) => {
   return c.html(loginHTML)
 })
-app.get('/education/signup', (c) => c.redirect('/static/education-signup.html'))
+app.get('/education/signup', (c) => c.redirect('/static/education-signup'))
 app.get('/education/reset-password', (c) => c.redirect('/education-reset-password.html'))
-app.get('/pricing', (c) => c.redirect('/static/pricing.html'))
-app.get('/enroll', (c) => c.redirect('/static/pricing.html'))
+app.get('/pricing', (c) => c.redirect('/static/pricing'))
+app.get('/enroll', (c) => c.redirect('/static/pricing'))
 
 // Dashboards
 app.get('/student/dashboard', (c) => c.redirect('/static/student-dashboard.html'))
@@ -9456,7 +9456,7 @@ app.get('/faq', (c) =>
 
 // Curriculum Page - Epic Storytelling
 // Redirect /curriculum to /academy
-app.get('/curriculum', (c) => c.redirect('/static/curriculum.html'))
+app.get('/curriculum', (c) => c.redirect('/static/curriculum'))
 
 // ==============================================
 // ACROMATICO CRM SYSTEM
