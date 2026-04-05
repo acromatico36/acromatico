@@ -4910,8 +4910,10 @@ app.get('/studio', (c) => c.redirect('/static/studio.html', 302))
 app.get('/prints', (c) => c.redirect('/static/prints.html', 302))
 // Photography routes - CLEAN PAGE WITH ROTATING HERO
 app.get('/photography', (c) => c.redirect('/static/photography-main.html', 302))
-app.get('/weddings/booking', (c) => c.redirect(`/static/weddings-booking-new.html?v=${Date.now()}&bust=${Math.random()}`, 302))
-app.get('/portraits/booking', (c) => c.redirect(`/static/portraits-booking.html?v=${Date.now()}`, 302))
+
+// Photography Booking Pages - Stripe Checkout Connected
+app.get('/weddings/booking', (c) => c.redirect('/static/weddings-booking.html', 302))
+app.get('/portraits/booking', (c) => c.redirect('/static/portraits-booking.html', 302))
 app.get('/events/booking', (c) => c.redirect('/static/events-booking.html', 302))
 app.get('/realestate/booking', (c) => c.redirect('/static/realestate-booking.html', 302))
 app.get('/commercial', (c) => c.redirect('/static/commercial-booking.html', 302))
