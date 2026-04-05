@@ -637,7 +637,30 @@ app.post('/api/payments/create-checkout-session', async (c) => {
     }
     
     const body = await c.req.json()
-    const { priceId, quantity = 1, mode = 'payment', successUrl, cancelUrl, customerEmail, metadata } = body
+    const { priceId, amount, productName, quantity = 1, mode = 'payment', successUrl, cancelUrl, customerEmail, metadata } = body
+    
+    // Build line items - either use priceId (for fixed products) or custom amount (for dynamic pricing)
+    const lineItems: any = {}
+    
+    if (priceId) {
+      // Fixed price product (Education courses)
+      lineItems['line_items[0][price]'] = priceId
+      lineItems['line_items[0][quantity]'] = quantity.toString()
+    } else if (amount && productName) {
+      // Custom amount (Photography bookings)
+      lineItems['line_items[0][price_data][currency]'] = 'usd'
+      lineItems['line_items[0][price_data][product_data][name]'] = productName
+      lineItems['line_items[0][price_data][unit_amount]'] = Math.round(amount * 100).toString() // Convert dollars to cents
+      lineItems['line_items[0][quantity]'] = '1'
+    } else {
+      return c.json({ error: 'Either priceId or amount+productName required' }, 400)
+    }
+    
+    // Add metadata
+    const metadataParams = metadata ? Object.keys(metadata).reduce((acc, key) => ({
+      ...acc,
+      [`metadata[${key}]`]: metadata[key]?.toString() || ''
+    }), {}) : {}
     
     // Create Stripe checkout session
     const session = await fetch('https://api.stripe.com/v1/checkout/sessions', {
@@ -648,15 +671,11 @@ app.post('/api/payments/create-checkout-session', async (c) => {
       },
       body: new URLSearchParams({
         'mode': mode,
-        'line_items[0][price]': priceId,
-        'line_items[0][quantity]': quantity.toString(),
+        ...lineItems,
         'success_url': successUrl || `${c.req.url.replace('/api/payments/create-checkout-session', '')}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
         'cancel_url': cancelUrl || `${c.req.url.replace('/api/payments/create-checkout-session', '')}/payment-cancel`,
         ...(customerEmail && { 'customer_email': customerEmail }),
-        ...(metadata && Object.keys(metadata).reduce((acc, key, index) => ({
-          ...acc,
-          [`metadata[${key}]`]: metadata[key]
-        }), {}))
+        ...metadataParams
       })
     })
     

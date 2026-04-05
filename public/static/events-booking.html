@@ -1673,6 +1673,8 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             amount: selectedPaymentAmount,
+            productName: `Event Photography - ${booking.coverage} Coverage`,
+            customerEmail: booking.contactEmail,
             mode: 'payment',
             successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
             cancelUrl: window.location.href,
