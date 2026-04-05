@@ -1,168 +1,1406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commercial Photography - Acromatico</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-        .success-message {
-            display: none;
-            background: #10b981;
-            color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-top: 1rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Photography for Entrepreneurs - Acromatico</title>
+  
+  <!-- PDF Generation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --primary: #1d1d1f;
+      --secondary: #6e6e73;
+      --accent: #4794A6;
+      --bg: #ffffff;
+      --bg-gray: #f5f5f7;
+      --border: #d2d2d7;
+      --success: #34c759;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+      color: var(--primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 16px 40px;
+    }
+    
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo img { height: 40px; }
+    
+    .nav-back {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    
+    /* PROGRESS BAR */
+    .progress-bar {
+      position: fixed;
+      top: 73px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #e5e5e5;
+      z-index: 999;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 14.28%;
+    }
+    
+    /* MAIN LAYOUT */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+    }
+    
+    .steps-container { max-width: 700px; }
+    
+    .step {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .step.active { display: block; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .step-number {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+    
+    .step-question {
+      font-size: 42px;
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    
+    .step-description {
+      font-size: 17px;
+      color: var(--secondary);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    
+    label {
+      display: block;
+      font-size: 15px;
+      font-weight: 500;
+      margin: 24px 0 8px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(71, 148, 166, 0.1);
+    }
+    
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    /* OPTION CARDS */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+    }
+    
+    .option-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .option-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    
+    .option-card.selected {
+      border-color: var(--accent);
+      background: rgba(71, 148, 166, 0.05);
+    }
+    
+    .option-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--accent);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .option-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    .option-price {
+      font-size: 32px;
+      font-weight: 200;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    
+    .option-description {
+      font-size: 14px;
+      color: var(--secondary);
+      line-height: 1.8;
+    }
+    
+    /* BUTTONS */
+    .button-group {
+      display: flex;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    
+    .btn {
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      flex: 1;
+    }
+    
+    .btn-primary:hover {
+      background: #3a7a8a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(71, 148, 166, 0.3);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--border);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--accent);
+    }
+    
+    /* PREVIEW SIDEBAR */
+    .preview-container {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      height: fit-content;
+      position: sticky;
+      top: 120px;
+    }
+    
+    .preview-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .preview-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--bg-gray);
+    }
+    
+    .preview-label {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+    
+    .preview-value {
+      font-size: 14px;
+      font-weight: 500;
+      text-align: right;
+    }
+    
+    .preview-total {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+    }
+    
+    .preview-total-label {
+      font-size: 14px;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .preview-total-amount {
+      font-size: 36px;
+      font-weight: 200;
+      color: var(--accent);
+    }
+    
+    /* CHECKBOX */
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 24px 0;
+      padding: 20px;
+      background: var(--bg-gray);
+      border-radius: 12px;
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+    }
+    
+    .checkbox-group label {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    
+    /* SIGNATURE */
+    .signature-section {
+      margin: 32px 0;
+      padding: 32px;
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+    }
+    
+    .signature-options {
+      display: flex;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    
+    .signature-options input[type="radio"] {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .signature-options label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      cursor: pointer;
+    }
+    
+    #signatureNameInput {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 28px;
+    }
+    
+    #signatureCanvas {
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      cursor: crosshair;
+      background: white;
+      display: block;
+      width: 100%;
+      max-width: 600px;
+    }
+    
+    .canvas-instructions {
+      font-size: 12px;
+      color: var(--secondary);
+      text-align: center;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* CONTRACT */
+    .contract-section {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 32px 0;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    
+    .contract-section h3 {
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    
+    .contract-section p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: var(--secondary);
+    }
+    
+    .contract-section strong {
+      color: var(--primary);
+    }
+    
+    /* PAYMENT */
+    .payment-option {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: white;
+    }
+    
+    .payment-option:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(71, 148, 166, 0.1);
+    }
+    
+    .payment-option.active-option {
+      border: 3px solid var(--accent);
+      background: rgba(71, 148, 166, 0.05);
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+      .preview-container {
+        position: relative;
+        top: 0;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .step-question { font-size: 32px; }
+      .options-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="min-h-screen p-4 md:p-8">
-    <!-- Header -->
-    <header class="max-w-4xl mx-auto mb-8">
-        <a href="/photography" class="inline-flex items-center text-white hover:text-white/80 transition-colors">
-            <i class="fas fa-arrow-left mr-2"></i> Back to Photography Services
-        </a>
-    </header>
+<body>
 
-    <!-- Main Card -->
-    <div class="max-w-2xl mx-auto glass-card rounded-3xl shadow-2xl overflow-hidden">
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white">
-            <div class="flex items-center justify-center mb-4">
-                <img src="https://acromatico.com/wp-content/uploads/2018/09/Acromatico-Logo-White-Transparant.png" alt="Acromatico" class="h-12">
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="/static/acromatico-logo-dark.png" alt="Acromatico">
+      </div>
+      <a href="/photography" class="nav-back">← Back to Photography</a>
+    </div>
+  </nav>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressBar"></div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="booking-layout">
+    
+    <!-- LEFT: STEPS -->
+    <div class="steps-container">
+
+      <!-- STEP 1: COMPANY INFO -->
+      <div class="step active" id="step1">
+        <div class="step-number">Step 1 of 7</div>
+        <h1 class="step-question">Tell us about your company</h1>
+        <p class="step-description">We'll create a custom brand photography package for your business.</p>
+
+        <label>Company Name *</label>
+        <input type="text" id="companyName" placeholder="e.g., Acme Startup Inc.">
+
+        <label>Your Name *</label>
+        <input type="text" id="contactName" placeholder="e.g., Jane Smith">
+
+        <label>Email *</label>
+        <input type="email" id="email" placeholder="e.g., jane@acme.com">
+
+        <label>Phone *</label>
+        <input type="tel" id="phone" placeholder="e.g., (305) 555-1234">
+
+        <label>Industry *</label>
+        <select id="industry">
+          <option value="">Select industry...</option>
+          <option value="tech">Technology / SaaS</option>
+          <option value="ecommerce">E-commerce / DTC</option>
+          <option value="wellness">Wellness / Health</option>
+          <option value="finance">Finance / Fintech</option>
+          <option value="food">Food & Beverage</option>
+          <option value="fashion">Fashion / Beauty</option>
+          <option value="real-estate">Real Estate</option>
+          <option value="consulting">Consulting / Services</option>
+          <option value="nonprofit">Nonprofit</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label>Website (optional)</label>
+        <input type="text" id="website" placeholder="e.g., acme.com">
+
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="validateStep1()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: PROJECT TYPE -->
+      <div class="step" id="step2">
+        <div class="step-number">Step 2 of 7</div>
+        <h1 class="step-question">What type of content do you need?</h1>
+        <p class="step-description">Choose the package that matches your brand photography needs.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="selectPackage(this, 'foundation', 20000)">
+            <div class="option-title">Foundation</div>
+            <div class="option-price">$20,000</div>
+            <div class="option-description">
+              ✓ 2-day shoot<br>
+              ✓ 2-3 locations<br>
+              ✓ 100+ edited photos<br>
+              ✓ Founder portraits, team, product<br>
+              ✓ Professional retouching<br>
+              ✓ 14-day delivery
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold text-center mb-2">Commercial Photography</h1>
-            <p class="text-white/90 text-center text-lg">Product photography, brand campaigns, and editorial work</p>
+          </div>
+
+          <div class="option-card" onclick="selectPackage(this, 'growth', 50000)">
+            <span class="option-badge">POPULAR</span>
+            <div class="option-title">Growth</div>
+            <div class="option-price">$50,000</div>
+            <div class="option-description">
+              ✓ 5-day production<br>
+              ✓ Multiple locations<br>
+              ✓ 300+ photos + 10 videos<br>
+              ✓ Complete brand content system<br>
+              ✓ Premium retouching & grading<br>
+              ✓ 7-day priority delivery
+            </div>
+          </div>
+
+          <div class="option-card" onclick="selectPackage(this, 'scale', 100000)">
+            <div class="option-title">Scale</div>
+            <div class="option-price">$100,000+</div>
+            <div class="option-description">
+              ✓ Multi-week production<br>
+              ✓ Multiple cities & locations<br>
+              ✓ 500+ photos + 20+ videos<br>
+              ✓ Complete brand content library<br>
+              ✓ Luxury retouching<br>
+              ✓ 3-day priority delivery
+            </div>
+          </div>
         </div>
 
-        <!-- Package Details -->
-        <div class="p-8">
-            <div class="mb-8">
-                <img src="https://www.genspark.ai/api/files/s/uOGXnnJW?cache_control=3600" alt="Commercial Photography" class="w-full h-64 object-cover rounded-2xl shadow-lg mb-6">
-                
-                <div class="space-y-4">
-                    <h2 class="text-2xl font-bold text-gray-900">What We Offer</h2>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Product photography for e-commerce and catalogs</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Brand campaigns and advertising content</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Editorial and lifestyle photography</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Studio production and creative direction</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Licensing and usage rights included</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Custom Pricing Notice -->
-            <div class="bg-gray-50 rounded-2xl p-6 mb-6">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Pricing</h3>
-                <p class="text-gray-600">Commercial photography projects are quoted based on scope, usage rights, and production requirements. Let's discuss your project needs.</p>
-            </div>
-
-            <!-- Contact Form -->
-            <form id="contactForm" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
-                    <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                    <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                    <input type="tel" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Company</label>
-                    <input type="text" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Project Details *</label>
-                    <textarea name="message" required rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Tell us about your commercial photography needs..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-primary w-full text-white font-semibold py-4 px-8 rounded-xl text-lg shadow-lg">
-                    Get a Custom Quote
-                </button>
-            </form>
-
-            <div id="successMessage" class="success-message">
-                <i class="fas fa-check-circle mr-2"></i> Thank you! We'll contact you within 24 hours with a custom quote.
-            </div>
-
-            <!-- Contact Info -->
-            <div class="mt-6 text-center text-sm text-gray-500">
-                <p>Or reach us directly:</p>
-                <p class="font-medium text-gray-700">📧 info@acromatico.com · 📞 (954) 779-0921</p>
-            </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep2()">Continue →</button>
         </div>
+      </div>
+
+      <!-- STEP 3: SHOOT DETAILS -->
+      <div class="step" id="step3">
+        <div class="step-number">Step 3 of 7</div>
+        <h1 class="step-question">Shoot details</h1>
+        <p class="step-description">Help us plan the perfect shoot for your brand.</p>
+
+        <label>Preferred shoot date *</label>
+        <input type="date" id="shootDate">
+
+        <label>Primary location *</label>
+        <input type="text" id="location" placeholder="e.g., Miami, FL">
+
+        <label>What do you need most? (select all that apply)</label>
+        <div style="margin: 16px 0;">
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needFounder" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Founder portraits & headshots</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needTeam" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Team photos</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needProduct" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Product photography</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needLifestyle" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Lifestyle & brand content</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <input type="checkbox" id="needBTS" style="width: 20px; height: 20px;">
+            <span style="font-size: 15px; font-weight: 400;">Behind-the-scenes content</span>
+          </label>
+        </div>
+
+        <label>Additional details (optional)</label>
+        <textarea id="additionalDetails" placeholder="Tell us about your brand, vision, specific shots you need, etc."></textarea>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep3()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: VIDEO ADD-ONS -->
+      <div class="step" id="step4">
+        <div class="step-number">Step 4 of 7</div>
+        <h1 class="step-question">Video add-ons</h1>
+        <p class="step-description">Enhance your package with professional video content.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="selectVideo(this, 'none', 0)">
+            <div class="option-title">No Video</div>
+            <div class="option-price">$0</div>
+            <div class="option-description">
+              Photos only
+            </div>
+          </div>
+
+          <div class="option-card" onclick="selectVideo(this, 'social', 5000)">
+            <div class="option-title">Social Video Pack</div>
+            <div class="option-price">+$5,000</div>
+            <div class="option-description">
+              ✓ 5-10 short-form videos<br>
+              ✓ Reels, TikToks, Stories<br>
+              ✓ 15-30 seconds each<br>
+              ✓ Optimized for social platforms
+            </div>
+          </div>
+
+          <div class="option-card" onclick="selectVideo(this, 'founder', 12000)">
+            <span class="option-badge">POPULAR</span>
+            <div class="option-title">Founder Story Video</div>
+            <div class="option-price">+$12,000</div>
+            <div class="option-description">
+              ✓ 2-3 minute founder story<br>
+              ✓ Cinematic production<br>
+              ✓ Includes social cutdowns<br>
+              ✓ Perfect for website & pitch decks
+            </div>
+          </div>
+
+          <div class="option-card" onclick="selectVideo(this, 'complete', 25000)">
+            <div class="option-title">Complete Video Suite</div>
+            <div class="option-price">+$25,000</div>
+            <div class="option-description">
+              ✓ Founder story video<br>
+              ✓ Product demo videos<br>
+              ✓ 15-20 social videos<br>
+              ✓ Behind-the-scenes footage<br>
+              ✓ Full video content library
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep4()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: REVIEW -->
+      <div class="step" id="step5">
+        <div class="step-number">Step 5 of 7</div>
+        <h1 class="step-question">Review your booking</h1>
+        <p class="step-description">Please confirm all details before proceeding.</p>
+
+        <div style="background: white; border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin: 24px 0;">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--border);">Booking Summary</h3>
+          
+          <div style="display: grid; gap: 16px;">
+            <div>
+              <strong>Company:</strong> <span id="summaryCompany">—</span>
+            </div>
+            <div>
+              <strong>Contact:</strong> <span id="summaryContact">—</span>
+            </div>
+            <div>
+              <strong>Email:</strong> <span id="summaryEmail">—</span>
+            </div>
+            <div>
+              <strong>Phone:</strong> <span id="summaryPhone">—</span>
+            </div>
+            <div>
+              <strong>Package:</strong> <span id="summaryPackage">—</span>
+            </div>
+            <div>
+              <strong>Shoot Date:</strong> <span id="summaryDate">—</span>
+            </div>
+            <div>
+              <strong>Location:</strong> <span id="summaryLocation">—</span>
+            </div>
+            <div>
+              <strong>Video Add-on:</strong> <span id="summaryVideo">—</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 32px; padding-top: 32px; border-top: 2px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 18px; font-weight: 500;">Total Investment:</span>
+              <span style="font-size: 36px; font-weight: 200; color: var(--accent);" id="summaryTotal">$0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(6)">Continue to Contract →</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: CONTRACT & SIGNATURE -->
+      <div class="step" id="step6">
+        <div class="step-number">Step 6 of 7</div>
+        <h1 class="step-question">Contract & Signature</h1>
+        <p class="step-description">Please review and sign the photography agreement.</p>
+
+        <!-- CONTRACT -->
+        <div class="contract-section">
+          <h3>BRAND PHOTOGRAPHY AGREEMENT</h3>
+          
+          <p><strong>This Agreement</strong> is made between <strong>Acromatico</strong> ("Photographer") and <strong><span id="contractCompany">Client</span></strong> ("Client").</p>
+          
+          <p><strong>Services:</strong> Photographer agrees to provide brand photography services as outlined in the booking summary above.</p>
+          
+          <p><strong>Package:</strong> <span id="contractPackage">—</span></p>
+          <p><strong>Shoot Date:</strong> <span id="contractDate">—</span></p>
+          <p><strong>Location:</strong> <span id="contractLocation">—</span></p>
+          
+          <p><strong>Total Investment:</strong> $<span id="contractTotal">0</span></p>
+          <p><strong>50% Deposit Due Today:</strong> $<span id="contractDeposit">0</span></p>
+          <p><strong>Balance Due 7 Days Before Shoot:</strong> $<span id="contractBalance">0</span></p>
+          
+          <p><strong>Payment Terms:</strong> A non-refundable 50% deposit is required to secure your booking. The remaining 50% balance is due 7 days prior to the shoot date. Late payments may result in rescheduling.</p>
+          
+          <p><strong>Cancellation Policy:</strong> Deposits are non-refundable. If Client cancels within 14 days of the shoot date, the full balance becomes due. Rescheduling is permitted with 14+ days notice.</p>
+          
+          <p><strong>Usage Rights:</strong> Client receives full commercial usage rights to all delivered images for their own business purposes. Images may not be resold or sublicensed without written permission from Photographer.</p>
+          
+          <p><strong>Delivery:</strong> Final edited images will be delivered via online gallery within the timeframe specified in the selected package. Raw/unedited files are not included.</p>
+          
+          <p><strong>Model Release:</strong> Client represents that all persons appearing in the photographs have consented to being photographed and to the use of their likeness.</p>
+          
+          <p><strong>Force Majeure:</strong> Neither party shall be liable for failure to perform due to circumstances beyond their reasonable control including weather, illness, or emergency.</p>
+          
+          <p style="margin-top: 32px;"><strong>By signing below, Client agrees to all terms and conditions outlined in this agreement.</strong></p>
+        </div>
+
+        <!-- SIGNATURE -->
+        <div class="signature-section">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 16px;">Electronic Signature</h3>
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">Please sign below to accept the agreement.</p>
+          
+          <div class="signature-options">
+            <label>
+              <input type="radio" name="signMethod" value="type" checked onchange="toggleSignatureMethod()">
+              <span>Type my name</span>
+            </label>
+            <label>
+              <input type="radio" name="signMethod" value="draw" onchange="toggleSignatureMethod()">
+              <span>Draw my signature</span>
+            </label>
+          </div>
+
+          <div id="signatureTypeSection">
+            <label>Full Legal Name *</label>
+            <input type="text" id="signatureName" placeholder="Enter your full legal name" style="font-family: 'Brush Script MT', cursive; font-size: 28px;">
+          </div>
+
+          <div id="signatureDrawSection" style="display: none;">
+            <canvas id="signatureCanvas" width="600" height="150"></canvas>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+              <button class="btn btn-secondary" onclick="clearSignature()" style="padding: 12px 24px; font-size: 14px;">Clear Signature</button>
+              <p class="canvas-instructions">CLICK AND DRAG TO SIGN</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; padding: 16px; background: var(--bg-gray); border-radius: 12px;">
+            <p style="font-size: 13px; color: var(--secondary);">
+              <strong>Signed by:</strong> <span id="signerName">—</span><br>
+              <strong>Date:</strong> <span id="signatureDate">—</span><br>
+              <strong>IP Address:</strong> <span id="ipAddress">—</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="agreeTerms">
+          <label for="agreeTerms">I have read and agree to the terms and conditions outlined in this Brand Photography Agreement.</label>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep6()">Sign & Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: PAYMENT -->
+      <div class="step" id="step7">
+        <div class="step-number">Step 7 of 7</div>
+        <h1 class="step-question">Payment</h1>
+        <p class="step-description">Choose your payment option to secure your brand photography shoot.</p>
+
+        <!-- AGREEMENT SIGNED CONFIRMATION -->
+        <div style="background: rgba(71, 148, 166, 0.1); border: 2px solid var(--accent); border-radius: 12px; padding: 24px; margin-bottom: 32px; text-align: center;">
+          <h3 style="font-size: 18px; font-weight: 500; color: var(--accent); margin-bottom: 12px;">✓ Agreement Signed</h3>
+          <p style="font-size: 14px; color: var(--secondary);">
+            Signed by <strong id="finalSignatureName">Client Name</strong> on <span id="finalSignDate">Date</span>
+          </p>
+          <button class="btn btn-primary" onclick="downloadAgreement()" style="margin-top: 16px; padding: 12px 24px; font-size: 14px; background: var(--accent);">
+            ⬇ Download Signed Agreement PDF
+          </button>
+        </div>
+
+        <!-- PAYMENT OPTIONS -->
+        <div style="max-width: 600px;">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px;">Select Payment Option</h3>
+          
+          <div class="payment-option active-option" onclick="selectPaymentMethod('deposit')">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h4 style="font-size: 18px; font-weight: 500;">50% Deposit</h4>
+              <span style="background: var(--accent); color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase;">RECOMMENDED</span>
+            </div>
+            <p style="font-size: 32px; font-weight: 200; color: var(--accent); margin-bottom: 12px;">$<span id="depositAmount">0</span></p>
+            <p style="font-size: 14px; color: var(--secondary);">
+              • Non-refundable deposit due today<br>
+              • Remaining 50% due 7 days before shoot<br>
+              • Secures your shoot date
+            </p>
+          </div>
+
+          <div class="payment-option" onclick="selectPaymentMethod('full')">
+            <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 12px;">Pay in Full</h4>
+            <p style="font-size: 32px; font-weight: 200; color: var(--accent); margin-bottom: 12px;">$<span id="fullAmount">0</span></p>
+            <p style="font-size: 14px; color: var(--secondary);">
+              • Pay 100% today<br>
+              • Shoot date secured immediately
+            </p>
+          </div>
+        </div>
+
+        <!-- PAYMENT METHODS -->
+        <div style="margin-top: 40px; padding: 32px; background: white; border: 1px solid var(--border); border-radius: 16px;">
+          <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 24px;">Payment Method</h3>
+          
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">
+            Please send payment via one of the following methods. Amount to pay: <strong style="color: var(--accent); font-size: 20px;">$<span class="selectedPaymentAmount">0</span></strong>
+          </p>
+
+          <div style="display: grid; gap: 16px;">
+            <div style="padding: 16px; border: 1px solid var(--border); border-radius: 12px;">
+              <strong>Zelle:</strong> 954-779-0921
+            </div>
+            <div style="padding: 16px; border: 1px solid var(--border); border-radius: 12px;">
+              <strong>Cash App:</strong> $acromatico
+            </div>
+            <div style="padding: 16px; border: 1px solid var(--border); border-radius: 12px;">
+              <strong>Venmo:</strong> @acromatico
+            </div>
+            <div style="padding: 16px; border: 1px solid var(--border); border-radius: 12px;">
+              <strong>Wire Transfer:</strong> Contact info@acromatico.com for details
+            </div>
+          </div>
+
+          <p style="font-size: 13px; color: var(--secondary); margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+            After payment, please send your receipt to <strong>info@acromatico.com</strong> to confirm your booking. We'll send you a confirmation email within 24 hours.
+          </p>
+        </div>
+
+        <div class="button-group" style="margin-top: 40px;">
+          <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
+          <button class="btn btn-primary" onclick="completeBooking()">Complete Booking →</button>
+        </div>
+      </div>
+
     </div>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+    <!-- RIGHT: PREVIEW SIDEBAR -->
+    <div class="preview-container">
+      <h3 class="preview-title">Your Project</h3>
+      
+      <div class="preview-row">
+        <span class="preview-label">Company</span>
+        <span class="preview-value" id="previewCompany">—</span>
+      </div>
+      
+      <div class="preview-row">
+        <span class="preview-label">Package</span>
+        <span class="preview-value" id="previewPackage">Not selected</span>
+      </div>
+      
+      <div class="preview-row">
+        <span class="preview-label">Video Add-on</span>
+        <span class="preview-value" id="previewVideo">None</span>
+      </div>
+      
+      <div class="preview-total">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <span class="preview-total-label">Total Investment</span>
+          <span class="preview-total-amount" id="previewTotal">$0</span>
+        </div>
+        <p style="font-size: 12px; color: var(--secondary); margin-top: 8px;">
+          50% deposit required today
+        </p>
+      </div>
+    </div>
 
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
+  </div>
 
-            // In a real implementation, you'd send this to your backend
-            console.log('Commercial Photography Inquiry:', data);
+  <script>
+    // Booking state
+    let currentStep = 1;
+    let booking = {
+      companyName: '',
+      contactName: '',
+      email: '',
+      phone: '',
+      industry: '',
+      website: '',
+      packageType: '',
+      packagePrice: 0,
+      shootDate: '',
+      location: '',
+      needsFounder: false,
+      needsTeam: false,
+      needsProduct: false,
+      needsLifestyle: false,
+      needsBTS: false,
+      additionalDetails: '',
+      videoType: 'none',
+      videoPrice: 0,
+      signatureMethod: 'type',
+      signatureName: '',
+      signatureData: '',
+      agreedToTerms: false,
+      paymentMethod: 'deposit',
+      signatureDate: new Date().toLocaleDateString(),
+      ipAddress: ''
+    };
 
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            e.target.reset();
+    // Navigation
+    function nextStep(step) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step' + step).classList.add('active');
+      currentStep = step;
+      updateProgressBar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
+    function prevStep(step) {
+      nextStep(step);
+    }
 
-            // TODO: Send to your CRM or email service
-            // Example:
-            // await fetch('/api/contact/commercial', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(data)
-            // });
+    function updateProgressBar() {
+      const progress = (currentStep / 7) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    // Step 1: Company Info
+    function validateStep1() {
+      const companyName = document.getElementById('companyName').value.trim();
+      const contactName = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const industry = document.getElementById('industry').value;
+
+      if (!companyName) {
+        alert('Please enter your company name');
+        return;
+      }
+      if (!contactName) {
+        alert('Please enter your name');
+        return;
+      }
+      if (!email) {
+        alert('Please enter your email');
+        return;
+      }
+      if (!phone) {
+        alert('Please enter your phone number');
+        return;
+      }
+      if (!industry) {
+        alert('Please select your industry');
+        return;
+      }
+
+      booking.companyName = companyName;
+      booking.contactName = contactName;
+      booking.email = email;
+      booking.phone = phone;
+      booking.industry = industry;
+      booking.website = document.getElementById('website').value.trim();
+
+      document.getElementById('previewCompany').textContent = companyName;
+      
+      nextStep(2);
+    }
+
+    // Step 2: Package Selection
+    function selectPackage(card, type, price) {
+      document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      
+      booking.packageType = type;
+      booking.packagePrice = price;
+
+      const packageNames = {
+        'foundation': 'Foundation ($20K)',
+        'growth': 'Growth ($50K)',
+        'scale': 'Scale ($100K+)'
+      };
+
+      document.getElementById('previewPackage').textContent = packageNames[type];
+      updateTotal();
+    }
+
+    function validateStep2() {
+      if (!booking.packageType) {
+        alert('Please select a package');
+        return;
+      }
+      nextStep(3);
+    }
+
+    // Step 3: Shoot Details
+    function validateStep3() {
+      const shootDate = document.getElementById('shootDate').value;
+      const location = document.getElementById('location').value.trim();
+
+      if (!shootDate) {
+        alert('Please select a shoot date');
+        document.getElementById('shootDate').focus();
+        return;
+      }
+      if (!location) {
+        alert('Please enter the shoot location');
+        document.getElementById('location').focus();
+        return;
+      }
+
+      booking.shootDate = shootDate;
+      booking.location = location;
+      booking.needsFounder = document.getElementById('needFounder').checked;
+      booking.needsTeam = document.getElementById('needTeam').checked;
+      booking.needsProduct = document.getElementById('needProduct').checked;
+      booking.needsLifestyle = document.getElementById('needLifestyle').checked;
+      booking.needsBTS = document.getElementById('needsBTS').checked;
+      booking.additionalDetails = document.getElementById('additionalDetails').value.trim();
+
+      console.log('Step 3 validated:', booking);
+      nextStep(4);
+    }
+
+    // Step 4: Video Add-ons
+    function selectVideo(card, type, price) {
+      document.querySelectorAll('#step4 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      
+      booking.videoType = type;
+      booking.videoPrice = price;
+
+      const videoNames = {
+        'none': 'None',
+        'social': 'Social Video Pack (+$5K)',
+        'founder': 'Founder Story (+$12K)',
+        'complete': 'Complete Suite (+$25K)'
+      };
+
+      document.getElementById('previewVideo').textContent = videoNames[type];
+      updateTotal();
+    }
+
+    function validateStep4() {
+      if (!booking.videoType) {
+        booking.videoType = 'none';
+        booking.videoPrice = 0;
+      }
+      updateSummary();
+      nextStep(5);
+    }
+
+    // Update total
+    function updateTotal() {
+      const total = booking.packagePrice + booking.videoPrice;
+      document.getElementById('previewTotal').textContent = '$' + total.toLocaleString();
+    }
+
+    // Step 5: Summary
+    function updateSummary() {
+      document.getElementById('summaryCompany').textContent = booking.companyName;
+      document.getElementById('summaryContact').textContent = booking.contactName;
+      document.getElementById('summaryEmail').textContent = booking.email;
+      document.getElementById('summaryPhone').textContent = booking.phone;
+      
+      const packageNames = {
+        'foundation': 'Foundation ($20,000)',
+        'growth': 'Growth ($50,000)',
+        'scale': 'Scale ($100,000+)'
+      };
+      document.getElementById('summaryPackage').textContent = packageNames[booking.packageType];
+      
+      document.getElementById('summaryDate').textContent = new Date(booking.shootDate).toLocaleDateString();
+      document.getElementById('summaryLocation').textContent = booking.location;
+      
+      const videoNames = {
+        'none': 'None',
+        'social': 'Social Video Pack (+$5,000)',
+        'founder': 'Founder Story Video (+$12,000)',
+        'complete': 'Complete Video Suite (+$25,000)'
+      };
+      document.getElementById('summaryVideo').textContent = videoNames[booking.videoType];
+      
+      const total = booking.packagePrice + booking.videoPrice;
+      document.getElementById('summaryTotal').textContent = '$' + total.toLocaleString();
+    }
+
+    // Step 6: Signature
+    let canvas, ctx, isDrawing = false;
+
+    function toggleSignatureMethod() {
+      const method = document.querySelector('input[name="signMethod"]:checked').value;
+      booking.signatureMethod = method;
+      
+      if (method === 'type') {
+        document.getElementById('signatureTypeSection').style.display = 'block';
+        document.getElementById('signatureDrawSection').style.display = 'none';
+      } else {
+        document.getElementById('signatureTypeSection').style.display = 'none';
+        document.getElementById('signatureDrawSection').style.display = 'block';
+        initCanvas();
+      }
+    }
+
+    function initCanvas() {
+      if (!canvas) {
+        canvas = document.getElementById('signatureCanvas');
+        ctx = canvas.getContext('2d');
+        ctx.strokeStyle = '#1d1d1f';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        canvas.addEventListener('touchstart', handleTouch);
+        canvas.addEventListener('touchmove', handleTouch);
+        canvas.addEventListener('touchend', stopDrawing);
+      }
+    }
+
+    function startDrawing(e) {
+      isDrawing = true;
+      const rect = canvas.getBoundingClientRect();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    function handleTouch(e) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      canvas.dispatchEvent(mouseEvent);
+    }
+
+    function clearSignature() {
+      if (canvas && ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    function validateStep6() {
+      const agreed = document.getElementById('agreeTerms').checked;
+      if (!agreed) {
+        alert('Please agree to the terms and conditions');
+        return;
+      }
+
+      const method = document.querySelector('input[name="signMethod"]:checked').value;
+      
+      if (method === 'type') {
+        const signatureName = document.getElementById('signatureName').value.trim();
+        if (!signatureName) {
+          alert('Please enter your full legal name');
+          return;
+        }
+        booking.signatureName = signatureName;
+      } else {
+        if (canvas) {
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          let hasDrawing = false;
+          for (let i = 0; i < imageData.data.length; i += 4) {
+            if (imageData.data[i + 3] !== 0) {
+              hasDrawing = true;
+              break;
+            }
+          }
+          if (!hasDrawing) {
+            alert('Please draw your signature');
+            return;
+          }
+          booking.signatureData = canvas.toDataURL();
+        }
+      }
+
+      // Populate contract
+      const total = booking.packagePrice + booking.videoPrice;
+      const deposit = Math.round(total * 0.5);
+      const balance = total - deposit;
+
+      document.getElementById('contractCompany').textContent = booking.companyName;
+      
+      const packageNames = {
+        'foundation': 'Foundation Package ($20,000)',
+        'growth': 'Growth Package ($50,000)',
+        'scale': 'Scale Package ($100,000+)'
+      };
+      document.getElementById('contractPackage').textContent = packageNames[booking.packageType];
+      
+      document.getElementById('contractDate').textContent = new Date(booking.shootDate).toLocaleDateString();
+      document.getElementById('contractLocation').textContent = booking.location;
+      document.getElementById('contractTotal').textContent = total.toLocaleString();
+      document.getElementById('contractDeposit').textContent = deposit.toLocaleString();
+      document.getElementById('contractBalance').textContent = balance.toLocaleString();
+
+      document.getElementById('signerName').textContent = booking.signatureMethod === 'type' ? booking.signatureName : 'Drawn Signature';
+      document.getElementById('signatureDate').textContent = booking.signatureDate;
+
+      // Get IP
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          booking.ipAddress = data.ip;
+          document.getElementById('ipAddress').textContent = data.ip;
+        })
+        .catch(() => {
+          document.getElementById('ipAddress').textContent = 'Unable to fetch';
         });
-    </script>
+
+      // Update Step 7
+      document.getElementById('finalSignatureName').textContent = booking.signatureMethod === 'type' ? booking.signatureName : 'Drawn Signature';
+      document.getElementById('finalSignDate').textContent = booking.signatureDate;
+      document.getElementById('depositAmount').textContent = deposit.toLocaleString();
+      document.getElementById('fullAmount').textContent = total.toLocaleString();
+      document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
+        el.textContent = deposit.toLocaleString();
+      });
+
+      nextStep(7);
+    }
+
+    // Step 7: Payment
+    function selectPaymentMethod(method) {
+      booking.paymentMethod = method;
+      
+      document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('active-option'));
+      event.currentTarget.classList.add('active-option');
+
+      const total = booking.packagePrice + booking.videoPrice;
+      const deposit = Math.round(total * 0.5);
+      const amount = method === 'deposit' ? deposit : total;
+
+      document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
+        el.textContent = amount.toLocaleString();
+      });
+    }
+
+    function completeBooking() {
+      if (!booking.paymentMethod) {
+        alert('Please select a payment method');
+        return;
+      }
+
+      console.log('Booking completed:', booking);
+      
+      alert('Thank you for your booking!\n\nPlease send your payment and receipt to info@acromatico.com\n\nWe\'ll confirm your booking within 24 hours.');
+    }
+
+    // Download Agreement
+    function downloadAgreement() {
+      const total = booking.packagePrice + booking.videoPrice;
+      const deposit = Math.round(total * 0.5);
+      const balance = total - deposit;
+
+      const contractHTML = `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif; padding: 40px; max-width: 800px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 32px; font-weight: 300; margin-bottom: 16px;">BRAND PHOTOGRAPHY AGREEMENT</h1>
+            <p style="font-size: 18px; color: #4794A6; font-weight: 500;">Acromatico</p>
+          </div>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>This Agreement</strong> is made between <strong>Acromatico</strong> ("Photographer") and <strong>${booking.companyName}</strong> ("Client").</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Contact:</strong> ${booking.contactName}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Email:</strong> ${booking.email}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Phone:</strong> ${booking.phone}</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Services:</strong> Photographer agrees to provide brand photography services as outlined below.</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Package:</strong> ${booking.packageType.charAt(0).toUpperCase() + booking.packageType.slice(1)} Package</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Shoot Date:</strong> ${new Date(booking.shootDate).toLocaleDateString()}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Location:</strong> ${booking.location}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Video Add-on:</strong> ${booking.videoType}</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8; font-size: 20px; color: #4794A6;"><strong>Total Investment:</strong> $${total.toLocaleString()}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>50% Deposit:</strong> $${deposit.toLocaleString()}</p>
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Balance:</strong> $${balance.toLocaleString()}</p>
+          
+          <p style="margin-top: 32px; margin-bottom: 16px; line-height: 1.8;"><strong>Payment Terms:</strong> A non-refundable 50% deposit is required to secure your booking. The remaining 50% balance is due 7 days prior to the shoot date.</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Cancellation Policy:</strong> Deposits are non-refundable. If Client cancels within 14 days of the shoot date, the full balance becomes due.</p>
+          
+          <p style="margin-bottom: 16px; line-height: 1.8;"><strong>Usage Rights:</strong> Client receives full commercial usage rights to all delivered images for their own business purposes.</p>
+          
+          <div style="margin-top: 48px; padding-top: 32px; border-top: 2px solid #4794A6;">
+            <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px;">Electronic Signature</h3>
+            ${booking.signatureMethod === 'type' 
+              ? `<p style="font-family: 'Brush Script MT', cursive; font-size: 36px; margin-bottom: 16px;">${booking.signatureName}</p>`
+              : `<img src="${booking.signatureData}" style="max-width: 400px; border: 1px solid #d2d2d7; border-radius: 8px; margin-bottom: 16px;">`
+            }
+            <p style="font-size: 14px; color: #6e6e73;">Signed by: ${booking.signatureMethod === 'type' ? booking.signatureName : 'Drawn Signature'}</p>
+            <p style="font-size: 14px; color: #6e6e73;">Date: ${booking.signatureDate}</p>
+            <p style="font-size: 14px; color: #6e6e73;">IP: ${booking.ipAddress}</p>
+          </div>
+        </div>
+      `;
+
+      const element = document.createElement('div');
+      element.innerHTML = contractHTML;
+      document.body.appendChild(element);
+
+      html2canvas(element, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        logging: false
+      }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+        const imgWidth = 210;
+        const pageHeight = 297;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        let heightLeft = imgHeight;
+        let position = 0;
+
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+
+        while (heightLeft >= 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+
+        pdf.save(`Acromatico-Brand-Photography-Agreement-${booking.companyName}-${new Date().toISOString().split('T')[0]}.pdf`);
+        
+        document.body.removeChild(element);
+      }).catch(error => {
+        console.error('PDF generation error:', error);
+        alert('Error generating PDF. Please try again or contact support.');
+        document.body.removeChild(element);
+      });
+    }
+
+    // Initialize
+    updateProgressBar();
+  </script>
+
 </body>
 </html>

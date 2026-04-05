@@ -1,177 +1,769 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Wedding Photography - Acromatico</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-        .loading-spinner {
-            border: 3px solid rgba(255,255,255,0.3);
-            border-top-color: #667eea;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Wedding - Acromatico</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1d1d1f;
+      --secondary: #6e6e73;
+      --accent: #0071e3;
+      --bg: #ffffff;
+      --bg-gray: #f5f5f7;
+      --border: #d2d2d7;
+      --success: #34c759;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+      color: var(--primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* PROGRESS BAR */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #e5e5e5;
+      z-index: 1000;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 11.11%;
+    }
+
+    /* CONTAINER */
+    .booking-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* STEP */
+    .step {
+      display: none;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .step-number {
+      font-size: 14px;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .step-question {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -1.5px;
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    /* INPUTS */
+    .input-group {
+      margin-bottom: 32px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 20px 24px;
+      font-size: 21px;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      font-family: inherit;
+      transition: all 0.3s;
+      background: white;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* OPTION CARDS */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .option-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+      position: relative;
+    }
+
+    .option-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .option-card.selected {
+      border-color: var(--accent);
+      background: rgba(0, 113, 227, 0.05);
+      box-shadow: 0 8px 30px rgba(0,113,227,0.15);
+    }
+
+    .option-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .option-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .option-description {
+      font-size: 15px;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .option-price {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+
+    .option-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(0, 113, 227, 0.1);
+      color: var(--accent);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    /* CHECKBOXES */
+    .checkbox-grid {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .checkbox-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .checkbox-card:hover {
+      border-color: var(--accent);
+    }
+
+    .checkbox-card.selected {
+      border-color: var(--accent);
+      background: rgba(0, 113, 227, 0.05);
+    }
+
+    .checkbox-icon {
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .checkbox-card.selected .checkbox-icon {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .checkbox-content {
+      flex: 1;
+    }
+
+    .checkbox-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .checkbox-description {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .checkbox-price {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* BUTTONS */
+    .button-group {
+      display: flex;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .btn {
+      padding: 18px 40px;
+      font-size: 17px;
+      font-weight: 500;
+      border-radius: 980px;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,113,227,0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+    }
+
+    /* SUMMARY */
+    .summary-box {
+      background: white;
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 32px;
+      border: 2px solid var(--border);
+    }
+
+    .summary-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--bg-gray);
+    }
+
+    .summary-item:last-child {
+      border-bottom: none;
+      padding-top: 24px;
+      margin-top: 12px;
+      border-top: 2px solid var(--border);
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .summary-label {
+      color: var(--secondary);
+      font-size: 15px;
+    }
+
+    .summary-value {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .step-question {
+        font-size: 36px;
+      }
+
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button-group {
+        flex-direction: column-reverse;
+      }
+    }
+  </style>
 </head>
-<body class="min-h-screen p-4 md:p-8">
-    <!-- Header -->
-    <header class="max-w-4xl mx-auto mb-8">
-        <a href="/photography" class="inline-flex items-center text-white hover:text-white/80 transition-colors">
-            <i class="fas fa-arrow-left mr-2"></i> Back to Photography Services
-        </a>
-    </header>
+<body>
 
-    <!-- Main Card -->
-    <div class="max-w-2xl mx-auto glass-card rounded-3xl shadow-2xl overflow-hidden">
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white">
-            <div class="flex items-center justify-center mb-4">
-                <img src="https://acromatico.com/wp-content/uploads/2018/09/Acromatico-Logo-White-Transparant.png" alt="Acromatico" class="h-12">
-            </div>
-            <h1 class="text-3xl md:text-4xl font-bold text-center mb-2">Wedding Photography</h1>
-            <p class="text-white/90 text-center text-lg">Luxury wedding photography with timeless heirloom albums</p>
-        </div>
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
 
-        <!-- Package Details -->
-        <div class="p-8">
-            <div class="mb-8">
-                <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-1020.jpg" alt="Wedding Photography" class="w-full h-64 object-cover rounded-2xl shadow-lg mb-6">
-                
-                <div class="space-y-4">
-                    <h2 class="text-2xl font-bold text-gray-900">What's Included</h2>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Full-day coverage (up to 10 hours)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Complimentary engagement session</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">500+ edited high-resolution photos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Private online gallery with download rights</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Museum-quality prints and albums available</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">2-week delivery after wedding day</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+  <!-- BOOKING CONTAINER -->
+  <div class="booking-container">
 
-            <!-- Pricing -->
-            <div class="bg-gray-50 rounded-2xl p-6 mb-6">
-                <div class="flex items-center justify-between mb-4">
-                    <span class="text-gray-600 text-lg">Investment</span>
-                    <span class="text-4xl font-bold text-gray-900">$1,200</span>
-                </div>
-                <p class="text-sm text-gray-500">Starting rate · Custom packages available</p>
-            </div>
-
-            <!-- CTA Button -->
-            <button onclick="checkout()" id="checkoutBtn" class="btn-primary w-full text-white font-semibold py-4 px-8 rounded-xl text-lg shadow-lg">
-                <span id="btnText">Book Your Wedding Photography</span>
-                <div id="btnLoader" class="loading-spinner mx-auto hidden"></div>
-            </button>
-
-            <!-- Trust Signals -->
-            <div class="mt-6 text-center text-sm text-gray-500">
-                <i class="fas fa-lock mr-1"></i> Secure payment via Stripe
-            </div>
-        </div>
+    <!-- STEP 1: WEDDING DATE -->
+    <div class="step active" id="step1">
+      <div class="step-number">Step 1 of 9</div>
+      <h1 class="step-question">Let's start with the basics.<br>What's your wedding date?</h1>
+      <div class="input-group">
+        <input type="date" id="weddingDate" placeholder="Select date">
+      </div>
+      <div class="button-group">
+        <button class="btn btn-primary" onclick="nextStep(2)">Continue →</button>
+      </div>
     </div>
 
-    <script>
-        const STRIPE_PUBLISHABLE_KEY = 'pk_test_51SnJO8DinAxxUzek8EaG8eF1inNFDlnihZiWzi36CyAdQj5fLAjIixsSjVSq8V5iarAVuChKrCmvdhY4JqXEPTXf00uLoqL2df';
-        const PRICE_ID = 'price_1TIqnhDinAxxUzekFvej2UIZ'; // Wedding Photography
+    <!-- STEP 2: VENUE -->
+    <div class="step" id="step2">
+      <div class="step-number">Step 2 of 9</div>
+      <h1 class="step-question">Beautiful! Where's your big day?</h1>
+      <div class="input-group">
+        <input type="text" id="venue" placeholder="Venue name or location">
+      </div>
+      <div class="button-group">
+        <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+      </div>
+    </div>
 
-        async function checkout() {
-            const btn = document.getElementById('checkoutBtn');
-            const btnText = document.getElementById('btnText');
-            const btnLoader = document.getElementById('btnLoader');
+    <!-- STEP 3: COVERAGE HOURS -->
+    <div class="step" id="step3">
+      <div class="step-number">Step 3 of 9</div>
+      <h1 class="step-question">How many hours of coverage do you need?</h1>
+      <div class="options-grid">
+        <div class="option-card" onclick="selectOption(this, 'hours', '4')">
+          <div class="option-title">4 Hours</div>
+          <div class="option-description">Ceremony + Portraits</div>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'hours', '6')">
+          <div class="option-title">6 Hours</div>
+          <div class="option-description">Most Popular</div>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'hours', '8')">
+          <div class="option-title">8 Hours</div>
+          <div class="option-description">Full Coverage</div>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'hours', '10')">
+          <div class="option-title">10+ Hours</div>
+          <div class="option-description">Complete Day</div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
+      </div>
+    </div>
 
-            // Show loading state
-            btnText.classList.add('hidden');
-            btnLoader.classList.remove('hidden');
-            btn.disabled = true;
+    <!-- STEP 4: PACKAGE SELECTION -->
+    <div class="step" id="step4">
+      <div class="step-number">Step 4 of 9</div>
+      <h1 class="step-question">Choose your package</h1>
+      <div class="options-grid">
+        <div class="option-card" onclick="selectOption(this, 'package', 'essential', 2500)">
+          <div class="option-title">Essential</div>
+          <div class="option-description">6 hours • 1 photographer<br>Digital gallery • 300+ photos</div>
+          <div class="option-price">$2,500</div>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'package', 'signature', 4500)">
+          <div class="option-badge">Most Popular</div>
+          <div class="option-title">Signature</div>
+          <div class="option-description">8 hours • 2 photographers<br>Engagement session • Digital gallery<br>500+ photos</div>
+          <div class="option-price">$4,500</div>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'package', 'legacy', 7500)">
+          <div class="option-title">Legacy</div>
+          <div class="option-description">Full day • 2 photographers<br>Engagement session • Digital gallery<br>Luxury album • 800+ photos</div>
+          <div class="option-price">$7,500</div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(5)">Continue →</button>
+      </div>
+    </div>
 
-            try {
-                const response = await fetch('/api/payments/create-checkout-session', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        priceId: PRICE_ID,
-                        quantity: 1,
-                        mode: 'payment',
-                        successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
-                        cancelUrl: window.location.href,
-                        metadata: {
-                            product_type: 'photography',
-                            package_name: 'Wedding Photography',
-                            amount: '1200',
-                            source: 'website'
-                        }
-                    })
-                });
+    <!-- STEP 5: ALBUM UPSELL -->
+    <div class="step" id="step5">
+      <div class="step-number">Step 5 of 9</div>
+      <h1 class="step-question">Want to add a luxury heirloom album?</h1>
+      <div class="options-grid">
+        <div class="option-card" onclick="selectOption(this, 'albumChoice', 'yes'); showAlbumSizes();">
+          <div class="option-title">Yes, please!</div>
+          <div class="option-description">I want a handcrafted album</div>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'albumChoice', 'no'); skipToStep(7);">
+          <div class="option-title">Not now</div>
+          <div class="option-description">Digital only is perfect</div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
+      </div>
+    </div>
 
-                const data = await response.json();
+    <!-- STEP 6: ALBUM SIZE -->
+    <div class="step" id="step6">
+      <div class="step-number">Step 6 of 9</div>
+      <h1 class="step-question">Choose your album size</h1>
+      <div class="options-grid">
+        <div class="option-card" onclick="selectOption(this, 'albumSize', 'intimate', 995)">
+          <div class="option-title">Intimate</div>
+          <div class="option-description">8×12" (20×30 cm)<br>40 pages</div>
+          <div class="option-price">$995</div>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'albumSize', 'classic', 1495)">
+          <div class="option-badge">Most Popular</div>
+          <div class="option-title">Classic</div>
+          <div class="option-description">12×16" (30×40 cm)<br>60 pages</div>
+          <div class="option-price">$1,495</div>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'albumSize', 'statement', 1995)">
+          <div class="option-title">Statement</div>
+          <div class="option-description">16×20" (40×50 cm)<br>80 pages</div>
+          <div class="option-price">$1,995</div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(7)">Continue →</button>
+      </div>
+    </div>
 
-                if (!response.ok || !data.url) {
-                    throw new Error(data.error || 'Failed to create checkout session');
-                }
+    <!-- STEP 7: ADD-ONS -->
+    <div class="step" id="step7">
+      <div class="step-number">Step 7 of 9</div>
+      <h1 class="step-question">Any other upgrades?</h1>
+      <div class="checkbox-grid">
+        <div class="checkbox-card" onclick="toggleAddon(this, 'extraHour', 500)">
+          <div class="checkbox-icon">✓</div>
+          <div class="checkbox-content">
+            <div class="checkbox-title">Extra Hour</div>
+            <div class="checkbox-description">Additional coverage time</div>
+          </div>
+          <div class="checkbox-price">$500</div>
+        </div>
+        <div class="checkbox-card" onclick="toggleAddon(this, 'secondPhotographer', 800)">
+          <div class="checkbox-icon">✓</div>
+          <div class="checkbox-content">
+            <div class="checkbox-title">Second Photographer</div>
+            <div class="checkbox-description">Capture every angle</div>
+          </div>
+          <div class="checkbox-price">$800</div>
+        </div>
+        <div class="checkbox-card" onclick="toggleAddon(this, 'engagement', 600)">
+          <div class="checkbox-icon">✓</div>
+          <div class="checkbox-content">
+            <div class="checkbox-title">Engagement Session</div>
+            <div class="checkbox-description">1-hour photo session</div>
+          </div>
+          <div class="checkbox-price">$600</div>
+        </div>
+        <div class="checkbox-card" onclick="toggleAddon(this, 'parentAlbums', 400)">
+          <div class="checkbox-icon">✓</div>
+          <div class="checkbox-content">
+            <div class="checkbox-title">Parent Albums</div>
+            <div class="checkbox-description">Two smaller copies (each)</div>
+          </div>
+          <div class="checkbox-price">$400</div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(8)">Continue →</button>
+      </div>
+    </div>
 
-                // Redirect to Stripe Checkout
-                window.location.href = data.url;
+    <!-- STEP 8: YOUR INFO -->
+    <div class="step" id="step8">
+      <div class="step-number">Step 8 of 9</div>
+      <h1 class="step-question">Almost there! What's your name?</h1>
+      <div class="input-group">
+        <input type="text" id="clientName" placeholder="Your full name">
+      </div>
+      <div class="input-group">
+        <input type="email" id="clientEmail" placeholder="Your email address">
+      </div>
+      <div class="button-group">
+        <button class="btn btn-secondary" onclick="prevStep(7)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(9)">Continue →</button>
+      </div>
+    </div>
 
-            } catch (error) {
-                console.error('Checkout error:', error);
-                alert('Unable to process checkout. Please try again or contact us directly.');
-                
-                // Reset button
-                btnText.classList.remove('hidden');
-                btnLoader.classList.add('hidden');
-                btn.disabled = false;
-            }
-        }
+    <!-- STEP 9: SUMMARY & CHECKOUT -->
+    <div class="step" id="step9">
+      <div class="step-number">Step 9 of 9</div>
+      <h1 class="step-question">Your booking summary</h1>
+      <div class="summary-box" id="summaryBox">
+        <!-- Summary will be generated here -->
+      </div>
+      <div class="button-group">
+        <button class="btn btn-secondary" onclick="prevStep(8)">← Back</button>
+        <button class="btn btn-primary" onclick="checkout()">Complete Booking → $<span id="totalPrice">0</span></button>
+      </div>
+    </div>
 
-        // Show test mode notice on localhost/sandbox
-        if (window.location.hostname.includes('localhost') || window.location.hostname.includes('sandbox')) {
-            console.log('🧪 TEST MODE: Use card 4242 4242 4242 4242, any future expiry, any CVC');
-        }
-    </script>
+  </div>
+
+  <script>
+    // BOOKING STATE
+    let bookingData = {
+      weddingDate: '',
+      venue: '',
+      hours: '',
+      package: '',
+      packagePrice: 0,
+      albumChoice: '',
+      albumSize: '',
+      albumPrice: 0,
+      addons: [],
+      addonsTotal: 0,
+      clientName: '',
+      clientEmail: '',
+      total: 0
+    };
+
+    // NAVIGATION
+    function nextStep(step) {
+      // Save current step data
+      saveStepData(step - 1);
+      
+      // Show next step
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step${step}`).classList.add('active');
+      
+      // Update progress
+      updateProgress(step);
+      
+      // Generate summary if final step
+      if (step === 9) generateSummary();
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevStep(step) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step${step}`).classList.add('active');
+      updateProgress(step);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function skipToStep(step) {
+      nextStep(step);
+    }
+
+    function showAlbumSizes() {
+      nextStep(6);
+    }
+
+    function updateProgress(step) {
+      const progress = (step / 9) * 100;
+      document.getElementById('progressFill').style.width = `${progress}%`;
+    }
+
+    // SAVE DATA
+    function saveStepData(step) {
+      switch(step) {
+        case 1:
+          bookingData.weddingDate = document.getElementById('weddingDate').value;
+          break;
+        case 2:
+          bookingData.venue = document.getElementById('venue').value;
+          break;
+        case 8:
+          bookingData.clientName = document.getElementById('clientName').value;
+          bookingData.clientEmail = document.getElementById('clientEmail').value;
+          break;
+      }
+    }
+
+    // OPTION SELECTION
+    function selectOption(card, key, value, price = 0) {
+      // Remove selected from siblings
+      card.parentElement.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+      
+      // Add selected to clicked card
+      card.classList.add('selected');
+      
+      // Save data
+      bookingData[key] = value;
+      if (key === 'package') bookingData.packagePrice = price;
+      if (key === 'albumSize') bookingData.albumPrice = price;
+      
+      calculateTotal();
+    }
+
+    // TOGGLE ADDON
+    function toggleAddon(card, key, price) {
+      card.classList.toggle('selected');
+      
+      if (card.classList.contains('selected')) {
+        bookingData.addons.push({ key, price });
+      } else {
+        bookingData.addons = bookingData.addons.filter(a => a.key !== key);
+      }
+      
+      calculateTotal();
+    }
+
+    // CALCULATE TOTAL
+    function calculateTotal() {
+      bookingData.addonsTotal = bookingData.addons.reduce((sum, addon) => sum + addon.price, 0);
+      bookingData.total = bookingData.packagePrice + bookingData.albumPrice + bookingData.addonsTotal;
+      
+      // Update final price button
+      const totalElement = document.getElementById('totalPrice');
+      if (totalElement) {
+        totalElement.textContent = bookingData.total.toLocaleString();
+      }
+    }
+
+    // GENERATE SUMMARY
+    function generateSummary() {
+      const summaryBox = document.getElementById('summaryBox');
+      
+      let html = '<div class="summary-title">Your Selection</div>';
+      
+      // Wedding details
+      html += `<div class="summary-item">
+        <span class="summary-label">Wedding Date</span>
+        <span class="summary-value">${bookingData.weddingDate || 'Not specified'}</span>
+      </div>`;
+      
+      html += `<div class="summary-item">
+        <span class="summary-label">Venue</span>
+        <span class="summary-value">${bookingData.venue || 'Not specified'}</span>
+      </div>`;
+      
+      html += `<div class="summary-item">
+        <span class="summary-label">Coverage Hours</span>
+        <span class="summary-value">${bookingData.hours} hours</span>
+      </div>`;
+      
+      // Package
+      html += `<div class="summary-item">
+        <span class="summary-label">Package</span>
+        <span class="summary-value">${bookingData.package.charAt(0).toUpperCase() + bookingData.package.slice(1)} - $${bookingData.packagePrice.toLocaleString()}</span>
+      </div>`;
+      
+      // Album
+      if (bookingData.albumChoice === 'yes') {
+        html += `<div class="summary-item">
+          <span class="summary-label">Album</span>
+          <span class="summary-value">${bookingData.albumSize.charAt(0).toUpperCase() + bookingData.albumSize.slice(1)} - $${bookingData.albumPrice.toLocaleString()}</span>
+        </div>`;
+      }
+      
+      // Addons
+      bookingData.addons.forEach(addon => {
+        const label = addon.key.replace(/([A-Z])/g, ' $1').trim();
+        html += `<div class="summary-item">
+          <span class="summary-label">${label.charAt(0).toUpperCase() + label.slice(1)}</span>
+          <span class="summary-value">$${addon.price.toLocaleString()}</span>
+        </div>`;
+      });
+      
+      // Total
+      html += `<div class="summary-item">
+        <span class="summary-label">Total Investment</span>
+        <span class="summary-value">$${bookingData.total.toLocaleString()}</span>
+      </div>`;
+      
+      summaryBox.innerHTML = html;
+    }
+
+    // CHECKOUT
+    function checkout() {
+      console.log('Booking Data:', bookingData);
+      alert(`Thank you ${bookingData.clientName}! Your total is $${bookingData.total.toLocaleString()}. Redirecting to Stripe checkout...`);
+      
+      // TODO: Integrate with Stripe
+      // window.location.href = `/api/create-checkout?amount=${bookingData.total * 100}&email=${bookingData.clientEmail}`;
+    }
+  </script>
+
 </body>
 </html>

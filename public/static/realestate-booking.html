@@ -1,173 +1,1159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Real Estate Photography - Acromatico</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-        .loading-spinner {
-            border: 3px solid rgba(255,255,255,0.3);
-            border-top-color: #667eea;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Photography - Acromatico</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1d1d1f;
+      --secondary: #6e6e73;
+      --accent: #4794A6;
+      --bg: #ffffff;
+      --bg-gray: #f5f5f7;
+      --border: #d2d2d7;
+      --success: #34c759;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+      color: var(--primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 16px 40px;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-back {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* PROGRESS BAR */
+    .progress-bar {
+      position: fixed;
+      top: 73px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #e5e5e5;
+      z-index: 999;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 14.28%;
+    }
+
+    /* MAIN LAYOUT */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+    }
+
+    /* LEFT: STEPS */
+    .steps-container {
+      max-width: 700px;
+    }
+
+    .step {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-number {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .step-question {
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .step-description {
+      font-size: 17px;
+      color: var(--secondary);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    /* OPTION CARDS */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .option-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .option-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 32px rgba(71, 148, 166, 0.15);
+    }
+
+    .option-card.selected {
+      border-color: var(--accent);
+      background: rgba(71, 148, 166, 0.05);
+      box-shadow: 0 8px 24px rgba(71, 148, 166, 0.2);
+    }
+
+    .option-card.selected::before {
+      content: '✓';
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--accent);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .coverage-option {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .coverage-option:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(71, 148, 166, 0.15);
+    }
+
+    .coverage-option.selected {
+      border-color: var(--accent) !important;
+      background: rgba(71, 148, 166, 0.05) !important;
+      box-shadow: 0 4px 16px rgba(71, 148, 166, 0.2);
+    }
+
+    .option-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .option-price {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .option-description {
+      font-size: 15px;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    .option-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    /* FORM INPUTS */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 16px 20px;
+      font-size: 17px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-family: inherit;
+      transition: all 0.3s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(71, 148, 166, 0.1);
+    }
+
+    label {
+      display: block;
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    /* BUTTONS */
+    .button-group {
+      display: flex;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      font-size: 17px;
+      font-weight: 500;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: #3a7a8a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(71, 148, 166, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(71, 148, 166, 0.1);
+    }
+
+    /* RIGHT: PREVIEW SIDEBAR */
+    .preview-container {
+      position: sticky;
+      top: 120px;
+      height: fit-content;
+    }
+
+    .preview-sidebar {
+      background: white;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    .preview-sidebar h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--primary);
+    }
+
+    .preview-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .preview-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .preview-label {
+      font-size: 15px;
+      color: var(--secondary);
+    }
+
+    .preview-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .preview-total {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .preview-total span:first-child {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .preview-total span:last-child {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* CHECKBOXES */
+    .checkbox-option {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .checkbox-option:hover {
+      border-color: var(--accent);
+      background: rgba(71, 148, 166, 0.02);
+    }
+
+    .checkbox-option input[type="checkbox"] {
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-content {
+      flex: 1;
+    }
+
+    .checkbox-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .checkbox-description {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .checkbox-price {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 968px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+        padding: 100px 20px 60px;
+      }
+
+      .preview-container {
+        position: relative;
+        top: 0;
+      }
+
+      .step-question {
+        font-size: 32px;
+      }
+
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* TEAM SIZE SELECTOR */
+    .team-size-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .team-option {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .team-option:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .team-option.selected {
+      border-color: var(--accent);
+      background: rgba(71, 148, 166, 0.05);
+    }
+
+    .team-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .team-label {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .team-price {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideOutRight {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+    }
+  </style>
+  
+  <!-- PDF Generation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-<body class="min-h-screen p-4 md:p-8">
-    <!-- Header -->
-    <header class="max-w-4xl mx-auto mb-8">
-        <a href="/photography" class="inline-flex items-center text-white hover:text-white/80 transition-colors">
-            <i class="fas fa-arrow-left mr-2"></i> Back to Photography Services
-        </a>
-    </header>
+<body>
 
-    <!-- Main Card -->
-    <div class="max-w-2xl mx-auto glass-card rounded-3xl shadow-2xl overflow-hidden">
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white">
-            <div class="flex items-center justify-center mb-4">
-                <img src="https://acromatico.com/wp-content/uploads/2018/09/Acromatico-Logo-White-Transparant.png" alt="Acromatico" class="h-12">
-            </div>
-            <h1 class="text-3xl md:text-4xl font-bold text-center mb-2">Real Estate Photography</h1>
-            <p class="text-white/90 text-center text-lg">Residential and Airbnb photography with aerial drone shots</p>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="/static/acromatico-logo-dark.png" alt="Acromatico" style="height: 40px;">
+      </div>
+      <a href="/photography" class="nav-back">← Back to Photography</a>
+    </div>
+  </nav>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressBar"></div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="booking-layout">
+    
+    <!-- LEFT: STEPS -->
+    <div class="steps-container">
+
+      <!-- STEP 1: NUMBER OF PROPERTIES -->
+      <div class="step active" id="step1">
+        <div class="step-number">Step 1 of 7</div>
+        <h1 class="step-question">How many properties are you looking to capture?</h1>
+        <p class="step-description">Select the number of properties you need photographed. You'll provide details for each property next.</p>
+
+        <div class="options-grid" style="max-width: 800px; margin: 0 auto;">
+          <div class="option-card" onclick="selectPropertyCount(this, 1)" style="cursor: pointer;">
+            <div class="option-title" style="font-size: 48px; margin-bottom: 8px;">1</div>
+            <div style="font-size: 16px; font-weight: 500; margin-bottom: 4px;">Single Property</div>
+            <div class="option-description">Perfect for individual listings</div>
+          </div>
+
+          <div class="option-card" onclick="selectPropertyCount(this, 2)" style="cursor: pointer;">
+            <span class="option-badge">POPULAR</span>
+            <div class="option-title" style="font-size: 48px; margin-bottom: 8px;">2-3</div>
+            <div style="font-size: 16px; font-weight: 500; margin-bottom: 4px;">Multiple Properties</div>
+            <div class="option-description">Save 10% on 2+ properties</div>
+          </div>
+
+          <div class="option-card" onclick="selectPropertyCount(this, 4)" style="cursor: pointer;">
+            <div class="option-title" style="font-size: 48px; margin-bottom: 8px;">4+</div>
+            <div style="font-size: 16px; font-weight: 500; margin-bottom: 4px;">Portfolio Package</div>
+            <div class="option-description">Save 15% on 4+ properties</div>
+          </div>
         </div>
 
-        <!-- Package Details -->
-        <div class="p-8">
-            <div class="mb-8">
-                <img src="https://www.genspark.ai/api/files/s/yr6ITxhz?cache_control=3600" alt="Real Estate Photography" class="w-full h-64 object-cover rounded-2xl shadow-lg mb-6">
-                
-                <div class="space-y-4">
-                    <h2 class="text-2xl font-bold text-gray-900">What's Included</h2>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Professional property photography (2-3 hours)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Aerial drone shots included</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Twilight photos available</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">30+ edited high-resolution photos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">Virtual tours for MLS listings</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span class="text-gray-700">24-hour delivery</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Pricing -->
-            <div class="bg-gray-50 rounded-2xl p-6 mb-6">
-                <div class="flex items-center justify-between mb-4">
-                    <span class="text-gray-600 text-lg">Investment</span>
-                    <span class="text-4xl font-bold text-gray-900">$350</span>
-                </div>
-                <p class="text-sm text-gray-500">Starting rate · Custom packages available</p>
-            </div>
-
-            <!-- CTA Button -->
-            <button onclick="checkout()" id="checkoutBtn" class="btn-primary w-full text-white font-semibold py-4 px-8 rounded-xl text-lg shadow-lg">
-                <span id="btnText">Book Your Property Shoot</span>
-                <div id="btnLoader" class="loading-spinner mx-auto hidden"></div>
-            </button>
-
-            <!-- Trust Signals -->
-            <div class="mt-6 text-center text-sm text-gray-500">
-                <i class="fas fa-lock mr-1"></i> Secure payment via Stripe
-            </div>
+        <div id="propertyCountInput" style="display: none; margin-top: 32px; text-align: center;">
+          <label style="font-size: 18px; font-weight: 500; margin-bottom: 16px; display: block;">Enter exact number of properties</label>
+          <input type="number" id="exactPropertyCount" min="1" max="50" placeholder="e.g., 5" style="width: 200px; padding: 16px; font-size: 18px; text-align: center; border: 2px solid var(--border); border-radius: 8px;">
+          <button class="btn btn-primary" onclick="confirmPropertyCount()" style="margin-top: 16px; padding: 16px 32px;">Confirm →</button>
         </div>
+      </div>
+
+      <!-- STEP 1B: PROPERTY DETAILS (dynamically generated for each property) -->
+      <div class="step" id="step1b">
+        <div class="step-number">Step 1 of 7</div>
+        <h1 class="step-question" id="propertyDetailsTitle">Property Details</h1>
+        <p class="step-description" id="propertyDetailsSubtitle">Provide details for each property you want photographed.</p>
+
+        <div id="propertiesFormsContainer"></div>
+      </div>
+
+      <!-- STEP 2: SERVICE SELECTION -->
+      <div class="step" id="step2">
+        <div class="step-number">Step 2 of 7</div>
+        <h1 class="step-question">Select your services</h1>
+        <p class="step-description">Choose the photography and video services you need. You can select multiple services.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="toggleRealEstateService(this, 'aerial', 350)">
+            <div class="option-title">📷 Aerial Photography</div>
+            <div class="option-price" id="price-aerial">$350</div>
+            <div class="option-description">
+              ✓ Professional drone photography<br>
+              ✓ Stunning aerial perspectives<br>
+              ✓ Property boundaries & surroundings<br>
+              ✓ 15-50 edited images<br>
+              <small style="color: var(--accent);">📏 Priced by property size</small>
+            </div>
+          </div>
+
+          <div class="option-card" onclick="toggleRealEstateService(this, 'indoor', 250)">
+            <span class="option-badge">POPULAR</span>
+            <div class="option-title">🏠 Indoor Photography</div>
+            <div class="option-price" id="price-indoor">$<span id="indoor-price-value">250</span></div>
+            <div class="option-description">
+              ✓ Professional interior shots<br>
+              ✓ HDR & twilight options<br>
+              ✓ All rooms photographed<br>
+              ✓ 20-75+ edited images<br>
+              <small style="color: var(--accent);">📏 Based on <span id="sqft-display">your</span> square footage</small>
+            </div>
+          </div>
+
+          <div class="option-card" onclick="toggleRealEstateService(this, 'lifestyle', 450)">
+            <div class="option-title">✨ Airbnb Lifestyle</div>
+            <div class="option-price" id="price-lifestyle">$450</div>
+            <div class="option-description">
+              ✓ Staged lifestyle photography<br>
+              ✓ Guest experience focus<br>
+              ✓ Amenities & details<br>
+              ✓ 20-100+ curated images<br>
+              <small style="color: var(--accent);">📏 Priced by property size</small>
+            </div>
+          </div>
+
+          <div class="option-card" onclick="toggleRealEstateService(this, 'video', 500)">
+            <div class="option-title">🎬 Video Walkthrough</div>
+            <div class="option-price" id="price-video">$500</div>
+            <div class="option-description">
+              ✓ Cinematic property tour<br>
+              ✓ Professional editing & music<br>
+              ✓ Drone footage options<br>
+              ✓ 1-6 minute videos<br>
+              <small style="color: var(--accent);">📏 Priced by property size</small>
+            </div>
+          </div>
+
+          <div class="option-card" onclick="toggleRealEstateService(this, '3d-tour', 350)">
+            <div class="option-title">🏘️ 3D Virtual Walkthrough</div>
+            <div class="option-price" id="price-3d-tour">$350</div>
+            <div class="option-description">
+              ✓ Interactive 360° tour<br>
+              ✓ Matterport-style experience<br>
+              ✓ Floor plan view included<br>
+              ✓ Shareable tour link<br>
+              <small style="color: var(--accent);">📏 Priced by property size</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="backToPropertyDetails()">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep2()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: TEAM SIZE -->
+      <div class="step" id="step3">
+        <div class="step-number">Step 3 of 7</div>
+        <h1 class="step-question">How many photographers do you need?</h1>
+        <p class="step-description">Larger teams provide comprehensive coverage from multiple angles and can capture simultaneous activities.</p>
+
+        <div class="team-size-grid">
+          <div class="team-option selected" onclick="selectTeamSize(this, 'solo', 0)">
+            <div class="team-icon">📷</div>
+            <div class="team-label">Solo Photographer</div>
+            <div class="team-price">Included</div>
+          </div>
+
+          <div class="team-option" onclick="selectTeamSize(this, '2-person', 1800)">
+            <div class="team-icon">📷📷</div>
+            <div class="team-label">2-Person Team</div>
+            <div class="team-price">+$1,800</div>
+          </div>
+
+          <div class="team-option" onclick="selectTeamSize(this, '3-person', 3200)">
+            <div class="team-icon">📷📷📷</div>
+            <div class="team-label">3-Person Team</div>
+            <div class="team-price">+$3,200</div>
+          </div>
+
+          <div class="team-option" onclick="selectTeamSize(this, 'custom', 0)">
+            <div class="team-icon">👥</div>
+            <div class="team-label">Custom Team</div>
+            <div class="team-price">Contact us</div>
+          </div>
+        </div>
+
+        <h3 style="font-size: 20px; margin-top: 40px; margin-bottom: 20px;">Add Video Coverage</h3>
+        <p style="font-size: 15px; color: var(--secondary); margin-bottom: 20px;">Select any combination of video services for comprehensive event documentation.</p>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="keynoteVideo" onchange="toggleVideoPackage('keynoteVideo', 1800)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Keynote Speaker Coverage</div>
+            <div class="checkbox-description">Dedicated videographer for main stage presentations and speeches</div>
+          </div>
+          <div class="checkbox-price">+$1,800</div>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="multiCamVideo" onchange="toggleVideoPackage('multiCamVideo', 2800)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Multi-Camera Video Production</div>
+            <div class="checkbox-description">2-3 camera angles with professional switching and editing (5-10 min highlight reel)</div>
+          </div>
+          <div class="checkbox-price">+$2,800</div>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="bRollVideo" onchange="toggleVideoPackage('bRollVideo', 1200)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">B-Roll & Atmosphere Package</div>
+            <div class="checkbox-description">Venue details, attendee interactions, and ambient footage for social media</div>
+          </div>
+          <div class="checkbox-price">+$1,200</div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: REAL ESTATE ADD-ONS -->
+      <div class="step" id="step4">
+        <div class="step-number">Step 4 of 7</div>
+        <h1 class="step-question">Enhance your listing</h1>
+        <p class="step-description">Premium add-ons to make your properties stand out and close faster.</p>
+        
+        <div style="background: #f0f9ff; border: 2px solid #4794A6; border-radius: 12px; padding: 20px; margin-bottom: 32px;">
+          <h4 style="color: #4794A6; margin-bottom: 8px; font-size: 16px;">✨ Included in Every Package:</h4>
+          <p style="font-size: 14px; color: var(--secondary); margin: 0;">
+            • Twilight Photography • Advanced HDR Editing • Blue Sky Replacement • Object Removal (up to 20 photos)
+          </p>
+        </div>
+
+        <h3 style="font-size: 20px; margin-bottom: 20px;">🚀 Fast Turnaround</h3>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="rushDelivery" onchange="toggleRealEstateAddon('rushDelivery', 500)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">24-Hour Rush Delivery</div>
+            <div class="checkbox-description">All edited photos delivered within 24 hours for urgent listings</div>
+          </div>
+          <div class="checkbox-price">+$500</div>
+        </div>
+
+        <h3 style="font-size: 20px; margin: 32px 0 20px;">📐 Floor Plans & Virtual Staging</h3>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="floorPlan" onchange="toggleRealEstateAddon('floorPlan', 150)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">2D Floor Plan</div>
+            <div class="checkbox-description">Professional measured floor plan with room dimensions and labels</div>
+          </div>
+          <div class="checkbox-price">+$150</div>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="virtualStaging" onchange="toggleRealEstateAddon('virtualStaging', 75)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Virtual Staging (per photo)</div>
+            <div class="checkbox-description">Digitally furnish empty rooms to help buyers visualize the space</div>
+          </div>
+          <div class="checkbox-price">+$75/photo</div>
+        </div>
+
+        <h3 style="font-size: 20px; margin: 32px 0 20px;">📦 Marketing Materials</h3>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="propertyWebsite" onchange="toggleRealEstateAddon('propertyWebsite', 995)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Single-Property Website</div>
+            <div class="checkbox-description">Branded landing page with photos, videos, virtual tour, and contact form</div>
+          </div>
+          <div class="checkbox-price">+$995</div>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="socialMediaKit" onchange="toggleRealEstateAddon('socialMediaKit', 250)">
+          <div class="checkbox-content">
+            <div class="checkbox-title">Social Media Marketing Kit</div>
+            <div class="checkbox-description">10 Instagram-ready graphics + story templates + listing carousel</div>
+          </div>
+          <div class="checkbox-price">+$250</div>
+        </div>
+
+        <h3 style="font-size: 20px; margin: 32px 0 20px;">💾 Digital Delivery Options</h3>
+
+        <div style="background: white; border: 2px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div>
+              <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">Custom Branded USB Drive</div>
+              <div style="font-size: 14px; color: var(--secondary);">All photos + videos on premium USB with your brokerage branding</div>
+              <div style="font-size: 13px; color: var(--secondary); margin-top: 8px;">$125 for first drive, $75 for each additional</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <label style="font-size: 15px; margin: 0;">Quantity:</label>
+            <input type="number" id="usbQuantity" min="0" max="20" value="0" onchange="updateUSBQuantity()" style="width: 100px; padding: 12px; font-size: 17px; border: 2px solid var(--border); border-radius: 8px; margin: 0;">
+            <span id="usbPriceDisplay" style="font-size: 18px; font-weight: 600; color: var(--accent);">$0</span>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(5)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: CLIENT INFO -->
+      <div class="step" id="step5">
+        <div class="step-number">Step 5 of 7</div>
+        <h1 class="step-question">Company & contact information</h1>
+        <p class="step-description">We'll use this information for your contract and invoicing.</p>
+
+        <label>Company Name *</label>
+        <input type="text" id="companyName" placeholder="e.g., Apple Inc.">
+
+        <label>Contact Person (Full Name) *</label>
+        <input type="text" id="contactName" placeholder="John Smith">
+
+        <label>Title / Position *</label>
+        <input type="text" id="contactTitle" placeholder="e.g., Event Manager">
+
+        <label>Email Address *</label>
+        <input type="email" id="contactEmail" placeholder="john.smith@company.com">
+
+        <label>Phone Number *</label>
+        <input type="tel" id="contactPhone" placeholder="(555) 123-4567">
+
+        <label>Billing Address</label>
+        <textarea id="billingAddress" rows="3" placeholder="Street Address, City, State, ZIP"></textarea>
+
+        <label>Purchase Order Number (if applicable)</label>
+        <input type="text" id="poNumber" placeholder="Optional">
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep5()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: CONTRACT & SIGNATURE -->
+      <div class="step" id="step6">
+        <div class="step-number">Step 6 of 7</div>
+        <h1 class="step-question">Review & sign your agreement</h1>
+        
+        <!-- FULL CONTRACT PREVIEW -->
+        <div style="background: white; border: 2px solid var(--border); border-radius: 16px; padding: 60px; margin-bottom: 32px; max-height: 600px; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
+          
+          <!-- ACROMATICO LOGO -->
+          <div style="text-align: center; margin-bottom: 40px;">
+            <img src="/static/acromatico-logo-dark.png" alt="Acromatico" style="height: 50px;">
+          </div>
+          
+          <h3 style="font-size: 32px; font-weight: 300; margin-bottom: 48px; text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #4794A6;">Real Estate Photography Agreement</h3>
+          
+          <div style="font-size: 14px; line-height: 2; color: #333; font-weight: 300;">
+            <!-- CLIENT INFORMATION -->
+            <div style="background: rgba(71, 148, 166, 0.03); padding: 28px; border-radius: 12px; margin-bottom: 32px; border-left: 4px solid #4794A6;">
+              <h4 style="font-size: 13px; font-weight: 400; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6;">Client Information</h4>
+              <p style="margin-bottom: 8px; font-weight: 300;"><strong style="font-weight: 400;">Name:</strong> <span id="contractClientName">Client</span></p>
+              <p style="margin-bottom: 8px; font-weight: 300;"><strong style="font-weight: 400;">Company:</strong> <span id="contractCompanyName"></span></p>
+              <p style="margin-bottom: 0; font-weight: 300;"><strong style="font-weight: 400;">Date:</strong> <span id="contractDate"></span></p>
+            </div>
+            
+            <!-- SERVICES PROVIDED -->
+            <div style="margin-bottom: 40px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Services Provided</h4>
+              <p style="margin-bottom: 16px; font-weight: 300;">Acromatico will provide to Client the following real estate photography services:</p>
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 16px;">
+                <ul id="contractServices" style="margin: 0; font-weight: 300; list-style: none; padding: 0;">
+                </ul>
+              </div>
+            </div>
+            
+            <!-- PROPERTIES -->
+            <div style="margin-bottom: 40px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Properties to be Photographed</h4>
+              <div id="contractProperties" style="font-weight: 300;"></div>
+            </div>
+            
+            <!-- PREMIUM SERVICES INCLUDED -->
+            <div style="margin-bottom: 40px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Premium Services Included</h4>
+              <p style="margin-bottom: 16px; font-weight: 300;">All packages include at no additional charge:</p>
+              <ul style="margin: 0; font-weight: 300;">
+                <li style="margin-bottom: 8px;">Professional twilight photography (golden hour exterior shots)</li>
+                <li style="margin-bottom: 8px;">Advanced HDR editing for perfect exposure</li>
+                <li style="margin-bottom: 8px;">Blue sky replacement on all exterior shots</li>
+                <li style="margin-bottom: 8px;">Object removal and cleanup (up to 20 photos)</li>
+                <li>Professional color correction and enhancement</li>
+              </ul>
+            </div>
+            
+            <!-- TOTAL INVESTMENT -->
+            <div style="background: linear-gradient(135deg, rgba(71, 148, 166, 0.08) 0%, rgba(71, 148, 166, 0.03) 100%); padding: 32px; border-radius: 12px; margin-bottom: 24px; text-align: center; border: 2px solid rgba(71, 148, 166, 0.2);">
+              <h4 style="font-size: 13px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6;">Total Investment</h4>
+              <p style="font-size: 42px; font-weight: 200; margin: 0; color: #4794A6; letter-spacing: 2px;">$<span id="contractTotal">0</span></p>
+            </div>
+            
+            <!-- PAYMENT TERMS -->
+            <div style="background: #ffffff; padding: 28px; border-radius: 12px; margin-bottom: 40px; border: 2px solid rgba(71, 148, 166, 0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+              <h4 style="font-size: 15px; font-weight: 400; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6; text-align: center;">Payment Terms</h4>
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px; margin-bottom: 12px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Deposit Due Today (50%)</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;">Non-refundable booking deposit</p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="contractDeposit">0</span></p>
+              </div>
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Balance Due</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;">Upon delivery of final edited images</p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="contractBalance">0</span></p>
+              </div>
+            </div>
+            
+            <!-- DELIVERY TIMELINE -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Delivery Timeline</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Standard delivery: <strong style="font-weight: 400;">5-7 business days</strong> after shoot date</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Rush delivery (if selected): <strong style="font-weight: 400;">24 hours</strong> after shoot date</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">• All images delivered via secure online gallery with download access</p>
+            </div>
+            
+            <!-- USAGE RIGHTS -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Usage Rights</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Client receives full commercial usage rights for real estate marketing purposes. Images may be used on MLS listings, websites, social media, print materials, and signage.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Photographer retains copyright and may use images for portfolio and marketing purposes.</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Images may not be resold or sublicensed to third parties.</p>
+            </div>
+            
+            <!-- CANCELLATION POLICY -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Cancellation Policy</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;"><strong style="font-weight: 400;">All deposit fees are non-refundable.</strong></p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Cancellations made 48+ hours before shoot: <strong style="font-weight: 400;">Full refund of deposit</strong></p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Cancellations made 24-48 hours before: <strong style="font-weight: 400;">50% deposit retained</strong></p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">• Cancellations made less than 24 hours: <strong style="font-weight: 400;">Full deposit retained</strong></p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">• Weather-related cancellations: Rescheduled at no additional charge</p>
+            </div>
+            
+            <!-- PROPERTY ACCESS -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Property Access</h4>
+              <p style="margin-bottom: 16px; font-weight: 300; line-height: 1.9;">Client agrees to provide:</p>
+              <ul style="margin: 0; font-weight: 300;">
+                <li style="margin-bottom: 8px;">Safe and legal access to all properties listed above</li>
+                <li style="margin-bottom: 8px;">All utilities (electricity, water) operational during shoot</li>
+                <li style="margin-bottom: 8px;">Properties cleaned and staged prior to photographer arrival</li>
+                <li>Notification of any safety hazards or access restrictions</li>
+              </ul>
+            </div>
+            
+            <!-- LIABILITY -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Liability</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Photographer carries $2M general liability insurance. Client agrees that Photographer is not liable for any damage to property unless caused by gross negligence. Photographer is not responsible for trespassing claims if incorrect property information is provided.</p>
+            </div>
+            
+            <!-- FORCE MAJEURE -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Force Majeure</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Neither party shall be liable for failure to perform due to causes beyond reasonable control including weather, natural disasters, equipment failure, illness, or government restrictions.</p>
+            </div>
+            
+            <!-- ENTIRE AGREEMENT -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Entire Agreement</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">This Agreement constitutes the entire agreement between parties and supersedes all prior negotiations, representations, or agreements. Any modifications must be made in writing and signed by both parties.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIGNATURE SECTION -->
+        <div style="background: rgba(71, 148, 166, 0.05); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; margin-bottom: 32px;">
+          <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 16px;">Sign Below</h4>
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">Type your full name or draw your signature. This constitutes a legally binding electronic signature.</p>
+          
+          <div style="margin-bottom: 24px;">
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; margin-bottom: 16px;">
+              <input type="radio" name="signMethod" value="type" checked onchange="switchSignMethod('type')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Type my name</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+              <input type="radio" name="signMethod" value="draw" onchange="switchSignMethod('draw')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Draw my signature</span>
+            </label>
+          </div>
+
+          <!-- Type Signature -->
+          <div id="typeSignature">
+            <input type="text" id="signatureName" placeholder="Type your full legal name" style="width: 100%; padding: 20px; font-size: 24px; font-family: 'Brush Script MT', cursive; border: 2px solid var(--border); border-radius: 12px;">
+          </div>
+
+          <!-- Draw Signature -->
+          <div id="drawSignature" style="display: none;">
+            <div id="canvasContainer" style="border: 3px solid #4794A6; border-radius: 12px; background: white; padding: 0; position: relative; max-width: 600px;">
+              <canvas 
+                id="signatureCanvas" 
+                width="600" 
+                height="150"
+                style="display: block; width: 100%; height: 150px; cursor: crosshair; background: white; touch-action: none;"
+              ></canvas>
+            </div>
+            <button type="button" onclick="clearSignature()" style="margin-top: 16px; padding: 14px 28px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s;">🗑️ Clear Signature</button>
+            <p style="font-size: 14px; color: #4794A6; margin-top: 12px; font-weight: 500;">🖊️ <strong>CLICK AND DRAG</strong> on the white canvas above to draw your signature</p>
+          </div>
+
+          <div style="margin-top: 24px; font-size: 13px; color: var(--secondary);">
+            <p style="margin: 0;">Date: <span id="signatureDate"></span></p>
+          </div>
+        </div>
+
+        <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px; cursor: pointer;">
+          <input type="checkbox" id="agreeToTerms" style="width: 24px; height: 24px; cursor: pointer;">
+          <span style="font-size: 15px;">I have read and agree to the terms of this agreement</span>
+        </label>
+
+        <div class="button-group" style="margin-top: 32px;">
+          <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
+          <button class="btn btn-primary" onclick="validateSignature()">Sign & Continue to Payment →</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: PAYMENT -->
+      <div class="step" id="step7">
+        <div class="step-number">Step 7 of 7</div>
+        <h1 class="step-question">Complete your booking</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Your contract is signed. Choose your payment method below.</p>
+        
+        <!-- AGREEMENT SIGNED CONFIRMATION -->
+        <div style="background: rgba(52, 199, 89, 0.1); border: 2px solid var(--success); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          <p style="font-size: 15px; font-weight: 500; color: var(--success); margin-bottom: 8px;">✓ Agreement Signed</p>
+          <p style="font-size: 14px; color: var(--secondary);">Signed by <span id="finalSignatureName"></span> on <span id="finalSignDate"></span></p>
+          <button onclick="downloadAgreement()" style="padding: 16px 32px; background: white; border: 2px solid var(--accent); border-radius: 12px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--accent); margin-top: 16px; transition: all 0.3s;" onmouseover="this.style.background='var(--accent)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='var(--accent)';">⬇ Download Signed Agreement PDF</button>
+          <p style="font-size: 13px; color: var(--secondary); margin-top: 12px;">💡 A copy will also be emailed to you after payment.</p>
+        </div>
+
+        <!-- BOOKING SUMMARY -->
+        <div style="background: white; border-radius: 16px; padding: 32px; margin-bottom: 32px; border: 2px solid var(--accent);">
+          <h3 style="font-size: 22px; margin-bottom: 24px; color: var(--primary);">📋 Booking Summary</h3>
+          
+          <div style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border);">
+            <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Properties:</h4>
+            <div id="paymentProperties"></div>
+          </div>
+          
+          <div style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border);">
+            <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Services:</h4>
+            <div id="paymentServices"></div>
+          </div>
+          
+          <div id="paymentAddonsSection" style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); display: none;">
+            <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Add-ons:</h4>
+            <div id="paymentAddons"></div>
+          </div>
+          
+          <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 600; margin-bottom: 12px;">
+            <span>Total Investment:</span>
+            <span id="paymentTotal" style="color: var(--accent);"></span>
+          </div>
+          
+          <div style="display: flex; justify-content: space-between; font-size: 18px; color: var(--secondary);">
+            <span>Deposit Due Today (50%):</span>
+            <strong id="paymentDeposit"></strong>
+          </div>
+        </div>
+
+        <!-- PAYMENT OPTIONS -->
+        <div style="background: white; border-radius: 16px; padding: 32px; border: 2px solid var(--border);">
+          <h3 style="font-size: 20px; margin-bottom: 24px;">💳 Payment Method</h3>
+          
+          <div class="payment-option" style="border: 2px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s;" onclick="selectPaymentMethod('card', this)">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <input type="radio" name="paymentMethod" value="card" style="width: 20px; height: 20px;">
+              <div style="flex: 1;">
+                <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">💳 Credit / Debit Card</div>
+                <div style="font-size: 14px; color: var(--secondary);">Secure payment via Stripe • Instant confirmation</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="payment-option" style="border: 2px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s;" onclick="selectPaymentMethod('ach', this)">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <input type="radio" name="paymentMethod" value="ach" style="width: 20px; height: 20px;">
+              <div style="flex: 1;">
+                <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">🏦 Bank Transfer (ACH)</div>
+                <div style="font-size: 14px; color: var(--secondary);">Lower fees • 2-3 business days to process</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="payment-option" style="border: 2px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.3s;" onclick="selectPaymentMethod('invoice', this)">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <input type="radio" name="paymentMethod" value="invoice" style="width: 20px; height: 20px;">
+              <div style="flex: 1;">
+                <div style="font-size: 17px; font-weight: 600; margin-bottom: 4px;">📄 Invoice (Net 15)</div>
+                <div style="font-size: 14px; color: var(--secondary);">For established clients • Payment due within 15 days</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #f0f9ff; border: 2px solid #4794A6; border-radius: 12px; padding: 20px; margin: 24px 0;">
+          <div style="display: flex; align-items: start; gap: 12px;">
+            <span style="font-size: 24px;">🔒</span>
+            <div style="flex: 1;">
+              <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #4794A6;">Secure Payment Guarantee</h4>
+              <p style="font-size: 14px; color: var(--secondary); margin: 0;">
+                Your payment information is encrypted and secure. We never store your full payment details. 
+                All transactions are processed through Stripe with bank-level security.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
+          <button class="btn btn-primary" onclick="completeBooking()">Complete Booking →</button>
+        </div>
+      </div>
+
     </div>
 
-    <script>
-        const STRIPE_PUBLISHABLE_KEY = 'pk_test_51SnJO8DinAxxUzek8EaG8eF1inNFDlnihZiWzi36CyAdQj5fLAjIixsSjVSq8V5iarAVuChKrCmvdhY4JqXEPTXf00uLoqL2df';
-        const PRICE_ID = 'price_1TIqnjDinAxxUzek22CVTAst'; // Real Estate Photography
+    <!-- RIGHT: PREVIEW SIDEBAR -->
+    <div class="preview-container">
+      <div class="preview-sidebar">
+        <h3>Your Selection</h3>
+        
+        <div class="preview-item">
+          <span class="preview-label">Coverage Package</span>
+          <span class="preview-value" id="previewCoverage">Not selected</span>
+        </div>
+        
+        <div class="preview-item">
+          <span class="preview-label">Team Size</span>
+          <span class="preview-value" id="previewTeam">Solo</span>
+        </div>
+        
+        <div id="previewAddons"></div>
+        
+        <div class="preview-total">
+          <span>Investment</span>
+          <span id="previewTotal">$0</span>
+        </div>
+        
+        <div class="preview-item" style="opacity: 0.7; font-size: 13px; margin-top: 16px; border: none;">
+          <span class="preview-label">50% Deposit</span>
+          <span class="preview-value" id="previewDeposit">$0</span>
+        </div>
+      </div>
+    </div>
 
-        async function checkout() {
-            const btn = document.getElementById('checkoutBtn');
-            const btnText = document.getElementById('btnText');
-            const btnLoader = document.getElementById('btnLoader');
+  </div>
 
-            btnText.classList.add('hidden');
-            btnLoader.classList.remove('hidden');
-            btn.disabled = true;
+  <script src="/static/realestate-booking.js"></script>
 
-            try {
-                const response = await fetch('/api/payments/create-checkout-session', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        priceId: PRICE_ID,
-                        quantity: 1,
-                        mode: 'payment',
-                        successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
-                        cancelUrl: window.location.href,
-                        metadata: {
-                            product_type: 'photography',
-                            package_name: 'Real Estate Photography',
-                            amount: '350',
-                            source: 'website'
-                        }
-                    })
-                });
-
-                const data = await response.json();
-
-                if (!response.ok || !data.url) {
-                    throw new Error(data.error || 'Failed to create checkout session');
-                }
-
-                window.location.href = data.url;
-
-            } catch (error) {
-                console.error('Checkout error:', error);
-                alert('Unable to process checkout. Please try again or contact us directly.');
-                
-                btnText.classList.remove('hidden');
-                btnLoader.classList.add('hidden');
-                btn.disabled = false;
-            }
-        }
-
-        if (window.location.hostname.includes('localhost') || window.location.hostname.includes('sandbox')) {
-            console.log('🧪 TEST MODE: Use card 4242 4242 4242 4242, any future expiry, any CVC');
-        }
-    </script>
 </body>
 </html>
