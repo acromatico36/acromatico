@@ -1658,14 +1658,54 @@
       console.log('💵 Selected amount:', selectedPaymentAmount);
     }
 
-    function payWithStripe() {
-      console.log('💳 Initiating Stripe payment for $', selectedPaymentAmount);
-      
-      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
-      
-      alert(`Stripe Checkout - $${selectedPaymentAmount.toLocaleString()}\n\nEvent: ${booking.eventName}\nDate: ${booking.eventDate}\nCompany: ${booking.companyName}\nContact: ${booking.contactName} (${booking.contactEmail})\n\nTotal Investment: $${total.toLocaleString()}\nPayment Option: ${selectedPaymentOption === 'deposit' ? '50% Deposit' : 'Pay in Full'}\n\n[Stripe integration will be added here]`);
-      
-      console.log('📦 Full booking object:', booking);
+    async function payWithStripe() {
+      try {
+        const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
+        
+        console.log('💳 Initiating Stripe checkout...', {
+          amount: selectedPaymentAmount,
+          total: total,
+          booking: booking
+        });
+
+        const response = await fetch('/api/payments/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount: selectedPaymentAmount,
+            mode: 'payment',
+            successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancelUrl: window.location.href,
+            metadata: {
+              product_type: 'event_photography',
+              package_name: booking.coverage,
+              client_name: booking.contactName,
+              client_email: booking.contactEmail,
+              company_name: booking.companyName,
+              event_date: booking.eventDate,
+              event_name: booking.eventName,
+              event_type: booking.eventType,
+              team_size: booking.teamSize || 1,
+              total_investment: total,
+              payment_plan: selectedPaymentAmount === total ? 'full' : (selectedPaymentOption === 'deposit' ? 'deposit' : 'net30'),
+              source: 'event_booking_flow'
+            }
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.url) {
+          throw new Error(data.error || 'Failed to create checkout session');
+        }
+
+        console.log('✅ Stripe session created, redirecting...');
+        window.location.href = data.url;
+
+      } catch (error) {
+        console.error('❌ Stripe checkout error:', error);
+        alert('Unable to process payment. Please try again or contact us directly at italo@acromatico.com');
+      }
     }
 
     async function downloadAgreement() {

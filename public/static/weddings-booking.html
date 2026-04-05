@@ -2252,12 +2252,56 @@
     }
 
     // Payment method handlers
-    function payWithStripe() {
-      console.log('🔵 Initiating Stripe payment for $' + selectedPaymentAmount.toLocaleString());
-      alert(`🔵 Stripe Payment\n\nAmount: $${selectedPaymentAmount.toLocaleString()}\n\n✅ This will redirect you to Stripe checkout.\n\n(Stripe integration coming next!)`);
-      
-      // TODO: Implement actual Stripe checkout
-      // This will create a Stripe checkout session with the selected amount
+    async function payWithStripe() {
+      try {
+        const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+        
+        console.log('💳 Initiating Stripe checkout...', {
+          amount: selectedPaymentAmount,
+          total: total,
+          booking: booking
+        });
+
+        // Create Stripe checkout session
+        const response = await fetch('/api/payments/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount: selectedPaymentAmount,
+            mode: 'payment',
+            successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancelUrl: window.location.href,
+            metadata: {
+              product_type: 'wedding_photography',
+              package_name: booking.package,
+              client_name: booking.name,
+              client_email: booking.email,
+              wedding_date: booking.date,
+              venue: booking.venue,
+              coverage_hours: booking.coverageHours || booking.hours,
+              album: booking.album || 'None',
+              total_investment: total,
+              payment_plan: selectedPaymentAmount === total ? 'full' : (selectedPaymentAmount === Math.round(total / 2) ? 'half' : 'third'),
+              source: 'wedding_booking_flow'
+            }
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.url) {
+          throw new Error(data.error || 'Failed to create checkout session');
+        }
+
+        console.log('✅ Stripe session created, redirecting...');
+        
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
+
+      } catch (error) {
+        console.error('❌ Stripe checkout error:', error);
+        alert('Unable to process payment. Please try again or contact us directly at italo@acromatico.com');
+      }
     }
     
     function payWithApplePay() {
