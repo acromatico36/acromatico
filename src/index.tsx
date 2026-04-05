@@ -4930,6 +4930,10 @@ app.get('/prints', (c) => c.redirect('/static/prints', 302))
 // Photography routes - CLEAN PAGE WITH ROTATING HERO
 app.get('/photography', (c) => c.redirect('/static/photography-main', 302))
 
+// Payment Success/Cancel Pages
+app.get('/payment/success', (c) => c.redirect('/static/payment-success', 302))
+app.get('/payment/cancel', (c) => c.redirect('/static/payment-cancel', 302))
+
 // Photography Booking Pages - Stripe Checkout Connected
 app.get('/weddings/booking', (c) => c.redirect('/static/weddings-booking', 302))
 app.get('/portraits/booking', (c) => c.redirect('/static/portraits-booking', 302))
