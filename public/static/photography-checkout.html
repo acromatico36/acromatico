@@ -39,64 +39,19 @@
     <div class="container mx-auto px-4 text-center">
       <h1 class="text-5xl font-bold mb-4">Book Your Photography Session</h1>
       <p class="text-xl text-white/90 max-w-2xl mx-auto">
-        Professional photography that captures your story. Choose the package that fits your needs.
+        Professional photography that captures your story. Choose the service that fits your needs.
       </p>
     </div>
   </section>
   
-  <!-- Packages -->
+  <!-- Services -->
   <section class="py-16">
     <div class="container mx-auto px-4">
       
-      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         
-        <!-- Headshot Package -->
-        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
-          <div class="text-center mb-6">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
-              <i class="fas fa-user text-2xl text-white"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-2">Headshot Session</h3>
-            <p class="text-slate-300">Perfect for professionals</p>
-          </div>
-          
-          <div class="text-center mb-8">
-            <div class="text-5xl font-bold text-[#4794A6] mb-2">$299</div>
-            <div class="text-slate-400">One-time payment</div>
-          </div>
-          
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">30-minute session</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">10 retouched photos</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">High-res digital files</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">2-week delivery</span>
-            </li>
-          </ul>
-          
-          <button 
-            onclick="checkout('HEADSHOT_PRICE_ID', 'Headshot Session', 299)" 
-            class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
-            <i class="fas fa-camera mr-2"></i>Book Headshot Session
-          </button>
-          
-          <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
-        </div>
-        
-        <!-- Signature Package (POPULAR) -->
-        <div class="glass-card rounded-2xl p-8 border-2 border-[#4794A6] hover:scale-105 transition-transform relative">
-          
-          <!-- Popular Badge -->
+        <!-- Weddings -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform border-2 border-[#4794A6] relative">
           <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
             <div class="gradient-bg px-6 py-2 rounded-full text-sm font-bold">
               ⭐ MOST POPULAR
@@ -105,198 +60,259 @@
           
           <div class="text-center mb-6 mt-4">
             <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
-              <i class="fas fa-star text-2xl text-white"></i>
+              <i class="fas fa-rings-wedding text-2xl text-white"></i>
             </div>
-            <h3 class="text-2xl font-bold mb-2">Signature Session</h3>
-            <p class="text-slate-300">Most comprehensive package</p>
+            <h3 class="text-2xl font-bold mb-2">Weddings</h3>
+            <p class="text-slate-300">Luxury wedding photography</p>
           </div>
           
           <div class="text-center mb-8">
-            <div class="text-5xl font-bold text-[#4794A6] mb-2">$599</div>
-            <div class="text-slate-400">One-time payment</div>
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$1,200</div>
+            <div class="text-slate-400">Starting price</div>
           </div>
           
           <ul class="space-y-3 mb-8">
             <li class="flex items-start gap-3">
               <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300"><strong>2-hour session</strong></span>
+              <span class="text-slate-300">Full-day coverage</span>
             </li>
             <li class="flex items-start gap-3">
               <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300"><strong>50+ edited photos</strong></span>
+              <span class="text-slate-300">Engagement sessions</span>
             </li>
             <li class="flex items-start gap-3">
               <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">Multiple locations & outfits</span>
+              <span class="text-slate-300">Timeless heirloom albums</span>
             </li>
             <li class="flex items-start gap-3">
               <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">High-res + web files</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">Private online gallery</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">1-week delivery</span>
+              <span class="text-slate-300">Museum-quality prints</span>
             </li>
           </ul>
           
           <button 
-            onclick="checkout('SIGNATURE_PRICE_ID', 'Signature Session', 599)" 
+            onclick="checkout('WEDDING_PRICE_ID', 'Wedding Photography', 1200)" 
             class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
-            <i class="fas fa-camera mr-2"></i>Book Signature Session
+            <i class="fas fa-camera mr-2"></i>Book Wedding
           </button>
           
           <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
         </div>
         
-        <!-- Premium Package -->
+        <!-- Portraits -->
         <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
           <div class="text-center mb-6">
             <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
-              <i class="fas fa-crown text-2xl text-white"></i>
+              <i class="fas fa-user text-2xl text-white"></i>
             </div>
-            <h3 class="text-2xl font-bold mb-2">Premium Package</h3>
-            <p class="text-slate-300">Ultimate experience</p>
+            <h3 class="text-2xl font-bold mb-2">Portraits</h3>
+            <p class="text-slate-300">Professional headshots & portraits</p>
           </div>
           
           <div class="text-center mb-8">
-            <div class="text-5xl font-bold text-[#4794A6] mb-2">$1,299</div>
-            <div class="text-slate-400">One-time payment</div>
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$500</div>
+            <div class="text-slate-400">Starting price</div>
           </div>
           
           <ul class="space-y-3 mb-8">
             <li class="flex items-start gap-3">
               <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300"><strong>Full-day session</strong></span>
+              <span class="text-slate-300">Professional headshots</span>
             </li>
             <li class="flex items-start gap-3">
               <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300"><strong>100+ edited photos</strong></span>
+              <span class="text-slate-300">Family portraits</span>
             </li>
             <li class="flex items-start gap-3">
               <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">Unlimited locations</span>
+              <span class="text-slate-300">Personal branding sessions</span>
             </li>
             <li class="flex items-start gap-3">
               <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">Premium photo album</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">20 printed photos (8x10)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
-              <span class="text-slate-300">3-day delivery</span>
+              <span class="text-slate-300">Studio or on-location</span>
             </li>
           </ul>
           
           <button 
-            onclick="checkout('PREMIUM_PRICE_ID', 'Premium Package', 1299)" 
+            onclick="checkout('PORTRAIT_PRICE_ID', 'Portrait Session', 500)" 
             class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
-            <i class="fas fa-camera mr-2"></i>Book Premium Package
+            <i class="fas fa-camera mr-2"></i>Book Portrait Session
+          </button>
+          
+          <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
+        </div>
+        
+        <!-- Events -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+              <i class="fas fa-calendar-star text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Events</h3>
+            <p class="text-slate-300">Corporate & celebrations</p>
+          </div>
+          
+          <div class="text-center mb-8">
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$1,200</div>
+            <div class="text-slate-400">Starting price</div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Corporate events</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Galas & conferences</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Full event coverage</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Same-day delivery options</span>
+            </li>
+          </ul>
+          
+          <button 
+            onclick="checkout('EVENT_PRICE_ID', 'Event Photography', 1200)" 
+            class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
+            <i class="fas fa-camera mr-2"></i>Book Event Coverage
+          </button>
+          
+          <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
+        </div>
+        
+        <!-- Commercial -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+              <i class="fas fa-briefcase text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Commercial</h3>
+            <p class="text-slate-300">Product & brand campaigns</p>
+          </div>
+          
+          <div class="text-center mb-8">
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$1,500</div>
+            <div class="text-slate-400">Custom pricing</div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Product photography</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Brand campaigns</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Editorial work</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Studio production</span>
+            </li>
+          </ul>
+          
+          <button 
+            onclick="checkout('COMMERCIAL_PRICE_ID', 'Commercial Photography', 1500)" 
+            class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
+            <i class="fas fa-camera mr-2"></i>Get Quote
+          </button>
+          
+          <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
+        </div>
+        
+        <!-- Real Estate -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+              <i class="fas fa-home text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Real Estate</h3>
+            <p class="text-slate-300">Residential & Airbnb</p>
+          </div>
+          
+          <div class="text-center mb-8">
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$350</div>
+            <div class="text-slate-400">Starting price</div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Aerial drone shots</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Twilight photos</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Virtual tours</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">MLS listing ready</span>
+            </li>
+          </ul>
+          
+          <button 
+            onclick="checkout('REALESTATE_PRICE_ID', 'Real Estate Photography', 350)" 
+            class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
+            <i class="fas fa-camera mr-2"></i>Book Real Estate Shoot
           </button>
           
           <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
         </div>
         
       </div>
-      
-      <!-- Trust Badges -->
-      <div class="mt-16 text-center">
-        <div class="flex items-center justify-center gap-8 flex-wrap text-slate-400">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-lock text-[#4794A6]"></i>
-            <span>Secure Payment</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fas fa-shield-alt text-[#4794A6]"></i>
-            <span>Money-Back Guarantee</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fas fa-star text-[#4794A6]"></i>
-            <span>5-Star Rated</span>
-          </div>
-        </div>
-      </div>
-      
     </div>
   </section>
-  
-  <!-- FAQ -->
-  <section class="py-16 bg-slate-800/50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-      
-      <div class="max-w-3xl mx-auto space-y-6">
-        
-        <div class="glass-card rounded-xl p-6">
-          <h4 class="font-bold text-lg mb-2">📅 How do I schedule my session?</h4>
-          <p class="text-slate-300">After booking, you'll receive an email with a calendar link to choose your preferred date and time.</p>
-        </div>
-        
-        <div class="glass-card rounded-xl p-6">
-          <h4 class="font-bold text-lg mb-2">📸 What should I wear?</h4>
-          <p class="text-slate-300">We'll send you a style guide with outfit recommendations based on your session type and location.</p>
-        </div>
-        
-        <div class="glass-card rounded-xl p-6">
-          <h4 class="font-bold text-lg mb-2">🌟 Can I add more photos?</h4>
-          <p class="text-slate-300">Yes! Additional edited photos are available for $15 each after your session.</p>
-        </div>
-        
-        <div class="glass-card rounded-xl p-6">
-          <h4 class="font-bold text-lg mb-2">💳 What payment methods do you accept?</h4>
-          <p class="text-slate-300">We accept all major credit cards (Visa, Mastercard, Amex) via secure Stripe payment processing.</p>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer class="bg-slate-800 border-t border-slate-700 py-8">
-    <div class="container mx-auto px-4 text-center text-slate-400">
-      <p>&copy; 2026 Acromatico Photography. All rights reserved.</p>
-      <p class="mt-2">
-        <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a> • 
-        <a href="/terms" class="hover:text-white transition-colors ml-2">Terms of Service</a>
-      </p>
-    </div>
-  </footer>
   
   <!-- Loading Overlay -->
   <div id="loading" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
     <div class="text-center">
-      <div class="w-16 h-16 border-4 border-[#4794A6] border-t-transparent rounded-full animate-spin mb-4"></div>
-      <p class="text-white text-lg">Redirecting to secure checkout...</p>
+      <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-[#4794A6] mx-auto mb-4"></div>
+      <p class="text-xl text-white">Redirecting to secure checkout...</p>
     </div>
   </div>
   
   <script>
-    async function checkout(priceId, packageName, amount) {
+    // Stripe Price IDs (from Stripe Dashboard)
+    const PRICE_IDS = {
+      'WEDDING_PRICE_ID': 'price_1TIqnhDinAxxUzekFvej2UIZ',
+      'PORTRAIT_PRICE_ID': 'price_1TIqnhDinAxxUzekZHpWCHSY',
+      'EVENT_PRICE_ID': 'price_1TIqniDinAxxUzekh4VgC3sy',
+      'COMMERCIAL_PRICE_ID': 'price_1TIqniDinAxxUzekBmAgYr8f',
+      'REALESTATE_PRICE_ID': 'price_1TIqnjDinAxxUzek22CVTAst'
+    }
+    
+    async function checkout(priceKey, packageName, amount) {
       // Show loading
       document.getElementById('loading').classList.remove('hidden')
       
       try {
-        // IMPORTANT: Replace these Price IDs with your actual Stripe Price IDs
-        // Get them from: https://dashboard.stripe.com/test/products
+        // Get actual Stripe Price ID
+        const actualPriceId = PRICE_IDS[priceKey]
         
-        const priceMap = {
-          'HEADSHOT_PRICE_ID': 'price_1TFunBDinAxxUzekHLh7bzpl',
-          'SIGNATURE_PRICE_ID': 'price_1TFunCDinAxxUzekotTmy8vP',
-          'PREMIUM_PRICE_ID': 'price_1TFunCDinAxxUzekUgqn4Ih1'
+        if (!actualPriceId) {
+          alert('Error: Invalid package selected')
+          document.getElementById('loading').classList.add('hidden')
+          return
         }
-        
-        const actualPriceId = priceMap[priceId]
         
         // Create checkout session
         const response = await fetch('/api/payments/create-checkout-session', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json'
+          },
           body: JSON.stringify({
             priceId: actualPriceId,
             quantity: 1,
