@@ -618,7 +618,7 @@
                 <div style="margin-bottom: 16px;">✓ The exact shots you need</div>
                 <div style="font-size: 13px; color: var(--secondary); border-top: 1px solid #e0e0e0; padding-top: 12px; margin-top: 16px;">
                   <div>📍 1 location</div>
-                  <div>📸 20+ edited photos</div>
+                  <div>📸 25+ fully edited images</div>
                   <div>☁️ Private online gallery</div>
                 </div>
               </div>
@@ -637,15 +637,11 @@
                 <div style="margin-bottom: 8px;">✓ Maternity portraits</div>
                 <div style="margin-bottom: 16px;">✓ Relaxed, natural photos</div>
                 <div style="font-size: 13px; color: var(--secondary); border-top: 1px solid #e0e0e0; padding-top: 12px; margin-top: 16px;">
-                  <div>📍 1-2 locations</div>
-                  <div>📸 40+ edited photos</div>
+                  <div>📍 1 location</div>
+                  <div>📸 75+ fully edited images</div>
                   <div>👗 1 outfit change</div>
                   <div>☁️ Private online gallery</div>
                 </div>
-              </div>
-              <div style="background: rgba(71, 148, 166, 0.1); border-radius: 8px; padding: 12px; margin-top: 16px; text-align: center;">
-                <div style="font-size: 12px; color: var(--accent); font-weight: 600;">BEST VALUE</div>
-                <div style="font-size: 11px; color: #666;">Save $100 vs. 2 mini sessions</div>
               </div>
             </div>
             
@@ -661,26 +657,19 @@
                 <div style="margin-bottom: 8px;">✓ Multi-generation portraits</div>
                 <div style="margin-bottom: 16px;">✓ Special occasions</div>
                 <div style="font-size: 13px; color: var(--secondary); border-top: 1px solid #e0e0e0; padding-top: 12px; margin-top: 16px;">
-                  <div>📍 2-3 locations</div>
-                  <div>📸 80+ edited photos</div>
+                  <div>📍 1-2 locations</div>
+                  <div>📸 150+ fully edited images</div>
                   <div>👗 Multiple outfit changes</div>
                   <div>☁️ Private online gallery</div>
                   <div>⭐ Priority scheduling</div>
+                  <div>⚡ 1-week priority delivery</div>
                 </div>
+              </div>
+              <div style="background: rgba(71, 148, 166, 0.1); border-radius: 8px; padding: 12px; margin-top: 16px; text-align: center;">
+                <div style="font-size: 12px; color: var(--accent); font-weight: 600;">BEST VALUE</div>
               </div>
             </div>
             
-          </div>
-          
-          <!-- REFERRAL CODE -->
-          <div style="margin-top: 48px; background: linear-gradient(135deg, rgba(71, 148, 166, 0.05), rgba(71, 148, 166, 0.02)); border: 2px dashed rgba(71, 148, 166, 0.3); border-radius: 16px; padding: 32px; text-align: center;">
-            <div style="font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">🎁 Have a referral code?</div>
-            <p style="font-size: 14px; color: var(--secondary); margin-bottom: 20px;">Enter it below to receive a FREE 8×12 print ($45 value)</p>
-            <div style="max-width: 400px; margin: 0 auto; display: flex; gap: 12px;">
-              <input type="text" id="referralCode" placeholder="Enter code" style="flex: 1; padding: 14px 20px; font-size: 15px; border: 2px solid #e0e0e0; border-radius: 12px; transition: all 0.3s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='#e0e0e0'">
-              <button onclick="applyReferralCode()" style="padding: 14px 28px; background: var(--accent); color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#5aa5b8'" onmouseout="this.style.background='var(--accent)'">Apply</button>
-            </div>
-            <div id="referralMessage" style="margin-top: 16px; font-size: 14px; font-weight: 600; display: none;"></div>
           </div>
           
           <div class="button-group" style="margin-top: 48px;">
@@ -1247,6 +1236,17 @@
             <span style="float: right; font-size: 24px; font-weight: 500; color: var(--accent);">$<span id="amount_full">0</span></span>
             <div style="font-size: 13px; color: var(--secondary); margin-top: 8px; margin-left: 32px;">Complete payment today</div>
           </label>
+        </div>
+
+        <!-- REFERRAL CODE -->
+        <div style="background: linear-gradient(135deg, rgba(71, 148, 166, 0.05), rgba(71, 148, 166, 0.02)); border: 2px dashed rgba(71, 148, 166, 0.3); border-radius: 16px; padding: 28px; margin-bottom: 32px; text-align: center;">
+          <div style="font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">🎁 Have a referral code?</div>
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 20px;">Enter it below to receive a FREE 8×12 print ($45 value)</p>
+          <div style="max-width: 400px; margin: 0 auto; display: flex; gap: 12px;">
+            <input type="text" id="referralCode" placeholder="Enter code" style="flex: 1; padding: 14px 20px; font-size: 15px; border: 2px solid #e0e0e0; border-radius: 12px; transition: all 0.3s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='#e0e0e0'">
+            <button onclick="applyReferralCode()" style="padding: 14px 28px; background: var(--accent); color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#5aa5b8'" onmouseout="this.style.background='var(--accent)'">Apply</button>
+          </div>
+          <div id="referralMessage" style="margin-top: 16px; font-size: 14px; font-weight: 600; display: none;"></div>
         </div>
 
         <!-- PAYMENT METHODS -->
