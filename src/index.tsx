@@ -3482,6 +3482,14 @@ app.get('/education', (c) => {
                 </div>
               </div>
             </div>
+
+            {/* Continue Button */}
+            <button 
+              onclick="selectPackage(parseInt(document.getElementById('student-slider').value))" 
+              class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-full transition text-lg mt-6"
+            >
+              Continue to Payment →
+            </button>
           </div>
 
           {/* STEP 3: Payment */}
@@ -4865,6 +4873,14 @@ app.get('/academy', (c) =>
                 </div>
               </div>
             </div>
+
+            {/* Continue Button */}
+            <button 
+              onclick="selectPackage(parseInt(document.getElementById('student-slider').value))" 
+              class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-full transition text-lg mt-6"
+            >
+              Continue to Payment →
+            </button>
           </div>
 
           {/* STEP 3: Payment */}
@@ -9501,6 +9517,14 @@ app.get('/faq', (c) =>
                 </div>
               </div>
             </div>
+
+            {/* Continue Button */}
+            <button 
+              onclick="selectPackage(parseInt(document.getElementById('student-slider').value))" 
+              class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-full transition text-lg mt-6"
+            >
+              Continue to Payment →
+            </button>
           </div>
 
           {/* STEP 3: Payment */}
