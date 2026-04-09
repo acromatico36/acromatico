@@ -3501,16 +3501,30 @@ app.get('/education', (c) => {
               <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
             </div>
 
-            {/* Payment Form */}
+            {/* Payment Button with Stripe */}
             <div class="space-y-4 mb-6">
-              <div class="bg-gray-900 border-2 border-gray-800 rounded-xl p-6">
-                <p class="text-sm text-gray-400">Stripe payment form will appear here</p>
-              </div>
+              <button onclick="completeEnrollment()" class="w-full bg-white hover:bg-gray-50 text-gray-900 font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-4 border-2 border-gray-200 hover:border-teal-500 transition-all shadow-lg" id="stripe-checkout-btn">
+                <div class="flex items-center gap-3">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M3 10h18" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <div class="text-left">
+                    <div class="text-xl font-bold">Pay with Card</div>
+                    <div class="text-sm text-gray-600 font-normal">Secure payment via Stripe • <span id="stripe-amount">$0</span></div>
+                  </div>
+                </div>
+                <div class="ml-auto flex items-center gap-2 text-sm text-gray-500">
+                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">Apple Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">G Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">+more</span>
+                </div>
+              </button>
+              <p class="text-xs text-center text-gray-500">
+                <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                256-bit SSL Encryption • Your data is secure
+              </p>
             </div>
-
-            <button onclick="completeEnrollment()" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
-              Complete Enrollment 🎉
-            </button>
           </div>
 
           {/* Close Button */}
@@ -3662,6 +3676,12 @@ app.get('/education', (c) => {
           // Update the label and savings display
           document.getElementById('summary-label').textContent = chargeLabel;
           
+          // Update Stripe button amount
+          const stripeAmountEl = document.getElementById('stripe-amount');
+          if (stripeAmountEl) {
+            stripeAmountEl.textContent = '$' + totalCharge.toFixed(2);
+          }
+          
           if (isAnnual) {
             document.getElementById('savings-display').classList.remove('hidden');
             document.getElementById('summary-savings').textContent = '-$' + yearlySavings.toFixed(2);
@@ -3675,7 +3695,7 @@ app.get('/education', (c) => {
           setTimeout(() => goToStep(3), 300);
         }
 
-        function completeEnrollment() {
+        async function completeEnrollment() {
           const email = document.getElementById('parent-email').value;
           const password = document.getElementById('parent-password').value;
           
@@ -3689,8 +3709,52 @@ app.get('/education', (c) => {
           const monthlyTotal = pricePerStudent * selectedStudents;
           const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
           
-          alert('🎉 Enrollment Complete!\\n\\nEmail: ' + email + '\\nPackage: ' + selectedStudents + ' students at $' + pricePerStudent + '/mo each\\nBilling: ' + billingType + '\\nTotal: $' + totalCharge.toFixed(2) + '\\n\\nStripe integration will be added next!');
-          closeEnrollment();
+          // Show loading state
+          const btn = document.getElementById('stripe-checkout-btn');
+          const originalHTML = btn.innerHTML;
+          btn.disabled = true;
+          btn.innerHTML = '<div class="flex items-center gap-2"><svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Redirecting to Stripe...</span></div>';
+          
+          try {
+            // Create Stripe checkout session
+            const response = await fetch('/api/payments/create-checkout-session', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                amount: totalCharge,
+                productName: selectedStudents + ' Student' + (selectedStudents > 1 ? 's' : '') + ' - ' + billingType,
+                customerEmail: email,
+                paymentMode: isAnnual ? 'payment' : 'subscription',
+                successUrl: window.location.origin + '/payment/success?session_id={CHECKOUT_SESSION_ID}',
+                cancelUrl: window.location.origin + '/education',
+                metadata: {
+                  product_type: 'education',
+                  students: selectedStudents,
+                  price_per_student: pricePerStudent,
+                  billing_type: billingType,
+                  monthly_total: monthlyTotal,
+                  total_charge: totalCharge,
+                  parent_email: email,
+                  source: 'enrollment_modal'
+                }
+              })
+            });
+            
+            const data = await response.json();
+            
+            if (data.error) {
+              throw new Error(data.error);
+            }
+            
+            // Redirect to Stripe Checkout
+            window.location.href = data.url;
+            
+          } catch (error) {
+            console.error('Checkout error:', error);
+            alert('Payment error: ' + error.message + '\\n\\nPlease try again or contact support at italo@acromatico.com');
+            btn.disabled = false;
+            btn.innerHTML = originalHTML;
+          }
         }
 
         // Update all "Enroll Now" and "Start Creating Today" buttons
@@ -4738,16 +4802,30 @@ app.get('/academy', (c) =>
               <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
             </div>
 
-            {/* Payment Form */}
+            {/* Payment Button with Stripe */}
             <div class="space-y-4 mb-6">
-              <div class="bg-gray-900 border-2 border-gray-800 rounded-xl p-6">
-                <p class="text-sm text-gray-400">Stripe payment form will appear here</p>
-              </div>
+              <button onclick="completeEnrollment()" class="w-full bg-white hover:bg-gray-50 text-gray-900 font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-4 border-2 border-gray-200 hover:border-teal-500 transition-all shadow-lg" id="stripe-checkout-btn">
+                <div class="flex items-center gap-3">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M3 10h18" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <div class="text-left">
+                    <div class="text-xl font-bold">Pay with Card</div>
+                    <div class="text-sm text-gray-600 font-normal">Secure payment via Stripe • <span id="stripe-amount">$0</span></div>
+                  </div>
+                </div>
+                <div class="ml-auto flex items-center gap-2 text-sm text-gray-500">
+                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">Apple Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">G Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">+more</span>
+                </div>
+              </button>
+              <p class="text-xs text-center text-gray-500">
+                <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                256-bit SSL Encryption • Your data is secure
+              </p>
             </div>
-
-            <button onclick="completeEnrollment()" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
-              Complete Enrollment 🎉
-            </button>
           </div>
 
           {/* Close Button */}
@@ -4898,6 +4976,12 @@ app.get('/academy', (c) =>
           
           // Update the label and savings display
           document.getElementById('summary-label').textContent = chargeLabel;
+          
+          // Update Stripe button amount
+          const stripeAmountEl = document.getElementById('stripe-amount');
+          if (stripeAmountEl) {
+            stripeAmountEl.textContent = '$' + totalCharge.toFixed(2);
+          }
           
           if (isAnnual) {
             document.getElementById('savings-display').classList.remove('hidden');
@@ -9272,16 +9356,30 @@ app.get('/faq', (c) =>
               <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
             </div>
 
-            {/* Payment Form */}
+            {/* Payment Button with Stripe */}
             <div class="space-y-4 mb-6">
-              <div class="bg-gray-900 border-2 border-gray-800 rounded-xl p-6">
-                <p class="text-sm text-gray-400">Stripe payment form will appear here</p>
-              </div>
+              <button onclick="completeEnrollment()" class="w-full bg-white hover:bg-gray-50 text-gray-900 font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-4 border-2 border-gray-200 hover:border-teal-500 transition-all shadow-lg" id="stripe-checkout-btn">
+                <div class="flex items-center gap-3">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M3 10h18" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <div class="text-left">
+                    <div class="text-xl font-bold">Pay with Card</div>
+                    <div class="text-sm text-gray-600 font-normal">Secure payment via Stripe • <span id="stripe-amount">$0</span></div>
+                  </div>
+                </div>
+                <div class="ml-auto flex items-center gap-2 text-sm text-gray-500">
+                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">Apple Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">G Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">+more</span>
+                </div>
+              </button>
+              <p class="text-xs text-center text-gray-500">
+                <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                256-bit SSL Encryption • Your data is secure
+              </p>
             </div>
-
-            <button onclick="completeEnrollment()" class="btn-primary w-full px-8 py-5 rounded-full text-xl font-bold" style="background: #4794A6;">
-              Complete Enrollment 🎉
-            </button>
           </div>
 
           {/* Close Button */}
@@ -9432,6 +9530,12 @@ app.get('/faq', (c) =>
           
           // Update the label and savings display
           document.getElementById('summary-label').textContent = chargeLabel;
+          
+          // Update Stripe button amount
+          const stripeAmountEl = document.getElementById('stripe-amount');
+          if (stripeAmountEl) {
+            stripeAmountEl.textContent = '$' + totalCharge.toFixed(2);
+          }
           
           if (isAnnual) {
             document.getElementById('savings-display').classList.remove('hidden');
