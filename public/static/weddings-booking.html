@@ -1077,22 +1077,13 @@
         <div style="background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 28px; margin-bottom: 32px;">
           <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px; color: #333;">Select Payment Method</h3>
           
-          <!-- Credit Card with Stripe -->
+          <!-- Credit Card with Stripe (includes Apple Pay, Google Pay, Klarna, etc.) -->
           <button onclick="payWithStripe()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
-            <span>💳 Credit/Debit Card (Stripe)</span>
+            <div>
+              <div style="margin-bottom: 6px;">💳 Credit/Debit Card (Stripe)</div>
+              <div style="font-size: 12px; color: #666; font-weight: 400;">Apple Pay, Google Pay, Klarna, Affirm & more available at checkout</div>
+            </div>
             <span style="font-size: 24px; font-weight: 600; color: var(--accent);">$<span id="selectedAmount">0</span></span>
-          </button>
-
-          <!-- Apple Pay -->
-          <button onclick="payWithApplePay()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
-            <span> Apple Pay</span>
-            <span style="font-size: 24px; font-weight: 600; color: var(--accent);">$<span id="selectedAmount2">0</span></span>
-          </button>
-
-          <!-- Google Pay -->
-          <button onclick="payWithGooglePay()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
-            <span>🅖 Google Pay</span>
-            <span style="font-size: 24px; font-weight: 600; color: var(--accent);">$<span id="selectedAmount3">0</span></span>
           </button>
 
           <!-- Manual Payment Methods -->
@@ -2306,19 +2297,7 @@
       }
     }
     
-    function payWithApplePay() {
-      console.log(' Initiating Apple Pay for $' + selectedPaymentAmount.toLocaleString());
-      alert(` Apple Pay\n\nAmount: $${selectedPaymentAmount.toLocaleString()}\n\n✅ This will open Apple Pay sheet.\n\n(Apple Pay integration coming next!)`);
-      
-      // TODO: Implement Apple Pay
-    }
-    
-    function payWithGooglePay() {
-      console.log('🅖 Initiating Google Pay for $' + selectedPaymentAmount.toLocaleString());
-      alert(`🅖 Google Pay\n\nAmount: $${selectedPaymentAmount.toLocaleString()}\n\n✅ This will open Google Pay sheet.\n\n(Google Pay integration coming next!)`);
-      
-      // TODO: Implement Google Pay
-    }
+
   </script>
 
 </body>
