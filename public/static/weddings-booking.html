@@ -2230,10 +2230,8 @@
     }
     
     function updateSelectedAmountDisplay() {
-      // Update all payment method buttons
+      // Update payment method button (only Stripe now)
       document.getElementById('selectedAmount').textContent = selectedPaymentAmount.toLocaleString();
-      document.getElementById('selectedAmount2').textContent = selectedPaymentAmount.toLocaleString();
-      document.getElementById('selectedAmount3').textContent = selectedPaymentAmount.toLocaleString();
       
       // Update manual payment methods
       const manualAmounts = document.querySelectorAll('.manualAmount');
