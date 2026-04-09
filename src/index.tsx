@@ -3565,11 +3565,18 @@ app.get('/education', (c) => {
         const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
         
         function calculatePrice(students, isAnnual) {
-          let total = BASE_MONTHLY_PRICE; // First student
+          let total = 0;
           
-          // Add additional students with 10% compounding discount
-          for (let i = 2; i <= students; i++) {
-            total += BASE_MONTHLY_PRICE * (1 - (SIBLING_DISCOUNT * (i - 1)));
+          // Calculate total: if multiple students, everyone gets the sibling discount
+          if (students === 1) {
+            total = BASE_MONTHLY_PRICE; // $100 for single student
+          } else {
+            // With siblings, everyone pays discounted rate
+            // 2 students = 5% off = $95 each = $190 total
+            // 3 students = 10% off = $90 each = $270 total
+            const discountRate = (students - 1) * SIBLING_DISCOUNT;
+            const pricePerStudent = BASE_MONTHLY_PRICE * (1 - discountRate);
+            total = pricePerStudent * students;
           }
           
           // Apply annual discount if selected
@@ -4956,11 +4963,18 @@ app.get('/academy', (c) =>
         const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
         
         function calculatePrice(students, isAnnual) {
-          let total = BASE_MONTHLY_PRICE; // First student
+          let total = 0;
           
-          // Add additional students with 10% compounding discount
-          for (let i = 2; i <= students; i++) {
-            total += BASE_MONTHLY_PRICE * (1 - (SIBLING_DISCOUNT * (i - 1)));
+          // Calculate total: if multiple students, everyone gets the sibling discount
+          if (students === 1) {
+            total = BASE_MONTHLY_PRICE; // $100 for single student
+          } else {
+            // With siblings, everyone pays discounted rate
+            // 2 students = 5% off = $95 each = $190 total
+            // 3 students = 10% off = $90 each = $270 total
+            const discountRate = (students - 1) * SIBLING_DISCOUNT;
+            const pricePerStudent = BASE_MONTHLY_PRICE * (1 - discountRate);
+            total = pricePerStudent * students;
           }
           
           // Apply annual discount if selected
@@ -9600,11 +9614,18 @@ app.get('/faq', (c) =>
         const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
         
         function calculatePrice(students, isAnnual) {
-          let total = BASE_MONTHLY_PRICE; // First student
+          let total = 0;
           
-          // Add additional students with 10% compounding discount
-          for (let i = 2; i <= students; i++) {
-            total += BASE_MONTHLY_PRICE * (1 - (SIBLING_DISCOUNT * (i - 1)));
+          // Calculate total: if multiple students, everyone gets the sibling discount
+          if (students === 1) {
+            total = BASE_MONTHLY_PRICE; // $100 for single student
+          } else {
+            // With siblings, everyone pays discounted rate
+            // 2 students = 5% off = $95 each = $190 total
+            // 3 students = 10% off = $90 each = $270 total
+            const discountRate = (students - 1) * SIBLING_DISCOUNT;
+            const pricePerStudent = BASE_MONTHLY_PRICE * (1 - discountRate);
+            total = pricePerStudent * students;
           }
           
           // Apply annual discount if selected
