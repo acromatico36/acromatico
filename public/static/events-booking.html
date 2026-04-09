@@ -1191,8 +1191,8 @@
       const contractEventTypeEl = document.getElementById('contractEventType');
       const contractLocationEl = document.getElementById('contractLocation');
       
-      if (contractNameEl) contractNameEl.textContent = booking.clientName || 'Client';
-      if (contractEmailEl) contractEmailEl.textContent = booking.clientEmail || '';
+      if (contractNameEl) contractNameEl.textContent = booking.contactName || 'Client';
+      if (contractEmailEl) contractEmailEl.textContent = booking.contactEmail || '';
       if (contractCompanyEl) contractCompanyEl.textContent = booking.company || 'N/A';
       if (contractEventNameEl) contractEventNameEl.textContent = booking.eventName || 'TBD';
       if (contractEventDateEl) contractEventDateEl.textContent = booking.eventDate || 'TBD';
@@ -1239,7 +1239,21 @@
       if (depositAmountEl) depositAmountEl.textContent = deposit.toLocaleString();
       if (fullAmountEl) fullAmountEl.textContent = total.toLocaleString();
       
-      console.log('✅ Events contract preview filled with total:', total);
+      // Initialize payment amount (default to deposit)
+      selectedPaymentAmount = deposit;
+      selectedPaymentOption = 'deposit';
+      
+      // Update all payment displays
+      document.querySelectorAll('.selectedPaymentAmount').forEach(el => {
+        el.textContent = deposit.toLocaleString();
+      });
+      
+      const stripeAmountEl = document.getElementById('selectedStripeAmount');
+      if (stripeAmountEl) {
+        stripeAmountEl.textContent = deposit.toLocaleString();
+      }
+      
+      console.log('✅ Events contract preview filled with total:', total, 'deposit:', deposit);
     }
 
     function nextStep(step) {
