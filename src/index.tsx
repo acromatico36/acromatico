@@ -3362,11 +3362,11 @@ app.get('/education', (c) => {
             <h2 class="text-3xl font-black mb-2 text-center">How Many Students?</h2>
             <p class="text-base text-gray-400 mb-8 text-center">Slide to see your savings</p>
             
-            {/* BIG PRICE DISPLAY - Focus on per-class cost */}
+            {/* BIG PRICE DISPLAY - Focus on per-class per-student cost */}
             <div class="text-center mb-8">
               <div class="text-8xl font-black mb-2" id="big-price-display">$12.50</div>
-              <div class="text-xl text-gray-400 mb-4">per class</div>
-              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month</div>
+              <div class="text-xl text-gray-400 mb-4">per class per student</div>
+              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month per student</div>
               <div class="text-sm text-gray-500 mt-2" id="student-count-text">1 student • 8 live classes</div>
               <div class="text-sm text-teal-500 mt-1 hidden" id="sibling-discount-text"></div>
             </div>
@@ -3683,14 +3683,14 @@ app.get('/education', (c) => {
           
           // Calculate pricing
           const monthlyTotal = calculatePrice(students, isAnnual);
-          const perClass = monthlyTotal / 8;
+          const perStudentPerMonth = monthlyTotal / students;
+          const perStudentPerClass = perStudentPerMonth / 8;
           
-          // Update BIG price display (per-class cost)
-          document.getElementById('big-price-display').textContent = '$' + perClass.toFixed(2);
+          // Update BIG price display (per-class cost PER STUDENT)
+          document.getElementById('big-price-display').textContent = '$' + perStudentPerClass.toFixed(2);
           
-          // Update monthly price
-          const monthlyPrice = isAnnual ? monthlyTotal : monthlyTotal;
-          document.getElementById('monthly-price-display').textContent = '$' + monthlyPrice.toFixed(0) + '/month';
+          // Update monthly price (PER STUDENT)
+          document.getElementById('monthly-price-display').textContent = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
           
           // Update student count text
           const studentText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
@@ -4745,11 +4745,11 @@ app.get('/academy', (c) =>
             <h2 class="text-3xl font-black mb-2 text-center">How Many Students?</h2>
             <p class="text-base text-gray-400 mb-8 text-center">Slide to see your savings</p>
             
-            {/* BIG PRICE DISPLAY - Focus on per-class cost */}
+            {/* BIG PRICE DISPLAY - Focus on per-class per-student cost */}
             <div class="text-center mb-8">
               <div class="text-8xl font-black mb-2" id="big-price-display">$12.50</div>
-              <div class="text-xl text-gray-400 mb-4">per class</div>
-              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month</div>
+              <div class="text-xl text-gray-400 mb-4">per class per student</div>
+              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month per student</div>
               <div class="text-sm text-gray-500 mt-2" id="student-count-text">1 student • 8 live classes</div>
               <div class="text-sm text-teal-500 mt-1 hidden" id="sibling-discount-text"></div>
             </div>
@@ -5066,14 +5066,14 @@ app.get('/academy', (c) =>
           
           // Calculate pricing
           const monthlyTotal = calculatePrice(students, isAnnual);
-          const perClass = monthlyTotal / 8;
+          const perStudentPerMonth = monthlyTotal / students;
+          const perStudentPerClass = perStudentPerMonth / 8;
           
-          // Update BIG price display (per-class cost)
-          document.getElementById('big-price-display').textContent = '$' + perClass.toFixed(2);
+          // Update BIG price display (per-class cost PER STUDENT)
+          document.getElementById('big-price-display').textContent = '$' + perStudentPerClass.toFixed(2);
           
-          // Update monthly price
-          const monthlyPrice = isAnnual ? monthlyTotal : monthlyTotal;
-          document.getElementById('monthly-price-display').textContent = '$' + monthlyPrice.toFixed(0) + '/month';
+          // Update monthly price (PER STUDENT)
+          document.getElementById('monthly-price-display').textContent = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
           
           // Update student count text
           const studentText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
@@ -9381,11 +9381,11 @@ app.get('/faq', (c) =>
             <h2 class="text-3xl font-black mb-2 text-center">How Many Students?</h2>
             <p class="text-base text-gray-400 mb-8 text-center">Slide to see your savings</p>
             
-            {/* BIG PRICE DISPLAY - Focus on per-class cost */}
+            {/* BIG PRICE DISPLAY - Focus on per-class per-student cost */}
             <div class="text-center mb-8">
               <div class="text-8xl font-black mb-2" id="big-price-display">$12.50</div>
-              <div class="text-xl text-gray-400 mb-4">per class</div>
-              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month</div>
+              <div class="text-xl text-gray-400 mb-4">per class per student</div>
+              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month per student</div>
               <div class="text-sm text-gray-500 mt-2" id="student-count-text">1 student • 8 live classes</div>
               <div class="text-sm text-teal-500 mt-1 hidden" id="sibling-discount-text"></div>
             </div>
@@ -9702,14 +9702,14 @@ app.get('/faq', (c) =>
           
           // Calculate pricing
           const monthlyTotal = calculatePrice(students, isAnnual);
-          const perClass = monthlyTotal / 8;
+          const perStudentPerMonth = monthlyTotal / students;
+          const perStudentPerClass = perStudentPerMonth / 8;
           
-          // Update BIG price display (per-class cost)
-          document.getElementById('big-price-display').textContent = '$' + perClass.toFixed(2);
+          // Update BIG price display (per-class cost PER STUDENT)
+          document.getElementById('big-price-display').textContent = '$' + perStudentPerClass.toFixed(2);
           
-          // Update monthly price
-          const monthlyPrice = isAnnual ? monthlyTotal : monthlyTotal;
-          document.getElementById('monthly-price-display').textContent = '$' + monthlyPrice.toFixed(0) + '/month';
+          // Update monthly price (PER STUDENT)
+          document.getElementById('monthly-price-display').textContent = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
           
           // Update student count text
           const studentText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
