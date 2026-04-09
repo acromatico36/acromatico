@@ -1733,6 +1733,97 @@
       nextStep(2);
     }
 
+    function fillContractPreview() {
+      console.log('📄 Filling contract preview...');
+      
+      // Fill contract details
+      const contractNameEl = document.getElementById('contractName');
+      const contractEmailEl = document.getElementById('contractEmail');
+      const contractSessionDateEl = document.getElementById('contractSessionDate');
+      const contractSessionDate2El = document.getElementById('contractSessionDate2');
+      const contractLocationEl = document.getElementById('contractLocation');
+      
+      if (contractNameEl) contractNameEl.textContent = booking.name || 'Client';
+      if (contractEmailEl) contractEmailEl.textContent = booking.email || '';
+      if (contractSessionDateEl) contractSessionDateEl.textContent = booking.date || 'TBD';
+      if (contractSessionDate2El) contractSessionDate2El.textContent = booking.date || 'TBD';
+      if (contractLocationEl) contractLocationEl.textContent = booking.location || 'TBD';
+      
+      // Show package name with price
+      let packageDisplay = 'Not selected';
+      if (booking.package === 'custom') {
+        packageDisplay = `Custom Build - ${booking.coverageHours} hours - $${booking.packagePrice.toLocaleString()}`;
+      } else if (booking.package) {
+        const packageName = booking.package.replace(/-/g, ' ').replace(/session/i, 'Session');
+        packageDisplay = packageName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ` - $${booking.packagePrice.toLocaleString()}`;
+      }
+      const contractPackageEl = document.getElementById('contractPackage');
+      if (contractPackageEl) contractPackageEl.textContent = packageDisplay;
+      
+      // Show upgrades (memory book, prints, album)
+      const contractUpgradesEl = document.getElementById('contractUpgrades');
+      if (contractUpgradesEl) {
+        let upgradesHTML = '';
+        
+        // Add memory book if selected
+        if (booking.memoryBook && booking.memoryBookPrice > 0) {
+          upgradesHTML += `<p style="margin-bottom: 8px;">• ${booking.memoryBook} Memory Book: $${booking.memoryBookPrice.toLocaleString()}</p>`;
+        }
+        
+        // Add prints if selected
+        if (booking.prints && booking.prints.length > 0) {
+          booking.prints.forEach(print => {
+            upgradesHTML += `<p style="margin-bottom: 8px;">• ${print.name}: $${print.price.toLocaleString()}</p>`;
+          });
+        }
+        
+        // Add album if selected
+        if (booking.album && booking.albumPrice > 0) {
+          upgradesHTML += `<p style="margin-bottom: 8px;">• ${booking.album} Album: $${booking.albumPrice.toLocaleString()}</p>`;
+        }
+        
+        // Add other upgrades
+        if (booking.upgrades && booking.upgrades.length > 0) {
+          booking.upgrades.forEach(u => {
+            upgradesHTML += `<p style="margin-bottom: 8px;">• ${u.key}: $${u.price.toLocaleString()}</p>`;
+          });
+        }
+        
+        contractUpgradesEl.innerHTML = upgradesHTML || '<p style="margin-bottom: 8px; color: #999;">No additional items</p>';
+      }
+      
+      // Calculate and show total
+      const total = booking.packagePrice + booking.memoryBookPrice + booking.printsPrice + booking.albumPrice + (booking.upgrades ? booking.upgrades.reduce((sum, u) => sum + u.price, 0) : 0);
+      const contractTotalEl = document.getElementById('contractTotal');
+      if (contractTotalEl) contractTotalEl.textContent = total.toLocaleString();
+      
+      // Calculate 2-payment schedule
+      const payment1 = Math.round(total / 2);
+      const payment2 = total - payment1;
+      
+      // Calculate payment dates
+      const today = new Date();
+      const payment1DateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      
+      const sessionDate = new Date(booking.date || Date.now());
+      const payment2Date = new Date(sessionDate);
+      payment2Date.setDate(payment2Date.getDate() - 3);
+      const payment2DateStr = payment2Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      
+      // Fill payment amounts and dates
+      const payment1AmountEl = document.getElementById('payment1Amount');
+      const payment2AmountEl = document.getElementById('payment2Amount');
+      const payment1DateEl = document.getElementById('payment1Date');
+      const payment2DateEl = document.getElementById('payment2Date');
+      
+      if (payment1AmountEl) payment1AmountEl.textContent = payment1.toLocaleString();
+      if (payment2AmountEl) payment2AmountEl.textContent = payment2.toLocaleString();
+      if (payment1DateEl) payment1DateEl.textContent = payment1DateStr;
+      if (payment2DateEl) payment2DateEl.textContent = payment2DateStr;
+      
+      console.log('✅ Contract preview filled with total:', total);
+    }
+
     function nextStep(step) {
       // Save data from previous step
       if (step === 7) {
@@ -1748,6 +1839,11 @@
         } else {
           booking.location = document.getElementById('city').value;
         }
+      }
+
+      // Pre-fill contract when entering step 6
+      if (step === 6) {
+        fillContractPreview();
       }
 
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));

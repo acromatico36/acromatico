@@ -1173,7 +1173,74 @@
     // STEP NAVIGATION
     let currentStep = 1;
 
+    function fillContractPreview() {
+      console.log('📄 Filling events contract preview...');
+      
+      const contractNameEl = document.getElementById('contractClientName');
+      const contractEmailEl = document.getElementById('contractClientEmail');
+      const contractCompanyEl = document.getElementById('contractCompany');
+      const contractEventNameEl = document.getElementById('contractEventName');
+      const contractEventDateEl = document.getElementById('contractEventDate');
+      const contractEventTypeEl = document.getElementById('contractEventType');
+      const contractLocationEl = document.getElementById('contractLocation');
+      
+      if (contractNameEl) contractNameEl.textContent = booking.clientName || 'Client';
+      if (contractEmailEl) contractEmailEl.textContent = booking.clientEmail || '';
+      if (contractCompanyEl) contractCompanyEl.textContent = booking.company || 'N/A';
+      if (contractEventNameEl) contractEventNameEl.textContent = booking.eventName || 'TBD';
+      if (contractEventDateEl) contractEventDateEl.textContent = booking.eventDate || 'TBD';
+      if (contractEventTypeEl) contractEventTypeEl.textContent = booking.eventType || 'TBD';
+      if (contractLocationEl) contractLocationEl.textContent = booking.location || 'TBD';
+      
+      // Show coverage package
+      let packageDisplay = booking.coveragePackage || 'Not selected';
+      const contractPackageEl = document.getElementById('contractCoverage');
+      if (contractPackageEl) contractPackageEl.textContent = packageDisplay;
+      
+      // Show services
+      const contractServicesEl = document.getElementById('contractServices');
+      if (contractServicesEl) {
+        let servicesHTML = '';
+        
+        if (booking.video && booking.videoPrice > 0) {
+          servicesHTML += `<p style="margin-bottom: 8px;">• ${booking.video}: $${booking.videoPrice.toLocaleString()}</p>`;
+        }
+        
+        if (booking.addons && booking.addons.length > 0) {
+          booking.addons.forEach(addon => {
+            servicesHTML += `<p style="margin-bottom: 8px;">• ${addon.name}: $${addon.price.toLocaleString()}</p>`;
+          });
+        }
+        
+        if (booking.usb && booking.usbPrice > 0) {
+          servicesHTML += `<p style="margin-bottom: 8px;">• USB Drive: $${booking.usbPrice.toLocaleString()}</p>`;
+        }
+        
+        contractServicesEl.innerHTML = servicesHTML || '<p style="margin-bottom: 8px; color: #999;">Coverage only</p>';
+      }
+      
+      // Calculate total
+      const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
+      const contractTotalEl = document.getElementById('contractTotal');
+      if (contractTotalEl) contractTotalEl.textContent = total.toLocaleString();
+      
+      // Payment amounts
+      const deposit = Math.round(total / 2);
+      const depositAmountEl = document.getElementById('depositAmount');
+      const fullAmountEl = document.getElementById('fullAmount');
+      
+      if (depositAmountEl) depositAmountEl.textContent = deposit.toLocaleString();
+      if (fullAmountEl) fullAmountEl.textContent = total.toLocaleString();
+      
+      console.log('✅ Events contract preview filled with total:', total);
+    }
+
     function nextStep(step) {
+      // Pre-fill contract when entering step 6
+      if (step === 6) {
+        fillContractPreview();
+      }
+      
       document.getElementById(`step${currentStep}`).classList.remove('active');
       currentStep = step;
       document.getElementById(`step${currentStep}`).classList.add('active');

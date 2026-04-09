@@ -1342,6 +1342,92 @@
       nextStep(2);
     }
 
+    function fillContractPreview() {
+      console.log('📄 Filling wedding contract preview...');
+      
+      const contractNameEl = document.getElementById('contractName');
+      const contractEmailEl = document.getElementById('contractEmail');
+      const contractWeddingDateEl = document.getElementById('contractWeddingDate');
+      const contractWeddingDate2El = document.getElementById('contractWeddingDate2');
+      const contractWeddingDate3El = document.getElementById('contractWeddingDate3');
+      const contractVenueEl = document.getElementById('contractVenue');
+      
+      if (contractNameEl) contractNameEl.textContent = booking.name || 'Client';
+      if (contractEmailEl) contractEmailEl.textContent = booking.email || '';
+      if (contractWeddingDateEl) contractWeddingDateEl.textContent = booking.date || 'TBD';
+      if (contractWeddingDate2El) contractWeddingDate2El.textContent = booking.date || 'TBD';
+      if (contractWeddingDate3El) contractWeddingDate3El.textContent = booking.date || 'TBD';
+      if (contractVenueEl) contractVenueEl.textContent = booking.venue || 'TBD';
+      
+      // Show package
+      let packageDisplay = 'Not selected';
+      if (booking.package === 'custom') {
+        packageDisplay = `Custom Build - ${booking.coverageHours} hours - $${booking.packagePrice.toLocaleString()}`;
+      } else if (booking.package) {
+        const packageName = booking.package.replace(/-/g, ' ');
+        packageDisplay = packageName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ` - $${booking.packagePrice.toLocaleString()}`;
+      }
+      const contractPackageEl = document.getElementById('contractPackage');
+      if (contractPackageEl) contractPackageEl.textContent = packageDisplay;
+      
+      // Show upgrades
+      const contractUpgradesEl = document.getElementById('contractUpgrades');
+      if (contractUpgradesEl) {
+        let upgradesHTML = '';
+        
+        if (booking.album && booking.albumPrice > 0) {
+          upgradesHTML += `<p style="margin-bottom: 8px;">• ${booking.album} Album: $${booking.albumPrice.toLocaleString()}</p>`;
+        }
+        
+        if (booking.upgrades && booking.upgrades.length > 0) {
+          booking.upgrades.forEach(u => {
+            upgradesHTML += `<p style="margin-bottom: 8px;">• ${u.key}: $${u.price.toLocaleString()}</p>`;
+          });
+        }
+        
+        contractUpgradesEl.innerHTML = upgradesHTML || '<p style="margin-bottom: 8px; color: #999;">No additional items</p>';
+      }
+      
+      // Calculate total
+      const total = booking.packagePrice + booking.albumPrice + (booking.upgrades ? booking.upgrades.reduce((sum, u) => sum + u.price, 0) : 0);
+      const contractTotalEl = document.getElementById('contractTotal');
+      const contractTotal2El = document.getElementById('contractTotal2');
+      if (contractTotalEl) contractTotalEl.textContent = total.toLocaleString();
+      if (contractTotal2El) contractTotal2El.textContent = total.toLocaleString();
+      
+      // Calculate 3-payment schedule
+      const payment1 = Math.round(total / 3);
+      const payment2 = Math.round(total / 3);
+      const payment3 = total - payment1 - payment2;
+      
+      // Payment dates
+      const today = new Date();
+      const weddingDate = new Date(booking.date || Date.now());
+      const midpoint = new Date(today.getTime() + (weddingDate.getTime() - today.getTime()) / 2);
+      const twoWeeksBefore = new Date(weddingDate);
+      twoWeeksBefore.setDate(twoWeeksBefore.getDate() - 14);
+      
+      const payment1DateStr = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      const payment2DateStr = midpoint.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      const payment3DateStr = twoWeeksBefore.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      
+      const payment1AmountEl = document.getElementById('payment1Amount');
+      const payment2AmountEl = document.getElementById('payment2Amount');
+      const payment3AmountEl = document.getElementById('payment3Amount');
+      const payment1DateEl = document.getElementById('payment1Date');
+      const payment2DateEl = document.getElementById('payment2Date');
+      const payment3DateEl = document.getElementById('payment3Date');
+      
+      if (payment1AmountEl) payment1AmountEl.textContent = payment1.toLocaleString();
+      if (payment2AmountEl) payment2AmountEl.textContent = payment2.toLocaleString();
+      if (payment3AmountEl) payment3AmountEl.textContent = payment3.toLocaleString();
+      if (payment1DateEl) payment1DateEl.textContent = payment1DateStr;
+      if (payment2DateEl) payment2DateEl.textContent = payment2DateStr;
+      if (payment3DateEl) payment3DateEl.textContent = payment3DateStr;
+      
+      console.log('✅ Wedding contract preview filled with total:', total);
+    }
+
     function nextStep(step) {
       // Save data from previous step
       if (step === 8) {
@@ -1356,6 +1442,11 @@
         } else {
           booking.venue = document.getElementById('city').value;
         }
+      }
+
+      // Pre-fill contract when entering step 8
+      if (step === 8) {
+        fillContractPreview();
       }
 
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
