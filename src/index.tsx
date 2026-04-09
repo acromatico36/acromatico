@@ -890,6 +890,27 @@ app.get('/payment-cancel', (c) => {
 app.post('/api/auth/signup', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
+    
+    // IMPORTANT: Auto-init database tables if they don't exist (for local development)
+    try {
+      await DB_EDUCATION.prepare(`
+        CREATE TABLE IF NOT EXISTS users (
+          id TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(16)))),
+          email TEXT UNIQUE NOT NULL,
+          password_hash TEXT NOT NULL,
+          role TEXT CHECK(role IN ('student', 'parent', 'client', 'instructor', 'admin')) NOT NULL,
+          first_name TEXT,
+          last_name TEXT,
+          stripe_customer_id TEXT,
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+          updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+      `).run()
+      await DB_EDUCATION.prepare('CREATE INDEX IF NOT EXISTS idx_users_email ON users(email)').run()
+    } catch (initError) {
+      console.log('Database init:', initError)
+    }
+    
     const body = await c.req.json()
     const { firstName, lastName, email, password, role, age } = body
     
