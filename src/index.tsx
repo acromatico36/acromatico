@@ -3580,16 +3580,25 @@ app.get('/education', (c) => {
                 <p class="text-gray-300 leading-relaxed">
                   <strong class="text-teal-500">6. ATTENDANCE & CONDUCT</strong><br/>
                   • Students expected to attend live sessions when possible<br/>
-                  • Respectful behavior required in all classes<br/>
-                  • Acromatico reserves right to remove disruptive students<br/>
+                  • Respectful, kind, and collaborative behavior required<br/>
+                  • <strong class="text-white">Disruptive behaviors include:</strong> bullying, inappropriate language, intentionally disrupting class, refusing to participate respectfully, or harassing other students/instructors<br/>
+                  • <strong class="text-white">Progressive discipline policy:</strong><br/>
+                  &nbsp;&nbsp;→ 1st incident: Verbal warning during class + email to parent<br/>
+                  &nbsp;&nbsp;→ 2nd incident: Parent discussion call + written warning<br/>
+                  &nbsp;&nbsp;→ 3rd incident: 1-week suspension from live classes (recordings still available)<br/>
+                  &nbsp;&nbsp;→ Continued violations: Removal from program with no refund<br/>
+                  • We work with parents to help students succeed, but safety and respect for all students is our priority<br/>
+                  • Severe violations (threats, harassment, illegal activity) may result in immediate removal<br/>
                   • No refunds for removal due to code of conduct violations
                 </p>
                 
                 <p class="text-gray-300 leading-relaxed">
                   <strong class="text-teal-500">7. CONTENT & INTELLECTUAL PROPERTY</strong><br/>
                   • All course materials remain property of Acromatico<br/>
-                  • Students retain rights to their created work<br/>
-                  • Acromatico may showcase student work with permission
+                  • Students retain rights to their created work and photographs<br/>
+                  • <strong class="text-white">Student Work Showcase:</strong> Parents can opt-in via Parent Portal to allow us to showcase student work on social media, website, and marketing materials<br/>
+                  • <strong class="text-white">Photo Release for Subjects:</strong> If students photograph people and wish to submit those images for showcase, a signed photo release from the photographed person (or their parent/guardian if under 18) must be uploaded via Parent Portal<br/>
+                  • Parents control all consent settings in their dashboard and can revoke permission at any time
                 </p>
                 
                 <p class="text-gray-300 leading-relaxed">
@@ -5257,16 +5266,25 @@ app.get('/academy', (c) =>
                 <p class="text-gray-300 leading-relaxed">
                   <strong class="text-teal-500">6. ATTENDANCE & CONDUCT</strong><br/>
                   • Students expected to attend live sessions when possible<br/>
-                  • Respectful behavior required in all classes<br/>
-                  • Acromatico reserves right to remove disruptive students<br/>
+                  • Respectful, kind, and collaborative behavior required<br/>
+                  • <strong class="text-white">Disruptive behaviors include:</strong> bullying, inappropriate language, intentionally disrupting class, refusing to participate respectfully, or harassing other students/instructors<br/>
+                  • <strong class="text-white">Progressive discipline policy:</strong><br/>
+                  &nbsp;&nbsp;→ 1st incident: Verbal warning during class + email to parent<br/>
+                  &nbsp;&nbsp;→ 2nd incident: Parent discussion call + written warning<br/>
+                  &nbsp;&nbsp;→ 3rd incident: 1-week suspension from live classes (recordings still available)<br/>
+                  &nbsp;&nbsp;→ Continued violations: Removal from program with no refund<br/>
+                  • We work with parents to help students succeed, but safety and respect for all students is our priority<br/>
+                  • Severe violations (threats, harassment, illegal activity) may result in immediate removal<br/>
                   • No refunds for removal due to code of conduct violations
                 </p>
                 
                 <p class="text-gray-300 leading-relaxed">
                   <strong class="text-teal-500">7. CONTENT & INTELLECTUAL PROPERTY</strong><br/>
                   • All course materials remain property of Acromatico<br/>
-                  • Students retain rights to their created work<br/>
-                  • Acromatico may showcase student work with permission
+                  • Students retain rights to their created work and photographs<br/>
+                  • <strong class="text-white">Student Work Showcase:</strong> Parents can opt-in via Parent Portal to allow us to showcase student work on social media, website, and marketing materials<br/>
+                  • <strong class="text-white">Photo Release for Subjects:</strong> If students photograph people and wish to submit those images for showcase, a signed photo release from the photographed person (or their parent/guardian if under 18) must be uploaded via Parent Portal<br/>
+                  • Parents control all consent settings in their dashboard and can revoke permission at any time
                 </p>
                 
                 <p class="text-gray-300 leading-relaxed">
@@ -10054,16 +10072,25 @@ app.get('/faq', (c) =>
                 <p class="text-gray-300 leading-relaxed">
                   <strong class="text-teal-500">6. ATTENDANCE & CONDUCT</strong><br/>
                   • Students expected to attend live sessions when possible<br/>
-                  • Respectful behavior required in all classes<br/>
-                  • Acromatico reserves right to remove disruptive students<br/>
+                  • Respectful, kind, and collaborative behavior required<br/>
+                  • <strong class="text-white">Disruptive behaviors include:</strong> bullying, inappropriate language, intentionally disrupting class, refusing to participate respectfully, or harassing other students/instructors<br/>
+                  • <strong class="text-white">Progressive discipline policy:</strong><br/>
+                  &nbsp;&nbsp;→ 1st incident: Verbal warning during class + email to parent<br/>
+                  &nbsp;&nbsp;→ 2nd incident: Parent discussion call + written warning<br/>
+                  &nbsp;&nbsp;→ 3rd incident: 1-week suspension from live classes (recordings still available)<br/>
+                  &nbsp;&nbsp;→ Continued violations: Removal from program with no refund<br/>
+                  • We work with parents to help students succeed, but safety and respect for all students is our priority<br/>
+                  • Severe violations (threats, harassment, illegal activity) may result in immediate removal<br/>
                   • No refunds for removal due to code of conduct violations
                 </p>
                 
                 <p class="text-gray-300 leading-relaxed">
                   <strong class="text-teal-500">7. CONTENT & INTELLECTUAL PROPERTY</strong><br/>
                   • All course materials remain property of Acromatico<br/>
-                  • Students retain rights to their created work<br/>
-                  • Acromatico may showcase student work with permission
+                  • Students retain rights to their created work and photographs<br/>
+                  • <strong class="text-white">Student Work Showcase:</strong> Parents can opt-in via Parent Portal to allow us to showcase student work on social media, website, and marketing materials<br/>
+                  • <strong class="text-white">Photo Release for Subjects:</strong> If students photograph people and wish to submit those images for showcase, a signed photo release from the photographed person (or their parent/guardian if under 18) must be uploaded via Parent Portal<br/>
+                  • Parents control all consent settings in their dashboard and can revoke permission at any time
                 </p>
                 
                 <p class="text-gray-300 leading-relaxed">
