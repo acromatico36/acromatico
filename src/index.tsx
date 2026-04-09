@@ -3381,50 +3381,49 @@ app.get('/education', (c) => {
                 <div class="text-3xl font-black mb-1">1</div>
                 <div class="text-gray-400 text-xs mb-2">Student</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$116</span>
-                  <span class="annual-price hidden">$93</span>
+                  <span class="monthly-price">$100</span>
+                  <span class="annual-price hidden">$80</span>
                   <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $230</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$14.50 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$11.63 per class</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.50 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$10 per class</div>
               </div>
               <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
                 <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-teal-500 px-2 py-0.5 rounded-full text-xs font-bold">Most Popular</div>
                 <div class="text-3xl font-black mb-1">2</div>
                 <div class="text-gray-400 text-xs mb-2">Students</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$99</span>
-                  <span class="annual-price hidden">$79</span>
-                  <span class="text-xs text-gray-500">/mo each</span>
+                  <span class="monthly-price">$190</span>
+                  <span class="annual-price hidden">$152</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $400</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.38 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.88 per class (each)</div>
+                <div class="text-teal-500 text-xs mt-1">10% sibling discount</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.88 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.50 per class</div>
               </div>
               <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
                 <div class="text-3xl font-black mb-1">3</div>
                 <div class="text-gray-400 text-xs mb-2">Students</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$89</span>
-                  <span class="annual-price hidden">$71</span>
-                  <span class="text-xs text-gray-500">/mo each</span>
+                  <span class="monthly-price">$270</span>
+                  <span class="annual-price hidden">$216</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $540</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.13 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.88 per class (each)</div>
+                <div class="text-teal-500 text-xs mt-1">20% sibling discount</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.25 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9 per class</div>
               </div>
               <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
-                <div class="text-3xl font-black mb-1">4+</div>
+                <div class="text-3xl font-black mb-1">4</div>
                 <div class="text-gray-400 text-xs mb-2">Students</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$79</span>
-                  <span class="annual-price hidden">$63</span>
-                  <span class="text-xs text-gray-500">/mo each</span>
+                  <span class="monthly-price">$340</span>
+                  <span class="annual-price hidden">$272</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $640</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$9.88 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$7.88 per class (each)</div>
+                <div class="text-teal-500 text-xs mt-1">30% sibling discount</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$10.63 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.50 per class</div>
               </div>
             </div>
             
@@ -3539,10 +3538,26 @@ app.get('/education', (c) => {
         let selectedPrice = 0;
         let isAnnual = false;
         
-        const pricingData = {
-          monthly: { 1: 116, 2: 99, 3: 89, 4: 79 },
-          annual: { 1: 93, 2: 79, 3: 71, 4: 63 }
-        };
+        // Simplified Pricing: $100/month (8 classes), 10% off each additional sibling, 20% off annual
+        const BASE_MONTHLY_PRICE = 100;
+        const SIBLING_DISCOUNT = 0.10; // 10% off per additional sibling
+        const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
+        
+        function calculatePrice(students, isAnnual) {
+          let total = BASE_MONTHLY_PRICE; // First student
+          
+          // Add additional students with 10% compounding discount
+          for (let i = 2; i <= students; i++) {
+            total += BASE_MONTHLY_PRICE * (1 - (SIBLING_DISCOUNT * (i - 1)));
+          }
+          
+          // Apply annual discount if selected
+          if (isAnnual) {
+            total = total * (1 - ANNUAL_DISCOUNT);
+          }
+          
+          return total;
+        }
 
         function openEnrollment() {
           document.getElementById('enrollment-modal').classList.remove('hidden');
@@ -3640,11 +3655,10 @@ app.get('/education', (c) => {
 
         function selectPackage(students) {
           selectedStudents = students;
-          selectedPrice = isAnnual ? pricingData.annual[students] : pricingData.monthly[students];
           
-          // Calculate totals
-          const pricePerStudent = selectedPrice;
-          const monthlyTotal = pricePerStudent * students;
+          // Calculate total monthly price with sibling discount
+          const monthlyTotal = calculatePrice(students, isAnnual);
+          selectedPrice = monthlyTotal; // Store total for later use
           
           let totalCharge, chargeLabel;
           
@@ -3665,12 +3679,22 @@ app.get('/education', (c) => {
           const yearlySavings = isAnnual ? 
             ((pricingData.monthly[students] * students * 10) - (pricePerStudent * students * 10)) : 0;
           
-          // Update summary
+          // Update summary with clear pricing breakdown
           const billingText = isAnnual ? ' (Annual - 10 months)' : ' (Monthly)';
-          document.getElementById('selected-package').textContent = 
-            students + (students >= 4 ? '+' : '') + ' student' + (students > 1 ? 's' : '') + billingText;
-          document.getElementById('summary-students').textContent = students + (students >= 4 ? '+' : '');
-          document.getElementById('summary-price').textContent = '$' + pricePerStudent + '/mo per student' + (isAnnual ? ' (20% off)' : '');
+          const studentText = students + (students > 1 ? ' Students' : ' Student');
+          document.getElementById('selected-package').textContent = studentText + billingText;
+          document.getElementById('summary-students').textContent = students;
+          
+          // Show per-month total with discount info
+          let priceText = '$' + monthlyTotal.toFixed(0) + '/month';
+          if (students > 1) {
+            const savingsPercent = Math.round((students - 1) * 10);
+            priceText += ' (Save ' + savingsPercent + '% with siblings)';
+          }
+          if (isAnnual) {
+            priceText += ' • 20% off annual';
+          }
+          document.getElementById('summary-price').textContent = priceText;
           document.getElementById('summary-total').textContent = '$' + totalCharge.toFixed(2);
           
           // Update the label and savings display
@@ -4682,50 +4706,49 @@ app.get('/academy', (c) =>
                 <div class="text-3xl font-black mb-1">1</div>
                 <div class="text-gray-400 text-xs mb-2">Student</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$116</span>
-                  <span class="annual-price hidden">$93</span>
+                  <span class="monthly-price">$100</span>
+                  <span class="annual-price hidden">$80</span>
                   <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $230</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$14.50 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$11.63 per class</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.50 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$10 per class</div>
               </div>
               <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
                 <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-teal-500 px-2 py-0.5 rounded-full text-xs font-bold">Most Popular</div>
                 <div class="text-3xl font-black mb-1">2</div>
                 <div class="text-gray-400 text-xs mb-2">Students</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$99</span>
-                  <span class="annual-price hidden">$79</span>
-                  <span class="text-xs text-gray-500">/mo each</span>
+                  <span class="monthly-price">$190</span>
+                  <span class="annual-price hidden">$152</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $400</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.38 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.88 per class (each)</div>
+                <div class="text-teal-500 text-xs mt-1">10% sibling discount</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.88 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.50 per class</div>
               </div>
               <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
                 <div class="text-3xl font-black mb-1">3</div>
                 <div class="text-gray-400 text-xs mb-2">Students</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$89</span>
-                  <span class="annual-price hidden">$71</span>
-                  <span class="text-xs text-gray-500">/mo each</span>
+                  <span class="monthly-price">$270</span>
+                  <span class="annual-price hidden">$216</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $540</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.13 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.88 per class (each)</div>
+                <div class="text-teal-500 text-xs mt-1">20% sibling discount</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.25 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9 per class</div>
               </div>
               <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
-                <div class="text-3xl font-black mb-1">4+</div>
+                <div class="text-3xl font-black mb-1">4</div>
                 <div class="text-gray-400 text-xs mb-2">Students</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$79</span>
-                  <span class="annual-price hidden">$63</span>
-                  <span class="text-xs text-gray-500">/mo each</span>
+                  <span class="monthly-price">$340</span>
+                  <span class="annual-price hidden">$272</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $640</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$9.88 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$7.88 per class (each)</div>
+                <div class="text-teal-500 text-xs mt-1">30% sibling discount</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$10.63 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.50 per class</div>
               </div>
             </div>
             
@@ -4840,10 +4863,26 @@ app.get('/academy', (c) =>
         let selectedPrice = 0;
         let isAnnual = false;
         
-        const pricingData = {
-          monthly: { 1: 116, 2: 99, 3: 89, 4: 79 },
-          annual: { 1: 93, 2: 79, 3: 71, 4: 63 }
-        };
+        // Simplified Pricing: $100/month (8 classes), 10% off each additional sibling, 20% off annual
+        const BASE_MONTHLY_PRICE = 100;
+        const SIBLING_DISCOUNT = 0.10; // 10% off per additional sibling
+        const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
+        
+        function calculatePrice(students, isAnnual) {
+          let total = BASE_MONTHLY_PRICE; // First student
+          
+          // Add additional students with 10% compounding discount
+          for (let i = 2; i <= students; i++) {
+            total += BASE_MONTHLY_PRICE * (1 - (SIBLING_DISCOUNT * (i - 1)));
+          }
+          
+          // Apply annual discount if selected
+          if (isAnnual) {
+            total = total * (1 - ANNUAL_DISCOUNT);
+          }
+          
+          return total;
+        }
 
         function openEnrollment() {
           document.getElementById('enrollment-modal').classList.remove('hidden');
@@ -4941,11 +4980,10 @@ app.get('/academy', (c) =>
 
         function selectPackage(students) {
           selectedStudents = students;
-          selectedPrice = isAnnual ? pricingData.annual[students] : pricingData.monthly[students];
           
-          // Calculate totals
-          const pricePerStudent = selectedPrice;
-          const monthlyTotal = pricePerStudent * students;
+          // Calculate total monthly price with sibling discount
+          const monthlyTotal = calculatePrice(students, isAnnual);
+          selectedPrice = monthlyTotal; // Store total for later use
           
           let totalCharge, chargeLabel;
           
@@ -4966,12 +5004,22 @@ app.get('/academy', (c) =>
           const yearlySavings = isAnnual ? 
             ((pricingData.monthly[students] * students * 10) - (pricePerStudent * students * 10)) : 0;
           
-          // Update summary
+          // Update summary with clear pricing breakdown
           const billingText = isAnnual ? ' (Annual - 10 months)' : ' (Monthly)';
-          document.getElementById('selected-package').textContent = 
-            students + (students >= 4 ? '+' : '') + ' student' + (students > 1 ? 's' : '') + billingText;
-          document.getElementById('summary-students').textContent = students + (students >= 4 ? '+' : '');
-          document.getElementById('summary-price').textContent = '$' + pricePerStudent + '/mo per student' + (isAnnual ? ' (20% off)' : '');
+          const studentText = students + (students > 1 ? ' Students' : ' Student');
+          document.getElementById('selected-package').textContent = studentText + billingText;
+          document.getElementById('summary-students').textContent = students;
+          
+          // Show per-month total with discount info
+          let priceText = '$' + monthlyTotal.toFixed(0) + '/month';
+          if (students > 1) {
+            const savingsPercent = Math.round((students - 1) * 10);
+            priceText += ' (Save ' + savingsPercent + '% with siblings)';
+          }
+          if (isAnnual) {
+            priceText += ' • 20% off annual';
+          }
+          document.getElementById('summary-price').textContent = priceText;
           document.getElementById('summary-total').textContent = '$' + totalCharge.toFixed(2);
           
           // Update the label and savings display
@@ -9236,50 +9284,49 @@ app.get('/faq', (c) =>
                 <div class="text-3xl font-black mb-1">1</div>
                 <div class="text-gray-400 text-xs mb-2">Student</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$116</span>
-                  <span class="annual-price hidden">$93</span>
+                  <span class="monthly-price">$100</span>
+                  <span class="annual-price hidden">$80</span>
                   <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $230</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$14.50 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$11.63 per class</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.50 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$10 per class</div>
               </div>
               <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
                 <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-teal-500 px-2 py-0.5 rounded-full text-xs font-bold">Most Popular</div>
                 <div class="text-3xl font-black mb-1">2</div>
                 <div class="text-gray-400 text-xs mb-2">Students</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$99</span>
-                  <span class="annual-price hidden">$79</span>
-                  <span class="text-xs text-gray-500">/mo each</span>
+                  <span class="monthly-price">$190</span>
+                  <span class="annual-price hidden">$152</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $400</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.38 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.88 per class (each)</div>
+                <div class="text-teal-500 text-xs mt-1">10% sibling discount</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.88 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.50 per class</div>
               </div>
               <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
                 <div class="text-3xl font-black mb-1">3</div>
                 <div class="text-gray-400 text-xs mb-2">Students</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$89</span>
-                  <span class="annual-price hidden">$71</span>
-                  <span class="text-xs text-gray-500">/mo each</span>
+                  <span class="monthly-price">$270</span>
+                  <span class="annual-price hidden">$216</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $540</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.13 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.88 per class (each)</div>
+                <div class="text-teal-500 text-xs mt-1">20% sibling discount</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.25 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9 per class</div>
               </div>
               <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
-                <div class="text-3xl font-black mb-1">4+</div>
+                <div class="text-3xl font-black mb-1">4</div>
                 <div class="text-gray-400 text-xs mb-2">Students</div>
                 <div class="text-xl font-bold">
-                  <span class="monthly-price">$79</span>
-                  <span class="annual-price hidden">$63</span>
-                  <span class="text-xs text-gray-500">/mo each</span>
+                  <span class="monthly-price">$340</span>
+                  <span class="annual-price hidden">$272</span>
+                  <span class="text-xs text-gray-500">/mo</span>
                 </div>
-                <div class="annual-savings text-teal-500 text-xs mt-1 hidden">Save $640</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$9.88 per class (each)</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$7.88 per class (each)</div>
+                <div class="text-teal-500 text-xs mt-1">30% sibling discount</div>
+                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$10.63 per class</div>
+                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.50 per class</div>
               </div>
             </div>
             
@@ -9394,10 +9441,26 @@ app.get('/faq', (c) =>
         let selectedPrice = 0;
         let isAnnual = false;
         
-        const pricingData = {
-          monthly: { 1: 116, 2: 99, 3: 89, 4: 79 },
-          annual: { 1: 93, 2: 79, 3: 71, 4: 63 }
-        };
+        // Simplified Pricing: $100/month (8 classes), 10% off each additional sibling, 20% off annual
+        const BASE_MONTHLY_PRICE = 100;
+        const SIBLING_DISCOUNT = 0.10; // 10% off per additional sibling
+        const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
+        
+        function calculatePrice(students, isAnnual) {
+          let total = BASE_MONTHLY_PRICE; // First student
+          
+          // Add additional students with 10% compounding discount
+          for (let i = 2; i <= students; i++) {
+            total += BASE_MONTHLY_PRICE * (1 - (SIBLING_DISCOUNT * (i - 1)));
+          }
+          
+          // Apply annual discount if selected
+          if (isAnnual) {
+            total = total * (1 - ANNUAL_DISCOUNT);
+          }
+          
+          return total;
+        }
 
         function openEnrollment() {
           document.getElementById('enrollment-modal').classList.remove('hidden');
@@ -9495,11 +9558,10 @@ app.get('/faq', (c) =>
 
         function selectPackage(students) {
           selectedStudents = students;
-          selectedPrice = isAnnual ? pricingData.annual[students] : pricingData.monthly[students];
           
-          // Calculate totals
-          const pricePerStudent = selectedPrice;
-          const monthlyTotal = pricePerStudent * students;
+          // Calculate total monthly price with sibling discount
+          const monthlyTotal = calculatePrice(students, isAnnual);
+          selectedPrice = monthlyTotal; // Store total for later use
           
           let totalCharge, chargeLabel;
           
@@ -9520,12 +9582,22 @@ app.get('/faq', (c) =>
           const yearlySavings = isAnnual ? 
             ((pricingData.monthly[students] * students * 10) - (pricePerStudent * students * 10)) : 0;
           
-          // Update summary
+          // Update summary with clear pricing breakdown
           const billingText = isAnnual ? ' (Annual - 10 months)' : ' (Monthly)';
-          document.getElementById('selected-package').textContent = 
-            students + (students >= 4 ? '+' : '') + ' student' + (students > 1 ? 's' : '') + billingText;
-          document.getElementById('summary-students').textContent = students + (students >= 4 ? '+' : '');
-          document.getElementById('summary-price').textContent = '$' + pricePerStudent + '/mo per student' + (isAnnual ? ' (20% off)' : '');
+          const studentText = students + (students > 1 ? ' Students' : ' Student');
+          document.getElementById('selected-package').textContent = studentText + billingText;
+          document.getElementById('summary-students').textContent = students;
+          
+          // Show per-month total with discount info
+          let priceText = '$' + monthlyTotal.toFixed(0) + '/month';
+          if (students > 1) {
+            const savingsPercent = Math.round((students - 1) * 10);
+            priceText += ' (Save ' + savingsPercent + '% with siblings)';
+          }
+          if (isAnnual) {
+            priceText += ' • 20% off annual';
+          }
+          document.getElementById('summary-price').textContent = priceText;
           document.getElementById('summary-total').textContent = '$' + totalCharge.toFixed(2);
           
           // Update the label and savings display
