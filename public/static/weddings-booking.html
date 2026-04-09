@@ -1135,9 +1135,10 @@
           <span class="preview-label">Extra Hours</span>
           <span class="preview-value" id="previewHours">Base coverage</span>
         </div>
-        <div class="preview-item">
+        <div class="preview-item" id="albumPreviewItem">
           <span class="preview-label">Album</span>
           <span class="preview-value" id="previewAlbum">Not selected</span>
+          <button onclick="removeAlbum()" id="removeAlbumBtn" style="display: none; background: none; border: none; color: #ef4444; cursor: pointer; font-size: 18px; padding: 4px 8px; margin-left: 8px;" title="Remove album">×</button>
         </div>
         <img id="previewAlbumImage" class="preview-image" style="display: none;">
         <div id="previewUpgrades"></div>
@@ -1241,9 +1242,21 @@
       booking.albumPrice = price;
       booking.albumImage = image;
       document.getElementById('previewAlbum').textContent = `${name.charAt(0).toUpperCase() + name.slice(1)} - $${price.toLocaleString()}`;
+      document.getElementById('removeAlbumBtn').style.display = 'inline-block';
       const img = document.getElementById('previewAlbumImage');
       img.src = image;
       img.style.display = 'block';
+      updateTotal();
+    }
+
+    function removeAlbum() {
+      booking.album = '';
+      booking.albumPrice = 0;
+      booking.albumImage = '';
+      document.getElementById('previewAlbum').textContent = 'Not selected';
+      document.getElementById('removeAlbumBtn').style.display = 'none';
+      document.getElementById('previewAlbumImage').style.display = 'none';
+      document.querySelectorAll('#step5 .option-card').forEach(c => c.classList.remove('selected'));
       updateTotal();
     }
 
@@ -1263,9 +1276,27 @@
       container.innerHTML = booking.upgrades.map(u => `
         <div class="preview-item">
           <span class="preview-label">${u.key.charAt(0).toUpperCase() + u.key.slice(1)}</span>
-          <span class="preview-value">$${u.price.toLocaleString()}</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="preview-value">$${u.price.toLocaleString()}</span>
+            <button onclick="removeUpgrade('${u.key}')" style="background: none; border: none; color: #ef4444; cursor: pointer; font-size: 18px; padding: 4px 8px;" title="Remove ${u.key}">×</button>
+          </div>
         </div>
       `).join('');
+    }
+
+    function removeUpgrade(key) {
+      booking.upgrades = booking.upgrades.filter(u => u.key !== key);
+      // Find and unselect the card in the upgrade step
+      const cards = document.querySelectorAll('#step6 .option-card');
+      cards.forEach(card => {
+        const cardKey = card.querySelector('[data-key]')?.getAttribute('data-key') || 
+                       card.onclick?.toString().match(/toggleUpgrade\([^,]+,\s*'([^']+)'/)?.[1];
+        if (cardKey === key) {
+          card.classList.remove('selected');
+        }
+      });
+      updateUpgradesPreview();
+      updateTotal();
     }
 
     function updateTotal() {
