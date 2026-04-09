@@ -1083,6 +1083,167 @@ app.post('/api/auth/reset-password', async (c) => {
 })
 
 // ============================================================
+// ENROLLMENT & AGREEMENT APIs
+// ============================================================
+
+// POST /api/enrollments/create - Create enrollment with signed agreement
+app.post('/api/enrollments/create', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const body = await c.req.json()
+    const {
+      parentEmail,
+      studentsCount,
+      billingType,
+      monthlyTotal,
+      signatureMethod,
+      signatureData,
+      stripeSessionId,
+      stripeCustomerId,
+      stripeSubscriptionId,
+      ipAddress
+    } = body
+
+    // Get user ID from email
+    const user = await DB_EDUCATION.prepare(
+      'SELECT id FROM users WHERE email = ?'
+    ).bind(parentEmail).first()
+
+    if (!user) {
+      return c.json({ error: 'User not found' }, 404)
+    }
+
+    // Get Creator Academy course
+    const course = await DB_EDUCATION.prepare(
+      'SELECT id FROM courses WHERE id = ?'
+    ).bind('course-creator-academy').first()
+
+    if (!course) {
+      return c.json({ error: 'Course not found' }, 404)
+    }
+
+    // Create enrollment with agreement data
+    const enrollmentId = crypto.randomUUID()
+    const timestamp = new Date().toISOString()
+
+    await DB_EDUCATION.prepare(`
+      INSERT INTO enrollments (
+        id, student_id, course_id, enrolled_at,
+        agreement_signed, agreement_version, signature_method, signature_data,
+        signature_timestamp, signature_ip_address,
+        billing_type, students_count, monthly_total,
+        stripe_session_id, stripe_customer_id, stripe_subscription_id,
+        status
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).bind(
+      enrollmentId,
+      user.id, // student_id (for now, using parent as student - will create actual students later)
+      course.id,
+      timestamp,
+      1, // agreement_signed
+      'v1.0', // agreement_version
+      signatureMethod,
+      signatureData,
+      timestamp, // signature_timestamp
+      ipAddress || 'unknown',
+      billingType,
+      studentsCount,
+      monthlyTotal,
+      stripeSessionId || null,
+      stripeCustomerId || null,
+      stripeSubscriptionId || null,
+      'active'
+    ).run()
+
+    return c.json({
+      success: true,
+      enrollmentId,
+      message: 'Enrollment created successfully'
+    })
+
+  } catch (error: any) {
+    console.error('Create enrollment error:', error)
+    return c.json({ error: 'Failed to create enrollment: ' + error.message }, 500)
+  }
+})
+
+// GET /api/enrollments/by-email/:email - Get enrollments for parent
+app.get('/api/enrollments/by-email/:email', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const email = c.req.param('email')
+
+    // Get user
+    const user = await DB_EDUCATION.prepare(
+      'SELECT id FROM users WHERE email = ?'
+    ).bind(email).first()
+
+    if (!user) {
+      return c.json({ enrollments: [] })
+    }
+
+    // Get enrollments with agreement data
+    const enrollments = await DB_EDUCATION.prepare(`
+      SELECT 
+        e.*,
+        c.title as course_title,
+        c.description as course_description
+      FROM enrollments e
+      JOIN courses c ON e.course_id = c.id
+      WHERE e.student_id = ?
+      ORDER BY e.enrolled_at DESC
+    `).bind(user.id).all()
+
+    return c.json({ enrollments: enrollments.results || [] })
+
+  } catch (error: any) {
+    console.error('Get enrollments error:', error)
+    return c.json({ error: 'Failed to fetch enrollments: ' + error.message }, 500)
+  }
+})
+
+// GET /api/enrollments/:id/agreement - Get signed agreement for enrollment
+app.get('/api/enrollments/:id/agreement', async (c) => {
+  try {
+    const { DB_EDUCATION } = c.env
+    const enrollmentId = c.req.param('id')
+
+    const enrollment = await DB_EDUCATION.prepare(`
+      SELECT 
+        e.id,
+        e.agreement_signed,
+        e.agreement_version,
+        e.signature_method,
+        e.signature_data,
+        e.signature_timestamp,
+        e.signature_ip_address,
+        e.billing_type,
+        e.students_count,
+        e.monthly_total,
+        e.enrolled_at,
+        u.email as parent_email,
+        u.first_name as parent_first_name,
+        u.last_name as parent_last_name,
+        c.title as course_title
+      FROM enrollments e
+      JOIN users u ON e.student_id = u.id
+      JOIN courses c ON e.course_id = c.id
+      WHERE e.id = ?
+    `).bind(enrollmentId).first()
+
+    if (!enrollment) {
+      return c.json({ error: 'Enrollment not found' }, 404)
+    }
+
+    return c.json({ agreement: enrollment })
+
+  } catch (error: any) {
+    console.error('Get agreement error:', error)
+    return c.json({ error: 'Failed to fetch agreement: ' + error.message }, 500)
+  }
+})
+
+// ============================================================
 // END AUTHENTICATION API
 // ============================================================
 
@@ -4093,9 +4254,40 @@ app.get('/education', (c) => {
           const btn = document.getElementById('stripe-checkout-btn');
           const originalHTML = btn.innerHTML;
           btn.disabled = true;
-          btn.innerHTML = '<div class="flex items-center gap-2"><svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Redirecting to Stripe...</span></div>';
+          btn.innerHTML = '<div class="flex items-center gap-2"><svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Saving agreement...</span></div>';
           
           try {
+            // Get signature data
+            const signatureData = signatureMethod === 'type' 
+              ? document.getElementById('typed-signature').value 
+              : signatureCanvas ? signatureCanvas.toDataURL() : 'drawn';
+
+            // Save enrollment with signed agreement FIRST
+            const enrollmentResponse = await fetch('/api/enrollments/create', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                parentEmail: email,
+                studentsCount: selectedStudents,
+                billingType: billingType,
+                monthlyTotal: monthlyTotal,
+                signatureMethod: signatureMethod,
+                signatureData: signatureData,
+                ipAddress: 'client_ip' // Will be replaced server-side if needed
+              })
+            });
+
+            const enrollmentData = await enrollmentResponse.json();
+            
+            if (enrollmentData.error) {
+              throw new Error(enrollmentData.error);
+            }
+
+            console.log('✅ Agreement saved:', enrollmentData.enrollmentId);
+            
+            // Update loading message
+            btn.innerHTML = '<div class="flex items-center gap-2"><svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Redirecting to Stripe...</span></div>';
+
             // Create Stripe checkout session
             const response = await fetch('/api/payments/create-checkout-session', {
               method: 'POST',
