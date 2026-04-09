@@ -600,38 +600,90 @@
         <!-- PACKAGE SELECTION VIEW -->
         <div id="packageSelectionView">
           <h1 class="step-question">Choose your portrait session</h1>
+          <p style="text-align: center; font-size: 16px; color: var(--secondary); margin-bottom: 40px;">Select the session that fits your story. All sessions include a private online gallery and digital downloads.</p>
           
           <!-- PACKAGE OPTIONS -->
-          <div class="options-grid" style="grid-template-columns: repeat(2, 1fr);">
-            <div class="option-card" onclick="selectPackage(this, '1-hour-session', 595)">
-              <div class="option-title">1-Hour Session</div>
-              <div class="option-description">Perfect for individuals<br>or couples<br>1 location<br>Digital gallery</div>
-              <div class="option-price">$595</div>
-            </div>
-            <div class="option-card" onclick="selectPackage(this, '2-hour-session', 695)">
-              <div class="option-badge">Most Popular</div>
-              <div class="option-title">2-Hour Session</div>
-              <div class="option-description">Ideal for families<br>2 locations<br>Outfit changes<br>Digital gallery</div>
-              <div class="option-price">$695</div>
-            </div>
-          </div>
-          
-          <!-- CUSTOM BUILD OPTION -->
-          <div style="margin-top: 48px;">
-            <div style="text-align: center; margin-bottom: 24px;">
-              <h3 style="font-size: 20px; color: var(--primary); margin-bottom: 8px;">Need something custom?</h3>
-              <p style="font-size: 15px; color: var(--secondary);">Build your perfect session with exactly what you need</p>
-            </div>
-            <div class="option-card" onclick="showCustomHoursView()" style="cursor: pointer; text-align: left; padding: 32px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                <div class="option-title" style="margin: 0;">Build Custom Session</div>
-                <div style="font-size: 18px; color: var(--accent); font-weight: 500;">Starts at $695</div>
+          <div class="options-grid" style="grid-template-columns: repeat(3, 1fr); gap: 24px;">
+            
+            <!-- MINI SESSION (30 MIN) -->
+            <div class="option-card" onclick="selectPackage(this, 'mini-session', 595)" style="padding: 32px 24px;">
+              <div class="option-title" style="font-size: 22px; margin-bottom: 12px;">Mini Session</div>
+              <div class="option-price" style="font-size: 32px; margin-bottom: 16px;">$595</div>
+              <div style="font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 16px;">30 MINUTES</div>
+              <div class="option-description" style="text-align: left; line-height: 1.8; font-size: 14px; color: #555;">
+                <div style="font-weight: 600; color: #333; margin-bottom: 12px;">Perfect for:</div>
+                <div style="margin-bottom: 8px;">✓ Professional headshots</div>
+                <div style="margin-bottom: 8px;">✓ Family vacation portraits</div>
+                <div style="margin-bottom: 8px;">✓ Quick sessions with kids</div>
+                <div style="margin-bottom: 16px;">✓ The exact shots you need</div>
+                <div style="font-size: 13px; color: var(--secondary); border-top: 1px solid #e0e0e0; padding-top: 12px; margin-top: 16px;">
+                  <div>📍 1 location</div>
+                  <div>📸 20+ edited photos</div>
+                  <div>☁️ Private online gallery</div>
+                </div>
               </div>
-              <div class="option-description" style="text-align: left;">Choose exactly what you need. Select your hours (2-8), add memory books, prints, and more. Full flexibility to create your perfect portrait experience.</div>
             </div>
+            
+            <!-- 1-HOUR SESSION (MOST POPULAR) -->
+            <div class="option-card" onclick="selectPackage(this, '1-hour-session', 695)" style="padding: 32px 24px; border: 3px solid var(--accent); transform: scale(1.05); box-shadow: 0 8px 24px rgba(71, 148, 166, 0.2);">
+              <div class="option-badge" style="background: linear-gradient(135deg, var(--accent), #5aa5b8); color: white; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-bottom: 12px; display: inline-block;">MOST POPULAR</div>
+              <div class="option-title" style="font-size: 22px; margin-bottom: 12px;">Signature Session</div>
+              <div class="option-price" style="font-size: 32px; margin-bottom: 16px;">$695</div>
+              <div style="font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 16px;">1 HOUR</div>
+              <div class="option-description" style="text-align: left; line-height: 1.8; font-size: 14px; color: #555;">
+                <div style="font-weight: 600; color: #333; margin-bottom: 12px;">Perfect for:</div>
+                <div style="margin-bottom: 8px;">✓ Couples & engagements</div>
+                <div style="margin-bottom: 8px;">✓ Small families (3-5 people)</div>
+                <div style="margin-bottom: 8px;">✓ Maternity portraits</div>
+                <div style="margin-bottom: 16px;">✓ Relaxed, natural photos</div>
+                <div style="font-size: 13px; color: var(--secondary); border-top: 1px solid #e0e0e0; padding-top: 12px; margin-top: 16px;">
+                  <div>📍 1-2 locations</div>
+                  <div>📸 40+ edited photos</div>
+                  <div>👗 1 outfit change</div>
+                  <div>☁️ Private online gallery</div>
+                </div>
+              </div>
+              <div style="background: rgba(71, 148, 166, 0.1); border-radius: 8px; padding: 12px; margin-top: 16px; text-align: center;">
+                <div style="font-size: 12px; color: var(--accent); font-weight: 600;">BEST VALUE</div>
+                <div style="font-size: 11px; color: #666;">Save $100 vs. 2 mini sessions</div>
+              </div>
+            </div>
+            
+            <!-- 2-HOUR SESSION -->
+            <div class="option-card" onclick="selectPackage(this, '2-hour-session', 995)" style="padding: 32px 24px;">
+              <div class="option-title" style="font-size: 22px; margin-bottom: 12px;">Premium Session</div>
+              <div class="option-price" style="font-size: 32px; margin-bottom: 16px;">$995</div>
+              <div style="font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 16px;">2 HOURS</div>
+              <div class="option-description" style="text-align: left; line-height: 1.8; font-size: 14px; color: #555;">
+                <div style="font-weight: 600; color: #333; margin-bottom: 12px;">Perfect for:</div>
+                <div style="margin-bottom: 8px;">✓ Extended families (6+ people)</div>
+                <div style="margin-bottom: 8px;">✓ Full engagement sessions</div>
+                <div style="margin-bottom: 8px;">✓ Multi-generation portraits</div>
+                <div style="margin-bottom: 16px;">✓ Special occasions</div>
+                <div style="font-size: 13px; color: var(--secondary); border-top: 1px solid #e0e0e0; padding-top: 12px; margin-top: 16px;">
+                  <div>📍 2-3 locations</div>
+                  <div>📸 80+ edited photos</div>
+                  <div>👗 Multiple outfit changes</div>
+                  <div>☁️ Private online gallery</div>
+                  <div>⭐ Priority scheduling</div>
+                </div>
+              </div>
+            </div>
+            
           </div>
           
-          <div class="button-group">
+          <!-- REFERRAL CODE -->
+          <div style="margin-top: 48px; background: linear-gradient(135deg, rgba(71, 148, 166, 0.05), rgba(71, 148, 166, 0.02)); border: 2px dashed rgba(71, 148, 166, 0.3); border-radius: 16px; padding: 32px; text-align: center;">
+            <div style="font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">🎁 Have a referral code?</div>
+            <p style="font-size: 14px; color: var(--secondary); margin-bottom: 20px;">Enter it below to receive a FREE 8×12 print ($45 value)</p>
+            <div style="max-width: 400px; margin: 0 auto; display: flex; gap: 12px;">
+              <input type="text" id="referralCode" placeholder="Enter code" style="flex: 1; padding: 14px 20px; font-size: 15px; border: 2px solid #e0e0e0; border-radius: 12px; transition: all 0.3s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='#e0e0e0'">
+              <button onclick="applyReferralCode()" style="padding: 14px 28px; background: var(--accent); color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#5aa5b8'" onmouseout="this.style.background='var(--accent)'">Apply</button>
+            </div>
+            <div id="referralMessage" style="margin-top: 16px; font-size: 14px; font-weight: 600; display: none;"></div>
+          </div>
+          
+          <div class="button-group" style="margin-top: 48px;">
             <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
             <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
           </div>
@@ -640,13 +692,13 @@
         <!-- CUSTOM HOURS VIEW (HIDDEN BY DEFAULT) -->
         <div id="customHoursView" style="display: none;">
           <h1 class="step-question">How many hours do you need?</h1>
-          <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Start at 2 hours ($695). Each additional hour is $400.</p>
+          <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Start at 2 hours ($995). Each additional hour is $400.</p>
           
           <div class="hour-slider-container">
             <div class="hour-display">
               <div class="hour-value" id="portraitHourValue">2</div>
               <div class="hour-label">Hours of Coverage</div>
-              <div class="hour-price" id="portraitHourPrice">$695</div>
+              <div class="hour-price" id="portraitHourPrice">$995</div>
             </div>
             <input type="range" min="2" max="8" value="2" class="slider" id="portraitHourSlider" oninput="updatePortraitHours(this.value)">
             <div style="display: flex; justify-content: space-between; margin-top: 16px; font-size: 14px; color: var(--secondary);">
@@ -1345,7 +1397,7 @@
       booking.package = 'custom';
       booking.isCustom = true;
       booking.coverageHours = 2;
-      booking.packagePrice = 695; // 2 hours base
+      booking.packagePrice = 995; // Updated: 2 hours now costs $995
       updatePortraitHours(2);
     }
     
@@ -1359,8 +1411,8 @@
       const hours = parseInt(value);
       booking.coverageHours = hours;
       
-      // Calculate price: $695 for 2 hours, $400 per additional hour
-      booking.packagePrice = 695 + ((hours - 2) * 400);
+      // Calculate price: $995 for 2 hours, $400 per additional hour
+      booking.packagePrice = 995 + ((hours - 2) * 400);
       
       document.getElementById('portraitHourValue').textContent = hours;
       document.getElementById('portraitHourPrice').textContent = `$${booking.packagePrice.toLocaleString()}`;
@@ -1383,10 +1435,12 @@
       
       // Format package name for display
       let displayName = name;
-      if (name === '1-hour-session') {
-        displayName = '1-Hour Session';
+      if (name === 'mini-session') {
+        displayName = 'Mini Session (30 min)';
+      } else if (name === '1-hour-session') {
+        displayName = 'Signature Session (1 hour)';
       } else if (name === '2-hour-session') {
-        displayName = '2-Hour Session';
+        displayName = 'Premium Session (2 hours)';
       }
       
       // Update preview
@@ -1396,6 +1450,40 @@
       
       updateTotal();
       console.log('💰 Total updated');
+    }
+
+    // Referral code tracking
+    let referralApplied = false;
+    let referralPrintValue = 45;
+
+    function applyReferralCode() {
+      const code = document.getElementById('referralCode').value.trim().toUpperCase();
+      const messageEl = document.getElementById('referralMessage');
+      
+      if (!code) {
+        messageEl.style.display = 'block';
+        messageEl.style.color = '#ef4444';
+        messageEl.textContent = 'Please enter a referral code';
+        return;
+      }
+      
+      // For now, accept any code (you can add validation later)
+      if (code.length >= 4) {
+        referralApplied = true;
+        messageEl.style.display = 'block';
+        messageEl.style.color = '#22c55e';
+        messageEl.innerHTML = '✅ Success! FREE 8×12 print ($45 value) added to your order';
+        
+        // Add to booking metadata
+        booking.referralCode = code;
+        booking.referralPrintValue = referralPrintValue;
+        
+        console.log('🎁 Referral code applied:', code);
+      } else {
+        messageEl.style.display = 'block';
+        messageEl.style.color = '#ef4444';
+        messageEl.textContent = 'Invalid referral code';
+      }
     }
     
     function selectMemoryBook(card, size, price) {
