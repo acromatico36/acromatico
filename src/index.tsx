@@ -3518,7 +3518,146 @@ app.get('/education', (c) => {
                 <span class="text-sm text-gray-400">Annual Savings</span>
                 <span id="summary-savings" class="text-sm font-bold text-green-500"></span>
               </div>
-              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
+              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on classes remaining this month</p>
+            </div>
+
+            {/* Terms & Agreement */}
+            <div class="feature-card p-6 rounded-2xl mb-6 border-2 border-teal-500/20">
+              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <svg class="w-6 h-6 text-teal-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                Enrollment Agreement
+              </h3>
+              
+              <div class="bg-gray-900 p-4 rounded-lg max-h-64 overflow-y-auto text-sm mb-4 space-y-3">
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-white">ACROMATICO CREATOR ACADEMY - ENROLLMENT TERMS</strong><br/>
+                  By enrolling in Acromatico Creator Academy programs, you agree to the following terms:
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">1. PROGRAM COMMITMENT</strong><br/>
+                  • 8 live classes per month (Monday & Thursday, 11:30 AM ET)<br/>
+                  • 30-minute micro-learning sessions designed for youth creators<br/>
+                  • Access to lifetime instruction library and recorded sessions<br/>
+                  • Portfolio building tools and creative resources
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">2. PAYMENT TERMS</strong><br/>
+                  • Monthly billing: Charged on the same day each month<br/>
+                  • Annual billing: 10 months prepaid (Sept-June school year)<br/>
+                  • First month prorated based on classes remaining<br/>
+                  • Payments processed securely via Stripe
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">3. NO REFUND POLICY</strong><br/>
+                  • <strong class="text-white">All class fees are NON-REFUNDABLE once charged</strong><br/>
+                  • Classes cannot be refunded, transferred, or credited<br/>
+                  • Missed classes: Recordings available in instruction library<br/>
+                  • No refunds for unused classes or early cancellation<br/>
+                  • No chargebacks permitted - enrollment is a binding agreement
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">4. CANCELLATION POLICY</strong><br/>
+                  • Monthly: Cancel anytime (effective next billing cycle)<br/>
+                  • Annual: No refunds on prepaid tuition (non-refundable)<br/>
+                  • Must cancel before next billing date to avoid charges<br/>
+                  • Cancellation does not entitle refunds for current period
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">5. CHARGEBACK PROTECTION</strong><br/>
+                  • By signing, you waive rights to initiate chargebacks<br/>
+                  • Disputes must be handled directly with Acromatico<br/>
+                  • Unauthorized chargebacks may result in account suspension<br/>
+                  • You acknowledge receipt of services as described
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">6. ATTENDANCE & CONDUCT</strong><br/>
+                  • Students expected to attend live sessions when possible<br/>
+                  • Respectful behavior required in all classes<br/>
+                  • Acromatico reserves right to remove disruptive students<br/>
+                  • No refunds for removal due to code of conduct violations
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">7. CONTENT & INTELLECTUAL PROPERTY</strong><br/>
+                  • All course materials remain property of Acromatico<br/>
+                  • Students retain rights to their created work<br/>
+                  • Acromatico may showcase student work with permission
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-white">By signing below, you acknowledge that you have read, understood, and agree to these terms. You confirm that all enrollment fees are non-refundable and that you will not initiate chargebacks or payment disputes.</strong>
+                </p>
+              </div>
+              
+              {/* Signature Section */}
+              <div class="space-y-4">
+                <div class="flex gap-4 mb-4">
+                  <button 
+                    id="type-signature-btn" 
+                    onclick="switchSignatureMethod('type')" 
+                    class="flex-1 py-2 px-4 rounded-lg bg-teal-500 text-white font-semibold"
+                  >
+                    Type Signature
+                  </button>
+                  <button 
+                    id="draw-signature-btn" 
+                    onclick="switchSignatureMethod('draw')" 
+                    class="flex-1 py-2 px-4 rounded-lg bg-gray-700 text-gray-300 font-semibold"
+                  >
+                    Draw Signature
+                  </button>
+                </div>
+                
+                {/* Type Signature */}
+                <div id="type-signature-section" class="space-y-3">
+                  <input 
+                    type="text" 
+                    id="typed-signature" 
+                    placeholder="Type your full name" 
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-teal-500 focus:outline-none text-white"
+                  />
+                  <p class="text-xs text-gray-500">By typing your name, you agree to sign this agreement electronically</p>
+                </div>
+                
+                {/* Draw Signature */}
+                <div id="draw-signature-section" class="hidden space-y-3">
+                  <div class="border-2 border-gray-700 rounded-lg bg-white">
+                    <canvas 
+                      id="signature-canvas" 
+                      width="600" 
+                      height="200" 
+                      class="w-full cursor-crosshair rounded-lg"
+                      style="touch-action: none;"
+                    ></canvas>
+                  </div>
+                  <button 
+                    onclick="clearSignature()" 
+                    class="text-sm text-gray-400 hover:text-white"
+                  >
+                    Clear Signature
+                  </button>
+                </div>
+                
+                {/* Agreement Checkbox */}
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input 
+                    type="checkbox" 
+                    id="agreement-checkbox" 
+                    class="mt-1 w-5 h-5 rounded border-gray-700 bg-gray-800 text-teal-500 focus:ring-teal-500 cursor-pointer"
+                  />
+                  <span class="text-sm text-gray-300 leading-relaxed">
+                    I have read and agree to the enrollment terms. I understand that all fees are <strong class="text-white">non-refundable</strong> and that I will not initiate chargebacks or payment disputes. I acknowledge this is a legally binding agreement.
+                  </span>
+                </label>
+              </div>
             </div>
 
             {/* Payment Button with Stripe */}
@@ -3740,11 +3879,18 @@ app.get('/education', (c) => {
             totalCharge = monthlyTotal * 10;
             chargeLabel = 'Total (10 months prepaid)';
           } else {
-            // Monthly: prorated for first month
+            // Monthly: prorated based on classes remaining (8 classes per month, Mon & Thu)
+            // Calculate which class # we're on in the current month
             const today = new Date();
-            const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-            const daysRemaining = daysInMonth - today.getDate() + 1;
-            totalCharge = (monthlyTotal / daysInMonth) * daysRemaining;
+            const dayOfMonth = today.getDate();
+            
+            // Estimate classes completed this month (rough: 2 per week, ~8 per month)
+            // If it's day 1-7, assume 0-2 classes done; day 8-14 = 2-4 done; etc.
+            const weekOfMonth = Math.ceil(dayOfMonth / 7);
+            const classesCompleted = Math.min(weekOfMonth * 2 - 1, 7); // Max 7 completed
+            const classesRemaining = Math.max(8 - classesCompleted, 1); // Minimum 1 class
+            
+            totalCharge = (monthlyTotal / 8) * classesRemaining;
             chargeLabel = 'Total Today (Prorated)';
           }
           
@@ -3792,7 +3938,135 @@ app.get('/education', (c) => {
           setTimeout(() => goToStep(3), 300);
         }
 
+        // Signature handling
+        let signatureCanvas, signatureCtx, isDrawing = false;
+        let signatureMethod = 'type'; // 'type' or 'draw'
+
+        function initSignatureCanvas() {
+          signatureCanvas = document.getElementById('signature-canvas');
+          if (!signatureCanvas) return;
+          
+          signatureCtx = signatureCanvas.getContext('2d');
+          signatureCtx.strokeStyle = '#000';
+          signatureCtx.lineWidth = 2;
+          signatureCtx.lineCap = 'round';
+
+          // Mouse events
+          signatureCanvas.addEventListener('mousedown', startDrawing);
+          signatureCanvas.addEventListener('mousemove', draw);
+          signatureCanvas.addEventListener('mouseup', stopDrawing);
+          signatureCanvas.addEventListener('mouseout', stopDrawing);
+
+          // Touch events
+          signatureCanvas.addEventListener('touchstart', handleTouchStart);
+          signatureCanvas.addEventListener('touchmove', handleTouchMove);
+          signatureCanvas.addEventListener('touchend', stopDrawing);
+        }
+
+        function startDrawing(e) {
+          isDrawing = true;
+          const rect = signatureCanvas.getBoundingClientRect();
+          signatureCtx.beginPath();
+          signatureCtx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+        }
+
+        function draw(e) {
+          if (!isDrawing) return;
+          const rect = signatureCanvas.getBoundingClientRect();
+          signatureCtx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+          signatureCtx.stroke();
+        }
+
+        function handleTouchStart(e) {
+          e.preventDefault();
+          isDrawing = true;
+          const rect = signatureCanvas.getBoundingClientRect();
+          const touch = e.touches[0];
+          signatureCtx.beginPath();
+          signatureCtx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
+        }
+
+        function handleTouchMove(e) {
+          if (!isDrawing) return;
+          e.preventDefault();
+          const rect = signatureCanvas.getBoundingClientRect();
+          const touch = e.touches[0];
+          signatureCtx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
+          signatureCtx.stroke();
+        }
+
+        function stopDrawing() {
+          isDrawing = false;
+        }
+
+        function clearSignature() {
+          if (!signatureCanvas) return;
+          signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+        }
+
+        function switchSignatureMethod(method) {
+          signatureMethod = method;
+          
+          if (method === 'type') {
+            document.getElementById('type-signature-section').classList.remove('hidden');
+            document.getElementById('draw-signature-section').classList.add('hidden');
+            document.getElementById('type-signature-btn').classList.add('bg-teal-500', 'text-white');
+            document.getElementById('type-signature-btn').classList.remove('bg-gray-700', 'text-gray-300');
+            document.getElementById('draw-signature-btn').classList.remove('bg-teal-500', 'text-white');
+            document.getElementById('draw-signature-btn').classList.add('bg-gray-700', 'text-gray-300');
+          } else {
+            document.getElementById('type-signature-section').classList.add('hidden');
+            document.getElementById('draw-signature-section').classList.remove('hidden');
+            document.getElementById('draw-signature-btn').classList.add('bg-teal-500', 'text-white');
+            document.getElementById('draw-signature-btn').classList.remove('bg-gray-700', 'text-gray-300');
+            document.getElementById('type-signature-btn').classList.remove('bg-teal-500', 'text-white');
+            document.getElementById('type-signature-btn').classList.add('bg-gray-700', 'text-gray-300');
+            
+            // Initialize canvas if not already done
+            if (!signatureCanvas) {
+              setTimeout(initSignatureCanvas, 100);
+            }
+          }
+        }
+
+        function validateAgreement() {
+          // Check if agreement checkbox is checked
+          const agreementChecked = document.getElementById('agreement-checkbox').checked;
+          if (!agreementChecked) {
+            alert('Please read and agree to the enrollment terms before proceeding.');
+            return false;
+          }
+
+          // Validate signature
+          if (signatureMethod === 'type') {
+            const typedSignature = document.getElementById('typed-signature').value.trim();
+            if (!typedSignature || typedSignature.length < 3) {
+              alert('Please type your full name to sign the agreement.');
+              return false;
+            }
+          } else {
+            // Check if canvas has been drawn on
+            const canvas = document.getElementById('signature-canvas');
+            const ctx = canvas.getContext('2d');
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const hasSignature = imageData.data.some(channel => channel !== 0);
+            
+            if (!hasSignature) {
+              alert('Please draw your signature before proceeding.');
+              return false;
+            }
+          }
+
+          return true;
+        }
+
         async function completeEnrollment() {
+          // Validate agreement first
+          if (!validateAgreement()) {
+            return;
+          }
+
+
           const email = document.getElementById('parent-email').value;
           const password = document.getElementById('parent-password').value;
           
@@ -3832,7 +4106,12 @@ app.get('/education', (c) => {
                   monthly_total: monthlyTotal,
                   total_charge: totalCharge,
                   parent_email: email,
-                  source: 'enrollment_modal'
+                  source: 'enrollment_modal',
+                  agreement_signed: 'yes',
+                  signature_method: signatureMethod,
+                  signature: signatureMethod === 'type' ? document.getElementById('typed-signature').value : 'drawn',
+                  signature_timestamp: new Date().toISOString(),
+                  ip_address: 'recorded_on_server'
                 }
               })
             });
@@ -4916,7 +5195,146 @@ app.get('/academy', (c) =>
                 <span class="text-sm text-gray-400">Annual Savings</span>
                 <span id="summary-savings" class="text-sm font-bold text-green-500"></span>
               </div>
-              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
+              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on classes remaining this month</p>
+            </div>
+
+            {/* Terms & Agreement */}
+            <div class="feature-card p-6 rounded-2xl mb-6 border-2 border-teal-500/20">
+              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <svg class="w-6 h-6 text-teal-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                Enrollment Agreement
+              </h3>
+              
+              <div class="bg-gray-900 p-4 rounded-lg max-h-64 overflow-y-auto text-sm mb-4 space-y-3">
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-white">ACROMATICO CREATOR ACADEMY - ENROLLMENT TERMS</strong><br/>
+                  By enrolling in Acromatico Creator Academy programs, you agree to the following terms:
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">1. PROGRAM COMMITMENT</strong><br/>
+                  • 8 live classes per month (Monday & Thursday, 11:30 AM ET)<br/>
+                  • 30-minute micro-learning sessions designed for youth creators<br/>
+                  • Access to lifetime instruction library and recorded sessions<br/>
+                  • Portfolio building tools and creative resources
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">2. PAYMENT TERMS</strong><br/>
+                  • Monthly billing: Charged on the same day each month<br/>
+                  • Annual billing: 10 months prepaid (Sept-June school year)<br/>
+                  • First month prorated based on classes remaining<br/>
+                  • Payments processed securely via Stripe
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">3. NO REFUND POLICY</strong><br/>
+                  • <strong class="text-white">All class fees are NON-REFUNDABLE once charged</strong><br/>
+                  • Classes cannot be refunded, transferred, or credited<br/>
+                  • Missed classes: Recordings available in instruction library<br/>
+                  • No refunds for unused classes or early cancellation<br/>
+                  • No chargebacks permitted - enrollment is a binding agreement
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">4. CANCELLATION POLICY</strong><br/>
+                  • Monthly: Cancel anytime (effective next billing cycle)<br/>
+                  • Annual: No refunds on prepaid tuition (non-refundable)<br/>
+                  • Must cancel before next billing date to avoid charges<br/>
+                  • Cancellation does not entitle refunds for current period
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">5. CHARGEBACK PROTECTION</strong><br/>
+                  • By signing, you waive rights to initiate chargebacks<br/>
+                  • Disputes must be handled directly with Acromatico<br/>
+                  • Unauthorized chargebacks may result in account suspension<br/>
+                  • You acknowledge receipt of services as described
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">6. ATTENDANCE & CONDUCT</strong><br/>
+                  • Students expected to attend live sessions when possible<br/>
+                  • Respectful behavior required in all classes<br/>
+                  • Acromatico reserves right to remove disruptive students<br/>
+                  • No refunds for removal due to code of conduct violations
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">7. CONTENT & INTELLECTUAL PROPERTY</strong><br/>
+                  • All course materials remain property of Acromatico<br/>
+                  • Students retain rights to their created work<br/>
+                  • Acromatico may showcase student work with permission
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-white">By signing below, you acknowledge that you have read, understood, and agree to these terms. You confirm that all enrollment fees are non-refundable and that you will not initiate chargebacks or payment disputes.</strong>
+                </p>
+              </div>
+              
+              {/* Signature Section */}
+              <div class="space-y-4">
+                <div class="flex gap-4 mb-4">
+                  <button 
+                    id="type-signature-btn" 
+                    onclick="switchSignatureMethod('type')" 
+                    class="flex-1 py-2 px-4 rounded-lg bg-teal-500 text-white font-semibold"
+                  >
+                    Type Signature
+                  </button>
+                  <button 
+                    id="draw-signature-btn" 
+                    onclick="switchSignatureMethod('draw')" 
+                    class="flex-1 py-2 px-4 rounded-lg bg-gray-700 text-gray-300 font-semibold"
+                  >
+                    Draw Signature
+                  </button>
+                </div>
+                
+                {/* Type Signature */}
+                <div id="type-signature-section" class="space-y-3">
+                  <input 
+                    type="text" 
+                    id="typed-signature" 
+                    placeholder="Type your full name" 
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-teal-500 focus:outline-none text-white"
+                  />
+                  <p class="text-xs text-gray-500">By typing your name, you agree to sign this agreement electronically</p>
+                </div>
+                
+                {/* Draw Signature */}
+                <div id="draw-signature-section" class="hidden space-y-3">
+                  <div class="border-2 border-gray-700 rounded-lg bg-white">
+                    <canvas 
+                      id="signature-canvas" 
+                      width="600" 
+                      height="200" 
+                      class="w-full cursor-crosshair rounded-lg"
+                      style="touch-action: none;"
+                    ></canvas>
+                  </div>
+                  <button 
+                    onclick="clearSignature()" 
+                    class="text-sm text-gray-400 hover:text-white"
+                  >
+                    Clear Signature
+                  </button>
+                </div>
+                
+                {/* Agreement Checkbox */}
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input 
+                    type="checkbox" 
+                    id="agreement-checkbox" 
+                    class="mt-1 w-5 h-5 rounded border-gray-700 bg-gray-800 text-teal-500 focus:ring-teal-500 cursor-pointer"
+                  />
+                  <span class="text-sm text-gray-300 leading-relaxed">
+                    I have read and agree to the enrollment terms. I understand that all fees are <strong class="text-white">non-refundable</strong> and that I will not initiate chargebacks or payment disputes. I acknowledge this is a legally binding agreement.
+                  </span>
+                </label>
+              </div>
             </div>
 
             {/* Payment Button with Stripe */}
@@ -5138,11 +5556,18 @@ app.get('/academy', (c) =>
             totalCharge = monthlyTotal * 10;
             chargeLabel = 'Total (10 months prepaid)';
           } else {
-            // Monthly: prorated for first month
+            // Monthly: prorated based on classes remaining (8 classes per month, Mon & Thu)
+            // Calculate which class # we're on in the current month
             const today = new Date();
-            const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-            const daysRemaining = daysInMonth - today.getDate() + 1;
-            totalCharge = (monthlyTotal / daysInMonth) * daysRemaining;
+            const dayOfMonth = today.getDate();
+            
+            // Estimate classes completed this month (rough: 2 per week, ~8 per month)
+            // If it's day 1-7, assume 0-2 classes done; day 8-14 = 2-4 done; etc.
+            const weekOfMonth = Math.ceil(dayOfMonth / 7);
+            const classesCompleted = Math.min(weekOfMonth * 2 - 1, 7); // Max 7 completed
+            const classesRemaining = Math.max(8 - classesCompleted, 1); // Minimum 1 class
+            
+            totalCharge = (monthlyTotal / 8) * classesRemaining;
             chargeLabel = 'Total Today (Prorated)';
           }
           
@@ -9567,7 +9992,146 @@ app.get('/faq', (c) =>
                 <span class="text-sm text-gray-400">Annual Savings</span>
                 <span id="summary-savings" class="text-sm font-bold text-green-500"></span>
               </div>
-              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on days remaining</p>
+              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on classes remaining this month</p>
+            </div>
+
+            {/* Terms & Agreement */}
+            <div class="feature-card p-6 rounded-2xl mb-6 border-2 border-teal-500/20">
+              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <svg class="w-6 h-6 text-teal-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                Enrollment Agreement
+              </h3>
+              
+              <div class="bg-gray-900 p-4 rounded-lg max-h-64 overflow-y-auto text-sm mb-4 space-y-3">
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-white">ACROMATICO CREATOR ACADEMY - ENROLLMENT TERMS</strong><br/>
+                  By enrolling in Acromatico Creator Academy programs, you agree to the following terms:
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">1. PROGRAM COMMITMENT</strong><br/>
+                  • 8 live classes per month (Monday & Thursday, 11:30 AM ET)<br/>
+                  • 30-minute micro-learning sessions designed for youth creators<br/>
+                  • Access to lifetime instruction library and recorded sessions<br/>
+                  • Portfolio building tools and creative resources
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">2. PAYMENT TERMS</strong><br/>
+                  • Monthly billing: Charged on the same day each month<br/>
+                  • Annual billing: 10 months prepaid (Sept-June school year)<br/>
+                  • First month prorated based on classes remaining<br/>
+                  • Payments processed securely via Stripe
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">3. NO REFUND POLICY</strong><br/>
+                  • <strong class="text-white">All class fees are NON-REFUNDABLE once charged</strong><br/>
+                  • Classes cannot be refunded, transferred, or credited<br/>
+                  • Missed classes: Recordings available in instruction library<br/>
+                  • No refunds for unused classes or early cancellation<br/>
+                  • No chargebacks permitted - enrollment is a binding agreement
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">4. CANCELLATION POLICY</strong><br/>
+                  • Monthly: Cancel anytime (effective next billing cycle)<br/>
+                  • Annual: No refunds on prepaid tuition (non-refundable)<br/>
+                  • Must cancel before next billing date to avoid charges<br/>
+                  • Cancellation does not entitle refunds for current period
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">5. CHARGEBACK PROTECTION</strong><br/>
+                  • By signing, you waive rights to initiate chargebacks<br/>
+                  • Disputes must be handled directly with Acromatico<br/>
+                  • Unauthorized chargebacks may result in account suspension<br/>
+                  • You acknowledge receipt of services as described
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">6. ATTENDANCE & CONDUCT</strong><br/>
+                  • Students expected to attend live sessions when possible<br/>
+                  • Respectful behavior required in all classes<br/>
+                  • Acromatico reserves right to remove disruptive students<br/>
+                  • No refunds for removal due to code of conduct violations
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-teal-500">7. CONTENT & INTELLECTUAL PROPERTY</strong><br/>
+                  • All course materials remain property of Acromatico<br/>
+                  • Students retain rights to their created work<br/>
+                  • Acromatico may showcase student work with permission
+                </p>
+                
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-white">By signing below, you acknowledge that you have read, understood, and agree to these terms. You confirm that all enrollment fees are non-refundable and that you will not initiate chargebacks or payment disputes.</strong>
+                </p>
+              </div>
+              
+              {/* Signature Section */}
+              <div class="space-y-4">
+                <div class="flex gap-4 mb-4">
+                  <button 
+                    id="type-signature-btn" 
+                    onclick="switchSignatureMethod('type')" 
+                    class="flex-1 py-2 px-4 rounded-lg bg-teal-500 text-white font-semibold"
+                  >
+                    Type Signature
+                  </button>
+                  <button 
+                    id="draw-signature-btn" 
+                    onclick="switchSignatureMethod('draw')" 
+                    class="flex-1 py-2 px-4 rounded-lg bg-gray-700 text-gray-300 font-semibold"
+                  >
+                    Draw Signature
+                  </button>
+                </div>
+                
+                {/* Type Signature */}
+                <div id="type-signature-section" class="space-y-3">
+                  <input 
+                    type="text" 
+                    id="typed-signature" 
+                    placeholder="Type your full name" 
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-teal-500 focus:outline-none text-white"
+                  />
+                  <p class="text-xs text-gray-500">By typing your name, you agree to sign this agreement electronically</p>
+                </div>
+                
+                {/* Draw Signature */}
+                <div id="draw-signature-section" class="hidden space-y-3">
+                  <div class="border-2 border-gray-700 rounded-lg bg-white">
+                    <canvas 
+                      id="signature-canvas" 
+                      width="600" 
+                      height="200" 
+                      class="w-full cursor-crosshair rounded-lg"
+                      style="touch-action: none;"
+                    ></canvas>
+                  </div>
+                  <button 
+                    onclick="clearSignature()" 
+                    class="text-sm text-gray-400 hover:text-white"
+                  >
+                    Clear Signature
+                  </button>
+                </div>
+                
+                {/* Agreement Checkbox */}
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input 
+                    type="checkbox" 
+                    id="agreement-checkbox" 
+                    class="mt-1 w-5 h-5 rounded border-gray-700 bg-gray-800 text-teal-500 focus:ring-teal-500 cursor-pointer"
+                  />
+                  <span class="text-sm text-gray-300 leading-relaxed">
+                    I have read and agree to the enrollment terms. I understand that all fees are <strong class="text-white">non-refundable</strong> and that I will not initiate chargebacks or payment disputes. I acknowledge this is a legally binding agreement.
+                  </span>
+                </label>
+              </div>
             </div>
 
             {/* Payment Button with Stripe */}
@@ -9789,11 +10353,18 @@ app.get('/faq', (c) =>
             totalCharge = monthlyTotal * 10;
             chargeLabel = 'Total (10 months prepaid)';
           } else {
-            // Monthly: prorated for first month
+            // Monthly: prorated based on classes remaining (8 classes per month, Mon & Thu)
+            // Calculate which class # we're on in the current month
             const today = new Date();
-            const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-            const daysRemaining = daysInMonth - today.getDate() + 1;
-            totalCharge = (monthlyTotal / daysInMonth) * daysRemaining;
+            const dayOfMonth = today.getDate();
+            
+            // Estimate classes completed this month (rough: 2 per week, ~8 per month)
+            // If it's day 1-7, assume 0-2 classes done; day 8-14 = 2-4 done; etc.
+            const weekOfMonth = Math.ceil(dayOfMonth / 7);
+            const classesCompleted = Math.min(weekOfMonth * 2 - 1, 7); // Max 7 completed
+            const classesRemaining = Math.max(8 - classesCompleted, 1); // Minimum 1 class
+            
+            totalCharge = (monthlyTotal / 8) * classesRemaining;
             chargeLabel = 'Total Today (Prorated)';
           }
           
