@@ -1186,6 +1186,7 @@
       const contractNameEl = document.getElementById('contractClientName');
       const contractEmailEl = document.getElementById('contractClientEmail');
       const contractCompanyEl = document.getElementById('contractCompany');
+      const contractCompany2El = document.getElementById('contractCompany2');
       const contractEventNameEl = document.getElementById('contractEventName');
       const contractEventDateEl = document.getElementById('contractEventDate');
       const contractEventTypeEl = document.getElementById('contractEventType');
@@ -1193,43 +1194,69 @@
       
       if (contractNameEl) contractNameEl.textContent = booking.contactName || 'Client';
       if (contractEmailEl) contractEmailEl.textContent = booking.contactEmail || '';
-      if (contractCompanyEl) contractCompanyEl.textContent = booking.company || 'N/A';
+      if (contractCompanyEl) contractCompanyEl.textContent = booking.companyName || 'N/A';
+      if (contractCompany2El) contractCompany2El.textContent = booking.companyName || 'Company Name';
       if (contractEventNameEl) contractEventNameEl.textContent = booking.eventName || 'TBD';
       if (contractEventDateEl) contractEventDateEl.textContent = booking.eventDate || 'TBD';
       if (contractEventTypeEl) contractEventTypeEl.textContent = booking.eventType || 'TBD';
       if (contractLocationEl) contractLocationEl.textContent = booking.location || 'TBD';
       
-      // Show coverage package
-      let packageDisplay = booking.coveragePackage || 'Not selected';
-      const contractPackageEl = document.getElementById('contractCoverage');
-      if (contractPackageEl) contractPackageEl.textContent = packageDisplay;
-      
-      // Show services
-      const contractServicesEl = document.getElementById('contractServices');
-      if (contractServicesEl) {
-        let servicesHTML = '';
-        
-        if (booking.video && booking.videoPrice > 0) {
-          servicesHTML += `<p style="margin-bottom: 8px;">• ${booking.video}: $${booking.videoPrice.toLocaleString()}</p>`;
+      // Services Provided section
+      let coverageText = 'Not selected';
+      if (booking.coverage) {
+        if (booking.coverage === 'multi-day') {
+          coverageText = `${booking.numberOfDays}-Day Event (${booking.coverageHours}h total)`;
+        } else {
+          const coverageNames = {
+            'half-day': 'Half-Day (4 hours)',
+            'full-day': 'Full-Day (8 hours)',
+            'extended': 'Extended Day (12 hours)'
+          };
+          coverageText = coverageNames[booking.coverage] || booking.coverage;
         }
-        
-        if (booking.addons && booking.addons.length > 0) {
-          booking.addons.forEach(addon => {
-            servicesHTML += `<p style="margin-bottom: 8px;">• ${addon.name}: $${addon.price.toLocaleString()}</p>`;
-          });
-        }
-        
-        if (booking.usb && booking.usbPrice > 0) {
-          servicesHTML += `<p style="margin-bottom: 8px;">• USB Drive: $${booking.usbPrice.toLocaleString()}</p>`;
-        }
-        
-        contractServicesEl.innerHTML = servicesHTML || '<p style="margin-bottom: 8px; color: #999;">Coverage only</p>';
       }
+      const contractCoverageEl = document.getElementById('contractCoverage');
+      if (contractCoverageEl) contractCoverageEl.textContent = coverageText;
+      
+      // Team
+      let teamText = 'Solo Photographer';
+      if (booking.teamSize === '2-person') {
+        teamText = '2-Person Team';
+      } else if (booking.teamSize === '3-person') {
+        teamText = '3-Person Team';
+      } else if (booking.teamSize === 'custom') {
+        teamText = 'Custom Team Configuration';
+      }
+      const contractTeamEl = document.getElementById('contractTeam');
+      if (contractTeamEl) contractTeamEl.textContent = teamText;
+      
+      // Video
+      let videoText = 'None';
+      if (booking.videoPackages && booking.videoPackages.length > 0) {
+        const videoNames = {
+          'keynoteVideo': 'Keynote Coverage',
+          'multiCamVideo': 'Multi-Camera Coverage',
+          'bRollVideo': 'B-Roll Package'
+        };
+        videoText = booking.videoPackages.map(pkg => videoNames[pkg.id] || pkg.id).join(', ');
+      }
+      const contractVideoEl = document.getElementById('contractVideo');
+      if (contractVideoEl) contractVideoEl.textContent = videoText;
+      
+      // Deliverables
+      let deliverablesText = `${booking.coverageImages || '500+'} professionally edited images, online gallery`;
+      if (booking.usbQuantity > 0) {
+        deliverablesText += `, ${booking.usbQuantity} custom USB drive${booking.usbQuantity > 1 ? 's' : ''}`;
+      }
+      const contractDeliverablesEl = document.getElementById('contractDeliverables');
+      if (contractDeliverablesEl) contractDeliverablesEl.textContent = deliverablesText;
       
       // Calculate total
       const total = booking.coveragePrice + booking.teamPrice + booking.videoPrice + booking.addonsPrice + booking.usbPrice;
       const contractTotalEl = document.getElementById('contractTotal');
+      const contractTotal2El = document.getElementById('contractTotal2');
       if (contractTotalEl) contractTotalEl.textContent = total.toLocaleString();
+      if (contractTotal2El) contractTotal2El.textContent = total.toLocaleString();
       
       // Payment amounts
       const deposit = Math.round(total / 2);
