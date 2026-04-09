@@ -1201,22 +1201,13 @@
         <div style="background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 28px; margin-bottom: 32px;">
           <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px; color: #333;">Select Payment Method</h3>
           
-          <!-- Credit Card with Stripe -->
+          <!-- Credit Card with Stripe (includes Apple Pay, Google Pay, Klarna, etc.) -->
           <button onclick="payWithStripe()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
-            <span>💳 Credit/Debit Card (Stripe)</span>
+            <div>
+              <div style="margin-bottom: 6px;">💳 Credit/Debit Card (Stripe)</div>
+              <div style="font-size: 12px; color: #666; font-weight: 400;">Apple Pay, Google Pay, Klarna, Affirm & more available at checkout</div>
+            </div>
             <span style="font-size: 24px; font-weight: 600; color: var(--accent);">$<span id="selectedAmount">0</span></span>
-          </button>
-
-          <!-- Apple Pay -->
-          <button onclick="payWithApplePay()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
-            <span> Apple Pay</span>
-            <span style="font-size: 24px; font-weight: 600; color: var(--accent);">$<span id="selectedAmount2">0</span></span>
-          </button>
-
-          <!-- Google Pay -->
-          <button onclick="payWithGooglePay()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
-            <span>🅖 Google Pay</span>
-            <span style="font-size: 24px; font-weight: 600; color: var(--accent);">$<span id="selectedAmount3">0</span></span>
           </button>
 
           <!-- Manual Payment Methods -->
@@ -1266,7 +1257,10 @@
         </div>
         <div class="preview-item">
           <span class="preview-label">Memory Book</span>
-          <span class="preview-value" id="previewMemoryBook">None</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="preview-value" id="previewMemoryBook">None</span>
+            <button onclick="removeMemoryBook()" id="removeMemoryBookBtn" style="display: none; background: none; border: none; color: #ef4444; cursor: pointer; font-size: 18px; padding: 4px 8px;" title="Remove memory book">×</button>
+          </div>
         </div>
         <div class="preview-item" id="previewPrintsSection" style="display: none;">
           <span class="preview-label">Prints</span>
@@ -1412,6 +1406,7 @@
         booking.memoryBookPrice = 0;
         booking.memoryBookAddons = [];
         document.getElementById('previewMemoryBook').textContent = 'None';
+        document.getElementById('removeMemoryBookBtn').style.display = 'none';
         updateTotal();
         console.log('✅ Memory book set to None');
         return;
@@ -1426,11 +1421,24 @@
       
       console.log('📦 Memory book selected:', booking.memoryBook, booking.memoryBookBasePrice);
       
+      // Show remove button
+      document.getElementById('removeMemoryBookBtn').style.display = 'inline-block';
+      
       // Reset page radio buttons to default (20 pages)
       document.getElementById('memoryBookPages20').checked = true;
       document.getElementById('memoryBookLinenCover').checked = false;
       
       updateMemoryBookAddons();
+    }
+
+    function removeMemoryBook() {
+      booking.memoryBook = null;
+      booking.memoryBookPrice = 0;
+      booking.memoryBookAddons = [];
+      document.getElementById('previewMemoryBook').textContent = 'None';
+      document.getElementById('removeMemoryBookBtn').style.display = 'none';
+      document.querySelectorAll('#step3 .option-card').forEach(c => c.classList.remove('selected'));
+      updateTotal();
     }
     
     function updateMemoryBookAddons() {
@@ -1529,13 +1537,36 @@
       }
       
       printsSection.style.display = 'block';
-      printsList.innerHTML = booking.prints.map(p => 
-        `<div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+      printsList.innerHTML = booking.prints.map(p => `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
           <span>${p.name}</span>
-          <span style="font-weight: 600; color: var(--accent);">$${p.price.toLocaleString()}</span>
-        </div>`
-      ).join('');
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span>$${p.price}</span>
+            <button onclick="removePrint('${p.name}')" style="background: none; border: none; color: #ef4444; cursor: pointer; font-size: 16px; padding: 2px 4px;" title="Remove ${p.name}">×</button>
+          </div>
+        </div>
+      `).join('');
     }
+
+    function removePrint(printName) {
+      const index = booking.prints.findIndex(p => p.name === printName);
+      if (index !== -1) {
+        booking.printsPrice -= booking.prints[index].price;
+        booking.prints.splice(index, 1);
+        // Uncheck the checkbox
+        const checkboxes = document.querySelectorAll('#step4 input[type="checkbox"]');
+        checkboxes.forEach(cb => {
+          const label = cb.parentElement.querySelector('span');
+          if (label && label.textContent.includes(printName)) {
+            cb.checked = false;
+          }
+        });
+        updatePrintsPreview();
+        updateTotal();
+      }
+    }
+
+
     
     function updateTotal() {
       const upgradesTotal = booking.upgrades.reduce((sum, u) => sum + u.price, 0);
@@ -2535,10 +2566,8 @@
     }
     
     function updateSelectedAmountDisplay() {
-      // Update all payment method buttons
+      // Update payment method button (only Stripe now)
       document.getElementById('selectedAmount').textContent = selectedPaymentAmount.toLocaleString();
-      document.getElementById('selectedAmount2').textContent = selectedPaymentAmount.toLocaleString();
-      document.getElementById('selectedAmount3').textContent = selectedPaymentAmount.toLocaleString();
       
       // Update manual payment methods
       const manualAmounts = document.querySelectorAll('.manualAmount');
@@ -2598,19 +2627,6 @@
       }
     }
     
-    function payWithApplePay() {
-      console.log(' Initiating Apple Pay for $' + selectedPaymentAmount.toLocaleString());
-      alert(` Apple Pay\n\nAmount: $${selectedPaymentAmount.toLocaleString()}\n\n✅ This will open Apple Pay sheet.\n\n(Apple Pay integration coming next!)`);
-      
-      // TODO: Implement Apple Pay
-    }
-    
-    function payWithGooglePay() {
-      console.log('🅖 Initiating Google Pay for $' + selectedPaymentAmount.toLocaleString());
-      alert(`🅖 Google Pay\n\nAmount: $${selectedPaymentAmount.toLocaleString()}\n\n✅ This will open Google Pay sheet.\n\n(Google Pay integration coming next!)`);
-      
-      // TODO: Implement Google Pay
-    }
     
     // Image zoom modal functions
     function openImageModal(imageSrc) {
