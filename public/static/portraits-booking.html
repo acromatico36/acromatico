@@ -1354,6 +1354,7 @@
       name: '',
       email: '',
       phone: '',
+      referralCode: '',
       isCustom: false
     };
 
@@ -1527,6 +1528,33 @@
       document.getElementById('removeMemoryBookBtn').style.display = 'none';
       document.querySelectorAll('#step3 .option-card').forEach(c => c.classList.remove('selected'));
       updateTotal();
+    }
+
+    function applyReferralCode() {
+      const codeInput = document.getElementById('referralCode');
+      const messageDiv = document.getElementById('referralMessage');
+      const code = codeInput.value.trim().toUpperCase();
+      
+      if (!code) {
+        messageDiv.textContent = '⚠️ Please enter a referral code';
+        messageDiv.style.color = '#dc3545';
+        messageDiv.style.display = 'block';
+        return;
+      }
+      
+      // Store referral code in booking
+      booking.referralCode = code;
+      
+      // Show success message
+      messageDiv.textContent = '✅ Referral code applied! FREE 8×12 print ($45 value) added to your order';
+      messageDiv.style.color = '#28a745';
+      messageDiv.style.display = 'block';
+      
+      // Disable input after applying
+      codeInput.disabled = true;
+      codeInput.style.background = '#f8f9fa';
+      
+      console.log('🎁 Referral code applied:', code);
     }
     
     function updateMemoryBookAddons() {
