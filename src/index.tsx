@@ -3553,7 +3553,7 @@ app.get('/education', (c) => {
         
         // Simplified Pricing: $100/month (8 classes), 10% off each additional sibling, 20% off annual
         const BASE_MONTHLY_PRICE = 100;
-        const SIBLING_DISCOUNT = 0.10; // 10% off per additional sibling
+        const SIBLING_DISCOUNT = 0.05; // 5% off per additional sibling
         const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
         
         function calculatePrice(students, isAnnual) {
@@ -3699,7 +3699,7 @@ app.get('/education', (c) => {
           // Show sibling discount if applicable
           const discountEl = document.getElementById('sibling-discount-text');
           if (students > 1) {
-            const discountPercent = Math.round((students - 1) * 10);
+            const discountPercent = Math.round((students - 1) * 5);
             discountEl.textContent = 'Save ' + discountPercent + '% with siblings!';
             discountEl.classList.remove('hidden');
           } else {
@@ -4936,7 +4936,7 @@ app.get('/academy', (c) =>
         
         // Simplified Pricing: $100/month (8 classes), 10% off each additional sibling, 20% off annual
         const BASE_MONTHLY_PRICE = 100;
-        const SIBLING_DISCOUNT = 0.10; // 10% off per additional sibling
+        const SIBLING_DISCOUNT = 0.05; // 5% off per additional sibling
         const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
         
         function calculatePrice(students, isAnnual) {
@@ -5082,7 +5082,7 @@ app.get('/academy', (c) =>
           // Show sibling discount if applicable
           const discountEl = document.getElementById('sibling-discount-text');
           if (students > 1) {
-            const discountPercent = Math.round((students - 1) * 10);
+            const discountPercent = Math.round((students - 1) * 5);
             discountEl.textContent = 'Save ' + discountPercent + '% with siblings!';
             discountEl.classList.remove('hidden');
           } else {
@@ -9572,7 +9572,7 @@ app.get('/faq', (c) =>
         
         // Simplified Pricing: $100/month (8 classes), 10% off each additional sibling, 20% off annual
         const BASE_MONTHLY_PRICE = 100;
-        const SIBLING_DISCOUNT = 0.10; // 10% off per additional sibling
+        const SIBLING_DISCOUNT = 0.05; // 5% off per additional sibling
         const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
         
         function calculatePrice(students, isAnnual) {
@@ -9718,7 +9718,7 @@ app.get('/faq', (c) =>
           // Show sibling discount if applicable
           const discountEl = document.getElementById('sibling-discount-text');
           if (students > 1) {
-            const discountPercent = Math.round((students - 1) * 10);
+            const discountPercent = Math.round((students - 1) * 5);
             discountEl.textContent = 'Save ' + discountPercent + '% with siblings!';
             discountEl.classList.remove('hidden');
           } else {
