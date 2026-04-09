@@ -3359,11 +3359,75 @@ app.get('/education', (c) => {
             <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-3 flex items-center gap-2 text-sm">
               ← Back
             </button>
-            <h2 class="text-3xl font-black mb-2">How Many Students?</h2>
-            <p class="text-base text-gray-400 mb-4">Select the package that fits your family</p>
+            <h2 class="text-3xl font-black mb-2 text-center">How Many Students?</h2>
+            <p class="text-base text-gray-400 mb-8 text-center">Slide to see your savings</p>
             
+            {/* BIG PRICE DISPLAY - Focus on per-class cost */}
+            <div class="text-center mb-8">
+              <div class="text-8xl font-black mb-2" id="big-price-display">$12.50</div>
+              <div class="text-xl text-gray-400 mb-4">per class</div>
+              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month</div>
+              <div class="text-sm text-gray-500 mt-2" id="student-count-text">1 student • 8 live classes</div>
+              <div class="text-sm text-teal-500 mt-1 hidden" id="sibling-discount-text"></div>
+            </div>
+
+            {/* Student Count Slider */}
+            <div class="mb-8 px-4">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-sm text-gray-400">Number of Students</span>
+                <span class="text-2xl font-bold text-white" id="slider-number">1</span>
+              </div>
+              <style dangerouslySetInnerHTML={{__html: `
+                #student-slider::-webkit-slider-thumb {
+                  appearance: none;
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                  background: #4794A6;
+                  cursor: pointer;
+                  border: 4px solid white;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                  transition: transform 0.2s;
+                }
+                #student-slider::-webkit-slider-thumb:hover {
+                  transform: scale(1.1);
+                }
+                #student-slider::-moz-range-thumb {
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                  background: #4794A6;
+                  cursor: pointer;
+                  border: 4px solid white;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                  transition: transform 0.2s;
+                }
+                #student-slider::-moz-range-thumb:hover {
+                  transform: scale(1.1);
+                }
+              `}} />
+              <input 
+                type="range" 
+                id="student-slider" 
+                min="1" 
+                max="6" 
+                value="1" 
+                oninput="updateSlider(this.value)"
+                class="w-full h-3 bg-gray-800 rounded-full appearance-none cursor-pointer"
+                style="background: linear-gradient(to right, #4794A6 0%, #4794A6 0%, #1f2937 0%, #1f2937 100%);"
+              />
+              <div class="flex justify-between text-xs text-gray-500 mt-2">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6+</span>
+              </div>
+            </div>
+
             {/* Monthly/Annual Toggle */}
-            <div class="flex items-center justify-center gap-3 mb-4 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
+            <div class="flex items-center justify-center gap-3 mb-6 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
               <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
                 Monthly
               </button>
@@ -3371,61 +3435,10 @@ app.get('/education', (c) => {
                 Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
               </button>
             </div>
-            <p class="text-center text-xs text-gray-400 mb-4">
-              <span class="annual-note hidden">Annual: 10 months (Sept-June). December: 2 special workshops!</span>
+            <p class="text-center text-xs text-gray-400 mb-6">
+              <span class="annual-note hidden">Annual: 10 months prepaid (Sept-June)</span>
               <span class="monthly-note">Billed monthly. Cancel anytime.</span>
             </p>
-
-            <div class="grid grid-cols-2 gap-3 mb-4">
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
-                <div class="text-3xl font-black mb-1">1</div>
-                <div class="text-gray-400 text-xs mb-2">Student</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$100</span>
-                  <span class="annual-price hidden">$80</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.50 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$10 per class</div>
-              </div>
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
-                <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-teal-500 px-2 py-0.5 rounded-full text-xs font-bold">Most Popular</div>
-                <div class="text-3xl font-black mb-1">2</div>
-                <div class="text-gray-400 text-xs mb-2">Students</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$190</span>
-                  <span class="annual-price hidden">$152</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-teal-500 text-xs mt-1">10% sibling discount</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.88 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.50 per class</div>
-              </div>
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
-                <div class="text-3xl font-black mb-1">3</div>
-                <div class="text-gray-400 text-xs mb-2">Students</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$270</span>
-                  <span class="annual-price hidden">$216</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-teal-500 text-xs mt-1">20% sibling discount</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.25 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9 per class</div>
-              </div>
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
-                <div class="text-3xl font-black mb-1">4</div>
-                <div class="text-gray-400 text-xs mb-2">Students</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$340</span>
-                  <span class="annual-price hidden">$272</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-teal-500 text-xs mt-1">30% sibling discount</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$10.63 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.50 per class</div>
-              </div>
-            </div>
             
             {/* What's Included */}
             <div class="feature-card p-4 rounded-xl mt-4">
@@ -3651,6 +3664,51 @@ app.get('/education', (c) => {
           document.querySelectorAll('.annual-note').forEach(el => {
             el.classList.toggle('hidden', !isAnnual);
           });
+          
+          // Update slider display with new pricing
+          const currentStudents = parseInt(document.getElementById('student-slider').value);
+          updateSlider(currentStudents);
+        }
+
+        function updateSlider(students) {
+          students = parseInt(students);
+          
+          // Update slider visual feedback
+          const slider = document.getElementById('student-slider');
+          const percentage = ((students - 1) / 5) * 100;
+          slider.style.background = \`linear-gradient(to right, #4794A6 0%, #4794A6 \${percentage}%, #1f2937 \${percentage}%, #1f2937 100%)\`;
+          
+          // Update slider number display
+          document.getElementById('slider-number').textContent = students + (students >= 6 ? '+' : '');
+          
+          // Calculate pricing
+          const monthlyTotal = calculatePrice(students, isAnnual);
+          const perClass = monthlyTotal / 8;
+          
+          // Update BIG price display (per-class cost)
+          document.getElementById('big-price-display').textContent = '$' + perClass.toFixed(2);
+          
+          // Update monthly price
+          const monthlyPrice = isAnnual ? monthlyTotal : monthlyTotal;
+          document.getElementById('monthly-price-display').textContent = '$' + monthlyPrice.toFixed(0) + '/month';
+          
+          // Update student count text
+          const studentText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
+          document.getElementById('student-count-text').textContent = studentText + ' • 8 live classes';
+          
+          // Show sibling discount if applicable
+          const discountEl = document.getElementById('sibling-discount-text');
+          if (students > 1) {
+            const discountPercent = Math.round((students - 1) * 10);
+            discountEl.textContent = 'Save ' + discountPercent + '% with siblings!';
+            discountEl.classList.remove('hidden');
+          } else {
+            discountEl.classList.add('hidden');
+          }
+          
+          // Auto-select package (for navigation to step 3)
+          selectedStudents = students;
+          selectedPrice = monthlyTotal;
         }
 
         function selectPackage(students) {
@@ -4684,11 +4742,75 @@ app.get('/academy', (c) =>
             <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-3 flex items-center gap-2 text-sm">
               ← Back
             </button>
-            <h2 class="text-3xl font-black mb-2">How Many Students?</h2>
-            <p class="text-base text-gray-400 mb-4">Select the package that fits your family</p>
+            <h2 class="text-3xl font-black mb-2 text-center">How Many Students?</h2>
+            <p class="text-base text-gray-400 mb-8 text-center">Slide to see your savings</p>
             
+            {/* BIG PRICE DISPLAY - Focus on per-class cost */}
+            <div class="text-center mb-8">
+              <div class="text-8xl font-black mb-2" id="big-price-display">$12.50</div>
+              <div class="text-xl text-gray-400 mb-4">per class</div>
+              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month</div>
+              <div class="text-sm text-gray-500 mt-2" id="student-count-text">1 student • 8 live classes</div>
+              <div class="text-sm text-teal-500 mt-1 hidden" id="sibling-discount-text"></div>
+            </div>
+
+            {/* Student Count Slider */}
+            <div class="mb-8 px-4">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-sm text-gray-400">Number of Students</span>
+                <span class="text-2xl font-bold text-white" id="slider-number">1</span>
+              </div>
+              <style dangerouslySetInnerHTML={{__html: `
+                #student-slider::-webkit-slider-thumb {
+                  appearance: none;
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                  background: #4794A6;
+                  cursor: pointer;
+                  border: 4px solid white;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                  transition: transform 0.2s;
+                }
+                #student-slider::-webkit-slider-thumb:hover {
+                  transform: scale(1.1);
+                }
+                #student-slider::-moz-range-thumb {
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                  background: #4794A6;
+                  cursor: pointer;
+                  border: 4px solid white;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                  transition: transform 0.2s;
+                }
+                #student-slider::-moz-range-thumb:hover {
+                  transform: scale(1.1);
+                }
+              `}} />
+              <input 
+                type="range" 
+                id="student-slider" 
+                min="1" 
+                max="6" 
+                value="1" 
+                oninput="updateSlider(this.value)"
+                class="w-full h-3 bg-gray-800 rounded-full appearance-none cursor-pointer"
+                style="background: linear-gradient(to right, #4794A6 0%, #4794A6 0%, #1f2937 0%, #1f2937 100%);"
+              />
+              <div class="flex justify-between text-xs text-gray-500 mt-2">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6+</span>
+              </div>
+            </div>
+
             {/* Monthly/Annual Toggle */}
-            <div class="flex items-center justify-center gap-3 mb-4 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
+            <div class="flex items-center justify-center gap-3 mb-6 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
               <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
                 Monthly
               </button>
@@ -4696,61 +4818,10 @@ app.get('/academy', (c) =>
                 Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
               </button>
             </div>
-            <p class="text-center text-xs text-gray-400 mb-4">
-              <span class="annual-note hidden">Annual: 10 months (Sept-June). December: 2 special workshops!</span>
+            <p class="text-center text-xs text-gray-400 mb-6">
+              <span class="annual-note hidden">Annual: 10 months prepaid (Sept-June)</span>
               <span class="monthly-note">Billed monthly. Cancel anytime.</span>
             </p>
-
-            <div class="grid grid-cols-2 gap-3 mb-4">
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
-                <div class="text-3xl font-black mb-1">1</div>
-                <div class="text-gray-400 text-xs mb-2">Student</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$100</span>
-                  <span class="annual-price hidden">$80</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.50 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$10 per class</div>
-              </div>
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
-                <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-teal-500 px-2 py-0.5 rounded-full text-xs font-bold">Most Popular</div>
-                <div class="text-3xl font-black mb-1">2</div>
-                <div class="text-gray-400 text-xs mb-2">Students</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$190</span>
-                  <span class="annual-price hidden">$152</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-teal-500 text-xs mt-1">10% sibling discount</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.88 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.50 per class</div>
-              </div>
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
-                <div class="text-3xl font-black mb-1">3</div>
-                <div class="text-gray-400 text-xs mb-2">Students</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$270</span>
-                  <span class="annual-price hidden">$216</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-teal-500 text-xs mt-1">20% sibling discount</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.25 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9 per class</div>
-              </div>
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
-                <div class="text-3xl font-black mb-1">4</div>
-                <div class="text-gray-400 text-xs mb-2">Students</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$340</span>
-                  <span class="annual-price hidden">$272</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-teal-500 text-xs mt-1">30% sibling discount</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$10.63 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.50 per class</div>
-              </div>
-            </div>
             
             {/* What's Included */}
             <div class="feature-card p-4 rounded-xl mt-4">
@@ -4976,6 +5047,51 @@ app.get('/academy', (c) =>
           document.querySelectorAll('.annual-note').forEach(el => {
             el.classList.toggle('hidden', !isAnnual);
           });
+          
+          // Update slider display with new pricing
+          const currentStudents = parseInt(document.getElementById('student-slider').value);
+          updateSlider(currentStudents);
+        }
+
+        function updateSlider(students) {
+          students = parseInt(students);
+          
+          // Update slider visual feedback
+          const slider = document.getElementById('student-slider');
+          const percentage = ((students - 1) / 5) * 100;
+          slider.style.background = \`linear-gradient(to right, #4794A6 0%, #4794A6 \${percentage}%, #1f2937 \${percentage}%, #1f2937 100%)\`;
+          
+          // Update slider number display
+          document.getElementById('slider-number').textContent = students + (students >= 6 ? '+' : '');
+          
+          // Calculate pricing
+          const monthlyTotal = calculatePrice(students, isAnnual);
+          const perClass = monthlyTotal / 8;
+          
+          // Update BIG price display (per-class cost)
+          document.getElementById('big-price-display').textContent = '$' + perClass.toFixed(2);
+          
+          // Update monthly price
+          const monthlyPrice = isAnnual ? monthlyTotal : monthlyTotal;
+          document.getElementById('monthly-price-display').textContent = '$' + monthlyPrice.toFixed(0) + '/month';
+          
+          // Update student count text
+          const studentText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
+          document.getElementById('student-count-text').textContent = studentText + ' • 8 live classes';
+          
+          // Show sibling discount if applicable
+          const discountEl = document.getElementById('sibling-discount-text');
+          if (students > 1) {
+            const discountPercent = Math.round((students - 1) * 10);
+            discountEl.textContent = 'Save ' + discountPercent + '% with siblings!';
+            discountEl.classList.remove('hidden');
+          } else {
+            discountEl.classList.add('hidden');
+          }
+          
+          // Auto-select package (for navigation to step 3)
+          selectedStudents = students;
+          selectedPrice = monthlyTotal;
         }
 
         function selectPackage(students) {
@@ -9262,11 +9378,75 @@ app.get('/faq', (c) =>
             <button onclick="goToStep(1)" class="text-gray-400 hover:text-white mb-3 flex items-center gap-2 text-sm">
               ← Back
             </button>
-            <h2 class="text-3xl font-black mb-2">How Many Students?</h2>
-            <p class="text-base text-gray-400 mb-4">Select the package that fits your family</p>
+            <h2 class="text-3xl font-black mb-2 text-center">How Many Students?</h2>
+            <p class="text-base text-gray-400 mb-8 text-center">Slide to see your savings</p>
             
+            {/* BIG PRICE DISPLAY - Focus on per-class cost */}
+            <div class="text-center mb-8">
+              <div class="text-8xl font-black mb-2" id="big-price-display">$12.50</div>
+              <div class="text-xl text-gray-400 mb-4">per class</div>
+              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month</div>
+              <div class="text-sm text-gray-500 mt-2" id="student-count-text">1 student • 8 live classes</div>
+              <div class="text-sm text-teal-500 mt-1 hidden" id="sibling-discount-text"></div>
+            </div>
+
+            {/* Student Count Slider */}
+            <div class="mb-8 px-4">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-sm text-gray-400">Number of Students</span>
+                <span class="text-2xl font-bold text-white" id="slider-number">1</span>
+              </div>
+              <style dangerouslySetInnerHTML={{__html: `
+                #student-slider::-webkit-slider-thumb {
+                  appearance: none;
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                  background: #4794A6;
+                  cursor: pointer;
+                  border: 4px solid white;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                  transition: transform 0.2s;
+                }
+                #student-slider::-webkit-slider-thumb:hover {
+                  transform: scale(1.1);
+                }
+                #student-slider::-moz-range-thumb {
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                  background: #4794A6;
+                  cursor: pointer;
+                  border: 4px solid white;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                  transition: transform 0.2s;
+                }
+                #student-slider::-moz-range-thumb:hover {
+                  transform: scale(1.1);
+                }
+              `}} />
+              <input 
+                type="range" 
+                id="student-slider" 
+                min="1" 
+                max="6" 
+                value="1" 
+                oninput="updateSlider(this.value)"
+                class="w-full h-3 bg-gray-800 rounded-full appearance-none cursor-pointer"
+                style="background: linear-gradient(to right, #4794A6 0%, #4794A6 0%, #1f2937 0%, #1f2937 100%);"
+              />
+              <div class="flex justify-between text-xs text-gray-500 mt-2">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6+</span>
+              </div>
+            </div>
+
             {/* Monthly/Annual Toggle */}
-            <div class="flex items-center justify-center gap-3 mb-4 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
+            <div class="flex items-center justify-center gap-3 mb-6 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
               <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
                 Monthly
               </button>
@@ -9274,61 +9454,10 @@ app.get('/faq', (c) =>
                 Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
               </button>
             </div>
-            <p class="text-center text-xs text-gray-400 mb-4">
-              <span class="annual-note hidden">Annual: 10 months (Sept-June). December: 2 special workshops!</span>
+            <p class="text-center text-xs text-gray-400 mb-6">
+              <span class="annual-note hidden">Annual: 10 months prepaid (Sept-June)</span>
               <span class="monthly-note">Billed monthly. Cancel anytime.</span>
             </p>
-
-            <div class="grid grid-cols-2 gap-3 mb-4">
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(1)">
-                <div class="text-3xl font-black mb-1">1</div>
-                <div class="text-gray-400 text-xs mb-2">Student</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$100</span>
-                  <span class="annual-price hidden">$80</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$12.50 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$10 per class</div>
-              </div>
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition ring-2 ring-teal-500 relative" onclick="selectPackage(2)">
-                <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-teal-500 px-2 py-0.5 rounded-full text-xs font-bold">Most Popular</div>
-                <div class="text-3xl font-black mb-1">2</div>
-                <div class="text-gray-400 text-xs mb-2">Students</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$190</span>
-                  <span class="annual-price hidden">$152</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-teal-500 text-xs mt-1">10% sibling discount</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.88 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9.50 per class</div>
-              </div>
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(3)">
-                <div class="text-3xl font-black mb-1">3</div>
-                <div class="text-gray-400 text-xs mb-2">Students</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$270</span>
-                  <span class="annual-price hidden">$216</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-teal-500 text-xs mt-1">20% sibling discount</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$11.25 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$9 per class</div>
-              </div>
-              <div class="package-option feature-card p-4 rounded-xl cursor-pointer hover:ring-2 hover:ring-teal-500 transition relative" onclick="selectPackage(4)">
-                <div class="text-3xl font-black mb-1">4</div>
-                <div class="text-gray-400 text-xs mb-2">Students</div>
-                <div class="text-xl font-bold">
-                  <span class="monthly-price">$340</span>
-                  <span class="annual-price hidden">$272</span>
-                  <span class="text-xs text-gray-500">/mo</span>
-                </div>
-                <div class="text-teal-500 text-xs mt-1">30% sibling discount</div>
-                <div class="text-xs text-gray-500 mt-2 monthly-per-class">$10.63 per class</div>
-                <div class="text-xs text-gray-500 mt-2 annual-per-class hidden">$8.50 per class</div>
-              </div>
-            </div>
             
             {/* What's Included */}
             <div class="feature-card p-4 rounded-xl mt-4">
@@ -9554,6 +9683,51 @@ app.get('/faq', (c) =>
           document.querySelectorAll('.annual-note').forEach(el => {
             el.classList.toggle('hidden', !isAnnual);
           });
+          
+          // Update slider display with new pricing
+          const currentStudents = parseInt(document.getElementById('student-slider').value);
+          updateSlider(currentStudents);
+        }
+
+        function updateSlider(students) {
+          students = parseInt(students);
+          
+          // Update slider visual feedback
+          const slider = document.getElementById('student-slider');
+          const percentage = ((students - 1) / 5) * 100;
+          slider.style.background = \`linear-gradient(to right, #4794A6 0%, #4794A6 \${percentage}%, #1f2937 \${percentage}%, #1f2937 100%)\`;
+          
+          // Update slider number display
+          document.getElementById('slider-number').textContent = students + (students >= 6 ? '+' : '');
+          
+          // Calculate pricing
+          const monthlyTotal = calculatePrice(students, isAnnual);
+          const perClass = monthlyTotal / 8;
+          
+          // Update BIG price display (per-class cost)
+          document.getElementById('big-price-display').textContent = '$' + perClass.toFixed(2);
+          
+          // Update monthly price
+          const monthlyPrice = isAnnual ? monthlyTotal : monthlyTotal;
+          document.getElementById('monthly-price-display').textContent = '$' + monthlyPrice.toFixed(0) + '/month';
+          
+          // Update student count text
+          const studentText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
+          document.getElementById('student-count-text').textContent = studentText + ' • 8 live classes';
+          
+          // Show sibling discount if applicable
+          const discountEl = document.getElementById('sibling-discount-text');
+          if (students > 1) {
+            const discountPercent = Math.round((students - 1) * 10);
+            discountEl.textContent = 'Save ' + discountPercent + '% with siblings!';
+            discountEl.classList.remove('hidden');
+          } else {
+            discountEl.classList.add('hidden');
+          }
+          
+          // Auto-select package (for navigation to step 3)
+          selectedStudents = students;
+          selectedPrice = monthlyTotal;
         }
 
         function selectPackage(students) {
