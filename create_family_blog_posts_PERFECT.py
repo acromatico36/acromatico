@@ -19,20 +19,21 @@ FAMILIES = {
         "smugmug_gallery": "Yanez-Family-Portraits-2026",
         "description": "A beautiful family portrait session at the stunning Pompano Beach Pier in South Florida. The Yanez family celebrated their bond with golden hour light, ocean breezes, and genuine moments captured forever.",
         "keywords": "Pompano Beach family photographer, beach family portraits, South Florida family photography, pier family photos",
-        # These would be intelligently selected - for now using the existing ones
+        # CORRECT image IDs from Yanez gallery
         "image_ids": [
-            "t8rnM4C", "dGx4RMd", "SZkn7P2", "LFPtq3V", "DqD4dqp", 
-            "hztSmMj", "pVdkwzL", "QF7FRrq", "Jfq6r5X", "qQGNGrb",
-            "WdQKdNk", "LQRGN4L", "RHDGgXw", "bqxLsNV", "WZDSzWd",
-            "FQ7MHrB", "wPLdGFC", "xLmqL9f", "FvZC5GS", "dVVWnwT"
+            "t8rnM4C", "dGx4RMd", "SZkn7P2", "55hxzKb", "VPjMtNg",
+            "c8qvzxW", "DLLj9sj", "Hc59JWC", "dCdTQcx", "XrBXBZX",
+            "zZ3pMv7", "DrqdbdS", "W8N34nc", "hG8DWvT", "Kw7kHvs",
+            "RsxKp36", "ntgkkv3", "QCJJtVg", "3g8VcsQ", "8vctNXK",
+            "KrMfb2J", "BHbVJG6", "jGnRxn7", "wKjXH8S", "SRG4nWv"
         ],
         "hero_image_id": "t8rnM4C",
         "story_images": {
-            "celebrating_love": "t8rnM4C",
-            "the_location": "dGx4RMd", 
-            "their_connection": "SZkn7P2",
-            "styled_elements": "LFPtq3V",
-            "photography_approach": "DqD4dqp"
+            "celebrating_love": "dGx4RMd",
+            "the_location": "SZkn7P2", 
+            "their_connection": "55hxzKb",
+            "styled_elements": "VPjMtNg",
+            "photography_approach": "c8qvzxW"
         }
     },
     "Perez": {
@@ -44,19 +45,21 @@ FAMILIES = {
         "smugmug_gallery": "Perez-Family-Portraits-2026",
         "description": "An unforgettable family portrait session at Pompano Pier capturing the Perez family's love, laughter, and connection against the backdrop of Florida's beautiful coastline.",
         "keywords": "Pompano Beach family photographer, beach family portraits, South Florida family photography",
+        # CORRECT image IDs from Perez gallery (hero not repeated in story)
         "image_ids": [
             "HSjd4Tg", "dt9xZF2", "Q3ZDXxr", "sLw6VjD", "F9g2G5k",
             "2tvsNKk", "VKDxzWT", "NCBVFVZ", "8LNkx4V", "pxdkpBD",
             "N2HLw3M", "nzNqkJz", "qDnT4nV", "6Qg4gwr", "Dd8bzWF",
-            "D92N2VR", "Lch7f9X", "bzNsmQw", "j8sp3Gt", "PF2Wrgv"
+            "D92N2VR", "Lch7f9X", "bzNsmQw", "j8sp3Gt", "PF2Wrgv",
+            "ckwprvD", "Nv7VFqc", "Ngw4NPC", "4HHKWPr", "M7rZc2D"
         ],
         "hero_image_id": "HSjd4Tg",
         "story_images": {
-            "celebrating_love": "HSjd4Tg",
-            "the_location": "dt9xZF2",
-            "their_connection": "Q3ZDXxr", 
-            "styled_elements": "sLw6VjD",
-            "photography_approach": "F9g2G5k"
+            "celebrating_love": "dt9xZF2",
+            "the_location": "Q3ZDXxr",
+            "their_connection": "sLw6VjD", 
+            "styled_elements": "F9g2G5k",
+            "photography_approach": "2tvsNKk"
         }
     },
     "Perales": {
@@ -68,19 +71,21 @@ FAMILIES = {
         "smugmug_gallery": "Perales-Family-Portraits-2026",
         "description": "A breathtaking family portrait session in the pristine beauty of Boca Grande, Florida. The Perales family's warmth and joy shine through every frame.",
         "keywords": "Boca Grande family photographer, beach family portraits, South Florida family photography",
+        # CORRECT image IDs from Perales gallery
         "image_ids": [
-            "t8rnM4C", "dGx4RMd", "SZkn7P2", "LFPtq3V", "DqD4dqp",
-            "hztSmMj", "pVdkwzL", "QF7FRrq", "Jfq6r5X", "qQGNGrb",
-            "WdQKdNk", "LQRGN4L", "RHDGgXw", "bqxLsNV", "WZDSzWd",
-            "FQ7MHrB", "wPLdGFC", "xLmqL9f", "FvZC5GS", "dVVWnwT"
+            "JkH9292", "r3TH7mP", "T3LPNMZ", "kfBGP3F", "9c4hbBf",
+            "cRF3Jpv", "4tWkMkc", "ZGwVvkR", "GJLtvH8", "9sT8SG4",
+            "BQFSVs7", "kDMm9Cv", "Zj6bKVn", "6LfCz8K", "kMs8C8r",
+            "qNQc8gn", "zgx5Cf6", "Bp7pXfh", "v4nQZnt", "BGSZBXt",
+            "D2PpNhM", "wTNpsKS", "3dhrbNn", "2HTwxNm", "qMjFbgp"
         ],
-        "hero_image_id": "t8rnM4C",
+        "hero_image_id": "JkH9292",
         "story_images": {
-            "celebrating_love": "t8rnM4C",
-            "the_location": "dGx4RMd",
-            "their_connection": "SZkn7P2",
-            "styled_elements": "LFPtq3V",
-            "photography_approach": "DqD4dqp"
+            "celebrating_love": "r3TH7mP",
+            "the_location": "T3LPNMZ",
+            "their_connection": "kfBGP3F",
+            "styled_elements": "9c4hbBf",
+            "photography_approach": "cRF3Jpv"
         }
     }
 }
@@ -1193,7 +1198,56 @@ def generate_blog_post_html(family_key):
 <h1 class="hero-title">{family['title']}</h1>
 </section>
 <div class="content-container">
-<div class="post-intro"></div><div class="storytelling-sections"><h2 class="section-heading">Celebrating Family:<br/>A Session at {family['location']}</h2><div class="featured-image"><img alt="{family['family_name']} - Celebrating Family" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['celebrating_love'])}"/><p class="image-caption">{family['family_name']} - Celebrating Family portrait</p></div><h2 class="section-heading">The Location:<br/>Beautiful {family['location']}</h2><div class="featured-image"><img alt="{family['family_name']} - The Location" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['the_location'])}"/><p class="image-caption">{family['family_name']} - The Location portrait</p></div><h2 class="section-heading">Their Connection:<br/>Love and Laughter</h2><div class="featured-image"><img alt="{family['family_name']} - Their Connection" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['their_connection'])}"/><p class="image-caption">{family['family_name']} - Their Connection portrait</p></div><h2 class="section-heading">Styled Elements:<br/>Capturing Special Moments</h2><div class="featured-image"><img alt="{family['family_name']} - Styled Elements" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['styled_elements'])}"/><p class="image-caption">{family['family_name']} - Styled Elements portrait</p></div><h2 class="section-heading">Photography Approach:<br/>Timeless Family Coverage</h2><div class="featured-image"><img alt="{family['family_name']} - Photography Approach" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['photography_approach'])}"/><p class="image-caption">{family['family_name']} - Photography Approach portrait</p></div></div>
+<div class="post-intro"></div>
+
+<div class="storytelling-sections">
+
+<h2 class="section-heading">Celebrating Family:<br/>A Session at {family['location']}</h2>
+<p class="section-text">
+There's something magical about family portraits at the beach—the natural light, the endless horizon, and the way the ocean brings everyone together. The {family['family_name']} chose {family['location']} for their portrait session, and it was the perfect backdrop for capturing their genuine connection and joy.
+</p>
+<div class="featured-image">
+<img alt="{family['family_name']} - Celebrating Family" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['celebrating_love'])}"/>
+<p class="image-caption">{family['family_name']} - Celebrating Family portrait</p>
+</div>
+
+<h2 class="section-heading">The Location:<br/>Beautiful {family['location']}</h2>
+<p class="section-text">
+{family['location']} offers some of South Florida's most stunning coastal scenery. The combination of golden sand, turquoise water, and dramatic skies creates a timeless setting that elevates every image. We timed the session for golden hour, when the soft, warm light wraps around families like a gentle embrace.
+</p>
+<div class="featured-image">
+<img alt="{family['family_name']} - The Location" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['the_location'])}"/>
+<p class="image-caption">{family['family_name']} - The Location portrait</p>
+</div>
+
+<h2 class="section-heading">Their Connection:<br/>Love and Laughter</h2>
+<p class="section-text">
+What makes a family portrait session truly memorable isn't just beautiful light or a perfect location—it's the authentic moments between family members. The {family['family_name']} brought their whole selves to this session: laughter, hugs, playfulness, and those quiet moments of connection that speak volumes.
+</p>
+<div class="featured-image">
+<img alt="{family['family_name']} - Their Connection" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['their_connection'])}"/>
+<p class="image-caption">{family['family_name']} - Their Connection portrait</p>
+</div>
+
+<h2 class="section-heading">Styled Elements:<br/>Capturing Special Moments</h2>
+<p class="section-text">
+Every family brings their own style and personality to their portrait session. From coordinated outfits that complement the beach setting to natural interactions that reveal their unique dynamics, these details tell the story of who this family is right now—a moment in time they'll treasure forever.
+</p>
+<div class="featured-image">
+<img alt="{family['family_name']} - Styled Elements" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['styled_elements'])}"/>
+<p class="image-caption">{family['family_name']} - Styled Elements portrait</p>
+</div>
+
+<h2 class="section-heading">Photography Approach:<br/>Timeless Family Coverage</h2>
+<p class="section-text">
+Our approach to family photography combines documentary-style moments with beautifully composed portraits. We create space for families to be themselves while guiding them into flattering light and meaningful compositions. The result is a gallery that feels both artistic and authentic—images you'll be proud to display as fine art in your home.
+</p>
+<div class="featured-image">
+<img alt="{family['family_name']} - Photography Approach" class="section-image" loading="lazy" src="{get_image_url(family, family['story_images']['photography_approach'])}"/>
+<p class="image-caption">{family['family_name']} - Photography Approach portrait</p>
+</div>
+
+</div>
 """
     
     # Add gallery
