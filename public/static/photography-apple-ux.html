@@ -2659,94 +2659,13 @@
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 32px;">
               
-              <!-- CANVAS PRO 20x30 with FRAME OPTIONS -->
-              <div class="wall-art-product-card" data-product="canvas_pro_20x30" data-base-price="650">
-                <label class="wall-art-card" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 16px; overflow: hidden; transition: all 0.3s; display: block;">
-                  <input type="checkbox" value="canvas_pro_20x30" onchange="toggleWallArtProduct(this)" style="display: none;">
-                  <img class="product-main-image" src="/static/prints/canvas-pro-20x30-mockup.jpg" alt="Canvas Pro Floating Block" style="width: 100%; height: 220px; object-fit: cover;">
-                  <div style="padding: 20px;">
-                    <div style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">Canvas Pro</div>
-                    <div style="font-size: 14px; color: #666; margin-bottom: 16px;">20×30"</div>
-                    
-                    <!-- FRAME SELECTOR -->
-                    <div style="margin-bottom: 16px;">
-                      <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FRAME STYLE</label>
-                      <select class="frame-selector" onchange="updateProductPreview(this)" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="floating" data-img="/static/prints/staging-aruba-living-room.jpg" data-price="0">Floating Block (Included)</option>
-                        <option value="light" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="150">Light Frame (+$150)</option>
-                        <option value="premium" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="250">Premium Frame (+$250)</option>
-                      </select>
-                    </div>
-
-                    <!-- FINISH SELECTOR -->
-                    <div style="margin-bottom: 16px;">
-                      <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FINISH</label>
-                      <select class="finish-selector" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="matte">Matte (Anti-Glare)</option>
-                        <option value="glossy">Glossy</option>
-                        <option value="satin">Satin</option>
-                      </select>
-                    </div>
-
-                    <div style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 16px;">
-                      • Premium cotton canvas<br>
-                      • 2.3" wooden floating block<br>
-                      • Archival HD printing<br>
-                      • Handcrafted in Italy
-                    </div>
-                    <div class="product-price" style="font-size: 24px; font-weight: 700; color: var(--accent);">$470</div>
-                  </div>
-                </label>
-              </div>
-
-              <!-- METAL PRO 20x30 with FRAME OPTIONS -->
-              <div class="wall-art-product-card" data-product="metal_pro_20x30" data-base-price="650">
-                <label class="wall-art-card" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 16px; overflow: hidden; transition: all 0.3s; display: block;">
-                  <input type="checkbox" value="metal_pro_20x30" onchange="toggleWallArtProduct(this)" style="display: none;">
-                  <img class="product-main-image" src="/static/prints/metal-pro-20x30-mockup.jpg" alt="Metal Pro Framed" style="width: 100%; height: 220px; object-fit: cover;">
-                  <div style="padding: 20px;">
-                    <div style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">Metal Pro</div>
-                    <div style="font-size: 14px; color: #666; margin-bottom: 16px;">20×30"</div>
-                    
-                    <!-- FRAME SELECTOR -->
-                    <div style="margin-bottom: 16px;">
-                      <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FRAME STYLE</label>
-                      <select class="frame-selector" onchange="updateProductPreview(this)" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="floating" data-img="/static/prints/staging-aruba-living-room.jpg" data-price="0">Floating Block (Included)</option>
-                        <option value="light" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="150">Light Frame (+$150)</option>
-                        <option value="premium" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="250">Premium Frame (+$250)</option>
-                      </select>
-                    </div>
-
-                    <!-- FINISH SELECTOR -->
-                    <div style="margin-bottom: 16px;">
-                      <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FINISH</label>
-                      <select class="finish-selector" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="glossy">Glossy</option>
-                        <option value="matte">Matte</option>
-                        <option value="satin">Satin</option>
-                        <option value="brushed">Brushed Aluminum</option>
-                      </select>
-                    </div>
-
-                    <div style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 16px;">
-                      • ChromaLuxe® aluminum<br>
-                      • Waterproof & scratch-resistant<br>
-                      • Vibrant colors on metal<br>
-                      • UV-resistant coating
-                    </div>
-                    <div class="product-price" style="font-size: 24px; font-weight: 700; color: var(--accent);">$470</div>
-                  </div>
-                </label>
-              </div>
-
               <!-- ACRYLIC PRO 20x30 with FRAME OPTIONS -->
               <div class="wall-art-product-card" data-product="acrylic_pro_20x30" data-base-price="650">
                 <label class="wall-art-card" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 16px; overflow: hidden; transition: all 0.3s; display: block;">
                   <input type="checkbox" value="acrylic_pro_20x30" onchange="toggleWallArtProduct(this)" style="display: none;">
                   <img class="product-main-image" src="/static/prints/acrylic-pro-20x30-mockup.jpg" alt="Acrylic Pro" style="width: 100%; height: 220px; object-fit: cover;">
                   <div style="padding: 20px;">
-                    <div style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">Acrylic Pro</div>
+                    <div style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">Acrylic Wall Art</div>
                     <div style="font-size: 14px; color: #666; margin-bottom: 16px;">20×30"</div>
                     
                     <!-- FRAME SELECTOR -->
@@ -2775,46 +2694,6 @@
                       • Museum-quality clarity
                     </div>
                     <div class="product-price" style="font-size: 24px; font-weight: 700; color: var(--accent);">$470</div>
-                  </div>
-                </label>
-              </div>
-
-              <!-- CANVAS PRO 30x40 with FRAME OPTIONS -->
-              <div class="wall-art-product-card" data-product="canvas_pro_30x40" data-base-price="1200">
-                <label class="wall-art-card" style="cursor: pointer; border: 2px solid #e5e5e5; border-radius: 16px; overflow: hidden; transition: all 0.3s; display: block;">
-                  <input type="checkbox" value="canvas_pro_30x40" onchange="toggleWallArtProduct(this)" style="display: none;">
-                  <img class="product-main-image" src="/static/prints/staging-coastal-terrace.jpg" alt="Canvas Pro Large" style="width: 100%; height: 220px; object-fit: cover;">
-                  <div style="padding: 20px;">
-                    <div style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">Canvas Pro</div>
-                    <div style="font-size: 14px; color: #666; margin-bottom: 16px;">30×40" <span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">LARGE</span></div>
-                    
-                    <!-- FRAME SELECTOR -->
-                    <div style="margin-bottom: 16px;">
-                      <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FRAME STYLE</label>
-                      <select class="frame-selector" onchange="updateProductPreview(this)" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="floating" data-img="/static/prints/staging-aruba-living-room.jpg" data-price="0">Floating Block (Included)</option>
-                        <option value="light" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="200">Light Frame (+$200)</option>
-                        <option value="premium" data-img="/static/prints/staging-mediterranean-villa.jpg" data-price="350">Premium Frame (+$350)</option>
-                      </select>
-                    </div>
-
-                    <!-- FINISH SELECTOR -->
-                    <div style="margin-bottom: 16px;">
-                      <label style="display: block; font-size: 12px; font-weight: 600; color: #333; margin-bottom: 6px;">FINISH</label>
-                      <select class="finish-selector" style="width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
-                        <option value="matte">Matte (Anti-Glare)</option>
-                        <option value="glossy">Glossy</option>
-                        <option value="satin">Satin</option>
-                      </select>
-                    </div>
-
-                    <div style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 16px;">
-                      • Large statement piece<br>
-                      • Premium cotton canvas<br>
-                      • Gallery-quality<br>
-                      • Perfect for living rooms
-                    </div>
-                    <div class="product-price" style="font-size: 24px; font-weight: 700; color: var(--accent);">$1,200</div>
                   </div>
                 </label>
               </div>
@@ -3536,164 +3415,6 @@
                 
                 <div class="wall-art-grid">
                   
-                  <!-- CANVAS PRO - FAMILY LIVING ROOM -->
-                  <div class="wall-art-product-card-custom" data-product="canvas_pro_20x30" data-base-price="650">
-                    <div class="wall-art-card-custom" style="border: 1px solid #d2d2d7; border-radius: 18px; overflow: hidden; background: #fbfbfd;">
-                      <div style="position: relative; background: #f5f5f7; overflow: hidden;">
-                        <img class="product-main-image-custom" src="/static/prints/canvas-pro-family-living-room.jpg" alt="Canvas Pro - Family Living Room" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
-                      </div>
-                      <div style="padding: 32px;">
-                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; letter-spacing: -0.3px;">Canvas Pro</div>
-                        <div style="font-size: 15px; color: #86868b; margin-bottom: 8px; font-weight: 400;">Premium Cotton Canvas • Multiple Sizes</div>
-                        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 28px; line-height: 1.6;">Handcrafted with 12-color HD printing on archival cotton canvas. Perfect for family portraits and timeless moments.</div>
-                        
-                        <!-- SIZE SELECTOR - VISUAL -->
-                        <div style="margin-bottom: 20px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Size</label>
-                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-                            <button onclick="selectSizeCustom(this, 470)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
-                              20×30"<br><span style="font-size: 12px; color: #86868b;">$470</span>
-                            </button>
-                            <button onclick="selectSizeCustom(this, 625)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
-                              24×36"<br><span style="font-size: 12px; color: #86868b;">$625</span>
-                            </button>
-                            <button onclick="selectSizeCustom(this, 825)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
-                              30×40"<br><span style="font-size: 12px; color: #86868b;">$825</span>
-                            </button>
-                            <button onclick="selectSizeCustom(this, 1530)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
-                              40×60"<br><span style="font-size: 12px; color: #86868b;">$1,530</span>
-                            </button>
-                          </div>
-                        </div>
-
-                        <!-- THICKNESS SELECTOR (CANVAS PRO) - REAL CATALOG IMAGES -->
-                        <div style="margin-bottom: 20px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
-                            Thickness
-                            <span class="info-tooltip" data-tooltip="Wood panel depth: 2.3 inch (thicker, gallery depth) or 1.2 inch (slimmer profile)">i</span>
-                          </label>
-                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
-                            <div class="frame-option" onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 10px; text-align: center; background: rgba(0,113,227,0.05);">
-                              <div style="width: 100%; height: 100px; background: url('/static/prints/canvas-pro-texture-detail.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">2.3" Gallery</div>
-                              <div style="font-size: 10px; color: #86868b;">Included</div>
-                            </div>
-                            <div class="frame-option" onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 10px; text-align: center;">
-                              <div style="width: 100%; height: 100px; background: url('/static/prints/canvas-pro-back-panel.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">1.2" Slim</div>
-                              <div style="font-size: 10px; color: #86868b;">Same price</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- FINISH (CANVAS PRO - TOUCH ANTI-GLARE ONLY) -->
-                        <div style="margin-bottom: 28px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
-                            Finish
-                            <span class="info-tooltip" data-tooltip="Exclusive Touch anti-glare finish on archival cotton canvas">i</span>
-                          </label>
-                          <div style="padding: 16px; background: #f5f5f7; border-radius: 10px; text-align: center;">
-                            <div style="font-size: 14px; font-weight: 600; color: #1d1d1f; margin-bottom: 4px;">✨ Touch Anti-Glare</div>
-                            <div style="font-size: 12px; color: #86868b;">Exclusive matte finish • No reflections</div>
-                          </div>
-                        </div>
-
-                                  </div>
-
-                        <div class="product-price-custom" style="font-size: 32px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.5px; margin-bottom: 16px;">$470</div>
-                        
-                        <button style="width: 100%; padding: 16px; background: #0071e3; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#0077ed'" onmouseout="this.style.background='#0071e3'">Add to Cart</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- METAL PRO - COUPLE BEDROOM -->
-                  <div class="wall-art-product-card-custom" data-product="metal_pro_20x30" data-base-price="495">
-                    <div class="wall-art-card-custom" style="border: 1px solid #d2d2d7; border-radius: 18px; overflow: hidden; background: #fbfbfd;">
-                      <div style="position: relative; background: #f5f5f7; overflow: hidden;">
-                        <img class="product-main-image-custom" src="/static/prints/metal-pro-couple-bedroom.jpg" alt="Metal Pro - Couple Bedroom" style="width: 100%; height: 400px; object-fit: cover; display: block;">
-                      </div>
-                      <div style="padding: 32px;">
-                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; letter-spacing: -0.3px;">Metal Pro</div>
-                        <div style="font-size: 15px; color: #86868b; margin-bottom: 8px; font-weight: 400;">ChromaLuxe Aluminum • Multiple Sizes</div>
-                        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 28px; line-height: 1.6;">Printed on premium aluminum with durable ChromaLuxe dye sublimation. Stunning depth and vibrant colors that last a lifetime.</div>
-                        
-                        <!-- SIZE SELECTOR - VISUAL -->
-                        <div style="margin-bottom: 20px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">Size</label>
-                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-                            <button onclick="selectSizeCustom(this, 495)" style="padding: 12px; border: 2px solid #0071e3; border-radius: 10px; background: rgba(0,113,227,0.05); cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
-                              20×30"<br><span style="font-size: 12px; color: #86868b;">$495</span>
-                            </button>
-                            <button onclick="selectSizeCustom(this, 695)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
-                              24×36"<br><span style="font-size: 12px; color: #86868b;">$695</span>
-                            </button>
-                            <button onclick="selectSizeCustom(this, 870)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
-                              30×40"<br><span style="font-size: 12px; color: #86868b;">$995</span>
-                            </button>
-                            <button onclick="selectSizeCustom(this, 1615)" style="padding: 12px; border: 2px solid #d2d2d7; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: #1d1d1f; transition: all 0.2s;">
-                              40×60"<br><span style="font-size: 12px; color: #86868b;">$1,875</span>
-                            </button>
-                          </div>
-                        </div>
-
-                        <!-- THICKNESS SELECTOR (METAL PRO) - REAL CATALOG IMAGES -->
-                        <div style="margin-bottom: 20px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
-                            Thickness
-                            <span class="info-tooltip" data-tooltip="Wood panel depth: 2.3 inch (thicker, gallery depth) or 1.2 inch (slimmer profile)">i</span>
-                          </label>
-                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
-                            <div class="frame-option" onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 12px; padding: 10px; text-align: center; background: rgba(0,113,227,0.05);">
-                              <div style="width: 100%; height: 100px; background: url('/static/prints/metal-pro-brushed-surface.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">2.3" Gallery</div>
-                              <div style="font-size: 10px; color: #86868b;">Included</div>
-                            </div>
-                            <div class="frame-option" onclick="selectFrameCustom(this, 0)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 12px; padding: 10px; text-align: center;">
-                              <div style="width: 100%; height: 100px; background: url('/static/prints/metal-pro-wood-backing.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">1.2" Slim</div>
-                              <div style="font-size: 10px; color: #86868b;">Same price</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- FINISH SELECTOR - VISUAL WITH IMAGES (METAL PRO - 5 OPTIONS) - REAL CATALOG TEXTURE -->
-                        <div style="margin-bottom: 28px;">
-                          <label style="display: block; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
-                            Finish
-                            <span class="info-tooltip" data-tooltip="ChromaLuxe aluminum: Gloss (shiny), Matte (flat), Semi Matte (low sheen), Satin Glossy (soft sheen), Satin Matte (velvet)">i</span>
-                          </label>
-                          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #0071e3; border-radius: 10px; padding: 8px; text-align: center; background: rgba(0,113,227,0.05); transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                              <div style="width: 100%; height: 60px; background: url('/static/prints/metal-pro-brushed-surface.jpg'); background-size: cover; background-position: center; filter: brightness(1.2); border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Gloss</div>
-                            </div>
-                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                              <div style="width: 100%; height: 60px; background: url('/static/prints/metal-pro-brushed-surface.jpg'); background-size: cover; background-position: center; filter: brightness(0.8) contrast(0.9); border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Matte</div>
-                            </div>
-                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                              <div style="width: 100%; height: 60px; background: url('/static/prints/metal-pro-brushed-surface.jpg'); background-size: cover; background-position: center; filter: brightness(0.9); border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Semi Matte</div>
-                            </div>
-                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                              <div style="width: 100%; height: 60px; background: url('/static/prints/metal-pro-brushed-surface.jpg'); background-size: cover; background-position: center; filter: brightness(1.1) saturate(1.1); border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Satin Glossy</div>
-                            </div>
-                            <div onclick="selectFinishCustom(this)" style="cursor: pointer; border: 2px solid #d2d2d7; border-radius: 10px; padding: 8px; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                              <div style="width: 100%; height: 60px; background: url('/static/prints/metal-pro-brushed-surface.jpg'); background-size: cover; background-position: center; filter: brightness(0.85) saturate(0.9); border-radius: 6px; margin-bottom: 6px;"></div>
-                              <div style="font-size: 11px; font-weight: 600; color: #1d1d1f;">Satin Matte</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="product-price-custom" style="font-size: 32px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.5px; margin-bottom: 16px;">$495</div>
-                        
-                        <button style="width: 100%; padding: 16px; background: #0071e3; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#0077ed'" onmouseout="this.style.background='#0071e3'">Add to Cart</button>
-                      </div>
-                    </div>
-                  </div>
-
                   <!-- ACRYLIC PRO - FAMILY DINING ROOM -->
                   <div class="wall-art-product-card-custom" data-product="acrylic_pro_20x30" data-base-price="495">
                     <div class="wall-art-card-custom" style="border: 1px solid #d2d2d7; border-radius: 18px; overflow: hidden; background: #fbfbfd;">
@@ -3701,9 +3422,9 @@
                         <img class="product-main-image-custom" src="/static/prints/acrylic-pro-family-dining-room.jpg" alt="Acrylic Pro - Family Dining Room" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
                       </div>
                       <div style="padding: 32px;">
-                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; letter-spacing: -0.3px;">Acrylic Pro</div>
-                        <div style="font-size: 15px; color: #86868b; margin-bottom: 8px; font-weight: 400;">Ultra-Clear Acrylic • Multiple Sizes</div>
-                        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 28px; line-height: 1.6;">Museum-quality acrylic with incredible depth. Light passes through creating a stunning three-dimensional effect.</div>
+                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; letter-spacing: -0.3px;">Acrylic Wall Art</div>
+                        <div style="font-size: 15px; color: #86868b; margin-bottom: 8px; font-weight: 400;">Modern. Vivid. Museum-Grade.</div>
+                        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 28px; line-height: 1.6;">Experience your portraits like never before. Printed directly behind premium 1/8" optically pure acrylic glass for incredible depth, clarity, and color vibrancy. UV-protected, fade-resistant, and designed to be the breathtaking centerpiece of any room.</div>
                         
                         <!-- SIZE SELECTOR - VISUAL -->
                         <div style="margin-bottom: 20px;">
@@ -3776,9 +3497,9 @@
                         <img class="product-main-image-custom" src="/static/prints/canvas-wrap-couple-hallway.jpg" alt="Canvas Wrap - Couple Hallway" style="width: 100%; height: 400px; object-fit: cover; display: block;">
                       </div>
                       <div style="padding: 32px;">
-                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; letter-spacing: -0.3px;">Canvas Wrap</div>
-                        <div style="font-size: 15px; color: #86868b; margin-bottom: 8px; font-weight: 400;">Traditional Gallery Wrap • Multiple Sizes</div>
-                        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 28px; line-height: 1.6;">Classic canvas stretched around wooden frame. Image wraps around edges for a seamless, frameless look.</div>
+                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; letter-spacing: -0.3px;">Canvas Wall Art Collection</div>
+                        <div style="font-size: 15px; color: #86868b; margin-bottom: 8px; font-weight: 400;">Timeless. Warm. Yours Forever.</div>
+                        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 28px; line-height: 1.6;">Transform your favorite portraits into museum-quality canvas art. Each piece is Giclee-printed on premium 410g/m² artist canvas with pigmented inks designed to last 200 years. Gallery-grade 1.5" wood frame, wire-mounted, arrives ready to hang.</div>
                         
                         <!-- SIZE SELECTOR - VISUAL -->
                         <div style="margin-bottom: 20px;">
