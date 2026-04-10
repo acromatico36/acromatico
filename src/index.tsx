@@ -3626,7 +3626,7 @@ app.get('/education', (c) => {
 
               {/* Annual Pricing Info - Apple-style value card */}
               <div id="annual-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20 hidden">
-                <p class="text-sm font-semibold text-gray-300 mb-2">10 months prepaid (Sept-June school year)</p>
+                <p class="text-sm font-semibold text-gray-300 mb-2">12 months prepaid • Year-round classes</p>
                 <div class="flex items-center justify-center gap-3 mb-2">
                   <span class="text-2xl line-through text-gray-600" id="annual-original-total">$2,400</span>
                   <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -3748,7 +3748,7 @@ app.get('/education', (c) => {
                 <p class="text-gray-300 leading-relaxed">
                   <strong class="text-teal-500">2. PAYMENT TERMS</strong><br/>
                   • Monthly billing: Charged on the same day each month<br/>
-                  • Annual billing: 10 months prepaid (Sept-June school year)<br/>
+                  • Annual billing: 12 months prepaid (year-round classes)<br/>
                   • First month prorated based on classes remaining<br/>
                   • Payments processed securely via Stripe
                 </p>
@@ -4118,9 +4118,9 @@ app.get('/education', (c) => {
               monthlySavingsText.textContent = 'Save $' + monthlySavings.toFixed(0) + '/month';
             }
             
-            // Calculate Annual pricing (10 months)
-            const annualOriginalTotal = originalMonthlyTotal * 10;
-            const annualNewTotal = newMonthlyTotal * 10;
+            // Calculate Annual pricing (12 months - year-round)
+            const annualOriginalTotal = originalMonthlyTotal * 12;
+            const annualNewTotal = newMonthlyTotal * 12;
             const annualSavings = annualOriginalTotal - annualNewTotal;
             
             // Update Annual pricing card
@@ -4158,9 +4158,9 @@ app.get('/education', (c) => {
           let totalCharge, chargeLabel;
           
           if (isAnnual) {
-            // Annual: 10 months prepaid (school year, no summer)
-            totalCharge = monthlyTotal * 10;
-            chargeLabel = 'Total (10 months prepaid)';
+            // Annual: 12 months prepaid (year-round classes including summer/winter)
+            totalCharge = monthlyTotal * 12;
+            chargeLabel = 'Total (12 months prepaid)';
           } else {
             // Monthly: prorated based on classes remaining (8 classes per month, Mon & Thu)
             // Calculate which class # we're on in the current month
@@ -4182,7 +4182,7 @@ app.get('/education', (c) => {
             ((pricingData.monthly[students] * students * 10) - (pricePerStudent * students * 10)) : 0;
           
           // Update summary with clear pricing breakdown
-          const billingText = isAnnual ? ' (Annual - 10 months)' : ' (Monthly)';
+          const billingText = isAnnual ? ' (Annual - 12 months)' : ' (Monthly)';
           const studentText = students + (students > 1 ? ' Students' : ' Student');
           document.getElementById('selected-package').textContent = studentText + billingText;
           document.getElementById('summary-students').textContent = students;
@@ -4358,7 +4358,7 @@ app.get('/education', (c) => {
             return;
           }
           
-          const billingType = isAnnual ? 'Annual (10 months prepaid - school year)' : 'Monthly';
+          const billingType = isAnnual ? 'Annual (12 months prepaid - year-round)' : 'Monthly';
           const pricePerStudent = selectedPrice;
           const monthlyTotal = pricePerStudent * selectedStudents;
           const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
@@ -5456,7 +5456,7 @@ app.get('/academy', (c) =>
 
               {/* Annual Pricing Info - Apple-style value card */}
               <div id="annual-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20 hidden">
-                <p class="text-sm font-semibold text-gray-300 mb-2">10 months prepaid (Sept-June school year)</p>
+                <p class="text-sm font-semibold text-gray-300 mb-2">12 months prepaid • Year-round classes</p>
                 <div class="flex items-center justify-center gap-3 mb-2">
                   <span class="text-2xl line-through text-gray-600" id="annual-original-total">$2,400</span>
                   <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -5578,7 +5578,7 @@ app.get('/academy', (c) =>
                 <p class="text-gray-300 leading-relaxed">
                   <strong class="text-teal-500">2. PAYMENT TERMS</strong><br/>
                   • Monthly billing: Charged on the same day each month<br/>
-                  • Annual billing: 10 months prepaid (Sept-June school year)<br/>
+                  • Annual billing: 12 months prepaid (year-round classes)<br/>
                   • First month prorated based on classes remaining<br/>
                   • Payments processed securely via Stripe
                 </p>
@@ -5948,9 +5948,9 @@ app.get('/academy', (c) =>
               monthlySavingsText.textContent = 'Save $' + monthlySavings.toFixed(0) + '/month';
             }
             
-            // Calculate Annual pricing (10 months)
-            const annualOriginalTotal = originalMonthlyTotal * 10;
-            const annualNewTotal = newMonthlyTotal * 10;
+            // Calculate Annual pricing (12 months - year-round)
+            const annualOriginalTotal = originalMonthlyTotal * 12;
+            const annualNewTotal = newMonthlyTotal * 12;
             const annualSavings = annualOriginalTotal - annualNewTotal;
             
             // Update Annual pricing card
@@ -5988,9 +5988,9 @@ app.get('/academy', (c) =>
           let totalCharge, chargeLabel;
           
           if (isAnnual) {
-            // Annual: 10 months prepaid (school year, no summer)
-            totalCharge = monthlyTotal * 10;
-            chargeLabel = 'Total (10 months prepaid)';
+            // Annual: 12 months prepaid (year-round classes including summer/winter)
+            totalCharge = monthlyTotal * 12;
+            chargeLabel = 'Total (12 months prepaid)';
           } else {
             // Monthly: prorated based on classes remaining (8 classes per month, Mon & Thu)
             // Calculate which class # we're on in the current month
@@ -6012,7 +6012,7 @@ app.get('/academy', (c) =>
             ((pricingData.monthly[students] * students * 10) - (pricePerStudent * students * 10)) : 0;
           
           // Update summary with clear pricing breakdown
-          const billingText = isAnnual ? ' (Annual - 10 months)' : ' (Monthly)';
+          const billingText = isAnnual ? ' (Annual - 12 months)' : ' (Monthly)';
           const studentText = students + (students > 1 ? ' Students' : ' Student');
           document.getElementById('selected-package').textContent = studentText + billingText;
           document.getElementById('summary-students').textContent = students;
@@ -6060,7 +6060,7 @@ app.get('/academy', (c) =>
             return;
           }
           
-          const billingType = isAnnual ? 'Annual (10 months prepaid - school year)' : 'Monthly';
+          const billingType = isAnnual ? 'Annual (12 months prepaid - year-round)' : 'Monthly';
           const pricePerStudent = selectedPrice;
           const monthlyTotal = pricePerStudent * selectedStudents;
           const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
@@ -9334,17 +9334,17 @@ app.get('/cart', (c) => {
             // Monthly total = price per student × number of students
             const monthlyTotal = pricePerStudent * totalStudents;
             
-            // Annual billing: 10 months prepaid
+            // Annual billing: 12 months prepaid (year-round)
             let itemTotal = monthlyTotal;
             let itemSavings = 0;
             
             if (item.billing === 'annual') {
-              // Annual total = monthly × 10 months (already has 20% discount in price)
-              itemTotal = monthlyTotal * 10;
+              // Annual total = monthly × 12 months (already has 20% discount in price)
+              itemTotal = monthlyTotal * 12;
               
               // Calculate what they WOULD pay without discount
               const monthlyPriceWithoutDiscount = pricePerStudent / 0.8; // Reverse 20% discount
-              const annualWithoutDiscount = monthlyPriceWithoutDiscount * totalStudents * 10;
+              const annualWithoutDiscount = monthlyPriceWithoutDiscount * totalStudents * 12;
               itemSavings = annualWithoutDiscount - itemTotal;
               totalSavings += itemSavings;
             }
@@ -9359,7 +9359,7 @@ app.get('/cart', (c) => {
                       Acromatico Academy - \${item.students}\${item.students >= 4 ? '+' : ''} Student\${item.students > 1 ? 's' : ''}
                     </h3>
                     <p class="text-gray-400 text-sm mb-2">
-                      $\${pricePerStudent}/month per student · \${item.billing === 'annual' ? 'Annual (10 months prepaid)' : 'Monthly'}
+                      $\${pricePerStudent}/month per student · \${item.billing === 'annual' ? 'Annual (12 months prepaid)' : 'Monthly'}
                     </p>
                     \${item.billing === 'annual' ? '<span class="text-teal-500 text-xs font-bold">💰 Save $' + itemSavings.toFixed(2) + ' with annual billing!</span>' : ''}
                   </div>
@@ -9375,7 +9375,7 @@ app.get('/cart', (c) => {
                     </div>
                     <div class="text-right min-w-[100px]">
                       <div class="text-xl font-bold">$\${itemTotal.toFixed(2)}</div>
-                      <div class="text-xs text-gray-500">\${item.billing === 'annual' ? 'total (10 months)' : 'per month'}</div>
+                      <div class="text-xs text-gray-500">\${item.billing === 'annual' ? 'total (12 months)' : 'per month'}</div>
                     </div>
                     <button onclick="removeItem(\${index})" class="text-gray-400 hover:text-red-500 transition">
                       <i class="fas fa-trash"></i>
@@ -9392,7 +9392,7 @@ app.get('/cart', (c) => {
           document.getElementById('total').textContent = '$' + subtotal.toFixed(2);
           
           const hasAnnual = cart.some(item => item.billing === 'annual');
-          document.getElementById('billing-cycle').textContent = hasAnnual ? 'total for 10 months' : 'per month';
+          document.getElementById('billing-cycle').textContent = hasAnnual ? 'total for 12 months' : 'per month';
         }
         
         // Initial render
@@ -9608,7 +9608,7 @@ app.get('/checkout', (c) => {
             return \`
               <div class="pb-4 border-b border-white/10">
                 <div class="font-bold mb-1">\${item.students}\${item.students >= 4 ? '+' : ''} Student\${item.students > 1 ? 's' : ''}\${item.quantity > 1 ? ' (×' + item.quantity + ' packages)' : ''}</div>
-                <div class="text-sm text-gray-400">\${item.billing === 'annual' ? 'Annual (10 months)' : 'Monthly'} · $\${monthlyTotal.toFixed(2)}/mo</div>
+                <div class="text-sm text-gray-400">\${item.billing === 'annual' ? 'Annual (12 months)' : 'Monthly'} · $\${monthlyTotal.toFixed(2)}/mo</div>
                 \${item.billing === 'annual' ? '<div class="text-teal-500 text-xs mt-1">Save $' + itemSavings.toFixed(2) + '</div>' : ''}
               </div>
             \`;
@@ -9799,7 +9799,7 @@ app.get('/faq', (c) =>
               <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
                 <h3 class="text-2xl font-bold mb-3 text-white">Can I cancel anytime?</h3>
                 <p class="text-gray-300 leading-relaxed">
-                  <strong class="text-white">Yes!</strong> Monthly plans can be canceled anytime with no penalties. You only pay for the days you use (daily proration). Annual plans are prepaid for 10 months (Sept-June school year) and save you 20%.
+                  <strong class="text-white">Yes!</strong> Monthly plans can be canceled anytime with no penalties. You only pay for the classes you use (class-based proration). Annual plans are prepaid for 12 months (year-round classes including summer & winter) and save you 20%.
                 </p>
               </div>
 
@@ -10375,7 +10375,7 @@ app.get('/faq', (c) =>
 
               {/* Annual Pricing Info - Apple-style value card */}
               <div id="annual-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20 hidden">
-                <p class="text-sm font-semibold text-gray-300 mb-2">10 months prepaid (Sept-June school year)</p>
+                <p class="text-sm font-semibold text-gray-300 mb-2">12 months prepaid • Year-round classes</p>
                 <div class="flex items-center justify-center gap-3 mb-2">
                   <span class="text-2xl line-through text-gray-600" id="annual-original-total">$2,400</span>
                   <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -10497,7 +10497,7 @@ app.get('/faq', (c) =>
                 <p class="text-gray-300 leading-relaxed">
                   <strong class="text-teal-500">2. PAYMENT TERMS</strong><br/>
                   • Monthly billing: Charged on the same day each month<br/>
-                  • Annual billing: 10 months prepaid (Sept-June school year)<br/>
+                  • Annual billing: 12 months prepaid (year-round classes)<br/>
                   • First month prorated based on classes remaining<br/>
                   • Payments processed securely via Stripe
                 </p>
@@ -10867,9 +10867,9 @@ app.get('/faq', (c) =>
               monthlySavingsText.textContent = 'Save $' + monthlySavings.toFixed(0) + '/month';
             }
             
-            // Calculate Annual pricing (10 months)
-            const annualOriginalTotal = originalMonthlyTotal * 10;
-            const annualNewTotal = newMonthlyTotal * 10;
+            // Calculate Annual pricing (12 months - year-round)
+            const annualOriginalTotal = originalMonthlyTotal * 12;
+            const annualNewTotal = newMonthlyTotal * 12;
             const annualSavings = annualOriginalTotal - annualNewTotal;
             
             // Update Annual pricing card
@@ -10907,9 +10907,9 @@ app.get('/faq', (c) =>
           let totalCharge, chargeLabel;
           
           if (isAnnual) {
-            // Annual: 10 months prepaid (school year, no summer)
-            totalCharge = monthlyTotal * 10;
-            chargeLabel = 'Total (10 months prepaid)';
+            // Annual: 12 months prepaid (year-round classes including summer/winter)
+            totalCharge = monthlyTotal * 12;
+            chargeLabel = 'Total (12 months prepaid)';
           } else {
             // Monthly: prorated based on classes remaining (8 classes per month, Mon & Thu)
             // Calculate which class # we're on in the current month
@@ -10931,7 +10931,7 @@ app.get('/faq', (c) =>
             ((pricingData.monthly[students] * students * 10) - (pricePerStudent * students * 10)) : 0;
           
           // Update summary with clear pricing breakdown
-          const billingText = isAnnual ? ' (Annual - 10 months)' : ' (Monthly)';
+          const billingText = isAnnual ? ' (Annual - 12 months)' : ' (Monthly)';
           const studentText = students + (students > 1 ? ' Students' : ' Student');
           document.getElementById('selected-package').textContent = studentText + billingText;
           document.getElementById('summary-students').textContent = students;
@@ -10979,7 +10979,7 @@ app.get('/faq', (c) =>
             return;
           }
           
-          const billingType = isAnnual ? 'Annual (10 months prepaid - school year)' : 'Monthly';
+          const billingType = isAnnual ? 'Annual (12 months prepaid - year-round)' : 'Monthly';
           const pricePerStudent = selectedPrice;
           const monthlyTotal = pricePerStudent * selectedStudents;
           const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
