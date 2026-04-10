@@ -3601,10 +3601,10 @@ app.get('/education', (c) => {
 
               {/* Per-Class Pricing Info */}
               <div id="per-class-info" class="text-center hidden">
-                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go</p>
-                <p class="text-xs text-gray-500">No commitment • Book classes individually</p>
-                <div class="mt-3 text-gray-500 text-sm" id="per-class-summary">
-                  <span class="font-semibold">No bulk discount</span>
+                <p class="text-sm font-semibold text-gray-300 mb-2">Pay as you go</p>
+                <p class="text-xs text-gray-500 mb-3">No commitment • Book classes individually</p>
+                <div class="inline-block bg-gray-500/10 border border-gray-500/20 rounded-full px-4 py-2">
+                  <span class="text-lg font-bold text-gray-400" id="per-class-summary">Bulk discounts with monthly/annual</span>
                 </div>
               </div>
 
@@ -4091,12 +4091,7 @@ app.get('/education', (c) => {
             // Per-class pricing: $30/class
             bigPrice = PER_CLASS_PRICE;
             studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
-            
-            // Update per-class summary (no discount)
-            const perClassSummary = document.getElementById('per-class-summary');
-            if (perClassSummary) {
-              perClassSummary.innerHTML = '<span class="font-semibold">No bulk discount</span>';
-            }
+            // Note: per-class summary text is set in HTML, no need to update dynamically
           } else {
             // Monthly or Annual pricing
             const monthlyTotal = calculatePrice(students, isAnnual);
@@ -5436,10 +5431,10 @@ app.get('/academy', (c) =>
 
               {/* Per-Class Pricing Info */}
               <div id="per-class-info" class="text-center hidden">
-                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go</p>
-                <p class="text-xs text-gray-500">No commitment • Book classes individually</p>
-                <div class="mt-3 text-gray-500 text-sm" id="per-class-summary">
-                  <span class="font-semibold">No bulk discount</span>
+                <p class="text-sm font-semibold text-gray-300 mb-2">Pay as you go</p>
+                <p class="text-xs text-gray-500 mb-3">No commitment • Book classes individually</p>
+                <div class="inline-block bg-gray-500/10 border border-gray-500/20 rounded-full px-4 py-2">
+                  <span class="text-lg font-bold text-gray-400" id="per-class-summary">Bulk discounts with monthly/annual</span>
                 </div>
               </div>
 
@@ -5926,12 +5921,7 @@ app.get('/academy', (c) =>
             // Per-class pricing: $30/class
             bigPrice = PER_CLASS_PRICE;
             studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
-            
-            // Update per-class summary (no discount)
-            const perClassSummary = document.getElementById('per-class-summary');
-            if (perClassSummary) {
-              perClassSummary.innerHTML = '<span class="font-semibold">No bulk discount</span>';
-            }
+            // Note: per-class summary text is set in HTML, no need to update dynamically
           } else {
             // Monthly or Annual pricing
             const monthlyTotal = calculatePrice(students, isAnnual);
@@ -10360,10 +10350,10 @@ app.get('/faq', (c) =>
 
               {/* Per-Class Pricing Info */}
               <div id="per-class-info" class="text-center hidden">
-                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go</p>
-                <p class="text-xs text-gray-500">No commitment • Book classes individually</p>
-                <div class="mt-3 text-gray-500 text-sm" id="per-class-summary">
-                  <span class="font-semibold">No bulk discount</span>
+                <p class="text-sm font-semibold text-gray-300 mb-2">Pay as you go</p>
+                <p class="text-xs text-gray-500 mb-3">No commitment • Book classes individually</p>
+                <div class="inline-block bg-gray-500/10 border border-gray-500/20 rounded-full px-4 py-2">
+                  <span class="text-lg font-bold text-gray-400" id="per-class-summary">Bulk discounts with monthly/annual</span>
                 </div>
               </div>
 
@@ -10850,12 +10840,7 @@ app.get('/faq', (c) =>
             // Per-class pricing: $30/class
             bigPrice = PER_CLASS_PRICE;
             studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
-            
-            // Update per-class summary (no discount)
-            const perClassSummary = document.getElementById('per-class-summary');
-            if (perClassSummary) {
-              perClassSummary.innerHTML = '<span class="font-semibold">No bulk discount</span>';
-            }
+            // Note: per-class summary text is set in HTML, no need to update dynamically
           } else {
             // Monthly or Annual pricing
             const monthlyTotal = calculatePrice(students, isAnnual);
