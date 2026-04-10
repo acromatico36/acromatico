@@ -3881,9 +3881,29 @@ app.get('/education', (c) => {
               </div>
             </div>
 
-            {/* Payment Button with Stripe */}
+            {/* Payment Button with Stripe - ENHANCED with pulse animation */}
+            <style dangerouslySetInnerHTML={{__html: `
+              @keyframes pulse-glow {
+                0%, 100% {
+                  box-shadow: 0 0 20px rgba(71, 148, 166, 0.3), 0 0 40px rgba(71, 148, 166, 0.1);
+                }
+                50% {
+                  box-shadow: 0 0 30px rgba(71, 148, 166, 0.5), 0 0 60px rgba(71, 148, 166, 0.2);
+                }
+              }
+              @keyframes gentle-bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-4px); }
+              }
+              .payment-button-pulse {
+                animation: pulse-glow 2s ease-in-out infinite;
+              }
+              .payment-button-pulse:hover {
+                animation: pulse-glow 2s ease-in-out infinite, gentle-bounce 0.6s ease-in-out infinite;
+              }
+            `}} />
             <div class="space-y-4 mb-6">
-              <button onclick="completeEnrollment()" class="w-full bg-white hover:bg-gray-50 text-gray-900 font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-4 border-2 border-gray-200 hover:border-teal-500 transition-all shadow-lg" id="stripe-checkout-btn">
+              <button onclick="completeEnrollment()" class="payment-button-pulse w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-4 border-2 border-teal-400 transition-all shadow-2xl" id="stripe-checkout-btn">
                 <div class="flex items-center gap-3">
                   <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
                     <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -3891,13 +3911,13 @@ app.get('/education', (c) => {
                   </svg>
                   <div class="text-left">
                     <div class="text-xl font-bold">Pay with Card</div>
-                    <div class="text-sm text-gray-600 font-normal">Secure payment via Stripe • <span id="stripe-amount">$0</span></div>
+                    <div class="text-sm text-teal-100 font-normal">Secure payment via Stripe • <span id="stripe-amount">$0</span></div>
                   </div>
                 </div>
-                <div class="ml-auto flex items-center gap-2 text-sm text-gray-500">
-                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">Apple Pay</span>
-                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">G Pay</span>
-                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">+more</span>
+                <div class="ml-auto flex items-center gap-2 text-sm">
+                  <span class="inline-flex items-center px-2 py-1 bg-white/20 rounded text-xs text-white">Apple Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-white/20 rounded text-xs text-white">G Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-white/20 rounded text-xs text-white">+more</span>
                 </div>
               </button>
               <p class="text-xs text-center text-gray-500">
@@ -4391,15 +4411,19 @@ app.get('/education', (c) => {
               body: JSON.stringify({
                 email: email,
                 password: password,
-                name: email.split('@')[0] // Use email prefix as name
+                firstName: email.split('@')[0], // Use email prefix as first name
+                lastName: 'Parent', // Default last name
+                role: 'parent' // Parent role for enrollment
               })
             });
 
             const signupData = await signupResponse.json();
             
             // If user already exists, that's okay - we'll continue with enrollment
-            if (signupData.error && !signupData.error.includes('already exists')) {
-              throw new Error(signupData.error);
+            if (signupData.message && signupData.message.includes('already registered')) {
+              console.log('✅ User already exists, continuing with enrollment');
+            } else if (!signupResponse.ok) {
+              throw new Error(signupData.message || 'Signup failed');
             }
 
             console.log('✅ User account ready');
@@ -5731,9 +5755,29 @@ app.get('/academy', (c) =>
               </div>
             </div>
 
-            {/* Payment Button with Stripe */}
+            {/* Payment Button with Stripe - ENHANCED with pulse animation */}
+            <style dangerouslySetInnerHTML={{__html: `
+              @keyframes pulse-glow {
+                0%, 100% {
+                  box-shadow: 0 0 20px rgba(71, 148, 166, 0.3), 0 0 40px rgba(71, 148, 166, 0.1);
+                }
+                50% {
+                  box-shadow: 0 0 30px rgba(71, 148, 166, 0.5), 0 0 60px rgba(71, 148, 166, 0.2);
+                }
+              }
+              @keyframes gentle-bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-4px); }
+              }
+              .payment-button-pulse {
+                animation: pulse-glow 2s ease-in-out infinite;
+              }
+              .payment-button-pulse:hover {
+                animation: pulse-glow 2s ease-in-out infinite, gentle-bounce 0.6s ease-in-out infinite;
+              }
+            `}} />
             <div class="space-y-4 mb-6">
-              <button onclick="completeEnrollment()" class="w-full bg-white hover:bg-gray-50 text-gray-900 font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-4 border-2 border-gray-200 hover:border-teal-500 transition-all shadow-lg" id="stripe-checkout-btn">
+              <button onclick="completeEnrollment()" class="payment-button-pulse w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-4 border-2 border-teal-400 transition-all shadow-2xl" id="stripe-checkout-btn">
                 <div class="flex items-center gap-3">
                   <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
                     <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -5741,13 +5785,13 @@ app.get('/academy', (c) =>
                   </svg>
                   <div class="text-left">
                     <div class="text-xl font-bold">Pay with Card</div>
-                    <div class="text-sm text-gray-600 font-normal">Secure payment via Stripe • <span id="stripe-amount">$0</span></div>
+                    <div class="text-sm text-teal-100 font-normal">Secure payment via Stripe • <span id="stripe-amount">$0</span></div>
                   </div>
                 </div>
-                <div class="ml-auto flex items-center gap-2 text-sm text-gray-500">
-                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">Apple Pay</span>
-                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">G Pay</span>
-                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">+more</span>
+                <div class="ml-auto flex items-center gap-2 text-sm">
+                  <span class="inline-flex items-center px-2 py-1 bg-white/20 rounded text-xs text-white">Apple Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-white/20 rounded text-xs text-white">G Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-white/20 rounded text-xs text-white">+more</span>
                 </div>
               </button>
               <p class="text-xs text-center text-gray-500">
@@ -10642,9 +10686,29 @@ app.get('/faq', (c) =>
               </div>
             </div>
 
-            {/* Payment Button with Stripe */}
+            {/* Payment Button with Stripe - ENHANCED with pulse animation */}
+            <style dangerouslySetInnerHTML={{__html: `
+              @keyframes pulse-glow {
+                0%, 100% {
+                  box-shadow: 0 0 20px rgba(71, 148, 166, 0.3), 0 0 40px rgba(71, 148, 166, 0.1);
+                }
+                50% {
+                  box-shadow: 0 0 30px rgba(71, 148, 166, 0.5), 0 0 60px rgba(71, 148, 166, 0.2);
+                }
+              }
+              @keyframes gentle-bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-4px); }
+              }
+              .payment-button-pulse {
+                animation: pulse-glow 2s ease-in-out infinite;
+              }
+              .payment-button-pulse:hover {
+                animation: pulse-glow 2s ease-in-out infinite, gentle-bounce 0.6s ease-in-out infinite;
+              }
+            `}} />
             <div class="space-y-4 mb-6">
-              <button onclick="completeEnrollment()" class="w-full bg-white hover:bg-gray-50 text-gray-900 font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-4 border-2 border-gray-200 hover:border-teal-500 transition-all shadow-lg" id="stripe-checkout-btn">
+              <button onclick="completeEnrollment()" class="payment-button-pulse w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-4 border-2 border-teal-400 transition-all shadow-2xl" id="stripe-checkout-btn">
                 <div class="flex items-center gap-3">
                   <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
                     <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -10652,13 +10716,13 @@ app.get('/faq', (c) =>
                   </svg>
                   <div class="text-left">
                     <div class="text-xl font-bold">Pay with Card</div>
-                    <div class="text-sm text-gray-600 font-normal">Secure payment via Stripe • <span id="stripe-amount">$0</span></div>
+                    <div class="text-sm text-teal-100 font-normal">Secure payment via Stripe • <span id="stripe-amount">$0</span></div>
                   </div>
                 </div>
-                <div class="ml-auto flex items-center gap-2 text-sm text-gray-500">
-                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">Apple Pay</span>
-                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">G Pay</span>
-                  <span class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-xs">+more</span>
+                <div class="ml-auto flex items-center gap-2 text-sm">
+                  <span class="inline-flex items-center px-2 py-1 bg-white/20 rounded text-xs text-white">Apple Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-white/20 rounded text-xs text-white">G Pay</span>
+                  <span class="inline-flex items-center px-2 py-1 bg-white/20 rounded text-xs text-white">+more</span>
                 </div>
               </button>
               <p class="text-xs text-center text-gray-500">
