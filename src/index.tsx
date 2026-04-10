@@ -3587,19 +3587,46 @@ app.get('/education', (c) => {
               </div>
             </div>
 
-            {/* Monthly/Annual Toggle */}
-            <div class="flex items-center justify-center gap-3 mb-6 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
-              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
-                Monthly
-              </button>
-              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm">
-                Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
-              </button>
+            {/* Pricing Tabs: Per-Class, Monthly, Annual */}
+            <div class="flex flex-col gap-4 mb-6">
+              <div class="flex items-center justify-center gap-2 bg-gray-900 p-2 rounded-full mx-auto">
+                <button id="per-class-tab-btn" onclick="switchPricingTab('per-class')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm whitespace-nowrap">
+                  Per Class
+                </button>
+                <button id="monthly-tab-btn" onclick="switchPricingTab('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
+                  Monthly
+                </button>
+                <button id="annual-tab-btn" onclick="switchPricingTab('annual')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm">
+                  Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
+                </button>
+              </div>
+
+              {/* Per-Class Pricing Info */}
+              <div id="per-class-info" class="text-center text-xs text-gray-400 hidden">
+                <p class="font-semibold">Pay as you go - $30 per class</p>
+                <p class="text-gray-500">No commitment • Book classes individually</p>
+              </div>
+
+              {/* Monthly Pricing Info */}
+              <div id="monthly-info" class="text-center text-xs text-gray-400">
+                <p class="font-semibold">Billed monthly • Cancel anytime</p>
+                <p class="text-gray-500">
+                  <span class="line-through text-gray-600">$240/month</span>
+                  <span class="text-teal-500 ml-2 font-bold">→ $100/month</span>
+                  <span class="ml-2">(Save $140/month)</span>
+                </p>
+              </div>
+
+              {/* Annual Pricing Info */}
+              <div id="annual-info" class="text-center text-xs text-gray-400 hidden">
+                <p class="font-semibold">10 months prepaid (Sept-June school year)</p>
+                <p class="text-gray-500">
+                  <span class="line-through text-gray-600">$2,400/year</span>
+                  <span class="text-teal-500 ml-2 font-bold">→ $800/year</span>
+                  <span class="ml-2">(Save $1,600/year)</span>
+                </p>
+              </div>
             </div>
-            <p class="text-center text-xs text-gray-400 mb-6">
-              <span class="annual-note hidden">Annual: 10 months prepaid (Sept-June)</span>
-              <span class="monthly-note">Billed monthly. Cancel anytime.</span>
-            </p>
             
             {/* What's Included */}
             <div class="feature-card p-4 rounded-xl mt-4">
@@ -3867,9 +3894,11 @@ app.get('/education', (c) => {
         let selectedStudents = 0;
         let selectedPrice = 0;
         let isAnnual = false;
+        let pricingMode = 'monthly'; // 'per-class', 'monthly', or 'annual'
         
-        // Simplified Pricing: $100/month (8 classes), 10% off each additional sibling, 20% off annual
-        const BASE_MONTHLY_PRICE = 100;
+        // Pricing Constants
+        const PER_CLASS_PRICE = 30; // $30 per individual class
+        const BASE_MONTHLY_PRICE = 100; // $100/month for 8 classes (was $240)
         const SIBLING_DISCOUNT = 0.05; // 5% off per additional sibling
         const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
         
@@ -3943,6 +3972,43 @@ app.get('/education', (c) => {
           document.getElementById('step-percentage').textContent = Math.round(percentage) + '%';
         }
 
+        function switchPricingTab(mode) {
+          pricingMode = mode;
+          isAnnual = (mode === 'annual');
+          
+          // Update tab buttons
+          const perClassBtn = document.getElementById('per-class-tab-btn');
+          const monthlyBtn = document.getElementById('monthly-tab-btn');
+          const annualBtn = document.getElementById('annual-tab-btn');
+          
+          // Reset all buttons
+          [perClassBtn, monthlyBtn, annualBtn].forEach(btn => {
+            btn.classList.remove('bg-teal-500', 'text-white');
+            btn.classList.add('text-gray-400');
+          });
+          
+          // Highlight active tab
+          if (mode === 'per-class') {
+            perClassBtn.classList.add('bg-teal-500', 'text-white');
+            perClassBtn.classList.remove('text-gray-400');
+          } else if (mode === 'monthly') {
+            monthlyBtn.classList.add('bg-teal-500', 'text-white');
+            monthlyBtn.classList.remove('text-gray-400');
+          } else {
+            annualBtn.classList.add('bg-teal-500', 'text-white');
+            annualBtn.classList.remove('text-gray-400');
+          }
+          
+          // Show/hide info sections
+          document.getElementById('per-class-info').classList.toggle('hidden', mode !== 'per-class');
+          document.getElementById('monthly-info').classList.toggle('hidden', mode !== 'monthly');
+          document.getElementById('annual-info').classList.toggle('hidden', mode !== 'annual');
+          
+          // Update pricing display
+          const currentStudents = parseInt(document.getElementById('student-slider').value);
+          updateSlider(currentStudents);
+        }
+
         function toggleBilling(type) {
           isAnnual = (type === 'annual');
           
@@ -4005,26 +4071,49 @@ app.get('/education', (c) => {
           // Update slider number display
           document.getElementById('slider-number').textContent = students + (students >= 6 ? '+' : '');
           
-          // Calculate pricing
-          const monthlyTotal = calculatePrice(students, isAnnual);
-          const perStudentPerMonth = monthlyTotal / students;
-          const perStudentPerClass = perStudentPerMonth / 8;
+          // Calculate pricing based on mode
+          let bigPrice, monthlyDisplay, studentCountText, discountText;
           
-          // Update BIG price display (per-class cost PER STUDENT)
-          document.getElementById('big-price-display').textContent = '$' + perStudentPerClass.toFixed(2);
+          if (pricingMode === 'per-class') {
+            // Per-class pricing: $30/class
+            bigPrice = PER_CLASS_PRICE;
+            monthlyDisplay = 'per class';
+            studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
+            discountText = students > 1 ? 'No bulk discount for per-class booking' : '';
+          } else {
+            // Monthly or Annual pricing
+            const monthlyTotal = calculatePrice(students, isAnnual);
+            const perStudentPerMonth = monthlyTotal / students;
+            const perStudentPerClass = perStudentPerMonth / 8;
+            
+            bigPrice = perStudentPerClass;
+            monthlyDisplay = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
+            studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students') + ' • 8 live classes';
+            
+            if (students > 1) {
+              const discountPercent = Math.round((students - 1) * 5);
+              discountText = 'Save ' + discountPercent + '% with siblings!';
+            } else {
+              discountText = '';
+            }
+            
+            // Store for payment
+            selectedPrice = monthlyTotal;
+          }
           
-          // Update monthly price (PER STUDENT)
-          document.getElementById('monthly-price-display').textContent = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
+          // Update BIG price display
+          document.getElementById('big-price-display').textContent = '$' + bigPrice.toFixed(2);
+          
+          // Update monthly price display
+          document.getElementById('monthly-price-display').textContent = monthlyDisplay;
           
           // Update student count text
-          const studentText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
-          document.getElementById('student-count-text').textContent = studentText + ' • 8 live classes';
+          document.getElementById('student-count-text').textContent = studentCountText;
           
-          // Show sibling discount if applicable
+          // Show/hide sibling discount
           const discountEl = document.getElementById('sibling-discount-text');
-          if (students > 1) {
-            const discountPercent = Math.round((students - 1) * 5);
-            discountEl.textContent = 'Save ' + discountPercent + '% with siblings!';
+          if (discountText) {
+            discountEl.textContent = discountText;
             discountEl.classList.remove('hidden');
           } else {
             discountEl.classList.add('hidden');
@@ -4032,7 +4121,6 @@ app.get('/education', (c) => {
           
           // Auto-select package (for navigation to step 3)
           selectedStudents = students;
-          selectedPrice = monthlyTotal;
         }
 
         function selectPackage(students) {
@@ -5304,19 +5392,46 @@ app.get('/academy', (c) =>
               </div>
             </div>
 
-            {/* Monthly/Annual Toggle */}
-            <div class="flex items-center justify-center gap-3 mb-6 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
-              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
-                Monthly
-              </button>
-              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm">
-                Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
-              </button>
+            {/* Pricing Tabs: Per-Class, Monthly, Annual */}
+            <div class="flex flex-col gap-4 mb-6">
+              <div class="flex items-center justify-center gap-2 bg-gray-900 p-2 rounded-full mx-auto">
+                <button id="per-class-tab-btn" onclick="switchPricingTab('per-class')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm whitespace-nowrap">
+                  Per Class
+                </button>
+                <button id="monthly-tab-btn" onclick="switchPricingTab('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
+                  Monthly
+                </button>
+                <button id="annual-tab-btn" onclick="switchPricingTab('annual')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm">
+                  Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
+                </button>
+              </div>
+
+              {/* Per-Class Pricing Info */}
+              <div id="per-class-info" class="text-center text-xs text-gray-400 hidden">
+                <p class="font-semibold">Pay as you go - $30 per class</p>
+                <p class="text-gray-500">No commitment • Book classes individually</p>
+              </div>
+
+              {/* Monthly Pricing Info */}
+              <div id="monthly-info" class="text-center text-xs text-gray-400">
+                <p class="font-semibold">Billed monthly • Cancel anytime</p>
+                <p class="text-gray-500">
+                  <span class="line-through text-gray-600">$240/month</span>
+                  <span class="text-teal-500 ml-2 font-bold">→ $100/month</span>
+                  <span class="ml-2">(Save $140/month)</span>
+                </p>
+              </div>
+
+              {/* Annual Pricing Info */}
+              <div id="annual-info" class="text-center text-xs text-gray-400 hidden">
+                <p class="font-semibold">10 months prepaid (Sept-June school year)</p>
+                <p class="text-gray-500">
+                  <span class="line-through text-gray-600">$2,400/year</span>
+                  <span class="text-teal-500 ml-2 font-bold">→ $800/year</span>
+                  <span class="ml-2">(Save $1,600/year)</span>
+                </p>
+              </div>
             </div>
-            <p class="text-center text-xs text-gray-400 mb-6">
-              <span class="annual-note hidden">Annual: 10 months prepaid (Sept-June)</span>
-              <span class="monthly-note">Billed monthly. Cancel anytime.</span>
-            </p>
             
             {/* What's Included */}
             <div class="feature-card p-4 rounded-xl mt-4">
@@ -5584,9 +5699,11 @@ app.get('/academy', (c) =>
         let selectedStudents = 0;
         let selectedPrice = 0;
         let isAnnual = false;
+        let pricingMode = 'monthly'; // 'per-class', 'monthly', or 'annual'
         
-        // Simplified Pricing: $100/month (8 classes), 10% off each additional sibling, 20% off annual
-        const BASE_MONTHLY_PRICE = 100;
+        // Pricing Constants
+        const PER_CLASS_PRICE = 30; // $30 per individual class
+        const BASE_MONTHLY_PRICE = 100; // $100/month for 8 classes (was $240)
         const SIBLING_DISCOUNT = 0.05; // 5% off per additional sibling
         const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
         
@@ -5660,6 +5777,43 @@ app.get('/academy', (c) =>
           document.getElementById('step-percentage').textContent = Math.round(percentage) + '%';
         }
 
+        function switchPricingTab(mode) {
+          pricingMode = mode;
+          isAnnual = (mode === 'annual');
+          
+          // Update tab buttons
+          const perClassBtn = document.getElementById('per-class-tab-btn');
+          const monthlyBtn = document.getElementById('monthly-tab-btn');
+          const annualBtn = document.getElementById('annual-tab-btn');
+          
+          // Reset all buttons
+          [perClassBtn, monthlyBtn, annualBtn].forEach(btn => {
+            btn.classList.remove('bg-teal-500', 'text-white');
+            btn.classList.add('text-gray-400');
+          });
+          
+          // Highlight active tab
+          if (mode === 'per-class') {
+            perClassBtn.classList.add('bg-teal-500', 'text-white');
+            perClassBtn.classList.remove('text-gray-400');
+          } else if (mode === 'monthly') {
+            monthlyBtn.classList.add('bg-teal-500', 'text-white');
+            monthlyBtn.classList.remove('text-gray-400');
+          } else {
+            annualBtn.classList.add('bg-teal-500', 'text-white');
+            annualBtn.classList.remove('text-gray-400');
+          }
+          
+          // Show/hide info sections
+          document.getElementById('per-class-info').classList.toggle('hidden', mode !== 'per-class');
+          document.getElementById('monthly-info').classList.toggle('hidden', mode !== 'monthly');
+          document.getElementById('annual-info').classList.toggle('hidden', mode !== 'annual');
+          
+          // Update pricing display
+          const currentStudents = parseInt(document.getElementById('student-slider').value);
+          updateSlider(currentStudents);
+        }
+
         function toggleBilling(type) {
           isAnnual = (type === 'annual');
           
@@ -5722,26 +5876,49 @@ app.get('/academy', (c) =>
           // Update slider number display
           document.getElementById('slider-number').textContent = students + (students >= 6 ? '+' : '');
           
-          // Calculate pricing
-          const monthlyTotal = calculatePrice(students, isAnnual);
-          const perStudentPerMonth = monthlyTotal / students;
-          const perStudentPerClass = perStudentPerMonth / 8;
+          // Calculate pricing based on mode
+          let bigPrice, monthlyDisplay, studentCountText, discountText;
           
-          // Update BIG price display (per-class cost PER STUDENT)
-          document.getElementById('big-price-display').textContent = '$' + perStudentPerClass.toFixed(2);
+          if (pricingMode === 'per-class') {
+            // Per-class pricing: $30/class
+            bigPrice = PER_CLASS_PRICE;
+            monthlyDisplay = 'per class';
+            studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
+            discountText = students > 1 ? 'No bulk discount for per-class booking' : '';
+          } else {
+            // Monthly or Annual pricing
+            const monthlyTotal = calculatePrice(students, isAnnual);
+            const perStudentPerMonth = monthlyTotal / students;
+            const perStudentPerClass = perStudentPerMonth / 8;
+            
+            bigPrice = perStudentPerClass;
+            monthlyDisplay = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
+            studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students') + ' • 8 live classes';
+            
+            if (students > 1) {
+              const discountPercent = Math.round((students - 1) * 5);
+              discountText = 'Save ' + discountPercent + '% with siblings!';
+            } else {
+              discountText = '';
+            }
+            
+            // Store for payment
+            selectedPrice = monthlyTotal;
+          }
           
-          // Update monthly price (PER STUDENT)
-          document.getElementById('monthly-price-display').textContent = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
+          // Update BIG price display
+          document.getElementById('big-price-display').textContent = '$' + bigPrice.toFixed(2);
+          
+          // Update monthly price display
+          document.getElementById('monthly-price-display').textContent = monthlyDisplay;
           
           // Update student count text
-          const studentText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
-          document.getElementById('student-count-text').textContent = studentText + ' • 8 live classes';
+          document.getElementById('student-count-text').textContent = studentCountText;
           
-          // Show sibling discount if applicable
+          // Show/hide sibling discount
           const discountEl = document.getElementById('sibling-discount-text');
-          if (students > 1) {
-            const discountPercent = Math.round((students - 1) * 5);
-            discountEl.textContent = 'Save ' + discountPercent + '% with siblings!';
+          if (discountText) {
+            discountEl.textContent = discountText;
             discountEl.classList.remove('hidden');
           } else {
             discountEl.classList.add('hidden');
@@ -5749,7 +5926,6 @@ app.get('/academy', (c) =>
           
           // Auto-select package (for navigation to step 3)
           selectedStudents = students;
-          selectedPrice = monthlyTotal;
         }
 
         function selectPackage(students) {
@@ -10110,19 +10286,46 @@ app.get('/faq', (c) =>
               </div>
             </div>
 
-            {/* Monthly/Annual Toggle */}
-            <div class="flex items-center justify-center gap-3 mb-6 bg-gray-900 p-2 rounded-full inline-flex mx-auto">
-              <button id="monthly-toggle-btn" onclick="toggleBilling('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
-                Monthly
-              </button>
-              <button id="annual-toggle-btn" onclick="toggleBilling('annual')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm">
-                Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
-              </button>
+            {/* Pricing Tabs: Per-Class, Monthly, Annual */}
+            <div class="flex flex-col gap-4 mb-6">
+              <div class="flex items-center justify-center gap-2 bg-gray-900 p-2 rounded-full mx-auto">
+                <button id="per-class-tab-btn" onclick="switchPricingTab('per-class')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm whitespace-nowrap">
+                  Per Class
+                </button>
+                <button id="monthly-tab-btn" onclick="switchPricingTab('monthly')" class="px-4 py-2 rounded-full font-semibold transition bg-teal-500 text-white text-sm">
+                  Monthly
+                </button>
+                <button id="annual-tab-btn" onclick="switchPricingTab('annual')" class="px-4 py-2 rounded-full font-semibold transition text-gray-400 text-sm">
+                  Annual <span class="text-teal-500 text-xs ml-1">Save 20%</span>
+                </button>
+              </div>
+
+              {/* Per-Class Pricing Info */}
+              <div id="per-class-info" class="text-center text-xs text-gray-400 hidden">
+                <p class="font-semibold">Pay as you go - $30 per class</p>
+                <p class="text-gray-500">No commitment • Book classes individually</p>
+              </div>
+
+              {/* Monthly Pricing Info */}
+              <div id="monthly-info" class="text-center text-xs text-gray-400">
+                <p class="font-semibold">Billed monthly • Cancel anytime</p>
+                <p class="text-gray-500">
+                  <span class="line-through text-gray-600">$240/month</span>
+                  <span class="text-teal-500 ml-2 font-bold">→ $100/month</span>
+                  <span class="ml-2">(Save $140/month)</span>
+                </p>
+              </div>
+
+              {/* Annual Pricing Info */}
+              <div id="annual-info" class="text-center text-xs text-gray-400 hidden">
+                <p class="font-semibold">10 months prepaid (Sept-June school year)</p>
+                <p class="text-gray-500">
+                  <span class="line-through text-gray-600">$2,400/year</span>
+                  <span class="text-teal-500 ml-2 font-bold">→ $800/year</span>
+                  <span class="ml-2">(Save $1,600/year)</span>
+                </p>
+              </div>
             </div>
-            <p class="text-center text-xs text-gray-400 mb-6">
-              <span class="annual-note hidden">Annual: 10 months prepaid (Sept-June)</span>
-              <span class="monthly-note">Billed monthly. Cancel anytime.</span>
-            </p>
             
             {/* What's Included */}
             <div class="feature-card p-4 rounded-xl mt-4">
@@ -10390,9 +10593,11 @@ app.get('/faq', (c) =>
         let selectedStudents = 0;
         let selectedPrice = 0;
         let isAnnual = false;
+        let pricingMode = 'monthly'; // 'per-class', 'monthly', or 'annual'
         
-        // Simplified Pricing: $100/month (8 classes), 10% off each additional sibling, 20% off annual
-        const BASE_MONTHLY_PRICE = 100;
+        // Pricing Constants
+        const PER_CLASS_PRICE = 30; // $30 per individual class
+        const BASE_MONTHLY_PRICE = 100; // $100/month for 8 classes (was $240)
         const SIBLING_DISCOUNT = 0.05; // 5% off per additional sibling
         const ANNUAL_DISCOUNT = 0.20; // 20% off annual prepaid
         
@@ -10466,6 +10671,43 @@ app.get('/faq', (c) =>
           document.getElementById('step-percentage').textContent = Math.round(percentage) + '%';
         }
 
+        function switchPricingTab(mode) {
+          pricingMode = mode;
+          isAnnual = (mode === 'annual');
+          
+          // Update tab buttons
+          const perClassBtn = document.getElementById('per-class-tab-btn');
+          const monthlyBtn = document.getElementById('monthly-tab-btn');
+          const annualBtn = document.getElementById('annual-tab-btn');
+          
+          // Reset all buttons
+          [perClassBtn, monthlyBtn, annualBtn].forEach(btn => {
+            btn.classList.remove('bg-teal-500', 'text-white');
+            btn.classList.add('text-gray-400');
+          });
+          
+          // Highlight active tab
+          if (mode === 'per-class') {
+            perClassBtn.classList.add('bg-teal-500', 'text-white');
+            perClassBtn.classList.remove('text-gray-400');
+          } else if (mode === 'monthly') {
+            monthlyBtn.classList.add('bg-teal-500', 'text-white');
+            monthlyBtn.classList.remove('text-gray-400');
+          } else {
+            annualBtn.classList.add('bg-teal-500', 'text-white');
+            annualBtn.classList.remove('text-gray-400');
+          }
+          
+          // Show/hide info sections
+          document.getElementById('per-class-info').classList.toggle('hidden', mode !== 'per-class');
+          document.getElementById('monthly-info').classList.toggle('hidden', mode !== 'monthly');
+          document.getElementById('annual-info').classList.toggle('hidden', mode !== 'annual');
+          
+          // Update pricing display
+          const currentStudents = parseInt(document.getElementById('student-slider').value);
+          updateSlider(currentStudents);
+        }
+
         function toggleBilling(type) {
           isAnnual = (type === 'annual');
           
@@ -10528,26 +10770,49 @@ app.get('/faq', (c) =>
           // Update slider number display
           document.getElementById('slider-number').textContent = students + (students >= 6 ? '+' : '');
           
-          // Calculate pricing
-          const monthlyTotal = calculatePrice(students, isAnnual);
-          const perStudentPerMonth = monthlyTotal / students;
-          const perStudentPerClass = perStudentPerMonth / 8;
+          // Calculate pricing based on mode
+          let bigPrice, monthlyDisplay, studentCountText, discountText;
           
-          // Update BIG price display (per-class cost PER STUDENT)
-          document.getElementById('big-price-display').textContent = '$' + perStudentPerClass.toFixed(2);
+          if (pricingMode === 'per-class') {
+            // Per-class pricing: $30/class
+            bigPrice = PER_CLASS_PRICE;
+            monthlyDisplay = 'per class';
+            studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
+            discountText = students > 1 ? 'No bulk discount for per-class booking' : '';
+          } else {
+            // Monthly or Annual pricing
+            const monthlyTotal = calculatePrice(students, isAnnual);
+            const perStudentPerMonth = monthlyTotal / students;
+            const perStudentPerClass = perStudentPerMonth / 8;
+            
+            bigPrice = perStudentPerClass;
+            monthlyDisplay = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
+            studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students') + ' • 8 live classes';
+            
+            if (students > 1) {
+              const discountPercent = Math.round((students - 1) * 5);
+              discountText = 'Save ' + discountPercent + '% with siblings!';
+            } else {
+              discountText = '';
+            }
+            
+            // Store for payment
+            selectedPrice = monthlyTotal;
+          }
           
-          // Update monthly price (PER STUDENT)
-          document.getElementById('monthly-price-display').textContent = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
+          // Update BIG price display
+          document.getElementById('big-price-display').textContent = '$' + bigPrice.toFixed(2);
+          
+          // Update monthly price display
+          document.getElementById('monthly-price-display').textContent = monthlyDisplay;
           
           // Update student count text
-          const studentText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
-          document.getElementById('student-count-text').textContent = studentText + ' • 8 live classes';
+          document.getElementById('student-count-text').textContent = studentCountText;
           
-          // Show sibling discount if applicable
+          // Show/hide sibling discount
           const discountEl = document.getElementById('sibling-discount-text');
-          if (students > 1) {
-            const discountPercent = Math.round((students - 1) * 5);
-            discountEl.textContent = 'Save ' + discountPercent + '% with siblings!';
+          if (discountText) {
+            discountEl.textContent = discountText;
             discountEl.classList.remove('hidden');
           } else {
             discountEl.classList.add('hidden');
@@ -10555,7 +10820,6 @@ app.get('/faq', (c) =>
           
           // Auto-select package (for navigation to step 3)
           selectedStudents = students;
-          selectedPrice = monthlyTotal;
         }
 
         function selectPackage(students) {
