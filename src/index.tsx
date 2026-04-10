@@ -637,7 +637,11 @@ app.post('/api/payments/create-checkout-session', async (c) => {
     }
     
     const body = await c.req.json()
-    const { priceId, amount, productName, quantity = 1, mode = 'payment', successUrl, cancelUrl, customerEmail, metadata } = body
+    const { priceId, amount, productName, quantity = 1, paymentMode, successUrl, cancelUrl, customerEmail, metadata } = body
+    
+    // Determine Stripe mode based on paymentMode
+    // 'subscription' for monthly recurring, 'payment' for one-time (annual prepaid)
+    const mode = paymentMode || 'payment'
     
     // Build line items - either use priceId (for fixed products) or custom amount (for dynamic pricing)
     const lineItems: any = {}
@@ -647,10 +651,17 @@ app.post('/api/payments/create-checkout-session', async (c) => {
       lineItems['line_items[0][price]'] = priceId
       lineItems['line_items[0][quantity]'] = quantity.toString()
     } else if (amount && productName) {
-      // Custom amount (Photography bookings)
+      // Custom amount (Education enrollment or Photography bookings)
       lineItems['line_items[0][price_data][currency]'] = 'usd'
       lineItems['line_items[0][price_data][product_data][name]'] = productName
       lineItems['line_items[0][price_data][unit_amount]'] = Math.round(amount * 100).toString() // Convert dollars to cents
+      
+      // For subscription mode, add recurring interval
+      if (mode === 'subscription') {
+        lineItems['line_items[0][price_data][recurring][interval]'] = 'month'
+        lineItems['line_items[0][price_data][recurring][interval_count]'] = '1'
+      }
+      
       lineItems['line_items[0][quantity]'] = '1'
     } else {
       return c.json({ error: 'Either priceId or amount+productName required' }, 400)
@@ -3276,7 +3287,7 @@ app.get('/education', (c) => {
               </div>
               <h3 class="text-xl font-bold mb-3">Flexible</h3>
               <p class="text-gray-400 text-sm leading-relaxed">
-                Daily proration. No contracts. Pay only for what you use.
+                Flexible billing. No contracts. Cancel anytime.
               </p>
             </div>
             
@@ -3719,7 +3730,7 @@ app.get('/education', (c) => {
                 <span class="text-sm text-gray-400">Annual Savings</span>
                 <span id="summary-savings" class="text-sm font-bold text-green-500"></span>
               </div>
-              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on classes remaining this month</p>
+              <p id="billing-note" class="text-xs text-gray-500 mt-2">*Recurring billing on same date each month/year</p>
             </div>
 
             {/* Terms & Agreement */}
@@ -3749,7 +3760,7 @@ app.get('/education', (c) => {
                   <strong class="text-teal-500">2. PAYMENT TERMS</strong><br/>
                   • Monthly billing: Charged on the same day each month<br/>
                   • Annual billing: 12 months prepaid (year-round classes)<br/>
-                  • First month prorated based on classes remaining<br/>
+                  • Full month billed on enrollment date; recurring monthly/annually<br/>
                   • Payments processed securely via Stripe
                 </p>
                 
@@ -4160,21 +4171,11 @@ app.get('/education', (c) => {
           if (isAnnual) {
             // Annual: 12 months prepaid (year-round classes including summer/winter)
             totalCharge = monthlyTotal * 12;
-            chargeLabel = 'Total (12 months prepaid)';
+            chargeLabel = 'Total Due Today (Annual Prepaid)';
           } else {
-            // Monthly: prorated based on classes remaining (8 classes per month, Mon & Thu)
-            // Calculate which class # we're on in the current month
-            const today = new Date();
-            const dayOfMonth = today.getDate();
-            
-            // Estimate classes completed this month (rough: 2 per week, ~8 per month)
-            // If it's day 1-7, assume 0-2 classes done; day 8-14 = 2-4 done; etc.
-            const weekOfMonth = Math.ceil(dayOfMonth / 7);
-            const classesCompleted = Math.min(weekOfMonth * 2 - 1, 7); // Max 7 completed
-            const classesRemaining = Math.max(8 - classesCompleted, 1); // Minimum 1 class
-            
-            totalCharge = (monthlyTotal / 8) * classesRemaining;
-            chargeLabel = 'Total Today (Prorated)';
+            // Monthly: Full month charge, recurring on same date each month
+            totalCharge = monthlyTotal;
+            chargeLabel = 'First Month Total';
           }
           
           // Calculate savings for display (Annual vs Monthly)
@@ -4211,10 +4212,16 @@ app.get('/education', (c) => {
           if (isAnnual) {
             document.getElementById('savings-display').classList.remove('hidden');
             document.getElementById('summary-savings').textContent = '-$' + yearlySavings.toFixed(2);
-            document.getElementById('proration-note').classList.add('hidden');
           } else {
             document.getElementById('savings-display').classList.add('hidden');
-            document.getElementById('proration-note').classList.remove('hidden');
+          }
+          
+          // Always show billing note (no proration)
+          const billingNote = document.getElementById('billing-note');
+          if (billingNote) {
+            billingNote.textContent = isAnnual ? 
+              '*Annual prepaid - full 12 months charged today' : 
+              '*Recurring monthly on ' + new Date().getDate() + 'th of each month';
           }
           
           // Go to next step
@@ -5549,7 +5556,7 @@ app.get('/academy', (c) =>
                 <span class="text-sm text-gray-400">Annual Savings</span>
                 <span id="summary-savings" class="text-sm font-bold text-green-500"></span>
               </div>
-              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on classes remaining this month</p>
+              <p id="billing-note" class="text-xs text-gray-500 mt-2">*Recurring billing on same date each month/year</p>
             </div>
 
             {/* Terms & Agreement */}
@@ -5579,7 +5586,7 @@ app.get('/academy', (c) =>
                   <strong class="text-teal-500">2. PAYMENT TERMS</strong><br/>
                   • Monthly billing: Charged on the same day each month<br/>
                   • Annual billing: 12 months prepaid (year-round classes)<br/>
-                  • First month prorated based on classes remaining<br/>
+                  • Full month billed on enrollment date; recurring monthly/annually<br/>
                   • Payments processed securely via Stripe
                 </p>
                 
@@ -5990,21 +5997,11 @@ app.get('/academy', (c) =>
           if (isAnnual) {
             // Annual: 12 months prepaid (year-round classes including summer/winter)
             totalCharge = monthlyTotal * 12;
-            chargeLabel = 'Total (12 months prepaid)';
+            chargeLabel = 'Total Due Today (Annual Prepaid)';
           } else {
-            // Monthly: prorated based on classes remaining (8 classes per month, Mon & Thu)
-            // Calculate which class # we're on in the current month
-            const today = new Date();
-            const dayOfMonth = today.getDate();
-            
-            // Estimate classes completed this month (rough: 2 per week, ~8 per month)
-            // If it's day 1-7, assume 0-2 classes done; day 8-14 = 2-4 done; etc.
-            const weekOfMonth = Math.ceil(dayOfMonth / 7);
-            const classesCompleted = Math.min(weekOfMonth * 2 - 1, 7); // Max 7 completed
-            const classesRemaining = Math.max(8 - classesCompleted, 1); // Minimum 1 class
-            
-            totalCharge = (monthlyTotal / 8) * classesRemaining;
-            chargeLabel = 'Total Today (Prorated)';
+            // Monthly: Full month charge, recurring on same date each month
+            totalCharge = monthlyTotal;
+            chargeLabel = 'First Month Total';
           }
           
           // Calculate savings for display (Annual vs Monthly)
@@ -6041,10 +6038,16 @@ app.get('/academy', (c) =>
           if (isAnnual) {
             document.getElementById('savings-display').classList.remove('hidden');
             document.getElementById('summary-savings').textContent = '-$' + yearlySavings.toFixed(2);
-            document.getElementById('proration-note').classList.add('hidden');
           } else {
             document.getElementById('savings-display').classList.add('hidden');
-            document.getElementById('proration-note').classList.remove('hidden');
+          }
+          
+          // Always show billing note (no proration)
+          const billingNote = document.getElementById('billing-note');
+          if (billingNote) {
+            billingNote.textContent = isAnnual ? 
+              '*Annual prepaid - full 12 months charged today' : 
+              '*Recurring monthly on ' + new Date().getDate() + 'th of each month';
           }
           
           // Go to next step
@@ -9520,7 +9523,7 @@ app.get('/checkout', (c) => {
                       <span>Total Today</span>
                       <span id="checkout-total">$0.00</span>
                     </div>
-                    <div class="text-sm text-gray-400 mt-2">Daily prorated for first month</div>
+                    <div class="text-sm text-gray-400 mt-2">Recurring monthly on enrollment date</div>
                   </div>
                 </div>
                 <div class="pt-6 border-t border-white/10 space-y-3 text-xs text-gray-500">
@@ -9530,7 +9533,7 @@ app.get('/checkout', (c) => {
                   </div>
                   <div class="flex items-start gap-2">
                     <i class="fas fa-check text-teal-500 mt-0.5"></i>
-                    <span>Daily proration - pay only for days used</span>
+                    <span>Recurring billing - same date each month</span>
                   </div>
                   <div class="flex items-start gap-2">
                     <i class="fas fa-check text-teal-500 mt-0.5"></i>
@@ -9614,17 +9617,13 @@ app.get('/checkout', (c) => {
             \`;
           }).join('');
           
-          // Calculate prorated amount for FIRST MONTH ONLY (for monthly billing)
-          const today = new Date();
-          const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-          const daysRemaining = daysInMonth - today.getDate() + 1;
-          
-          // For first month: prorate based on days remaining
-          const proratedFirstMonth = (monthlySubtotal / daysInMonth) * daysRemaining;
+          // No proration - full monthly amount charged on enrollment date
+          // Recurring billing will happen on the same date each month
+          const finalTotal = subtotal; // Full amount for annual or monthly
           
           document.getElementById('checkout-subtotal').textContent = '$' + monthlySubtotal.toFixed(2);
           document.getElementById('checkout-savings').textContent = totalSavings > 0 ? '-$' + totalSavings.toFixed(2) : '$0.00';
-          document.getElementById('checkout-total').textContent = '$' + proratedFirstMonth.toFixed(2);
+          document.getElementById('checkout-total').textContent = '$' + finalTotal.toFixed(2);
         }
         
         // Handle form submission
@@ -9799,7 +9798,7 @@ app.get('/faq', (c) =>
               <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
                 <h3 class="text-2xl font-bold mb-3 text-white">Can I cancel anytime?</h3>
                 <p class="text-gray-300 leading-relaxed">
-                  <strong class="text-white">Yes!</strong> Monthly plans can be canceled anytime with no penalties. You only pay for the classes you use (class-based proration). Annual plans are prepaid for 12 months (year-round classes including summer & winter) and save you 20%.
+                  <strong class="text-white">Yes!</strong> Monthly plans can be canceled anytime with no penalties. Cancellation takes effect at the end of your current billing cycle. Annual plans are prepaid for 12 months (year-round classes including summer & winter) and save you 20%.
                 </p>
               </div>
 
@@ -10468,7 +10467,7 @@ app.get('/faq', (c) =>
                 <span class="text-sm text-gray-400">Annual Savings</span>
                 <span id="summary-savings" class="text-sm font-bold text-green-500"></span>
               </div>
-              <p id="proration-note" class="text-xs text-gray-500 mt-2">*First month prorated based on classes remaining this month</p>
+              <p id="billing-note" class="text-xs text-gray-500 mt-2">*Recurring billing on same date each month/year</p>
             </div>
 
             {/* Terms & Agreement */}
@@ -10498,7 +10497,7 @@ app.get('/faq', (c) =>
                   <strong class="text-teal-500">2. PAYMENT TERMS</strong><br/>
                   • Monthly billing: Charged on the same day each month<br/>
                   • Annual billing: 12 months prepaid (year-round classes)<br/>
-                  • First month prorated based on classes remaining<br/>
+                  • Full month billed on enrollment date; recurring monthly/annually<br/>
                   • Payments processed securely via Stripe
                 </p>
                 
@@ -10909,21 +10908,11 @@ app.get('/faq', (c) =>
           if (isAnnual) {
             // Annual: 12 months prepaid (year-round classes including summer/winter)
             totalCharge = monthlyTotal * 12;
-            chargeLabel = 'Total (12 months prepaid)';
+            chargeLabel = 'Total Due Today (Annual Prepaid)';
           } else {
-            // Monthly: prorated based on classes remaining (8 classes per month, Mon & Thu)
-            // Calculate which class # we're on in the current month
-            const today = new Date();
-            const dayOfMonth = today.getDate();
-            
-            // Estimate classes completed this month (rough: 2 per week, ~8 per month)
-            // If it's day 1-7, assume 0-2 classes done; day 8-14 = 2-4 done; etc.
-            const weekOfMonth = Math.ceil(dayOfMonth / 7);
-            const classesCompleted = Math.min(weekOfMonth * 2 - 1, 7); // Max 7 completed
-            const classesRemaining = Math.max(8 - classesCompleted, 1); // Minimum 1 class
-            
-            totalCharge = (monthlyTotal / 8) * classesRemaining;
-            chargeLabel = 'Total Today (Prorated)';
+            // Monthly: Full month charge, recurring on same date each month
+            totalCharge = monthlyTotal;
+            chargeLabel = 'First Month Total';
           }
           
           // Calculate savings for display (Annual vs Monthly)
@@ -10960,10 +10949,16 @@ app.get('/faq', (c) =>
           if (isAnnual) {
             document.getElementById('savings-display').classList.remove('hidden');
             document.getElementById('summary-savings').textContent = '-$' + yearlySavings.toFixed(2);
-            document.getElementById('proration-note').classList.add('hidden');
           } else {
             document.getElementById('savings-display').classList.add('hidden');
-            document.getElementById('proration-note').classList.remove('hidden');
+          }
+          
+          // Always show billing note (no proration)
+          const billingNote = document.getElementById('billing-note');
+          if (billingNote) {
+            billingNote.textContent = isAnnual ? 
+              '*Annual prepaid - full 12 months charged today' : 
+              '*Recurring monthly on ' + new Date().getDate() + 'th of each month';
           }
           
           // Go to next step
