@@ -3523,13 +3523,11 @@ app.get('/education', (c) => {
             <h2 class="text-3xl font-black mb-2 text-center">How Many Students?</h2>
             <p class="text-base text-gray-400 mb-8 text-center">Slide to see your savings</p>
             
-            {/* BIG PRICE DISPLAY - Focus on per-class per-student cost */}
+            {/* BIG PRICE DISPLAY - Just per-class price at top */}
             <div class="text-center mb-8">
               <div class="text-8xl font-black mb-2" id="big-price-display">$12.50</div>
-              <div class="text-xl text-gray-400 mb-4">per class per student</div>
-              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month per student</div>
+              <div class="text-xl text-gray-400">per class per student</div>
               <div class="text-sm text-gray-500 mt-2" id="student-count-text">1 student • 8 live classes</div>
-              <div class="text-sm text-teal-500 mt-1 hidden" id="sibling-discount-text"></div>
             </div>
 
             {/* Student Count Slider */}
@@ -3603,39 +3601,42 @@ app.get('/education', (c) => {
 
               {/* Per-Class Pricing Info */}
               <div id="per-class-info" class="text-center hidden">
-                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go - $30 per class</p>
+                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go</p>
                 <p class="text-xs text-gray-500">No commitment • Book classes individually</p>
+                <div class="mt-3 text-gray-500 text-sm" id="per-class-summary">
+                  <span class="font-semibold">No bulk discount</span>
+                </div>
               </div>
 
-              {/* Monthly Pricing Info - HIGHLIGHTED VALUE */}
+              {/* Monthly Pricing Info - Apple-style value card */}
               <div id="monthly-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20">
                 <p class="text-sm font-semibold text-gray-300 mb-2">Billed monthly • Cancel anytime</p>
                 <div class="flex items-center justify-center gap-3 mb-2">
-                  <span class="text-2xl line-through text-gray-600">$240</span>
+                  <span class="text-2xl line-through text-gray-600" id="monthly-original-total">$240</span>
                   <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                   </svg>
-                  <span class="text-4xl font-black text-teal-500">$100</span>
+                  <span class="text-4xl font-black text-teal-500" id="monthly-new-total">$100</span>
                   <span class="text-base text-gray-400">/month</span>
                 </div>
                 <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
-                  <span class="text-lg font-bold text-green-400">Save $140/month</span>
+                  <span class="text-lg font-bold text-green-400" id="monthly-savings">Save $140/month</span>
                 </div>
               </div>
 
-              {/* Annual Pricing Info - HIGHLIGHTED VALUE */}
+              {/* Annual Pricing Info - Apple-style value card */}
               <div id="annual-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20 hidden">
                 <p class="text-sm font-semibold text-gray-300 mb-2">10 months prepaid (Sept-June school year)</p>
                 <div class="flex items-center justify-center gap-3 mb-2">
-                  <span class="text-2xl line-through text-gray-600">$2,400</span>
+                  <span class="text-2xl line-through text-gray-600" id="annual-original-total">$2,400</span>
                   <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                   </svg>
-                  <span class="text-4xl font-black text-teal-500">$800</span>
+                  <span class="text-4xl font-black text-teal-500" id="annual-new-total">$800</span>
                   <span class="text-base text-gray-400">/year</span>
                 </div>
                 <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
-                  <span class="text-lg font-bold text-green-400">Save $1,600/year</span>
+                  <span class="text-lg font-bold text-green-400" id="annual-savings">Save $1,600/year</span>
                 </div>
               </div>
             </div>
@@ -4084,14 +4085,18 @@ app.get('/education', (c) => {
           document.getElementById('slider-number').textContent = students + (students >= 6 ? '+' : '');
           
           // Calculate pricing based on mode
-          let bigPrice, monthlyDisplay, studentCountText, discountText;
+          let bigPrice, studentCountText;
           
           if (pricingMode === 'per-class') {
             // Per-class pricing: $30/class
             bigPrice = PER_CLASS_PRICE;
-            monthlyDisplay = 'per class';
             studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
-            discountText = students > 1 ? 'No bulk discount for per-class booking' : '';
+            
+            // Update per-class summary (no discount)
+            const perClassSummary = document.getElementById('per-class-summary');
+            if (perClassSummary) {
+              perClassSummary.innerHTML = '<span class="font-semibold">No bulk discount</span>';
+            }
           } else {
             // Monthly or Annual pricing
             const monthlyTotal = calculatePrice(students, isAnnual);
@@ -4099,14 +4104,39 @@ app.get('/education', (c) => {
             const perStudentPerClass = perStudentPerMonth / 8;
             
             bigPrice = perStudentPerClass;
-            monthlyDisplay = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
             studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students') + ' • 8 live classes';
             
-            if (students > 1) {
-              const discountPercent = Math.round((students - 1) * 5);
-              discountText = 'Save ' + discountPercent + '% with siblings!';
-            } else {
-              discountText = '';
+            // Calculate original price (before discount) and savings
+            const originalPerStudent = 30; // Original $30 per class
+            const originalMonthlyTotal = originalPerStudent * 8 * students; // $30/class × 8 classes × students = $240/student baseline
+            const newMonthlyTotal = monthlyTotal;
+            const monthlySavings = originalMonthlyTotal - newMonthlyTotal;
+            
+            // Update Monthly pricing card
+            const monthlyOriginalTotal = document.getElementById('monthly-original-total');
+            const monthlyNewTotal = document.getElementById('monthly-new-total');
+            const monthlySavingsText = document.getElementById('monthly-savings');
+            
+            if (monthlyOriginalTotal && monthlyNewTotal && monthlySavingsText) {
+              monthlyOriginalTotal.textContent = '$' + originalMonthlyTotal.toFixed(0);
+              monthlyNewTotal.textContent = '$' + newMonthlyTotal.toFixed(0);
+              monthlySavingsText.textContent = 'Save $' + monthlySavings.toFixed(0) + '/month';
+            }
+            
+            // Calculate Annual pricing (10 months)
+            const annualOriginalTotal = originalMonthlyTotal * 10;
+            const annualNewTotal = newMonthlyTotal * 10;
+            const annualSavings = annualOriginalTotal - annualNewTotal;
+            
+            // Update Annual pricing card
+            const annualOriginalTotalEl = document.getElementById('annual-original-total');
+            const annualNewTotalEl = document.getElementById('annual-new-total');
+            const annualSavingsEl = document.getElementById('annual-savings');
+            
+            if (annualOriginalTotalEl && annualNewTotalEl && annualSavingsEl) {
+              annualOriginalTotalEl.textContent = '$' + annualOriginalTotal.toFixed(0);
+              annualNewTotalEl.textContent = '$' + annualNewTotal.toFixed(0);
+              annualSavingsEl.textContent = 'Save $' + annualSavings.toFixed(0) + '/year';
             }
             
             // Store for payment
@@ -4116,20 +4146,8 @@ app.get('/education', (c) => {
           // Update BIG price display
           document.getElementById('big-price-display').textContent = '$' + bigPrice.toFixed(2);
           
-          // Update monthly price display
-          document.getElementById('monthly-price-display').textContent = monthlyDisplay;
-          
           // Update student count text
           document.getElementById('student-count-text').textContent = studentCountText;
-          
-          // Show/hide sibling discount
-          const discountEl = document.getElementById('sibling-discount-text');
-          if (discountText) {
-            discountEl.textContent = discountText;
-            discountEl.classList.remove('hidden');
-          } else {
-            discountEl.classList.add('hidden');
-          }
           
           // Auto-select package (for navigation to step 3)
           selectedStudents = students;
@@ -5340,13 +5358,11 @@ app.get('/academy', (c) =>
             <h2 class="text-3xl font-black mb-2 text-center">How Many Students?</h2>
             <p class="text-base text-gray-400 mb-8 text-center">Slide to see your savings</p>
             
-            {/* BIG PRICE DISPLAY - Focus on per-class per-student cost */}
+            {/* BIG PRICE DISPLAY - Just per-class price at top */}
             <div class="text-center mb-8">
               <div class="text-8xl font-black mb-2" id="big-price-display">$12.50</div>
-              <div class="text-xl text-gray-400 mb-4">per class per student</div>
-              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month per student</div>
+              <div class="text-xl text-gray-400">per class per student</div>
               <div class="text-sm text-gray-500 mt-2" id="student-count-text">1 student • 8 live classes</div>
-              <div class="text-sm text-teal-500 mt-1 hidden" id="sibling-discount-text"></div>
             </div>
 
             {/* Student Count Slider */}
@@ -5420,39 +5436,42 @@ app.get('/academy', (c) =>
 
               {/* Per-Class Pricing Info */}
               <div id="per-class-info" class="text-center hidden">
-                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go - $30 per class</p>
+                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go</p>
                 <p class="text-xs text-gray-500">No commitment • Book classes individually</p>
+                <div class="mt-3 text-gray-500 text-sm" id="per-class-summary">
+                  <span class="font-semibold">No bulk discount</span>
+                </div>
               </div>
 
-              {/* Monthly Pricing Info - HIGHLIGHTED VALUE */}
+              {/* Monthly Pricing Info - Apple-style value card */}
               <div id="monthly-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20">
                 <p class="text-sm font-semibold text-gray-300 mb-2">Billed monthly • Cancel anytime</p>
                 <div class="flex items-center justify-center gap-3 mb-2">
-                  <span class="text-2xl line-through text-gray-600">$240</span>
+                  <span class="text-2xl line-through text-gray-600" id="monthly-original-total">$240</span>
                   <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                   </svg>
-                  <span class="text-4xl font-black text-teal-500">$100</span>
+                  <span class="text-4xl font-black text-teal-500" id="monthly-new-total">$100</span>
                   <span class="text-base text-gray-400">/month</span>
                 </div>
                 <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
-                  <span class="text-lg font-bold text-green-400">Save $140/month</span>
+                  <span class="text-lg font-bold text-green-400" id="monthly-savings">Save $140/month</span>
                 </div>
               </div>
 
-              {/* Annual Pricing Info - HIGHLIGHTED VALUE */}
+              {/* Annual Pricing Info - Apple-style value card */}
               <div id="annual-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20 hidden">
                 <p class="text-sm font-semibold text-gray-300 mb-2">10 months prepaid (Sept-June school year)</p>
                 <div class="flex items-center justify-center gap-3 mb-2">
-                  <span class="text-2xl line-through text-gray-600">$2,400</span>
+                  <span class="text-2xl line-through text-gray-600" id="annual-original-total">$2,400</span>
                   <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                   </svg>
-                  <span class="text-4xl font-black text-teal-500">$800</span>
+                  <span class="text-4xl font-black text-teal-500" id="annual-new-total">$800</span>
                   <span class="text-base text-gray-400">/year</span>
                 </div>
                 <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
-                  <span class="text-lg font-bold text-green-400">Save $1,600/year</span>
+                  <span class="text-lg font-bold text-green-400" id="annual-savings">Save $1,600/year</span>
                 </div>
               </div>
             </div>
@@ -5901,14 +5920,18 @@ app.get('/academy', (c) =>
           document.getElementById('slider-number').textContent = students + (students >= 6 ? '+' : '');
           
           // Calculate pricing based on mode
-          let bigPrice, monthlyDisplay, studentCountText, discountText;
+          let bigPrice, studentCountText;
           
           if (pricingMode === 'per-class') {
             // Per-class pricing: $30/class
             bigPrice = PER_CLASS_PRICE;
-            monthlyDisplay = 'per class';
             studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
-            discountText = students > 1 ? 'No bulk discount for per-class booking' : '';
+            
+            // Update per-class summary (no discount)
+            const perClassSummary = document.getElementById('per-class-summary');
+            if (perClassSummary) {
+              perClassSummary.innerHTML = '<span class="font-semibold">No bulk discount</span>';
+            }
           } else {
             // Monthly or Annual pricing
             const monthlyTotal = calculatePrice(students, isAnnual);
@@ -5916,14 +5939,39 @@ app.get('/academy', (c) =>
             const perStudentPerClass = perStudentPerMonth / 8;
             
             bigPrice = perStudentPerClass;
-            monthlyDisplay = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
             studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students') + ' • 8 live classes';
             
-            if (students > 1) {
-              const discountPercent = Math.round((students - 1) * 5);
-              discountText = 'Save ' + discountPercent + '% with siblings!';
-            } else {
-              discountText = '';
+            // Calculate original price (before discount) and savings
+            const originalPerStudent = 30; // Original $30 per class
+            const originalMonthlyTotal = originalPerStudent * 8 * students; // $30/class × 8 classes × students = $240/student baseline
+            const newMonthlyTotal = monthlyTotal;
+            const monthlySavings = originalMonthlyTotal - newMonthlyTotal;
+            
+            // Update Monthly pricing card
+            const monthlyOriginalTotal = document.getElementById('monthly-original-total');
+            const monthlyNewTotal = document.getElementById('monthly-new-total');
+            const monthlySavingsText = document.getElementById('monthly-savings');
+            
+            if (monthlyOriginalTotal && monthlyNewTotal && monthlySavingsText) {
+              monthlyOriginalTotal.textContent = '$' + originalMonthlyTotal.toFixed(0);
+              monthlyNewTotal.textContent = '$' + newMonthlyTotal.toFixed(0);
+              monthlySavingsText.textContent = 'Save $' + monthlySavings.toFixed(0) + '/month';
+            }
+            
+            // Calculate Annual pricing (10 months)
+            const annualOriginalTotal = originalMonthlyTotal * 10;
+            const annualNewTotal = newMonthlyTotal * 10;
+            const annualSavings = annualOriginalTotal - annualNewTotal;
+            
+            // Update Annual pricing card
+            const annualOriginalTotalEl = document.getElementById('annual-original-total');
+            const annualNewTotalEl = document.getElementById('annual-new-total');
+            const annualSavingsEl = document.getElementById('annual-savings');
+            
+            if (annualOriginalTotalEl && annualNewTotalEl && annualSavingsEl) {
+              annualOriginalTotalEl.textContent = '$' + annualOriginalTotal.toFixed(0);
+              annualNewTotalEl.textContent = '$' + annualNewTotal.toFixed(0);
+              annualSavingsEl.textContent = 'Save $' + annualSavings.toFixed(0) + '/year';
             }
             
             // Store for payment
@@ -5933,20 +5981,8 @@ app.get('/academy', (c) =>
           // Update BIG price display
           document.getElementById('big-price-display').textContent = '$' + bigPrice.toFixed(2);
           
-          // Update monthly price display
-          document.getElementById('monthly-price-display').textContent = monthlyDisplay;
-          
           // Update student count text
           document.getElementById('student-count-text').textContent = studentCountText;
-          
-          // Show/hide sibling discount
-          const discountEl = document.getElementById('sibling-discount-text');
-          if (discountText) {
-            discountEl.textContent = discountText;
-            discountEl.classList.remove('hidden');
-          } else {
-            discountEl.classList.add('hidden');
-          }
           
           // Auto-select package (for navigation to step 3)
           selectedStudents = students;
@@ -10246,13 +10282,11 @@ app.get('/faq', (c) =>
             <h2 class="text-3xl font-black mb-2 text-center">How Many Students?</h2>
             <p class="text-base text-gray-400 mb-8 text-center">Slide to see your savings</p>
             
-            {/* BIG PRICE DISPLAY - Focus on per-class per-student cost */}
+            {/* BIG PRICE DISPLAY - Just per-class price at top */}
             <div class="text-center mb-8">
               <div class="text-8xl font-black mb-2" id="big-price-display">$12.50</div>
-              <div class="text-xl text-gray-400 mb-4">per class per student</div>
-              <div class="text-3xl font-bold text-teal-500" id="monthly-price-display">$100/month per student</div>
+              <div class="text-xl text-gray-400">per class per student</div>
               <div class="text-sm text-gray-500 mt-2" id="student-count-text">1 student • 8 live classes</div>
-              <div class="text-sm text-teal-500 mt-1 hidden" id="sibling-discount-text"></div>
             </div>
 
             {/* Student Count Slider */}
@@ -10326,39 +10360,42 @@ app.get('/faq', (c) =>
 
               {/* Per-Class Pricing Info */}
               <div id="per-class-info" class="text-center hidden">
-                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go - $30 per class</p>
+                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go</p>
                 <p class="text-xs text-gray-500">No commitment • Book classes individually</p>
+                <div class="mt-3 text-gray-500 text-sm" id="per-class-summary">
+                  <span class="font-semibold">No bulk discount</span>
+                </div>
               </div>
 
-              {/* Monthly Pricing Info - HIGHLIGHTED VALUE */}
+              {/* Monthly Pricing Info - Apple-style value card */}
               <div id="monthly-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20">
                 <p class="text-sm font-semibold text-gray-300 mb-2">Billed monthly • Cancel anytime</p>
                 <div class="flex items-center justify-center gap-3 mb-2">
-                  <span class="text-2xl line-through text-gray-600">$240</span>
+                  <span class="text-2xl line-through text-gray-600" id="monthly-original-total">$240</span>
                   <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                   </svg>
-                  <span class="text-4xl font-black text-teal-500">$100</span>
+                  <span class="text-4xl font-black text-teal-500" id="monthly-new-total">$100</span>
                   <span class="text-base text-gray-400">/month</span>
                 </div>
                 <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
-                  <span class="text-lg font-bold text-green-400">Save $140/month</span>
+                  <span class="text-lg font-bold text-green-400" id="monthly-savings">Save $140/month</span>
                 </div>
               </div>
 
-              {/* Annual Pricing Info - HIGHLIGHTED VALUE */}
+              {/* Annual Pricing Info - Apple-style value card */}
               <div id="annual-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20 hidden">
                 <p class="text-sm font-semibold text-gray-300 mb-2">10 months prepaid (Sept-June school year)</p>
                 <div class="flex items-center justify-center gap-3 mb-2">
-                  <span class="text-2xl line-through text-gray-600">$2,400</span>
+                  <span class="text-2xl line-through text-gray-600" id="annual-original-total">$2,400</span>
                   <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                   </svg>
-                  <span class="text-4xl font-black text-teal-500">$800</span>
+                  <span class="text-4xl font-black text-teal-500" id="annual-new-total">$800</span>
                   <span class="text-base text-gray-400">/year</span>
                 </div>
                 <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
-                  <span class="text-lg font-bold text-green-400">Save $1,600/year</span>
+                  <span class="text-lg font-bold text-green-400" id="annual-savings">Save $1,600/year</span>
                 </div>
               </div>
             </div>
@@ -10807,14 +10844,18 @@ app.get('/faq', (c) =>
           document.getElementById('slider-number').textContent = students + (students >= 6 ? '+' : '');
           
           // Calculate pricing based on mode
-          let bigPrice, monthlyDisplay, studentCountText, discountText;
+          let bigPrice, studentCountText;
           
           if (pricingMode === 'per-class') {
             // Per-class pricing: $30/class
             bigPrice = PER_CLASS_PRICE;
-            monthlyDisplay = 'per class';
             studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students');
-            discountText = students > 1 ? 'No bulk discount for per-class booking' : '';
+            
+            // Update per-class summary (no discount)
+            const perClassSummary = document.getElementById('per-class-summary');
+            if (perClassSummary) {
+              perClassSummary.innerHTML = '<span class="font-semibold">No bulk discount</span>';
+            }
           } else {
             // Monthly or Annual pricing
             const monthlyTotal = calculatePrice(students, isAnnual);
@@ -10822,14 +10863,39 @@ app.get('/faq', (c) =>
             const perStudentPerClass = perStudentPerMonth / 8;
             
             bigPrice = perStudentPerClass;
-            monthlyDisplay = '$' + perStudentPerMonth.toFixed(0) + '/month per student';
             studentCountText = students + (students >= 6 ? '+' : '') + (students === 1 ? ' student' : ' students') + ' • 8 live classes';
             
-            if (students > 1) {
-              const discountPercent = Math.round((students - 1) * 5);
-              discountText = 'Save ' + discountPercent + '% with siblings!';
-            } else {
-              discountText = '';
+            // Calculate original price (before discount) and savings
+            const originalPerStudent = 30; // Original $30 per class
+            const originalMonthlyTotal = originalPerStudent * 8 * students; // $30/class × 8 classes × students = $240/student baseline
+            const newMonthlyTotal = monthlyTotal;
+            const monthlySavings = originalMonthlyTotal - newMonthlyTotal;
+            
+            // Update Monthly pricing card
+            const monthlyOriginalTotal = document.getElementById('monthly-original-total');
+            const monthlyNewTotal = document.getElementById('monthly-new-total');
+            const monthlySavingsText = document.getElementById('monthly-savings');
+            
+            if (monthlyOriginalTotal && monthlyNewTotal && monthlySavingsText) {
+              monthlyOriginalTotal.textContent = '$' + originalMonthlyTotal.toFixed(0);
+              monthlyNewTotal.textContent = '$' + newMonthlyTotal.toFixed(0);
+              monthlySavingsText.textContent = 'Save $' + monthlySavings.toFixed(0) + '/month';
+            }
+            
+            // Calculate Annual pricing (10 months)
+            const annualOriginalTotal = originalMonthlyTotal * 10;
+            const annualNewTotal = newMonthlyTotal * 10;
+            const annualSavings = annualOriginalTotal - annualNewTotal;
+            
+            // Update Annual pricing card
+            const annualOriginalTotalEl = document.getElementById('annual-original-total');
+            const annualNewTotalEl = document.getElementById('annual-new-total');
+            const annualSavingsEl = document.getElementById('annual-savings');
+            
+            if (annualOriginalTotalEl && annualNewTotalEl && annualSavingsEl) {
+              annualOriginalTotalEl.textContent = '$' + annualOriginalTotal.toFixed(0);
+              annualNewTotalEl.textContent = '$' + annualNewTotal.toFixed(0);
+              annualSavingsEl.textContent = 'Save $' + annualSavings.toFixed(0) + '/year';
             }
             
             // Store for payment
@@ -10839,20 +10905,8 @@ app.get('/faq', (c) =>
           // Update BIG price display
           document.getElementById('big-price-display').textContent = '$' + bigPrice.toFixed(2);
           
-          // Update monthly price display
-          document.getElementById('monthly-price-display').textContent = monthlyDisplay;
-          
           // Update student count text
           document.getElementById('student-count-text').textContent = studentCountText;
-          
-          // Show/hide sibling discount
-          const discountEl = document.getElementById('sibling-discount-text');
-          if (discountText) {
-            discountEl.textContent = discountText;
-            discountEl.classList.remove('hidden');
-          } else {
-            discountEl.classList.add('hidden');
-          }
           
           // Auto-select package (for navigation to step 3)
           selectedStudents = students;
