@@ -1349,17 +1349,28 @@ def add_to_blog_index(family_key):
     with open('/home/user/webapp/public/static/blog_posts_data/all_posts.json', 'r') as f:
         posts = json.load(f)
     
-    # Create new post entry matching EXACT format
+    # Create hero image HTML with data-src for blog index
+    hero_img = get_image_url(family, family['hero_image_id'])
+    image_html = f'<img data-src="{hero_img}" src="{hero_img}" alt="{family["title"]}" />'
+    
+    # Create new post entry matching EXACT format from WordPress exports
     new_post = {
         "id": 50000 + len([p for p in posts if p.get('id', 0) >= 50000]),
         "date": family['date'],
         "slug": family['slug'],
-        "title": family['title'],
-        "excerpt": family['description'],
-        "categories": ["Family Photography", "South Florida"],
-        "image": get_image_url(family, family['hero_image_id']),
-        "data-src": get_image_url(family, family['hero_image_id']),  # THIS IS CRITICAL
-        "url": f"https://acromatico.com/blog/{family['slug']}"
+        "link": f"https://acromatico.com/blog/{family['slug']}",
+        "title": {
+            "rendered": family['title']
+        },
+        "content": {
+            "rendered": image_html,
+            "protected": False
+        },
+        "excerpt": {
+            "rendered": f"<p>{family['description']}</p>",
+            "protected": False
+        },
+        "categories": [2207]  # Family Photography category ID
     }
     
     # Add to beginning of posts array
