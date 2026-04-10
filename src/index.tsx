@@ -4368,7 +4368,7 @@ app.get('/education', (c) => {
           const billingType = isAnnual ? 'Annual (12 months prepaid - year-round)' : 'Monthly';
           const pricePerStudent = selectedPrice;
           const monthlyTotal = pricePerStudent * selectedStudents;
-          const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
+          const totalCharge = isAnnual ? monthlyTotal * 12 : monthlyTotal;
           
           // Show loading state
           const btn = document.getElementById('stripe-checkout-btn');
@@ -4382,7 +4382,31 @@ app.get('/education', (c) => {
               ? document.getElementById('typed-signature').value 
               : signatureCanvas ? signatureCanvas.toDataURL() : 'drawn';
 
-            // Save enrollment with signed agreement FIRST
+            // STEP 1: Create user account if it doesn't exist
+            btn.innerHTML = '<div class="flex items-center gap-2"><svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Creating account...</span></div>';
+            
+            const signupResponse = await fetch('/api/auth/signup', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                email: email,
+                password: password,
+                name: email.split('@')[0] // Use email prefix as name
+              })
+            });
+
+            const signupData = await signupResponse.json();
+            
+            // If user already exists, that's okay - we'll continue with enrollment
+            if (signupData.error && !signupData.error.includes('already exists')) {
+              throw new Error(signupData.error);
+            }
+
+            console.log('✅ User account ready');
+
+            // STEP 2: Save enrollment with signed agreement
+            btn.innerHTML = '<div class="flex items-center gap-2"><svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Saving agreement...</span></div>';
+            
             const enrollmentResponse = await fetch('/api/enrollments/create', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -6066,7 +6090,7 @@ app.get('/academy', (c) =>
           const billingType = isAnnual ? 'Annual (12 months prepaid - year-round)' : 'Monthly';
           const pricePerStudent = selectedPrice;
           const monthlyTotal = pricePerStudent * selectedStudents;
-          const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
+          const totalCharge = isAnnual ? monthlyTotal * 12 : monthlyTotal;
           
           alert('🎉 Enrollment Complete!\\\\n\\\\nEmail: ' + email + '\\\\nPackage: ' + selectedStudents + ' students at $' + pricePerStudent + '/mo each\\\\nBilling: ' + billingType + '\\\\nTotal: $' + totalCharge.toFixed(2) + '\\\\n\\\\nStripe integration will be added next!');
           closeEnrollment();
@@ -10977,7 +11001,7 @@ app.get('/faq', (c) =>
           const billingType = isAnnual ? 'Annual (12 months prepaid - year-round)' : 'Monthly';
           const pricePerStudent = selectedPrice;
           const monthlyTotal = pricePerStudent * selectedStudents;
-          const totalCharge = isAnnual ? monthlyTotal * 10 : monthlyTotal;
+          const totalCharge = isAnnual ? monthlyTotal * 12 : monthlyTotal;
           
           alert('🎉 Enrollment Complete!\\\\n\\\\nEmail: ' + email + '\\\\nPackage: ' + selectedStudents + ' students at $' + pricePerStudent + '/mo each\\\\nBilling: ' + billingType + '\\\\nTotal: $' + totalCharge.toFixed(2) + '\\\\n\\\\nStripe integration will be added next!');
           closeEnrollment();
