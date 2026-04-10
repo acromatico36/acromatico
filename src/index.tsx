@@ -3602,29 +3602,41 @@ app.get('/education', (c) => {
               </div>
 
               {/* Per-Class Pricing Info */}
-              <div id="per-class-info" class="text-center text-xs text-gray-400 hidden">
-                <p class="font-semibold">Pay as you go - $30 per class</p>
-                <p class="text-gray-500">No commitment • Book classes individually</p>
+              <div id="per-class-info" class="text-center hidden">
+                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go - $30 per class</p>
+                <p class="text-xs text-gray-500">No commitment • Book classes individually</p>
               </div>
 
-              {/* Monthly Pricing Info */}
-              <div id="monthly-info" class="text-center text-xs text-gray-400">
-                <p class="font-semibold">Billed monthly • Cancel anytime</p>
-                <p class="text-gray-500">
-                  <span class="line-through text-gray-600">$240/month</span>
-                  <span class="text-teal-500 ml-2 font-bold">→ $100/month</span>
-                  <span class="ml-2">(Save $140/month)</span>
-                </p>
+              {/* Monthly Pricing Info - HIGHLIGHTED VALUE */}
+              <div id="monthly-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20">
+                <p class="text-sm font-semibold text-gray-300 mb-2">Billed monthly • Cancel anytime</p>
+                <div class="flex items-center justify-center gap-3 mb-2">
+                  <span class="text-2xl line-through text-gray-600">$240</span>
+                  <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                  <span class="text-4xl font-black text-teal-500">$100</span>
+                  <span class="text-base text-gray-400">/month</span>
+                </div>
+                <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
+                  <span class="text-lg font-bold text-green-400">Save $140/month</span>
+                </div>
               </div>
 
-              {/* Annual Pricing Info */}
-              <div id="annual-info" class="text-center text-xs text-gray-400 hidden">
-                <p class="font-semibold">10 months prepaid (Sept-June school year)</p>
-                <p class="text-gray-500">
-                  <span class="line-through text-gray-600">$2,400/year</span>
-                  <span class="text-teal-500 ml-2 font-bold">→ $800/year</span>
-                  <span class="ml-2">(Save $1,600/year)</span>
-                </p>
+              {/* Annual Pricing Info - HIGHLIGHTED VALUE */}
+              <div id="annual-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20 hidden">
+                <p class="text-sm font-semibold text-gray-300 mb-2">10 months prepaid (Sept-June school year)</p>
+                <div class="flex items-center justify-center gap-3 mb-2">
+                  <span class="text-2xl line-through text-gray-600">$2,400</span>
+                  <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                  <span class="text-4xl font-black text-teal-500">$800</span>
+                  <span class="text-base text-gray-400">/year</span>
+                </div>
+                <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
+                  <span class="text-lg font-bold text-green-400">Save $1,600/year</span>
+                </div>
               </div>
             </div>
             
@@ -5407,29 +5419,41 @@ app.get('/academy', (c) =>
               </div>
 
               {/* Per-Class Pricing Info */}
-              <div id="per-class-info" class="text-center text-xs text-gray-400 hidden">
-                <p class="font-semibold">Pay as you go - $30 per class</p>
-                <p class="text-gray-500">No commitment • Book classes individually</p>
+              <div id="per-class-info" class="text-center hidden">
+                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go - $30 per class</p>
+                <p class="text-xs text-gray-500">No commitment • Book classes individually</p>
               </div>
 
-              {/* Monthly Pricing Info */}
-              <div id="monthly-info" class="text-center text-xs text-gray-400">
-                <p class="font-semibold">Billed monthly • Cancel anytime</p>
-                <p class="text-gray-500">
-                  <span class="line-through text-gray-600">$240/month</span>
-                  <span class="text-teal-500 ml-2 font-bold">→ $100/month</span>
-                  <span class="ml-2">(Save $140/month)</span>
-                </p>
+              {/* Monthly Pricing Info - HIGHLIGHTED VALUE */}
+              <div id="monthly-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20">
+                <p class="text-sm font-semibold text-gray-300 mb-2">Billed monthly • Cancel anytime</p>
+                <div class="flex items-center justify-center gap-3 mb-2">
+                  <span class="text-2xl line-through text-gray-600">$240</span>
+                  <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                  <span class="text-4xl font-black text-teal-500">$100</span>
+                  <span class="text-base text-gray-400">/month</span>
+                </div>
+                <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
+                  <span class="text-lg font-bold text-green-400">Save $140/month</span>
+                </div>
               </div>
 
-              {/* Annual Pricing Info */}
-              <div id="annual-info" class="text-center text-xs text-gray-400 hidden">
-                <p class="font-semibold">10 months prepaid (Sept-June school year)</p>
-                <p class="text-gray-500">
-                  <span class="line-through text-gray-600">$2,400/year</span>
-                  <span class="text-teal-500 ml-2 font-bold">→ $800/year</span>
-                  <span class="ml-2">(Save $1,600/year)</span>
-                </p>
+              {/* Annual Pricing Info - HIGHLIGHTED VALUE */}
+              <div id="annual-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20 hidden">
+                <p class="text-sm font-semibold text-gray-300 mb-2">10 months prepaid (Sept-June school year)</p>
+                <div class="flex items-center justify-center gap-3 mb-2">
+                  <span class="text-2xl line-through text-gray-600">$2,400</span>
+                  <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                  <span class="text-4xl font-black text-teal-500">$800</span>
+                  <span class="text-base text-gray-400">/year</span>
+                </div>
+                <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
+                  <span class="text-lg font-bold text-green-400">Save $1,600/year</span>
+                </div>
               </div>
             </div>
             
@@ -10301,29 +10325,41 @@ app.get('/faq', (c) =>
               </div>
 
               {/* Per-Class Pricing Info */}
-              <div id="per-class-info" class="text-center text-xs text-gray-400 hidden">
-                <p class="font-semibold">Pay as you go - $30 per class</p>
-                <p class="text-gray-500">No commitment • Book classes individually</p>
+              <div id="per-class-info" class="text-center hidden">
+                <p class="text-sm font-semibold text-gray-300 mb-1">Pay as you go - $30 per class</p>
+                <p class="text-xs text-gray-500">No commitment • Book classes individually</p>
               </div>
 
-              {/* Monthly Pricing Info */}
-              <div id="monthly-info" class="text-center text-xs text-gray-400">
-                <p class="font-semibold">Billed monthly • Cancel anytime</p>
-                <p class="text-gray-500">
-                  <span class="line-through text-gray-600">$240/month</span>
-                  <span class="text-teal-500 ml-2 font-bold">→ $100/month</span>
-                  <span class="ml-2">(Save $140/month)</span>
-                </p>
+              {/* Monthly Pricing Info - HIGHLIGHTED VALUE */}
+              <div id="monthly-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20">
+                <p class="text-sm font-semibold text-gray-300 mb-2">Billed monthly • Cancel anytime</p>
+                <div class="flex items-center justify-center gap-3 mb-2">
+                  <span class="text-2xl line-through text-gray-600">$240</span>
+                  <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                  <span class="text-4xl font-black text-teal-500">$100</span>
+                  <span class="text-base text-gray-400">/month</span>
+                </div>
+                <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
+                  <span class="text-lg font-bold text-green-400">Save $140/month</span>
+                </div>
               </div>
 
-              {/* Annual Pricing Info */}
-              <div id="annual-info" class="text-center text-xs text-gray-400 hidden">
-                <p class="font-semibold">10 months prepaid (Sept-June school year)</p>
-                <p class="text-gray-500">
-                  <span class="line-through text-gray-600">$2,400/year</span>
-                  <span class="text-teal-500 ml-2 font-bold">→ $800/year</span>
-                  <span class="ml-2">(Save $1,600/year)</span>
-                </p>
+              {/* Annual Pricing Info - HIGHLIGHTED VALUE */}
+              <div id="annual-info" class="text-center bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl p-4 border border-teal-500/20 hidden">
+                <p class="text-sm font-semibold text-gray-300 mb-2">10 months prepaid (Sept-June school year)</p>
+                <div class="flex items-center justify-center gap-3 mb-2">
+                  <span class="text-2xl line-through text-gray-600">$2,400</span>
+                  <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                  <span class="text-4xl font-black text-teal-500">$800</span>
+                  <span class="text-base text-gray-400">/year</span>
+                </div>
+                <div class="inline-block bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2">
+                  <span class="text-lg font-bold text-green-400">Save $1,600/year</span>
+                </div>
               </div>
             </div>
             
