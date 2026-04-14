@@ -114,7 +114,7 @@ const PrintsHeader = () => (
           </a>
         </div>
         <div class="flex items-center space-x-6">
-          <a href="/prints" style="color: #3D3935; text-decoration: none; font-size: 16px; font-weight: 500;">Prints</a>
+          <a href="#" onclick="event.preventDefault(); openComingSoonModal('Art Prints');" style="color: #3D3935; text-decoration: none; font-size: 16px; font-weight: 500; cursor: pointer;">Prints</a>
           <a href="/about" style="color: #3D3935; text-decoration: none; font-size: 16px;">About</a>
           <button onclick="viewCart()" style="position: relative; background: none; border: none; cursor: pointer; color: #3D3935; font-size: 24px; padding: 8px;">
             🛒
@@ -143,7 +143,7 @@ const Footer = () => (
           <h4 class="font-bold mb-4" style="color: white;">Services</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
             <li><a href="/studio" class="hover:text-white transition">Studio</a></li>
-            <li><a href="/prints" class="hover:text-white transition">Art Prints</a></li>
+            <li><a href="#" onclick="event.preventDefault(); openComingSoonModal('Art Prints');" class="hover:text-white transition cursor-pointer">Art Prints</a></li>
             <li><a href="/photography" class="hover:text-white transition">Photography</a></li>
           </ul>
         </div>
@@ -3026,6 +3026,27 @@ app.get('/api/stripe-key', (c) => {
   return c.json({ publishableKey: c.env.STRIPE_PUBLISHABLE_KEY })
 })
 
+// Coming Soon Inquiry Submission
+app.post('/api/coming-soon-inquiry', async (c) => {
+  try {
+    const { name, email, message, service } = await c.req.json()
+    
+    // Log the inquiry
+    console.log('Coming Soon Inquiry:', { name, email, message, service, timestamp: new Date().toISOString() })
+    
+    // TODO: Send email to info@acromatico.com with inquiry details
+    // For now, just return success
+    
+    return c.json({ 
+      success: true,
+      message: 'Thank you for your interest! We will contact you within 24 hours at ' + email
+    })
+  } catch (error: any) {
+    console.error('Coming soon inquiry error:', error)
+    return c.json({ error: 'Failed to submit inquiry' }, 500)
+  }
+})
+
 // Static files served by wrangler pages dev from public/ automatically
 // Use JSX renderer
 app.use(renderer)
@@ -4662,6 +4683,48 @@ app.get('/education', (c) => {
         </div>
       </div>
 
+      {/* Coming Soon Modal for Art Prints & Brand Building */}
+      <div id="comingSoonModal" class="fixed inset-0 bg-black/95 z-[200] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-12 relative">
+          <button onclick="closeComingSoonModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black text-4xl font-light transition">×</button>
+          
+          <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold mb-4" style="color: #3D3935;" id="comingSoonTitle">Coming Soon!</h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              We're busy building this amazing experience for you! It will be ready shortly.
+            </p>
+            <p class="text-lg text-gray-600 mt-4">
+              Please reach out if you're interested in any of these services and we'll get back to you promptly.
+            </p>
+          </div>
+
+          <form id="comingSoonForm" class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+              <input type="text" id="csName" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none" placeholder="Your full name" />
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input type="email" id="csEmail" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none" placeholder="your@email.com" />
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+              <textarea id="csMessage" required rows="4" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none" placeholder="Tell us about your project..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-8 rounded-full text-lg hover:shadow-2xl transition transform hover:scale-105">
+              Send Inquiry
+            </button>
+          </form>
+
+          <div id="csSuccessMessage" class="hidden mt-6 p-4 bg-green-100 text-green-800 rounded-lg text-center">
+            ✅ Thank you! We'll get back to you within 24 hours.
+          </div>
+        </div>
+      </div>
+
       {/* Education Programs Modal JavaScript */}
       <script dangerouslySetInnerHTML={{__html: `
         function openEducationModal() {
@@ -4673,6 +4736,53 @@ app.get('/education', (c) => {
           document.getElementById('educationProgramsModal').classList.add('hidden');
           document.body.style.overflow = 'auto';
         }
+
+        // Coming Soon Modal Functions
+        function openComingSoonModal(serviceName) {
+          document.getElementById('comingSoonTitle').textContent = serviceName + ' - Coming Soon!';
+          document.getElementById('comingSoonModal').classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeComingSoonModal() {
+          document.getElementById('comingSoonModal').classList.add('hidden');
+          document.body.style.overflow = 'auto';
+          document.getElementById('comingSoonForm').reset();
+          document.getElementById('csSuccessMessage').classList.add('hidden');
+        }
+
+        // Handle Coming Soon Form Submission
+        document.addEventListener('DOMContentLoaded', function() {
+          const csForm = document.getElementById('comingSoonForm');
+          if (csForm) {
+            csForm.addEventListener('submit', async function(e) {
+              e.preventDefault();
+              
+              const name = document.getElementById('csName').value;
+              const email = document.getElementById('csEmail').value;
+              const message = document.getElementById('csMessage').value;
+              const service = document.getElementById('comingSoonTitle').textContent;
+              
+              try {
+                const response = await fetch('/api/coming-soon-inquiry', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ name, email, message, service })
+                });
+                
+                if (response.ok) {
+                  document.getElementById('csSuccessMessage').classList.remove('hidden');
+                  csForm.reset();
+                  setTimeout(() => closeComingSoonModal(), 3000);
+                } else {
+                  alert('Error sending inquiry. Please email info@acromatico.com directly.');
+                }
+              } catch (error) {
+                alert('Error sending inquiry. Please email info@acromatico.com directly.');
+              }
+            });
+          }
+        });
 
         function switchProgramType(type) {
           const youthBtn = document.getElementById('youthProgramBtn');
@@ -6652,7 +6762,7 @@ app.get('/studio-old', (c) =>
         <a href="/">Home</a>
         <a href="/education">Education</a>
         <a href="/studio">Studio</a>
-        <a href="/prints">Prints</a>
+        <a href="#" onclick="event.preventDefault(); openComingSoonModal('Art Prints');" style="cursor: pointer;">Prints</a>
         <a href="/photography">Photography</a>
         <a href="/contact">Contact</a>
       </div>
@@ -7488,7 +7598,7 @@ app.get('/studio-old', (c) =>
         <a href="/" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Home</a>
         <a href="/education" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Education</a>
         <a href="/studio" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Studio</a>
-        <a href="/prints" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Prints</a>
+        <a href="#" onclick="event.preventDefault(); openComingSoonModal('Art Prints');" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s; cursor: pointer;">Prints</a>
         <a href="/photography" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Photography</a>
         <a href="/contact" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s;">Contact</a>
       </div>
@@ -8024,7 +8134,7 @@ app.get('/about', (c) =>
               Whether you're looking for fine art prints that transform your space or storytelling photography that captures your most important moments—we're here.
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-              <a href="/prints" style="padding: 18px 40px; background: white; color: #3D3935; text-decoration: none; font-size: 16px; font-weight: 500; letter-spacing: 1px; transition: all 0.3s; display: inline-block;">
+              <a href="#" onclick="event.preventDefault(); openComingSoonModal('Art Prints');" style="padding: 18px 40px; background: white; color: #3D3935; text-decoration: none; font-size: 16px; font-weight: 500; letter-spacing: 1px; transition: all 0.3s; display: inline-block; cursor: pointer;">
                 EXPLORE PRINTS
               </a>
               <a href="https://acromatico.com/contact" target="_blank" style="padding: 18px 40px; background: transparent; color: white; border: 2px solid white; text-decoration: none; font-size: 16px; font-weight: 500; letter-spacing: 1px; transition: all 0.3s; display: inline-block;">
@@ -9246,7 +9356,7 @@ app.get('/success', (c) => {
             </ul>
           </div>
           
-          <a href="/prints" style="display: inline-block; background: #3D3935; color: white; padding: 16px 48px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500; margin-right: 12px;">
+          <a href="#" onclick="event.preventDefault(); openComingSoonModal('Art Prints');" style="display: inline-block; background: #3D3935; color: white; padding: 16px 48px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500; margin-right: 12px; cursor: pointer;">
             Browse More Prints
           </a>
           
