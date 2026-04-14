@@ -540,18 +540,7 @@
 
       <!-- STEP 1: WEDDING DATE -->
       <div class="step active" id="step1">
-        <div class="step-number">
-          <div class="journey-dots">
-            <div class="journey-dot active"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-          </div>
-          <span>Your Details</span>
-        </div>
+        <div class="step-number">Step 1 of 5</div>
         <h1 class="step-question">Let's start with the basics.<br>When would you like to schedule your portrait session?</h1>
         <input type="date" id="portraitDate">
         
@@ -584,18 +573,7 @@
 
       <!-- STEP 2: PORTRAIT PACKAGES OR CUSTOM HOURS -->
       <div class="step" id="step2">
-        <div class="step-number">
-          <div class="journey-dots">
-            <div class="journey-dot completed"></div>
-            <div class="journey-dot active"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-          </div>
-          <span>Choose Your Session</span>
-        </div>
+        <div class="step-number">Step 2 of 5</div>
         
         <!-- PACKAGE SELECTION VIEW -->
         <div id="packageSelectionView">
@@ -677,7 +655,7 @@
           
           <div class="button-group" style="margin-top: 48px;">
             <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
-            <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+            <button class="btn btn-primary" onclick="nextStep(5)">Continue →</button>
           </div>
         </div>
         
@@ -701,7 +679,7 @@
           
           <div class="button-group">
             <button class="btn btn-secondary" onclick="showPackageSelectionView()">← Back to Packages</button>
-            <button class="btn btn-primary" onclick="nextStep(5)">Continue →</button>
+            <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
           </div>
         </div>
       </div>
