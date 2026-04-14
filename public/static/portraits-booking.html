@@ -701,279 +701,28 @@
           
           <div class="button-group">
             <button class="btn btn-secondary" onclick="showPackageSelectionView()">← Back to Packages</button>
-            <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+            <button class="btn btn-primary" onclick="nextStep(5)">Continue →</button>
           </div>
         </div>
       </div>
 
-      <!-- STEP 3: MEMORY BOOK -->
-      <div class="step" id="step3">
-        <div class="step-number">
-          <div class="journey-dots">
-            <div class="journey-dot completed"></div>
-            <div class="journey-dot completed"></div>
-            <div class="journey-dot active"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-          </div>
-          <span>Memory Book</span>
-        </div>
-        <h1 class="step-question">Add a Memory Book?</h1>
-        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px; line-height: 1.7;"><strong>Handmade in Italy by Graphistudio.</strong> High-quality layflat photo book with premium leatherette covers. Perfect for portraits, families, and special moments.</p>
-        
-        <div style="margin-bottom: 32px;">
-          <video 
-            autoplay 
-            muted 
-            loop 
-            playsinline
-            poster="/static/prints/gobook-presentation-box.jpg"
-            style="width: 100%; max-width: 600px; border-radius: 16px; margin: 0 auto; display: block;">
-            <source src="/static/prints/gobook-video.mp4" type="video/mp4">
-            <img src="/static/prints/gobook-presentation-box.jpg" alt="Memory Book with Presentation Box" style="width: 100%; border-radius: 16px;">
-          </video>
-        </div>
 
-        <div class="options-grid" style="grid-template-columns: repeat(3, 1fr);">
-          <div class="option-card" onclick="selectMemoryBook(this, '8x8', 395)">
-            <div class="option-title">8×8"</div>
-            <div class="option-description">20 pages<br>Premium Leatherette<br>40 colors available</div>
-            <div class="option-price">$395</div>
-          </div>
-          <div class="option-card" onclick="selectMemoryBook(this, '10x10', 445)">
-            <div class="option-badge">Popular</div>
-            <div class="option-title">10×10"</div>
-            <div class="option-description">20 pages<br>Premium Leatherette<br>40 colors available</div>
-            <div class="option-price">$445</div>
-          </div>
-          <div class="option-card" onclick="selectMemoryBook(this, '12x12', 495)">
-            <div class="option-title">12×12"</div>
-            <div class="option-description">20 pages<br>Premium Leatherette<br>40 colors available</div>
-            <div class="option-price">$495</div>
-          </div>
-        </div>
-        
-        <!-- ADD-ONS SECTION -->
-        <div style="margin-top: 32px;">
-          <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 16px;">Customize Your Memory Book</h3>
-          
-          <div style="display: grid; gap: 16px;">
-            <!-- Extra Pages (Radio buttons) -->
-            <div style="background: #f9fafb; padding: 16px; border-radius: 12px; border: 1px solid var(--border);">
-              <div style="font-weight: 600; color: var(--primary); margin-bottom: 12px;">Choose Page Count:</div>
-              
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #fff; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; margin-bottom: 8px; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--border)'">
-                <input type="radio" name="memoryBookPages" id="memoryBookPages20" value="20" checked onchange="updateMemoryBookAddons()" style="width: 18px; height: 18px; cursor: pointer;">
-                <div style="flex: 1;">
-                  <div style="font-weight: 500; color: var(--primary);">20 Pages (Default)</div>
-                </div>
-                <span style="font-size: 15px; font-weight: 600; color: var(--accent);">Included</span>
-              </label>
-              
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #fff; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; margin-bottom: 8px; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--border)'">
-                <input type="radio" name="memoryBookPages" id="memoryBookPages40" value="40" onchange="updateMemoryBookAddons()" style="width: 18px; height: 18px; cursor: pointer;">
-                <div style="flex: 1;">
-                  <div style="font-weight: 500; color: var(--primary);">40 Pages</div>
-                  <div style="font-size: 13px; color: var(--secondary);">Double your pages</div>
-                </div>
-                <span style="font-size: 15px; font-weight: 600; color: var(--accent);">+$75</span>
-              </label>
-              
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #fff; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--border)'">
-                <input type="radio" name="memoryBookPages" id="memoryBookPages60" value="60" onchange="updateMemoryBookAddons()" style="width: 18px; height: 18px; cursor: pointer;">
-                <div style="flex: 1;">
-                  <div style="font-weight: 500; color: var(--primary);">60 Pages</div>
-                  <div style="font-size: 13px; color: var(--secondary);">Triple your pages</div>
-                </div>
-                <span style="font-size: 15px; font-weight: 600; color: var(--accent);">+$150</span>
-              </label>
-            </div>
-            
-            <!-- Linen Cover (Checkbox) -->
-            <label style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #fff; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
-              <input type="checkbox" id="memoryBookLinenCover" onchange="updateMemoryBookAddons()" style="width: 20px; height: 20px; cursor: pointer;">
-              <div style="flex: 1;">
-                <div style="font-weight: 600; color: var(--primary);">Natural Linen Cover</div>
-                <div style="font-size: 13px; color: var(--secondary);">Upgrade to natural linen texture</div>
-              </div>
-              <span style="font-size: 16px; font-weight: 600; color: var(--accent);">+$50</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="options-grid" style="margin-top: 32px;">
-          <div class="option-card" onclick="selectMemoryBook(this, 'skip', 0); nextStep(4);" style="border: 2px dashed var(--border);">
-            <div class="option-title">Skip for now</div>
-            <div class="option-description">I don't need a memory book</div>
-          </div>
-        </div>
-        
-        <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
-          <button class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
-        </div>
-      </div>
-
-      <!-- STEP 4: PRINTS -->
-      <div class="step" id="step4">
-        <div class="step-number">
-          <div class="journey-dots">
-            <div class="journey-dot completed"></div>
-            <div class="journey-dot completed"></div>
-            <div class="journey-dot completed"></div>
-            <div class="journey-dot active"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-            <div class="journey-dot"></div>
-          </div>
-          <span>Prints</span>
-        </div>
-        <h1 class="step-question">Add Premium Prints?</h1>
-        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;"><strong>Museum-quality prints handcrafted in USA.</strong> Choose from our Canvas Wall Art Collection or Acrylic Wall Art.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 32px;">
-
-          <!-- Acrylic Wall Art -->
-          <div style="border: 2px solid var(--border); border-radius: 16px; padding: 24px; background: white;">
-            <img src="/static/prints/acrylic-pro-family-dining-room.jpg" alt="Acrylic Wall Art" style="width: 100%; border-radius: 12px; margin-bottom: 16px; cursor: zoom-in;" onclick="openImageModal(this.src)">
-            <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Acrylic Wall Art</h3>
-            <p style="font-size: 13px; color: var(--secondary); margin-bottom: 16px; line-height: 1.5;">Modern. Vivid. Museum-Grade.</p>
-            <p style="font-size: 13px; color: var(--primary); margin-bottom: 16px; line-height: 1.6;">Experience your portraits like never before. Printed directly behind premium 1/8" optically pure acrylic glass for incredible depth, clarity, and color vibrancy. UV-protected, fade-resistant, and designed to be the breathtaking centerpiece of any room.</p>
-            <div style="display: grid; gap: 8px;">
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
-                <input type="checkbox" onchange="togglePrint(this, '16×12 Acrylic Print', 205)" style="width: 18px; height: 18px;">
-                <div style="flex: 1;">
-                  <div>16×12"</div>
-                  <div style="font-size: 11px; color: var(--secondary);">Perfect for intimate spaces</div>
-                </div>
-                <strong>$205</strong>
-              </label>
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
-                <input type="checkbox" onchange="togglePrint(this, '24×16 Acrylic Print', 305)" style="width: 18px; height: 18px;">
-                <div style="flex: 1;">
-                  <div>24×16"</div>
-                  <div style="font-size: 11px; color: var(--secondary);">Ideal for bedrooms & offices</div>
-                </div>
-                <strong>$305</strong>
-              </label>
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
-                <input type="checkbox" onchange="togglePrint(this, '30×20 Acrylic Print', 425)" style="width: 18px; height: 18px;">
-                <div style="flex: 1;">
-                  <div>30×20"</div>
-                  <div style="font-size: 11px; color: var(--secondary);">Great for dining areas</div>
-                </div>
-                <strong>$425</strong>
-              </label>
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; border: 2px solid var(--accent); background: rgba(71, 148, 166, 0.05);">
-                <input type="checkbox" onchange="togglePrint(this, '36×24 Acrylic Print', 575)" style="width: 18px; height: 18px;">
-                <div style="flex: 1;">
-                  <div style="font-weight: 600;">36×24" ★ Most Popular</div>
-                  <div style="font-size: 11px; color: var(--secondary);">Statement Piece</div>
-                </div>
-                <strong style="color: var(--accent);">$575</strong>
-              </label>
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
-                <input type="checkbox" onchange="togglePrint(this, '48×36 Acrylic Print', 1025)" style="width: 18px; height: 18px;">
-                <div style="flex: 1;">
-                  <div>48×36"</div>
-                  <div style="font-size: 11px; color: var(--secondary);">The Ultimate Legacy Display</div>
-                </div>
-                <strong>$1,025</strong>
-              </label>
-              <div style="font-size: 12px; color: var(--secondary); margin-top: 8px; font-style: italic;">Custom sizes and frames available upon request</div>
-            </div>
-            
-            <!-- Key Features -->
-            <div style="background: rgba(71, 148, 166, 0.05); padding: 16px; border-radius: 8px; margin-top: 16px;">
-              <div style="font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">Key Features:</div>
-              <div style="font-size: 12px; color: var(--secondary); line-height: 1.6;">
-                ✓ Vivid clarity<br>
-                ✓ Modern elegance (frameless design)<br>
-                ✓ Built to last (UV-cured inks resist fading 200+ years)<br>
-                ✓ Ready to display with premium mounting hardware
-              </div>
-            </div>
-            
-            <!-- Trust Badges -->
-            <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
-              <span style="font-size: 10px; padding: 4px 8px; background: rgba(71, 148, 166, 0.1); border-radius: 4px; color: var(--accent); font-weight: 600;">MUSEUM-GRADE</span>
-              <span style="font-size: 10px; padding: 4px 8px; background: rgba(71, 148, 166, 0.1); border-radius: 4px; color: var(--accent); font-weight: 600;">FREE SHIPPING</span>
-              <span style="font-size: 10px; padding: 4px 8px; background: rgba(71, 148, 166, 0.1); border-radius: 4px; color: var(--accent); font-weight: 600;">30-DAY GUARANTEE</span>
-              <span style="font-size: 10px; padding: 4px 8px; background: rgba(71, 148, 166, 0.1); border-radius: 4px; color: var(--accent); font-weight: 600;">INSTALLATION GUIDANCE</span>
-            </div>
-          </div>
-          
-          <!-- Canvas Wall Art Collection -->
-          <div style="border: 2px solid var(--border); border-radius: 16px; padding: 24px; background: white;">
-            <img src="/static/prints/canvas-wrap-couple-hallway.jpg" alt="Canvas Wall Art Collection" style="width: 100%; border-radius: 12px; margin-bottom: 16px; cursor: zoom-in;" onclick="openImageModal(this.src)">
-            <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Canvas Wall Art Collection</h3>
-            <p style="font-size: 13px; color: var(--secondary); margin-bottom: 16px; line-height: 1.5;">Timeless. Warm. Yours Forever.</p>
-            <p style="font-size: 13px; color: var(--primary); margin-bottom: 16px; line-height: 1.6;">Transform your favorite portraits into museum-quality canvas art. Each piece is Giclee-printed on premium 410g/m² artist canvas with pigmented inks designed to last 200 years. Gallery-grade 1.5" wood frame, wire-mounted, arrives ready to hang.</p>
-            <div style="display: grid; gap: 8px;">
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
-                <input type="checkbox" onchange="togglePrint(this, '16×12 Canvas', 125)" style="width: 18px; height: 18px;">
-                <span style="flex: 1;">16×12"</span>
-                <strong>$125</strong>
-              </label>
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
-                <input type="checkbox" onchange="togglePrint(this, '24×16 Canvas', 175)" style="width: 18px; height: 18px;">
-                <span style="flex: 1;">24×16"</span>
-                <strong>$175</strong>
-              </label>
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
-                <input type="checkbox" onchange="togglePrint(this, '30×20 Canvas', 275)" style="width: 18px; height: 18px;">
-                <span style="flex: 1;">30×20"</span>
-                <strong>$275</strong>
-              </label>
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; border: 2px solid var(--accent); background: rgba(71, 148, 166, 0.05);">
-                <input type="checkbox" onchange="togglePrint(this, '36×24 Canvas', 295)" style="width: 18px; height: 18px;">
-                <span style="flex: 1; font-weight: 600;">36×24" ★ Most Popular</span>
-                <strong style="color: var(--accent);">$295</strong>
-              </label>
-              <label style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer;">
-                <input type="checkbox" onchange="togglePrint(this, '48×36 Canvas', 535)" style="width: 18px; height: 18px;">
-                <span style="flex: 1;">48×36"</span>
-                <strong>$535</strong>
-              </label>
-              <div style="font-size: 12px; color: var(--secondary); margin-top: 8px; font-style: italic;">Custom size available upon request</div>
-            </div>
-            
-            <!-- Trust Elements -->
-            <div style="background: rgba(71, 148, 166, 0.05); padding: 16px; border-radius: 8px; margin-top: 16px;">
-              <div style="font-size: 12px; color: var(--secondary); line-height: 1.6;">
-                ✓ 200-year color guarantee<br>
-                ✓ Free shipping<br>
-                ✓ 30-day satisfaction guarantee<br>
-                ✓ Ready to hang, no assembly required
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
-          <button class="btn btn-primary" onclick="nextStep(5)">Continue →</button>
-        </div>
-      </div>
-
-      <!-- STEP 5: CLIENT INFO -->
+      <!-- STEP 3: CLIENT INFO (renumbered from 5) -->
       <div class="step" id="step5">
-        <div class="step-number">Step 5 of 7</div>
+        <div class="step-number">Step 3 of 5</div>
         <h1 class="step-question">Almost there! What's your name?</h1>
         <input type="text" id="clientName" placeholder="Your full name" required>
         <input type="email" id="clientEmail" placeholder="Your email address" required>
         <input type="tel" id="clientPhone" placeholder="Your phone number" required>
         <div class="button-group">
-          <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
           <button class="btn btn-primary" onclick="validateStep5()">Continue →</button>
         </div>
       </div>
 
-      <!-- STEP 6: CONTRACT SIGNING -->
+      <!-- STEP 4: CONTRACT SIGNING (renumbered from 6) -->
       <div class="step" id="step6">
-        <div class="step-number">Step 6 of 7</div>
+        <div class="step-number">Step 4 of 5</div>
         <h1 class="step-question">Review & sign your agreement</h1>
         
         <!-- FULL CONTRACT PREVIEW -->
@@ -1202,9 +951,9 @@
         </div>
       </div>
 
-      <!-- STEP 7: FINAL CHECKOUT -->
+      <!-- STEP 5: FINAL CHECKOUT (renumbered from 7) -->
       <div class="step" id="step7">
-        <div class="step-number">Step 7 of 7</div>
+        <div class="step-number">Step 5 of 5</div>
         <h1 class="step-question">Complete Your Payment</h1>
         <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Your contract is signed. Choose your payment amount and method below.</p>
         
@@ -1862,7 +1611,7 @@
 
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
       document.getElementById(`step${step}`).classList.add('active');
-      document.getElementById('progressFill').style.width = `${(step / 7) * 100}%`;
+      document.getElementById('progressFill').style.width = `${(step / 5) * 100}%`;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
