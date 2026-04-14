@@ -1101,6 +1101,14 @@ app.post('/api/auth/reset-password', async (c) => {
 app.post('/api/enrollments/create', async (c) => {
   try {
     const { DB_EDUCATION } = c.env
+    
+    // Check if database is available
+    if (!DB_EDUCATION) {
+      return c.json({ 
+        error: 'Education enrollment system is currently being set up. Please contact support@italo@acromatico.com to complete your enrollment.' 
+      }, 503)
+    }
+    
     const body = await c.req.json()
     const {
       parentEmail,
