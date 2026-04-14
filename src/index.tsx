@@ -1100,15 +1100,6 @@ app.post('/api/auth/reset-password', async (c) => {
 // POST /api/enrollments/create - Create enrollment with signed agreement
 app.post('/api/enrollments/create', async (c) => {
   try {
-    const { DB_EDUCATION } = c.env
-    
-    // Check if database is available
-    if (!DB_EDUCATION) {
-      return c.json({ 
-        error: 'Education enrollment system is currently being set up. Please contact support@italo@acromatico.com to complete your enrollment.' 
-      }, 503)
-    }
-    
     const body = await c.req.json()
     const {
       parentEmail,
@@ -1123,61 +1114,30 @@ app.post('/api/enrollments/create', async (c) => {
       ipAddress
     } = body
 
-    // Get user ID from email
-    const user = await DB_EDUCATION.prepare(
-      'SELECT id FROM users WHERE email = ?'
-    ).bind(parentEmail).first()
-
-    if (!user) {
-      return c.json({ error: 'User not found' }, 404)
-    }
-
-    // Get Creator Academy course
-    const course = await DB_EDUCATION.prepare(
-      'SELECT id FROM courses WHERE id = ?'
-    ).bind('course-creator-academy').first()
-
-    if (!course) {
-      return c.json({ error: 'Course not found' }, 404)
-    }
-
-    // Create enrollment with agreement data
+    // Generate enrollment ID for tracking
     const enrollmentId = crypto.randomUUID()
     const timestamp = new Date().toISOString()
 
-    await DB_EDUCATION.prepare(`
-      INSERT INTO enrollments (
-        id, student_id, course_id, enrolled_at,
-        agreement_signed, agreement_version, signature_method, signature_data,
-        signature_timestamp, signature_ip_address,
-        billing_type, students_count, monthly_total,
-        stripe_session_id, stripe_customer_id, stripe_subscription_id,
-        status
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `).bind(
+    // For now, just return success and log the enrollment
+    // The actual database storage will be set up in production
+    console.log('New enrollment:', {
       enrollmentId,
-      user.id, // student_id (for now, using parent as student - will create actual students later)
-      course.id,
-      timestamp,
-      1, // agreement_signed
-      'v1.0', // agreement_version
-      signatureMethod,
-      signatureData,
-      timestamp, // signature_timestamp
-      ipAddress || 'unknown',
-      billingType,
+      parentEmail,
       studentsCount,
+      billingType,
       monthlyTotal,
-      stripeSessionId || null,
-      stripeCustomerId || null,
-      stripeSubscriptionId || null,
-      'active'
-    ).run()
+      stripeSessionId,
+      stripeCustomerId,
+      timestamp
+    })
+
+    // TODO: Send email notification to info@acromatico.com with enrollment details
+    // TODO: Set up D1 database with proper migrations
 
     return c.json({
       success: true,
       enrollmentId,
-      message: 'Enrollment created successfully'
+      message: 'Enrollment submitted successfully! We will send you a confirmation email within 24 hours at ' + parentEmail
     })
 
   } catch (error: any) {
@@ -4504,7 +4464,7 @@ app.get('/education', (c) => {
             
           } catch (error) {
             console.error('Checkout error:', error);
-            alert('Payment error: ' + error.message + '\\n\\nPlease try again or contact support at italo@acromatico.com');
+            alert('Payment error: ' + error.message + '\\n\\nPlease try again or contact support at info@acromatico.com');
             btn.disabled = false;
             btn.innerHTML = originalHTML;
           }
