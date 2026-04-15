@@ -4,12 +4,4 @@
   "compatibility_date": "2026-01-08",
   "pages_build_output_dir": "./dist",
   "compatibility_flags": ["nodejs_compat"]
-  // D1 database disabled for now - uncomment and add production DB ID when ready
-  // "d1_databases": [
-  //   {
-  //     "binding": "DB_EDUCATION",
-  //     "database_name": "acromatico-education",
-  //     "database_id": "YOUR_PRODUCTION_DB_ID"
-  //   }
-  // ]
 }
