@@ -395,7 +395,7 @@
                 </div>
             </a>
             
-            <a href="/prints" class="service-card" style="text-decoration: none; color: inherit;">
+            <a href="#" onclick="event.preventDefault(); openComingSoonModal('Art Prints');" class="service-card" style="text-decoration: none; color: inherit; cursor: pointer;">
                 <img src="/static/prints/staging-aruba-divi-tree.jpg" alt="Fine Art Prints">
                 <div class="service-card-overlay">
                     <h3>Art Prints</h3>
@@ -403,7 +403,7 @@
                 </div>
             </a>
             
-            <a href="/studio" class="service-card" style="text-decoration: none; color: inherit;">
+            <a href="#" onclick="event.preventDefault(); openComingSoonModal('Brand Building');" class="service-card" style="text-decoration: none; color: inherit; cursor: pointer;">
                 <img src="/static/images/brand-seaside-boca-shoot.jpg" alt="Brand Building" style="object-position: 60% 50%;">
                 <div class="service-card-overlay">
                     <h3>Brand Building</h3>
@@ -426,6 +426,107 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+    </script>
+    
+    <!-- Coming Soon Modal for Art Prints & Brand Building -->
+    <div id="comingSoonModal" class="fixed inset-0 bg-black/80 z-[200] hidden flex items-center justify-center p-4" onclick="if(event.target === this) closeComingSoonModal()" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 1rem;">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-10 relative" style="background: white; border-radius: 1rem; max-width: 36rem; width: 100%; padding: 2.5rem; position: relative;">
+            <button onclick="closeComingSoonModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-3xl font-light transition leading-none" aria-label="Close" style="position: absolute; top: 1rem; right: 1rem; color: #9ca3af; font-size: 2rem; font-weight: 300; line-height: 1; cursor: pointer; border: none; background: none;">×</button>
+            
+            <div class="text-center mb-8" style="text-align: center; margin-bottom: 2rem;">
+                <div class="text-6xl mb-4" style="font-size: 4rem; margin-bottom: 1rem;">🤍</div>
+                <h2 class="text-3xl font-bold mb-4" style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem; color: #3D3935;">We're Building This With Love 🤍</h2>
+                <p class="text-base text-gray-600 leading-relaxed" style="font-size: 1rem; color: #4b5563; line-height: 1.625;">
+                    Thank you so much for your interest! This section is currently being crafted with care and intention. We'd love to hear from you — submit your info below and we'll personally get back to you within 24–48 hours.
+                </p>
+            </div>
+
+            <form id="comingSoonForm" class="space-y-4" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Name *</label>
+                    <input type="text" id="csName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-gray-600 focus:ring-1 focus:ring-gray-600 focus:outline-none transition" placeholder="Your name" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; outline: none;" />
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Email *</label>
+                    <input type="email" id="csEmail" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-gray-600 focus:ring-1 focus:ring-gray-600 focus:outline-none transition" placeholder="your@email.com" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; outline: none;" />
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Message (optional)</label>
+                    <textarea id="csMessage" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-gray-600 focus:ring-1 focus:ring-gray-600 focus:outline-none transition resize-none" placeholder="Tell us what you're interested in..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; outline: none; resize: none;"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-white border-2 border-black text-black font-semibold py-3 px-6 rounded-lg hover:bg-black hover:text-white transition duration-300" style="width: 100%; background: white; border: 2px solid black; color: black; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s;">
+                    Submit
+                </button>
+            </form>
+
+            <div id="csSuccessMessage" class="hidden mt-6 p-4 bg-green-50 text-green-800 rounded-lg text-center border border-green-200" style="display: none; margin-top: 1.5rem; padding: 1rem; background: #f0fdf4; color: #166534; border-radius: 0.5rem; border: 1px solid #bbf7d0; text-align: center;">
+                <div class="text-2xl mb-2" style="font-size: 1.5rem; margin-bottom: 0.5rem;">🤍</div>
+                <p class="font-medium" style="font-weight: 500;">Message received! We'll be in touch within 24–48 hours. 🤍</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Coming Soon Modal Functions
+        function openComingSoonModal(serviceName) {
+            const modal = document.getElementById('comingSoonModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeComingSoonModal() {
+            const modal = document.getElementById('comingSoonModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('comingSoonForm').reset();
+            document.getElementById('comingSoonForm').style.display = 'flex';
+            document.getElementById('csSuccessMessage').style.display = 'none';
+        }
+
+        // ESC key to close modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('comingSoonModal');
+                if (modal && modal.style.display === 'flex') {
+                    closeComingSoonModal();
+                }
+            }
+        });
+
+        // Handle Coming Soon Form Submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const csForm = document.getElementById('comingSoonForm');
+            if (csForm) {
+                csForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('csName').value;
+                    const email = document.getElementById('csEmail').value;
+                    const message = document.getElementById('csMessage').value || '';
+                    
+                    try {
+                        const response = await fetch('/api/coming-soon-inquiry', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, email, message })
+                        });
+                        
+                        if (response.ok) {
+                            document.getElementById('csSuccessMessage').style.display = 'block';
+                            csForm.style.display = 'none';
+                            setTimeout(() => closeComingSoonModal(), 3000);
+                        } else {
+                            alert('Error sending inquiry. Please email info@acromatico.com directly.');
+                        }
+                    } catch (error) {
+                        alert('Error sending inquiry. Please email info@acromatico.com directly.');
+                    }
+                });
+            }
         });
     </script>
 </body>

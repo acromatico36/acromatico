@@ -20,8 +20,8 @@ export const footerHTML = `
       <div>
         <h4 class="font-bold mb-4" style="color: white;">Services</h4>
         <ul class="space-y-2 text-gray-400 text-sm">
-          <li><a href="/studio" class="hover:text-white transition">Brand Building</a></li>
-          <li><a href="/prints" class="hover:text-white transition">Art Prints</a></li>
+          <li><a href="#" onclick="event.preventDefault(); openComingSoonModal('Brand Building');" class="hover:text-white transition cursor-pointer">Brand Building</a></li>
+          <li><a href="#" onclick="event.preventDefault(); openComingSoonModal('Art Prints');" class="hover:text-white transition cursor-pointer">Art Prints</a></li>
           <li><a href="/photography" class="hover:text-white transition">Photography</a></li>
         </ul>
       </div>
