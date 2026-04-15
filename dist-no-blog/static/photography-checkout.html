@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Photography Session | Acromatico</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #4794A6 0%, #5aa5b8 100%); }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(71, 148, 166, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-white">
+  
+  <!-- Header -->
+  <header class="bg-slate-800 border-b border-slate-700 py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="/static/acromatico-logo-correct.png" alt="Acromatico" class="h-8">
+          <span class="text-xl font-semibold">Acromatico Photography</span>
+        </div>
+        <a href="/" class="text-slate-300 hover:text-white transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i>Back to Home
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero -->
+  <section class="gradient-bg py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl font-bold mb-4">Book Your Photography Session</h1>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto">
+        Professional photography that captures your story. Choose the service that fits your needs.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Services -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        
+        <!-- Weddings -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform border-2 border-[#4794A6] relative">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <div class="gradient-bg px-6 py-2 rounded-full text-sm font-bold">
+              ⭐ MOST POPULAR
+            </div>
+          </div>
+          
+          <div class="text-center mb-6 mt-4">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+              <i class="fas fa-rings-wedding text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Weddings</h3>
+            <p class="text-slate-300">Luxury wedding photography</p>
+          </div>
+          
+          <div class="text-center mb-8">
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$1,200</div>
+            <div class="text-slate-400">Starting price</div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Full-day coverage</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Engagement sessions</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Timeless heirloom albums</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Museum-quality prints</span>
+            </li>
+          </ul>
+          
+          <button 
+            onclick="checkout('WEDDING_PRICE_ID', 'Wedding Photography', 1200)" 
+            class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
+            <i class="fas fa-camera mr-2"></i>Book Wedding
+          </button>
+          
+          <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
+        </div>
+        
+        <!-- Portraits -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+              <i class="fas fa-user text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Portraits</h3>
+            <p class="text-slate-300">Professional headshots & portraits</p>
+          </div>
+          
+          <div class="text-center mb-8">
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$500</div>
+            <div class="text-slate-400">Starting price</div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Professional headshots</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Family portraits</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Personal branding sessions</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Studio or on-location</span>
+            </li>
+          </ul>
+          
+          <button 
+            onclick="checkout('PORTRAIT_PRICE_ID', 'Portrait Session', 500)" 
+            class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
+            <i class="fas fa-camera mr-2"></i>Book Portrait Session
+          </button>
+          
+          <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
+        </div>
+        
+        <!-- Events -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+              <i class="fas fa-calendar-star text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Events</h3>
+            <p class="text-slate-300">Corporate & celebrations</p>
+          </div>
+          
+          <div class="text-center mb-8">
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$1,200</div>
+            <div class="text-slate-400">Starting price</div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Corporate events</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Galas & conferences</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Full event coverage</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Same-day delivery options</span>
+            </li>
+          </ul>
+          
+          <button 
+            onclick="checkout('EVENT_PRICE_ID', 'Event Photography', 1200)" 
+            class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
+            <i class="fas fa-camera mr-2"></i>Book Event Coverage
+          </button>
+          
+          <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
+        </div>
+        
+        <!-- Commercial -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+              <i class="fas fa-briefcase text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Commercial</h3>
+            <p class="text-slate-300">Product & brand campaigns</p>
+          </div>
+          
+          <div class="text-center mb-8">
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$1,500</div>
+            <div class="text-slate-400">Custom pricing</div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Product photography</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Brand campaigns</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Editorial work</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Studio production</span>
+            </li>
+          </ul>
+          
+          <button 
+            onclick="checkout('COMMERCIAL_PRICE_ID', 'Commercial Photography', 1500)" 
+            class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
+            <i class="fas fa-camera mr-2"></i>Get Quote
+          </button>
+          
+          <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
+        </div>
+        
+        <!-- Real Estate -->
+        <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-transform">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+              <i class="fas fa-home text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Real Estate</h3>
+            <p class="text-slate-300">Residential & Airbnb</p>
+          </div>
+          
+          <div class="text-center mb-8">
+            <div class="text-5xl font-bold text-[#4794A6] mb-2">$350</div>
+            <div class="text-slate-400">Starting price</div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Aerial drone shots</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Twilight photos</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">Virtual tours</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-[#4794A6] mt-1"></i>
+              <span class="text-slate-300">MLS listing ready</span>
+            </li>
+          </ul>
+          
+          <button 
+            onclick="checkout('REALESTATE_PRICE_ID', 'Real Estate Photography', 350)" 
+            class="w-full gradient-bg text-white px-6 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all shadow-lg">
+            <i class="fas fa-camera mr-2"></i>Book Real Estate Shoot
+          </button>
+          
+          <p class="text-xs text-slate-400 mt-4 text-center">Secure payment via Stripe</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <!-- Loading Overlay -->
+  <div id="loading" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    <div class="text-center">
+      <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-[#4794A6] mx-auto mb-4"></div>
+      <p class="text-xl text-white">Redirecting to secure checkout...</p>
+    </div>
+  </div>
+  
+  <script>
+    // Stripe Price IDs (from Stripe Dashboard)
+    const PRICE_IDS = {
+      'WEDDING_PRICE_ID': 'price_1TIqnhDinAxxUzekFvej2UIZ',
+      'PORTRAIT_PRICE_ID': 'price_1TIqnhDinAxxUzekZHpWCHSY',
+      'EVENT_PRICE_ID': 'price_1TIqniDinAxxUzekh4VgC3sy',
+      'COMMERCIAL_PRICE_ID': 'price_1TIqniDinAxxUzekBmAgYr8f',
+      'REALESTATE_PRICE_ID': 'price_1TIqnjDinAxxUzek22CVTAst'
+    }
+    
+    async function checkout(priceKey, packageName, amount) {
+      // Show loading
+      document.getElementById('loading').classList.remove('hidden')
+      
+      try {
+        // Get actual Stripe Price ID
+        const actualPriceId = PRICE_IDS[priceKey]
+        
+        if (!actualPriceId) {
+          alert('Error: Invalid package selected')
+          document.getElementById('loading').classList.add('hidden')
+          return
+        }
+        
+        // Create checkout session
+        const response = await fetch('/api/payments/create-checkout-session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            priceId: actualPriceId,
+            quantity: 1,
+            mode: 'payment',
+            successUrl: window.location.origin + '/payment-success?session_id={CHECKOUT_SESSION_ID}',
+            cancelUrl: window.location.origin + '/static/photography-checkout.html',
+            metadata: {
+              product_type: 'photography',
+              package_name: packageName,
+              amount: amount,
+              source: 'website'
+            }
+          })
+        })
+        
+        const data = await response.json()
+        
+        if (data.error) {
+          alert('Payment error: ' + data.error)
+          document.getElementById('loading').classList.add('hidden')
+          return
+        }
+        
+        // Redirect to Stripe Checkout
+        window.location.href = data.url
+        
+      } catch (error) {
+        console.error('Checkout error:', error)
+        alert('Failed to start checkout. Please try again.')
+        document.getElementById('loading').classList.add('hidden')
+      }
+    }
+    
+    // Show helpful message about test mode
+    if (window.location.hostname.includes('sandbox') || window.location.hostname.includes('localhost')) {
+      console.log('🧪 TEST MODE: Use card 4242 4242 4242 4242 for testing')
+    }
+  </script>
+  
+</body>
+</html>

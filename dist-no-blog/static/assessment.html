@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Spark 🔥 — Brand Intelligence by Acromatico</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      background: #000;
+      color: #f5f5f7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      flex: 1;
+    }
+    h1 {
+      font-size: 56px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FF6B35 0%, #FFD23F 50%, #4794A6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 21px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 60px;
+      line-height: 1.5;
+    }
+    
+    #chat-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 100px;
+      min-height: 400px;
+    }
+    
+    .message {
+      display: flex;
+      gap: 16px;
+      animation: slideIn 0.3s ease;
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .message.spark {
+      flex-direction: row;
+    }
+    
+    .message.user {
+      flex-direction: row-reverse;
+    }
+    
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FF6B35, #FFD23F);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(255,107,53,0.4);
+    }
+    
+    .message.user .avatar {
+      background: linear-gradient(135deg, #4794A6, #5aa5b8);
+      box-shadow: 0 4px 20px rgba(71,148,166,0.4);
+    }
+    
+    .message-content {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 20px 24px;
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 85%;
+    }
+    
+    .message.user .message-content {
+      background: rgba(71,148,166,0.1);
+      border-color: rgba(71,148,166,0.3);
+      text-align: right;
+    }
+    
+    .input-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 24px;
+      z-index: 100;
+    }
+    
+    .input-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    #user-input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 16px 24px;
+      font-size: 17px;
+      color: #fff;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    
+    #user-input:focus {
+      background: rgba(255,255,255,0.1);
+      border-color: #FF6B35;
+    }
+    
+    #send-btn {
+      background: linear-gradient(135deg, #FF6B35, #FFD23F);
+      border: none;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(255,107,53,0.3);
+    }
+    
+    #send-btn:hover:not(:disabled) {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(255,107,53,0.5);
+    }
+    
+    #send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .typing-indicator {
+      display: flex;
+      gap: 6px;
+      padding: 16px;
+    }
+    
+    .typing-indicator span {
+      width: 8px;
+      height: 8px;
+      background: #FF6B35;
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out;
+    }
+    
+    .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+    .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+    
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+      40% { transform: translateY(-8px); opacity: 1; }
+    }
+    
+    /* Landing Page Preview */
+    .landing-preview {
+      background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(71,148,166,0.05) 100%);
+      border: 1px solid rgba(255,107,53,0.3);
+      border-radius: 24px;
+      padding: 48px 36px;
+      margin: 24px 0;
+      animation: fadeIn 0.6s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    .landing-preview h2 {
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #FF6B35, #FFD23F);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .landing-preview .tagline {
+      font-size: 21px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+    
+    .brand-section {
+      background: rgba(0,0,0,0.4);
+      border-radius: 18px;
+      padding: 24px;
+      margin: 20px 0;
+    }
+    
+    .brand-section h3 {
+      font-size: 21px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #FF6B35;
+    }
+    
+    .brand-section p, .brand-section ul {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+    }
+    
+    .brand-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .brand-section li {
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+    }
+    
+    .brand-section li:before {
+      content: "🔥";
+      position: absolute;
+      left: 0;
+      top: 8px;
+    }
+    
+    .color-palette {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .color-swatch {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      border: 2px solid rgba(255,255,255,0.2);
+      position: relative;
+    }
+    
+    .color-label {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 6px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 600;
+    }
+    
+    .cta-banner {
+      background: linear-gradient(135deg, #FF6B35, #FFD23F);
+      border-radius: 18px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 36px;
+    }
+    
+    .cta-banner h3 {
+      font-size: 24px;
+      font-weight: 900;
+      color: #000;
+      margin-bottom: 12px;
+    }
+    
+    .cta-banner p {
+      color: rgba(0,0,0,0.8);
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    
+    @media (max-width: 734px) {
+      h1 { font-size: 40px; }
+      .subtitle { font-size: 18px; }
+      .message-content { max-width: 100%; font-size: 15px; }
+      .landing-preview { padding: 32px 24px; }
+      .landing-preview h2 { font-size: 28px; }
+      .color-palette { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h1>Meet Spark 🔥</h1>
+    <p class="subtitle">Hey! I'm Spark, your brand strategist. Tell me about your business and I'll build you a custom brand framework + landing page in 2 minutes. Ready?</p>
+    
+    <div id="chat-container"></div>
+  </div>
+  
+  <div class="input-container">
+    <div class="input-wrapper">
+      <input 
+        type="text" 
+        id="user-input" 
+        placeholder="Start here: What do you do? (e.g., 'I sell eco-friendly skincare to millennial moms')" 
+        autofocus
+      />
+      <button id="send-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <script>
+    const chatContainer = document.getElementById('chat-container');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+    
+    let conversationStarted = false;
+    let userData = {
+      business: '',
+      why: '',
+      audience: '',
+      problem: ''
+    };
+    
+    let currentStep = '';
+    
+    function addMessage(content, type = 'spark') {
+      const message = document.createElement('div');
+      message.className = `message ${type}`;
+      message.innerHTML = `
+        <div class="avatar">${type === 'spark' ? '🔥' : '👤'}</div>
+        <div class="message-content">${content}</div>
+      `;
+      chatContainer.appendChild(message);
+      message.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+    
+    function showTyping() {
+      const typing = document.createElement('div');
+      typing.className = 'message spark';
+      typing.id = 'typing';
+      typing.innerHTML = `
+        <div class="avatar">🔥</div>
+        <div class="message-content">
+          <div class="typing-indicator">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      `;
+      chatContainer.appendChild(typing);
+      typing.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+    
+    function hideTyping() {
+      const typing = document.getElementById('typing');
+      if (typing) typing.remove();
+    }
+    
+    function extractIndustry(text) {
+      const lower = text.toLowerCase();
+      if (lower.includes('fitness') || lower.includes('gym')) return 'fitness';
+      if (lower.includes('saas') || lower.includes('software')) return 'SaaS';
+      if (lower.includes('beauty') || lower.includes('skincare')) return 'beauty';
+      if (lower.includes('ecommerce') || lower.includes('online store')) return 'e-commerce';
+      if (lower.includes('real estate') || lower.includes('property')) return 'real estate';
+      if (lower.includes('food') || lower.includes('restaurant')) return 'food & beverage';
+      if (lower.includes('consulting') || lower.includes('agency')) return 'services';
+      return 'your industry';
+    }
+    
+    async function analyzeBusinessDescription(message) {
+      userData.business = message;
+      const industry = extractIndustry(message);
+      
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 1800));
+      hideTyping();
+      
+      const response = `Love it! ${industry.charAt(0).toUpperCase() + industry.slice(1)} is huge right now. 🚀<br><br>Here's the thing: people don't buy WHAT you do—they buy <strong>WHY you do it</strong>.<br><br>So tell me: <strong>Why did you start this? What's the deeper mission?</strong> (e.g., "I saw my mom struggle with toxic products and wanted to create something safe")`;
+      
+      addMessage(response);
+      currentStep = 'why';
+    }
+    
+    async function captureWhy(message) {
+      userData.why = message;
+      
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 1600));
+      hideTyping();
+      
+      const response = `That's POWERFUL. 💪 People connect with that story instantly.<br><br>Now let's get tactical: <strong>Who EXACTLY are you trying to reach?</strong> Be specific. (e.g., "busy professional women 28-42 with $75K+ income who value wellness but lack time")`;
+      
+      addMessage(response);
+      currentStep = 'audience';
+    }
+    
+    async function defineAudience(message) {
+      userData.audience = message;
+      
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 1600));
+      hideTyping();
+      
+      const response = `Crystal clear. That specificity is GOLD. 🎯<br><br>Last question: <strong>What's the #1 problem your audience faces that you solve?</strong> (e.g., "They want healthy options but everything tastes like cardboard or takes 2 hours to prep")`;
+      
+      addMessage(response);
+      currentStep = 'problem';
+    }
+    
+    async function generateLandingPage(message) {
+      userData.problem = message;
+      
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      hideTyping();
+      
+      addMessage(`Alright, let me cook… 🔥👨‍🍳`);
+      
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      showTyping();
+      await new Promise(resolve => setTimeout(resolve, 2500));
+      hideTyping();
+      
+      // Extract brand name from business description
+      const brandName = extractBrandName(userData.business);
+      const industry = extractIndustry(userData.business);
+      
+      // Generate color palette based on industry
+      const colors = generateColorPalette(industry);
+      
+      // Build the landing page preview
+      const landingPage = `
+        <div class="landing-preview">
+          <h2>${brandName}</h2>
+          <p class="tagline">${generateTagline(userData)}</p>
+          
+          <div class="brand-section">
+            <h3>🎯 Your "Why" (This is what sells)</h3>
+            <p>${userData.why}</p>
+          </div>
+          
+          <div class="brand-section">
+            <h3>🧠 Brand Positioning Statement</h3>
+            <p>For <strong>${userData.audience}</strong> who struggle with <strong>${userData.problem}</strong>, ${brandName} is ${generatePositioning(userData)}.</p>
+          </div>
+          
+          <div class="brand-section">
+            <h3>💎 Your Unique Value</h3>
+            <ul>
+              ${generateValueProps(userData).map(v => `<li>${v}</li>`).join('')}
+            </ul>
+          </div>
+          
+          <div class="brand-section">
+            <h3>🎨 Brand Identity Colors</h3>
+            <div class="color-palette">
+              ${colors.map(c => `
+                <div>
+                  <div class="color-swatch" style="background: ${c.hex};"></div>
+                  <div class="color-label">${c.name}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          
+          <div class="brand-section">
+            <h3>📋 4-Week Launch Framework</h3>
+            <ul>
+              <li><strong>Week 1:</strong> Clarify messaging + build simple landing page</li>
+              <li><strong>Week 2:</strong> Create 10 content pieces around "${userData.problem}"</li>
+              <li><strong>Week 3:</strong> Launch lead magnet targeting ${userData.audience.split(' ').slice(0,3).join(' ')}</li>
+              <li><strong>Week 4:</strong> Test acquisition channels + optimize conversion</li>
+            </ul>
+          </div>
+          
+          <div class="cta-banner">
+            <h3>Ready to Build This For Real? 🚀</h3>
+            <p>We'll turn this framework into a complete brand system + platform in 4-8 weeks.</p>
+            <a href="/contact" class="cta-btn">Book Strategy Call →</a>
+          </div>
+        </div>
+      `;
+      
+      addMessage(landingPage);
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      addMessage(`There you go! 🎉 This is YOUR brand framework. Screenshot it, share it, own it.<br><br>Want us to build the full system? Platform + messaging + content engine?<br><br><a href="/contact" style="color: #FF6B35; text-decoration: underline; font-weight: 700;">Let's talk →</a>`);
+      
+      userInput.disabled = true;
+      sendBtn.disabled = true;
+      userInput.placeholder = "✨ Your brand framework is ready above!";
+    }
+    
+    function extractBrandName(businessDesc) {
+      // Simple extraction - if user mentioned "I run [NAME]" or similar
+      const nameMatch = businessDesc.match(/(?:I run|my company|called|named)\s+([A-Z][a-zA-Z\s]+)/i);
+      if (nameMatch) return nameMatch[1].trim();
+      
+      // Otherwise generate from description
+      const words = businessDesc.split(' ').filter(w => w.length > 3);
+      return words[0] ? words[0].charAt(0).toUpperCase() + words[0].slice(1) : 'Your Brand';
+    }
+    
+    function generateTagline(data) {
+      const audienceShort = data.audience.split(',')[0] || data.audience.split(' ').slice(0,4).join(' ');
+      return `Helping ${audienceShort} solve ${data.problem.split(' ').slice(0,6).join(' ')}...`;
+    }
+    
+    function generatePositioning(data) {
+      const industry = extractIndustry(data.business);
+      return `the ${industry} solution that understands ${data.audience.split(' ').slice(0,3).join(' ')} and actually delivers results`;
+    }
+    
+    function generateValueProps(data) {
+      return [
+        `Built specifically for ${data.audience.split(',')[0] || data.audience.split(' ').slice(0,4).join(' ')}`,
+        `Solves ${data.problem.split(' ').slice(0,5).join(' ')}... without the usual BS`,
+        `Founded on a real mission: ${data.why.split('.')[0]}`,
+        `No fluff, no fake promises—just results`
+      ];
+    }
+    
+    function generateColorPalette(industry) {
+      const palettes = {
+        'fitness': [
+          { name: 'Energy', hex: '#FF6B35' },
+          { name: 'Power', hex: '#004E89' },
+          { name: 'Fresh', hex: '#00A896' }
+        ],
+        'beauty': [
+          { name: 'Luxe', hex: '#D4AF37' },
+          { name: 'Soft', hex: '#F4E4E3' },
+          { name: 'Bold', hex: '#A43C5A' }
+        ],
+        'SaaS': [
+          { name: 'Tech', hex: '#0071E3' },
+          { name: 'Trust', hex: '#4794A6' },
+          { name: 'Modern', hex: '#6C63FF' }
+        ],
+        'e-commerce': [
+          { name: 'Vibrant', hex: '#FF6B6B' },
+          { name: 'Calm', hex: '#4ECDC4' },
+          { name: 'Accent', hex: '#FFD93D' }
+        ],
+        'default': [
+          { name: 'Primary', hex: '#FF6B35' },
+          { name: 'Secondary', hex: '#4794A6' },
+          { name: 'Accent', hex: '#FFD23F' }
+        ]
+      };
+      
+      return palettes[industry] || palettes['default'];
+    }
+    
+    async function handleMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+      
+      addMessage(message, 'user');
+      userInput.value = '';
+      userInput.disabled = true;
+      sendBtn.disabled = true;
+      
+      if (!conversationStarted) {
+        conversationStarted = true;
+        await analyzeBusinessDescription(message);
+      } else if (currentStep === 'why') {
+        await captureWhy(message);
+      } else if (currentStep === 'audience') {
+        await defineAudience(message);
+      } else if (currentStep === 'problem') {
+        await generateLandingPage(message);
+        return; // Don't re-enable input
+      }
+      
+      userInput.disabled = false;
+      sendBtn.disabled = false;
+      userInput.focus();
+    }
+    
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleMessage();
+    });
+    
+    sendBtn.addEventListener('click', handleMessage);
+    
+    // Auto-focus on load
+    setTimeout(() => userInput.focus(), 100);
+  </script>
+
+</body>
+</html>

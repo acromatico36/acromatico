@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zentangle Header Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            min-height: 100vh;
+        }
+        
+        .test-header {
+            width: 100%;
+            height: 80px;
+            background-image: url('/static/zentangle-header-final.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #2a2a2a;
+            border: 3px solid lime;
+            position: relative;
+        }
+        
+        .test-header::before {
+            content: 'ZENTANGLE HEADER TEST';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,255,0,0.8);
+            padding: 5px 10px;
+            color: black;
+            font-weight: bold;
+            z-index: 100;
+        }
+        
+        .info {
+            color: white;
+            padding: 40px;
+            font-family: monospace;
+        }
+        
+        .img-test {
+            margin-top: 40px;
+        }
+        
+        .img-test img {
+            width: 100%;
+            max-width: 800px;
+            border: 2px solid cyan;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-header"></div>
+    
+    <div class="info">
+        <h1>Zentangle Header Test Page</h1>
+        <p>If you see a lime border with zentangle pattern inside = SUCCESS ✅</p>
+        <p>If you see just lime border with gray = IMAGE NOT LOADING ❌</p>
+        <br>
+        <p><strong>Image URL:</strong> /static/zentangle-header-final.png</p>
+        <p><strong>Expected:</strong> Zentangle pattern with ACROMATICO text</p>
+        <p><strong>Height:</strong> 80px (same as website header)</p>
+        
+        <div class="img-test">
+            <h2>Direct Image Test:</h2>
+            <img src="/static/zentangle-header-final.png" alt="Zentangle Header">
+        </div>
+    </div>
+</body>
+</html>

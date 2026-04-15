@@ -1,0 +1,2431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Wedding - Acromatico</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1d1d1f;
+      --secondary: #6e6e73;
+      --accent: #4794A6;
+      --bg: #ffffff;
+      --bg-gray: #f5f5f7;
+      --border: #d2d2d7;
+      --success: #34c759;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+      color: var(--primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 16px 40px;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-back {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* PROGRESS BAR */
+    .progress-bar {
+      position: fixed;
+      top: 73px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #e5e5e5;
+      z-index: 999;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 11.11%;
+    }
+
+    /* MAIN LAYOUT */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+    }
+
+    /* LEFT: STEPS */
+    .steps-container {
+      max-width: 700px;
+    }
+
+    .step {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .step-number {
+      font-size: 13px;
+      color: var(--secondary);
+      margin-bottom: 24px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .journey-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .journey-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e5e5e5;
+      transition: all 0.3s;
+    }
+
+    .journey-dot.active {
+      width: 32px;
+      border-radius: 4px;
+      background: var(--accent);
+    }
+
+    .journey-dot.completed {
+      background: var(--accent);
+      opacity: 0.5;
+    }
+
+    .step-question {
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: -1.5px;
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    /* INPUTS */
+    input[type="text"],
+    input[type="email"],
+    input[type="date"] {
+      width: 100%;
+      padding: 20px 24px;
+      font-size: 21px;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      font-family: inherit;
+      transition: all 0.3s;
+      background: white;
+      margin-bottom: 24px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+    }
+
+    /* HOUR SLIDER */
+    .hour-slider-container {
+      margin: 48px 0;
+    }
+
+    .hour-display {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .hour-value {
+      font-size: 72px;
+      font-weight: 300;
+      letter-spacing: -2px;
+      color: var(--accent);
+    }
+
+    .hour-label {
+      font-size: 21px;
+      color: var(--secondary);
+      margin-top: 8px;
+    }
+
+    .hour-price {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--primary);
+      margin-top: 16px;
+    }
+
+    .slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #e5e5e5;
+      outline: none;
+      -webkit-appearance: none;
+      margin: 32px 0;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,113,227,0.4);
+      transition: all 0.3s;
+    }
+
+    .slider::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(0,113,227,0.5);
+    }
+
+    .slider::-moz-range-thumb {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,113,227,0.4);
+      border: none;
+    }
+
+    /* PACKAGE CARDS */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .option-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+      position: relative;
+    }
+
+    .option-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .option-card.selected {
+      border-color: var(--accent);
+      background: rgba(0, 113, 227, 0.05);
+      box-shadow: 0 8px 30px rgba(0,113,227,0.15);
+    }
+
+    .option-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .option-title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .option-description {
+      font-size: 15px;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .option-price {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .option-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(0, 113, 227, 0.1);
+      color: var(--accent);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* ALBUM SHOWCASE */
+    .album-showcase {
+      margin: 48px 0;
+    }
+
+    .album-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .album-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .album-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    /* UPGRADE CARDS WITH IMAGES */
+    .upgrade-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .upgrade-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .upgrade-card.selected {
+      border-color: var(--accent);
+      background: rgba(0, 113, 227, 0.05);
+    }
+
+    .upgrade-image {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .upgrade-content {
+      flex: 1;
+      padding: 16px 0;
+    }
+
+    .upgrade-title {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .upgrade-description {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .upgrade-price {
+      font-size: 21px;
+      font-weight: 500;
+      padding: 0 24px;
+    }
+
+    /* RIGHT: LIVE PREVIEW */
+    .preview-sidebar {
+      position: sticky;
+      top: 120px;
+      height: fit-content;
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      border: 2px solid var(--border);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+
+    .preview-title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .preview-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--bg-gray);
+      font-size: 15px;
+    }
+
+    .preview-item:last-child {
+      border-bottom: none;
+    }
+
+    .preview-label {
+      color: var(--secondary);
+    }
+
+    .preview-value {
+      font-weight: 600;
+    }
+
+    .preview-total {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .preview-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+
+    /* BUTTONS */
+    .button-group {
+      display: flex;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .btn {
+      padding: 18px 40px;
+      font-size: 17px;
+      font-weight: 500;
+      border-radius: 980px;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,113,227,0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--border);
+    }
+
+    /* MOBILE */
+    @media (max-width: 1024px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-sidebar {
+        position: relative;
+        top: 0;
+        order: -1;
+      }
+
+      .step-question {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="/static/acromatico-logo-official.png" alt="Acromatico">
+      </a>
+      <a href="/photography" class="nav-back">← Back to Photography</a>
+    </div>
+  </nav>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="booking-layout">
+
+    <!-- LEFT: STEPS -->
+    <div class="steps-container">
+
+      <!-- STEP 1: WEDDING DATE -->
+      <div class="step active" id="step1">
+        <div class="step-number">
+          <div class="journey-dots">
+            <div class="journey-dot active"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+          </div>
+          <span>Your Details</span>
+        </div>
+        <h1 class="step-question">Let's start with the basics.<br>What's your wedding date?</h1>
+        <input type="date" id="weddingDate">
+        
+        <label style="display: block; margin: 24px 0 8px 0; font-size: 15px; font-weight: 500; color: var(--secondary);">Do you have a venue selected?</label>
+        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+          <label style="flex: 1; cursor: pointer;">
+            <input type="radio" name="venueType" value="venue" checked onchange="switchVenueType('venue')" style="margin-right: 8px;">
+            <span>Yes, I have a venue</span>
+          </label>
+          <label style="flex: 1; cursor: pointer;">
+            <input type="radio" name="venueType" value="city" onchange="switchVenueType('city')" style="margin-right: 8px;">
+            <span>No, just a city</span>
+          </label>
+        </div>
+
+        <div id="venueInput">
+          <input type="text" id="venue" placeholder="Start typing venue name..." autocomplete="off" oninput="searchVenues(this.value)">
+          <div id="venueSuggestions" style="display: none; background: white; border: 2px solid var(--border); border-radius: 12px; margin-top: -12px; max-height: 200px; overflow-y: auto; box-shadow: 0 8px 30px rgba(0,0,0,0.1); z-index: 100;"></div>
+        </div>
+
+        <div id="cityInput" style="display: none;">
+          <input type="text" id="city" placeholder="Enter city name" autocomplete="off" oninput="searchCities(this.value)">
+          <div id="citySuggestions" style="display: none; background: white; border: 2px solid var(--border); border-radius: 12px; margin-top: -12px; max-height: 200px; overflow-y: auto; box-shadow: 0 8px 30px rgba(0,0,0,0.1); z-index: 100;"></div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="validateStep1()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: CUSTOM OR PACKAGE -->
+      <div class="step" id="step2">
+        <div class="step-number">
+          <div class="journey-dots">
+            <div class="journey-dot completed"></div>
+            <div class="journey-dot active"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+          </div>
+          <span>Build Your Experience</span>
+        </div>
+        <h1 class="step-question">Build a custom experience<br>or choose a package</h1>
+        
+        <!-- CUSTOM OPTION -->
+        <div style="margin-bottom: 48px;">
+          <div class="option-card" onclick="selectCustom(this)" style="cursor: pointer; text-align: left; padding: 32px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <div class="option-title" style="margin: 0;">Build Custom</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">Starts at $1,200</div>
+            </div>
+            <div class="option-description" style="text-align: left;">Choose exactly what you need, pay only for what you want. Minimum 2 hours of coverage. Full flexibility to build your perfect day.</div>
+          </div>
+        </div>
+
+        <!-- OR DIVIDER -->
+        <div style="text-align: center; margin: 48px 0; position: relative;">
+          <div style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--border);"></div>
+          <span style="position: relative; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); padding: 0 24px; color: var(--secondary); font-size: 15px; font-weight: 500;">OR CHOOSE A PACKAGE</span>
+        </div>
+
+        <!-- PACKAGE OPTIONS -->
+        <div class="options-grid">
+          <div class="option-card" onclick="selectPackage(this, 'essential', 2500)">
+            <div class="option-title">Essential</div>
+            <div class="option-description">6 hours<br>1 photographer<br>Digital gallery<br>300+ photos</div>
+            <div class="option-price">$2,500</div>
+          </div>
+          <div class="option-card" onclick="selectPackage(this, 'signature', 4500)">
+            <div class="option-badge">Most Popular</div>
+            <div class="option-title">Signature</div>
+            <div class="option-description">8 hours<br>2 photographers<br>Engagement session<br>500+ photos</div>
+            <div class="option-price">$4,500</div>
+          </div>
+          <div class="option-card" onclick="selectPackage(this, 'legacy', 7500)">
+            <div class="option-title">Legacy</div>
+            <div class="option-description">Full day<br>2 photographers<br>Engagement + Album<br>800+ photos</div>
+            <div class="option-price">$7,500</div>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: ADD EXTRA HOURS -->
+      <div class="step" id="step3">
+        <div class="step-number">
+          <div class="journey-dots">
+            <div class="journey-dot completed"></div>
+            <div class="journey-dot completed"></div>
+            <div class="journey-dot active"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+            <div class="journey-dot"></div>
+          </div>
+          <span>Coverage Hours</span>
+        </div>
+        <h1 class="step-question" id="step3Question">How many hours do you need?</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;" id="step3Description">Minimum 2 hours coverage. Each additional hour is $400.</p>
+        <div class="hour-slider-container">
+          <div class="hour-display">
+            <div class="hour-value" id="hourValue">2</div>
+            <div class="hour-label">Hours of Coverage</div>
+            <div class="hour-price" id="hourPrice">$1,200</div>
+          </div>
+          <input type="range" min="2" max="36" value="2" class="slider" id="hourSlider" oninput="updateCoverageHours(this.value)">
+          <div style="display: flex; justify-content: space-between; margin-top: 16px; font-size: 14px; color: var(--secondary);">
+            <span>2 hrs</span>
+            <span>36 hrs</span>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: ALBUM SHOWCASE -->
+      <div class="step" id="step4">
+        <div class="step-number">Step 4 of 8</div>
+        <h1 class="step-question">Want to add a luxury heirloom album?</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px; line-height: 1.7;"><strong>Handmade in Italy.</strong> Museum-quality archival paper, flush-mount spreads, premium leather covers. A timeless memory you'll treasure for generations.</p>
+        
+        <div class="album-showcase">
+          <div class="album-gallery">
+            <img src="https://www.genspark.ai/api/files/s/IgtklWC4" class="album-image" loading="lazy">
+            <img src="https://www.genspark.ai/api/files/s/5fKxPEas" class="album-image" loading="lazy">
+            <img src="https://www.genspark.ai/api/files/s/MjQtMT3p" class="album-image" loading="lazy">
+            <img src="https://www.genspark.ai/api/files/s/yBpgfzre" class="album-image" loading="lazy">
+          </div>
+        </div>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="selectAlbumChoice(this, 'yes'); nextStep(5);">
+            <div class="option-title">Yes, please!</div>
+            <div class="option-description">I want a handcrafted album</div>
+          </div>
+          <div class="option-card" onclick="selectAlbumChoice(this, 'no'); nextStep(6);">
+            <div class="option-title">Not now</div>
+            <div class="option-description">Digital only is perfect</div>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: ALBUM SIZE -->
+      <div class="step" id="step5">
+        <div class="step-number">Step 5 of 8</div>
+        <h1 class="step-question">Choose your album size</h1>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectAlbum(this, 'intimate', 995, 'https://www.genspark.ai/api/files/s/MjQtMT3p')">
+            <div class="option-title">Intimate</div>
+            <div class="option-description">8×12" (20×30 cm)<br>40 pages</div>
+            <div class="option-price">$995</div>
+          </div>
+          <div class="option-card" onclick="selectAlbum(this, 'classic', 1495, 'https://www.genspark.ai/api/files/s/IgtklWC4')">
+            <div class="option-badge">Most Popular</div>
+            <div class="option-title">Classic</div>
+            <div class="option-description">12×16" (30×40 cm)<br>60 pages</div>
+            <div class="option-price">$1,495</div>
+          </div>
+          <div class="option-card" onclick="selectAlbum(this, 'statement', 1995, 'https://www.genspark.ai/api/files/s/5fKxPEas')">
+            <div class="option-title">Statement</div>
+            <div class="option-description">16×20" (40×50 cm)<br>80 pages</div>
+            <div class="option-price">$1,995</div>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(6)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: UPGRADES WITH IMAGES -->
+      <div class="step" id="step6">
+        <div class="step-number">Step 6 of 8</div>
+        <h1 class="step-question">Any upgrades?</h1>
+        
+        <div class="upgrade-card" onclick="toggleUpgrade(this, 'Second Photographer', 800)">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Zeynep-Dominic-W-026.jpg" class="upgrade-image">
+          <div class="upgrade-content">
+            <div class="upgrade-title">Second Photographer</div>
+            <div class="upgrade-description">Capture every angle of your day</div>
+          </div>
+          <div class="upgrade-price">$800</div>
+        </div>
+
+        <div class="upgrade-card" onclick="toggleUpgrade(this, 'Engagement Session', 600)">
+          <img src="https://acromatico.com/wp-content/uploads/2018/09/Jane-Dez-Wedding-583.jpg" class="upgrade-image">
+          <div class="upgrade-content">
+            <div class="upgrade-title">Engagement Session</div>
+            <div class="upgrade-description">1-hour photo session before your wedding</div>
+          </div>
+          <div class="upgrade-price">$600</div>
+        </div>
+
+        <div class="upgrade-card" onclick="toggleUpgrade(this, 'Parent Album', 400)">
+          <img src="https://www.genspark.ai/api/files/s/yBpgfzre" class="upgrade-image">
+          <div class="upgrade-content">
+            <div class="upgrade-title">Parent Albums</div>
+            <div class="upgrade-description">One intimate 12×8" parent album</div>
+          </div>
+          <div class="upgrade-price">$400</div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(5)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(7)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: YOUR INFO -->
+      <div class="step" id="step7">
+        <div class="step-number">Step 7 of 9</div>
+        <h1 class="step-question">Almost there! What's your name?</h1>
+        <input type="text" id="clientName" placeholder="Your full name" required>
+        <input type="email" id="clientEmail" placeholder="Your email address" required>
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(6)">← Back</button>
+          <button class="btn btn-primary" onclick="validateStep7()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 8: CONTRACT SIGNING -->
+      <div class="step" id="step8">
+        <div class="step-number">Step 8 of 9</div>
+        <h1 class="step-question">Review & sign your agreement</h1>
+        
+        <!-- FULL CONTRACT PREVIEW -->
+        <div style="background: white; border: 2px solid var(--border); border-radius: 16px; padding: 60px; margin-bottom: 32px; max-height: 600px; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
+          
+          <h3 style="font-size: 32px; font-weight: 300; margin-bottom: 48px; text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #4794A6;">Wedding Photography Agreement</h3>
+          
+          <div style="font-size: 14px; line-height: 2; color: #333; font-weight: 300;">
+            
+            <!-- CLIENT INFORMATION -->
+            <!-- CLIENT INFORMATION -->
+            <div style="background: rgba(71, 148, 166, 0.03); padding: 28px; border-radius: 12px; margin-bottom: 32px; border-left: 4px solid #4794A6;">
+              <h4 style="font-size: 13px; font-weight: 400; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6;">Client Information</h4>
+              <p style="margin-bottom: 8px; font-weight: 300;"><strong style="font-weight: 400;">Name:</strong> <span id="contractName">Client</span></p>
+              <p style="margin-bottom: 8px; font-weight: 300;"><strong style="font-weight: 400;">Email:</strong> <span id="contractEmail"></span></p>
+              <p style="margin-bottom: 8px; font-weight: 300;"><strong style="font-weight: 400;">Wedding Date:</strong> <span id="contractWeddingDate"></span></p>
+              <p style="margin-bottom: 0; font-weight: 300;"><strong style="font-weight: 400;">Venue:</strong> <span id="contractVenue"></span></p>
+            </div>
+            
+            <!-- SERVICES PROVIDED -->
+            <div style="margin-bottom: 40px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Services Provided</h4>
+              <p style="margin-bottom: 16px; font-weight: 300;">On <strong style="font-weight: 400;"><span id="contractWeddingDate2"></span></strong>, Acromatico will provide to Client the following photography services:</p>
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 16px;">
+                <p style="margin-bottom: 12px; font-weight: 300;"><strong style="font-weight: 400;">Package:</strong> <span id="contractPackage">Not selected</span></p>
+                <div id="contractUpgrades" style="margin-left: 20px; font-weight: 300;"></div>
+              </div>
+            </div>
+            
+            <!-- TOTAL INVESTMENT -->
+            <div style="background: linear-gradient(135deg, rgba(71, 148, 166, 0.08) 0%, rgba(71, 148, 166, 0.03) 100%); padding: 32px; border-radius: 12px; margin-bottom: 24px; text-align: center; border: 2px solid rgba(71, 148, 166, 0.2);">
+              <h4 style="font-size: 13px; font-weight: 400; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6;">Total Investment</h4>
+              <p style="font-size: 42px; font-weight: 200; margin: 0; color: #4794A6; letter-spacing: 2px;">$<span id="contractTotal">0</span></p>
+            </div>
+
+            <!-- PAYMENT SCHEDULE -->
+            <div style="background: #ffffff; padding: 28px; border-radius: 12px; margin-bottom: 40px; border: 2px solid rgba(71, 148, 166, 0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+              <h4 style="font-size: 15px; font-weight: 400; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 2px; color: #4794A6; text-align: center;">3 Easy Payments</h4>
+              
+              <!-- Payment 1 -->
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px; margin-bottom: 12px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Payment 1 (Due Today)</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;"><span id="payment1Date">--</span></p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="payment1Amount">0</span></p>
+              </div>
+
+              <!-- Payment 2 -->
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px; margin-bottom: 12px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Payment 2 (Midpoint)</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;"><span id="payment2Date">--</span></p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="payment2Amount">0</span></p>
+              </div>
+
+              <!-- Payment 3 -->
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(71, 148, 166, 0.04); border-radius: 8px;">
+                <div>
+                  <p style="margin: 0 0 4px 0; font-weight: 400; font-size: 14px; color: #333;">Payment 3 (Final)</p>
+                  <p style="margin: 0; font-size: 12px; color: #666; font-weight: 300;"><span id="payment3Date">14 days before wedding</span></p>
+                </div>
+                <p style="margin: 0; font-size: 24px; font-weight: 300; color: #4794A6;">$<span id="payment3Amount">0</span></p>
+              </div>
+
+              <p style="margin: 20px 0 0 0; font-size: 11px; color: #999; text-align: center; font-weight: 300; line-height: 1.6;">All payments are non-refundable. Payment 1 secures your date. Payment 2 is due at the midpoint between today and your wedding. Payment 3 is due 14 days prior to your wedding date.</p>
+            </div>
+
+            <!-- ENTIRE AGREEMENT -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Entire Agreement</h4>
+              <p style="margin-bottom: 16px; font-weight: 300; line-height: 1.9;">This Acromatico Photography contract (the "Contract") is entered into and effective as of <strong style="font-weight: 400;"><span id="contractWeddingDate3"></span></strong>, by and between <strong style="font-weight: 400;"><span id="contractName2">Client</span></strong> (hereinafter "Client"), and Italo Campilii of Acromatico (hereinafter "Acromatico"). The following constitutes a final and fully integrated agreement between the parties. This Contract supersedes any prior written or oral agreements between the parties.</p>
+            </div>
+
+            <!-- PERFORMANCE OF SERVICES -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Performance of Services</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico agrees to take photographs as per Client's request delineated in the Services Provided section above, allowing for artistic expression.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Acromatico agrees to use the upmost technical quality to meet Client's needs, for web or print. Acromatico will use digital photography knowledge and expertise to create photographs for Client.</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Acromatico will provide Client with a look book or samples of the final photographs within 8-12 weeks of completion of the project.</p>
+            </div>
+
+            <!-- PAYMENT -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Payment</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Client agrees to pay Acromatico <strong style="font-weight: 400;">$<span id="contractTotal2">0</span> (Lump Sum All-Inclusive)</strong> in consideration for the photography services to be rendered by Acromatico.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">The parties agree that this Contract needs to be signed, and a <strong style="font-weight: 400;">non-refundable retainer fee of 50%</strong> is required to reserve the specified services. The retainer will be subtracted from the total payment owed by Client upon completion of the services. Acromatico does not begin the post-production work and deliver the final product or post any samples until the final payment is made.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">The remaining balance is due <strong style="font-weight: 400;">14 days prior to your wedding</strong>.</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Should Client's event or occasion require flights, Client is responsible for all travel, accommodations, overnight stays, hot meals and transportation costs unless already provided by Client. In consideration for this fee, Acromatico will devote its time and upmost efforts to cover the event or occasion of Client.</p>
+            </div>
+
+            <!-- CANCELLATION POLICY -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Cancellation Policy</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;"><strong style="font-weight: 400;">All deposit fees are non-refundable.</strong> A minimum of 30 days notice will be required for cancellation of this contract by Client. Any cancellation made with less than 30 days notice prior to the agreed upon service date will result in full payment by Client.</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">If the cancellation is initiated by Acromatico, all money paid to Acromatico from Client shall be fully refunded, including the deposit fee. Refund shall be paid out within (60) calendar days from the cancellation date.</p>
+            </div>
+
+            <!-- WORK PRODUCT OWNERSHIP -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Work Product Ownership</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Any copyrightable works, ideas, discoveries, products, or other information (collectively, the "Work Product") developed in whole or in part by Acromatico in connection with the services will be the exclusive property of Acromatico. Until final payment for services rendered is made, the photographs produced by Acromatico are protected by Federal Copyright Law (all rights reserved) and may not be reproduced in any manner without Acromatico's explicitly written permission.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">The copyright of all photographs produced is retained by Acromatico at its official website www.acromatico.com. Original files remain the property of the photographer and Acromatico. The photographer retains the right to use any images for the online blog post.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Upon final payment by Client, limited copyright ownership of the resulting images will be transferred to Client. The digital negatives and/or slides are the property of Client for personal use and for the purposes of the reproduction and giving of photographs to friends and relatives. Client must obtain written permission from and compensate Acromatico prior to the Client or its friends and relatives publishing or selling the photographs for profit.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">Client grants the website www.acromatico.com permission to display selected images resulting from this assignment as an example of Acromatico work and for advertising, and for entrance into photographic competitions and release all claims to profits that may arise from use of images.</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">The client hereby grants to Acromatico and its legal representatives and assigns, the irrevocable and unrestricted right to use and publish photographs of the Client or in which the Client may be included, for online blog posting; to alter (edit, improve) the same without restriction; and to copyright the same. The Client hereby releases Acromatico and its legal representatives and assigns from all claims and liability relating to said photographs.</p>
+            </div>
+
+            <!-- RELATIONSHIP OF PARTIES -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Relationship of Parties</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">It is understood by the parties that Acromatico is an independent contractor with respect to Client, and not an employee of Client. It is also understood that Acromatico's services will be performed as per Client's requests allowing for artistic expression.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">It is also understood that the photography schedule and selected methodology are designed to accomplish the goals and wishes of Client. Henceforth, Acromatico and Client agree that constant and effective communication, positive cooperation, punctuality, and respect are essential for this contract.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">The parties agree to a pre-event consultation two to three weeks before the event date in order to finalize the actual shooting times, locations, and to review the Services Provided section of this Contract.</p>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">The Client agrees to set aside a time of arrival at least 10 to 15 minutes prior to the session. If the Client does not arrive in time for the session, the photographer shall not be held liable for failure to take desired photographs or poses that occur during the session day. Acromatico recommends adding extra hours of coverage, billable at <strong style="font-weight: 400;">$400/hour</strong> for 1 photographer to photograph more images of the Client in case the client desires more images taken due to lack of time, weather changes, or other changes that may have occurred in the day of the session that impede obtaining the desired photographs for the Client. If the client decides to add additional hours verbally, prior or during the event, the final images will not be delivered until the payment is completed.</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Acromatico is not responsible if key individuals fail to appear or cooperate during photography sessions or for missed images due to details not revealed to Acromatico.</p>
+            </div>
+
+            <!-- HOUSE RULES -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">House Rules</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">The photographer is limited by the guidelines of the ceremony official or reception site management. Client agrees to accept the technical results of their imposition on the photographer. Negotiation with the officials for moderation of guidelines is Client's responsibility; Acromatico will offer technical recommendations only.</p>
+            </div>
+
+            <!-- INDEMNIFICATION -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Indemnification</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Client agrees to indemnify and hold harmless Acromatico from attorney's fees and costs that arise from litigation by Client against Acromatico that may result from the acts or omissions of Acromatico.</p>
+            </div>
+
+            <!-- WARRANTY -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Warranty</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Acromatico shall provide its services and meet its obligations under this Contract in a timely and workmanlike manner, using its knowledge for performing the services, which meet generally acceptable photography industry standards, and will provide a standard of care equal to care used by other photographers in the industry.</p>
+            </div>
+
+            <!-- DEFAULT -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Default</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">The occurrence of any of the following shall constitute a material default under this Contract:</p>
+              <p style="margin-bottom: 8px; margin-left: 20px; font-weight: 300;">a. The failure to make a required payment when it is due.</p>
+              <p style="margin-bottom: 0; margin-left: 20px; font-weight: 300;">b. The insolvency or bankruptcy of either party.</p>
+            </div>
+
+            <!-- REMEDIES -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Remedies</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">In addition to any and all other rights a party may have available according to law, if a party defaults by failing to substantially perform any provision, term or condition of this Contract (including without limitation the failure to make a monetary payment when due), the other party may terminate the Contract by providing written notice to the defaulting party. This notice will provide the nature of the default, and the defaulting party will have 60 days from the receipt of notice to cure the default. Failure to cure the default will result in the automatic termination of this Contract.</p>
+            </div>
+
+            <!-- FORCE MAJEURE -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Force Majeure</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">If performance of this Contract or any obligation under this Contract is prevented, restricted, or interfered with by causes beyond either party's reasonable control, and if the party unable to carry out its obligation gives the other party reasonably timely written notice of such event, then the obligations of the party invoking this provision shall be suspended to the extent necessary by such event. These causes can include but are not limited to, acts of God, fire, explosion, vandalism, storm or other similar occurrence, emergencies, sickness, Covid, etc. The excused party shall use reasonable efforts under the circumstances to avoid or remove such causes of non-performance and shall proceed to perform within a reasonable time whenever such causes are removed or ceased.</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">In the event of rain or snow or any form of weather disturbances, the photographer will make the necessary changes in the photographic session and will not be responsible for any disappointment caused by the weather. However, the photographer, with the co-operation of the client, will do his best to produce coverage of the session within the time allocated.</p>
+            </div>
+
+            <!-- LIMIT OF LIABILITY -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Limit of Liability</h4>
+              <p style="margin-bottom: 12px; font-weight: 300; line-height: 1.9;">In the unlikely event that the photographer is injured or becomes too ill to photograph the event, Acromatico will make every effort to secure a replacement photographer. If the situation should occur and a suitable replacement is not found, responsibility and liability is limited to the return of all payments received for the event package minus the already provided products, sessions and services. Acromatico takes the utmost care with respect to exposure, transportation, and processing the photographs. However, in the unlikely event that photographs have been lost, stolen, or destroyed for reasons within or beyond Acromatico control, Acromatico liability is limited only to the return of all payments received for the event package minus the already provided products, sessions and services. The limit of liability for a partial loss of originals shall be a prorated amount of the exposures lost based on the percentage of total number of originals.</p>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">If the venue gets moved to another location, an applicable cost of 65 cents per mile and possible travel costs will be applied to any venues beyond a 50-mile range. The photographer cannot be held responsible for the lack of coverage caused by the Register office, Venue, or Location regarding photography or anyone connected with the aforementioned. The photographer does not undertake to guarantee any specific picture nor incorporate any specific background, location or group arrangement.</p>
+            </div>
+
+            <!-- SEVERABILITY -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Severability</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">If any provision of this Contract is deemed invalid or unenforceable, the remaining provisions shall continue to be valid and enforceable. If a court finds that any provision of this Contract is invalid or unenforceable, but that by limiting such provision it would become valid and enforceable, then such provision shall be deemed to be written, construed, and enforced as so limited.</p>
+            </div>
+
+            <!-- AMENDMENT -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Amendment</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">This contract may be modified or amended in writing, if the writing is signed by all parties obligated under the amendment, and the original contract.</p>
+            </div>
+
+            <!-- GOVERNING LAW -->
+            <div style="margin-bottom: 32px;">
+              <h4 style="font-size: 18px; font-weight: 300; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 3px; color: #4794A6; border-bottom: 1px solid rgba(71, 148, 166, 0.3); padding-bottom: 12px;">Governing Law</h4>
+              <p style="margin-bottom: 0; font-weight: 300; line-height: 1.9;">Parties to this agreement agree that the Contract will be construed under Florida law and that should any litigation arise as a result of this agreement, it will be litigated in the State of Florida.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signature Section -->
+        <div style="background: rgba(71, 148, 166, 0.05); border: 2px solid var(--accent); border-radius: 16px; padding: 32px; margin-bottom: 32px;">
+          <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 16px;">Sign Below</h4>
+          <p style="font-size: 14px; color: var(--secondary); margin-bottom: 24px;">Type your full name or draw your signature. This constitutes a legally binding electronic signature.</p>
+          
+          <div style="margin-bottom: 24px;">
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; margin-bottom: 16px;">
+              <input type="radio" name="signMethod" value="type" checked onchange="switchSignMethod('type')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Type my name</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+              <input type="radio" name="signMethod" value="draw" onchange="switchSignMethod('draw')" style="width: 20px; height: 20px;">
+              <span style="font-size: 15px; font-weight: 500;">Draw my signature</span>
+            </label>
+          </div>
+
+          <!-- Type Signature -->
+          <div id="typeSignature">
+            <input type="text" id="signatureName" placeholder="Type your full legal name" style="width: 100%; padding: 20px; font-size: 24px; font-family: 'Brush Script MT', cursive; border: 2px solid var(--border); border-radius: 12px;">
+          </div>
+
+          <!-- Draw Signature -->
+          <div id="drawSignature" style="display: none;">
+            <div id="canvasContainer" style="border: 3px solid #4794A6; border-radius: 12px; background: white; padding: 0; position: relative; max-width: 600px;">
+              <canvas 
+                id="signatureCanvas" 
+                width="600" 
+                height="150"
+                style="display: block; width: 100%; height: 150px; cursor: crosshair; background: white; touch-action: none;"
+              ></canvas>
+            </div>
+            <button type="button" onclick="clearSignature()" style="margin-top: 16px; padding: 14px 28px; background: #4794A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s;">🗑️ Clear Signature</button>
+            <p style="font-size: 14px; color: #4794A6; margin-top: 12px; font-weight: 500;">🖊️ <strong>CLICK AND DRAG</strong> on the white canvas above to draw your signature</p>
+          </div>
+
+          <div style="margin-top: 24px; font-size: 13px; color: var(--secondary);">
+            <p>IP Address: <span id="ipAddress">Loading...</span></p>
+            <p style="margin-top: 8px;">Date: <span id="signDate"></span></p>
+          </div>
+        </div>
+
+        <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px; cursor: pointer;">
+          <input type="checkbox" id="agreeCheckbox" style="width: 24px; height: 24px; cursor: pointer;">
+          <span style="font-size: 15px;">I have read and agree to the terms of this agreement</span>
+        </label>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(7)">← Back</button>
+          <button class="btn btn-primary" onclick="validateAndContinue()">Sign & Download Agreement →</button>
+        </div>
+      </div>
+
+      <!-- STEP 9: FINAL CHECKOUT -->
+      <div class="step" id="step9">
+        <div class="step-number">Step 9 of 9</div>
+        <h1 class="step-question">Complete Your Payment</h1>
+        <p style="font-size: 17px; color: var(--secondary); margin-bottom: 32px;">Your contract is signed. Choose your payment amount and method below.</p>
+        
+        <!-- AGREEMENT SIGNED CONFIRMATION -->
+        <div style="background: rgba(52, 199, 89, 0.1); border: 2px solid var(--success); border-radius: 16px; padding: 24px; margin-bottom: 32px;">
+          <p style="font-size: 15px; font-weight: 500; color: var(--success); margin-bottom: 8px;">✓ Agreement Signed</p>
+          <p style="font-size: 14px; color: var(--secondary);">Signed by <span id="finalSignatureName"></span> on <span id="finalSignDate"></span></p>
+        </div>
+
+        <!-- DOWNLOAD AGREEMENT -->
+        <div style="background: rgba(71, 148, 166, 0.1); border: 2px solid var(--accent); border-radius: 16px; padding: 24px; margin-bottom: 32px;">
+          <h4 style="font-size: 18px; font-weight: 500; margin-bottom: 12px;">📄 Your Signed Agreement</h4>
+          <button onclick="downloadAgreement()" style="padding: 16px 32px; background: white; border: 2px solid var(--accent); border-radius: 12px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 16px; transition: all 0.3s;" onmouseover="this.style.background='var(--accent)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='var(--accent)';">⬇ Download Signed Agreement PDF</button>
+          <p style="font-size: 13px; color: var(--secondary);">A copy will also be emailed to you after payment.</p>
+        </div>
+
+        <!-- PAYMENT AMOUNT SELECTION -->
+        <div style="background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 28px; margin-bottom: 32px;">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px; color: #333;">Choose Payment Amount</h3>
+          
+          <!-- Payment Option 1: Pay 1/3 -->
+          <label style="display: block; background: rgba(71, 148, 166, 0.05); border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.08)';" onmouseout="if(!this.querySelector('input').checked) { this.style.borderColor='#e0e0e0'; this.style.background='rgba(71, 148, 166, 0.05)'; }">
+            <input type="radio" name="paymentAmount" value="third" checked onchange="updatePaymentAmount('third')" style="margin-right: 12px; width: 20px; height: 20px; cursor: pointer;">
+            <span style="font-size: 18px; font-weight: 500; color: #333;">Pay 1/3 Today</span>
+            <span style="float: right; font-size: 24px; font-weight: 500; color: var(--accent);">$<span id="amount_third">0</span></span>
+            <div style="font-size: 13px; color: var(--secondary); margin-top: 8px; margin-left: 32px;">First payment of 3-part plan</div>
+          </label>
+
+          <!-- Payment Option 2: Pay 1/2 -->
+          <label style="display: block; background: rgba(71, 148, 166, 0.05); border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.08)';" onmouseout="if(!this.querySelector('input').checked) { this.style.borderColor='#e0e0e0'; this.style.background='rgba(71, 148, 166, 0.05)'; }">
+            <input type="radio" name="paymentAmount" value="half" onchange="updatePaymentAmount('half')" style="margin-right: 12px; width: 20px; height: 20px; cursor: pointer;">
+            <span style="font-size: 18px; font-weight: 500; color: #333;">Pay 1/2 Today</span>
+            <span style="float: right; font-size: 24px; font-weight: 500; color: var(--accent);">$<span id="amount_half">0</span></span>
+            <div style="font-size: 13px; color: var(--secondary); margin-top: 8px; margin-left: 32px;">50% deposit</div>
+          </label>
+
+          <!-- Payment Option 3: Pay in Full -->
+          <label style="display: block; background: rgba(71, 148, 166, 0.05); border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.08)';" onmouseout="if(!this.querySelector('input').checked) { this.style.borderColor='#e0e0e0'; this.style.background='rgba(71, 148, 166, 0.05)'; }">
+            <input type="radio" name="paymentAmount" value="full" onchange="updatePaymentAmount('full')" style="margin-right: 12px; width: 20px; height: 20px; cursor: pointer;">
+            <span style="font-size: 18px; font-weight: 500; color: #333;">Pay in Full</span>
+            <span style="float: right; font-size: 24px; font-weight: 500; color: var(--accent);">$<span id="amount_full">0</span></span>
+            <div style="font-size: 13px; color: var(--secondary); margin-top: 8px; margin-left: 32px;">Complete payment today</div>
+          </label>
+        </div>
+
+        <!-- PAYMENT METHODS -->
+        <div style="background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 28px; margin-bottom: 32px;">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 24px; color: #333;">Select Payment Method</h3>
+          
+          <!-- Credit Card with Stripe (includes Apple Pay, Google Pay, Klarna, etc.) -->
+          <button onclick="payWithStripe()" style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; font-size: 16px; font-weight: 500;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(71, 148, 166, 0.05)';" onmouseout="this.style.borderColor='#e0e0e0'; this.style.background='white';">
+            <div style="flex: 1;">
+              <div style="margin-bottom: 10px; font-weight: 600; color: #333;">💳 Credit/Debit Card</div>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <span style="display: inline-block; padding: 4px 10px; background: #000; color: white; border-radius: 4px; font-size: 11px; font-weight: 600;"> APPLE PAY</span>
+                <span style="display: inline-block; padding: 4px 10px; background: #4285F4; color: white; border-radius: 4px; font-size: 11px; font-weight: 600;">G PAY</span>
+                <span style="display: inline-block; padding: 4px 10px; background: #FFB3C7; color: #000; border-radius: 4px; font-size: 11px; font-weight: 600;">KLARNA</span>
+                <span style="display: inline-block; padding: 4px 10px; background: #00D4FF; color: #000; border-radius: 4px; font-size: 11px; font-weight: 600;">AFFIRM</span>
+                <span style="display: inline-block; padding: 4px 10px; background: #00C853; color: white; border-radius: 4px; font-size: 11px; font-weight: 600;">LINK</span>
+                <span style="font-size: 11px; color: #999;">+more</span>
+              </div>
+            </div>
+            <span style="font-size: 24px; font-weight: 600; color: var(--accent); margin-left: 16px; white-space: nowrap;">$<span id="selectedAmount">0</span></span>
+          </button>
+
+          <!-- Manual Payment Methods -->
+          <div style="margin-top: 24px; padding-top: 24px; border-top: 2px solid #e0e0e0;">
+            <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 16px; color: #666;">Or send payment directly:</h4>
+            
+            <!-- Zelle -->
+            <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+              <div style="font-weight: 500; margin-bottom: 4px;">📱 Zelle</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">954-779-0921</div>
+              <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="manualAmount">0</span> to this phone number</div>
+            </div>
+
+            <!-- Cash App -->
+            <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+              <div style="font-weight: 500; margin-bottom: 4px;">💵 Cash App</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">$acromatico</div>
+              <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="manualAmount">0</span> to this Cash App handle</div>
+            </div>
+
+            <!-- Venmo -->
+            <div style="background: rgba(71, 148, 166, 0.03); border-radius: 8px; padding: 16px;">
+              <div style="font-weight: 500; margin-bottom: 4px;">💙 Venmo</div>
+              <div style="font-size: 18px; color: var(--accent); font-weight: 500;">@acromatico</div>
+              <div style="font-size: 12px; color: var(--secondary); margin-top: 4px;">Send $<span class="manualAmount">0</span> to this Venmo username</div>
+            </div>
+
+            <p style="font-size: 13px; color: var(--secondary); margin-top: 16px; font-style: italic;">After sending payment, please email your receipt to info@acromatico.com</p>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" onclick="prevStep(8)">← Back</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: LIVE PREVIEW -->
+    <div class="preview-sidebar" id="previewSidebar">
+      <div class="preview-title">Your Selection</div>
+      
+      <div id="previewContent">
+        <div class="preview-item">
+          <span class="preview-label">Package</span>
+          <span class="preview-value" id="previewPackage">Not selected</span>
+        </div>
+        <div class="preview-item">
+          <span class="preview-label">Extra Hours</span>
+          <span class="preview-value" id="previewHours">Base coverage</span>
+        </div>
+        <div class="preview-item" id="albumPreviewItem">
+          <span class="preview-label">Album</span>
+          <span class="preview-value" id="previewAlbum">Not selected</span>
+          <button onclick="removeAlbum()" id="removeAlbumBtn" style="display: none; background: none; border: none; color: #ef4444; cursor: pointer; font-size: 18px; padding: 4px 8px; margin-left: 8px;" title="Remove album">×</button>
+        </div>
+        <img id="previewAlbumImage" class="preview-image" style="display: none;">
+        <div id="previewUpgrades"></div>
+        <div class="preview-total">
+          <span>Total</span>
+          <span id="previewTotal">$0</span>
+        </div>
+        <div class="preview-item" style="opacity: 0.7; font-size: 13px; margin-top: 8px;">
+          <span class="preview-label">3 Easy Payments</span>
+          <span class="preview-value" id="previewPaymentPlan">$0 each</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let booking = {
+      date: '',
+      venue: '',
+      package: '',
+      packagePrice: 0,
+      coverageHours: 2, // Minimum 2 hours for custom
+      coverageHoursPrice: 1200, // Base $1,200 for 2 hours
+      albumChoice: '',
+      album: '',
+      albumPrice: 0,
+      albumImage: '',
+      upgrades: [],
+      name: '',
+      email: '',
+      isCustom: false
+    };
+
+    // Update coverage hours (for custom packages)
+    function updateCoverageHours(value) {
+      const hours = parseInt(value);
+      booking.coverageHours = hours;
+      
+      // Calculate price: $1,200 for 2 hours, $400 per additional hour
+      booking.coverageHoursPrice = 1200 + ((hours - 2) * 400);
+      
+      document.getElementById('hourValue').textContent = hours;
+      document.getElementById('hourPrice').textContent = `$${booking.coverageHoursPrice.toLocaleString()}`;
+      
+      // Update preview
+      if (booking.isCustom) {
+        document.getElementById('previewPackage').textContent = `Custom Build (${hours} hours) - $${booking.coverageHoursPrice.toLocaleString()}`;
+        booking.packagePrice = booking.coverageHoursPrice;
+      }
+      
+      updateTotal();
+    }
+
+    function updateExtraHours(value) {
+      // Legacy function - redirect to updateCoverageHours
+      updateCoverageHours(parseInt(value) + 2);
+    }
+
+    function selectCustom(card) {
+      // Clear any package selection
+      document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      booking.package = 'custom';
+      booking.isCustom = true;
+      booking.packagePrice = 1200; // Minimum 2 hours
+      booking.coverageHours = 2;
+      booking.coverageHoursPrice = 1200;
+      
+      // Update step 3 for custom flow
+      document.getElementById('step3Question').textContent = 'How many hours do you need?';
+      document.getElementById('step3Description').textContent = 'Minimum 2 hours coverage ($1,200). Each additional hour is $400.';
+      
+      document.getElementById('previewPackage').textContent = 'Custom Build (2 hours) - $1,200';
+      updateTotal();
+    }
+
+    function selectPackage(card, name, price) {
+      document.querySelectorAll('#step2 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      booking.package = name;
+      booking.isCustom = false;
+      booking.packagePrice = price;
+      
+      // Update step 3 for package flow
+      document.getElementById('step3Question').textContent = 'Want to add extra hours?';
+      document.getElementById('step3Description').textContent = 'Your package includes base coverage. Add more hours if needed.';
+      
+      document.getElementById('previewPackage').textContent = name.charAt(0).toUpperCase() + name.slice(1) + ' - $' + price.toLocaleString();
+      updateTotal();
+    }
+
+    function selectAlbumChoice(card, choice) {
+      booking.albumChoice = choice;
+    }
+
+    function selectAlbum(card, name, price, image) {
+      document.querySelectorAll('#step5 .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      booking.album = name;
+      booking.albumPrice = price;
+      booking.albumImage = image;
+      document.getElementById('previewAlbum').textContent = `${name.charAt(0).toUpperCase() + name.slice(1)} - $${price.toLocaleString()}`;
+      document.getElementById('removeAlbumBtn').style.display = 'inline-block';
+      const img = document.getElementById('previewAlbumImage');
+      img.src = image;
+      img.style.display = 'block';
+      updateTotal();
+    }
+
+    function removeAlbum() {
+      booking.album = '';
+      booking.albumPrice = 0;
+      booking.albumImage = '';
+      document.getElementById('previewAlbum').textContent = 'Not selected';
+      document.getElementById('removeAlbumBtn').style.display = 'none';
+      document.getElementById('previewAlbumImage').style.display = 'none';
+      document.querySelectorAll('#step5 .option-card').forEach(c => c.classList.remove('selected'));
+      updateTotal();
+    }
+
+    function toggleUpgrade(card, key, price) {
+      card.classList.toggle('selected');
+      if (card.classList.contains('selected')) {
+        booking.upgrades.push({ key, price });
+      } else {
+        booking.upgrades = booking.upgrades.filter(u => u.key !== key);
+      }
+      updateUpgradesPreview();
+      updateTotal();
+    }
+
+    function updateUpgradesPreview() {
+      const container = document.getElementById('previewUpgrades');
+      container.innerHTML = booking.upgrades.map(u => `
+        <div class="preview-item">
+          <span class="preview-label">${u.key.charAt(0).toUpperCase() + u.key.slice(1)}</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="preview-value">$${u.price.toLocaleString()}</span>
+            <button onclick="removeUpgrade('${u.key}')" style="background: none; border: none; color: #ef4444; cursor: pointer; font-size: 18px; padding: 4px 8px;" title="Remove ${u.key}">×</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function removeUpgrade(key) {
+      booking.upgrades = booking.upgrades.filter(u => u.key !== key);
+      // Find and unselect the card in the upgrade step
+      const cards = document.querySelectorAll('#step6 .option-card');
+      cards.forEach(card => {
+        const cardKey = card.querySelector('[data-key]')?.getAttribute('data-key') || 
+                       card.onclick?.toString().match(/toggleUpgrade\([^,]+,\s*'([^']+)'/)?.[1];
+        if (cardKey === key) {
+          card.classList.remove('selected');
+        }
+      });
+      updateUpgradesPreview();
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const upgradesTotal = booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      const total = booking.packagePrice + booking.albumPrice + upgradesTotal;
+      document.getElementById('previewTotal').textContent = `$${total.toLocaleString()}`;
+      
+      // Calculate 3 easy payments
+      const paymentAmount = Math.round(total / 3);
+      document.getElementById('previewPaymentPlan').textContent = `$${paymentAmount.toLocaleString()} each`;
+    }
+
+    function validateStep1() {
+      const date = document.getElementById('weddingDate').value;
+      if (!date) {
+        alert('⚠️ Please select your wedding date');
+        return;
+      }
+      
+      const venueType = document.querySelector('input[name="venueType"]:checked').value;
+      let location = '';
+      
+      if (venueType === 'venue') {
+        location = document.getElementById('venue').value.trim();
+        // Venue is optional - if empty, use "TBD"
+        if (!location) {
+          location = 'Venue TBD';
+        }
+      } else {
+        location = document.getElementById('city').value.trim();
+        // City is optional - if empty, use "TBD"
+        if (!location) {
+          location = 'City TBD';
+        }
+      }
+      
+      // Save to booking object
+      booking.date = date;
+      booking.venue = location;
+      
+      // All validation passed
+      console.log('✅ Step 1 validated:', { date, venueType, location });
+      nextStep(2);
+    }
+
+    function fillContractPreview() {
+      console.log('📄 Filling wedding contract preview...');
+      
+      const contractNameEl = document.getElementById('contractName');
+      const contractEmailEl = document.getElementById('contractEmail');
+      const contractWeddingDateEl = document.getElementById('contractWeddingDate');
+      const contractWeddingDate2El = document.getElementById('contractWeddingDate2');
+      const contractWeddingDate3El = document.getElementById('contractWeddingDate3');
+      const contractVenueEl = document.getElementById('contractVenue');
+      
+      if (contractNameEl) contractNameEl.textContent = booking.name || 'Client';
+      if (contractEmailEl) contractEmailEl.textContent = booking.email || '';
+      if (contractWeddingDateEl) contractWeddingDateEl.textContent = booking.date || 'TBD';
+      if (contractWeddingDate2El) contractWeddingDate2El.textContent = booking.date || 'TBD';
+      if (contractWeddingDate3El) contractWeddingDate3El.textContent = booking.date || 'TBD';
+      if (contractVenueEl) contractVenueEl.textContent = booking.venue || 'TBD';
+      
+      // Show package
+      let packageDisplay = 'Not selected';
+      if (booking.package === 'custom') {
+        packageDisplay = `Custom Build - ${booking.coverageHours} hours - $${booking.packagePrice.toLocaleString()}`;
+      } else if (booking.package) {
+        const packageName = booking.package.replace(/-/g, ' ');
+        packageDisplay = packageName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ` - $${booking.packagePrice.toLocaleString()}`;
+      }
+      const contractPackageEl = document.getElementById('contractPackage');
+      if (contractPackageEl) contractPackageEl.textContent = packageDisplay;
+      
+      // Show upgrades
+      const contractUpgradesEl = document.getElementById('contractUpgrades');
+      if (contractUpgradesEl) {
+        let upgradesHTML = '';
+        
+        if (booking.album && booking.albumPrice > 0) {
+          upgradesHTML += `<p style="margin-bottom: 8px;">• ${booking.album} Album: $${booking.albumPrice.toLocaleString()}</p>`;
+        }
+        
+        if (booking.upgrades && booking.upgrades.length > 0) {
+          booking.upgrades.forEach(u => {
+            upgradesHTML += `<p style="margin-bottom: 8px;">• ${u.key}: $${u.price.toLocaleString()}</p>`;
+          });
+        }
+        
+        contractUpgradesEl.innerHTML = upgradesHTML || '<p style="margin-bottom: 8px; color: #999;">No additional items</p>';
+      }
+      
+      // Calculate total
+      const total = booking.packagePrice + booking.albumPrice + (booking.upgrades ? booking.upgrades.reduce((sum, u) => sum + u.price, 0) : 0);
+      const contractTotalEl = document.getElementById('contractTotal');
+      const contractTotal2El = document.getElementById('contractTotal2');
+      if (contractTotalEl) contractTotalEl.textContent = total.toLocaleString();
+      if (contractTotal2El) contractTotal2El.textContent = total.toLocaleString();
+      
+      // Calculate 3-payment schedule
+      const payment1 = Math.round(total / 3);
+      const payment2 = Math.round(total / 3);
+      const payment3 = total - payment1 - payment2;
+      
+      // Payment dates
+      const today = new Date();
+      const weddingDate = new Date(booking.date || Date.now());
+      const midpoint = new Date(today.getTime() + (weddingDate.getTime() - today.getTime()) / 2);
+      const twoWeeksBefore = new Date(weddingDate);
+      twoWeeksBefore.setDate(twoWeeksBefore.getDate() - 14);
+      
+      const payment1DateStr = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      const payment2DateStr = midpoint.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      const payment3DateStr = twoWeeksBefore.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      
+      const payment1AmountEl = document.getElementById('payment1Amount');
+      const payment2AmountEl = document.getElementById('payment2Amount');
+      const payment3AmountEl = document.getElementById('payment3Amount');
+      const payment1DateEl = document.getElementById('payment1Date');
+      const payment2DateEl = document.getElementById('payment2Date');
+      const payment3DateEl = document.getElementById('payment3Date');
+      
+      if (payment1AmountEl) payment1AmountEl.textContent = payment1.toLocaleString();
+      if (payment2AmountEl) payment2AmountEl.textContent = payment2.toLocaleString();
+      if (payment3AmountEl) payment3AmountEl.textContent = payment3.toLocaleString();
+      if (payment1DateEl) payment1DateEl.textContent = payment1DateStr;
+      if (payment2DateEl) payment2DateEl.textContent = payment2DateStr;
+      if (payment3DateEl) payment3DateEl.textContent = payment3DateStr;
+      
+      console.log('✅ Wedding contract preview filled with total:', total);
+    }
+
+    function nextStep(step) {
+      // Save data from previous step
+      if (step === 8) {
+        booking.name = document.getElementById('clientName').value;
+        booking.email = document.getElementById('clientEmail').value;
+      }
+      if (step === 2) {
+        booking.date = document.getElementById('weddingDate').value;
+        const venueType = document.querySelector('input[name="venueType"]:checked').value;
+        if (venueType === 'venue') {
+          booking.venue = document.getElementById('venue').value;
+        } else {
+          booking.venue = document.getElementById('city').value;
+        }
+      }
+
+      // Pre-fill contract when entering step 8
+      if (step === 8) {
+        fillContractPreview();
+      }
+
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step${step}`).classList.add('active');
+      document.getElementById('progressFill').style.width = `${(step / 9) * 100}%`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevStep(step) {
+      nextStep(step);
+    }
+
+    // View full agreement in modal/new page
+    function viewFullAgreement() {
+      window.open('/static/Wedding%20Agreement%20No%20CC.pdf', '_blank');
+    }
+
+    // Download signed agreement as PDF with ACTUAL BEAUTIFUL CONTRACT
+    function downloadAgreement() {
+      const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      
+      // Get the actual contract HTML from the page
+      const contractDiv = document.querySelector('#step8 > div:nth-child(3)');
+      const contractHTML = contractDiv ? contractDiv.innerHTML : '';
+      
+      // Generate PDF content with ACTUAL CONTRACT
+      const agreementHTML = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Wedding Photography Agreement - ${booking.name}</title>
+          <style>
+            body { 
+              font-family: 'Helvetica Neue', 'Arial', sans-serif; 
+              padding: 60px; 
+              line-height: 1.9; 
+              color: #333;
+              font-weight: 300;
+            }
+            h3 { 
+              font-size: 32px; 
+              font-weight: 300; 
+              text-align: center; 
+              text-transform: uppercase; 
+              letter-spacing: 4px; 
+              color: #4794A6; 
+              margin-bottom: 48px;
+            }
+            h4 { 
+              font-size: 18px; 
+              font-weight: 300; 
+              text-transform: uppercase; 
+              letter-spacing: 3px; 
+              color: #4794A6; 
+              border-bottom: 1px solid rgba(71, 148, 166, 0.3); 
+              padding-bottom: 12px;
+              margin: 32px 0 20px 0;
+            }
+            p { 
+              margin-bottom: 12px; 
+              font-weight: 300; 
+              line-height: 1.9; 
+            }
+            strong { 
+              font-weight: 400; 
+            }
+            .logo-section {
+              text-align: center;
+              margin-bottom: 40px;
+            }
+            .logo-text {
+              font-size: 28px;
+              font-weight: 300;
+              letter-spacing: 8px;
+              color: #4794A6;
+            }
+            .tagline {
+              font-size: 11px;
+              font-weight: 300;
+              letter-spacing: 3px;
+              color: #4794A6;
+              margin-top: 8px;
+            }
+            .client-info {
+              background: rgba(71, 148, 166, 0.03);
+              padding: 28px;
+              border-radius: 12px;
+              margin-bottom: 32px;
+              border-left: 4px solid #4794A6;
+            }
+            .total-box {
+              background: linear-gradient(135deg, rgba(71, 148, 166, 0.08) 0%, rgba(71, 148, 166, 0.03) 100%);
+              padding: 32px;
+              border-radius: 12px;
+              margin-bottom: 40px;
+              text-align: center;
+              border: 2px solid rgba(71, 148, 166, 0.2);
+            }
+            .total-amount {
+              font-size: 42px;
+              font-weight: 200;
+              color: #4794A6;
+              letter-spacing: 2px;
+            }
+            .signature-box {
+              margin-top: 60px;
+              padding-top: 30px;
+              border-top: 2px solid #4794A6;
+            }
+            .footer {
+              margin-top: 48px;
+              padding-top: 32px;
+              border-top: 1px solid rgba(71, 148, 166, 0.2);
+              text-align: center;
+              font-size: 11px;
+              color: #999;
+            }
+            @media print {
+              body { padding: 40px; }
+              @page { margin: 0.5in; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="logo-section">
+            <img src="/static/acromatico-logo-official.png" alt="Acromatico Logo" style="max-width: 300px; height: auto; display: block; margin: 0 auto 20px auto;" />
+            <div class="tagline">CANDID WEDDING PHOTOGRAPHY</div>
+          </div>
+
+          ${contractHTML}
+          
+          <div class="signature-box">
+            <h4>Signature</h4>
+            ${booking.signMethod === 'type' 
+              ? `<div style="font-size: 32px; font-family: 'Brush Script MT', cursive; margin: 20px 0;">${booking.signature}</div>` 
+              : `<img src="${booking.signature}" style="max-width: 400px; max-height: 150px;" />`
+            }
+            <p style="margin-top: 20px;"><strong>Signed by:</strong> ${booking.name}</p>
+            <p><strong>Date:</strong> ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+            <p><strong>IP Address:</strong> ${booking.ipAddress || 'N/A'}</p>
+          </div>
+          
+          <div class="footer">
+            <p>ACROMATICO CANDID WEDDING PHOTOGRAPHY</p>
+            <p>T: 954.779.0921 | E: info@acromatico.com | W: acromatico.com</p>
+          </div>
+        <\/body>
+        <\/html>
+      `;
+      
+      // Open in new window for printing/saving
+      const win = window.open('', '_blank');
+      win.document.write(agreementHTML);
+      win.document.close();
+      setTimeout(() => win.print(), 500);
+    }
+
+
+    // Stripe checkout integration
+    function initiateStripeCheckout() {
+      const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      
+      // TODO: Replace with your actual Stripe integration
+      alert(`Stripe checkout initiated for $${total.toLocaleString()}\n\nBooking details:\n- Package: ${booking.package}\n- Date: ${booking.date}\n- Venue: ${booking.venue}\n- Client: ${booking.name} (${booking.email})\n\nThis will redirect to Stripe payment page.`);
+      
+      // Example Stripe redirect (you'll need to create this endpoint)
+      // window.location.href = `/api/create-checkout-session?amount=${total * 100}&booking=${encodeURIComponent(JSON.stringify(booking))}`;
+      
+      console.log('Full booking object:', booking);
+    }
+
+    function checkout() {
+      initiateStripeCheckout();
+    }
+
+    // Switch between venue and city input
+    function switchVenueType(type) {
+      if (type === 'venue') {
+        document.getElementById('venueInput').style.display = 'block';
+        document.getElementById('cityInput').style.display = 'none';
+      } else {
+        document.getElementById('venueInput').style.display = 'none';
+        document.getElementById('cityInput').style.display = 'block';
+      }
+    }
+
+    // Venue search with MASSIVE database - FLORIDA + NEW YORK
+    let venueDebounce;
+    const venueDatabase = [
+      // ========== FLORIDA ==========
+      
+      // MIAMI & MIAMI BEACH
+      'The Ritz-Carlton, Miami Beach', 'The Ritz-Carlton, Key Biscayne', 'The Ritz-Carlton, Coconut Grove',
+      'Vizcaya Museum and Gardens, Miami', 'Fairchild Tropical Botanic Garden, Coral Gables',
+      'The Betsy Hotel, South Beach', 'The Setai, Miami Beach', 'Fontainebleau Miami Beach',
+      'Eden Roc Miami Beach', 'W South Beach', 'The Bath Club, Miami Beach',
+      'Rusty Pelican, Key Biscayne', 'Deering Estate, Miami', 'The Cruz Building, Miami',
+      'The Four Seasons Hotel Miami', 'Mandarin Oriental Miami', 'JW Marriott Marquis Miami',
+      'InterContinental Miami', 'Epic Hotel Miami', 'SLS Brickell', 'EAST Miami',
+      'Kimpton EPIC Hotel', 'Hyatt Regency Miami', 'Miami Beach Botanical Garden',
+      'Perez Art Museum Miami', 'Frost Science Museum', 'Jungle Island',
+      '1 Hotel South Beach', 'Loews Miami Beach Hotel', 'The Palms Hotel & Spa',
+      'Soho Beach House', 'Faena Hotel Miami Beach', 'The Confidante Miami Beach',
+      'The National Hotel, South Beach', 'The Sagamore Hotel', 'Shelborne South Beach',
+      'Royal Palm South Beach', 'Trump National Doral', 'Biltmore Hotel, Coral Gables',
+      'Coral Gables Country Club', 'The Kampong Garden', 'Ancient Spanish Monastery',
+      'Vizcaya Village', 'The Barnacle Historic State Park', 'Crandon Park',
+      
+      // PALM BEACH & BOCA RATON
+      'The Breakers Palm Beach', 'Four Seasons Resort Palm Beach', 'Eau Palm Beach Resort & Spa',
+      'The Boca Raton Resort & Club', 'Boca Beach Club', 'The Seagate Hotel & Spa, Delray Beach',
+      'Delray Beach Marriott', 'PGA National Resort, Palm Beach Gardens',
+      'Flagler Museum, Palm Beach', 'Ann Norton Sculpture Gardens, West Palm Beach',
+      'Morikami Museum, Delray Beach', 'The Addison, Boca Raton',
+      'Sundy House, Delray Beach', 'The Colony Hotel Palm Beach', 'Brazilian Court Hotel',
+      'The Breakers Palm Beach Golf Club', 'Jupiter Beach Resort', 'Singer Island Resort',
+      'Palm Beach Zoo & Conservation Society', 'Norton Museum of Art',
+      'Crane\'s Beach House, Delray Beach', 'Old School Square, Delray Beach',
+      
+      // FORT LAUDERDALE & BROWARD
+      'The Ritz-Carlton, Fort Lauderdale', 'W Fort Lauderdale', 'Hilton Fort Lauderdale Marina',
+      'Pelican Grand Beach Resort', 'The Atlantic Hotel & Spa, Fort Lauderdale',
+      'Bonnet House Museum & Gardens', 'NSU Art Museum Fort Lauderdale',
+      'The Riverside Hotel, Fort Lauderdale', 'Lago Mar Resort & Club',
+      'Seminole Hard Rock Hotel & Casino', 'Harbor Beach Marriott',
+      'Fort Lauderdale Marriott Pompano Beach Resort', 'The Dalmar Hotel',
+      'Diplomat Beach Resort Hollywood', 'Margaritaville Hollywood Beach Resort',
+      'Las Olas Marina', 'Historic Stranahan House Museum',
+      
+      // FLORIDA KEYS
+      'Hawks Cay Resort, Duck Key', 'The Reach Resort, Key West', 'Casa Marina Resort, Key West',
+      'Cheeca Lodge, Islamorada', 'Little Palm Island Resort, Little Torch Key',
+      'Sunset Key Cottages, Key West', 'The Marker Key West', 'Ocean Key Resort, Key West',
+      'Postcard Inn Beach Resort, Islamorada', 'Playa Largo Resort, Key Largo',
+      'The Perry Hotel Key West', 'Southernmost Beach Resort', 'Pier House Resort',
+      'Hyatt Centric Key West', 'The Gates Hotel Key West', 'Tropical Weddings Key West',
+      'Key Largo Lighthouse Beach', 'Florida Keys Brewing Company',
+      
+      // ORLANDO
+      'Four Seasons Resort Orlando', 'The Ritz-Carlton Orlando, Grande Lakes',
+      'Waldorf Astoria Orlando', 'Disney\'s Grand Floridian Resort',
+      'Universal\'s Portofino Bay Hotel', 'Rosen Shingle Creek',
+      'Gaylord Palms Resort', 'Reunion Resort', 'Omni Orlando Resort at ChampionsGate',
+      'Disney\'s Wedding Pavilion', 'Bohemian Hotel Celebration', 'Cypress Grove Estate House',
+      'Paradise Cove', 'Dubsdread Ballroom', 'Casa Feliz Historic Home',
+      'Luxmore Grande Estate', 'Maggiano\'s Little Italy Orlando', 'The Mezz',
+      'Leu Gardens, Orlando', 'Orlando Museum of Art', 'Alfond Inn Winter Park',
+      
+      // TAMPA & ST. PETE
+      'The Don CeSar, St. Pete Beach', 'The Vinoy Renaissance St. Petersburg',
+      'Grand Hyatt Tampa Bay', 'JW Marriott Tampa Water Street',
+      'The Tampa Marriott Water Street', 'Epicurean Hotel Tampa',
+      'Museum of Fine Arts, St. Petersburg', 'The Mahaffey Theater, St. Petersburg',
+      'Tradewinds Island Grand Resort', 'Sandpearl Resort Clearwater Beach',
+      'The Belleview Inn', 'Armature Works Tampa', 'Oxford Exchange Tampa',
+      'Westshore Yacht Club', 'The Hall on Franklin', 'Sacred Heart Church Tampa',
+      
+      // NAPLES & SOUTHWEST FLORIDA
+      'The Ritz-Carlton, Naples', 'The Ritz-Carlton Golf Resort, Naples',
+      'Naples Grande Beach Resort', 'LaPlaya Beach Resort, Naples',
+      'The Naples Beach Hotel & Golf Club', 'Hyatt Regency Coconut Point, Bonita Springs',
+      'South Seas Island Resort, Captiva Island', 'Sanibel Harbour Marriott',
+      'Naples Botanical Garden', 'The Ritz-Carlton Beach Resort, Naples',
+      'Tiburon Golf Club', 'Naples Yacht Club', 'Port Royal Club',
+      'Pink Shell Beach Resort, Fort Myers', 'The Westin Cape Coral Resort',
+      
+      // JACKSONVILLE & NORTHEAST FLORIDA
+      'One Ocean Resort & Spa, Atlantic Beach', 'The Ponte Vedra Inn & Club',
+      'Sawgrass Marriott Golf Resort & Spa', 'The Lodge & Club at Ponte Vedra Beach',
+      'Omni Amelia Island Resort', 'The Ritz-Carlton, Amelia Island',
+      'The Ribault Club', 'White Room Villa Blanca', 'Cummer Museum of Art & Gardens',
+      'Casa Marina Hotel Jacksonville Beach', 'St. Augustine Distillery',
+      'The Treasury on the Plaza St. Augustine', 'Casa Monica Resort & Spa',
+      
+      // SARASOTA & BRADENTON
+      'The Ritz-Carlton, Sarasota', 'The Resort at Longboat Key Club',
+      'Hyatt Regency Sarasota', 'The Powel Crosley Estate, Sarasota',
+      'The Ringling Museum, Sarasota', 'Marie Selby Botanical Gardens, Sarasota',
+      'Ca\' d\'Zan Mansion', 'Westshore Yacht Club', 'Anna Maria Island Beach Resort',
+      'The Beach House Restaurant, Bradenton Beach',
+      
+      // DESTIN & NORTHWEST FLORIDA
+      'Sandestin Golf and Beach Resort', 'Henderson Beach Resort, Destin',
+      'Hilton Sandestin Beach Golf Resort & Spa', 'WaterColor Inn & Resort',
+      'The Pearl Hotel Rosemary Beach', 'Alys Beach Chapel', 'Seaside Chapel',
+      'Camp Creek Inn', 'Eden Gardens State Park',
+      
+      // TALLAHASSEE & PANHANDLE
+      'Hotel Duval Tallahassee', 'The Governor\'s Club', 'Goodwood Museum & Gardens',
+      'Mission San Luis', 'The Club at SouthWood', 'Alfred B. Maclay Gardens',
+      
+      // ========== NEW YORK ==========
+      
+      // MANHATTAN - MIDTOWN
+      'The Plaza Hotel', 'The St. Regis New York', 'The Pierre Hotel',
+      'The Peninsula New York', 'Mandarin Oriental New York', 'Park Hyatt New York',
+      'The Carlyle, A Rosewood Hotel', 'The Ritz-Carlton New York, Central Park',
+      'Lotte New York Palace', 'The Rainbow Room', 'Rockefeller Center',
+      'Top of the Rock', 'The Beekman Hotel', 'The James New York',
+      'Conrad New York Downtown', 'Cipriani Wall Street', 'Capitale',
+      'Gotham Hall', 'Guastavino\'s', 'Angel Orensanz Foundation',
+      'The Plaza - Grand Ballroom', 'The Plaza - Terrace Room', 'The Plaza - Palm Court',
+      
+      // MANHATTAN - DOWNTOWN & BROOKLYN
+      'Brooklyn Botanic Garden', 'Brooklyn Bridge Park', 'The Foundry Long Island City',
+      'Greenpoint Loft', 'DUMBO Loft', 'Liberty Warehouse Brooklyn',
+      'Wythe Hotel Brooklyn', 'The Williamsburg Hotel', '1 Hotel Brooklyn Bridge',
+      'Deity NYC', 'The Bowery Hotel', 'The High Line Hotel',
+      'The Standard High Line', 'The Foundry', 'The Green Building Brooklyn',
+      'The Bell House Brooklyn', 'Rebar Brooklyn', 'The Astorian',
+      'Giando on the Water', 'Current at Chelsea Piers',
+      
+      // QUEENS & BRONX
+      'Terrace on the Park', 'LIC Landing', 'The Pavilion at Kingsland Point Park',
+      'New York Botanical Garden Bronx', 'Wave Hill Bronx',
+      
+      // WESTCHESTER & HUDSON VALLEY
+      'Castle Hotel & Spa Tarrytown', 'The Inn at Pound Ridge', 'Blue Hill at Stone Barns',
+      'Lyndhurst Mansion Tarrytown', 'Tappan Hill Mansion Tarrytown',
+      'Sleepy Hollow Country Club', 'Elmwood Country Club', 'Westchester Country Club',
+      'The Ryland Inn Whitehouse Station', 'Oheka Castle Long Island',
+      'The Piermont NYC', 'The Warehouse at Old Croton Aqueduct',
+      
+      // LONG ISLAND - NORTH SHORE
+      'Oheka Castle, Huntington', 'The Vanderbilt Museum', 'The Bourne Mansion',
+      'Fox Hollow Woodbury', 'The Carltun Long Island', 'Crest Hollow Country Club',
+      'The Inn at New Hyde Park', 'Jericho Terrace', 'The Royalton at Roslyn Country Club',
+      'The Old Field Club', 'Glen Cove Mansion', 'Muttontown Country Club',
+      
+      // LONG ISLAND - HAMPTONS
+      'The Maidstone Hotel East Hampton', 'Gurney\'s Montauk Resort & Seawater Spa',
+      'Topping Rose House Bridgehampton', 'The Baker House 1650',
+      'The American Hotel Sag Harbor', 'Wölffer Estate Vineyard Sagaponack',
+      'Montauk Yacht Club', 'Gurney\'s Star Island Resort',
+      'Parrish Art Museum Water Mill', 'Ram\'s Head Inn Shelter Island',
+      
+      // LONG ISLAND - SOUTH SHORE
+      'The Larkfield Manor', 'The Allegria Hotel Long Beach', 'Coral House Baldwin',
+      'Watermill Caterers Smithtown', 'Chateau Briand Carle Place',
+      'The Sands at Atlantic Beach', 'The Mansion at West Sayville',
+      
+      // UPSTATE NEW YORK
+      'Mohonk Mountain House New Paltz', 'The Garrison', 'The Glenmere Mansion',
+      'The Sagamore Resort Lake George', 'The Inn at Saratoga', 'Saratoga National Golf Club',
+      'The Roxbury Motel & Resort', 'Full Moon Resort Big Indian',
+      'The Emerson Resort & Spa', 'Hasbrouck House Stone Ridge',
+      'The Hill Hudson', 'The Grand Sutton Beacon',
+      
+      // FINGER LAKES & ROCHESTER
+      'The Windham at Geneva', 'Bristol Harbour Resort', 'Belhurst Castle Geneva',
+      'The del Lago Resort & Casino', 'Shadow Lake Rochester', 'Woodcliff Hotel & Spa',
+      'Casa Larga Vineyards', 'Ravenwood Golf Club',
+      
+      // BUFFALO & NIAGARA FALLS
+      'The Curtiss Hotel Buffalo', 'Hotel Henry Buffalo', 'The Albright-Knox Art Gallery',
+      'The Buffalo Club', 'Salvatore\'s Italian Gardens', 'Statler City',
+      'The Giacomo Hotel Niagara Falls', 'Sheraton Niagara Falls', 'Niagara Falls State Park'
+    ];
+    
+    function searchVenues(query) {
+      console.log('🔍 searchVenues called with:', query);
+      
+      if (!query || query.length < 2) {
+        document.getElementById('venueSuggestions').style.display = 'none';
+        console.log('❌ Query too short, hiding suggestions');
+        return;
+      }
+
+      clearTimeout(venueDebounce);
+      venueDebounce = setTimeout(() => {
+        const lowerQuery = query.toLowerCase();
+        console.log('🔎 Searching for:', lowerQuery);
+        
+        const suggestions = venueDatabase.filter(v => 
+          v.toLowerCase().includes(lowerQuery)
+        ).slice(0, 15); // Show top 15 results
+
+        console.log('✅ Found', suggestions.length, 'venues:', suggestions);
+        displayVenueSuggestions(suggestions);
+      }, 200);
+    }
+
+    function displayVenueSuggestions(venues) {
+      console.log('📋 displayVenueSuggestions called with', venues.length, 'venues');
+      
+      const container = document.getElementById('venueSuggestions');
+      if (!container) {
+        console.error('❌ venueSuggestions container not found!');
+        return;
+      }
+      
+      if (!venues.length) {
+        container.style.display = 'none';
+        console.log('❌ No venues to display');
+        return;
+      }
+
+      container.innerHTML = venues.map(v => `
+        <div onclick="selectVenue('${v.replace(/'/g, "\\'")}')" style="padding: 16px 20px; cursor: pointer; border-bottom: 1px solid var(--bg-gray); transition: background 0.2s; font-size: 15px; font-weight: 400;" onmouseover="this.style.background='var(--bg-gray)'" onmouseout="this.style.background='white'">
+          ${v}
+        </div>
+      `).join('');
+      container.style.display = 'block';
+      console.log('✅ Displayed', venues.length, 'venue suggestions');
+    }
+
+    function selectVenue(venue) {
+      document.getElementById('venue').value = venue;
+      document.getElementById('venueSuggestions').style.display = 'none';
+    }
+
+    // City search with REAL working suggestions
+    let cityDebounce;
+    const cityDatabase = [
+      'Miami, FL', 'Miami Beach, FL', 'Coral Gables, FL',
+      'Fort Lauderdale, FL', 'Hollywood, FL', 'Pompano Beach, FL',
+      'West Palm Beach, FL', 'Palm Beach, FL', 'Boca Raton, FL', 'Delray Beach, FL',
+      'Key West, FL', 'Key Largo, FL', 'Islamorada, FL', 'Marathon, FL',
+      'Orlando, FL', 'Tampa, FL', 'St. Petersburg, FL',
+      'Naples, FL', 'Sarasota, FL', 'Jacksonville, FL'
+    ];
+    
+    function searchCities(query) {
+      if (!query || query.length < 2) {
+        document.getElementById('citySuggestions').style.display = 'none';
+        return;
+      }
+
+      clearTimeout(cityDebounce);
+      cityDebounce = setTimeout(() => {
+        const cities = cityDatabase.filter(c => 
+          c.toLowerCase().includes(query.toLowerCase())
+        ).slice(0, 8);
+
+        displayCitySuggestions(cities);
+      }, 200);
+    }
+
+    function displayCitySuggestions(cities) {
+      const container = document.getElementById('citySuggestions');
+      if (!cities.length) {
+        container.style.display = 'none';
+        return;
+      }
+
+      container.innerHTML = cities.map(c => `
+        <div onclick="selectCity('${c}')" style="padding: 16px 20px; cursor: pointer; border-bottom: 1px solid var(--bg-gray); transition: background 0.2s; font-size: 15px; font-weight: 400;" onmouseover="this.style.background='var(--bg-gray)'" onmouseout="this.style.background='white'">
+          ${c}
+        </div>
+      `).join('');
+      container.style.display = 'block';
+    }
+
+    function selectCity(city) {
+      document.getElementById('city').value = city;
+      document.getElementById('citySuggestions').style.display = 'none';
+    }
+
+    function prevStep(step) {
+      nextStep(step);
+    }
+
+    function checkout() {
+      console.log('Booking:', booking);
+      alert('Redirecting to Stripe checkout...');
+    }
+
+    // Initialize
+    updateCoverageHours(2); // Set minimum 2 hours
+    
+    // Set today's date
+    const todayDate = new Date();
+    const dateString = todayDate.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    document.getElementById('signDate').textContent = dateString;
+    console.log('📅 Date set to:', dateString);
+
+    // Get IP address
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('ipAddress').textContent = data.ip;
+        booking.ipAddress = data.ip;
+      })
+      .catch(() => {
+        document.getElementById('ipAddress').textContent = 'Unable to retrieve';
+      });
+
+    // Signature canvas - ORIGINAL WORKING VERSION
+    // ========================================
+    // SIGNATURE CANVAS - SIMPLEST APPROACH
+    // ========================================
+    let signatureCanvas;
+    let signatureCtx;
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    
+    function initCanvas() {
+      signatureCanvas = document.getElementById('signatureCanvas');
+      signatureCtx = signatureCanvas.getContext('2d');
+      
+      // Set canvas actual size
+      signatureCanvas.width = 600;
+      signatureCanvas.height = 150;
+      
+      // Set drawing style
+      signatureCtx.strokeStyle = '#000000';
+      signatureCtx.lineWidth = 2;
+      signatureCtx.lineCap = 'round';
+      signatureCtx.lineJoin = 'round';
+      
+      console.log('✅ Canvas initialized!', signatureCanvas.width, 'x', signatureCanvas.height);
+      
+      // Add event listeners
+      signatureCanvas.addEventListener('mousedown', onMouseDown);
+      signatureCanvas.addEventListener('mousemove', onMouseMove);
+      signatureCanvas.addEventListener('mouseup', onMouseUp);
+      signatureCanvas.addEventListener('mouseleave', onMouseUp);
+      
+      signatureCanvas.addEventListener('touchstart', onTouchStart);
+      signatureCanvas.addEventListener('touchmove', onTouchMove);
+      signatureCanvas.addEventListener('touchend', onTouchEnd);
+    }
+    
+    function getMousePos(e) {
+      const rect = signatureCanvas.getBoundingClientRect();
+      const scaleX = signatureCanvas.width / rect.width;
+      const scaleY = signatureCanvas.height / rect.height;
+      return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+      };
+    }
+    
+    function getTouchPos(e) {
+      const rect = signatureCanvas.getBoundingClientRect();
+      const scaleX = signatureCanvas.width / rect.width;
+      const scaleY = signatureCanvas.height / rect.height;
+      return {
+        x: (e.touches[0].clientX - rect.left) * scaleX,
+        y: (e.touches[0].clientY - rect.top) * scaleY
+      };
+    }
+    
+    function onMouseDown(e) {
+      e.preventDefault();
+      isDrawing = true;
+      const pos = getMousePos(e);
+      lastX = pos.x;
+      lastY = pos.y;
+      console.log('🖊️ Started drawing at', lastX, lastY);
+    }
+    
+    function onMouseMove(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const pos = getMousePos(e);
+      
+      signatureCtx.beginPath();
+      signatureCtx.moveTo(lastX, lastY);
+      signatureCtx.lineTo(pos.x, pos.y);
+      signatureCtx.stroke();
+      
+      lastX = pos.x;
+      lastY = pos.y;
+    }
+    
+    function onMouseUp(e) {
+      if (!isDrawing) return;
+      isDrawing = false;
+      console.log('✋ Stopped drawing');
+    }
+    
+    function onTouchStart(e) {
+      e.preventDefault();
+      isDrawing = true;
+      const pos = getTouchPos(e);
+      lastX = pos.x;
+      lastY = pos.y;
+      console.log('📱 Touch started at', lastX, lastY);
+    }
+    
+    function onTouchMove(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const pos = getTouchPos(e);
+      
+      signatureCtx.beginPath();
+      signatureCtx.moveTo(lastX, lastY);
+      signatureCtx.lineTo(pos.x, pos.y);
+      signatureCtx.stroke();
+      
+      lastX = pos.x;
+      lastY = pos.y;
+    }
+    
+    function onTouchEnd(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      isDrawing = false;
+      console.log('✋ Touch ended');
+    }
+    
+    function clearSignature() {
+      if (!signatureCtx || !signatureCanvas) {
+        console.error('❌ Canvas not initialized!');
+        return;
+      }
+      signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+      console.log('🗑️ Signature cleared');
+    }
+
+    function validateStep7() {
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      
+      if (!name) {
+        alert('Please enter your name');
+        return;
+      }
+      
+      if (!email) {
+        alert('Please enter your email');
+        return;
+      }
+      
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+      
+      nextStep(8);
+    }
+
+    function switchSignMethod(method) {
+      if (method === 'type') {
+        document.getElementById('typeSignature').style.display = 'block';
+        document.getElementById('drawSignature').style.display = 'none';
+      } else {
+        document.getElementById('typeSignature').style.display = 'none';
+        document.getElementById('drawSignature').style.display = 'block';
+        initCanvas();
+      }
+    }
+
+    function validateAndContinue() {
+      console.log('🔍 Starting validation...');
+      
+      try {
+        const agreed = document.getElementById('agreeCheckbox').checked;
+        console.log('✅ Agreement checked:', agreed);
+        
+        if (!agreed) {
+          alert('Please agree to the terms before continuing');
+          return;
+        }
+
+        const signMethod = document.querySelector('input[name="signMethod"]:checked').value;
+        console.log('🖊️ Sign method:', signMethod);
+        
+        let signature;
+        
+        if (signMethod === 'type') {
+          signature = document.getElementById('signatureName').value.trim();
+          console.log('✍️ Typed signature:', signature);
+          if (!signature) {
+            alert('Please type your full name');
+            return;
+          }
+        } else {
+          // Check if signature canvas exists and has been drawn on
+          const canvas = document.getElementById('signatureCanvas');
+          console.log('🎨 Canvas element:', canvas);
+          
+          if (!canvas) {
+            alert('Canvas not found. Please refresh the page.');
+            return;
+          }
+          
+          console.log('🎨 Canvas dimensions:', canvas.width, 'x', canvas.height);
+          
+          // Ensure canvas has proper dimensions
+          if (canvas.width === 0 || canvas.height === 0) {
+            canvas.width = 600;
+            canvas.height = 150;
+            console.log('⚠️ Canvas dimensions were 0, reset to 600x150');
+          }
+          
+          const blankCanvas = document.createElement('canvas');
+          blankCanvas.width = canvas.width;
+          blankCanvas.height = canvas.height;
+          signature = canvas.toDataURL();
+          const blankSignature = blankCanvas.toDataURL();
+          
+          console.log('🖼️ Signature data length:', signature.length);
+          console.log('🖼️ Blank signature data length:', blankSignature.length);
+          
+          if (!signature || signature === blankSignature) {
+            alert('Please draw your signature on the canvas');
+            return;
+          }
+        }
+
+        console.log('✅ Signature validation passed!');
+        
+        booking.signature = signature;
+        booking.signMethod = signMethod;
+        booking.signedDate = new Date().toISOString();
+
+        console.log('🔍 FILLING CONTRACT WITH:', {
+          name: booking.name,
+          email: booking.email,
+          date: booking.date,
+          venue: booking.venue,
+          package: booking.package,
+          total: booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0)
+        });
+
+        // Fill contract details
+        const contractNameEl = document.getElementById('contractName');
+        const contractName2El = document.getElementById('contractName2');
+        const contractEmailEl = document.getElementById('contractEmail');
+        const contractWeddingDateEl = document.getElementById('contractWeddingDate');
+        const contractWeddingDate2El = document.getElementById('contractWeddingDate2');
+        const contractWeddingDate3El = document.getElementById('contractWeddingDate3');
+        const contractVenueEl = document.getElementById('contractVenue');
+        
+        if (!contractNameEl) throw new Error('contractName element not found');
+        if (!contractName2El) throw new Error('contractName2 element not found');
+        if (!contractEmailEl) throw new Error('contractEmail element not found');
+        if (!contractWeddingDateEl) throw new Error('contractWeddingDate element not found');
+        if (!contractWeddingDate2El) throw new Error('contractWeddingDate2 element not found');
+        if (!contractWeddingDate3El) throw new Error('contractWeddingDate3 element not found');
+        if (!contractVenueEl) throw new Error('contractVenue element not found');
+        
+        contractNameEl.textContent = booking.name || 'Client';
+        contractName2El.textContent = booking.name || 'Client';
+        contractEmailEl.textContent = booking.email || '';
+        contractWeddingDateEl.textContent = booking.date || 'TBD';
+        contractWeddingDate2El.textContent = booking.date || 'TBD';
+        contractWeddingDate3El.textContent = booking.date || 'TBD';
+        contractVenueEl.textContent = booking.venue || 'TBD';
+        
+        console.log('✅ Contract details filled');
+        
+        // Show package name with price
+        let packageDisplay = 'Not selected';
+        if (booking.package === 'custom') {
+          packageDisplay = `Custom Build - ${booking.coverageHours} hours of coverage - $${booking.packagePrice.toLocaleString()}`;
+        } else if (booking.package) {
+          packageDisplay = booking.package.charAt(0).toUpperCase() + booking.package.slice(1) + ' Package - $' + booking.packagePrice.toLocaleString();
+        }
+        const contractPackageEl = document.getElementById('contractPackage');
+        if (!contractPackageEl) throw new Error('contractPackage element not found');
+        contractPackageEl.textContent = packageDisplay;
+        
+        console.log('✅ Package display set');
+        
+        // Show upgrades
+        const contractUpgradesEl = document.getElementById('contractUpgrades');
+        if (!contractUpgradesEl) throw new Error('contractUpgrades element not found');
+        
+        const upgradesHTML = booking.upgrades.map(u => 
+          `<p style="margin-bottom: 8px;">\u2022 ${u.key}: $${u.price.toLocaleString()}</p>`
+        ).join('');
+        if (booking.album) {
+          contractUpgradesEl.innerHTML = 
+            `<p style="margin-bottom: 8px;">\u2022 ${booking.album.charAt(0).toUpperCase() + booking.album.slice(1)} Album: $${booking.albumPrice.toLocaleString()}</p>` + 
+            upgradesHTML;
+        } else {
+          contractUpgradesEl.innerHTML = upgradesHTML;
+        }
+        
+        console.log('✅ Upgrades filled');
+        
+        const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+        const contractTotalEl = document.getElementById('contractTotal');
+        const contractTotal2El = document.getElementById('contractTotal2');
+        if (!contractTotalEl) throw new Error('contractTotal element not found');
+        if (!contractTotal2El) throw new Error('contractTotal2 element not found');
+        
+        contractTotalEl.textContent = total.toLocaleString();
+        contractTotal2El.textContent = total.toLocaleString();
+
+        console.log('✅ Totals set');
+
+        // Calculate 3-payment schedule
+        const payment1 = Math.round(total / 3);
+        const payment2 = Math.round(total / 3);
+        const payment3 = total - payment1 - payment2;
+
+        console.log('✅ Payments calculated');
+
+        // Calculate payment dates
+        const today = new Date();
+        const weddingDate = new Date(booking.date);
+        
+        const payment1DateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        
+        const midpointTime = today.getTime() + ((weddingDate.getTime() - today.getTime()) / 2);
+        const payment2Date = new Date(midpointTime);
+        const payment2DateStr = payment2Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        
+        const payment3Date = new Date(weddingDate);
+        payment3Date.setDate(payment3Date.getDate() - 14);
+        const payment3DateStr = payment3Date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        console.log('✅ Payment dates calculated');
+
+        // Fill payment schedule (only if elements exist)
+        const payment1AmountEl = document.getElementById('payment1Amount');
+        if (payment1AmountEl) {
+          document.getElementById('payment1Amount').textContent = payment1.toLocaleString();
+          document.getElementById('payment1Date').textContent = payment1DateStr;
+          document.getElementById('payment2Amount').textContent = payment2.toLocaleString();
+          document.getElementById('payment2Date').textContent = payment2DateStr;
+          document.getElementById('payment3Amount').textContent = payment3.toLocaleString();
+          document.getElementById('payment3Date').textContent = payment3DateStr;
+
+          console.log('💰 PAYMENT SCHEDULE CALCULATED:', {
+            total,
+            payment1: `$${payment1.toLocaleString()} - ${payment1DateStr}`,
+            payment2: `$${payment2.toLocaleString()} - ${payment2DateStr}`,
+            payment3: `$${payment3.toLocaleString()} - ${payment3DateStr}`
+          });
+        } else {
+          console.log('⚠️ Payment schedule elements not found (might not be wedding package)');
+        }
+
+        console.log('✅ Payment schedule filled');
+
+        // Fill final page
+        const finalSignatureNameEl = document.getElementById('finalSignatureName');
+        const finalSignDateEl = document.getElementById('finalSignDate');
+        
+        if (!finalSignatureNameEl) throw new Error('finalSignatureName element not found');
+        if (!finalSignDateEl) throw new Error('finalSignDate element not found');
+        
+        finalSignatureNameEl.textContent = booking.name;
+        finalSignDateEl.textContent = new Date().toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        });
+
+        console.log('✅ Final page details set');
+
+        // Initialize payment amounts for Step 9
+        initializePaymentAmounts(total);
+
+        console.log('✅ Payment amounts initialized');
+
+        console.log('🚀 About to call nextStep(9)...');
+        nextStep(9);
+        console.log('✅ nextStep(9) called!');
+        
+      } catch (error) {
+        console.error('❌ ERROR IN VALIDATION:', error);
+        alert('Error: ' + error.message);
+      }
+    }
+
+
+    // Payment amount calculation and display
+    let selectedPaymentAmount = 0;
+    
+    function initializePaymentAmounts(total) {
+      const third = Math.round(total / 3);
+      const half = Math.round(total / 2);
+      
+      // Update payment option amounts
+      document.getElementById('amount_third').textContent = third.toLocaleString();
+      document.getElementById('amount_half').textContent = half.toLocaleString();
+      document.getElementById('amount_full').textContent = total.toLocaleString();
+      
+      // Set default selected amount (1/3)
+      selectedPaymentAmount = third;
+      updateSelectedAmountDisplay();
+      
+      console.log('💰 Payment amounts initialized:', { third, half, full: total });
+    }
+    
+    function updatePaymentAmount(option) {
+      const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+      
+      if (option === 'third') {
+        selectedPaymentAmount = Math.round(total / 3);
+      } else if (option === 'half') {
+        selectedPaymentAmount = Math.round(total / 2);
+      } else if (option === 'full') {
+        selectedPaymentAmount = total;
+      }
+      
+      updateSelectedAmountDisplay();
+      console.log(`💳 Payment option changed to: ${option} = $${selectedPaymentAmount.toLocaleString()}`);
+    }
+    
+    function updateSelectedAmountDisplay() {
+      // Update payment method button (only Stripe now)
+      document.getElementById('selectedAmount').textContent = selectedPaymentAmount.toLocaleString();
+      
+      // Update manual payment methods
+      const manualAmounts = document.querySelectorAll('.manualAmount');
+      manualAmounts.forEach(el => {
+        el.textContent = selectedPaymentAmount.toLocaleString();
+      });
+    }
+
+    // Payment method handlers
+    async function payWithStripe() {
+      try {
+        const total = booking.packagePrice + booking.albumPrice + booking.upgrades.reduce((sum, u) => sum + u.price, 0);
+        
+        console.log('💳 Initiating Stripe checkout...', {
+          amount: selectedPaymentAmount,
+          total: total,
+          booking: booking
+        });
+
+        // Create Stripe checkout session
+        const response = await fetch('/api/payments/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount: selectedPaymentAmount,
+            productName: `Wedding Photography - ${booking.package} Package`,
+            customerEmail: booking.email,
+            mode: 'payment',
+            successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancelUrl: window.location.href,
+            metadata: {
+              product_type: 'wedding_photography',
+              package_name: booking.package,
+              client_name: booking.name,
+              client_email: booking.email,
+              wedding_date: booking.date,
+              venue: booking.venue,
+              coverage_hours: booking.coverageHours || booking.hours,
+              album: booking.album || 'None',
+              total_investment: total,
+              payment_plan: selectedPaymentAmount === total ? 'full' : (selectedPaymentAmount === Math.round(total / 2) ? 'half' : 'third'),
+              source: 'wedding_booking_flow'
+            }
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.url) {
+          throw new Error(data.error || 'Failed to create checkout session');
+        }
+
+        console.log('✅ Stripe session created, redirecting...');
+        
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
+
+      } catch (error) {
+        console.error('❌ Stripe checkout error:', error);
+        alert('Unable to process payment. Please try again or contact us directly at italo@acromatico.com');
+      }
+    }
+    
+
+  </script>
+
+</body>
+</html>

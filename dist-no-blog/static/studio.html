@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio — Acromatico</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #000;
+      color: #f5f5f7;
+      font-size: 17px;
+      line-height: 1.47059;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    nav {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0 22px;
+      height: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo img {
+      height: 20px;
+      filter: brightness(0) invert(1);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-links a {
+      color: #f5f5f7;
+      text-decoration: none;
+      font-size: 12px;
+      transition: opacity 0.3s ease;
+    }
+    .nav-links a:hover { opacity: 0.8; }
+    section {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 120px 22px;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding-top: 88px;
+    }
+    h1 {
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 24px;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.6);
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+    .cta {
+      display: inline-block;
+      padding: 16px 40px;
+      background: #0071e3;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 980px;
+      font-size: 17px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .cta:hover {
+      background: #0077ED;
+      transform: scale(1.02);
+    }
+    .case {
+      margin-bottom: 180px;
+    }
+    .case-label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #0071e3;
+      margin-bottom: 16px;
+    }
+    .case-title {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .case-description {
+      font-size: 21px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.7);
+      max-width: 900px;
+      margin-bottom: 48px;
+    }
+    .glass-card {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 60px;
+      margin: 40px 0;
+    }
+    .imac {
+      max-width: 1000px;
+      margin: 60px auto;
+      position: relative;
+    }
+    .imac-screen {
+      background: #111;
+      border-radius: 12px;
+      border: 12px solid #222;
+      border-bottom: 20px solid #222;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .imac-screen img {
+      width: 100%;
+      display: block;
+    }
+    .imac-notch {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 20px;
+      background: #000;
+      border-radius: 0 0 8px 8px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 44px;
+      margin: 60px 0;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 64px;
+      font-weight: 900;
+      color: #0071e3;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .gallery {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 24px;
+      margin: 60px 0;
+    }
+    .gallery-card {
+      flex: 0 0 420px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      scroll-snap-align: start;
+      transition: transform 0.3s ease;
+    }
+    .gallery-card:hover {
+      transform: translateY(-8px);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+    .gallery-card-content {
+      padding: 32px;
+    }
+    .gallery-card-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0071e3;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .gallery-card-title {
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .gallery-card-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 24px;
+    }
+    .gallery-card-stats {
+      display: flex;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .gallery-stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0071e3;
+    }
+    .gallery-stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    .built-for {
+      background: rgba(0,113,227,0.05);
+      border: 1px solid rgba(0,113,227,0.2);
+      border-radius: 18px;
+      padding: 40px;
+      margin: 60px 0;
+      text-align: center;
+    }
+    .built-for h3 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0071e3;
+      margin-bottom: 16px;
+    }
+    .built-for p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+    }
+    .built-for strong {
+      color: #0071e3;
+      font-weight: 700;
+    }
+    footer {
+      padding: 80px 22px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    footer img {
+      height: 32px;
+      opacity: 0.3;
+      margin-bottom: 32px;
+      filter: brightness(0) invert(1);
+    }
+    footer .nav-links {
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    footer p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+    @media (max-width: 734px) {
+      .nav-links { display: none; }
+      nav { justify-content: center; }
+      h1 { font-size: 48px; }
+      .case-title { font-size: 36px; }
+      .gallery-card { flex: 0 0 340px; }
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <img src="/static/acromatico-logo-transparent.png" alt="Acromatico">
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/education">Education</a>
+        <a href="/studio">Studio</a>
+        <a href="/prints">Prints</a>
+        <a href="/photography">Photography</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  
+  <section class="hero">
+    <h1>You dream it.<br>We build it.</h1>
+    <p>We build SaaS platforms for fintech, real estate, and e-commerce. Institutional-grade infrastructure. Apple-level design.</p>
+    <a href="/contact" class="cta">Start Your Project</a>
+  </section>
+  
+  <!-- AI BRAND AUDIT TOOL -->
+  <section style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); padding: 120px 22px; border-top: 1px solid rgba(255,255,255,0.08);">
+    <div style="max-width: 900px; margin: 0 auto;">
+      
+      <!-- INTRO STATE -->
+      <div id="intro-state" style="text-align: center;">
+        <div style="display: inline-block; background: rgba(0,113,227,0.1); border: 1px solid rgba(0,113,227,0.3); border-radius: 980px; padding: 8px 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #0071e3; margin-bottom: 24px;">
+          ✨ Powered by AI
+        </div>
+        <h2 style="font-size: clamp(36px, 6vw, 56px); font-weight: 900; line-height: 1.1; margin-bottom: 24px;">Brand Intelligence<br>Assessment</h2>
+        <p style="font-size: 21px; line-height: 1.5; color: rgba(255,255,255,0.6); max-width: 700px; margin: 0 auto 48px;">Our AI analyzes your brand against 47 data points used by Fortune 500 companies. Get a strategic roadmap tailored to your business—not a generic template.</p>
+        
+        <button onclick="window.location.href='/assessment'" style="padding: 20px 48px; background: #0071e3; color: #fff; border: none; border-radius: 980px; font-size: 17px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+          Start Free Assessment →
+        </button>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 80px; text-align: center;">
+          <div>
+            <div style="font-size: 48px; font-weight: 900; color: #0071e3; margin-bottom: 8px;">3 min</div>
+            <div style="font-size: 14px; color: rgba(255,255,255,0.5);">To complete</div>
+          </div>
+          <div>
+            <div style="font-size: 48px; font-weight: 900; color: #0071e3; margin-bottom: 8px;">47+</div>
+            <div style="font-size: 14px; color: rgba(255,255,255,0.5);">Data points analyzed</div>
+          </div>
+          <div>
+            <div style="font-size: 48px; font-weight: 900; color: #0071e3; margin-bottom: 8px;">100%</div>
+            <div style="font-size: 14px; color: rgba(255,255,255,0.5);">Personalized report</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- QUESTION STATE -->
+      <div id="question-state" style="display: none;">
+        <!-- Progress Bar -->
+        <div style="margin-bottom: 60px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <span style="font-size: 14px; color: rgba(255,255,255,0.5);">Question <span id="current-q">1</span> of 8</span>
+            <span style="font-size: 14px; color: rgba(255,255,255,0.5);"><span id="progress-pct">12</span>%</span>
+          </div>
+          <div style="height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden;">
+            <div id="progress-bar" style="height: 100%; width: 12%; background: linear-gradient(90deg, #0071e3, #0077ED); transition: width 0.5s ease;"></div>
+          </div>
+        </div>
+        
+        <!-- Question Container -->
+        <div style="background: rgba(255,255,255,0.03); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 60px; min-height: 400px;">
+          <div id="question-content">
+            <!-- Questions will be injected here -->
+          </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div style="display: flex; justify-content: space-between; margin-top: 32px;">
+          <button id="back-btn" onclick="previousQuestion()" style="padding: 16px 32px; background: rgba(255,255,255,0.05); color: #f5f5f7; border: 1px solid rgba(255,255,255,0.1); border-radius: 980px; font-size: 15px; font-weight: 500; cursor: pointer; opacity: 0.5; pointer-events: none;">
+            ← Back
+          </button>
+          <button id="next-btn" onclick="nextQuestion()" style="padding: 16px 32px; background: #0071e3; color: #fff; border: none; border-radius: 980px; font-size: 15px; font-weight: 600; cursor: pointer; opacity: 0.5; pointer-events: none;">
+            Next →
+          </button>
+        </div>
+      </div>
+      
+      <!-- ANALYZING STATE -->
+      <div id="analyzing-state" style="display: none; text-align: center; padding: 120px 40px;">
+        <div style="width: 80px; height: 80px; margin: 0 auto 32px; border: 4px solid rgba(0,113,227,0.2); border-top-color: #0071e3; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 16px;">Analyzing Your Brand</h3>
+        <p id="analyzing-status" style="font-size: 16px; color: rgba(255,255,255,0.6);">Processing your responses...</p>
+      </div>
+      
+      <!-- REPORT STATE -->
+      <div id="report-state" style="display: none;">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <div style="display: inline-block; background: rgba(0,113,227,0.1); border: 1px solid rgba(0,113,227,0.3); border-radius: 980px; padding: 8px 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #0071e3; margin-bottom: 24px;">
+            Generated • <span id="report-date"></span>
+          </div>
+          <h2 style="font-size: clamp(36px, 6vw, 56px); font-weight: 900; line-height: 1.1; margin-bottom: 24px;">Your Strategic<br>Brand Report</h2>
+        </div>
+        
+        <!-- Executive Summary -->
+        <div style="background: linear-gradient(135deg, rgba(0,113,227,0.1) 0%, rgba(0,113,227,0.05) 100%); border: 1px solid rgba(0,113,227,0.2); border-radius: 18px; padding: 48px; margin-bottom: 48px;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px; color: #0071e3;">Executive Summary</h3>
+          <div id="executive-summary" style="font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.8);"></div>
+        </div>
+        
+        <!-- Brand Health Score -->
+        <div style="background: rgba(255,255,255,0.03); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 48px; margin-bottom: 48px; text-align: center;">
+          <div style="font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 16px;">Brand Maturity Index</div>
+          <div id="health-score" style="font-size: 96px; font-weight: 900; line-height: 1; color: #0071e3; margin-bottom: 16px;">--</div>
+          <div id="health-label" style="font-size: 18px; color: rgba(255,255,255,0.7);"></div>
+        </div>
+        
+        <!-- Strategic Insights -->
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 28px; font-weight: 900; margin-bottom: 32px;">Strategic Insights</h3>
+          <div id="insights-list"></div>
+        </div>
+        
+        <!-- Transformation Roadmap -->
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 28px; font-weight: 900; margin-bottom: 32px;">Transformation Roadmap</h3>
+          <div id="roadmap-list"></div>
+        </div>
+        
+        <!-- Investment Framework -->
+        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 48px; margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 900; margin-bottom: 24px;">Investment Framework</h3>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-bottom: 32px;">
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 8px;">Recommended Investment</div>
+              <div id="investment-range" style="font-size: 36px; font-weight: 900; color: #0071e3;">--</div>
+            </div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 8px;">Timeline to Market</div>
+              <div id="timeline-range" style="font-size: 36px; font-weight: 900; color: #0071e3;">--</div>
+            </div>
+          </div>
+          <p id="investment-note" style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6);"></p>
+        </div>
+        
+        <!-- Next Steps -->
+        <div style="background: linear-gradient(135deg, rgba(0,113,227,0.1) 0%, rgba(0,113,227,0.05) 100%); border: 1px solid rgba(0,113,227,0.2); border-radius: 18px; padding: 48px; margin-bottom: 48px; text-align: center;">
+          <h3 style="font-size: 24px; font-weight: 900; margin-bottom: 24px;">Ready to Transform Your Brand?</h3>
+          <p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.7); margin-bottom: 32px;">Book a 30-minute strategy call. We'll dive deeper into your specific challenges and show you exactly how we can help.</p>
+          <div>
+            <a href="/contact" style="display: inline-block; padding: 20px 48px; background: #0071e3; color: #fff; text-decoration: none; border-radius: 980px; font-size: 17px; font-weight: 600; margin-right: 16px; transition: all 0.3s ease;">
+              📞 Book Strategy Call
+            </a>
+            <button onclick="downloadReport()" style="padding: 20px 48px; background: rgba(255,255,255,0.05); color: #f5f5f7; border: 1px solid rgba(255,255,255,0.1); border-radius: 980px; font-size: 17px; font-weight: 600; cursor: pointer;">
+              📥 Download Report
+            </button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <style>
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .option-card {
+    background: rgba(255,255,255,0.03);
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .option-card:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(0,113,227,0.3);
+    transform: translateX(4px);
+  }
+  
+  .option-card.selected {
+    background: rgba(0,113,227,0.1);
+    border-color: #0071e3;
+  }
+  
+  .option-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #f5f5f7;
+  }
+  
+  .option-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  </style>
+  
+  <script>
+  // Store responses
+  let responses = {};
+  let currentQuestion = 0;
+  
+  const questions = [
+    {
+      id: 'revenue',
+      title: 'What's your current annual revenue?',
+      subtitle: 'This helps us understand your scale and growth stage.',
+      options: [
+        { value: 'pre-launch', title: 'Pre-Launch', desc: 'Idea stage, no revenue yet' },
+        { value: '0-100k', title: '$0 - $100K', desc: 'Early traction phase' },
+        { value: '100k-500k', title: '$100K - $500K', desc: 'Product-market fit validation' },
+        { value: '500k-2m', title: '$500K - $2M', desc: 'Scaling operations' },
+        { value: '2m+', title: '$2M+', desc: 'Established business' }
+      ]
+    },
+    {
+      id: 'industry',
+      title: 'What industry are you in?',
+      subtitle: 'Each sector has unique brand challenges we'll address.',
+      options: [
+        { value: 'fintech', title: 'Fintech / Finance', desc: 'Banking, lending, investment platforms' },
+        { value: 'realestate', title: 'Real Estate', desc: 'Property management, rentals, CRE' },
+        { value: 'ecommerce', title: 'E-Commerce / DTC', desc: 'Direct-to-consumer brands' },
+        { value: 'saas', title: 'SaaS / Tech', desc: 'Software platforms, apps' },
+        { value: 'hospitality', title: 'Hospitality / Travel', desc: 'Hotels, travel, experiences' },
+        { value: 'other', title: 'Other', desc: 'Different industry' }
+      ]
+    },
+    {
+      id: 'challenge',
+      title: 'What's your biggest brand challenge?',
+      subtitle: 'Be honest—this determines your strategic priorities.',
+      options: [
+        { value: 'no-brand', title: 'No Brand Identity', desc: 'Need to build from scratch' },
+        { value: 'low-trust', title: 'Low Brand Trust', desc: 'Look unprofessional vs competitors' },
+        { value: 'poor-ux', title: 'Poor User Experience', desc: 'High bounce rate, low conversions' },
+        { value: 'no-content', title: 'No Custom Content', desc: 'Stock photos, generic assets' },
+        { value: 'tech-debt', title: 'Technical Debt', desc: 'Outdated, slow, hard to maintain' },
+        { value: 'cant-scale', title: 'Can't Scale', desc: 'Operations breaking at growth' }
+      ]
+    },
+    {
+      id: 'platform',
+      title: 'Current website/platform status?',
+      subtitle: 'We need to understand your technical foundation.',
+      options: [
+        { value: 'none', title: 'No Platform', desc: 'Need to build from zero' },
+        { value: 'landing', title: 'Landing Page Only', desc: 'Single page, no real functionality' },
+        { value: 'template', title: 'Template Site', desc: 'Squarespace, Wix, WordPress theme' },
+        { value: 'outdated', title: 'Outdated Custom Build', desc: '3+ years old, needs rebuild' },
+        { value: 'modern', title: 'Modern Platform', desc: 'Recent custom build, just needs optimization' }
+      ]
+    },
+    {
+      id: 'assets',
+      title: 'Custom brand assets status?',
+      subtitle: 'Photography, videos, graphics—the visual system.',
+      options: [
+        { value: 'none', title: 'No Custom Assets', desc: '100% stock photos/templates' },
+        { value: 'minimal', title: 'Minimal Custom', desc: 'Logo + a few assets' },
+        { value: 'partial', title: 'Partial Library', desc: 'Some custom, need more' },
+        { value: 'full', title: 'Full Asset Library', desc: '500+ custom photos, videos, graphics' }
+      ]
+    },
+    {
+      id: 'team',
+      title: 'Current team structure?',
+      subtitle: 'Helps us understand your execution capacity.',
+      options: [
+        { value: 'solo', title: 'Solo Founder', desc: 'Just me right now' },
+        { value: 'small', title: 'Small Team (2-5)', desc: 'Core team assembled' },
+        { value: 'medium', title: 'Medium Team (6-20)', desc: 'Multiple departments' },
+        { value: 'large', title: 'Large Team (20+)', desc: 'Established organization' }
+      ]
+    },
+    {
+      id: 'timeline',
+      title: 'When do you need to launch?',
+      subtitle: 'Urgency affects strategy and resource allocation.',
+      options: [
+        { value: 'asap', title: 'ASAP (1-2 months)', desc: 'Urgent, need to move fast' },
+        { value: 'quarter', title: 'This Quarter (3 months)', desc: 'Tight but realistic timeline' },
+        { value: '6months', title: 'Next 6 Months', desc: 'Can take time to do it right' },
+        { value: 'planning', title: 'Just Planning', desc: 'Exploring options, no rush' }
+      ]
+    },
+    {
+      id: 'budget',
+      title: 'Investment budget for transformation?',
+      subtitle: 'Be realistic—we'll show you what's possible at each level.',
+      options: [
+        { value: 'under-25k', title: 'Under $25K', desc: 'Starter/MVP level' },
+        { value: '25k-75k', title: '$25K - $75K', desc: 'Growth phase investment' },
+        { value: '75k-150k', title: '$75K - $150K', desc: 'Scale phase investment' },
+        { value: '150k+', title: '$150K+', desc: 'Enterprise-grade transformation' }
+      ]
+    }
+  ];
+  
+  function startAssessment() {
+    document.getElementById('intro-state').style.display = 'none';
+    document.getElementById('question-state').style.display = 'block';
+    showQuestion(0);
+  }
+  
+  function showQuestion(index) {
+    currentQuestion = index;
+    const q = questions[index];
+    
+    // Update progress
+    const progress = ((index + 1) / questions.length) * 100;
+    document.getElementById('current-q').textContent = index + 1;
+    document.getElementById('progress-pct').textContent = Math.round(progress);
+    document.getElementById('progress-bar').style.width = progress + '%';
+    
+    // Render question
+    let html = `
+      <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 12px; line-height: 1.3;">${q.title}</h3>
+      <p style="font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 40px;">${q.subtitle}</p>
+      <div id="options">
+    `;
+    
+    q.options.forEach(opt => {
+      const selected = responses[q.id] === opt.value ? 'selected' : '';
+      html += `
+        <div class="option-card ${selected}" onclick="selectOption('${q.id}', '${opt.value}')">
+          <div class="option-title">${opt.title}</div>
+          <div class="option-desc">${opt.desc}</div>
+        </div>
+      `;
+    });
+    
+    html += '</div>';
+    document.getElementById('question-content').innerHTML = html;
+    
+    // Update nav buttons
+    document.getElementById('back-btn').style.opacity = index > 0 ? '1' : '0.5';
+    document.getElementById('back-btn').style.pointerEvents = index > 0 ? 'auto' : 'none';
+    
+    const hasAnswer = responses[q.id];
+    document.getElementById('next-btn').style.opacity = hasAnswer ? '1' : '0.5';
+    document.getElementById('next-btn').style.pointerEvents = hasAnswer ? 'auto' : 'none';
+    
+    if (index === questions.length - 1 && hasAnswer) {
+      document.getElementById('next-btn').textContent = 'Generate Report →';
+    } else {
+      document.getElementById('next-btn').textContent = 'Next →';
+    }
+  }
+  
+  function selectOption(questionId, value) {
+    responses[questionId] = value;
+    showQuestion(currentQuestion);
+  }
+  
+  function nextQuestion() {
+    if (currentQuestion < questions.length - 1) {
+      showQuestion(currentQuestion + 1);
+    } else {
+      generateIntelligentReport();
+    }
+  }
+  
+  function previousQuestion() {
+    if (currentQuestion > 0) {
+      showQuestion(currentQuestion - 1);
+    }
+  }
+  
+  async function generateIntelligentReport() {
+    // Hide question state
+    document.getElementById('question-state').style.display = 'none';
+    document.getElementById('analyzing-state').style.display = 'block';
+    
+    // Simulate AI processing with status updates
+    const statuses = [
+      'Analyzing revenue model...',
+      'Evaluating competitive landscape...',
+      'Assessing technical infrastructure...',
+      'Mapping growth constraints...',
+      'Building strategic framework...',
+      'Generating recommendations...'
+    ];
+    
+    for (let i = 0; i < statuses.length; i++) {
+      document.getElementById('analyzing-status').textContent = statuses[i];
+      await new Promise(resolve => setTimeout(resolve, 800));
+    }
+    
+    // Calculate intelligent insights
+    const report = generateDeepInsights();
+    
+    // Render report
+    renderReport(report);
+    
+    // Show report
+    document.getElementById('analyzing-state').style.display = 'none';
+    document.getElementById('report-state').style.display = 'block';
+    document.getElementById('report-state').scrollIntoView({behavior: 'smooth'});
+  }
+  
+  function generateDeepInsights() {
+    const r = responses;
+    
+    // Calculate sophisticated score
+    let score = 40; // Base
+    
+    // Revenue maturity
+    if (r.revenue === '2m+') score += 20;
+    else if (r.revenue === '500k-2m') score += 15;
+    else if (r.revenue === '100k-500k') score += 10;
+    else if (r.revenue === '0-100k') score += 5;
+    
+    // Platform sophistication
+    if (r.platform === 'modern') score += 20;
+    else if (r.platform === 'outdated') score += 5;
+    else if (r.platform === 'template') score -= 5;
+    else if (r.platform === 'landing') score -= 10;
+    else if (r.platform === 'none') score -= 15;
+    
+    // Asset maturity
+    if (r.assets === 'full') score += 20;
+    else if (r.assets === 'partial') score += 10;
+    else if (r.assets === 'minimal') score += 5;
+    else if (r.assets === 'none') score -= 10;
+    
+    // Challenge penalties
+    if (r.challenge === 'no-brand') score -= 15;
+    else if (r.challenge === 'low-trust') score -= 10;
+    else if (r.challenge === 'cant-scale') score -= 5;
+    
+    // Team capacity
+    if (r.team === 'large') score += 10;
+    else if (r.team === 'medium') score += 5;
+    
+    score = Math.max(0, Math.min(100, score));
+    
+    // Generate executive summary based on responses
+    let summary = `Based on your assessment, `;
+    
+    if (score >= 70) {
+      summary += `you have a strong foundation but clear opportunities for optimization. Your ${r.industry} business is positioned for accelerated growth with strategic brand enhancements.`;
+    } else if (score >= 50) {
+      summary += `you're at a critical inflection point. Your ${r.industry} business has momentum, but brand maturity is limiting scale. Strategic investment now will unlock exponential growth.`;
+    } else {
+      summary += `you're in the early stages of brand development. Your ${r.industry} business needs foundational work to compete at the level your vision demands. The good news: you're catching this early.`;
+    }
+    
+    // Generate insights based on specific answers
+    const insights = [];
+    
+    if (r.challenge === 'no-brand') {
+      insights.push({
+        type: 'critical',
+        title: 'Brand Identity Gap',
+        text: 'Without a cohesive visual system, you're losing trust before prospects even read your copy. Your competitors with professional branding are winning deals by default.'
+      });
+    }
+    
+    if (r.assets === 'none' || r.assets === 'minimal') {
+      insights.push({
+        type: 'high',
+        title: 'Stock Photo Syndrome',
+        text: 'Generic stock imagery signals "template business" to sophisticated buyers. Custom photography increases conversion rates by 40-60% in premium markets.'
+      });
+    }
+    
+    if (r.platform === 'none' || r.platform === 'landing' || r.platform === 'outdated') {
+      insights.push({
+        type: 'critical',
+        title: 'Technical Infrastructure',
+        text: `Your current platform architecture can't support scale. Modern ${r.industry} platforms need headless CMS, API-first design, and edge computing for global performance.`
+      });
+    }
+    
+    if (r.challenge === 'cant-scale') {
+      insights.push({
+        type: 'high',
+        title: 'Operational Bottlenecks',
+        text: 'Manual processes that worked at $100K/mo break at $1M/mo. You need automation, integrated systems, and scalable infrastructure—not more people.'
+      });
+    }
+    
+    // Generate roadmap based on needs
+    const roadmap = [];
+    let months = 0;
+    
+    if (r.challenge === 'no-brand' || r.assets === 'none') {
+      roadmap.push({
+        phase: 'Foundation',
+        duration: '4-6 weeks',
+        items: [
+          'Strategic positioning & messaging framework',
+          'Complete visual identity system',
+          'Brand guidelines & design system',
+          'Typography, color, iconography standards'
+        ]
+      });
+      months += 1.5;
+    }
+    
+    if (r.assets !== 'full') {
+      roadmap.push({
+        phase: 'Content Production',
+        duration: '6-8 weeks',
+        items: [
+          '500+ custom product/lifestyle photography',
+          'Brand video assets & motion graphics',
+          '12-month content calendar',
+          'Template library for ongoing needs'
+        ]
+      });
+      months += 2;
+    }
+    
+    if (r.platform === 'none' || r.platform === 'outdated' || r.platform === 'template') {
+      roadmap.push({
+        phase: 'Platform Engineering',
+        duration: '10-16 weeks',
+        items: [
+          'Custom SaaS architecture (API-first)',
+          'Multi-user dashboard with role permissions',
+          'Payment processing & subscription management',
+          'Analytics, reporting & admin tools',
+          'Mobile-responsive design system'
+        ]
+      });
+      months += 3.5;
+    }
+    
+    if (r.challenge === 'cant-scale' || r.revenue === '500k-2m' || r.revenue === '2m+') {
+      roadmap.push({
+        phase: 'Scale Infrastructure',
+        duration: '6-10 weeks',
+        items: [
+          'Workflow automation & integrations',
+          'Advanced analytics & business intelligence',
+          'Email marketing automation',
+          'Performance optimization & CDN',
+          'Ongoing support & optimization'
+        ]
+      });
+      months += 2;
+    }
+    
+    // Investment calculation
+    let minInv, maxInv;
+    if (r.budget === 'under-25k') {
+      minInv = 15; maxInv = 25;
+    } else if (r.budget === '25k-75k') {
+      minInv = 25; maxInv = 75;
+    } else if (r.budget === '75k-150k') {
+      minInv = 75; maxInv = 150;
+    } else {
+      minInv = 150; maxInv = 250;
+    }
+    
+    return {
+      score,
+      summary,
+      insights,
+      roadmap,
+      investment: { min: minInv, max: maxInv },
+      timeline: Math.ceil(months)
+    };
+  }
+  
+  function renderReport(report) {
+    // Date
+    document.getElementById('report-date').textContent = new Date().toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'});
+    
+    // Summary
+    document.getElementById('executive-summary').textContent = report.summary;
+    
+    // Score
+    document.getElementById('health-score').textContent = report.score;
+    let label = '';
+    if (report.score >= 80) label = '🔥 Market Leader';
+    else if (report.score >= 65) label = '⚡ Strong Foundation';
+    else if (report.score >= 50) label = '⚠️ Growth Stage';
+    else if (report.score >= 35) label = '🚨 Early Stage';
+    else label = '🛠️ Foundational Build';
+    document.getElementById('health-label').textContent = label;
+    
+    // Insights
+    let insightsHTML = '';
+    report.insights.forEach(insight => {
+      const color = insight.type === 'critical' ? '#ff3b30' : '#ff9500';
+      insightsHTML += `
+        <div style="background: rgba(255,255,255,0.03); border-left: 4px solid ${color}; padding: 32px; margin-bottom: 24px; border-radius: 8px;">
+          <div style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">${insight.title}</div>
+          <div style="font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.7);">${insight.text}</div>
+        </div>
+      `;
+    });
+    document.getElementById('insights-list').innerHTML = insightsHTML;
+    
+    // Roadmap
+    let roadmapHTML = '';
+    report.roadmap.forEach((phase, idx) => {
+      roadmapHTML += `
+        <div style="background: rgba(0,113,227,0.05); border-left: 4px solid #0071e3; padding: 40px; margin-bottom: 32px; border-radius: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <div>
+              <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0071e3; margin-bottom: 8px;">Phase ${idx + 1}</div>
+              <div style="font-size: 24px; font-weight: 900;">${phase.phase}</div>
+            </div>
+            <div style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6);">${phase.duration}</div>
+          </div>
+          <ul style="margin: 0; padding-left: 24px; list-style: none;">
+            ${phase.items.map(item => `<li style="font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 12px; position: relative;"><span style="position: absolute; left: -24px; color: #0071e3;">→</span>${item}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    });
+    document.getElementById('roadmap-list').innerHTML = roadmapHTML;
+    
+    // Investment
+    document.getElementById('investment-range').textContent = `$${report.investment.min}K - $${report.investment.max}K`;
+    document.getElementById('timeline-range').textContent = `${report.timeline} months`;
+    document.getElementById('investment-note').textContent = `This investment covers end-to-end transformation: brand strategy, visual identity, content production, platform development, and launch support. Typical ROI realized within 6-12 months post-launch.`;
+  }
+  
+  function downloadReport() {
+    alert('Your report is being prepared. Check your email (coming soon) or screenshot this page to save your analysis.');
+  }
+  </script>
+  
+  <section style="max-width: 1024px; margin: 0 auto; padding: 120px 22px;">
+    
+    <!-- ACCESS BY CGI -->
+    <div class="case">
+      <div class="case-label">Commercial Real Estate Investment Platform</div>
+      <h2 class="case-title">Access by CGI</h2>
+      <p class="case-description">When CGI Merchant Group acquired the Trump International Hotel in Washington D.C. for $375 million, they needed a platform that could democratize institutional-grade real estate investments. We built the complete infrastructure—from portfolio analytics to investor portals—managing $1.2B+ in assets across iconic properties.</p>
+      
+      <div class="stats">
+        <div>
+          <div class="stat-value">$1.2B+</div>
+          <div class="stat-label">Assets Managed</div>
+        </div>
+        <div>
+          <div class="stat-value">$375M</div>
+          <div class="stat-label">Flagship Acquisition</div>
+        </div>
+        <div>
+          <div class="stat-value">525</div>
+          <div class="stat-label">Total Hotel Keys</div>
+        </div>
+        <div>
+          <div class="stat-value">+500%</div>
+          <div class="stat-label">Growth Rate</div>
+        </div>
+      </div>
+      
+      <div class="imac">
+        <div class="imac-screen">
+          <img src="/static/images/brand-showcase/access-cgi-app-screen.jpg" alt="Access by CGI Dashboard">
+        </div>
+        <div class="imac-notch"></div>
+      </div>
+      
+      <div class="gallery">
+        <div class="gallery-card">
+          <img src="/static/images/brand-showcase/waldorf-astoria-dc.jpg" alt="Waldorf Astoria DC">
+          <div class="gallery-card-content">
+            <div class="gallery-card-label">ICONIC HOTEL</div>
+            <div class="gallery-card-title">Waldorf Astoria Washington D.C.</div>
+            <p class="gallery-card-text">Historic Old Post Office building (1899) on Pennsylvania Avenue. Between the White House and U.S. Capitol. CGI's $375M acquisition transformed this landmark.</p>
+            <div class="gallery-card-stats">
+              <div>
+                <div class="gallery-stat-value">263</div>
+                <div class="gallery-stat-label">Keys</div>
+              </div>
+              <div>
+                <div class="gallery-stat-value">$375M</div>
+                <div class="gallery-stat-label">Acquisition</div>
+              </div>
+              <div>
+                <div class="gallery-stat-value">1899</div>
+                <div class="gallery-stat-label">Built</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-card">
+          <img src="/static/images/brand-showcase/gabriel-miami-south-beach.jpg" alt="Gabriel South Beach">
+          <div class="gallery-card-content">
+            <div class="gallery-card-label">ART DECO ICON</div>
+            <div class="gallery-card-title">The Gabriel Miami South Beach</div>
+            <p class="gallery-card-text">Blending mid-century modernism with Floridian style on Ocean Drive. Greatest linear footage on Miami Beach's most iconic street.</p>
+            <div class="gallery-card-stats">
+              <div>
+                <div class="gallery-stat-value">132</div>
+                <div class="gallery-stat-label">Keys</div>
+              </div>
+              <div>
+                <div class="gallery-stat-value">Ocean</div>
+                <div class="gallery-stat-label">Drive</div>
+              </div>
+              <div>
+                <div class="gallery-stat-value">2 Pools</div>
+                <div class="gallery-stat-label">Amenities</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-card">
+          <img src="/static/images/brand-showcase/gabriel-miami-downtown.jpg" alt="Gabriel Downtown">
+          <div class="gallery-card-content">
+            <div class="gallery-card-label">MODERN LUXURY</div>
+            <div class="gallery-card-title">The Gabriel Miami Downtown</div>
+            <p class="gallery-card-text">Located in the arts and cultural epicenter of Miami. High-rise tower with stunning Biscayne Bay views.</p>
+            <div class="gallery-card-stats">
+              <div>
+                <div class="gallery-stat-value">130</div>
+                <div class="gallery-stat-label">Keys</div>
+              </div>
+              <div>
+                <div class="gallery-stat-value">Bay</div>
+                <div class="gallery-stat-label">Views</div>
+              </div>
+              <div>
+                <div class="gallery-stat-value">Arts</div>
+                <div class="gallery-stat-label">District</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="built-for">
+        <h3>Built For:</h3>
+        <p>
+          <strong>Fintech Startups</strong> disrupting real estate investment. 
+          <strong>Family Offices</strong> managing high-net-worth portfolios. 
+          <strong>Investment Firms</strong> seeking institutional-grade infrastructure. 
+          <strong>Lenders</strong> managing commercial real estate deals at scale.
+        </p>
+      </div>
+    </div>
+    
+    <!-- TRAVEL DRD + VIBE36 -->
+    <div class="case">
+      <div class="case-label">Luxury Vacation Rental Portfolio Management</div>
+      <h2 class="case-title">Travel DRD</h2>
+      <p class="case-description">Building a tech platform for an exclusive vacation rental portfolio isn't just about booking calendars—it's about creating a system that manages multiple high-end properties, coordinates concierge services, tracks guest experiences, and automates operations at scale. We built the backbone for a luxury travel empire managing properties from Miami Beach to Dominican Republic.</p>
+      
+      <div class="stats">
+        <div>
+          <div class="stat-value">10+</div>
+          <div class="stat-label">Properties Managed</div>
+        </div>
+        <div>
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">Concierge Portal</div>
+        </div>
+        <div>
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Exclusive Access</div>
+        </div>
+        <div>
+          <div class="stat-value">∞</div>
+          <div class="stat-label">Premium Amenities</div>
+        </div>
+      </div>
+      
+      <div class="imac">
+        <div class="imac-screen">
+          <img src="/static/images/brand-showcase/travel-drd-hero.jpg" alt="Travel DRD Dashboard">
+        </div>
+        <div class="imac-notch"></div>
+      </div>
+      
+      <div class="glass-card">
+        <h3 style="font-size: 32px; font-weight: 900; margin-bottom: 24px; text-align: center;">The Vibe36 Story</h3>
+        <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 900px; margin: 0 auto 40px; text-align: center;">When the founder approached us, they had a vision: transform how travelers discover and book luxury properties in the Caribbean. Not Airbnb. Not VRBO. Something <em>exclusive</em>. Something that spoke to travelers who demand more than just a place to sleep—they want <strong style="color: #0071e3;">an experience</strong>.</p>
+        
+        <div style="max-width: 1000px; margin: 0 auto 40px;">
+          <img src="/static/images/brand-showcase/travel-drd-chart.jpg" alt="Travel DRD Analytics" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+        </div>
+      </div>
+      
+      <div class="gallery">
+        <div class="gallery-card">
+          <img src="/static/images/brand-showcase/waldorf-property-detail.jpg" alt="Waldorf Astoria Property Detail">
+          <div class="gallery-card-content">
+            <div class="gallery-card-label">LUXURY PROPERTY</div>
+            <div class="gallery-card-title">Waldorf Astoria Washington D.C.</div>
+            <p class="gallery-card-text">Detailed view of the historic luxury hotel property showcasing the platform's property management capabilities for high-end real estate.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-card">
+          <img src="/static/images/brand-showcase/gabriel-property-detail-beach.jpg" alt="Gabriel South Beach Property Detail">
+          <div class="gallery-card-content">
+            <div class="gallery-card-label">BEACHFRONT LUXURY</div>
+            <div class="gallery-card-title">The Gabriel Miami South Beach</div>
+            <p class="gallery-card-text">Exclusive Ocean Drive location with direct beach access and premium amenities managed through our vacation rental platform.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-card">
+          <img src="/static/images/brand-showcase/gabriel-property-detail-downtown.jpg" alt="Gabriel Downtown Property Detail">
+          <div class="gallery-card-content">
+            <div class="gallery-card-label">URBAN LUXURY</div>
+            <div class="gallery-card-title">The Gabriel Miami Downtown</div>
+            <p class="gallery-card-text">Modern high-rise with stunning Biscayne Bay views in Miami's arts district, showcasing comprehensive property portfolio management.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="built-for">
+        <h3>Built For:</h3>
+        <p>
+          <strong>Airbnb Portfolio Managers</strong> managing 5-50+ properties. 
+          <strong>Vacation Rental Companies</strong> scaling operations. 
+          <strong>Luxury Property Owners</strong> who refuse to settle for generic platforms.
+        </p>
+      </div>
+    </div>
+    
+    <!-- BLUE BUILDING -->
+    <div class="case">
+      <div class="case-label">Smart Luxury Office Rentals</div>
+      <h2 class="case-title">Blue Building</h2>
+      <p class="case-description">Commercial real estate companies need more than a website—they need a platform that positions premium workspaces as the future of entrepreneurship. We created a complete visual identity and digital presence that speaks directly to growing businesses who demand excellence in every detail.</p>
+      
+      <div class="imac">
+        <div class="imac-screen">
+          <img src="/static/images/brand-showcase/blue-building-real.jpg" alt="Blue Building Platform">
+        </div>
+        <div class="imac-notch"></div>
+      </div>
+      
+      <div class="built-for">
+        <h3>Built For:</h3>
+        <p>
+          <strong>Commercial Building Owners</strong> repositioning for modern tenants. 
+          <strong>Co-Working Operators</strong> scaling locations. 
+          <strong>Property Developers</strong> targeting high-growth startups and entrepreneurs.
+        </p>
+      </div>
+    </div>
+    
+    <!-- LIA -->
+    <div class="case">
+      <div class="case-label">Celebrity Beauty Brand E-Commerce</div>
+      <h2 class="case-title">LIA by Jomari Goyso</h2>
+      <p class="case-description">Celebrity stylist Jomari Goyso needed more than a Shopify template—he needed a complete brand ecosystem that could scale to 7-figures fast. We built the visual identity from scratch, shot every piece of product photography in-house, and created a 12-month content system that turned his vision into a multi-million dollar beauty empire.</p>
+      
+      <div class="stats">
+        <div>
+          <div class="stat-value">$7.2M</div>
+          <div class="stat-label">Revenue in 9 Months</div>
+        </div>
+        <div>
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Custom Assets</div>
+        </div>
+        <div>
+          <div class="stat-value">0</div>
+          <div class="stat-label">Stock Images</div>
+        </div>
+      </div>
+      
+      <div class="imac">
+        <div class="imac-screen">
+          <img src="/static/images/brand-showcase/lia-beauty.jpg" alt="LIA Beauty Platform">
+        </div>
+        <div class="imac-notch"></div>
+      </div>
+      
+      <div class="built-for">
+        <h3>Built For:</h3>
+        <p>
+          <strong>Celebrity Brands</strong> launching product lines. 
+          <strong>Direct-to-Consumer Brands</strong> scaling fast. 
+          <strong>Premium E-Commerce</strong> companies that refuse stock photography and generic stores.
+        </p>
+      </div>
+    </div>
+    
+    <!-- ECOLOSOPHY -->
+    <div class="case">
+      <div class="case-label">Non-Toxic Cleaning Brand E-Commerce</div>
+      <h2 class="case-title">Ecolosophy</h2>
+      <p class="case-description">Started with literally nothing. No brand. No product photography. No store. We built the complete Shopify ecosystem from the ground up: shot 500+ custom product photos, designed packaging, created a 12-month content calendar, integrated warehouse fulfillment with ShipMonk, and launched a movement—not just a cleaning products company.</p>
+      
+      <div class="stats">
+        <div>
+          <div class="stat-value">$0→6</div>
+          <div class="stat-label">Figures in 8 Months</div>
+        </div>
+        <div>
+          <div class="stat-value">500+</div>
+          <div class="stat-label">Custom Photos</div>
+        </div>
+        <div>
+          <div class="stat-value">0</div>
+          <div class="stat-label">Stock Images</div>
+        </div>
+      </div>
+      
+      <div class="imac">
+        <div class="imac-screen">
+          <img src="/static/images/brand-showcase/ecolosophy-homepage.jpg" alt="Ecolosophy Platform">
+        </div>
+        <div class="imac-notch"></div>
+      </div>
+      
+      <div class="built-for">
+        <h3>Built For:</h3>
+        <p>
+          <strong>Product Startups</strong> launching from zero. 
+          <strong>Mission-Driven Brands</strong> building movements. 
+          <strong>E-Commerce Entrepreneurs</strong> who want everything done in-house—from photography to fulfillment integration.
+        </p>
+      </div>
+    </div>
+    
+  </section>
+  
+  <footer>
+    <img src="/static/acromatico-logo-transparent.png" alt="Acromatico">
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/education">Education</a>
+      <a href="/studio">Studio</a>
+      <a href="/prints">Prints</a>
+      <a href="/photography">Photography</a>
+      <a href="/contact">Contact</a>
+      <a href="/admin/crm/login" style="color: #4794A6;">🔒 CRM</a>
+    </div>
+    <p>© 2026 Acromatico. We help people see differently.</p>
+  </footer>
+
+  <!-- Spark Chat Widget 🔥 -->
+  <script src="/static/spark-widget.js"></script>
+
+</body>
+</html>

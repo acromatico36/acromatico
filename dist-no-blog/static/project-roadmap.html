@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Roadmap | Acromatico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; }
+        
+        /* Acromatico Brand Colors */
+        :root {
+            --acro-primary: #4794A6;
+            --acro-primary-hover: #5aa5b8;
+            --acro-primary-light: rgba(71, 148, 166, 0.1);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 200px;
+        }
+        
+        .timeline-bar {
+            position: relative;
+            height: 60px;
+            background: #1e293b;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: visible;
+            border-left: 4px solid transparent;
+        }
+        
+        .timeline-bar.P1 { border-left-color: #ef4444; }
+        .timeline-bar.P2 { border-left-color: #f59e0b; }
+        .timeline-bar.P3 { border-left-color: #3b82f6; }
+        .timeline-bar.P4 { border-left-color: #6b7280; }
+        
+        .timeline-progress {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(90deg, var(--acro-primary) 0%, var(--acro-primary-hover) 100%);
+            border-radius: 8px 0 0 8px;
+            transition: width 0.5s ease;
+        }
+        
+        .timeline-label {
+            position: absolute;
+            left: -190px;
+            top: 0;
+            width: 180px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .timeline-content {
+            position: absolute;
+            left: 16px;
+            top: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+        }
+        
+        .timeline-dates {
+            position: absolute;
+            right: 16px;
+            top: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Stage Pills */
+        .stage-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stage-discovery { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .stage-design { background: rgba(139, 92, 246, 0.2); color: #a78bfa; }
+        .stage-development { background: rgba(71, 148, 166, 0.2); color: var(--acro-primary); }
+        .stage-review { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .stage-delivered { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        
+        /* Milestone Markers */
+        .milestones {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .milestone {
+            position: relative;
+            width: 12px;
+            height: 12px;
+            background: #4b5563;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .milestone.completed {
+            background: var(--acro-primary);
+            box-shadow: 0 0 0 3px rgba(71, 148, 166, 0.3);
+        }
+        
+        .milestone:hover {
+            transform: scale(1.5);
+        }
+        
+        .milestone-tooltip {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 8px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+            font-size: 12px;
+            display: none;
+            z-index: 100;
+        }
+        
+        .milestone:hover .milestone-tooltip {
+            display: block;
+        }
+        
+        /* Gantt Chart */
+        .gantt-grid {
+            display: grid;
+            grid-template-columns: 200px repeat(auto-fit, minmax(50px, 1fr));
+            gap: 1px;
+            background: #334155;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .gantt-header {
+            background: #1e293b;
+            padding: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #cbd5e1;
+            text-align: center;
+        }
+        
+        .gantt-row {
+            background: #0f172a;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="bg-slate-800 shadow-lg border-b border-slate-700 sticky top-0 z-50" style="backdrop-filter: blur(10px); background: rgba(30, 41, 59, 0.95);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-4">
+                <img src="/static/acromatico-logo-correct.png" alt="Acromatico" class="h-8" />
+                <h1 class="text-xl font-semibold text-white">
+                    <i class="fas fa-map-marked-alt mr-2" style="color: var(--acro-primary);"></i>
+                    Project Roadmap
+                </h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="window.location.href='/admin/crm/projects'" class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700 rounded-lg transition-all">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Pipeline
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Container -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    
+    <!-- Header Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-slate-400">Total Projects</p>
+                    <p class="text-3xl font-bold text-white" id="stat-total">0</p>
+                </div>
+                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--acro-primary-light);">
+                    <i class="fas fa-project-diagram text-xl" style="color: var(--acro-primary);"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-slate-400">On Track</p>
+                    <p class="text-3xl font-bold text-green-400" id="stat-ontrack">0</p>
+                </div>
+                <div class="w-12 h-12 bg-green-900/30 rounded-full flex items-center justify-center">
+                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-slate-400">At Risk</p>
+                    <p class="text-3xl font-bold text-red-400" id="stat-atrisk">0</p>
+                </div>
+                <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center">
+                    <i class="fas fa-exclamation-triangle text-red-400 text-xl"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-slate-400">Avg Progress</p>
+                    <p class="text-3xl font-bold" style="color: var(--acro-primary);" id="stat-progress">0%</p>
+                </div>
+                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--acro-primary-light);">
+                    <i class="fas fa-chart-line text-xl" style="color: var(--acro-primary);"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline View -->
+    <div class="bg-slate-800 rounded-xl p-8 border border-slate-700 mb-8">
+        <h2 class="text-2xl font-bold text-white mb-6">
+            <i class="fas fa-road mr-3" style="color: var(--acro-primary);"></i>
+            Active Projects Timeline
+        </h2>
+        <div id="timeline-container" class="timeline">
+            <!-- Timeline bars will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Milestones Overview -->
+    <div class="bg-slate-800 rounded-xl p-8 border border-slate-700">
+        <h2 class="text-2xl font-bold text-white mb-6">
+            <i class="fas fa-flag-checkered mr-3" style="color: var(--acro-primary);"></i>
+            Upcoming Milestones
+        </h2>
+        <div id="milestones-list" class="space-y-4">
+            <!-- Milestone cards will be inserted here -->
+        </div>
+    </div>
+
+</div>
+
+<script>
+const ADMIN_TOKEN = localStorage.getItem('admin_token');
+if (!ADMIN_TOKEN) {
+    window.location.href = '/admin/crm/login';
+}
+
+let projectsData = [];
+let milestonesData = [];
+
+async function loadRoadmap() {
+    try {
+        // Fetch projects
+        const response = await fetch('/api/projects?limit=100', {
+            headers: { 'Authorization': `Bearer ${ADMIN_TOKEN}` }
+        });
+        const data = await response.json();
+        projectsData = data.projects || [];
+        
+        // Update stats
+        document.getElementById('stat-total').textContent = projectsData.length;
+        
+        const onTrack = projectsData.filter(p => p.days_remaining > 7 && p.status !== 'delivered').length;
+        const atRisk = projectsData.filter(p => p.days_remaining <= 7 && p.status !== 'delivered').length;
+        
+        document.getElementById('stat-ontrack').textContent = onTrack;
+        document.getElementById('stat-atrisk').textContent = atRisk;
+        
+        const avgProgress = projectsData.reduce((sum, p) => sum + (p.progress_percent || 0), 0) / projectsData.length;
+        document.getElementById('stat-progress').textContent = Math.round(avgProgress) + '%';
+        
+        // Render timeline
+        renderTimeline();
+        
+        // Render milestones
+        renderMilestones();
+        
+    } catch (error) {
+        console.error('Error loading roadmap:', error);
+    }
+}
+
+function renderTimeline() {
+    const container = document.getElementById('timeline-container');
+    const activeProjects = projectsData.filter(p => p.status !== 'delivered' && p.status !== 'cancelled');
+    
+    if (activeProjects.length === 0) {
+        container.innerHTML = '<p class="text-slate-400 text-center py-8">No active projects</p>';
+        return;
+    }
+    
+    container.innerHTML = activeProjects.map(project => {
+        const progress = project.progress_percent || 0;
+        const daysColor = project.days_remaining <= 7 ? 'text-red-400' : project.days_remaining <= 14 ? 'text-yellow-400' : 'text-slate-400';
+        
+        return `
+            <div class="timeline-bar ${project.priority}" style="position: relative;">
+                <div class="timeline-progress" style="width: ${progress}%;"></div>
+                
+                <div class="timeline-label">
+                    <h4 class="text-sm font-semibold text-white truncate">${project.project_name}</h4>
+                    <p class="text-xs text-slate-400">${project.client_id}</p>
+                </div>
+                
+                <div class="timeline-content">
+                    <span class="stage-pill stage-${project.status}">${project.status}</span>
+                    <span class="ml-3 text-sm font-semibold text-white">${progress}%</span>
+                </div>
+                
+                <div class="timeline-dates">
+                    <div class="text-right text-xs ${daysColor}">
+                        <div class="font-semibold">${project.days_remaining} days left</div>
+                        <div class="opacity-75">${dayjs(project.target_delivery).format('MMM D, YYYY')}</div>
+                    </div>
+                </div>
+                
+                <div class="milestones">
+                    ${generateMilestones(project)}
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function generateMilestones(project) {
+    const stages = ['discovery', 'design', 'development', 'review', 'delivered'];
+    const currentIndex = stages.indexOf(project.status);
+    
+    return stages.map((stage, index) => {
+        const completed = index <= currentIndex;
+        const icon = completed ? 'fa-check-circle' : 'fa-circle';
+        return `
+            <div class="milestone ${completed ? 'completed' : ''}" title="${stage}">
+                <div class="milestone-tooltip">
+                    <strong>${stage.toUpperCase()}</strong>
+                    ${completed ? '<br><span style="color: #34d399;">✓ Complete</span>' : '<br><span style="color: #6b7280;">Pending</span>'}
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function renderMilestones() {
+    const container = document.getElementById('milestones-list');
+    
+    // Get upcoming deliverables/milestones from projects
+    const upcoming = projectsData
+        .filter(p => p.target_delivery && p.status !== 'delivered')
+        .sort((a, b) => new Date(a.target_delivery) - new Date(b.target_delivery))
+        .slice(0, 10);
+    
+    container.innerHTML = upcoming.map(project => {
+        const isUrgent = project.days_remaining <= 7;
+        const bgColor = isUrgent ? 'bg-red-900/20 border-red-500/50' : 'bg-slate-700 border-slate-600';
+        
+        return `
+            <div class="p-4 rounded-lg border ${bgColor} flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--acro-primary-light);">
+                        <i class="fas fa-flag text-lg" style="color: var(--acro-primary);"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white">${project.project_name}</h4>
+                        <p class="text-sm text-slate-400">
+                            <span class="stage-pill stage-${project.status} mr-2">${project.status}</span>
+                            ${project.current_milestone || 'In progress'}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm font-semibold ${isUrgent ? 'text-red-400' : 'text-slate-300'}">
+                        ${project.days_remaining} days remaining
+                    </p>
+                    <p class="text-xs text-slate-400">${dayjs(project.target_delivery).format('MMM D, YYYY')}</p>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+// Load on page load
+loadRoadmap();
+
+// Refresh every 30 seconds
+setInterval(loadRoadmap, 30000);
+</script>
+
+</body>
+</html>

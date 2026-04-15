@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio — Acromatico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=SF+Pro+Display:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: #000;
+      color: #f5f5f7;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+    }
+    
+    /* APPLE-LEVEL HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.3s ease;
+    }
+    
+    nav {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0 22px;
+      height: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 20px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: opacity 0.3s ease;
+    }
+    
+    .logo img:hover {
+      opacity: 0.8;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: #f5f5f7;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      transition: opacity 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
+    
+    /* APPLE-LEVEL SECTIONS */
+    section {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 120px 22px;
+    }
+    
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 180px 22px 120px;
+    }
+    
+    .hero h1 {
+      font-size: 80px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      background: linear-gradient(180deg, #f5f5f7 0%, rgba(245, 245, 247, 0.8) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.009em;
+      line-height: 1.33;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+    
+    .cta-primary {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #0071e3;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 980px;
+      font-size: 17px;
+      font-weight: 400;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 113, 227, 0.3);
+    }
+    
+    .cta-primary:hover {
+      background: #0077ed;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 113, 227, 0.4);
+    }
+    
+    /* CASE STUDIES */
+    .case {
+      margin-bottom: 180px;
+      padding-bottom: 180px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .case:last-child {
+      border-bottom: none;
+    }
+    
+    .case-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    
+    .case-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 12px;
+    }
+    
+    .case-title {
+      font-size: 56px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.07;
+      margin-bottom: 16px;
+      color: #f5f5f7;
+    }
+    
+    .case-metric {
+      font-size: 28px;
+      font-weight: 600;
+      color: #0071e3;
+      margin-bottom: 24px;
+    }
+    
+    .case-description {
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: 0.011em;
+      line-height: 1.381;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* DEVICE SHOWCASE */
+    .device-showcase {
+      margin: 80px 0;
+    }
+    
+    .desktop-frame {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #1d1d1f;
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    .desktop-screen {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+    }
+    
+    .desktop-screen img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .desktop-notch {
+      width: 80px;
+      height: 20px;
+      background: #1d1d1f;
+      margin: 8px auto 0;
+      border-radius: 0 0 8px 8px;
+    }
+    
+    .desktop-stand {
+      width: 6px;
+      height: 48px;
+      background: #1d1d1f;
+      margin: 0 auto;
+    }
+    
+    /* PORTFOLIO DASHBOARD */
+    .portfolio-dashboard {
+      max-width: 400px;
+      margin: 80px auto 0;
+      background: rgba(29, 29, 31, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 40px;
+    }
+    
+    .portfolio-header {
+      font-size: 17px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 12px;
+    }
+    
+    .portfolio-aum {
+      font-size: 48px;
+      font-weight: 700;
+      color: #0071e3;
+      margin-bottom: 8px;
+    }
+    
+    .portfolio-label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 32px;
+    }
+    
+    .growth-chart {
+      margin-bottom: 24px;
+    }
+    
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      height: 120px;
+      margin-bottom: 8px;
+    }
+    
+    .chart-bar {
+      flex: 1;
+      background: linear-gradient(180deg, #0071e3 0%, #005bb5 100%);
+      border-radius: 4px 4px 0 0;
+      transition: transform 0.3s ease;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 8px;
+    }
+    
+    .chart-bar:hover {
+      transform: translateY(-4px);
+    }
+    
+    .bar-value {
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    .chart-years {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    
+    .chart-year {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .portfolio-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0071e3;
+      margin-bottom: 4px;
+    }
+    
+    .metric-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* GALLERY */
+    .gallery {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 40px 0;
+      margin: 80px -22px;
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+    
+    .gallery::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .gallery-card {
+      flex: 0 0 420px;
+      background: rgba(29, 29, 31, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      scroll-snap-align: start;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .gallery-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    .gallery-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+    
+    .gallery-card-content {
+      padding: 32px;
+    }
+    
+    .gallery-card-tag {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 12px;
+    }
+    
+    .gallery-card-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #f5f5f7;
+    }
+    
+    .gallery-card-description {
+      font-size: 14px;
+      line-height: 1.57;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 24px;
+    }
+    
+    .gallery-card-stats {
+      display: flex;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .gallery-card-stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0071e3;
+      margin-bottom: 4px;
+    }
+    
+    .gallery-card-stat-label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 80px;
+    }
+    
+    .pricing-card {
+      background: rgba(29, 29, 31, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 48px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    .pricing-card.featured {
+      border-color: #0071e3;
+      border-width: 2px;
+      transform: scale(1.05);
+    }
+    
+    /* FOOTER */
+    footer {
+      background: #000;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 80px 22px;
+      text-align: center;
+    }
+    
+    footer img {
+      height: 24px;
+      filter: brightness(0) invert(1);
+      opacity: 0.6;
+      margin-bottom: 32px;
+    }
+    
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    
+    footer .footer-links a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.3s ease;
+    }
+    
+    footer .footer-links a:hover {
+      color: #f5f5f7;
+    }
+    
+    footer p {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 12px;
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      section {
+        padding: 80px 22px;
+      }
+      
+      .hero {
+        padding: 120px 22px 80px;
+      }
+      
+      .hero h1 {
+        font-size: 56px;
+      }
+      
+      .hero p {
+        font-size: 21px;
+      }
+      
+      .case-title {
+        font-size: 40px;
+      }
+      
+      .case {
+        margin-bottom: 120px;
+        padding-bottom: 120px;
+      }
+    }
+    
+    @media (max-width: 734px) {
+      .nav-links {
+        display: none;
+      }
+      
+      nav {
+        justify-content: center;
+      }
+      
+      .hero h1 {
+        font-size: 40px;
+      }
+      
+      .hero p {
+        font-size: 19px;
+      }
+      
+      .case-title {
+        font-size: 32px;
+      }
+      
+      .gallery-card {
+        flex: 0 0 340px;
+      }
+      
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <img src="/static/acromatico-logo-transparent.png" alt="Acromatico">
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/education">Education</a>
+        <a href="/studio">Studio</a>
+        <a href="/prints">Prints</a>
+        <a href="/photography">Photography</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>You dream it.<br/>We build it.</h1>
+    <p>Custom SaaS applications, enterprise platforms, and scalable web solutions. From concept to deployment, we turn your vision into reality.</p>
+    <a href="/contact" class="cta-primary">Start Your Project</a>
+  </section>
+
+  <!-- ACCESS BY CGI -->
+  <section class="case">
+    <div class="case-header">
+      <div class="case-label">Custom SaaS Platform</div>
+      <h2 class="case-title">Access by CGI</h2>
+      <div class="case-metric">$1B+ Under Management</div>
+      <p class="case-description">Ultra-high-net-worth family office needed a platform that commands trust at the institutional level. We built a complete fintech SaaS platform with real-time portfolio analytics, secure authentication, and enterprise-grade infrastructure.</p>
+    </div>
+    
+    <div class="device-showcase">
+      <div class="desktop-frame">
+        <div class="desktop-screen">
+          <img src="/static/images/brand-showcase/access-cgi-app-screen.jpg" alt="Access by CGI Dashboard">
+        </div>
+        <div class="desktop-notch"></div>
+        <div class="desktop-stand"></div>
+      </div>
+      
+      <div class="portfolio-dashboard">
+        <div class="portfolio-header">Portfolio Growth</div>
+        <div class="portfolio-aum">$1.2B</div>
+        <div class="portfolio-label">Assets Under Management During Our Relationship Period</div>
+        
+        <div class="growth-chart">
+          <div class="chart-bars">
+            <div class="chart-bar" style="height: 20%;"><span class="bar-value">$200M</span></div>
+            <div class="chart-bar" style="height: 40%;"><span class="bar-value">$450M</span></div>
+            <div class="chart-bar" style="height: 60%;"><span class="bar-value">$680M</span></div>
+            <div class="chart-bar" style="height: 85%;"><span class="bar-value">$950M</span></div>
+            <div class="chart-bar" style="height: 100%;"><span class="bar-value">$1.2B</span></div>
+          </div>
+          <div class="chart-years">
+            <span class="chart-year">2020</span>
+            <span class="chart-year">2021</span>
+            <span class="chart-year">2022</span>
+            <span class="chart-year">2023</span>
+            <span class="chart-year">2024</span>
+          </div>
+        </div>
+        
+        <div class="portfolio-metrics">
+          <div>
+            <div class="metric-value">+500%</div>
+            <div class="metric-label">Growth Rate</div>
+          </div>
+          <div>
+            <div class="metric-value">$1B+</div>
+            <div class="metric-label">AUM Increase</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CGI MERCHANT GROUP -->
+  <section class="case">
+    <div class="case-header">
+      <div class="case-label">Commercial Real Estate Investment Platform</div>
+      <h2 class="case-title">CGI Merchant Group</h2>
+      <div class="case-metric">$375M+ Portfolio</div>
+      <p class="case-description">When CGI Merchant Group acquired the Trump International Hotel in Washington D.C. for $375 million, they needed a platform that could democratize institutional-grade real estate investments. We built the infrastructure.</p>
+    </div>
+    
+    <div class="device-showcase">
+      <div class="desktop-frame">
+        <div class="desktop-screen">
+          <img src="/static/images/brand-showcase/republic-platform-ui.jpg" alt="CGI Investment Platform">
+        </div>
+        <div class="desktop-notch"></div>
+        <div class="desktop-stand"></div>
+      </div>
+    </div>
+    
+    <h3 style="font-size: 32px; font-weight: 600; text-align: center; margin: 80px 0 40px; color: #f5f5f7;">Portfolio Highlights</h3>
+    
+    <div class="gallery">
+      <!-- Waldorf Astoria DC -->
+      <div class="gallery-card">
+        <img src="/static/images/brand-showcase/waldorf-astoria-dc.jpg" alt="Waldorf Astoria Washington DC">
+        <div class="gallery-card-content">
+          <div class="gallery-card-tag">ICONIC HOTEL</div>
+          <h4 class="gallery-card-title">Waldorf Astoria Washington D.C.</h4>
+          <p class="gallery-card-description">Historic Old Post Office building (1899) on Pennsylvania Avenue. Between the White House and U.S. Capitol. CGI's $375M acquisition transformed this landmark.</p>
+          <div class="gallery-card-stats">
+            <div>
+              <div class="gallery-card-stat-value">263</div>
+              <div class="gallery-card-stat-label">Keys</div>
+            </div>
+            <div>
+              <div class="gallery-card-stat-value">$375M</div>
+              <div class="gallery-card-stat-label">Acquisition</div>
+            </div>
+            <div>
+              <div class="gallery-card-stat-value">1899</div>
+              <div class="gallery-card-stat-label">Built</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- The Gabriel South Beach -->
+      <div class="gallery-card">
+        <img src="/static/images/brand-showcase/gabriel-miami-south-beach.jpg" alt="The Gabriel Miami South Beach">
+        <div class="gallery-card-content">
+          <div class="gallery-card-tag">ART DECO ICON</div>
+          <h4 class="gallery-card-title">The Gabriel Miami South Beach</h4>
+          <p class="gallery-card-description">Blending mid-century modernism with Floridian style on Ocean Drive. Greatest linear footage on Miami Beach's most iconic street.</p>
+          <div class="gallery-card-stats">
+            <div>
+              <div class="gallery-card-stat-value">132</div>
+              <div class="gallery-card-stat-label">Keys</div>
+            </div>
+            <div>
+              <div class="gallery-card-stat-value">Ocean</div>
+              <div class="gallery-card-stat-label">Drive</div>
+            </div>
+            <div>
+              <div class="gallery-card-stat-value">2 Pools</div>
+              <div class="gallery-card-stat-label">Amenities</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- The Gabriel Downtown -->
+      <div class="gallery-card">
+        <img src="/static/images/brand-showcase/gabriel-miami-downtown.jpg" alt="The Gabriel Miami Downtown">
+        <div class="gallery-card-content">
+          <div class="gallery-card-tag">MODERN LUXURY</div>
+          <h4 class="gallery-card-title">The Gabriel Miami Downtown</h4>
+          <p class="gallery-card-description">Located in the arts and cultural epicenter of Miami. High-rise tower with stunning Biscayne Bay views.</p>
+          <div class="gallery-card-stats">
+            <div>
+              <div class="gallery-card-stat-value">130</div>
+              <div class="gallery-card-stat-label">Keys</div>
+            </div>
+            <div>
+              <div class="gallery-card-stat-value">Bay</div>
+              <div class="gallery-card-stat-label">Views</div>
+            </div>
+            <div>
+              <div class="gallery-card-stat-value">Arts</div>
+              <div class="gallery-card-stat-label">District</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="/static/acromatico-logo-transparent.png" alt="Acromatico">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/education">Education</a>
+      <a href="/studio">Studio</a>
+      <a href="/prints">Prints</a>
+      <a href="/photography">Photography</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <p>© 2026 Acromatico. We help people see differently.</p>
+  </footer>
+
+</body>
+</html>

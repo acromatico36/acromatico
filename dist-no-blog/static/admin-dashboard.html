@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Acromatico Education</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .modal {
+      display: none;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn-primary {
+      background: #4794A6;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #5aa5b8;
+      transform: translateY(-2px);
+    }
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background: rgba(71, 148, 166, 0.2);
+    }
+    .sidebar-link.active {
+      background: rgba(71, 148, 166, 0.3);
+      border-left: 3px solid #4794A6;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+  
+  <!-- Top Bar -->
+  <div class="sticky top-0 z-50 glass border-b border-white/10 px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <img src="/static/acromatico-logo-white-best.png" alt="Acromatico" style="height: 32px; width: auto;">
+      <span class="text-xs px-3 py-1 bg-[#4794A6]/20 text-[#4794A6] rounded-full font-semibold">ADMIN PORTAL</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-gray-400" id="adminName">Admin</span>
+      <button onclick="logout()" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition text-sm">
+        Logout
+      </button>
+    </div>
+  </div>
+
+  <div class="flex">
+    <!-- Sidebar -->
+    <div class="w-64 glass border-r border-white/10 min-h-screen p-6">
+      <nav class="space-y-2">
+        <button onclick="showSection('overview')" class="sidebar-link active w-full text-left px-4 py-3 rounded-lg" data-section="overview">
+          📊 Overview
+        </button>
+        <a href="/admin/curriculum" class="sidebar-link w-full text-left px-4 py-3 rounded-lg block hover:bg-[#4794A6]/20 transition">
+          🎓 Curriculum Manager
+        </a>
+        <button onclick="showSection('classes')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg" data-section="classes">
+          📹 Live Classes
+        </button>
+        <button onclick="showSection('students')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg" data-section="students">
+          👥 Students
+        </button>
+        <button onclick="showSection('assignments')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg" data-section="assignments">
+          📝 Assignments
+        </button>
+        <button onclick="showSection('achievements')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg" data-section="achievements">
+          🏆 Achievements
+        </button>
+        <a href="/admin/curriculum" class="sidebar-link w-full text-left px-4 py-3 rounded-lg block hover:bg-[#4794A6]/20 transition">
+          🎓 Curriculum Manager
+        </a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-8">
+      
+      <!-- Overview Section -->
+      <div id="overview-section" class="section active">
+        <h2 class="text-3xl font-bold mb-8">Dashboard Overview</h2>
+        
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <div class="glass p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-3xl">👥</div>
+              <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">+12%</span>
+            </div>
+            <p class="text-3xl font-bold" id="totalStudents">0</p>
+            <p class="text-sm text-gray-400">Total Students</p>
+          </div>
+          <div class="glass p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-3xl">📚</div>
+              <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">+8%</span>
+            </div>
+            <p class="text-3xl font-bold" id="activeCourses">0</p>
+            <p class="text-sm text-gray-400">Active Courses</p>
+          </div>
+          <div class="glass p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-3xl">💰</div>
+              <span class="text-xs px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">+24%</span>
+            </div>
+            <p class="text-3xl font-bold" id="monthlyRevenue">$0</p>
+            <p class="text-sm text-gray-400">Monthly Revenue</p>
+          </div>
+          <div class="glass p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-3xl">📈</div>
+              <span class="text-xs px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full">+15%</span>
+            </div>
+            <p class="text-3xl font-bold" id="completionRate">0%</p>
+            <p class="text-sm text-gray-400">Completion Rate</p>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="glass p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-4">Recent Students</h3>
+            <div id="recentStudents" class="space-y-3">
+              <p class="text-gray-400 text-sm">Loading...</p>
+            </div>
+          </div>
+          <div class="glass p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-4">Recent Courses</h3>
+            <div id="recentCourses" class="space-y-3">
+              <p class="text-gray-400 text-sm">Loading...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Courses Section -->
+      <div id="courses-section" class="section hidden">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-bold">Courses Management</h2>
+          <button onclick="showCreateCourseModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+            + Create Course
+          </button>
+        </div>
+        <div id="coursesList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <p class="text-gray-400">Loading courses...</p>
+        </div>
+      </div>
+
+      <!-- Live Classes Section -->
+      <div id="classes-section" class="section hidden">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-bold">Live Classes Schedule</h2>
+          <button onclick="showScheduleClassModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+            + Schedule Class
+          </button>
+        </div>
+        <div id="classesList" class="space-y-4">
+          <p class="text-gray-400">Loading classes...</p>
+        </div>
+      </div>
+
+      <!-- Students Section -->
+      <div id="students-section" class="section hidden">
+        <h2 class="text-3xl font-bold mb-8">Students Management</h2>
+        <div id="studentsList" class="glass p-6 rounded-xl">
+          <p class="text-gray-400">Loading students...</p>
+        </div>
+      </div>
+
+      <!-- Assignments Section -->
+      <div id="assignments-section" class="section hidden">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-bold">Assignments</h2>
+          <button onclick="showCreateAssignmentModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+            + Create Assignment
+          </button>
+        </div>
+        <div id="assignmentsList" class="space-y-4">
+          <p class="text-gray-400">Loading assignments...</p>
+        </div>
+      </div>
+
+      <!-- Achievements Section -->
+      <div id="achievements-section" class="section hidden">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-bold">Achievements</h2>
+          <button onclick="showCreateAchievementModal()" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+            + Create Achievement
+          </button>
+        </div>
+        <div id="achievementsList" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <p class="text-gray-400">Loading achievements...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Create Course Modal -->
+  <div id="createCourseModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold">Create New Course</h3>
+        <button onclick="closeCreateCourseModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
+      </div>
+      <form onsubmit="createCourse(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold mb-2">Course Title *</label>
+          <input type="text" id="courseTitle" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Photography Fundamentals">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Description</label>
+          <textarea id="courseDescription" rows="4" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Learn the basics of photography..."></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Category</label>
+            <select id="courseCategory" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+              <option value="Foundation">Foundation (Ages 7-9)</option>
+              <option value="Mastery">Mastery (Ages 10-12)</option>
+              <option value="Pro">Pro (Ages 13-14)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Monthly Price ($)</label>
+            <input type="number" id="coursePrice" min="0" step="0.01" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="49.00">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Thumbnail URL (optional)</label>
+          <input type="url" id="courseThumbnail" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="https://...">
+        </div>
+        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold">
+          Create Course
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Schedule Class Modal -->
+  <div id="scheduleClassModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold">Schedule Live Class</h3>
+        <button onclick="closeScheduleClassModal()" class="text-gray-400 hover:text-white text-2xl">×</button>
+      </div>
+      <form onsubmit="scheduleClass(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold mb-2">Select Course *</label>
+          <select id="classC ourseId" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <option value="">Choose a course...</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Class Title *</label>
+          <input type="text" id="classTitle" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Introduction to Composition">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Description</label>
+          <textarea id="classDescription" rows="3" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="In this class we'll cover..."></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Date *</label>
+            <input type="date" id="classDate" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Time *</label>
+            <input type="time" id="classTime" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Duration (minutes)</label>
+          <input type="number" id="classDuration" min="15" step="15" value="60" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Zoom/Meet Link *</label>
+          <input type="url" id="classMeetingLink" required class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="https://zoom.us/j/...">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Meeting Password (optional)</label>
+          <input type="text" id="classMeetingPassword" class="w-full px-4 py-3 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Enter password">
+        </div>
+        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold">
+          Schedule Class
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = window.location.origin;
+    const token = localStorage.getItem('auth_token');
+    let allCourses = [];
+
+    if (!token) {
+      window.location.href = '/education/login';
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = '/education/login';
+    }
+
+    // Section navigation
+    function showSection(section) {
+      // Hide all sections
+      document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+      // Remove active from all links
+      document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+      
+      // Show selected section
+      document.getElementById(`${section}-section`).classList.remove('hidden');
+      // Add active to selected link
+      document.querySelector(`[data-section="${section}"]`).classList.add('active');
+
+      // Load section data
+      if (section === 'overview') loadOverview();
+      if (section === 'courses') loadCourses();
+      if (section === 'classes') loadClasses();
+      if (section === 'students') loadStudents();
+    }
+
+    // Load overview
+    async function loadOverview() {
+      try {
+        const res = await fetch(`${API_BASE}/api/dashboard/admin`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) throw new Error('Failed to load overview');
+        const data = await res.json();
+
+        document.getElementById('totalStudents').textContent = data.stats.totalStudents || 0;
+        document.getElementById('activeCourses').textContent = data.stats.activeCourses || 0;
+        document.getElementById('monthlyRevenue').textContent = `$${(data.stats.monthlyRevenue || 0).toFixed(0)}`;
+        document.getElementById('completionRate').textContent = `${data.stats.completionRate || 0}%`;
+
+        // Recent students
+        const studentsHTML = (data.students || []).slice(0, 5).map(s => `
+          <div class="flex items-center justify-between p-3 glass rounded-lg">
+            <div>
+              <p class="font-semibold">${s.email || 'Student'}</p>
+              <p class="text-xs text-gray-400">${s.age_range || 'N/A'}</p>
+            </div>
+            <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">${s.status || 'active'}</span>
+          </div>
+        `).join('') || '<p class="text-gray-400 text-sm">No students yet</p>';
+        document.getElementById('recentStudents').innerHTML = studentsHTML;
+
+        // Recent courses
+        const coursesHTML = (data.courses || []).slice(0, 5).map(c => `
+          <div class="flex items-center justify-between p-3 glass rounded-lg">
+            <div>
+              <p class="font-semibold">${c.title || 'Course'}</p>
+              <p class="text-xs text-gray-400">${c.category || 'N/A'} • ${c.students_enrolled || 0} students</p>
+            </div>
+            <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">${c.completion_rate || 0}%</span>
+          </div>
+        `).join('') || '<p class="text-gray-400 text-sm">No courses yet</p>';
+        document.getElementById('recentCourses').innerHTML = coursesHTML;
+
+      } catch (error) {
+        console.error('Load overview error:', error);
+      }
+    }
+
+    // Load courses
+    async function loadCourses() {
+      try {
+        const res = await fetch(`${API_BASE}/api/courses/browse`);
+        if (!res.ok) throw new Error('Failed');
+        const data = await res.json();
+        allCourses = data.courses || [];
+
+        const coursesHTML = allCourses.map(c => `
+          <div class="glass p-6 rounded-xl">
+            ${c.thumbnail_url ? `<img src="${c.thumbnail_url}" class="w-full h-40 object-cover rounded-lg mb-4">` : '<div class="w-full h-40 bg-gradient-to-br from-teal-500 to-purple-500 rounded-lg mb-4 flex items-center justify-center text-4xl">📚</div>'}
+            <h4 class="text-lg font-semibold mb-2">${c.title}</h4>
+            <p class="text-sm text-gray-400 mb-4">${c.description || 'No description'}</p>
+            <div class="flex items-center justify-between text-sm mb-4">
+              <span class="text-teal-400 font-semibold">$${c.price_monthly || 0}/mo</span>
+              <span class="text-gray-400">${c.total_classes || 0} classes</span>
+            </div>
+            <button onclick="showScheduleClassModal('${c.id}')" class="w-full btn-primary py-2 rounded-lg text-sm font-semibold">
+              + Schedule Class
+            </button>
+          </div>
+        `).join('') || '<p class="text-gray-400 col-span-full">No courses yet. Create one!</p>';
+        
+        document.getElementById('coursesList').innerHTML = coursesHTML;
+      } catch (error) {
+        console.error('Load courses error:', error);
+        document.getElementById('coursesList').innerHTML = '<p class="text-red-400">Failed to load</p>';
+      }
+    }
+
+    // Load classes
+    async function loadClasses() {
+      // Placeholder - we'll add this in next step
+      document.getElementById('classesList').innerHTML = '<p class="text-gray-400">Coming soon: View all scheduled classes</p>';
+    }
+
+    // Load students
+    async function loadStudents() {
+      // Placeholder
+      document.getElementById('studentsList').innerHTML = '<p class="text-gray-400">Coming soon: Manage all students</p>';
+    }
+
+    // Create course modal
+    function showCreateCourseModal() {
+      document.getElementById('createCourseModal').classList.add('active');
+    }
+
+    function closeCreateCourseModal() {
+      document.getElementById('createCourseModal').classList.remove('active');
+    }
+
+    async function createCourse(e) {
+      e.preventDefault();
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/courses/create`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            title: document.getElementById('courseTitle').value,
+            description: document.getElementById('courseDescription').value,
+            category: document.getElementById('courseCategory').value,
+            priceMonthly: parseFloat(document.getElementById('coursePrice').value) || 49,
+            thumbnailUrl: document.getElementById('courseThumbnail').value || null
+          })
+        });
+
+        if (!res.ok) throw new Error('Failed to create course');
+        
+        alert('Course created successfully! 🎉');
+        closeCreateCourseModal();
+        await loadCourses();
+      } catch (error) {
+        console.error('Create course error:', error);
+        alert('Failed to create course: ' + error.message);
+      }
+    }
+
+    // Schedule class modal
+    function showScheduleClassModal(courseId = null) {
+      const modal = document.getElementById('scheduleClassModal');
+      const select = document.getElementById('classCourseId');
+      
+      // Populate course dropdown
+      select.innerHTML = '<option value="">Choose a course...</option>' + 
+        allCourses.map(c => `<option value="${c.id}"${courseId === c.id ? ' selected' : ''}>${c.title}</option>`).join('');
+      
+      modal.classList.add('active');
+    }
+
+    function closeScheduleClassModal() {
+      document.getElementById('scheduleClassModal').classList.remove('active');
+    }
+
+    async function scheduleClass(e) {
+      e.preventDefault();
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/classes/schedule`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            courseId: document.getElementById('classCourseId').value,
+            title: document.getElementById('classTitle').value,
+            description: document.getElementById('classDescription').value,
+            scheduledDate: document.getElementById('classDate').value,
+            scheduledTime: document.getElementById('classTime').value,
+            durationMinutes: parseInt(document.getElementById('classDuration').value) || 60,
+            meetingLink: document.getElementById('classMeetingLink').value,
+            meetingPassword: document.getElementById('classMeetingPassword').value || null
+          })
+        });
+
+        if (!res.ok) throw new Error('Failed to schedule class');
+        
+        alert('Class scheduled successfully! 🎉 All enrolled students will see it!');
+        closeScheduleClassModal();
+      } catch (error) {
+        console.error('Schedule class error:', error);
+        alert('Failed to schedule class: ' + error.message);
+      }
+    }
+
+    // Initialize
+    async function init() {
+      try {
+        const res = await fetch(`${API_BASE}/api/auth/me`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) throw new Error('Auth failed');
+        const data = await res.json();
+        
+        if (data.user.role !== 'admin') {
+          alert('Access denied. Admin only.');
+          window.location.href = '/education/login';
+          return;
+        }
+
+        document.getElementById('adminName').textContent = data.user.first_name || data.user.email;
+        await loadOverview();
+      } catch (error) {
+        console.error('Init error:', error);
+        alert('Failed to initialize. Please login again.');
+        window.location.href = '/education/login';
+      }
+    }
+
+    init();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Acromatico | Award-Winning Creative Team</title>
+    <meta name="description" content="Meet Ale, Italo, Tica, and Josh—the creative team behind Acromatico. From Abruzzo, Italy to working with Apple and being featured in Martha Stewart, The Knot, and more.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #000;
+            --accent: #667eea;
+            --text: #1D1D1F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            color: var(--text);
+            background: #FAFAFA;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links a {
+            margin-left: 2rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 1;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2400');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            padding: 0 5%;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        /* Story Content */
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 5%;
+        }
+        
+        .story-intro {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+        
+        .story-intro strong {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .story-intro em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        
+        .story-section {
+            margin: 4rem 0;
+        }
+        
+        .story-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .story-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Team Grid */
+        .team-section {
+            background: white;
+            padding: 6rem 5%;
+        }
+        
+        .team-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+        
+        .team-header h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+        
+        .team-header p {
+            font-size: 1.3rem;
+            color: #666;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-member {
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .team-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.4s;
+        }
+        
+        .team-member:hover .team-photo {
+            transform: scale(1.05);
+        }
+        
+        .team-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-role {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .team-description {
+            margin-top: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        /* Publications */
+        .publications {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 5%;
+            text-align: center;
+        }
+        
+        .publications h2 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+        
+        .pub-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+        
+        .pub-list span {
+            display: inline-block;
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 6rem 5%;
+            text-align: center;
+            background: white;
+        }
+        
+        .cta h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--accent);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        
+        footer a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        
+        footer a:hover {
+            opacity: 1;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pub-list {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="logo">ACROMATICO</a>
+        <div class="nav-links">
+            <a href="/static/index-v2.html">Home</a>
+            <a href="/static/blog-index.html">Blog</a>
+            <a href="https://acromatico.com/contact-us/">Contact</a>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Story</h1>
+            <p>Real moments. Real stories. Real emotions.</p>
+        </div>
+    </section>
+    
+    <!-- Story Content -->
+    <section class="story-content">
+        <div class="story-intro">
+            <p>Hey! We're <strong>Ale and Italo</strong>, a husband-and-wife creative duo passionate about <strong>real moments, real stories, and real emotions</strong>.</p>
+            
+            <p>For us, photography isn't about stiff poses or staged smiles—it's about capturing <strong>what's actually happening</strong> and how it <em>feels</em> in that moment. The energy. The emotion. The unfiltered story.</p>
+            
+            <p>We started Acromatico in a little town in <strong>Abruzzo, Italy</strong>, with nothing but a camera and a love for storytelling. Fast forward to today, and we've had the chance to travel the world, capturing everything from <strong>weddings and brands to high-energy events and global campaigns</strong>.</p>
+        </div>
+        
+        <div class="story-section">
+            <h2>But let's be real—</h2>
+            <p><strong>Acromatico isn't just us.</strong> We're a <strong>team of creatives</strong> who live and breathe this stuff.</p>
+            
+            <p>Along the way, we've worked with <strong>incredible brands like Apple</strong> and have been featured in <strong>Martha Stewart, The Knot, Wedding Wire, Style Me Pretty, and more</strong>—but what really matters to us? <strong>You.</strong></p>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-header">
+            <h2>Meet The Team</h2>
+            <p>Four creatives, one vision: authentic storytelling</p>
+        </div>
+        
+        <div class="team-grid">
+            <!-- Ale & Italo -->
+            <div class="team-member">
+                <img 
+                    src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=600" 
+                    alt="Ale & Italo" 
+                    class="team-photo"
+                >
+                <h3 class="team-name">♡ Ale & Italo</h3>
+                <p class="team-role">Award-Winning Photography & Filmmaking Duo</p>
+                <p class="team-description">The husband-and-wife team who bring the vision to life with cinematic precision and editorial artistry.</p>
+            </div>
+            
+            <!-- Tica -->
+            <div class="team-member">
+                <img 
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600" 
+                    alt="Tica" 
+                    class="team-photo"
+                >
+                <h3 class="team-name">♡ Tica</h3>
+                <p class="team-role">Creative Studio Director & Fashion Photographer</p>
+                <p class="team-description">Known for making everything look effortlessly cool. The mastermind behind our visual direction.</p>
+            </div>
+            
+            <!-- Josh -->
+            <div class="team-member">
+                <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600" 
+                    alt="Josh" 
+                    class="team-photo"
+                >
+                <h3 class="team-name">♡ Josh</h3>
+                <p class="team-role">Video Maestro</p>
+                <p class="team-description">Turning moments into visuals that actually make people <em>feel</em> something.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Publications -->
+    <section class="publications">
+        <h2>As Seen In</h2>
+        <div class="pub-list">
+            <span>Martha Stewart</span>
+            <span>•</span>
+            <span>The Knot</span>
+            <span>•</span>
+            <span>Wedding Wire</span>
+            <span>•</span>
+            <span>Style Me Pretty</span>
+            <span>•</span>
+            <span>Apple</span>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Let's Create Your Story</h2>
+        <p>Because what really matters to us? <strong>You.</strong></p>
+        <a href="https://acromatico.com/contact-us/" class="cta-button">Get in Touch</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>
+            <a href="/static/index-v2.html">Home</a>
+            <a href="/static/blog-index.html">Blog</a>
+            <a href="https://acromatico.com/galleries/wedding-photography/">Portfolio</a>
+            <a href="https://acromatico.com/contact-us/">Contact</a>
+        </p>
+        <p style="margin-top: 2rem;">&copy; 2026 Acromatico Photography. All rights reserved.</p>
+    </footer>
+</body>
+</html>

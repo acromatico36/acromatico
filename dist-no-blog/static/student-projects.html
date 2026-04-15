@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Adventure Projects - Acromatico Creator Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+        }
+        .upload-zone {
+            border: 2px dashed rgba(20, 184, 166, 0.5);
+            background: rgba(20, 184, 166, 0.05);
+            transition: all 0.3s;
+        }
+        .upload-zone:hover {
+            border-color: rgba(20, 184, 166, 0.8);
+            background: rgba(20, 184, 166, 0.1);
+        }
+        .upload-zone.dragging {
+            border-color: #14b8a6;
+            background: rgba(20, 184, 166, 0.2);
+        }
+        .submission-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        .submission-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+            border-color: rgba(20, 184, 166, 0.5);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0d9488, #0f766e);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(20, 184, 166, 0.4);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <!-- Header with Acromatico Branding -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-10 md:h-12">
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <a href="/student/dashboard" class="px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 border border-gray-600 transition-all">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+                </a>
+                <button onclick="logout()" class="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 border border-red-500/30 transition-all">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex items-center justify-between mb-4">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">📸 My Adventure Projects</h1>
+                <p class="text-gray-400">Share your creative journey with the world!</p>
+            </div>
+            <button onclick="openUploadModal()" class="px-6 py-3 btn-primary text-white font-semibold rounded-lg">
+                <i class="fas fa-plus mr-2"></i>New Project
+            </button>
+        </div>
+    </div>
+
+    <!-- Current Month Info -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div id="currentMonthInfo" class="bg-gradient-to-r from-teal-500/20 to-cyan-500/20 border-2 border-teal-500/50 rounded-2xl p-6">
+            <div class="animate-pulse text-center py-4">
+                <i class="fas fa-spinner fa-spin text-3xl text-teal-400 mb-3"></i>
+                <p class="text-gray-400">Loading adventure info...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submissions Gallery -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <h2 class="text-2xl font-bold mb-6">🎨 Your Creations</h2>
+        <div id="submissionsGallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="text-center py-12 col-span-full">
+                <div class="animate-pulse">
+                    <i class="fas fa-spinner fa-spin text-3xl text-teal-400 mb-3"></i>
+                    <p class="text-gray-400">Loading your projects...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-slate-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-teal-500/30">
+            <div class="p-6">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-8">
+                        </div>
+                        <h2 class="text-2xl font-bold">Upload Your Project</h2>
+                        <p class="text-gray-400 text-sm mt-1">Share your creative work with the community</p>
+                    </div>
+                    <button onclick="closeUploadModal()" class="text-gray-400 hover:text-white text-2xl ml-4 transition-colors">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <form id="uploadForm" class="space-y-6">
+                    <!-- Project Title -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Project Title *</label>
+                        <input type="text" id="projectTitle" required
+                               class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-teal-500 focus:outline-none"
+                               placeholder="Give your project a cool name!">
+                    </div>
+
+                    <!-- Caption -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Caption (Optional)</label>
+                        <textarea id="projectCaption" rows="3"
+                                  class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-teal-500 focus:outline-none"
+                                  placeholder="Tell us about your creative process..."></textarea>
+                    </div>
+
+                    <!-- Media Upload -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">
+                            <i class="fas fa-image mr-2"></i>Photo or Video *
+                        </label>
+                        <div id="uploadZone" class="upload-zone rounded-xl p-8 text-center cursor-pointer">
+                            <i class="fas fa-cloud-upload-alt text-5xl text-teal-400 mb-4"></i>
+                            <p class="text-white font-medium mb-2">Drop your photo or video here</p>
+                            <p class="text-sm text-gray-400 mb-3">or click to browse</p>
+                            <p class="text-xs text-gray-500">JPG, PNG, GIF, MP4, MOV (max 50MB)</p>
+                            <input type="file" id="mediaInput" accept="image/*,video/*" class="hidden">
+                        </div>
+                        
+                        <!-- Media Preview -->
+                        <div id="mediaPreview" class="hidden mt-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i id="mediaIcon" class="fas fa-image text-2xl text-teal-400"></i>
+                                    <div>
+                                        <p id="mediaFileName" class="text-white font-medium"></p>
+                                        <p id="mediaFileSize" class="text-sm text-gray-400"></p>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="clearMedia()" class="text-red-400 hover:text-red-300">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div id="mediaPreviewContainer" class="rounded-lg overflow-hidden bg-black"></div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex gap-4">
+                        <button type="submit" class="flex-1 px-6 py-3 btn-primary text-white font-semibold rounded-lg">
+                            <i class="fas fa-upload mr-2"></i>
+                            <span id="submitBtnText">Upload Project</span>
+                        </button>
+                        <button type="button" onclick="closeUploadModal()" 
+                                class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg transition-all">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-3">
+                <img src="/static/images/acromatico-logo.png" alt="Acromatico" class="h-6">
+                <span>•</span>
+                <span>Creator Academy</span>
+                <span>•</span>
+                <span>© 2026</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/curriculum" class="hover:text-teal-400 transition-colors">View Curriculum</a>
+                <a href="/student/dashboard" class="hover:text-teal-400 transition-colors">Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        const token = localStorage.getItem('auth_token');
+        let currentUser = null;
+        let currentModule = null;
+        let selectedFile = null;
+
+        if (!token) {
+            window.location.href = '/education/login';
+        }
+
+        // Initialize page
+        async function init() {
+            try {
+                // Get user info
+                const userResponse = await fetch(`${API_BASE}/api/auth/me`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!userResponse.ok) throw new Error('Auth failed');
+                
+                const userData = await userResponse.json();
+                currentUser = userData.user;
+                
+                // Load current month (January for now)
+                await loadCurrentMonth('mod-jan');
+                await loadSubmissions();
+                
+            } catch (error) {
+                console.error('Init error:', error);
+                alert('Failed to load page. Please login again.');
+                window.location.href = '/education/login';
+            }
+        }
+
+        // Load current month module info
+        async function loadCurrentMonth(moduleId) {
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/curriculum/module/${moduleId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    currentModule = data.data.module;
+                    renderMonthInfo(currentModule);
+                }
+            } catch (error) {
+                console.error('Load month error:', error);
+            }
+        }
+
+        // Render month info banner
+        function renderMonthInfo(module) {
+            document.getElementById('currentMonthInfo').innerHTML = `
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="text-6xl">${module.emoji}</div>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="text-sm text-teal-400 font-semibold mb-1">${module.month_name.toUpperCase()} ADVENTURE</div>
+                        <h2 class="text-2xl md:text-3xl font-bold mb-2">${module.adventure_title}</h2>
+                        <p class="text-gray-300">${module.adventure_desc}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Load user submissions
+        async function loadSubmissions() {
+            try {
+                if (!currentModule || !currentModule.id) {
+                    console.error('❌ No current module set yet');
+                    return;
+                }
+                
+                console.log('📚 Loading submissions for module:', currentModule.id);
+                
+                const response = await fetch(`${API_BASE}/api/student/submissions/${currentModule.id}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                console.log('📡 Submissions response status:', response.status);
+                
+                const data = await response.json();
+                console.log('📦 Submissions data:', data);
+                
+                if (data.success) {
+                    renderSubmissions(data.data);
+                } else {
+                    // Check if it's an auth error - force logout and login
+                    if (data.error && (data.error.includes('undefined') || data.error.includes('D1_TYPE_ERROR'))) {
+                        console.error('🔑 Token compatibility issue - forcing re-login');
+                        alert('Your session needs to be refreshed. Please log in again.');
+                        localStorage.removeItem('auth_token');
+                        window.location.href = '/education/login';
+                        return;
+                    }
+                    throw new Error(data.error || 'Failed to load submissions');
+                }
+            } catch (error) {
+                console.error('💥 Load submissions error:', error);
+                document.getElementById('submissionsGallery').innerHTML = `
+                    <div class="text-center py-12 col-span-full">
+                        <i class="fas fa-exclamation-triangle text-4xl text-red-400 mb-4"></i>
+                        <p class="text-gray-400">Failed to load projects</p>
+                        <p class="text-xs text-gray-500 mt-2">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Render submissions gallery
+        function renderSubmissions(submissions) {
+            if (submissions.length === 0) {
+                document.getElementById('submissionsGallery').innerHTML = `
+                    <div class="text-center py-12 col-span-full">
+                        <div class="text-6xl mb-4">🎨</div>
+                        <h3 class="text-2xl font-bold mb-2">No Projects Yet!</h3>
+                        <p class="text-gray-400 mb-6">Start by uploading your first creative project</p>
+                        <button onclick="openUploadModal()" class="px-6 py-3 btn-primary text-white font-semibold rounded-lg">
+                            <i class="fas fa-plus mr-2"></i>Upload Your First Project
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            document.getElementById('submissionsGallery').innerHTML = submissions.map(sub => `
+                <div class="submission-card rounded-xl overflow-hidden">
+                    <div class="aspect-square bg-black flex items-center justify-center overflow-hidden">
+                        ${sub.media_type === 'video' ? `
+                            <video src="${sub.media_url}" class="w-full h-full object-cover" preload="metadata"></video>
+                        ` : `
+                            <img src="${sub.media_url}" alt="${sub.project_title}" class="w-full h-full object-cover">
+                        `}
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <h3 class="text-lg font-bold text-white flex-1">${sub.project_title}</h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="editSubmission('${sub.id}')" class="text-teal-400 hover:text-teal-300 transition-colors">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="deleteSubmission('${sub.id}')" class="text-red-400 hover:text-red-300 transition-colors">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        ${sub.caption ? `<p class="text-gray-400 text-sm mb-2">${sub.caption}</p>` : ''}
+                        <div class="flex items-center gap-2 text-xs text-gray-500">
+                            <i class="fas ${sub.media_type === 'video' ? 'fa-video' : 'fa-image'}"></i>
+                            <span>${new Date(sub.submitted_at).toLocaleDateString()}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Upload modal controls
+        function openUploadModal() {
+            document.getElementById('uploadModal').classList.remove('hidden');
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').classList.add('hidden');
+            document.getElementById('uploadForm').reset();
+            clearMedia();
+        }
+
+        // File upload handling
+        const uploadZone = document.getElementById('uploadZone');
+        const mediaInput = document.getElementById('mediaInput');
+
+        uploadZone.addEventListener('click', () => mediaInput.click());
+        
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragging');
+        });
+        
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragging');
+        });
+        
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragging');
+            if (e.dataTransfer.files.length > 0) {
+                handleFile(e.dataTransfer.files[0]);
+            }
+        });
+        
+        mediaInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            if (file.size > 50 * 1024 * 1024) {
+                alert('File is too large. Maximum size is 50MB.');
+                return;
+            }
+
+            selectedFile = file;
+            const isVideo = file.type.startsWith('video/');
+            
+            document.getElementById('mediaFileName').textContent = file.name;
+            document.getElementById('mediaFileSize').textContent = formatFileSize(file.size);
+            document.getElementById('mediaIcon').className = `fas ${isVideo ? 'fa-video' : 'fa-image'} text-2xl text-teal-400`;
+            
+            // Preview
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const container = document.getElementById('mediaPreviewContainer');
+                if (isVideo) {
+                    container.innerHTML = `<video src="${e.target.result}" class="w-full max-h-64 object-contain" controls></video>`;
+                } else {
+                    container.innerHTML = `<img src="${e.target.result}" class="w-full max-h-64 object-contain">`;
+                }
+            };
+            reader.readAsDataURL(file);
+            
+            document.getElementById('mediaPreview').classList.remove('hidden');
+        }
+
+        function clearMedia() {
+            selectedFile = null;
+            mediaInput.value = '';
+            document.getElementById('mediaPreview').classList.add('hidden');
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        // Form submission
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!selectedFile) {
+                alert('Please select a photo or video to upload');
+                return;
+            }
+
+            const title = document.getElementById('projectTitle').value;
+            const caption = document.getElementById('projectCaption').value;
+            
+            document.getElementById('submitBtnText').innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Uploading...';
+            
+            try {
+                // For now, create placeholder URL (in production, upload to Cloudflare R2)
+                const mediaUrl = `/uploads/${Date.now()}-${selectedFile.name}`;
+                const mediaType = selectedFile.type.startsWith('video/') ? 'video' : 'image';
+                
+                const response = await fetch(`${API_BASE}/api/student/submissions`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        module_id: currentModule.id,
+                        project_title: title,
+                        caption: caption,
+                        media_url: mediaUrl,
+                        media_type: mediaType
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('🎉 Project uploaded successfully!');
+                    closeUploadModal();
+                    await loadSubmissions();
+                } else {
+                    throw new Error(data.error || 'Upload failed');
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                alert('Failed to upload project. Please try again.');
+            } finally {
+                document.getElementById('submitBtnText').textContent = 'Upload Project';
+            }
+        });
+
+        // Delete submission
+        async function deleteSubmission(submissionId) {
+            if (!confirm('Are you sure you want to delete this project? This cannot be undone.')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/student/submissions/${submissionId}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    alert('✅ Project deleted successfully!');
+                    await loadSubmissions();
+                } else {
+                    throw new Error(data.error || 'Delete failed');
+                }
+            } catch (error) {
+                console.error('Delete error:', error);
+                alert('Failed to delete project');
+            }
+        }
+
+        // Edit submission (simplified - just alert for now)
+        function editSubmission(submissionId) {
+            alert('Edit feature coming soon! You can delete and re-upload for now.');
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('auth_token');
+                window.location.href = '/education/login';
+            }
+        }
+
+        // Start the app
+        init();
+    </script>
+</body>
+</html>
