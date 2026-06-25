@@ -63,3 +63,6 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+
+## Language rule (HARD — see CLAUDE-LANGUAGE-RULES.md)
+All copy, content, UI text, and deliverables in this repo must follow the clean-language rules in `CLAUDE-LANGUAGE-RULES.md`: no luck/chance-as-force, magic/occult, New Age/manifestation, deity/mythology, non-celebrated-holiday, or profane/crude wording (incl. "BS"). Write clean by default; see that file for the full list and allowed exceptions.
